@@ -7,8 +7,8 @@ impl ::core::default::Default for HPSS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HPSS {}
-unsafe impl ::windows::runtime::Abi for HPSS {
+unsafe impl ::windows::core::Handle for HPSS {}
+unsafe impl ::windows::core::Abi for HPSS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -19,8 +19,8 @@ impl ::core::default::Default for HPSSWALK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HPSSWALK {}
-unsafe impl ::windows::runtime::Abi for HPSSWALK {
+unsafe impl ::windows::core::Handle for HPSSWALK {}
+unsafe impl ::windows::core::Abi for HPSSWALK {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -48,7 +48,7 @@ impl ::core::cmp::PartialEq for PSS_ALLOCATOR {
     }
 }
 impl ::core::cmp::Eq for PSS_ALLOCATOR {}
-unsafe impl ::windows::runtime::Abi for PSS_ALLOCATOR {
+unsafe impl ::windows::core::Abi for PSS_ALLOCATOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -74,7 +74,7 @@ impl ::core::cmp::PartialEq for PSS_AUXILIARY_PAGES_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for PSS_AUXILIARY_PAGES_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for PSS_AUXILIARY_PAGES_INFORMATION {
+unsafe impl ::windows::core::Abi for PSS_AUXILIARY_PAGES_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -111,7 +111,7 @@ impl ::core::cmp::PartialEq for PSS_AUXILIARY_PAGE_ENTRY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::Eq for PSS_AUXILIARY_PAGE_ENTRY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
-unsafe impl ::windows::runtime::Abi for PSS_AUXILIARY_PAGE_ENTRY {
+unsafe impl ::windows::core::Abi for PSS_AUXILIARY_PAGE_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
@@ -145,7 +145,7 @@ impl ::core::convert::From<u32> for PSS_CAPTURE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PSS_CAPTURE_FLAGS {
+unsafe impl ::windows::core::Abi for PSS_CAPTURE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PSS_CAPTURE_FLAGS {
@@ -187,7 +187,7 @@ impl ::core::convert::From<u32> for PSS_DUPLICATE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PSS_DUPLICATE_FLAGS {
+unsafe impl ::windows::core::Abi for PSS_DUPLICATE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PSS_DUPLICATE_FLAGS {
@@ -257,7 +257,7 @@ impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_HANDLE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY {
+unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -288,7 +288,7 @@ impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_HANDLE_ENTRY_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0 {
+unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -321,7 +321,7 @@ impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_HANDLE_ENTRY_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_0 {
+unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -356,7 +356,7 @@ impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_HANDLE_ENTRY_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_1 {
+unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -402,7 +402,7 @@ impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_HANDLE_ENTRY_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_2 {
+unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -436,7 +436,7 @@ impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_HANDLE_ENTRY_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_3 {
+unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -469,7 +469,7 @@ impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_HANDLE_ENTRY_0_4 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_4 {
+unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -517,7 +517,7 @@ impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_HANDLE_ENTRY_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_5 {
+unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_5 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
@@ -534,7 +534,7 @@ impl ::core::convert::From<u32> for PSS_HANDLE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PSS_HANDLE_FLAGS {
+unsafe impl ::windows::core::Abi for PSS_HANDLE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PSS_HANDLE_FLAGS {
@@ -588,7 +588,7 @@ impl ::core::cmp::PartialEq for PSS_HANDLE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for PSS_HANDLE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for PSS_HANDLE_INFORMATION {
+unsafe impl ::windows::core::Abi for PSS_HANDLE_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -622,7 +622,7 @@ impl ::core::cmp::PartialEq for PSS_HANDLE_TRACE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_HANDLE_TRACE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_HANDLE_TRACE_INFORMATION {
+unsafe impl ::windows::core::Abi for PSS_HANDLE_TRACE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
@@ -641,7 +641,7 @@ impl ::core::convert::From<i32> for PSS_OBJECT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PSS_OBJECT_TYPE {
+unsafe impl ::windows::core::Abi for PSS_OBJECT_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -702,7 +702,7 @@ impl ::core::cmp::PartialEq for PSS_PERFORMANCE_COUNTERS {
     }
 }
 impl ::core::cmp::Eq for PSS_PERFORMANCE_COUNTERS {}
-unsafe impl ::windows::runtime::Abi for PSS_PERFORMANCE_COUNTERS {
+unsafe impl ::windows::core::Abi for PSS_PERFORMANCE_COUNTERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
@@ -722,7 +722,7 @@ impl ::core::convert::From<u32> for PSS_PROCESS_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PSS_PROCESS_FLAGS {
+unsafe impl ::windows::core::Abi for PSS_PROCESS_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PSS_PROCESS_FLAGS {
@@ -860,7 +860,7 @@ impl ::core::cmp::PartialEq for PSS_PROCESS_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_PROCESS_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_PROCESS_INFORMATION {
+unsafe impl ::windows::core::Abi for PSS_PROCESS_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
@@ -880,7 +880,7 @@ impl ::core::convert::From<i32> for PSS_QUERY_INFORMATION_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PSS_QUERY_INFORMATION_CLASS {
+unsafe impl ::windows::core::Abi for PSS_QUERY_INFORMATION_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -969,7 +969,7 @@ impl ::core::cmp::PartialEq for PSS_THREAD_ENTRY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for PSS_THREAD_ENTRY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::runtime::Abi for PSS_THREAD_ENTRY {
+unsafe impl ::windows::core::Abi for PSS_THREAD_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
@@ -983,7 +983,7 @@ impl ::core::convert::From<u32> for PSS_THREAD_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PSS_THREAD_FLAGS {
+unsafe impl ::windows::core::Abi for PSS_THREAD_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PSS_THREAD_FLAGS {
@@ -1038,7 +1038,7 @@ impl ::core::cmp::PartialEq for PSS_THREAD_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for PSS_THREAD_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for PSS_THREAD_INFORMATION {
+unsafe impl ::windows::core::Abi for PSS_THREAD_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1071,7 +1071,7 @@ impl ::core::cmp::PartialEq for PSS_VA_CLONE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_VA_CLONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_VA_CLONE_INFORMATION {
+unsafe impl ::windows::core::Abi for PSS_VA_CLONE_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1142,7 +1142,7 @@ impl ::core::cmp::PartialEq for PSS_VA_SPACE_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_VA_SPACE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PSS_VA_SPACE_ENTRY {
+unsafe impl ::windows::core::Abi for PSS_VA_SPACE_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1168,7 +1168,7 @@ impl ::core::cmp::PartialEq for PSS_VA_SPACE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for PSS_VA_SPACE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for PSS_VA_SPACE_INFORMATION {
+unsafe impl ::windows::core::Abi for PSS_VA_SPACE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
@@ -1184,13 +1184,13 @@ impl ::core::convert::From<i32> for PSS_WALK_INFORMATION_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PSS_WALK_INFORMATION_CLASS {
+unsafe impl ::windows::core::Abi for PSS_WALK_INFORMATION_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PssCaptureSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processhandle: Param0, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32 {
+pub unsafe fn PssCaptureSnapshot<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processhandle: Param0, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1205,7 +1205,7 @@ pub unsafe fn PssCaptureSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PssDuplicateSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, HPSS>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(sourceprocesshandle: Param0, snapshothandle: Param1, targetprocesshandle: Param2, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32 {
+pub unsafe fn PssDuplicateSnapshot<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, HPSS>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(sourceprocesshandle: Param0, snapshothandle: Param1, targetprocesshandle: Param2, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1220,7 +1220,7 @@ pub unsafe fn PssDuplicateSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PssFreeSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, HPSS>>(processhandle: Param0, snapshothandle: Param1) -> u32 {
+pub unsafe fn PssFreeSnapshot<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, HPSS>>(processhandle: Param0, snapshothandle: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1234,7 +1234,7 @@ pub unsafe fn PssFreeSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
-pub unsafe fn PssQuerySnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, HPSS>>(snapshothandle: Param0, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32 {
+pub unsafe fn PssQuerySnapshot<'a, Param0: ::windows::core::IntoParam<'a, HPSS>>(snapshothandle: Param0, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1262,7 +1262,7 @@ pub unsafe fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhan
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
-pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
+pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1276,7 +1276,7 @@ pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::runtime::IntoParam<'a, HP
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
-pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: *mut usize) -> u32 {
+pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: *mut usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1290,7 +1290,7 @@ pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::runtime::IntoParam
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
-pub unsafe fn PssWalkMarkerSeekToBeginning<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
+pub unsafe fn PssWalkMarkerSeekToBeginning<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1304,7 +1304,7 @@ pub unsafe fn PssWalkMarkerSeekToBeginning<'a, Param0: ::windows::runtime::IntoP
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
-pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: usize) -> u32 {
+pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1318,7 +1318,7 @@ pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::runtime::IntoParam
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
-pub unsafe fn PssWalkSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, HPSS>, Param2: ::windows::runtime::IntoParam<'a, HPSSWALK>>(snapshothandle: Param0, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: Param2, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32 {
+pub unsafe fn PssWalkSnapshot<'a, Param0: ::windows::core::IntoParam<'a, HPSS>, Param2: ::windows::core::IntoParam<'a, HPSSWALK>>(snapshothandle: Param0, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: Param2, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

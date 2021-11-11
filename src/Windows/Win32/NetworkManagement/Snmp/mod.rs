@@ -40,7 +40,7 @@ impl ::core::cmp::PartialEq for AsnAny {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for AsnAny {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for AsnAny {
+unsafe impl ::windows::core::Abi for AsnAny {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -77,7 +77,7 @@ impl ::core::cmp::PartialEq for AsnAny_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for AsnAny_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for AsnAny_0 {
+unsafe impl ::windows::core::Abi for AsnAny_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -99,7 +99,7 @@ impl ::core::cmp::PartialEq for AsnObjectIdentifier {
     }
 }
 impl ::core::cmp::Eq for AsnObjectIdentifier {}
-unsafe impl ::windows::runtime::Abi for AsnObjectIdentifier {
+unsafe impl ::windows::core::Abi for AsnObjectIdentifier {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -128,7 +128,7 @@ impl ::core::cmp::PartialEq for AsnOctetString {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for AsnOctetString {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for AsnOctetString {
+unsafe impl ::windows::core::Abi for AsnOctetString {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
@@ -278,7 +278,7 @@ impl ::core::convert::From<u32> for SNMP_API_TRANSLATE_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SNMP_API_TRANSLATE_MODE {
+unsafe impl ::windows::core::Abi for SNMP_API_TRANSLATE_MODE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SNMP_API_TRANSLATE_MODE {
@@ -353,7 +353,7 @@ impl ::core::convert::From<u32> for SNMP_ERROR {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SNMP_ERROR {
+unsafe impl ::windows::core::Abi for SNMP_ERROR {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SNMP_ERROR {
@@ -412,7 +412,7 @@ impl ::core::convert::From<u32> for SNMP_ERROR_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SNMP_ERROR_STATUS {
+unsafe impl ::windows::core::Abi for SNMP_ERROR_STATUS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SNMP_ERROR_STATUS {
@@ -458,7 +458,7 @@ impl ::core::convert::From<u32> for SNMP_EXTENSION_REQUEST_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SNMP_EXTENSION_REQUEST_TYPE {
+unsafe impl ::windows::core::Abi for SNMP_EXTENSION_REQUEST_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SNMP_EXTENSION_REQUEST_TYPE {
@@ -505,7 +505,7 @@ impl ::core::convert::From<u32> for SNMP_GENERICTRAP {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SNMP_GENERICTRAP {
+unsafe impl ::windows::core::Abi for SNMP_GENERICTRAP {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SNMP_GENERICTRAP {
@@ -551,7 +551,7 @@ impl ::core::convert::From<u32> for SNMP_LOG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SNMP_LOG {
+unsafe impl ::windows::core::Abi for SNMP_LOG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SNMP_LOG {
@@ -616,7 +616,7 @@ impl ::core::convert::From<u32> for SNMP_OUTPUT_LOG_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SNMP_OUTPUT_LOG_TYPE {
+unsafe impl ::windows::core::Abi for SNMP_OUTPUT_LOG_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SNMP_OUTPUT_LOG_TYPE {
@@ -670,7 +670,7 @@ impl ::core::convert::From<u32> for SNMP_PDU_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SNMP_PDU_TYPE {
+unsafe impl ::windows::core::Abi for SNMP_PDU_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SNMP_PDU_TYPE {
@@ -712,7 +712,7 @@ impl ::core::convert::From<u32> for SNMP_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SNMP_STATUS {
+unsafe impl ::windows::core::Abi for SNMP_STATUS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SNMP_STATUS {
@@ -858,12 +858,12 @@ pub unsafe fn SnmpCreatePdu(session: isize, pdu_type: SNMP_PDU_TYPE, request_id:
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpCreateSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32, fcallback: ::core::option::Option<SNMPAPI_CALLBACK>, lpclientdata: *mut ::core::ffi::c_void) -> isize {
+pub unsafe fn SnmpCreateSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32, fcallback: ::core::option::Option<SNMPAPI_CALLBACK>, lpclientdata: *mut ::core::ffi::c_void) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SnmpCreateSession(hwnd: super::super::Foundation::HWND, wmsg: u32, fcallback: ::windows::runtime::RawPtr, lpclientdata: *mut ::core::ffi::c_void) -> isize;
+            fn SnmpCreateSession(hwnd: super::super::Foundation::HWND, wmsg: u32, fcallback: ::windows::core::RawPtr, lpclientdata: *mut ::core::ffi::c_void) -> isize;
         }
         ::core::mem::transmute(SnmpCreateSession(hwnd.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(fcallback), ::core::mem::transmute(lpclientdata)))
     }
@@ -1267,7 +1267,7 @@ pub unsafe fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: *mut super:
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpMgrOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpagentaddress: Param0, lpagentcommunity: Param1, ntimeout: i32, nretries: i32) -> *mut ::core::ffi::c_void {
+pub unsafe fn SnmpMgrOpen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpagentaddress: Param0, lpagentcommunity: Param1, ntimeout: i32, nretries: i32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1297,7 +1297,7 @@ pub unsafe fn SnmpMgrRequest(session: *mut ::core::ffi::c_void, requesttype: u8,
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpMgrStrToOid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(string: Param0, oid: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL {
+pub unsafe fn SnmpMgrStrToOid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(string: Param0, oid: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1370,7 +1370,7 @@ pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, size: u32, string: super::supe
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32) -> isize {
+pub unsafe fn SnmpOpen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1567,7 +1567,7 @@ pub unsafe fn SnmpStrToContext(session: isize, string: *mut smiOCTETS) -> isize 
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpStrToEntity<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(session: isize, string: Param1) -> isize {
+pub unsafe fn SnmpStrToEntity<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(session: isize, string: Param1) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1582,7 +1582,7 @@ pub unsafe fn SnmpStrToEntity<'a, Param1: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpStrToOid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(string: Param0, dstoid: *mut smiOID) -> u32 {
+pub unsafe fn SnmpStrToOid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(string: Param0, dstoid: *mut smiOID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1669,7 +1669,7 @@ pub unsafe fn SnmpUtilAsnAnyFree(pany: *mut AsnAny) {
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpUtilDbgPrint<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(nloglevel: SNMP_LOG, szformat: Param1) {
+pub unsafe fn SnmpUtilDbgPrint<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(nloglevel: SNMP_LOG, szformat: Param1) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1997,7 +1997,7 @@ impl ::core::cmp::PartialEq for SnmpVarBind {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SnmpVarBind {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SnmpVarBind {
+unsafe impl ::windows::core::Abi for SnmpVarBind {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2025,7 +2025,7 @@ impl ::core::cmp::PartialEq for SnmpVarBindList {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SnmpVarBindList {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SnmpVarBindList {
+unsafe impl ::windows::core::Abi for SnmpVarBindList {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2052,7 +2052,7 @@ impl ::core::cmp::PartialEq for smiCNTR64 {
     }
 }
 impl ::core::cmp::Eq for smiCNTR64 {}
-unsafe impl ::windows::runtime::Abi for smiCNTR64 {
+unsafe impl ::windows::core::Abi for smiCNTR64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2079,7 +2079,7 @@ impl ::core::cmp::PartialEq for smiOCTETS {
     }
 }
 impl ::core::cmp::Eq for smiOCTETS {}
-unsafe impl ::windows::runtime::Abi for smiOCTETS {
+unsafe impl ::windows::core::Abi for smiOCTETS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2106,7 +2106,7 @@ impl ::core::cmp::PartialEq for smiOID {
     }
 }
 impl ::core::cmp::Eq for smiOID {}
-unsafe impl ::windows::runtime::Abi for smiOID {
+unsafe impl ::windows::core::Abi for smiOID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2128,7 +2128,7 @@ impl ::core::cmp::PartialEq for smiVALUE {
     }
 }
 impl ::core::cmp::Eq for smiVALUE {}
-unsafe impl ::windows::runtime::Abi for smiVALUE {
+unsafe impl ::windows::core::Abi for smiVALUE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2154,7 +2154,7 @@ impl ::core::cmp::PartialEq for smiVALUE_0 {
     }
 }
 impl ::core::cmp::Eq for smiVALUE_0 {}
-unsafe impl ::windows::runtime::Abi for smiVALUE_0 {
+unsafe impl ::windows::core::Abi for smiVALUE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2191,6 +2191,6 @@ impl ::core::cmp::PartialEq for smiVENDORINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for smiVENDORINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for smiVENDORINFO {
+unsafe impl ::windows::core::Abi for smiVENDORINFO {
     type Abi = Self;
 }

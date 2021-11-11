@@ -1,157 +1,157 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlaylist(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IPlaylist {
+pub struct IPlaylist(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IPlaylist {
     type Vtable = IPlaylist_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaylist_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, savelocation: ::windows::runtime::RawPtr, desiredname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, option: super::super::Storage::NameCollisionOption, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, savelocation: ::windows::core::RawPtr, desiredname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: super::super::Storage::NameCollisionOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, savelocation: ::windows::runtime::RawPtr, desiredname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, savelocation: ::windows::core::RawPtr, desiredname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlaylistStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IPlaylistStatics {
+pub struct IPlaylistStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IPlaylistStatics {
     type Vtable = IPlaylistStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaylistStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, file: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[doc = "*Required features: `Media_Playlists`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct Playlist(pub ::windows::runtime::IInspectable);
+pub struct Playlist(pub ::windows::core::IInspectable);
 impl Playlist {
-    pub fn new() -> ::windows::runtime::Result<Self> {
+    pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<Playlist, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Playlist, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     #[doc = "*Required features: `Media_Playlists`, `Foundation_Collections`, `Storage`*"]
-    pub fn Files(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>> {
+    pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Playlists`, `Foundation`*"]
-    pub fn SaveAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     #[doc = "*Required features: `Media_Playlists`, `Foundation`, `Storage`*"]
-    pub fn SaveAsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFolder>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, savelocation: Param0, desiredname: Param1, option: super::super::Storage::NameCollisionOption) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
+    pub fn SaveAsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, savelocation: Param0, desiredname: Param1, option: super::super::Storage::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), savelocation.into_param().abi(), desiredname.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), savelocation.into_param().abi(), desiredname.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     #[doc = "*Required features: `Media_Playlists`, `Foundation`, `Storage`*"]
-    pub fn SaveAsWithFormatAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFolder>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, savelocation: Param0, desiredname: Param1, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
+    pub fn SaveAsWithFormatAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, savelocation: Param0, desiredname: Param1, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), savelocation.into_param().abi(), desiredname.into_param().abi(), option, playlistformat, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), savelocation.into_param().abi(), desiredname.into_param().abi(), option, playlistformat, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     #[doc = "*Required features: `Media_Playlists`, `Foundation`, `Storage`*"]
-    pub fn LoadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Playlist>> {
+    pub fn LoadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Playlist>> {
         Self::IPlaylistStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Playlist>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Playlist>>(result__)
         })
     }
-    pub fn IPlaylistStatics<R, F: FnOnce(&IPlaylistStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<Playlist, IPlaylistStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IPlaylistStatics<R, F: FnOnce(&IPlaylistStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Playlist, IPlaylistStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for Playlist {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Media.Playlists.Playlist;{803736f5-cf44-4d97-83b3-7a089e9ab663})");
+unsafe impl ::windows::core::RuntimeType for Playlist {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playlists.Playlist;{803736f5-cf44-4d97-83b3-7a089e9ab663})");
 }
-unsafe impl ::windows::runtime::Interface for Playlist {
+unsafe impl ::windows::core::Interface for Playlist {
     type Vtable = IPlaylist_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
 }
-impl ::windows::runtime::RuntimeName for Playlist {
+impl ::windows::core::RuntimeName for Playlist {
     const NAME: &'static str = "Windows.Media.Playlists.Playlist";
 }
-impl ::core::convert::From<Playlist> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Playlist> for ::windows::core::IUnknown {
     fn from(value: Playlist) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&Playlist> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Playlist> for ::windows::core::IUnknown {
     fn from(value: &Playlist) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Playlist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Playlist {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Playlist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Playlist {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<Playlist> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Playlist> for ::windows::core::IInspectable {
     fn from(value: Playlist) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&Playlist> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Playlist> for ::windows::core::IInspectable {
     fn from(value: &Playlist) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Playlist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Playlist {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Playlist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Playlist {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `Media_Playlists`*"]
@@ -168,13 +168,13 @@ impl ::core::convert::From<i32> for PlaylistFormat {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PlaylistFormat {
+unsafe impl ::windows::core::Abi for PlaylistFormat {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for PlaylistFormat {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Playlists.PlaylistFormat;i4)");
+unsafe impl ::windows::core::RuntimeType for PlaylistFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playlists.PlaylistFormat;i4)");
 }
-impl ::windows::runtime::DefaultType for PlaylistFormat {
+impl ::windows::core::DefaultType for PlaylistFormat {
     type DefaultType = Self;
 }
 #[repr(C)]

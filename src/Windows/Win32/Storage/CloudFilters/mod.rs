@@ -14,7 +14,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_CANCEL_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_CANCEL_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_CANCEL_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_CANCEL_FLAGS {
@@ -56,7 +56,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
@@ -99,7 +99,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
@@ -141,7 +141,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_DEHYDRATE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_DEHYDRATE_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_DEHYDRATE_FLAGS {
@@ -186,7 +186,7 @@ impl ::core::convert::From<i32> for CF_CALLBACK_DEHYDRATION_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_DEHYDRATION_REASON {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATION_REASON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -199,7 +199,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
@@ -242,7 +242,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_DELETE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_DELETE_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_DELETE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_DELETE_FLAGS {
@@ -285,7 +285,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_FETCH_DATA_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_FETCH_DATA_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_FETCH_DATA_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_FETCH_DATA_FLAGS {
@@ -326,7 +326,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
@@ -443,7 +443,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::cmp::Eq for CF_CALLBACK_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_INFO {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -458,7 +458,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
@@ -514,7 +514,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -551,7 +551,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -578,7 +578,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -604,7 +604,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_0_0 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -637,7 +637,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_0_0_0 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -669,7 +669,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_1 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -702,7 +702,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_2 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -735,7 +735,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_3 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -767,7 +767,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_4 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_4 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -799,7 +799,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_5 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_5 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -845,7 +845,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_6 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_6 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_6 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -878,7 +878,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_7 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_7 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_7 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_7 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -910,7 +910,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_8 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_8 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_8 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_8 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -943,7 +943,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_9 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_9 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_9 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_9 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -976,7 +976,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_10 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_10 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_10 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_10 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1010,7 +1010,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_11 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_11 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_11 {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_11 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -1044,7 +1044,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_REGISTRATION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::cmp::Eq for CF_CALLBACK_REGISTRATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_REGISTRATION {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_REGISTRATION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -1057,7 +1057,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
@@ -1101,7 +1101,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_RENAME_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_RENAME_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_RENAME_FLAGS {
@@ -1155,7 +1155,7 @@ impl ::core::convert::From<i32> for CF_CALLBACK_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_TYPE {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -1169,7 +1169,7 @@ impl ::core::convert::From<u32> for CF_CALLBACK_VALIDATE_DATA_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CALLBACK_VALIDATE_DATA_FLAGS {
@@ -1208,8 +1208,8 @@ impl ::core::default::Default for CF_CONNECTION_KEY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for CF_CONNECTION_KEY {}
-unsafe impl ::windows::runtime::Abi for CF_CONNECTION_KEY {
+unsafe impl ::windows::core::Handle for CF_CONNECTION_KEY {}
+unsafe impl ::windows::core::Abi for CF_CONNECTION_KEY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -1225,7 +1225,7 @@ impl ::core::convert::From<u32> for CF_CONNECT_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CONNECT_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CONNECT_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CONNECT_FLAGS {
@@ -1271,7 +1271,7 @@ impl ::core::convert::From<u32> for CF_CONVERT_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CONVERT_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CONVERT_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CONVERT_FLAGS {
@@ -1313,7 +1313,7 @@ impl ::core::convert::From<u32> for CF_CREATE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_CREATE_FLAGS {
+unsafe impl ::windows::core::Abi for CF_CREATE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_CREATE_FLAGS {
@@ -1355,7 +1355,7 @@ impl ::core::convert::From<u32> for CF_DEHYDRATE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_DEHYDRATE_FLAGS {
+unsafe impl ::windows::core::Abi for CF_DEHYDRATE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_DEHYDRATE_FLAGS {
@@ -1410,7 +1410,7 @@ impl ::core::cmp::PartialEq for CF_FILE_RANGE {
     }
 }
 impl ::core::cmp::Eq for CF_FILE_RANGE {}
-unsafe impl ::windows::runtime::Abi for CF_FILE_RANGE {
+unsafe impl ::windows::core::Abi for CF_FILE_RANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1444,7 +1444,7 @@ impl ::core::cmp::PartialEq for CF_FS_METADATA {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for CF_FS_METADATA {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for CF_FS_METADATA {
+unsafe impl ::windows::core::Abi for CF_FS_METADATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -1458,7 +1458,7 @@ impl ::core::convert::From<u32> for CF_HARDLINK_POLICY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_HARDLINK_POLICY {
+unsafe impl ::windows::core::Abi for CF_HARDLINK_POLICY {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_HARDLINK_POLICY {
@@ -1499,7 +1499,7 @@ impl ::core::convert::From<u32> for CF_HYDRATE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_HYDRATE_FLAGS {
+unsafe impl ::windows::core::Abi for CF_HYDRATE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_HYDRATE_FLAGS {
@@ -1554,7 +1554,7 @@ impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY {
     }
 }
 impl ::core::cmp::Eq for CF_HYDRATION_POLICY {}
-unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY {
+unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -1571,7 +1571,7 @@ impl ::core::convert::From<u16> for CF_HYDRATION_POLICY_MODIFIER {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY_MODIFIER {
+unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_HYDRATION_POLICY_MODIFIER {
@@ -1625,7 +1625,7 @@ impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY_MODIFIER_USHORT {
     }
 }
 impl ::core::cmp::Eq for CF_HYDRATION_POLICY_MODIFIER_USHORT {}
-unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY_MODIFIER_USHORT {
+unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER_USHORT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -1641,7 +1641,7 @@ impl ::core::convert::From<u16> for CF_HYDRATION_POLICY_PRIMARY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY_PRIMARY {
+unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1667,7 +1667,7 @@ impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     }
 }
 impl ::core::cmp::Eq for CF_HYDRATION_POLICY_PRIMARY_USHORT {}
-unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY_PRIMARY_USHORT {
+unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -1694,7 +1694,7 @@ impl ::core::convert::From<u32> for CF_INSYNC_POLICY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_INSYNC_POLICY {
+unsafe impl ::windows::core::Abi for CF_INSYNC_POLICY {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_INSYNC_POLICY {
@@ -1736,7 +1736,7 @@ impl ::core::convert::From<i32> for CF_IN_SYNC_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_IN_SYNC_STATE {
+unsafe impl ::windows::core::Abi for CF_IN_SYNC_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -1759,7 +1759,7 @@ impl ::core::convert::From<u32> for CF_OPEN_FILE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_OPEN_FILE_FLAGS {
+unsafe impl ::windows::core::Abi for CF_OPEN_FILE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_OPEN_FILE_FLAGS {
@@ -1800,7 +1800,7 @@ impl ::core::convert::From<u32> for CF_OPERATION_ACK_DATA_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_ACK_DATA_FLAGS {
+unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DATA_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_OPERATION_ACK_DATA_FLAGS {
@@ -1841,7 +1841,7 @@ impl ::core::convert::From<u32> for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
@@ -1882,7 +1882,7 @@ impl ::core::convert::From<u32> for CF_OPERATION_ACK_DELETE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_ACK_DELETE_FLAGS {
+unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DELETE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_OPERATION_ACK_DELETE_FLAGS {
@@ -1923,7 +1923,7 @@ impl ::core::convert::From<u32> for CF_OPERATION_ACK_RENAME_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_ACK_RENAME_FLAGS {
+unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_RENAME_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_OPERATION_ACK_RENAME_FLAGS {
@@ -1998,7 +1998,7 @@ impl ::core::cmp::PartialEq for CF_OPERATION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::cmp::Eq for CF_OPERATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_INFO {
+unsafe impl ::windows::core::Abi for CF_OPERATION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2026,7 +2026,7 @@ impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS {
+unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2059,7 +2059,7 @@ impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2094,7 +2094,7 @@ impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2129,7 +2129,7 @@ impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_1 {
+unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2162,7 +2162,7 @@ impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_2 {
+unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2195,7 +2195,7 @@ impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_3 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_3 {
+unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2230,7 +2230,7 @@ impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_4 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_4 {
+unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2266,7 +2266,7 @@ impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_5 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_5 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_5 {
+unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_5 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2302,7 +2302,7 @@ impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_6 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_6 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_6 {
+unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_6 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2346,7 +2346,7 @@ impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_7 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_7 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_7 {
+unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_7 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -2360,7 +2360,7 @@ impl ::core::convert::From<u32> for CF_OPERATION_RESTART_HYDRATION_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+unsafe impl ::windows::core::Abi for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_OPERATION_RESTART_HYDRATION_FLAGS {
@@ -2401,7 +2401,7 @@ impl ::core::convert::From<u32> for CF_OPERATION_RETRIEVE_DATA_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+unsafe impl ::windows::core::Abi for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_OPERATION_RETRIEVE_DATA_FLAGS {
@@ -2442,7 +2442,7 @@ impl ::core::convert::From<u32> for CF_OPERATION_TRANSFER_DATA_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_TRANSFER_DATA_FLAGS {
+unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_DATA_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_OPERATION_TRANSFER_DATA_FLAGS {
@@ -2485,7 +2485,7 @@ impl ::core::convert::From<u32> for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
@@ -2533,7 +2533,7 @@ impl ::core::convert::From<i32> for CF_OPERATION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_OPERATION_TYPE {
+unsafe impl ::windows::core::Abi for CF_OPERATION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -2550,7 +2550,7 @@ impl ::core::convert::From<i32> for CF_PIN_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_PIN_STATE {
+unsafe impl ::windows::core::Abi for CF_PIN_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2581,7 +2581,7 @@ impl ::core::cmp::PartialEq for CF_PLACEHOLDER_BASIC_INFO {
     }
 }
 impl ::core::cmp::Eq for CF_PLACEHOLDER_BASIC_INFO {}
-unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_BASIC_INFO {
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_BASIC_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -2598,7 +2598,7 @@ impl ::core::convert::From<u32> for CF_PLACEHOLDER_CREATE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_CREATE_FLAGS {
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_CREATE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_PLACEHOLDER_CREATE_FLAGS {
@@ -2639,7 +2639,7 @@ pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub FileIdentity: *mut ::core::ffi::c_void,
     pub FileIdentityLength: u32,
     pub Flags: CF_PLACEHOLDER_CREATE_FLAGS,
-    pub Result: ::windows::runtime::HRESULT,
+    pub Result: ::windows::core::HRESULT,
     pub CreateUsn: i64,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -2673,7 +2673,7 @@ impl ::core::cmp::PartialEq for CF_PLACEHOLDER_CREATE_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for CF_PLACEHOLDER_CREATE_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_CREATE_INFO {
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_CREATE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -2687,7 +2687,7 @@ impl ::core::convert::From<i32> for CF_PLACEHOLDER_INFO_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_INFO_CLASS {
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_INFO_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -2703,7 +2703,7 @@ impl ::core::convert::From<i32> for CF_PLACEHOLDER_MANAGEMENT_POLICY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_MANAGEMENT_POLICY {
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_MANAGEMENT_POLICY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -2720,7 +2720,7 @@ impl ::core::convert::From<i32> for CF_PLACEHOLDER_RANGE_INFO_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_RANGE_INFO_CLASS {
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_RANGE_INFO_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2766,7 +2766,7 @@ impl ::core::cmp::PartialEq for CF_PLACEHOLDER_STANDARD_INFO {
     }
 }
 impl ::core::cmp::Eq for CF_PLACEHOLDER_STANDARD_INFO {}
-unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_STANDARD_INFO {
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_STANDARD_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -2786,7 +2786,7 @@ impl ::core::convert::From<u32> for CF_PLACEHOLDER_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_STATE {
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_STATE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_PLACEHOLDER_STATE {
@@ -2842,7 +2842,7 @@ impl ::core::cmp::PartialEq for CF_PLATFORM_INFO {
     }
 }
 impl ::core::cmp::Eq for CF_PLATFORM_INFO {}
-unsafe impl ::windows::runtime::Abi for CF_PLATFORM_INFO {
+unsafe impl ::windows::core::Abi for CF_PLATFORM_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2869,7 +2869,7 @@ impl ::core::cmp::PartialEq for CF_POPULATION_POLICY {
     }
 }
 impl ::core::cmp::Eq for CF_POPULATION_POLICY {}
-unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY {
+unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -2882,7 +2882,7 @@ impl ::core::convert::From<u16> for CF_POPULATION_POLICY_MODIFIER {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY_MODIFIER {
+unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_POPULATION_POLICY_MODIFIER {
@@ -2936,7 +2936,7 @@ impl ::core::cmp::PartialEq for CF_POPULATION_POLICY_MODIFIER_USHORT {
     }
 }
 impl ::core::cmp::Eq for CF_POPULATION_POLICY_MODIFIER_USHORT {}
-unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY_MODIFIER_USHORT {
+unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER_USHORT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -2951,7 +2951,7 @@ impl ::core::convert::From<u16> for CF_POPULATION_POLICY_PRIMARY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY_PRIMARY {
+unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2977,7 +2977,7 @@ impl ::core::cmp::PartialEq for CF_POPULATION_POLICY_PRIMARY_USHORT {
     }
 }
 impl ::core::cmp::Eq for CF_POPULATION_POLICY_PRIMARY_USHORT {}
-unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY_PRIMARY_USHORT {
+unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY_USHORT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3024,7 +3024,7 @@ impl ::core::cmp::PartialEq for CF_PROCESS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_PROCESS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_PROCESS_INFO {
+unsafe impl ::windows::core::Abi for CF_PROCESS_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -3040,7 +3040,7 @@ impl ::core::convert::From<u32> for CF_REGISTER_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_REGISTER_FLAGS {
+unsafe impl ::windows::core::Abi for CF_REGISTER_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_REGISTER_FLAGS {
@@ -3083,7 +3083,7 @@ impl ::core::convert::From<u32> for CF_REVERT_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_REVERT_FLAGS {
+unsafe impl ::windows::core::Abi for CF_REVERT_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_REVERT_FLAGS {
@@ -3124,7 +3124,7 @@ impl ::core::convert::From<u32> for CF_SET_IN_SYNC_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_SET_IN_SYNC_FLAGS {
+unsafe impl ::windows::core::Abi for CF_SET_IN_SYNC_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_SET_IN_SYNC_FLAGS {
@@ -3168,7 +3168,7 @@ impl ::core::convert::From<u32> for CF_SET_PIN_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_SET_PIN_FLAGS {
+unsafe impl ::windows::core::Abi for CF_SET_PIN_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_SET_PIN_FLAGS {
@@ -3227,7 +3227,7 @@ impl ::core::cmp::PartialEq for CF_SYNC_POLICIES {
     }
 }
 impl ::core::cmp::Eq for CF_SYNC_POLICIES {}
-unsafe impl ::windows::runtime::Abi for CF_SYNC_POLICIES {
+unsafe impl ::windows::core::Abi for CF_SYNC_POLICIES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -3250,7 +3250,7 @@ impl ::core::convert::From<u32> for CF_SYNC_PROVIDER_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_SYNC_PROVIDER_STATUS {
+unsafe impl ::windows::core::Abi for CF_SYNC_PROVIDER_STATUS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_SYNC_PROVIDER_STATUS {
@@ -3293,7 +3293,7 @@ pub struct CF_SYNC_REGISTRATION {
     pub SyncRootIdentityLength: u32,
     pub FileIdentity: *mut ::core::ffi::c_void,
     pub FileIdentityLength: u32,
-    pub ProviderId: ::windows::runtime::GUID,
+    pub ProviderId: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl CF_SYNC_REGISTRATION {}
@@ -3327,7 +3327,7 @@ impl ::core::cmp::PartialEq for CF_SYNC_REGISTRATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CF_SYNC_REGISTRATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CF_SYNC_REGISTRATION {
+unsafe impl ::windows::core::Abi for CF_SYNC_REGISTRATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3353,7 +3353,7 @@ impl ::core::cmp::PartialEq for CF_SYNC_ROOT_BASIC_INFO {
     }
 }
 impl ::core::cmp::Eq for CF_SYNC_ROOT_BASIC_INFO {}
-unsafe impl ::windows::runtime::Abi for CF_SYNC_ROOT_BASIC_INFO {
+unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_BASIC_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -3368,7 +3368,7 @@ impl ::core::convert::From<i32> for CF_SYNC_ROOT_INFO_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_SYNC_ROOT_INFO_CLASS {
+unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_INFO_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3396,7 +3396,7 @@ impl ::core::cmp::PartialEq for CF_SYNC_ROOT_PROVIDER_INFO {
     }
 }
 impl ::core::cmp::Eq for CF_SYNC_ROOT_PROVIDER_INFO {}
-unsafe impl ::windows::runtime::Abi for CF_SYNC_ROOT_PROVIDER_INFO {
+unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_PROVIDER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3442,7 +3442,7 @@ impl ::core::cmp::PartialEq for CF_SYNC_ROOT_STANDARD_INFO {
     }
 }
 impl ::core::cmp::Eq for CF_SYNC_ROOT_STANDARD_INFO {}
-unsafe impl ::windows::runtime::Abi for CF_SYNC_ROOT_STANDARD_INFO {
+unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_STANDARD_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3480,7 +3480,7 @@ impl ::core::cmp::PartialEq for CF_SYNC_STATUS {
     }
 }
 impl ::core::cmp::Eq for CF_SYNC_STATUS {}
-unsafe impl ::windows::runtime::Abi for CF_SYNC_STATUS {
+unsafe impl ::windows::core::Abi for CF_SYNC_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -3504,7 +3504,7 @@ impl ::core::convert::From<u32> for CF_UPDATE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CF_UPDATE_FLAGS {
+unsafe impl ::windows::core::Abi for CF_UPDATE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CF_UPDATE_FLAGS {
@@ -3538,7 +3538,7 @@ impl ::core::ops::Not for CF_UPDATE_FLAGS {
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) {
+pub unsafe fn CfCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3553,14 +3553,14 @@ pub unsafe fn CfCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_CorrelationVector`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 #[inline]
-pub unsafe fn CfConnectSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS) -> ::windows::runtime::Result<CF_CONNECTION_KEY> {
+pub unsafe fn CfConnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS) -> ::windows::core::Result<CF_CONNECTION_KEY> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfConnectSyncRoot(syncrootpath: super::super::Foundation::PWSTR, callbacktable: *const ::core::mem::ManuallyDrop<CF_CALLBACK_REGISTRATION>, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows::runtime::HRESULT;
+            fn CfConnectSyncRoot(syncrootpath: super::super::Foundation::PWSTR, callbacktable: *const ::core::mem::ManuallyDrop<CF_CALLBACK_REGISTRATION>, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
         }
-        let mut result__: <CF_CONNECTION_KEY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <CF_CONNECTION_KEY as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CfConnectSyncRoot(syncrootpath.into_param().abi(), ::core::mem::transmute(callbacktable), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(connectflags), &mut result__).from_abi::<CF_CONNECTION_KEY>(result__)
     }
     #[cfg(not(windows))]
@@ -3569,12 +3569,12 @@ pub unsafe fn CfConnectSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfConvertToPlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfConvertToPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
+            fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
         CfConvertToPlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(fileidentity), ::core::mem::transmute(fileidentitylength), ::core::mem::transmute(convertflags), ::core::mem::transmute(convertusn), ::core::mem::transmute(overlapped)).ok()
     }
@@ -3584,12 +3584,12 @@ pub unsafe fn CfConvertToPlaceholder<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 #[inline]
-pub unsafe fn CfCreatePlaceholders<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(basedirectorypath: Param0, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfCreatePlaceholders<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(basedirectorypath: Param0, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfCreatePlaceholders(basedirectorypath: super::super::Foundation::PWSTR, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::runtime::HRESULT;
+            fn CfCreatePlaceholders(basedirectorypath: super::super::Foundation::PWSTR, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::core::HRESULT;
         }
         CfCreatePlaceholders(basedirectorypath.into_param().abi(), ::core::mem::transmute(placeholderarray), ::core::mem::transmute(placeholdercount), ::core::mem::transmute(createflags), ::core::mem::transmute(entriesprocessed)).ok()
     }
@@ -3599,12 +3599,12 @@ pub unsafe fn CfCreatePlaceholders<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfDehydratePlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfDehydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfDehydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
+            fn CfDehydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
         CfDehydratePlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(dehydrateflags), ::core::mem::transmute(overlapped)).ok()
     }
@@ -3613,12 +3613,12 @@ pub unsafe fn CfDehydratePlaceholder<'a, Param0: ::windows::runtime::IntoParam<'
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
-pub unsafe fn CfDisconnectSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfDisconnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY) -> ::windows::runtime::HRESULT;
+            fn CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
         }
         CfDisconnectSyncRoot(connectionkey.into_param().abi()).ok()
     }
@@ -3628,12 +3628,12 @@ pub unsafe fn CfDisconnectSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_Storage_FileSystem`, `Win32_System_CorrelationVector`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_CorrelationVector"))]
 #[inline]
-pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::runtime::HRESULT;
+            fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::core::HRESULT;
         }
         CfExecute(::core::mem::transmute(opinfo), ::core::mem::transmute(opparams)).ok()
     }
@@ -3643,14 +3643,14 @@ pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPER
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_CorrelationVector`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 #[inline]
-pub unsafe fn CfGetCorrelationVector<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::runtime::Result<super::super::System::CorrelationVector::CORRELATION_VECTOR> {
+pub unsafe fn CfGetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::core::Result<super::super::System::CorrelationVector::CORRELATION_VECTOR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *mut super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::runtime::HRESULT;
+            fn CfGetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *mut super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::System::CorrelationVector::CORRELATION_VECTOR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::System::CorrelationVector::CORRELATION_VECTOR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CfGetCorrelationVector(filehandle.into_param().abi(), &mut result__).from_abi::<super::super::System::CorrelationVector::CORRELATION_VECTOR>(result__)
     }
     #[cfg(not(windows))]
@@ -3659,12 +3659,12 @@ pub unsafe fn CfGetCorrelationVector<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetPlaceholderInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfGetPlaceholderInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetPlaceholderInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::HRESULT;
+            fn CfGetPlaceholderInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
         }
         CfGetPlaceholderInfo(filehandle.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
     }
@@ -3674,12 +3674,12 @@ pub unsafe fn CfGetPlaceholderInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetPlaceholderRangeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfGetPlaceholderRangeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetPlaceholderRangeInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::HRESULT;
+            fn CfGetPlaceholderRangeInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
         }
         CfGetPlaceholderRangeInfo(filehandle.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
     }
@@ -3732,14 +3732,14 @@ pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSyst
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
-pub unsafe fn CfGetPlatformInfo() -> ::windows::runtime::Result<CF_PLATFORM_INFO> {
+pub unsafe fn CfGetPlatformInfo() -> ::windows::core::Result<CF_PLATFORM_INFO> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetPlatformInfo(platformversion: *mut CF_PLATFORM_INFO) -> ::windows::runtime::HRESULT;
+            fn CfGetPlatformInfo(platformversion: *mut CF_PLATFORM_INFO) -> ::windows::core::HRESULT;
         }
-        let mut result__: <CF_PLATFORM_INFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <CF_PLATFORM_INFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CfGetPlatformInfo(&mut result__).from_abi::<CF_PLATFORM_INFO>(result__)
     }
     #[cfg(not(windows))]
@@ -3748,12 +3748,12 @@ pub unsafe fn CfGetPlatformInfo() -> ::windows::runtime::Result<CF_PLATFORM_INFO
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetSyncRootInfoByHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfGetSyncRootInfoByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::HRESULT;
+            fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
         }
         CfGetSyncRootInfoByHandle(filehandle.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
     }
@@ -3763,12 +3763,12 @@ pub unsafe fn CfGetSyncRootInfoByHandle<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetSyncRootInfoByPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfGetSyncRootInfoByPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetSyncRootInfoByPath(filepath: super::super::Foundation::PWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::HRESULT;
+            fn CfGetSyncRootInfoByPath(filepath: super::super::Foundation::PWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
         }
         CfGetSyncRootInfoByPath(filepath.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
     }
@@ -3778,14 +3778,14 @@ pub unsafe fn CfGetSyncRootInfoByPath<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetTransferKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::runtime::Result<i64> {
+pub unsafe fn CfGetTransferKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::core::Result<i64> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64) -> ::windows::runtime::HRESULT;
+            fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64) -> ::windows::core::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <i64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CfGetTransferKey(filehandle.into_param().abi(), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
@@ -3794,7 +3794,7 @@ pub unsafe fn CfGetTransferKey<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetWin32HandleFromProtectedHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::HANDLE {
+pub unsafe fn CfGetWin32HandleFromProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3809,12 +3809,12 @@ pub unsafe fn CfGetWin32HandleFromProtectedHandle<'a, Param0: ::windows::runtime
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfHydratePlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfHydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
+            fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
         CfHydratePlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(hydrateflags), ::core::mem::transmute(overlapped)).ok()
     }
@@ -3824,14 +3824,14 @@ pub unsafe fn CfHydratePlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfOpenFileWithOplock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, flags: CF_OPEN_FILE_FLAGS) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn CfOpenFileWithOplock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, flags: CF_OPEN_FILE_FLAGS) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfOpenFileWithOplock(filepath: super::super::Foundation::PWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+            fn CfOpenFileWithOplock(filepath: super::super::Foundation::PWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CfOpenFileWithOplock(filepath.into_param().abi(), ::core::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
@@ -3839,14 +3839,14 @@ pub unsafe fn CfOpenFileWithOplock<'a, Param0: ::windows::runtime::IntoParam<'a,
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
-pub unsafe fn CfQuerySyncProviderStatus<'a, Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::runtime::Result<CF_SYNC_PROVIDER_STATUS> {
+pub unsafe fn CfQuerySyncProviderStatus<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::core::Result<CF_SYNC_PROVIDER_STATUS> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: *mut CF_SYNC_PROVIDER_STATUS) -> ::windows::runtime::HRESULT;
+            fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: *mut CF_SYNC_PROVIDER_STATUS) -> ::windows::core::HRESULT;
         }
-        let mut result__: <CF_SYNC_PROVIDER_STATUS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <CF_SYNC_PROVIDER_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CfQuerySyncProviderStatus(connectionkey.into_param().abi(), &mut result__).from_abi::<CF_SYNC_PROVIDER_STATUS>(result__)
     }
     #[cfg(not(windows))]
@@ -3855,7 +3855,7 @@ pub unsafe fn CfQuerySyncProviderStatus<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfReferenceProtectedHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn CfReferenceProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3870,12 +3870,12 @@ pub unsafe fn CfReferenceProtectedHandle<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfRegisterSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfRegisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfRegisterSyncRoot(syncrootpath: super::super::Foundation::PWSTR, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::runtime::HRESULT;
+            fn CfRegisterSyncRoot(syncrootpath: super::super::Foundation::PWSTR, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::core::HRESULT;
         }
         CfRegisterSyncRoot(syncrootpath.into_param().abi(), ::core::mem::transmute(registration), ::core::mem::transmute(policies), ::core::mem::transmute(registerflags)).ok()
     }
@@ -3885,7 +3885,7 @@ pub unsafe fn CfRegisterSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfReleaseProtectedHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) {
+pub unsafe fn CfReleaseProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3900,7 +3900,7 @@ pub unsafe fn CfReleaseProtectedHandle<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfReleaseTransferKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, transferkey: *mut i64) {
+pub unsafe fn CfReleaseTransferKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, transferkey: *mut i64) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3914,12 +3914,12 @@ pub unsafe fn CfReleaseTransferKey<'a, Param0: ::windows::runtime::IntoParam<'a,
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
-pub unsafe fn CfReportProviderProgress<'a, Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfReportProviderProgress<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::runtime::HRESULT;
+            fn CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::core::HRESULT;
         }
         CfReportProviderProgress(connectionkey.into_param().abi(), ::core::mem::transmute(transferkey), ::core::mem::transmute(providerprogresstotal), ::core::mem::transmute(providerprogresscompleted)).ok()
     }
@@ -3928,12 +3928,12 @@ pub unsafe fn CfReportProviderProgress<'a, Param0: ::windows::runtime::IntoParam
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
-pub unsafe fn CfReportProviderProgress2<'a, Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfReportProviderProgress2<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::runtime::HRESULT;
+            fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::core::HRESULT;
         }
         CfReportProviderProgress2(connectionkey.into_param().abi(), ::core::mem::transmute(transferkey), ::core::mem::transmute(requestkey), ::core::mem::transmute(providerprogresstotal), ::core::mem::transmute(providerprogresscompleted), ::core::mem::transmute(targetsessionid)).ok()
     }
@@ -3943,12 +3943,12 @@ pub unsafe fn CfReportProviderProgress2<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfReportSyncStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, syncstatus: *const CF_SYNC_STATUS) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfReportSyncStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, syncstatus: *const CF_SYNC_STATUS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfReportSyncStatus(syncrootpath: super::super::Foundation::PWSTR, syncstatus: *const CF_SYNC_STATUS) -> ::windows::runtime::HRESULT;
+            fn CfReportSyncStatus(syncrootpath: super::super::Foundation::PWSTR, syncstatus: *const CF_SYNC_STATUS) -> ::windows::core::HRESULT;
         }
         CfReportSyncStatus(syncrootpath.into_param().abi(), ::core::mem::transmute(syncstatus)).ok()
     }
@@ -3958,12 +3958,12 @@ pub unsafe fn CfReportSyncStatus<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfRevertPlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfRevertPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfRevertPlaceholder(filehandle: super::super::Foundation::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
+            fn CfRevertPlaceholder(filehandle: super::super::Foundation::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
         CfRevertPlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(revertflags), ::core::mem::transmute(overlapped)).ok()
     }
@@ -3973,12 +3973,12 @@ pub unsafe fn CfRevertPlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_CorrelationVector`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 #[inline]
-pub unsafe fn CfSetCorrelationVector<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfSetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfSetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::runtime::HRESULT;
+            fn CfSetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::HRESULT;
         }
         CfSetCorrelationVector(filehandle.into_param().abi(), ::core::mem::transmute(correlationvector)).ok()
     }
@@ -3988,12 +3988,12 @@ pub unsafe fn CfSetCorrelationVector<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfSetInSyncState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfSetInSyncState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfSetInSyncState(filehandle: super::super::Foundation::HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::runtime::HRESULT;
+            fn CfSetInSyncState(filehandle: super::super::Foundation::HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::core::HRESULT;
         }
         CfSetInSyncState(filehandle.into_param().abi(), ::core::mem::transmute(insyncstate), ::core::mem::transmute(insyncflags), ::core::mem::transmute(insyncusn)).ok()
     }
@@ -4003,12 +4003,12 @@ pub unsafe fn CfSetInSyncState<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfSetPinState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfSetPinState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
+            fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
         CfSetPinState(filehandle.into_param().abi(), ::core::mem::transmute(pinstate), ::core::mem::transmute(pinflags), ::core::mem::transmute(overlapped)).ok()
     }
@@ -4018,12 +4018,12 @@ pub unsafe fn CfSetPinState<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfUnregisterSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfUnregisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfUnregisterSyncRoot(syncrootpath: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn CfUnregisterSyncRoot(syncrootpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         CfUnregisterSyncRoot(syncrootpath.into_param().abi()).ok()
     }
@@ -4033,12 +4033,12 @@ pub unsafe fn CfUnregisterSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_Storage_FileSystem`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfUpdatePlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfUpdatePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
+            fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
         CfUpdatePlaceholder(
             filehandle.into_param().abi(),
@@ -4058,12 +4058,12 @@ pub unsafe fn CfUpdatePlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, 
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
-pub unsafe fn CfUpdateSyncProviderStatus<'a, Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfUpdateSyncProviderStatus<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::runtime::HRESULT;
+            fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::core::HRESULT;
         }
         CfUpdateSyncProviderStatus(connectionkey.into_param().abi(), ::core::mem::transmute(providerstatus)).ok()
     }

@@ -1,175 +1,175 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserNotificationListener(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IUserNotificationListener {
+pub struct IUserNotificationListener(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IUserNotificationListener {
     type Vtable = IUserNotificationListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62553e41_8a06_4cef_8215_6033a5be4b03);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62553e41_8a06_4cef_8215_6033a5be4b03);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserNotificationListener_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut UserNotificationListenerAccessStatus) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut UserNotificationListenerAccessStatus) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kinds: super::NotificationKinds, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, kinds: super::NotificationKinds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, notificationid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, notificationid: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, notificationid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, notificationid: u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserNotificationListenerStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IUserNotificationListenerStatics {
+pub struct IUserNotificationListenerStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IUserNotificationListenerStatics {
     type Vtable = IUserNotificationListenerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserNotificationListenerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `UI_Notifications_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct UserNotificationListener(pub ::windows::runtime::IInspectable);
+pub struct UserNotificationListener(pub ::windows::core::IInspectable);
 impl UserNotificationListener {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Notifications_Management`, `Foundation`*"]
-    pub fn RequestAccessAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>> {
+    pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Notifications_Management`*"]
-    pub fn GetAccessStatus(&self) -> ::windows::runtime::Result<UserNotificationListenerAccessStatus> {
+    pub fn GetAccessStatus(&self) -> ::windows::core::Result<UserNotificationListenerAccessStatus> {
         let this = self;
         unsafe {
             let mut result__: UserNotificationListenerAccessStatus = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationListenerAccessStatus>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationListenerAccessStatus>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Notifications_Management`, `Foundation`*"]
-    pub fn NotificationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn NotificationChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Notifications_Management`, `Foundation`*"]
-    pub fn RemoveNotificationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveNotificationChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `UI_Notifications_Management`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>> {
+    pub fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), kinds, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), kinds, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Notifications_Management`*"]
-    pub fn GetNotification(&self, notificationid: u32) -> ::windows::runtime::Result<super::UserNotification> {
+    pub fn GetNotification(&self, notificationid: u32) -> ::windows::core::Result<super::UserNotification> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), notificationid, &mut result__).from_abi::<super::UserNotification>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), notificationid, &mut result__).from_abi::<super::UserNotification>(result__)
         }
     }
     #[doc = "*Required features: `UI_Notifications_Management`*"]
-    pub fn ClearNotifications(&self) -> ::windows::runtime::Result<()> {
+    pub fn ClearNotifications(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Notifications_Management`*"]
-    pub fn RemoveNotification(&self, notificationid: u32) -> ::windows::runtime::Result<()> {
+    pub fn RemoveNotification(&self, notificationid: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), notificationid).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), notificationid).ok() }
     }
     #[doc = "*Required features: `UI_Notifications_Management`*"]
-    pub fn Current() -> ::windows::runtime::Result<UserNotificationListener> {
+    pub fn Current() -> ::windows::core::Result<UserNotificationListener> {
         Self::IUserNotificationListenerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationListener>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationListener>(result__)
         })
     }
-    pub fn IUserNotificationListenerStatics<R, F: FnOnce(&IUserNotificationListenerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<UserNotificationListener, IUserNotificationListenerStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IUserNotificationListenerStatics<R, F: FnOnce(&IUserNotificationListenerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<UserNotificationListener, IUserNotificationListenerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for UserNotificationListener {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Management.UserNotificationListener;{62553e41-8a06-4cef-8215-6033a5be4b03})");
+unsafe impl ::windows::core::RuntimeType for UserNotificationListener {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Management.UserNotificationListener;{62553e41-8a06-4cef-8215-6033a5be4b03})");
 }
-unsafe impl ::windows::runtime::Interface for UserNotificationListener {
+unsafe impl ::windows::core::Interface for UserNotificationListener {
     type Vtable = IUserNotificationListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x62553e41_8a06_4cef_8215_6033a5be4b03);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62553e41_8a06_4cef_8215_6033a5be4b03);
 }
-impl ::windows::runtime::RuntimeName for UserNotificationListener {
+impl ::windows::core::RuntimeName for UserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.UserNotificationListener";
 }
-impl ::core::convert::From<UserNotificationListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserNotificationListener> for ::windows::core::IUnknown {
     fn from(value: UserNotificationListener) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&UserNotificationListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserNotificationListener> for ::windows::core::IUnknown {
     fn from(value: &UserNotificationListener) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserNotificationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserNotificationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserNotificationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserNotificationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<UserNotificationListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserNotificationListener> for ::windows::core::IInspectable {
     fn from(value: UserNotificationListener) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&UserNotificationListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserNotificationListener> for ::windows::core::IInspectable {
     fn from(value: &UserNotificationListener) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserNotificationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserNotificationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserNotificationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserNotificationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for UserNotificationListener {}
@@ -188,12 +188,12 @@ impl ::core::convert::From<i32> for UserNotificationListenerAccessStatus {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for UserNotificationListenerAccessStatus {
+unsafe impl ::windows::core::Abi for UserNotificationListenerAccessStatus {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for UserNotificationListenerAccessStatus {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus;i4)");
+unsafe impl ::windows::core::RuntimeType for UserNotificationListenerAccessStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus;i4)");
 }
-impl ::windows::runtime::DefaultType for UserNotificationListenerAccessStatus {
+impl ::windows::core::DefaultType for UserNotificationListenerAccessStatus {
     type DefaultType = Self;
 }

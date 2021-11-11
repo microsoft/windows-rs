@@ -13,7 +13,7 @@ impl ::core::convert::From<u32> for D2D1_ALPHA_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D2D1_ALPHA_MODE {
+unsafe impl ::windows::core::Abi for D2D1_ALPHA_MODE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for D2D1_ALPHA_MODE {
@@ -69,7 +69,7 @@ impl ::core::cmp::PartialEq for D2D1_BEZIER_SEGMENT {
     }
 }
 impl ::core::cmp::Eq for D2D1_BEZIER_SEGMENT {}
-unsafe impl ::windows::runtime::Abi for D2D1_BEZIER_SEGMENT {
+unsafe impl ::windows::core::Abi for D2D1_BEZIER_SEGMENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
@@ -108,7 +108,7 @@ impl ::core::convert::From<u32> for D2D1_BLEND_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D2D1_BLEND_MODE {
+unsafe impl ::windows::core::Abi for D2D1_BLEND_MODE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for D2D1_BLEND_MODE {
@@ -151,7 +151,7 @@ impl ::core::convert::From<u32> for D2D1_BORDER_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D2D1_BORDER_MODE {
+unsafe impl ::windows::core::Abi for D2D1_BORDER_MODE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for D2D1_BORDER_MODE {
@@ -194,7 +194,7 @@ impl ::core::convert::From<u32> for D2D1_COLORMATRIX_ALPHA_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D2D1_COLORMATRIX_ALPHA_MODE {
+unsafe impl ::windows::core::Abi for D2D1_COLORMATRIX_ALPHA_MODE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for D2D1_COLORMATRIX_ALPHA_MODE {
@@ -251,7 +251,7 @@ impl ::core::cmp::PartialEq for D2D1_COLOR_F {
     }
 }
 impl ::core::cmp::Eq for D2D1_COLOR_F {}
-unsafe impl ::windows::runtime::Abi for D2D1_COLOR_F {
+unsafe impl ::windows::core::Abi for D2D1_COLOR_F {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
@@ -277,7 +277,7 @@ impl ::core::convert::From<u32> for D2D1_COMPOSITE_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D2D1_COMPOSITE_MODE {
+unsafe impl ::windows::core::Abi for D2D1_COMPOSITE_MODE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for D2D1_COMPOSITE_MODE {
@@ -320,7 +320,7 @@ impl ::core::convert::From<u32> for D2D1_FIGURE_BEGIN {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D2D1_FIGURE_BEGIN {
+unsafe impl ::windows::core::Abi for D2D1_FIGURE_BEGIN {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for D2D1_FIGURE_BEGIN {
@@ -363,7 +363,7 @@ impl ::core::convert::From<u32> for D2D1_FIGURE_END {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D2D1_FIGURE_END {
+unsafe impl ::windows::core::Abi for D2D1_FIGURE_END {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for D2D1_FIGURE_END {
@@ -406,7 +406,7 @@ impl ::core::convert::From<u32> for D2D1_FILL_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D2D1_FILL_MODE {
+unsafe impl ::windows::core::Abi for D2D1_FILL_MODE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for D2D1_FILL_MODE {
@@ -450,7 +450,7 @@ impl ::core::convert::From<u32> for D2D1_PATH_SEGMENT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D2D1_PATH_SEGMENT {
+unsafe impl ::windows::core::Abi for D2D1_PATH_SEGMENT {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for D2D1_PATH_SEGMENT {
@@ -512,7 +512,7 @@ impl ::core::cmp::PartialEq for D2D1_PIXEL_FORMAT {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D2D1_PIXEL_FORMAT {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::runtime::Abi for D2D1_PIXEL_FORMAT {
+unsafe impl ::windows::core::Abi for D2D1_PIXEL_FORMAT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
@@ -527,7 +527,7 @@ impl ::core::convert::From<u32> for D2D1_TURBULENCE_NOISE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D2D1_TURBULENCE_NOISE {
+unsafe impl ::windows::core::Abi for D2D1_TURBULENCE_NOISE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for D2D1_TURBULENCE_NOISE {
@@ -584,7 +584,7 @@ impl ::core::cmp::PartialEq for D2D_COLOR_F {
     }
 }
 impl ::core::cmp::Eq for D2D_COLOR_F {}
-unsafe impl ::windows::runtime::Abi for D2D_COLOR_F {
+unsafe impl ::windows::core::Abi for D2D_COLOR_F {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -605,7 +605,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_3X2_F {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_3X2_F {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_3X2_F {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_3X2_F {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -628,7 +628,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_3X2_F_0 {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_3X2_F_0 {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_3X2_F_0 {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_3X2_F_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -659,7 +659,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_3X2_F_0_0 {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_3X2_F_0_0 {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_3X2_F_0_0 {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_3X2_F_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -690,7 +690,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_3X2_F_0_1 {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_3X2_F_0_1 {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_3X2_F_0_1 {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_3X2_F_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -711,7 +711,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_4X3_F {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_4X3_F {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X3_F {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -733,7 +733,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_4X3_F_0 {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_4X3_F_0 {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X3_F_0 {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -783,7 +783,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_4X3_F_0_0 {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_4X3_F_0_0 {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X3_F_0_0 {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -804,7 +804,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_4X4_F {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_4X4_F {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X4_F {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -826,7 +826,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_4X4_F_0 {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_4X4_F_0 {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X4_F_0 {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -884,7 +884,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_4X4_F_0_0 {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_4X4_F_0_0 {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X4_F_0_0 {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -905,7 +905,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_5X4_F {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_5X4_F {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_5X4_F {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -927,7 +927,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_5X4_F_0 {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_5X4_F_0 {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_5X4_F_0 {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1012,7 +1012,7 @@ impl ::core::cmp::PartialEq for D2D_MATRIX_5X4_F_0_0 {
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_5X4_F_0_0 {}
-unsafe impl ::windows::runtime::Abi for D2D_MATRIX_5X4_F_0_0 {
+unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1039,7 +1039,7 @@ impl ::core::cmp::PartialEq for D2D_POINT_2F {
     }
 }
 impl ::core::cmp::Eq for D2D_POINT_2F {}
-unsafe impl ::windows::runtime::Abi for D2D_POINT_2F {
+unsafe impl ::windows::core::Abi for D2D_POINT_2F {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1066,7 +1066,7 @@ impl ::core::cmp::PartialEq for D2D_POINT_2U {
     }
 }
 impl ::core::cmp::Eq for D2D_POINT_2U {}
-unsafe impl ::windows::runtime::Abi for D2D_POINT_2U {
+unsafe impl ::windows::core::Abi for D2D_POINT_2U {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1095,7 +1095,7 @@ impl ::core::cmp::PartialEq for D2D_RECT_F {
     }
 }
 impl ::core::cmp::Eq for D2D_RECT_F {}
-unsafe impl ::windows::runtime::Abi for D2D_RECT_F {
+unsafe impl ::windows::core::Abi for D2D_RECT_F {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1124,7 +1124,7 @@ impl ::core::cmp::PartialEq for D2D_RECT_U {
     }
 }
 impl ::core::cmp::Eq for D2D_RECT_U {}
-unsafe impl ::windows::runtime::Abi for D2D_RECT_U {
+unsafe impl ::windows::core::Abi for D2D_RECT_U {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1151,7 +1151,7 @@ impl ::core::cmp::PartialEq for D2D_SIZE_F {
     }
 }
 impl ::core::cmp::Eq for D2D_SIZE_F {}
-unsafe impl ::windows::runtime::Abi for D2D_SIZE_F {
+unsafe impl ::windows::core::Abi for D2D_SIZE_F {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1178,7 +1178,7 @@ impl ::core::cmp::PartialEq for D2D_SIZE_U {
     }
 }
 impl ::core::cmp::Eq for D2D_SIZE_U {}
-unsafe impl ::windows::runtime::Abi for D2D_SIZE_U {
+unsafe impl ::windows::core::Abi for D2D_SIZE_U {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1205,7 +1205,7 @@ impl ::core::cmp::PartialEq for D2D_VECTOR_2F {
     }
 }
 impl ::core::cmp::Eq for D2D_VECTOR_2F {}
-unsafe impl ::windows::runtime::Abi for D2D_VECTOR_2F {
+unsafe impl ::windows::core::Abi for D2D_VECTOR_2F {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1233,7 +1233,7 @@ impl ::core::cmp::PartialEq for D2D_VECTOR_3F {
     }
 }
 impl ::core::cmp::Eq for D2D_VECTOR_3F {}
-unsafe impl ::windows::runtime::Abi for D2D_VECTOR_3F {
+unsafe impl ::windows::core::Abi for D2D_VECTOR_3F {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1262,78 +1262,78 @@ impl ::core::cmp::PartialEq for D2D_VECTOR_4F {
     }
 }
 impl ::core::cmp::Eq for D2D_VECTOR_4F {}
-unsafe impl ::windows::runtime::Abi for D2D_VECTOR_4F {
+unsafe impl ::windows::core::Abi for D2D_VECTOR_4F {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ID2D1SimplifiedGeometrySink(pub ::windows::runtime::IUnknown);
+pub struct ID2D1SimplifiedGeometrySink(pub ::windows::core::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
     #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexflags)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexflags)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn BeginFigure<'a, Param0: ::windows::runtime::IntoParam<'a, D2D_POINT_2F>>(&self, startpoint: Param0, figurebegin: D2D1_FIGURE_BEGIN) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), startpoint.into_param().abi(), ::core::mem::transmute(figurebegin)))
+    pub unsafe fn BeginFigure<'a, Param0: ::windows::core::IntoParam<'a, D2D_POINT_2F>>(&self, startpoint: Param0, figurebegin: D2D1_FIGURE_BEGIN) {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), startpoint.into_param().abi(), ::core::mem::transmute(figurebegin)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn AddLines(&self, points: *const D2D_POINT_2F, pointscount: u32) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(points), ::core::mem::transmute(pointscount)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(points), ::core::mem::transmute(pointscount)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn AddBeziers(&self, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(beziers), ::core::mem::transmute(bezierscount)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(beziers), ::core::mem::transmute(bezierscount)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(figureend)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(figureend)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ID2D1SimplifiedGeometrySink {
+unsafe impl ::windows::core::Interface for ID2D1SimplifiedGeometrySink {
     type Vtable = ID2D1SimplifiedGeometrySink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);
 }
-impl ::core::convert::From<ID2D1SimplifiedGeometrySink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ID2D1SimplifiedGeometrySink> for ::windows::core::IUnknown {
     fn from(value: ID2D1SimplifiedGeometrySink) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ID2D1SimplifiedGeometrySink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ID2D1SimplifiedGeometrySink> for ::windows::core::IUnknown {
     fn from(value: &ID2D1SimplifiedGeometrySink) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SimplifiedGeometrySink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1SimplifiedGeometrySink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SimplifiedGeometrySink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SimplifiedGeometrySink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1SimplifiedGeometrySink_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fillmode: D2D1_FILL_MODE),
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, vertexflags: D2D1_PATH_SEGMENT),
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN),
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, points: *const D2D_POINT_2F, pointscount: u32),
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32),
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, figureend: D2D1_FIGURE_END),
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fillmode: D2D1_FILL_MODE),
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, vertexflags: D2D1_PATH_SEGMENT),
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN),
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, points: *const D2D_POINT_2F, pointscount: u32),
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32),
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, figureend: D2D1_FIGURE_END),
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );

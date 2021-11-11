@@ -37,7 +37,7 @@ impl WeakRefCount {
     }
 
     /// # Safety
-    pub unsafe fn query(&self, iid: &::windows::runtime::GUID, object: RawPtr) -> RawPtr {
+    pub unsafe fn query(&self, iid: &::windows::core::GUID, object: RawPtr) -> RawPtr {
         if iid != &IWeakReferenceSource::IID {
             return core::ptr::null_mut();
         }
@@ -87,7 +87,7 @@ struct TearOff {
 impl TearOff {
     #[allow(clippy::new_ret_no_self)]
     unsafe fn new(object: RawPtr, strong_count: u32) -> IWeakReferenceSource {
-        core::mem::transmute(windows::runtime::alloc::boxed::Box::new(TearOff {
+        core::mem::transmute(windows::core::alloc::boxed::Box::new(TearOff {
             strong_vtable: &Self::STRONG_VTABLE,
             weak_vtable: &Self::WEAK_VTABLE,
             object,
@@ -157,21 +157,21 @@ impl TearOff {
         }
     }
 
-    unsafe extern "system" fn StrongAddRef(ptr: ::windows::runtime::RawPtr) -> u32 {
+    unsafe extern "system" fn StrongAddRef(ptr: ::windows::core::RawPtr) -> u32 {
         let this = Self::from_strong_ptr(ptr);
 
         // Implement `AddRef` directly as we own the strong reference.
         this.strong_count.add_ref()
     }
 
-    unsafe extern "system" fn WeakAddRef(ptr: ::windows::runtime::RawPtr) -> u32 {
+    unsafe extern "system" fn WeakAddRef(ptr: ::windows::core::RawPtr) -> u32 {
         let this = Self::from_weak_ptr(ptr);
 
         // Implement `AddRef` directly as we own the weak reference.
         this.weak_count.add_ref()
     }
 
-    unsafe extern "system" fn StrongRelease(ptr: ::windows::runtime::RawPtr) -> u32 {
+    unsafe extern "system" fn StrongRelease(ptr: ::windows::core::RawPtr) -> u32 {
         let this = Self::from_strong_ptr(ptr);
 
         // Forward strong `Release` to the object so that it can destroy itself. It will then
@@ -179,7 +179,7 @@ impl TearOff {
         ((*(*(this.object as *mut *mut _) as *mut IUnknown_abi)).2)((*this).object)
     }
 
-    unsafe extern "system" fn WeakRelease(ptr: ::windows::runtime::RawPtr) -> u32 {
+    unsafe extern "system" fn WeakRelease(ptr: ::windows::core::RawPtr) -> u32 {
         let this = Self::from_weak_ptr(ptr);
 
         // Implement `Release` directly as we own the weak reference.
@@ -188,7 +188,7 @@ impl TearOff {
         // If there are no remaining references, it means that the object has already been
         // destroyed. Go ahead and destroy the tear-off.
         if remaining == 0 {
-            windows::runtime::alloc::boxed::Box::from_raw(this);
+            windows::core::alloc::boxed::Box::from_raw(this);
         }
 
         remaining

@@ -2,7 +2,7 @@
 // converted to "machine_learning" and imports correctly.
 
 #[test]
-fn namespace() -> windows::runtime::Result<()> {
+fn namespace() -> windows::core::Result<()> {
     use test_winrt::Windows::AI::MachineLearning::{TensorBoolean, TensorKind};
 
     let tensor = TensorBoolean::Create()?;

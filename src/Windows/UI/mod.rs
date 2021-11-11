@@ -55,91 +55,91 @@ impl ::core::cmp::PartialEq for Color {
     }
 }
 impl ::core::cmp::Eq for Color {}
-unsafe impl ::windows::runtime::Abi for Color {
+unsafe impl ::windows::core::Abi for Color {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Color {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
+unsafe impl ::windows::core::RuntimeType for Color {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
 }
-impl ::windows::runtime::DefaultType for Color {
+impl ::windows::core::DefaultType for Color {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ColorHelper(pub ::windows::runtime::IInspectable);
+pub struct ColorHelper(pub ::windows::core::IInspectable);
 impl ColorHelper {
     #[doc = "*Required features: `UI`*"]
-    pub fn FromArgb(a: u8, r: u8, g: u8, b: u8) -> ::windows::runtime::Result<Color> {
+    pub fn FromArgb(a: u8, r: u8, g: u8, b: u8) -> ::windows::core::Result<Color> {
         Self::IColorHelperStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), a, r, g, b, &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), a, r, g, b, &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn ToDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, Color>>(color: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn ToDisplayName<'a, Param0: ::windows::core::IntoParam<'a, Color>>(color: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IColorHelperStatics2(|this| unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), color.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), color.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    pub fn IColorHelperStatics<R, F: FnOnce(&IColorHelperStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<ColorHelper, IColorHelperStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IColorHelperStatics<R, F: FnOnce(&IColorHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<ColorHelper, IColorHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    pub fn IColorHelperStatics2<R, F: FnOnce(&IColorHelperStatics2) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<ColorHelper, IColorHelperStatics2> = ::windows::runtime::FactoryCache::new();
+    pub fn IColorHelperStatics2<R, F: FnOnce(&IColorHelperStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<ColorHelper, IColorHelperStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ColorHelper {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.ColorHelper;{193cfbe7-65c7-4540-ad08-6283ba76879a})");
+unsafe impl ::windows::core::RuntimeType for ColorHelper {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ColorHelper;{193cfbe7-65c7-4540-ad08-6283ba76879a})");
 }
-unsafe impl ::windows::runtime::Interface for ColorHelper {
+unsafe impl ::windows::core::Interface for ColorHelper {
     type Vtable = IColorHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x193cfbe7_65c7_4540_ad08_6283ba76879a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 }
-impl ::windows::runtime::RuntimeName for ColorHelper {
+impl ::windows::core::RuntimeName for ColorHelper {
     const NAME: &'static str = "Windows.UI.ColorHelper";
 }
-impl ::core::convert::From<ColorHelper> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ColorHelper> for ::windows::core::IUnknown {
     fn from(value: ColorHelper) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ColorHelper> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ColorHelper> for ::windows::core::IUnknown {
     fn from(value: &ColorHelper) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ColorHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ColorHelper {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ColorHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ColorHelper {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ColorHelper> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ColorHelper> for ::windows::core::IInspectable {
     fn from(value: ColorHelper) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ColorHelper> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ColorHelper> for ::windows::core::IInspectable {
     fn from(value: &ColorHelper) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ColorHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ColorHelper {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ColorHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ColorHelper {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ColorHelper {}
@@ -147,1377 +147,1377 @@ unsafe impl ::core::marker::Sync for ColorHelper {}
 #[doc = "*Required features: `UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct Colors(pub ::windows::runtime::IInspectable);
+pub struct Colors(pub ::windows::core::IInspectable);
 impl Colors {
     #[doc = "*Required features: `UI`*"]
-    pub fn AliceBlue() -> ::windows::runtime::Result<Color> {
+    pub fn AliceBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn AntiqueWhite() -> ::windows::runtime::Result<Color> {
+    pub fn AntiqueWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Aqua() -> ::windows::runtime::Result<Color> {
+    pub fn Aqua() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Aquamarine() -> ::windows::runtime::Result<Color> {
+    pub fn Aquamarine() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Azure() -> ::windows::runtime::Result<Color> {
+    pub fn Azure() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Beige() -> ::windows::runtime::Result<Color> {
+    pub fn Beige() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Bisque() -> ::windows::runtime::Result<Color> {
+    pub fn Bisque() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Black() -> ::windows::runtime::Result<Color> {
+    pub fn Black() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn BlanchedAlmond() -> ::windows::runtime::Result<Color> {
+    pub fn BlanchedAlmond() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Blue() -> ::windows::runtime::Result<Color> {
+    pub fn Blue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn BlueViolet() -> ::windows::runtime::Result<Color> {
+    pub fn BlueViolet() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Brown() -> ::windows::runtime::Result<Color> {
+    pub fn Brown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn BurlyWood() -> ::windows::runtime::Result<Color> {
+    pub fn BurlyWood() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn CadetBlue() -> ::windows::runtime::Result<Color> {
+    pub fn CadetBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Chartreuse() -> ::windows::runtime::Result<Color> {
+    pub fn Chartreuse() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Chocolate() -> ::windows::runtime::Result<Color> {
+    pub fn Chocolate() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Coral() -> ::windows::runtime::Result<Color> {
+    pub fn Coral() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn CornflowerBlue() -> ::windows::runtime::Result<Color> {
+    pub fn CornflowerBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Cornsilk() -> ::windows::runtime::Result<Color> {
+    pub fn Cornsilk() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Crimson() -> ::windows::runtime::Result<Color> {
+    pub fn Crimson() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Cyan() -> ::windows::runtime::Result<Color> {
+    pub fn Cyan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkBlue() -> ::windows::runtime::Result<Color> {
+    pub fn DarkBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkCyan() -> ::windows::runtime::Result<Color> {
+    pub fn DarkCyan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkGoldenrod() -> ::windows::runtime::Result<Color> {
+    pub fn DarkGoldenrod() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkGray() -> ::windows::runtime::Result<Color> {
+    pub fn DarkGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkGreen() -> ::windows::runtime::Result<Color> {
+    pub fn DarkGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkKhaki() -> ::windows::runtime::Result<Color> {
+    pub fn DarkKhaki() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkMagenta() -> ::windows::runtime::Result<Color> {
+    pub fn DarkMagenta() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkOliveGreen() -> ::windows::runtime::Result<Color> {
+    pub fn DarkOliveGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkOrange() -> ::windows::runtime::Result<Color> {
+    pub fn DarkOrange() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).35)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkOrchid() -> ::windows::runtime::Result<Color> {
+    pub fn DarkOrchid() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).36)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkRed() -> ::windows::runtime::Result<Color> {
+    pub fn DarkRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).37)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkSalmon() -> ::windows::runtime::Result<Color> {
+    pub fn DarkSalmon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).38)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkSeaGreen() -> ::windows::runtime::Result<Color> {
+    pub fn DarkSeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).39)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkSlateBlue() -> ::windows::runtime::Result<Color> {
+    pub fn DarkSlateBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).40)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).40)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkSlateGray() -> ::windows::runtime::Result<Color> {
+    pub fn DarkSlateGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).41)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).41)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkTurquoise() -> ::windows::runtime::Result<Color> {
+    pub fn DarkTurquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).42)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).42)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DarkViolet() -> ::windows::runtime::Result<Color> {
+    pub fn DarkViolet() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).43)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).43)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DeepPink() -> ::windows::runtime::Result<Color> {
+    pub fn DeepPink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).44)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).44)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DeepSkyBlue() -> ::windows::runtime::Result<Color> {
+    pub fn DeepSkyBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).45)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).45)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DimGray() -> ::windows::runtime::Result<Color> {
+    pub fn DimGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).46)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).46)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn DodgerBlue() -> ::windows::runtime::Result<Color> {
+    pub fn DodgerBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).47)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).47)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Firebrick() -> ::windows::runtime::Result<Color> {
+    pub fn Firebrick() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).48)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).48)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn FloralWhite() -> ::windows::runtime::Result<Color> {
+    pub fn FloralWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).49)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).49)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn ForestGreen() -> ::windows::runtime::Result<Color> {
+    pub fn ForestGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).50)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).50)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Fuchsia() -> ::windows::runtime::Result<Color> {
+    pub fn Fuchsia() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).51)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).51)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Gainsboro() -> ::windows::runtime::Result<Color> {
+    pub fn Gainsboro() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).52)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).52)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn GhostWhite() -> ::windows::runtime::Result<Color> {
+    pub fn GhostWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).53)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).53)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Gold() -> ::windows::runtime::Result<Color> {
+    pub fn Gold() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).54)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).54)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Goldenrod() -> ::windows::runtime::Result<Color> {
+    pub fn Goldenrod() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).55)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).55)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Gray() -> ::windows::runtime::Result<Color> {
+    pub fn Gray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).56)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).56)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Green() -> ::windows::runtime::Result<Color> {
+    pub fn Green() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).57)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).57)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn GreenYellow() -> ::windows::runtime::Result<Color> {
+    pub fn GreenYellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).58)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).58)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Honeydew() -> ::windows::runtime::Result<Color> {
+    pub fn Honeydew() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).59)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).59)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn HotPink() -> ::windows::runtime::Result<Color> {
+    pub fn HotPink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).60)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).60)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn IndianRed() -> ::windows::runtime::Result<Color> {
+    pub fn IndianRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).61)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).61)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Indigo() -> ::windows::runtime::Result<Color> {
+    pub fn Indigo() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).62)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).62)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Ivory() -> ::windows::runtime::Result<Color> {
+    pub fn Ivory() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).63)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).63)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Khaki() -> ::windows::runtime::Result<Color> {
+    pub fn Khaki() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).64)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).64)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Lavender() -> ::windows::runtime::Result<Color> {
+    pub fn Lavender() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).65)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).65)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LavenderBlush() -> ::windows::runtime::Result<Color> {
+    pub fn LavenderBlush() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).66)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).66)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LawnGreen() -> ::windows::runtime::Result<Color> {
+    pub fn LawnGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).67)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).67)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LemonChiffon() -> ::windows::runtime::Result<Color> {
+    pub fn LemonChiffon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).68)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).68)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightBlue() -> ::windows::runtime::Result<Color> {
+    pub fn LightBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).69)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).69)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightCoral() -> ::windows::runtime::Result<Color> {
+    pub fn LightCoral() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).70)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).70)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightCyan() -> ::windows::runtime::Result<Color> {
+    pub fn LightCyan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).71)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).71)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightGoldenrodYellow() -> ::windows::runtime::Result<Color> {
+    pub fn LightGoldenrodYellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).72)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).72)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightGreen() -> ::windows::runtime::Result<Color> {
+    pub fn LightGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).73)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).73)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightGray() -> ::windows::runtime::Result<Color> {
+    pub fn LightGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).74)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).74)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightPink() -> ::windows::runtime::Result<Color> {
+    pub fn LightPink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).75)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).75)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightSalmon() -> ::windows::runtime::Result<Color> {
+    pub fn LightSalmon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).76)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).76)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightSeaGreen() -> ::windows::runtime::Result<Color> {
+    pub fn LightSeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).77)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).77)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightSkyBlue() -> ::windows::runtime::Result<Color> {
+    pub fn LightSkyBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).78)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).78)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightSlateGray() -> ::windows::runtime::Result<Color> {
+    pub fn LightSlateGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).79)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).79)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightSteelBlue() -> ::windows::runtime::Result<Color> {
+    pub fn LightSteelBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).80)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).80)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LightYellow() -> ::windows::runtime::Result<Color> {
+    pub fn LightYellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).81)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).81)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Lime() -> ::windows::runtime::Result<Color> {
+    pub fn Lime() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).82)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).82)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn LimeGreen() -> ::windows::runtime::Result<Color> {
+    pub fn LimeGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).83)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).83)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Linen() -> ::windows::runtime::Result<Color> {
+    pub fn Linen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).84)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).84)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Magenta() -> ::windows::runtime::Result<Color> {
+    pub fn Magenta() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).85)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).85)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Maroon() -> ::windows::runtime::Result<Color> {
+    pub fn Maroon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).86)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).86)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MediumAquamarine() -> ::windows::runtime::Result<Color> {
+    pub fn MediumAquamarine() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).87)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).87)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MediumBlue() -> ::windows::runtime::Result<Color> {
+    pub fn MediumBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).88)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).88)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MediumOrchid() -> ::windows::runtime::Result<Color> {
+    pub fn MediumOrchid() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).89)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).89)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MediumPurple() -> ::windows::runtime::Result<Color> {
+    pub fn MediumPurple() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).90)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).90)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MediumSeaGreen() -> ::windows::runtime::Result<Color> {
+    pub fn MediumSeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).91)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).91)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MediumSlateBlue() -> ::windows::runtime::Result<Color> {
+    pub fn MediumSlateBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).92)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).92)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MediumSpringGreen() -> ::windows::runtime::Result<Color> {
+    pub fn MediumSpringGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).93)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).93)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MediumTurquoise() -> ::windows::runtime::Result<Color> {
+    pub fn MediumTurquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).94)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).94)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MediumVioletRed() -> ::windows::runtime::Result<Color> {
+    pub fn MediumVioletRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).95)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).95)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MidnightBlue() -> ::windows::runtime::Result<Color> {
+    pub fn MidnightBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).96)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).96)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MintCream() -> ::windows::runtime::Result<Color> {
+    pub fn MintCream() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).97)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).97)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn MistyRose() -> ::windows::runtime::Result<Color> {
+    pub fn MistyRose() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).98)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).98)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Moccasin() -> ::windows::runtime::Result<Color> {
+    pub fn Moccasin() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).99)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).99)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn NavajoWhite() -> ::windows::runtime::Result<Color> {
+    pub fn NavajoWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).100)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).100)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Navy() -> ::windows::runtime::Result<Color> {
+    pub fn Navy() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).101)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).101)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn OldLace() -> ::windows::runtime::Result<Color> {
+    pub fn OldLace() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).102)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).102)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Olive() -> ::windows::runtime::Result<Color> {
+    pub fn Olive() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).103)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).103)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn OliveDrab() -> ::windows::runtime::Result<Color> {
+    pub fn OliveDrab() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).104)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).104)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Orange() -> ::windows::runtime::Result<Color> {
+    pub fn Orange() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).105)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).105)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn OrangeRed() -> ::windows::runtime::Result<Color> {
+    pub fn OrangeRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).106)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).106)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Orchid() -> ::windows::runtime::Result<Color> {
+    pub fn Orchid() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).107)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).107)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn PaleGoldenrod() -> ::windows::runtime::Result<Color> {
+    pub fn PaleGoldenrod() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).108)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).108)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn PaleGreen() -> ::windows::runtime::Result<Color> {
+    pub fn PaleGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).109)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).109)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn PaleTurquoise() -> ::windows::runtime::Result<Color> {
+    pub fn PaleTurquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).110)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).110)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn PaleVioletRed() -> ::windows::runtime::Result<Color> {
+    pub fn PaleVioletRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).111)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).111)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn PapayaWhip() -> ::windows::runtime::Result<Color> {
+    pub fn PapayaWhip() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).112)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).112)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn PeachPuff() -> ::windows::runtime::Result<Color> {
+    pub fn PeachPuff() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).113)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).113)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Peru() -> ::windows::runtime::Result<Color> {
+    pub fn Peru() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).114)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).114)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Pink() -> ::windows::runtime::Result<Color> {
+    pub fn Pink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).115)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).115)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Plum() -> ::windows::runtime::Result<Color> {
+    pub fn Plum() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).116)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).116)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn PowderBlue() -> ::windows::runtime::Result<Color> {
+    pub fn PowderBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).117)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).117)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Purple() -> ::windows::runtime::Result<Color> {
+    pub fn Purple() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).118)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).118)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Red() -> ::windows::runtime::Result<Color> {
+    pub fn Red() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).119)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).119)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn RosyBrown() -> ::windows::runtime::Result<Color> {
+    pub fn RosyBrown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).120)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).120)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn RoyalBlue() -> ::windows::runtime::Result<Color> {
+    pub fn RoyalBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).121)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).121)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn SaddleBrown() -> ::windows::runtime::Result<Color> {
+    pub fn SaddleBrown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).122)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).122)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Salmon() -> ::windows::runtime::Result<Color> {
+    pub fn Salmon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).123)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).123)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn SandyBrown() -> ::windows::runtime::Result<Color> {
+    pub fn SandyBrown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).124)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).124)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn SeaGreen() -> ::windows::runtime::Result<Color> {
+    pub fn SeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).125)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).125)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn SeaShell() -> ::windows::runtime::Result<Color> {
+    pub fn SeaShell() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).126)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).126)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Sienna() -> ::windows::runtime::Result<Color> {
+    pub fn Sienna() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).127)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).127)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Silver() -> ::windows::runtime::Result<Color> {
+    pub fn Silver() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).128)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).128)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn SkyBlue() -> ::windows::runtime::Result<Color> {
+    pub fn SkyBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).129)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).129)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn SlateBlue() -> ::windows::runtime::Result<Color> {
+    pub fn SlateBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).130)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).130)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn SlateGray() -> ::windows::runtime::Result<Color> {
+    pub fn SlateGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).131)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).131)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Snow() -> ::windows::runtime::Result<Color> {
+    pub fn Snow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).132)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).132)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn SpringGreen() -> ::windows::runtime::Result<Color> {
+    pub fn SpringGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).133)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).133)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn SteelBlue() -> ::windows::runtime::Result<Color> {
+    pub fn SteelBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).134)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).134)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Tan() -> ::windows::runtime::Result<Color> {
+    pub fn Tan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).135)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).135)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Teal() -> ::windows::runtime::Result<Color> {
+    pub fn Teal() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).136)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).136)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Thistle() -> ::windows::runtime::Result<Color> {
+    pub fn Thistle() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).137)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).137)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Tomato() -> ::windows::runtime::Result<Color> {
+    pub fn Tomato() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).138)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).138)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Transparent() -> ::windows::runtime::Result<Color> {
+    pub fn Transparent() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).139)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).139)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Turquoise() -> ::windows::runtime::Result<Color> {
+    pub fn Turquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).140)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).140)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Violet() -> ::windows::runtime::Result<Color> {
+    pub fn Violet() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).141)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).141)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Wheat() -> ::windows::runtime::Result<Color> {
+    pub fn Wheat() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).142)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).142)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn White() -> ::windows::runtime::Result<Color> {
+    pub fn White() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).143)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).143)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn WhiteSmoke() -> ::windows::runtime::Result<Color> {
+    pub fn WhiteSmoke() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).144)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).144)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn Yellow() -> ::windows::runtime::Result<Color> {
+    pub fn Yellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).145)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).145)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `UI`*"]
-    pub fn YellowGreen() -> ::windows::runtime::Result<Color> {
+    pub fn YellowGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).146)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).146)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
         })
     }
-    pub fn IColorsStatics<R, F: FnOnce(&IColorsStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<Colors, IColorsStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IColorsStatics<R, F: FnOnce(&IColorsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Colors, IColorsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for Colors {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Colors;{9b8c9326-4ca6-4ce5-8994-9eff65cabdcc})");
+unsafe impl ::windows::core::RuntimeType for Colors {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Colors;{9b8c9326-4ca6-4ce5-8994-9eff65cabdcc})");
 }
-unsafe impl ::windows::runtime::Interface for Colors {
+unsafe impl ::windows::core::Interface for Colors {
     type Vtable = IColors_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
 }
-impl ::windows::runtime::RuntimeName for Colors {
+impl ::windows::core::RuntimeName for Colors {
     const NAME: &'static str = "Windows.UI.Colors";
 }
-impl ::core::convert::From<Colors> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Colors> for ::windows::core::IUnknown {
     fn from(value: Colors) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&Colors> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Colors> for ::windows::core::IUnknown {
     fn from(value: &Colors) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Colors {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Colors {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Colors {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Colors {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<Colors> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Colors> for ::windows::core::IInspectable {
     fn from(value: Colors) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&Colors> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Colors> for ::windows::core::IInspectable {
     fn from(value: &Colors) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Colors {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Colors {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Colors {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Colors {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for Colors {}
 unsafe impl ::core::marker::Sync for Colors {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IColorHelper(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IColorHelper {
+pub struct IColorHelper(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IColorHelper {
     type Vtable = IColorHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x193cfbe7_65c7_4540_ad08_6283ba76879a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorHelper_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IColorHelperStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IColorHelperStatics {
+pub struct IColorHelperStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IColorHelperStatics {
     type Vtable = IColorHelperStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorHelperStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, a: u8, r: u8, g: u8, b: u8, result__: *mut Color) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, a: u8, r: u8, g: u8, b: u8, result__: *mut Color) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IColorHelperStatics2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IColorHelperStatics2 {
+pub struct IColorHelperStatics2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IColorHelperStatics2 {
     type Vtable = IColorHelperStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorHelperStatics2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: Color, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, color: Color, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IColors(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IColors {
+pub struct IColors(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IColors {
     type Vtable = IColors_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColors_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IColorsStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IColorsStatics {
+pub struct IColorsStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IColorsStatics {
     type Vtable = IColorsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcff52e04_cca6_4614_a17e_754910c84a99);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcff52e04_cca6_4614_a17e_754910c84a99);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorsStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Color) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Color) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUIContentRoot(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IUIContentRoot {
+pub struct IUIContentRoot(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IUIContentRoot {
     type Vtable = IUIContentRoot_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIContentRoot_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUIContext(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IUIContext {
+pub struct IUIContext(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IUIContext {
     type Vtable = IUIContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIContext_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct UIContentRoot(pub ::windows::runtime::IInspectable);
+pub struct UIContentRoot(pub ::windows::core::IInspectable);
 impl UIContentRoot {
     #[doc = "*Required features: `UI`*"]
-    pub fn UIContext(&self) -> ::windows::runtime::Result<UIContext> {
+    pub fn UIContext(&self) -> ::windows::core::Result<UIContext> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UIContext>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UIContext>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for UIContentRoot {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.UIContentRoot;{1dfcbac6-b36b-5cb9-9bc5-2b7a0eddc378})");
+unsafe impl ::windows::core::RuntimeType for UIContentRoot {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIContentRoot;{1dfcbac6-b36b-5cb9-9bc5-2b7a0eddc378})");
 }
-unsafe impl ::windows::runtime::Interface for UIContentRoot {
+unsafe impl ::windows::core::Interface for UIContentRoot {
     type Vtable = IUIContentRoot_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
 }
-impl ::windows::runtime::RuntimeName for UIContentRoot {
+impl ::windows::core::RuntimeName for UIContentRoot {
     const NAME: &'static str = "Windows.UI.UIContentRoot";
 }
-impl ::core::convert::From<UIContentRoot> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UIContentRoot> for ::windows::core::IUnknown {
     fn from(value: UIContentRoot) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&UIContentRoot> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UIContentRoot> for ::windows::core::IUnknown {
     fn from(value: &UIContentRoot) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UIContentRoot {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UIContentRoot {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UIContentRoot {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UIContentRoot {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<UIContentRoot> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UIContentRoot> for ::windows::core::IInspectable {
     fn from(value: UIContentRoot) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&UIContentRoot> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UIContentRoot> for ::windows::core::IInspectable {
     fn from(value: &UIContentRoot) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UIContentRoot {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UIContentRoot {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UIContentRoot {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UIContentRoot {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for UIContentRoot {}
@@ -1525,56 +1525,56 @@ unsafe impl ::core::marker::Sync for UIContentRoot {}
 #[doc = "*Required features: `UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct UIContext(pub ::windows::runtime::IInspectable);
+pub struct UIContext(pub ::windows::core::IInspectable);
 impl UIContext {}
-unsafe impl ::windows::runtime::RuntimeType for UIContext {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.UIContext;{bb5cfacd-5bd8-59d0-a59e-1c17a4d6d243})");
+unsafe impl ::windows::core::RuntimeType for UIContext {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIContext;{bb5cfacd-5bd8-59d0-a59e-1c17a4d6d243})");
 }
-unsafe impl ::windows::runtime::Interface for UIContext {
+unsafe impl ::windows::core::Interface for UIContext {
     type Vtable = IUIContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
 }
-impl ::windows::runtime::RuntimeName for UIContext {
+impl ::windows::core::RuntimeName for UIContext {
     const NAME: &'static str = "Windows.UI.UIContext";
 }
-impl ::core::convert::From<UIContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UIContext> for ::windows::core::IUnknown {
     fn from(value: UIContext) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&UIContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UIContext> for ::windows::core::IUnknown {
     fn from(value: &UIContext) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UIContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UIContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UIContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UIContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<UIContext> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UIContext> for ::windows::core::IInspectable {
     fn from(value: UIContext) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&UIContext> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UIContext> for ::windows::core::IInspectable {
     fn from(value: &UIContext) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UIContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UIContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UIContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UIContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for UIContext {}
@@ -1602,12 +1602,12 @@ impl ::core::cmp::PartialEq for WindowId {
     }
 }
 impl ::core::cmp::Eq for WindowId {}
-unsafe impl ::windows::runtime::Abi for WindowId {
+unsafe impl ::windows::core::Abi for WindowId {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for WindowId {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.WindowId;u8)");
+unsafe impl ::windows::core::RuntimeType for WindowId {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.WindowId;u8)");
 }
-impl ::windows::runtime::DefaultType for WindowId {
+impl ::windows::core::DefaultType for WindowId {
     type DefaultType = Self;
 }

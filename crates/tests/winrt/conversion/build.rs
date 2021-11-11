@@ -1,3 +1,3 @@
 fn main() {
-    windows::runtime::build! {Component::Classes::Required, Component::Conversion::*};
+    windows::core::build! {Component::Classes::Required, Component::Conversion::*};
 }

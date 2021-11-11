@@ -1,5 +1,5 @@
 fn main() {
-    windows::runtime::build! {
+    windows::core::build! {
         // Tests for SignatureKind::ReturnStruct
 
         // This free function returns a struct

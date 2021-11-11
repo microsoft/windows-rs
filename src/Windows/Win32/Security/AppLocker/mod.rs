@@ -53,7 +53,7 @@ impl ::core::cmp::PartialEq for SAFER_CODE_PROPERTIES_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SAFER_CODE_PROPERTIES_V1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SAFER_CODE_PROPERTIES_V1 {
+unsafe impl ::windows::core::Abi for SAFER_CODE_PROPERTIES_V1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -136,7 +136,7 @@ impl ::core::cmp::PartialEq for SAFER_CODE_PROPERTIES_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SAFER_CODE_PROPERTIES_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SAFER_CODE_PROPERTIES_V2 {
+unsafe impl ::windows::core::Abi for SAFER_CODE_PROPERTIES_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
@@ -152,7 +152,7 @@ impl ::core::convert::From<u32> for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+unsafe impl ::windows::core::Abi for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
@@ -243,7 +243,7 @@ impl ::core::cmp::PartialEq for SAFER_HASH_IDENTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SAFER_HASH_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SAFER_HASH_IDENTIFICATION {
+unsafe impl ::windows::core::Abi for SAFER_HASH_IDENTIFICATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -279,7 +279,7 @@ impl ::core::cmp::PartialEq for SAFER_HASH_IDENTIFICATION2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SAFER_HASH_IDENTIFICATION2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SAFER_HASH_IDENTIFICATION2 {
+unsafe impl ::windows::core::Abi for SAFER_HASH_IDENTIFICATION2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -289,7 +289,7 @@ unsafe impl ::windows::runtime::Abi for SAFER_HASH_IDENTIFICATION2 {
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
     pub cbStructSize: u32,
-    pub IdentificationGuid: ::windows::runtime::GUID,
+    pub IdentificationGuid: ::windows::core::GUID,
     pub lastModified: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -315,7 +315,7 @@ impl ::core::cmp::PartialEq for SAFER_IDENTIFICATION_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SAFER_IDENTIFICATION_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SAFER_IDENTIFICATION_HEADER {
+unsafe impl ::windows::core::Abi for SAFER_IDENTIFICATION_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
@@ -332,7 +332,7 @@ impl ::core::convert::From<i32> for SAFER_IDENTIFICATION_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SAFER_IDENTIFICATION_TYPES {
+unsafe impl ::windows::core::Abi for SAFER_IDENTIFICATION_TYPES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
@@ -378,7 +378,7 @@ impl ::core::convert::From<i32> for SAFER_OBJECT_INFO_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SAFER_OBJECT_INFO_CLASS {
+unsafe impl ::windows::core::Abi for SAFER_OBJECT_INFO_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -414,7 +414,7 @@ impl ::core::cmp::PartialEq for SAFER_PATHNAME_IDENTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SAFER_PATHNAME_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SAFER_PATHNAME_IDENTIFICATION {
+unsafe impl ::windows::core::Abi for SAFER_PATHNAME_IDENTIFICATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
@@ -437,7 +437,7 @@ impl ::core::convert::From<i32> for SAFER_POLICY_INFO_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SAFER_POLICY_INFO_CLASS {
+unsafe impl ::windows::core::Abi for SAFER_POLICY_INFO_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
@@ -496,13 +496,13 @@ impl ::core::cmp::PartialEq for SAFER_URLZONE_IDENTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SAFER_URLZONE_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SAFER_URLZONE_IDENTIFICATION {
+unsafe impl ::windows::core::Abi for SAFER_URLZONE_IDENTIFICATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferCloseLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(hlevelhandle: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferCloseLevel<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(hlevelhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -517,7 +517,7 @@ pub unsafe fn SaferCloseLevel<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferComputeTokenFromLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(levelhandle: Param0, inaccesstoken: Param1, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferComputeTokenFromLevel<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(levelhandle: Param0, inaccesstoken: Param1, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -547,7 +547,7 @@ pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, p
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferGetLevelInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(levelhandle: Param0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *mut ::core::ffi::c_void, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferGetLevelInformation<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(levelhandle: Param0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *mut ::core::ffi::c_void, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -592,7 +592,7 @@ pub unsafe fn SaferIdentifyLevel(dwnumproperties: u32, pcodeproperties: *const S
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hlevel: Param0, sztargetpath: Param1, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlevel: Param0, sztargetpath: Param1, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -607,7 +607,7 @@ pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferSetLevelInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(levelhandle: Param0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferSetLevelInformation<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(levelhandle: Param0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -637,7 +637,7 @@ pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferiIsExecutableFileType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(szfullpathname: Param0, bfromshellexecute: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferiIsExecutableFileType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(szfullpathname: Param0, bfromshellexecute: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

@@ -4,8 +4,8 @@
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct APPLICATION_EVENT_DATA {
     pub cbApplicationEventData: u32,
-    pub ApplicationId: ::windows::runtime::GUID,
-    pub EndpointId: ::windows::runtime::GUID,
+    pub ApplicationId: ::windows::core::GUID,
+    pub EndpointId: ::windows::core::GUID,
     pub dwEventId: u32,
     pub cbEventData: u32,
     pub bEventData: [u8; 1],
@@ -22,7 +22,7 @@ impl ::core::cmp::PartialEq for APPLICATION_EVENT_DATA {
     }
 }
 impl ::core::cmp::Eq for APPLICATION_EVENT_DATA {}
-unsafe impl ::windows::runtime::Abi for APPLICATION_EVENT_DATA {
+unsafe impl ::windows::core::Abi for APPLICATION_EVENT_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -34,8 +34,8 @@ pub const CONTENT_ID_HOME: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct CONTENT_MISSING_EVENT_DATA {
     pub cbContentMissingEventData: u32,
-    pub ApplicationId: ::windows::runtime::GUID,
-    pub EndpointId: ::windows::runtime::GUID,
+    pub ApplicationId: ::windows::core::GUID,
+    pub EndpointId: ::windows::core::GUID,
     pub ContentId: u32,
 }
 impl CONTENT_MISSING_EVENT_DATA {}
@@ -50,7 +50,7 @@ impl ::core::cmp::PartialEq for CONTENT_MISSING_EVENT_DATA {
     }
 }
 impl ::core::cmp::Eq for CONTENT_MISSING_EVENT_DATA {}
-unsafe impl ::windows::runtime::Abi for CONTENT_MISSING_EVENT_DATA {
+unsafe impl ::windows::core::Abi for CONTENT_MISSING_EVENT_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -72,7 +72,7 @@ impl ::core::cmp::PartialEq for DEVICE_USER_CHANGE_EVENT_DATA {
     }
 }
 impl ::core::cmp::Eq for DEVICE_USER_CHANGE_EVENT_DATA {}
-unsafe impl ::windows::runtime::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
+unsafe impl ::windows::core::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -80,7 +80,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct EVENT_DATA_HEADER {
     pub cbEventDataHeader: u32,
-    pub guidEventType: ::windows::runtime::GUID,
+    pub guidEventType: ::windows::core::GUID,
     pub dwVersion: u32,
     pub cbEventDataSid: u32,
 }
@@ -96,47 +96,47 @@ impl ::core::cmp::PartialEq for EVENT_DATA_HEADER {
     }
 }
 impl ::core::cmp::Eq for EVENT_DATA_HEADER {}
-unsafe impl ::windows::runtime::Abi for EVENT_DATA_HEADER {
+unsafe impl ::windows::core::Abi for EVENT_DATA_HEADER {
     type Abi = Self;
 }
-pub const GUID_DEVINTERFACE_SIDESHOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
+pub const GUID_DEVINTERFACE_SIDESHOW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISideShowBulkCapabilities(pub ::windows::runtime::IUnknown);
+pub struct ISideShowBulkCapabilities(pub ::windows::core::IUnknown);
 impl ISideShowBulkCapabilities {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
-    pub unsafe fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_keycapability), ::core::mem::transmute(inout_pvalue)).ok()
+    pub unsafe fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_keycapability), ::core::mem::transmute(inout_pvalue)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn GetCapabilities<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowKeyCollection>>(&self, in_keycollection: Param0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), in_keycollection.into_param().abi(), ::core::mem::transmute(inout_pvalues)).ok()
+    pub unsafe fn GetCapabilities<'a, Param0: ::windows::core::IntoParam<'a, ISideShowKeyCollection>>(&self, in_keycollection: Param0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), in_keycollection.into_param().abi(), ::core::mem::transmute(inout_pvalues)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISideShowBulkCapabilities {
+unsafe impl ::windows::core::Interface for ISideShowBulkCapabilities {
     type Vtable = ISideShowBulkCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
 }
-impl ::core::convert::From<ISideShowBulkCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISideShowBulkCapabilities> for ::windows::core::IUnknown {
     fn from(value: ISideShowBulkCapabilities) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISideShowBulkCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISideShowBulkCapabilities> for ::windows::core::IUnknown {
     fn from(value: &ISideShowBulkCapabilities) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowBulkCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowBulkCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<ISideShowBulkCapabilities> for ISideShowCapabilities {
@@ -149,636 +149,636 @@ impl ::core::convert::From<&ISideShowBulkCapabilities> for ISideShowCapabilities
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ISideShowCapabilities> for ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ISideShowCapabilities> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, ISideShowCapabilities> for ISideShowBulkCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ISideShowCapabilities> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ISideShowCapabilities> for &ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ISideShowCapabilities> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, ISideShowCapabilities> for &ISideShowBulkCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ISideShowCapabilities> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowBulkCapabilities_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_keycollection: ::windows::runtime::RawPtr, inout_pvalues: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_keycollection: ::windows::core::RawPtr, inout_pvalues: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISideShowCapabilities(pub ::windows::runtime::IUnknown);
+pub struct ISideShowCapabilities(pub ::windows::core::IUnknown);
 impl ISideShowCapabilities {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
-    pub unsafe fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_keycapability), ::core::mem::transmute(inout_pvalue)).ok()
+    pub unsafe fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_keycapability), ::core::mem::transmute(inout_pvalue)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISideShowCapabilities {
+unsafe impl ::windows::core::Interface for ISideShowCapabilities {
     type Vtable = ISideShowCapabilities_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x535e1379_c09e_4a54_a511_597bab3a72b8);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x535e1379_c09e_4a54_a511_597bab3a72b8);
 }
-impl ::core::convert::From<ISideShowCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISideShowCapabilities> for ::windows::core::IUnknown {
     fn from(value: ISideShowCapabilities) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISideShowCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISideShowCapabilities> for ::windows::core::IUnknown {
     fn from(value: &ISideShowCapabilities) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISideShowCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowCapabilities_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISideShowCapabilitiesCollection(pub ::windows::runtime::IUnknown);
+pub struct ISideShowCapabilitiesCollection(pub ::windows::core::IUnknown);
 impl ISideShowCapabilitiesCollection {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn GetAt(&self, in_dwindex: u32) -> ::windows::runtime::Result<ISideShowCapabilities> {
-        let mut result__: <ISideShowCapabilities as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_dwindex), &mut result__).from_abi::<ISideShowCapabilities>(result__)
+    pub unsafe fn GetAt(&self, in_dwindex: u32) -> ::windows::core::Result<ISideShowCapabilities> {
+        let mut result__: <ISideShowCapabilities as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_dwindex), &mut result__).from_abi::<ISideShowCapabilities>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for ISideShowCapabilitiesCollection {
+unsafe impl ::windows::core::Interface for ISideShowCapabilitiesCollection {
     type Vtable = ISideShowCapabilitiesCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50305597_5e0d_4ff7_b3af_33d0d9bd52dd);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50305597_5e0d_4ff7_b3af_33d0d9bd52dd);
 }
-impl ::core::convert::From<ISideShowCapabilitiesCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISideShowCapabilitiesCollection> for ::windows::core::IUnknown {
     fn from(value: ISideShowCapabilitiesCollection) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISideShowCapabilitiesCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISideShowCapabilitiesCollection> for ::windows::core::IUnknown {
     fn from(value: &ISideShowCapabilitiesCollection) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowCapabilitiesCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowCapabilitiesCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISideShowCapabilitiesCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowCapabilitiesCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowCapabilitiesCollection_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_dwindex: u32, out_ppcapabilities: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, out_pdwcount: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_dwindex: u32, out_ppcapabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISideShowContent(pub ::windows::runtime::IUnknown);
+pub struct ISideShowContent(pub ::windows::core::IUnknown);
 impl ISideShowContent {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn GetContent<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowCapabilities>>(&self, in_picapabilities: Param0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), in_picapabilities.into_param().abi(), ::core::mem::transmute(out_pdwsize), ::core::mem::transmute(out_ppbdata)).ok()
+    pub unsafe fn GetContent<'a, Param0: ::windows::core::IntoParam<'a, ISideShowCapabilities>>(&self, in_picapabilities: Param0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), in_picapabilities.into_param().abi(), ::core::mem::transmute(out_pdwsize), ::core::mem::transmute(out_ppbdata)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn ContentId(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn ContentId(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
-    pub unsafe fn DifferentiateContent(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn DifferentiateContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for ISideShowContent {
+unsafe impl ::windows::core::Interface for ISideShowContent {
     type Vtable = ISideShowContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc18552ed_74ff_4fec_be07_4cfed29d4887);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18552ed_74ff_4fec_be07_4cfed29d4887);
 }
-impl ::core::convert::From<ISideShowContent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISideShowContent> for ::windows::core::IUnknown {
     fn from(value: ISideShowContent) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISideShowContent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISideShowContent> for ::windows::core::IUnknown {
     fn from(value: &ISideShowContent) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowContent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISideShowContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowContent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowContent_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_picapabilities: ::windows::runtime::RawPtr, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_pcontentid: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_pfdifferentiatecontent: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_picapabilities: ::windows::core::RawPtr, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, out_pcontentid: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, out_pfdifferentiatecontent: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISideShowContentManager(pub ::windows::runtime::IUnknown);
+pub struct ISideShowContentManager(pub ::windows::core::IUnknown);
 impl ISideShowContentManager {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowContent>>(&self, in_picontent: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), in_picontent.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, ISideShowContent>>(&self, in_picontent: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), in_picontent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn Remove(&self, in_contentid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_contentid)).ok()
+    pub unsafe fn Remove(&self, in_contentid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_contentid)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn RemoveAll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn RemoveAll(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn SetEventSink<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowEvents>>(&self, in_pievents: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), in_pievents.into_param().abi()).ok()
+    pub unsafe fn SetEventSink<'a, Param0: ::windows::core::IntoParam<'a, ISideShowEvents>>(&self, in_pievents: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), in_pievents.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::runtime::Result<ISideShowCapabilitiesCollection> {
-        let mut result__: <ISideShowCapabilitiesCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ISideShowCapabilitiesCollection>(result__)
+    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<ISideShowCapabilitiesCollection> {
+        let mut result__: <ISideShowCapabilitiesCollection as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ISideShowCapabilitiesCollection>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for ISideShowContentManager {
+unsafe impl ::windows::core::Interface for ISideShowContentManager {
     type Vtable = ISideShowContentManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5d5b66b_eef9_41db_8d7e_e17c33ab10b0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5d5b66b_eef9_41db_8d7e_e17c33ab10b0);
 }
-impl ::core::convert::From<ISideShowContentManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISideShowContentManager> for ::windows::core::IUnknown {
     fn from(value: ISideShowContentManager) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISideShowContentManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISideShowContentManager> for ::windows::core::IUnknown {
     fn from(value: &ISideShowContentManager) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowContentManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowContentManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISideShowContentManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowContentManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowContentManager_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_picontent: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_contentid: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_pievents: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_ppcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_picontent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_contentid: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_pievents: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, out_ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISideShowEvents(pub ::windows::runtime::IUnknown);
+pub struct ISideShowEvents(pub ::windows::core::IUnknown);
 impl ISideShowEvents {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn ContentMissing(&self, in_contentid: u32) -> ::windows::runtime::Result<ISideShowContent> {
-        let mut result__: <ISideShowContent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_contentid), &mut result__).from_abi::<ISideShowContent>(result__)
+    pub unsafe fn ContentMissing(&self, in_contentid: u32) -> ::windows::core::Result<ISideShowContent> {
+        let mut result__: <ISideShowContent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_contentid), &mut result__).from_abi::<ISideShowContent>(result__)
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn ApplicationEvent<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowCapabilities>>(&self, in_picapabilities: Param0, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), in_picapabilities.into_param().abi(), ::core::mem::transmute(in_dweventid), ::core::mem::transmute(in_dweventsize), ::core::mem::transmute(in_pbeventdata)).ok()
+    pub unsafe fn ApplicationEvent<'a, Param0: ::windows::core::IntoParam<'a, ISideShowCapabilities>>(&self, in_picapabilities: Param0, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), in_picapabilities.into_param().abi(), ::core::mem::transmute(in_dweventid), ::core::mem::transmute(in_dweventsize), ::core::mem::transmute(in_pbeventdata)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn DeviceAdded<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowCapabilities>>(&self, in_pidevice: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), in_pidevice.into_param().abi()).ok()
+    pub unsafe fn DeviceAdded<'a, Param0: ::windows::core::IntoParam<'a, ISideShowCapabilities>>(&self, in_pidevice: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), in_pidevice.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn DeviceRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowCapabilities>>(&self, in_pidevice: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), in_pidevice.into_param().abi()).ok()
+    pub unsafe fn DeviceRemoved<'a, Param0: ::windows::core::IntoParam<'a, ISideShowCapabilities>>(&self, in_pidevice: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), in_pidevice.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISideShowEvents {
+unsafe impl ::windows::core::Interface for ISideShowEvents {
     type Vtable = ISideShowEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61feca4c_deb4_4a7e_8d75_51f1132d615b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61feca4c_deb4_4a7e_8d75_51f1132d615b);
 }
-impl ::core::convert::From<ISideShowEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISideShowEvents> for ::windows::core::IUnknown {
     fn from(value: ISideShowEvents) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISideShowEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISideShowEvents> for ::windows::core::IUnknown {
     fn from(value: &ISideShowEvents) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISideShowEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowEvents_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_contentid: u32, out_ppicontent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_picapabilities: ::windows::runtime::RawPtr, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_pidevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_pidevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_contentid: u32, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_picapabilities: ::windows::core::RawPtr, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_pidevice: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_pidevice: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISideShowKeyCollection(pub ::windows::runtime::IUnknown);
+pub struct ISideShowKeyCollection(pub ::windows::core::IUnknown);
 impl ISideShowKeyCollection {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
-    pub unsafe fn Add(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(key)).ok()
+    pub unsafe fn Add(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(key)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
-    pub unsafe fn GetAt(&self, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pkey)).ok()
+    pub unsafe fn GetAt(&self, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pkey)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelems)).ok()
+    pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelems)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn RemoveAt(&self, dwindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex)).ok()
+    pub unsafe fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISideShowKeyCollection {
+unsafe impl ::windows::core::Interface for ISideShowKeyCollection {
     type Vtable = ISideShowKeyCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x045473bc_a37b_4957_b144_68105411ed8e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x045473bc_a37b_4957_b144_68105411ed8e);
 }
-impl ::core::convert::From<ISideShowKeyCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISideShowKeyCollection> for ::windows::core::IUnknown {
     fn from(value: ISideShowKeyCollection) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISideShowKeyCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISideShowKeyCollection> for ::windows::core::IUnknown {
     fn from(value: &ISideShowKeyCollection) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowKeyCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowKeyCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISideShowKeyCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowKeyCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowKeyCollection_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcelems: *const u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcelems: *const u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwindex: u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISideShowNotification(pub ::windows::runtime::IUnknown);
+pub struct ISideShowNotification(pub ::windows::core::IUnknown);
 impl ISideShowNotification {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn NotificationId(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn NotificationId(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn SetNotificationId(&self, in_notificationid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_notificationid)).ok()
+    pub unsafe fn SetNotificationId(&self, in_notificationid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_notificationid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
-    pub unsafe fn Title(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
-    pub unsafe fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, in_pwsztitle: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), in_pwsztitle.into_param().abi()).ok()
+    pub unsafe fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, in_pwsztitle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), in_pwsztitle.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
-    pub unsafe fn Message(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn Message(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
-    pub unsafe fn SetMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, in_pwszmessage: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), in_pwszmessage.into_param().abi()).ok()
+    pub unsafe fn SetMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, in_pwszmessage: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), in_pwszmessage.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_WindowsAndMessaging`*"]
-    pub unsafe fn Image(&self) -> ::windows::runtime::Result<super::super::UI::WindowsAndMessaging::HICON> {
-        let mut result__: <super::super::UI::WindowsAndMessaging::HICON as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::UI::WindowsAndMessaging::HICON>(result__)
+    pub unsafe fn Image(&self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HICON> {
+        let mut result__: <super::super::UI::WindowsAndMessaging::HICON as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::UI::WindowsAndMessaging::HICON>(result__)
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_WindowsAndMessaging`*"]
-    pub unsafe fn SetImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>>(&self, in_hicon: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), in_hicon.into_param().abi()).ok()
+    pub unsafe fn SetImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>>(&self, in_hicon: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), in_hicon.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
-    pub unsafe fn ExpirationTime(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+    pub unsafe fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
+        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
-    pub unsafe fn SetExpirationTime(&self, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_ptime)).ok()
+    pub unsafe fn SetExpirationTime(&self, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_ptime)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISideShowNotification {
+unsafe impl ::windows::core::Interface for ISideShowNotification {
     type Vtable = ISideShowNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03c93300_8ab2_41c5_9b79_46127a30e148);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03c93300_8ab2_41c5_9b79_46127a30e148);
 }
-impl ::core::convert::From<ISideShowNotification> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISideShowNotification> for ::windows::core::IUnknown {
     fn from(value: ISideShowNotification) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISideShowNotification> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISideShowNotification> for ::windows::core::IUnknown {
     fn from(value: &ISideShowNotification) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowNotification {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISideShowNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowNotification {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowNotification_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_pnotificationid: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_notificationid: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_ppwsztitle: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, out_pnotificationid: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_notificationid: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, out_ppwsztitle: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_pwsztitle: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_pwsztitle: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_ppwszmessage: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, out_ppwszmessage: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_pwszmessage: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_pwszmessage: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_phicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, out_phicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))] usize,
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_hicon: super::super::UI::WindowsAndMessaging::HICON) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_hicon: super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, out_ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISideShowNotificationManager(pub ::windows::runtime::IUnknown);
+pub struct ISideShowNotificationManager(pub ::windows::core::IUnknown);
 impl ISideShowNotificationManager {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowNotification>>(&self, in_pinotification: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), in_pinotification.into_param().abi()).ok()
+    pub unsafe fn Show<'a, Param0: ::windows::core::IntoParam<'a, ISideShowNotification>>(&self, in_pinotification: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), in_pinotification.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn Revoke(&self, in_notificationid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_notificationid)).ok()
+    pub unsafe fn Revoke(&self, in_notificationid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_notificationid)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn RevokeAll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn RevokeAll(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISideShowNotificationManager {
+unsafe impl ::windows::core::Interface for ISideShowNotificationManager {
     type Vtable = ISideShowNotificationManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x63cea909_f2b9_4302_b5e1_c68e6d9ab833);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63cea909_f2b9_4302_b5e1_c68e6d9ab833);
 }
-impl ::core::convert::From<ISideShowNotificationManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISideShowNotificationManager> for ::windows::core::IUnknown {
     fn from(value: ISideShowNotificationManager) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISideShowNotificationManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISideShowNotificationManager> for ::windows::core::IUnknown {
     fn from(value: &ISideShowNotificationManager) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowNotificationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowNotificationManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISideShowNotificationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowNotificationManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowNotificationManager_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_pinotification: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_notificationid: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_pinotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_notificationid: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISideShowPropVariantCollection(pub ::windows::runtime::IUnknown);
+pub struct ISideShowPropVariantCollection(pub ::windows::core::IUnknown);
 impl ISideShowPropVariantCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
-    pub unsafe fn Add(&self, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvalue)).ok()
+    pub unsafe fn Add(&self, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
-    pub unsafe fn GetAt(&self, dwindex: u32, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pvalue)).ok()
+    pub unsafe fn GetAt(&self, dwindex: u32, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelems)).ok()
+    pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcelems)).ok()
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn RemoveAt(&self, dwindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex)).ok()
+    pub unsafe fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISideShowPropVariantCollection {
+unsafe impl ::windows::core::Interface for ISideShowPropVariantCollection {
     type Vtable = ISideShowPropVariantCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ea7a549_7bff_4aae_bab0_22d43111de49);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ea7a549_7bff_4aae_bab0_22d43111de49);
 }
-impl ::core::convert::From<ISideShowPropVariantCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISideShowPropVariantCollection> for ::windows::core::IUnknown {
     fn from(value: ISideShowPropVariantCollection) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISideShowPropVariantCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISideShowPropVariantCollection> for ::windows::core::IUnknown {
     fn from(value: &ISideShowPropVariantCollection) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowPropVariantCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowPropVariantCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISideShowPropVariantCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowPropVariantCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowPropVariantCollection_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvalue: *const ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvalue: *const ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pvalue: *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwindex: u32, pvalue: *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcelems: *const u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcelems: *const u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwindex: u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISideShowSession(pub ::windows::runtime::IUnknown);
+pub struct ISideShowSession(pub ::windows::core::IUnknown);
 impl ISideShowSession {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn RegisterContent(&self, in_applicationid: *const ::windows::runtime::GUID, in_endpointid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ISideShowContentManager> {
-        let mut result__: <ISideShowContentManager as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_applicationid), ::core::mem::transmute(in_endpointid), &mut result__).from_abi::<ISideShowContentManager>(result__)
+    pub unsafe fn RegisterContent(&self, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowContentManager> {
+        let mut result__: <ISideShowContentManager as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_applicationid), ::core::mem::transmute(in_endpointid), &mut result__).from_abi::<ISideShowContentManager>(result__)
     }
     #[doc = "*Required features: `Win32_System_SideShow`*"]
-    pub unsafe fn RegisterNotifications(&self, in_applicationid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ISideShowNotificationManager> {
-        let mut result__: <ISideShowNotificationManager as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_applicationid), &mut result__).from_abi::<ISideShowNotificationManager>(result__)
+    pub unsafe fn RegisterNotifications(&self, in_applicationid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowNotificationManager> {
+        let mut result__: <ISideShowNotificationManager as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_applicationid), &mut result__).from_abi::<ISideShowNotificationManager>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for ISideShowSession {
+unsafe impl ::windows::core::Interface for ISideShowSession {
     type Vtable = ISideShowSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe22331ee_9e7d_4922_9fc2_ab7aa41ce491);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe22331ee_9e7d_4922_9fc2_ab7aa41ce491);
 }
-impl ::core::convert::From<ISideShowSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISideShowSession> for ::windows::core::IUnknown {
     fn from(value: ISideShowSession) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISideShowSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISideShowSession> for ::windows::core::IUnknown {
     fn from(value: &ISideShowSession) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISideShowSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowSession_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_applicationid: *const ::windows::runtime::GUID, in_endpointid: *const ::windows::runtime::GUID, out_ppicontent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_applicationid: *const ::windows::runtime::GUID, out_ppinotification: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, in_applicationid: *const ::windows::core::GUID, out_ppinotification: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -799,7 +799,7 @@ impl ::core::cmp::PartialEq for NEW_EVENT_DATA_AVAILABLE {
     }
 }
 impl ::core::cmp::Eq for NEW_EVENT_DATA_AVAILABLE {}
-unsafe impl ::windows::runtime::Abi for NEW_EVENT_DATA_AVAILABLE {
+unsafe impl ::windows::core::Abi for NEW_EVENT_DATA_AVAILABLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -823,7 +823,7 @@ impl ::core::convert::From<i32> for SCF_BUTTON_IDS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCF_BUTTON_IDS {
+unsafe impl ::windows::core::Abi for SCF_BUTTON_IDS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -853,7 +853,7 @@ impl ::core::cmp::PartialEq for SCF_CONTEXTMENU_EVENT {
     }
 }
 impl ::core::cmp::Eq for SCF_CONTEXTMENU_EVENT {}
-unsafe impl ::windows::runtime::Abi for SCF_CONTEXTMENU_EVENT {
+unsafe impl ::windows::core::Abi for SCF_CONTEXTMENU_EVENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -880,7 +880,7 @@ impl ::core::cmp::PartialEq for SCF_EVENT_HEADER {
     }
 }
 impl ::core::cmp::Eq for SCF_EVENT_HEADER {}
-unsafe impl ::windows::runtime::Abi for SCF_EVENT_HEADER {
+unsafe impl ::windows::core::Abi for SCF_EVENT_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -895,7 +895,7 @@ impl ::core::convert::From<i32> for SCF_EVENT_IDS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCF_EVENT_IDS {
+unsafe impl ::windows::core::Abi for SCF_EVENT_IDS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -924,7 +924,7 @@ impl ::core::cmp::PartialEq for SCF_MENUACTION_EVENT {
     }
 }
 impl ::core::cmp::Eq for SCF_MENUACTION_EVENT {}
-unsafe impl ::windows::runtime::Abi for SCF_MENUACTION_EVENT {
+unsafe impl ::windows::core::Abi for SCF_MENUACTION_EVENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -952,87 +952,60 @@ impl ::core::cmp::PartialEq for SCF_NAVIGATION_EVENT {
     }
 }
 impl ::core::cmp::Eq for SCF_NAVIGATION_EVENT {}
-unsafe impl ::windows::runtime::Abi for SCF_NAVIGATION_EVENT {
+unsafe impl ::windows::core::Abi for SCF_NAVIGATION_EVENT {
     type Abi = Self;
 }
-pub const SIDESHOW_APPLICATION_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cb572fa_1d3b_49b3_a17a_2e6bff052854);
+pub const SIDESHOW_APPLICATION_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb572fa_1d3b_49b3_a17a_2e6bff052854);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
+    fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
+    fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const SIDESHOW_CAPABILITY_COLOR_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
-    pid: 5u32,
-};
+pub const SIDESHOW_CAPABILITY_COLOR_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 5u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const SIDESHOW_CAPABILITY_COLOR_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
-    pid: 6u32,
-};
+pub const SIDESHOW_CAPABILITY_COLOR_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 6u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const SIDESHOW_CAPABILITY_CURRENT_LANGUAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
-    pid: 9u32,
-};
+pub const SIDESHOW_CAPABILITY_CURRENT_LANGUAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 9u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const SIDESHOW_CAPABILITY_DATA_CACHE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
-    pid: 7u32,
-};
+pub const SIDESHOW_CAPABILITY_DATA_CACHE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 7u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const SIDESHOW_CAPABILITY_DEVICE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
-    pid: 1u32,
-};
-pub const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99);
+pub const SIDESHOW_CAPABILITY_DEVICE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 1u32 };
+pub const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const SIDESHOW_CAPABILITY_SCREEN_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
-    pid: 4u32,
-};
+pub const SIDESHOW_CAPABILITY_SCREEN_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 4u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const SIDESHOW_CAPABILITY_SCREEN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
-    pid: 2u32,
-};
+pub const SIDESHOW_CAPABILITY_SCREEN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const SIDESHOW_CAPABILITY_SCREEN_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
-    pid: 3u32,
-};
+pub const SIDESHOW_CAPABILITY_SCREEN_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 3u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_IMAGE_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
+    fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
-    pid: 8u32,
-};
+pub const SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 8u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_THEMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
+    fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99),
     pid: 10u32,
 };
 #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -1047,17 +1020,17 @@ impl ::core::convert::From<i32> for SIDESHOW_COLOR_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SIDESHOW_COLOR_TYPE {
+unsafe impl ::windows::core::Abi for SIDESHOW_COLOR_TYPE {
     type Abi = Self;
 }
-pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5007fba8_d313_439f_bea2_a50201d3e9a8);
-pub const SIDESHOW_ENDPOINT_ICAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4dff36b5_9dde_4f76_9a2a_96435047063d);
-pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9a5353f_2d4b_47ce_93ee_759f3a7dda4f);
+pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5007fba8_d313_439f_bea2_a50201d3e9a8);
+pub const SIDESHOW_ENDPOINT_ICAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dff36b5_9dde_4f76_9a2a_96435047063d);
+pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9a5353f_2d4b_47ce_93ee_759f3a7dda4f);
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760u32;
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
-pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57813854_2fc1_411c_a59f_f24927608804);
+pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57813854_2fc1_411c_a59f_f24927608804);
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1069,13 +1042,13 @@ impl ::core::convert::From<i32> for SIDESHOW_SCREEN_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SIDESHOW_SCREEN_TYPE {
+unsafe impl ::windows::core::Abi for SIDESHOW_SCREEN_TYPE {
     type Abi = Self;
 }
-pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5009673c_3f7d_4c7e_9971_eaa2e91f1575);
-pub const SideShowKeyCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfbbdbf8_18de_49b8_83dc_ebc727c62d94);
-pub const SideShowNotification: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0ce3e86f_d5cd_4525_a766_1abab1a752f5);
-pub const SideShowPropVariantCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe640f415_539e_4923_96cd_5f093bc250cd);
-pub const SideShowSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe20543b9_f785_4ea2_981e_c4ffa76bbc7c);
+pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5009673c_3f7d_4c7e_9971_eaa2e91f1575);
+pub const SideShowKeyCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfbbdbf8_18de_49b8_83dc_ebc727c62d94);
+pub const SideShowNotification: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ce3e86f_d5cd_4525_a766_1abab1a752f5);
+pub const SideShowPropVariantCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe640f415_539e_4923_96cd_5f093bc250cd);
+pub const SideShowSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe20543b9_f785_4ea2_981e_c4ffa76bbc7c);
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const VERSION_1_WINDOWS_7: u32 = 0u32;

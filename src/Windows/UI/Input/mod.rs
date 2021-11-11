@@ -10,89 +10,89 @@ pub mod Spatial;
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct AttachableInputObject(pub ::windows::runtime::IInspectable);
+pub struct AttachableInputObject(pub ::windows::core::IInspectable);
 impl AttachableInputObject {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Close(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for AttachableInputObject {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.AttachableInputObject;{9b822734-a3c1-542a-b2f4-0e32b773fb07})");
+unsafe impl ::windows::core::RuntimeType for AttachableInputObject {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.AttachableInputObject;{9b822734-a3c1-542a-b2f4-0e32b773fb07})");
 }
-unsafe impl ::windows::runtime::Interface for AttachableInputObject {
+unsafe impl ::windows::core::Interface for AttachableInputObject {
     type Vtable = IAttachableInputObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
 }
-impl ::windows::runtime::RuntimeName for AttachableInputObject {
+impl ::windows::core::RuntimeName for AttachableInputObject {
     const NAME: &'static str = "Windows.UI.Input.AttachableInputObject";
 }
-impl ::core::convert::From<AttachableInputObject> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AttachableInputObject> for ::windows::core::IUnknown {
     fn from(value: AttachableInputObject) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&AttachableInputObject> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AttachableInputObject> for ::windows::core::IUnknown {
     fn from(value: &AttachableInputObject) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AttachableInputObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AttachableInputObject {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AttachableInputObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AttachableInputObject {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<AttachableInputObject> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AttachableInputObject> for ::windows::core::IInspectable {
     fn from(value: AttachableInputObject) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&AttachableInputObject> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AttachableInputObject> for ::windows::core::IInspectable {
     fn from(value: &AttachableInputObject) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AttachableInputObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AttachableInputObject {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AttachableInputObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AttachableInputObject {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AttachableInputObject> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: AttachableInputObject) -> ::windows::runtime::Result<Self> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AttachableInputObject) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&AttachableInputObject> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: &AttachableInputObject) -> ::windows::runtime::Result<Self> {
-        ::windows::runtime::Interface::cast(value)
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AttachableInputObject) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for AttachableInputObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::runtime::IntoParam::into_param(&self)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for AttachableInputObject {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &AttachableInputObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &AttachableInputObject {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 unsafe impl ::core::marker::Send for AttachableInputObject {}
@@ -123,103 +123,103 @@ impl ::core::cmp::PartialEq for CrossSlideThresholds {
     }
 }
 impl ::core::cmp::Eq for CrossSlideThresholds {}
-unsafe impl ::windows::runtime::Abi for CrossSlideThresholds {
+unsafe impl ::windows::core::Abi for CrossSlideThresholds {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for CrossSlideThresholds {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Input.CrossSlideThresholds;f4;f4;f4;f4)");
+unsafe impl ::windows::core::RuntimeType for CrossSlideThresholds {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.CrossSlideThresholds;f4;f4;f4;f4)");
 }
-impl ::windows::runtime::DefaultType for CrossSlideThresholds {
+impl ::windows::core::DefaultType for CrossSlideThresholds {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct CrossSlidingEventArgs(pub ::windows::runtime::IInspectable);
+pub struct CrossSlidingEventArgs(pub ::windows::core::IInspectable);
 impl CrossSlidingEventArgs {
     #[cfg(feature = "Devices_Input")]
     #[doc = "*Required features: `UI_Input`, `Devices_Input`*"]
-    pub fn PointerDeviceType(&self) -> ::windows::runtime::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CrossSlidingState(&self) -> ::windows::runtime::Result<CrossSlidingState> {
+    pub fn CrossSlidingState(&self) -> ::windows::core::Result<CrossSlidingState> {
         let this = self;
         unsafe {
             let mut result__: CrossSlidingState = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CrossSlidingState>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CrossSlidingState>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<ICrossSlidingEventArgs2>(self)?;
+    pub fn ContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<ICrossSlidingEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for CrossSlidingEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.CrossSlidingEventArgs;{e9374738-6f88-41d9-8720-78e08e398349})");
+unsafe impl ::windows::core::RuntimeType for CrossSlidingEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.CrossSlidingEventArgs;{e9374738-6f88-41d9-8720-78e08e398349})");
 }
-unsafe impl ::windows::runtime::Interface for CrossSlidingEventArgs {
+unsafe impl ::windows::core::Interface for CrossSlidingEventArgs {
     type Vtable = ICrossSlidingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9374738_6f88_41d9_8720_78e08e398349);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9374738_6f88_41d9_8720_78e08e398349);
 }
-impl ::windows::runtime::RuntimeName for CrossSlidingEventArgs {
+impl ::windows::core::RuntimeName for CrossSlidingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.CrossSlidingEventArgs";
 }
-impl ::core::convert::From<CrossSlidingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CrossSlidingEventArgs> for ::windows::core::IUnknown {
     fn from(value: CrossSlidingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&CrossSlidingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CrossSlidingEventArgs> for ::windows::core::IUnknown {
     fn from(value: &CrossSlidingEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CrossSlidingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CrossSlidingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CrossSlidingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CrossSlidingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<CrossSlidingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CrossSlidingEventArgs> for ::windows::core::IInspectable {
     fn from(value: CrossSlidingEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&CrossSlidingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CrossSlidingEventArgs> for ::windows::core::IInspectable {
     fn from(value: &CrossSlidingEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CrossSlidingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CrossSlidingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CrossSlidingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CrossSlidingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
@@ -240,103 +240,103 @@ impl ::core::convert::From<i32> for CrossSlidingState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CrossSlidingState {
+unsafe impl ::windows::core::Abi for CrossSlidingState {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for CrossSlidingState {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.CrossSlidingState;i4)");
+unsafe impl ::windows::core::RuntimeType for CrossSlidingState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.CrossSlidingState;i4)");
 }
-impl ::windows::runtime::DefaultType for CrossSlidingState {
+impl ::windows::core::DefaultType for CrossSlidingState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DraggingEventArgs(pub ::windows::runtime::IInspectable);
+pub struct DraggingEventArgs(pub ::windows::core::IInspectable);
 impl DraggingEventArgs {
     #[cfg(feature = "Devices_Input")]
     #[doc = "*Required features: `UI_Input`, `Devices_Input`*"]
-    pub fn PointerDeviceType(&self) -> ::windows::runtime::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn DraggingState(&self) -> ::windows::runtime::Result<DraggingState> {
+    pub fn DraggingState(&self) -> ::windows::core::Result<DraggingState> {
         let this = self;
         unsafe {
             let mut result__: DraggingState = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DraggingState>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DraggingState>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IDraggingEventArgs2>(self)?;
+    pub fn ContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IDraggingEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for DraggingEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.DraggingEventArgs;{1c905384-083c-4bd3-b559-179cddeb33ec})");
+unsafe impl ::windows::core::RuntimeType for DraggingEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.DraggingEventArgs;{1c905384-083c-4bd3-b559-179cddeb33ec})");
 }
-unsafe impl ::windows::runtime::Interface for DraggingEventArgs {
+unsafe impl ::windows::core::Interface for DraggingEventArgs {
     type Vtable = IDraggingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c905384_083c_4bd3_b559_179cddeb33ec);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c905384_083c_4bd3_b559_179cddeb33ec);
 }
-impl ::windows::runtime::RuntimeName for DraggingEventArgs {
+impl ::windows::core::RuntimeName for DraggingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.DraggingEventArgs";
 }
-impl ::core::convert::From<DraggingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DraggingEventArgs> for ::windows::core::IUnknown {
     fn from(value: DraggingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&DraggingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DraggingEventArgs> for ::windows::core::IUnknown {
     fn from(value: &DraggingEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DraggingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DraggingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DraggingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DraggingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<DraggingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DraggingEventArgs> for ::windows::core::IInspectable {
     fn from(value: DraggingEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&DraggingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DraggingEventArgs> for ::windows::core::IInspectable {
     fn from(value: &DraggingEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DraggingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DraggingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DraggingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DraggingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
@@ -353,189 +353,189 @@ impl ::core::convert::From<i32> for DraggingState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DraggingState {
+unsafe impl ::windows::core::Abi for DraggingState {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DraggingState {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.DraggingState;i4)");
+unsafe impl ::windows::core::RuntimeType for DraggingState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.DraggingState;i4)");
 }
-impl ::windows::runtime::DefaultType for DraggingState {
+impl ::windows::core::DefaultType for DraggingState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct EdgeGesture(pub ::windows::runtime::IInspectable);
+pub struct EdgeGesture(pub ::windows::core::IInspectable);
 impl EdgeGesture {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Starting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Starting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Completed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Canceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Canceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn GetForCurrentView() -> ::windows::runtime::Result<EdgeGesture> {
+    pub fn GetForCurrentView() -> ::windows::core::Result<EdgeGesture> {
         Self::IEdgeGestureStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EdgeGesture>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EdgeGesture>(result__)
         })
     }
-    pub fn IEdgeGestureStatics<R, F: FnOnce(&IEdgeGestureStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<EdgeGesture, IEdgeGestureStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IEdgeGestureStatics<R, F: FnOnce(&IEdgeGestureStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<EdgeGesture, IEdgeGestureStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for EdgeGesture {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGesture;{580d5292-2ab1-49aa-a7f0-33bd3f8df9f1})");
+unsafe impl ::windows::core::RuntimeType for EdgeGesture {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGesture;{580d5292-2ab1-49aa-a7f0-33bd3f8df9f1})");
 }
-unsafe impl ::windows::runtime::Interface for EdgeGesture {
+unsafe impl ::windows::core::Interface for EdgeGesture {
     type Vtable = IEdgeGesture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1);
 }
-impl ::windows::runtime::RuntimeName for EdgeGesture {
+impl ::windows::core::RuntimeName for EdgeGesture {
     const NAME: &'static str = "Windows.UI.Input.EdgeGesture";
 }
-impl ::core::convert::From<EdgeGesture> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<EdgeGesture> for ::windows::core::IUnknown {
     fn from(value: EdgeGesture) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&EdgeGesture> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&EdgeGesture> for ::windows::core::IUnknown {
     fn from(value: &EdgeGesture) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EdgeGesture {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EdgeGesture {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EdgeGesture {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EdgeGesture {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<EdgeGesture> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<EdgeGesture> for ::windows::core::IInspectable {
     fn from(value: EdgeGesture) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&EdgeGesture> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&EdgeGesture> for ::windows::core::IInspectable {
     fn from(value: &EdgeGesture) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EdgeGesture {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EdgeGesture {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EdgeGesture {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EdgeGesture {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct EdgeGestureEventArgs(pub ::windows::runtime::IInspectable);
+pub struct EdgeGestureEventArgs(pub ::windows::core::IInspectable);
 impl EdgeGestureEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Kind(&self) -> ::windows::runtime::Result<EdgeGestureKind> {
+    pub fn Kind(&self) -> ::windows::core::Result<EdgeGestureKind> {
         let this = self;
         unsafe {
             let mut result__: EdgeGestureKind = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EdgeGestureKind>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EdgeGestureKind>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for EdgeGestureEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGestureEventArgs;{44fa4a24-2d09-42e1-8b5e-368208796a4c})");
+unsafe impl ::windows::core::RuntimeType for EdgeGestureEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGestureEventArgs;{44fa4a24-2d09-42e1-8b5e-368208796a4c})");
 }
-unsafe impl ::windows::runtime::Interface for EdgeGestureEventArgs {
+unsafe impl ::windows::core::Interface for EdgeGestureEventArgs {
     type Vtable = IEdgeGestureEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44fa4a24_2d09_42e1_8b5e_368208796a4c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44fa4a24_2d09_42e1_8b5e_368208796a4c);
 }
-impl ::windows::runtime::RuntimeName for EdgeGestureEventArgs {
+impl ::windows::core::RuntimeName for EdgeGestureEventArgs {
     const NAME: &'static str = "Windows.UI.Input.EdgeGestureEventArgs";
 }
-impl ::core::convert::From<EdgeGestureEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<EdgeGestureEventArgs> for ::windows::core::IUnknown {
     fn from(value: EdgeGestureEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&EdgeGestureEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&EdgeGestureEventArgs> for ::windows::core::IUnknown {
     fn from(value: &EdgeGestureEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EdgeGestureEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EdgeGestureEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EdgeGestureEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EdgeGestureEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<EdgeGestureEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<EdgeGestureEventArgs> for ::windows::core::IInspectable {
     fn from(value: EdgeGestureEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&EdgeGestureEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&EdgeGestureEventArgs> for ::windows::core::IInspectable {
     fn from(value: &EdgeGestureEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EdgeGestureEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EdgeGestureEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EdgeGestureEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EdgeGestureEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
@@ -552,13 +552,13 @@ impl ::core::convert::From<i32> for EdgeGestureKind {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EdgeGestureKind {
+unsafe impl ::windows::core::Abi for EdgeGestureKind {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for EdgeGestureKind {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.EdgeGestureKind;i4)");
+unsafe impl ::windows::core::RuntimeType for EdgeGestureKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.EdgeGestureKind;i4)");
 }
-impl ::windows::runtime::DefaultType for EdgeGestureKind {
+impl ::windows::core::DefaultType for EdgeGestureKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input`*"]
@@ -576,577 +576,577 @@ impl ::core::convert::From<i32> for GazeInputAccessStatus {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GazeInputAccessStatus {
+unsafe impl ::windows::core::Abi for GazeInputAccessStatus {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for GazeInputAccessStatus {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GazeInputAccessStatus;i4)");
+unsafe impl ::windows::core::RuntimeType for GazeInputAccessStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GazeInputAccessStatus;i4)");
 }
-impl ::windows::runtime::DefaultType for GazeInputAccessStatus {
+impl ::windows::core::DefaultType for GazeInputAccessStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct GestureRecognizer(pub ::windows::runtime::IInspectable);
+pub struct GestureRecognizer(pub ::windows::core::IInspectable);
 impl GestureRecognizer {
-    pub fn new() -> ::windows::runtime::Result<Self> {
+    pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<GestureRecognizer, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<GestureRecognizer, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn GestureSettings(&self) -> ::windows::runtime::Result<GestureSettings> {
+    pub fn GestureSettings(&self) -> ::windows::core::Result<GestureSettings> {
         let this = self;
         unsafe {
             let mut result__: GestureSettings = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GestureSettings>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GestureSettings>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetGestureSettings(&self, value: GestureSettings) -> ::windows::runtime::Result<()> {
+    pub fn SetGestureSettings(&self, value: GestureSettings) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsInertial(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsInertial(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsActive(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsActive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ShowGestureFeedback(&self) -> ::windows::runtime::Result<bool> {
+    pub fn ShowGestureFeedback(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetShowGestureFeedback(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetShowGestureFeedback(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn PivotCenter(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn PivotCenter(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn SetPivotCenter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetPivotCenter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn PivotRadius(&self) -> ::windows::runtime::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetPivotRadius(&self, value: f32) -> ::windows::runtime::Result<()> {
-        let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `UI_Input`*"]
-    pub fn InertiaTranslationDeceleration(&self) -> ::windows::runtime::Result<f32> {
+    pub fn PivotRadius(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetInertiaTranslationDeceleration(&self, value: f32) -> ::windows::runtime::Result<()> {
+    pub fn SetPivotRadius(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn InertiaRotationDeceleration(&self) -> ::windows::runtime::Result<f32> {
+    pub fn InertiaTranslationDeceleration(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetInertiaRotationDeceleration(&self, value: f32) -> ::windows::runtime::Result<()> {
+    pub fn SetInertiaTranslationDeceleration(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn InertiaExpansionDeceleration(&self) -> ::windows::runtime::Result<f32> {
+    pub fn InertiaRotationDeceleration(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetInertiaExpansionDeceleration(&self, value: f32) -> ::windows::runtime::Result<()> {
+    pub fn SetInertiaRotationDeceleration(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn InertiaTranslationDisplacement(&self) -> ::windows::runtime::Result<f32> {
+    pub fn InertiaExpansionDeceleration(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetInertiaTranslationDisplacement(&self, value: f32) -> ::windows::runtime::Result<()> {
+    pub fn SetInertiaExpansionDeceleration(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn InertiaRotationAngle(&self) -> ::windows::runtime::Result<f32> {
+    pub fn InertiaTranslationDisplacement(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetInertiaRotationAngle(&self, value: f32) -> ::windows::runtime::Result<()> {
+    pub fn SetInertiaTranslationDisplacement(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn InertiaExpansion(&self) -> ::windows::runtime::Result<f32> {
+    pub fn InertiaRotationAngle(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetInertiaExpansion(&self, value: f32) -> ::windows::runtime::Result<()> {
+    pub fn SetInertiaRotationAngle(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ManipulationExact(&self) -> ::windows::runtime::Result<bool> {
+    pub fn InertiaExpansion(&self) -> ::windows::core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+        }
+    }
+    #[doc = "*Required features: `UI_Input`*"]
+    pub fn SetInertiaExpansion(&self, value: f32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value).ok() }
+    }
+    #[doc = "*Required features: `UI_Input`*"]
+    pub fn ManipulationExact(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetManipulationExact(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetManipulationExact(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CrossSlideThresholds(&self) -> ::windows::runtime::Result<CrossSlideThresholds> {
+    pub fn CrossSlideThresholds(&self) -> ::windows::core::Result<CrossSlideThresholds> {
         let this = self;
         unsafe {
             let mut result__: CrossSlideThresholds = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CrossSlideThresholds>(result__)
+            (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CrossSlideThresholds>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetCrossSlideThresholds<'a, Param0: ::windows::runtime::IntoParam<'a, CrossSlideThresholds>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetCrossSlideThresholds<'a, Param0: ::windows::core::IntoParam<'a, CrossSlideThresholds>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CrossSlideHorizontally(&self) -> ::windows::runtime::Result<bool> {
+    pub fn CrossSlideHorizontally(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetCrossSlideHorizontally(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetCrossSlideHorizontally(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CrossSlideExact(&self) -> ::windows::runtime::Result<bool> {
+    pub fn CrossSlideExact(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetCrossSlideExact(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetCrossSlideExact(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).35)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn AutoProcessInertia(&self) -> ::windows::runtime::Result<bool> {
+    pub fn AutoProcessInertia(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).36)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetAutoProcessInertia(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetAutoProcessInertia(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).37)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn MouseWheelParameters(&self) -> ::windows::runtime::Result<MouseWheelParameters> {
+    pub fn MouseWheelParameters(&self) -> ::windows::core::Result<MouseWheelParameters> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).38)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MouseWheelParameters>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MouseWheelParameters>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CanBeDoubleTap<'a, Param0: ::windows::runtime::IntoParam<'a, PointerPoint>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
+    pub fn CanBeDoubleTap<'a, Param0: ::windows::core::IntoParam<'a, PointerPoint>>(&self, value: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).39)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ProcessDownEvent<'a, Param0: ::windows::runtime::IntoParam<'a, PointerPoint>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn ProcessDownEvent<'a, Param0: ::windows::core::IntoParam<'a, PointerPoint>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).40)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).40)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Input`, `Foundation_Collections`*"]
-    pub fn ProcessMoveEvents<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVector<PointerPoint>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn ProcessMoveEvents<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<PointerPoint>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).41)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).41)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ProcessUpEvent<'a, Param0: ::windows::runtime::IntoParam<'a, PointerPoint>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn ProcessUpEvent<'a, Param0: ::windows::core::IntoParam<'a, PointerPoint>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).42)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).42)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ProcessMouseWheelEvent<'a, Param0: ::windows::runtime::IntoParam<'a, PointerPoint>>(&self, value: Param0, isshiftkeydown: bool, iscontrolkeydown: bool) -> ::windows::runtime::Result<()> {
+    pub fn ProcessMouseWheelEvent<'a, Param0: ::windows::core::IntoParam<'a, PointerPoint>>(&self, value: Param0, isshiftkeydown: bool, iscontrolkeydown: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).43)(::core::mem::transmute_copy(this), value.into_param().abi(), isshiftkeydown, iscontrolkeydown).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).43)(::core::mem::transmute_copy(this), value.into_param().abi(), isshiftkeydown, iscontrolkeydown).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ProcessInertia(&self) -> ::windows::runtime::Result<()> {
+    pub fn ProcessInertia(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).44)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).44)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CompleteGesture(&self) -> ::windows::runtime::Result<()> {
+    pub fn CompleteGesture(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).45)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).45)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Tapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, TappedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Tapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, TappedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).46)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).46)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).47)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).47)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RightTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, RightTappedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RightTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, RightTappedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).48)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).48)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveRightTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveRightTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).49)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).49)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Holding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, HoldingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Holding<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, HoldingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).50)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).50)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveHolding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveHolding<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).51)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).51)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Dragging<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, DraggingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Dragging<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, DraggingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).52)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).52)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveDragging<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveDragging<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).53)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).53)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ManipulationStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationStartedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationStartedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).54)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).54)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveManipulationStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveManipulationStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).55)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).55)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ManipulationUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).56)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).56)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveManipulationUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveManipulationUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).57)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).57)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ManipulationInertiaStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationInertiaStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationInertiaStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationInertiaStartingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).58)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).58)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveManipulationInertiaStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveManipulationInertiaStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).59)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).59)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ManipulationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).60)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).60)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveManipulationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveManipulationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).61)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).61)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn CrossSliding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, CrossSlidingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CrossSliding<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, CrossSlidingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).62)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).62)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveCrossSliding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveCrossSliding<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).63)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).63)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn TapMinContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
+    pub fn TapMinContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetTapMinContactCount(&self, value: u32) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
+    pub fn SetTapMinContactCount(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn TapMaxContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
+    pub fn TapMaxContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetTapMaxContactCount(&self, value: u32) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
+    pub fn SetTapMaxContactCount(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn HoldMinContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
+    pub fn HoldMinContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetHoldMinContactCount(&self, value: u32) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
+    pub fn SetHoldMinContactCount(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn HoldMaxContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
+    pub fn HoldMaxContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetHoldMaxContactCount(&self, value: u32) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
+    pub fn SetHoldMaxContactCount(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn HoldRadius(&self) -> ::windows::runtime::Result<f32> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
+    pub fn HoldRadius(&self) -> ::windows::core::Result<f32> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetHoldRadius(&self, value: f32) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
+    pub fn SetHoldRadius(&self, value: f32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn HoldStartDelay(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
+    pub fn HoldStartDelay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn SetHoldStartDelay<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+    pub fn SetHoldStartDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn TranslationMinContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
+    pub fn TranslationMinContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetTranslationMinContactCount(&self, value: u32) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
+    pub fn SetTranslationMinContactCount(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn TranslationMaxContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
+    pub fn TranslationMaxContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetTranslationMaxContactCount(&self, value: u32) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IGestureRecognizer2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value).ok() }
+    pub fn SetTranslationMaxContactCount(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IGestureRecognizer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for GestureRecognizer {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.GestureRecognizer;{b47a37bf-3d6b-4f88-83e8-6dcb4012ffb0})");
+unsafe impl ::windows::core::RuntimeType for GestureRecognizer {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.GestureRecognizer;{b47a37bf-3d6b-4f88-83e8-6dcb4012ffb0})");
 }
-unsafe impl ::windows::runtime::Interface for GestureRecognizer {
+unsafe impl ::windows::core::Interface for GestureRecognizer {
     type Vtable = IGestureRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
 }
-impl ::windows::runtime::RuntimeName for GestureRecognizer {
+impl ::windows::core::RuntimeName for GestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.GestureRecognizer";
 }
-impl ::core::convert::From<GestureRecognizer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GestureRecognizer> for ::windows::core::IUnknown {
     fn from(value: GestureRecognizer) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&GestureRecognizer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GestureRecognizer> for ::windows::core::IUnknown {
     fn from(value: &GestureRecognizer) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GestureRecognizer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GestureRecognizer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GestureRecognizer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GestureRecognizer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<GestureRecognizer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GestureRecognizer> for ::windows::core::IInspectable {
     fn from(value: GestureRecognizer) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&GestureRecognizer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GestureRecognizer> for ::windows::core::IInspectable {
     fn from(value: &GestureRecognizer) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GestureRecognizer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GestureRecognizer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GestureRecognizer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GestureRecognizer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
@@ -1178,13 +1178,13 @@ impl ::core::convert::From<u32> for GestureSettings {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GestureSettings {
+unsafe impl ::windows::core::Abi for GestureSettings {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for GestureSettings {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GestureSettings;u4)");
+unsafe impl ::windows::core::RuntimeType for GestureSettings {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GestureSettings;u4)");
 }
-impl ::windows::runtime::DefaultType for GestureSettings {
+impl ::windows::core::DefaultType for GestureSettings {
     type DefaultType = Self;
 }
 impl ::core::ops::BitOr for GestureSettings {
@@ -1218,99 +1218,99 @@ impl ::core::ops::Not for GestureSettings {
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct HoldingEventArgs(pub ::windows::runtime::IInspectable);
+pub struct HoldingEventArgs(pub ::windows::core::IInspectable);
 impl HoldingEventArgs {
     #[cfg(feature = "Devices_Input")]
     #[doc = "*Required features: `UI_Input`, `Devices_Input`*"]
-    pub fn PointerDeviceType(&self) -> ::windows::runtime::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn HoldingState(&self) -> ::windows::runtime::Result<HoldingState> {
+    pub fn HoldingState(&self) -> ::windows::core::Result<HoldingState> {
         let this = self;
         unsafe {
             let mut result__: HoldingState = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HoldingState>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HoldingState>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IHoldingEventArgs2>(self)?;
+    pub fn ContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IHoldingEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CurrentContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IHoldingEventArgs2>(self)?;
+    pub fn CurrentContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IHoldingEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for HoldingEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.HoldingEventArgs;{2bf755c5-e799-41b4-bb40-242f40959b71})");
+unsafe impl ::windows::core::RuntimeType for HoldingEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.HoldingEventArgs;{2bf755c5-e799-41b4-bb40-242f40959b71})");
 }
-unsafe impl ::windows::runtime::Interface for HoldingEventArgs {
+unsafe impl ::windows::core::Interface for HoldingEventArgs {
     type Vtable = IHoldingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bf755c5_e799_41b4_bb40_242f40959b71);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bf755c5_e799_41b4_bb40_242f40959b71);
 }
-impl ::windows::runtime::RuntimeName for HoldingEventArgs {
+impl ::windows::core::RuntimeName for HoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.HoldingEventArgs";
 }
-impl ::core::convert::From<HoldingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HoldingEventArgs> for ::windows::core::IUnknown {
     fn from(value: HoldingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&HoldingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HoldingEventArgs> for ::windows::core::IUnknown {
     fn from(value: &HoldingEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HoldingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HoldingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HoldingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HoldingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<HoldingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HoldingEventArgs> for ::windows::core::IInspectable {
     fn from(value: HoldingEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&HoldingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HoldingEventArgs> for ::windows::core::IInspectable {
     fn from(value: &HoldingEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HoldingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HoldingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HoldingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HoldingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
@@ -1327,1762 +1327,1762 @@ impl ::core::convert::From<i32> for HoldingState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HoldingState {
+unsafe impl ::windows::core::Abi for HoldingState {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for HoldingState {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.HoldingState;i4)");
+unsafe impl ::windows::core::RuntimeType for HoldingState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.HoldingState;i4)");
 }
-impl ::windows::runtime::DefaultType for HoldingState {
+impl ::windows::core::DefaultType for HoldingState {
     type DefaultType = Self;
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAttachableInputObject(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IAttachableInputObject {
+pub struct IAttachableInputObject(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IAttachableInputObject {
     type Vtable = IAttachableInputObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAttachableInputObject_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAttachableInputObjectFactory(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IAttachableInputObjectFactory {
+pub struct IAttachableInputObjectFactory(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IAttachableInputObjectFactory {
     type Vtable = IAttachableInputObjectFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4c54c4e_42bc_58fa_a640_ea1516f4c06b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c54c4e_42bc_58fa_a640_ea1516f4c06b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAttachableInputObjectFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICrossSlidingEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ICrossSlidingEventArgs {
+pub struct ICrossSlidingEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ICrossSlidingEventArgs {
     type Vtable = ICrossSlidingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe9374738_6f88_41d9_8720_78e08e398349);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9374738_6f88_41d9_8720_78e08e398349);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICrossSlidingEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CrossSlidingState) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut CrossSlidingState) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICrossSlidingEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ICrossSlidingEventArgs2 {
+pub struct ICrossSlidingEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ICrossSlidingEventArgs2 {
     type Vtable = ICrossSlidingEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeefb7d48_c070_59f3_8dab_bcaf621d8687);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeefb7d48_c070_59f3_8dab_bcaf621d8687);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICrossSlidingEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDraggingEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IDraggingEventArgs {
+pub struct IDraggingEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IDraggingEventArgs {
     type Vtable = IDraggingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c905384_083c_4bd3_b559_179cddeb33ec);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c905384_083c_4bd3_b559_179cddeb33ec);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDraggingEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DraggingState) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut DraggingState) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDraggingEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IDraggingEventArgs2 {
+pub struct IDraggingEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IDraggingEventArgs2 {
     type Vtable = IDraggingEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71efdbf9_382a_55ca_b4b9_008123c1bf1a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71efdbf9_382a_55ca_b4b9_008123c1bf1a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDraggingEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEdgeGesture(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IEdgeGesture {
+pub struct IEdgeGesture(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IEdgeGesture {
     type Vtable = IEdgeGesture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEdgeGesture_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEdgeGestureEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IEdgeGestureEventArgs {
+pub struct IEdgeGestureEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IEdgeGestureEventArgs {
     type Vtable = IEdgeGestureEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44fa4a24_2d09_42e1_8b5e_368208796a4c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44fa4a24_2d09_42e1_8b5e_368208796a4c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEdgeGestureEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut EdgeGestureKind) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut EdgeGestureKind) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEdgeGestureStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IEdgeGestureStatics {
+pub struct IEdgeGestureStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IEdgeGestureStatics {
     type Vtable = IEdgeGestureStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc6a8519_18ee_4043_9839_4fc584d60a14);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc6a8519_18ee_4043_9839_4fc584d60a14);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEdgeGestureStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGestureRecognizer(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IGestureRecognizer {
+pub struct IGestureRecognizer(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IGestureRecognizer {
     type Vtable = IGestureRecognizer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGestureRecognizer_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut GestureSettings) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: GestureSettings) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut GestureSettings) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: GestureSettings) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CrossSlideThresholds) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: CrossSlideThresholds) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut CrossSlideThresholds) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: CrossSlideThresholds) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr, isshiftkeydown: bool, iscontrolkeydown: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr, isshiftkeydown: bool, iscontrolkeydown: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGestureRecognizer2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IGestureRecognizer2 {
+pub struct IGestureRecognizer2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IGestureRecognizer2 {
     type Vtable = IGestureRecognizer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd646097f_6ef7_5746_8ba8_8ff2206e6f3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd646097f_6ef7_5746_8ba8_8ff2206e6f3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGestureRecognizer2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHoldingEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IHoldingEventArgs {
+pub struct IHoldingEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IHoldingEventArgs {
     type Vtable = IHoldingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bf755c5_e799_41b4_bb40_242f40959b71);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bf755c5_e799_41b4_bb40_242f40959b71);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHoldingEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut HoldingState) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut HoldingState) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHoldingEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IHoldingEventArgs2 {
+pub struct IHoldingEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IHoldingEventArgs2 {
     type Vtable = IHoldingEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x141da9ea_4c79_5674_afea_493fdeb91f19);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x141da9ea_4c79_5674_afea_493fdeb91f19);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHoldingEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInputActivationListener(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IInputActivationListener {
+pub struct IInputActivationListener(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IInputActivationListener {
     type Vtable = IInputActivationListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputActivationListener_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut InputActivationState) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut InputActivationState) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInputActivationListenerActivationChangedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IInputActivationListenerActivationChangedEventArgs {
+pub struct IInputActivationListenerActivationChangedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IInputActivationListenerActivationChangedEventArgs {
     type Vtable = IInputActivationListenerActivationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7699b465_1dcf_5791_b4b9_6cafbeed2056);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7699b465_1dcf_5791_b4b9_6cafbeed2056);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputActivationListenerActivationChangedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut InputActivationState) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut InputActivationState) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKeyboardDeliveryInterceptor(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IKeyboardDeliveryInterceptor {
+pub struct IKeyboardDeliveryInterceptor(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IKeyboardDeliveryInterceptor {
     type Vtable = IKeyboardDeliveryInterceptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4baf068_8f49_446c_8db5_8c0ffe85cc9e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4baf068_8f49_446c_8db5_8c0ffe85cc9e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyboardDeliveryInterceptor_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "UI_Core"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "UI_Core"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_Core"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "UI_Core"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKeyboardDeliveryInterceptorStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IKeyboardDeliveryInterceptorStatics {
+pub struct IKeyboardDeliveryInterceptorStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IKeyboardDeliveryInterceptorStatics {
     type Vtable = IKeyboardDeliveryInterceptorStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9f63ba2_ceba_4755_8a7e_14c0ffecd239);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9f63ba2_ceba_4755_8a7e_14c0ffecd239);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyboardDeliveryInterceptorStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IManipulationCompletedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IManipulationCompletedEventArgs {
+pub struct IManipulationCompletedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IManipulationCompletedEventArgs {
     type Vtable = IManipulationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb34ab22b_d19b_46ff_9f38_dec7754bb9e7);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb34ab22b_d19b_46ff_9f38_dec7754bb9e7);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationCompletedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ManipulationDelta) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ManipulationVelocities) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ManipulationVelocities) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IManipulationCompletedEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IManipulationCompletedEventArgs2 {
+pub struct IManipulationCompletedEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IManipulationCompletedEventArgs2 {
     type Vtable = IManipulationCompletedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf0c0dce7_30a9_5b96_886f_6560a85e4757);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0c0dce7_30a9_5b96_886f_6560a85e4757);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationCompletedEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IManipulationInertiaStartingEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IManipulationInertiaStartingEventArgs {
+pub struct IManipulationInertiaStartingEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IManipulationInertiaStartingEventArgs {
     type Vtable = IManipulationInertiaStartingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd37a898_26bf_467a_9ce5_ccf3fb11371e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd37a898_26bf_467a_9ce5_ccf3fb11371e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationInertiaStartingEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ManipulationDelta) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ManipulationDelta) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ManipulationVelocities) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ManipulationVelocities) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IManipulationInertiaStartingEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IManipulationInertiaStartingEventArgs2 {
+pub struct IManipulationInertiaStartingEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IManipulationInertiaStartingEventArgs2 {
     type Vtable = IManipulationInertiaStartingEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc25409b8_f9fa_5a45_bd97_dcbbb2201860);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc25409b8_f9fa_5a45_bd97_dcbbb2201860);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationInertiaStartingEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IManipulationStartedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IManipulationStartedEventArgs {
+pub struct IManipulationStartedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IManipulationStartedEventArgs {
     type Vtable = IManipulationStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddec873e_cfce_4932_8c1d_3c3d011a34c0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddec873e_cfce_4932_8c1d_3c3d011a34c0);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationStartedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ManipulationDelta) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IManipulationStartedEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IManipulationStartedEventArgs2 {
+pub struct IManipulationStartedEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IManipulationStartedEventArgs2 {
     type Vtable = IManipulationStartedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2da3db4e_e583_5055_afaa_16fd986531a6);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2da3db4e_e583_5055_afaa_16fd986531a6);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationStartedEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IManipulationUpdatedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IManipulationUpdatedEventArgs {
+pub struct IManipulationUpdatedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IManipulationUpdatedEventArgs {
     type Vtable = IManipulationUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb354ce5_abb8_4f9f_b3ce_8181aa61ad82);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb354ce5_abb8_4f9f_b3ce_8181aa61ad82);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationUpdatedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ManipulationDelta) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ManipulationDelta) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ManipulationVelocities) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ManipulationVelocities) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IManipulationUpdatedEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IManipulationUpdatedEventArgs2 {
+pub struct IManipulationUpdatedEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IManipulationUpdatedEventArgs2 {
     type Vtable = IManipulationUpdatedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3dfb96a_3306_5903_a1c5_ff9757a8689e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3dfb96a_3306_5903_a1c5_ff9757a8689e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationUpdatedEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMouseWheelParameters(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IMouseWheelParameters {
+pub struct IMouseWheelParameters(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IMouseWheelParameters {
     type Vtable = IMouseWheelParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xead0ca44_9ded_4037_8149_5e4cc2564468);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xead0ca44_9ded_4037_8149_5e4cc2564468);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseWheelParameters_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPointerPoint(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IPointerPoint {
+pub struct IPointerPoint(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IPointerPoint {
     type Vtable = IPointerPoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe995317d_7296_42d9_8233_c5be73b74a4a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe995317d_7296_42d9_8233_c5be73b74a4a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPoint_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPointerPointProperties(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IPointerPointProperties {
+pub struct IPointerPointProperties(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IPointerPointProperties {
     type Vtable = IPointerPointProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc79d8a4b_c163_4ee7_803f_67ce79f9972d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79d8a4b_c163_4ee7_803f_67ce79f9972d);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPointProperties_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Rect) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Rect) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PointerUpdateKind) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, usagepage: u32, usageid: u32, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, usagepage: u32, usageid: u32, result__: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut PointerUpdateKind) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, usagepage: u32, usageid: u32, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, usagepage: u32, usageid: u32, result__: *mut i32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPointerPointProperties2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IPointerPointProperties2 {
+pub struct IPointerPointProperties2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IPointerPointProperties2 {
     type Vtable = IPointerPointProperties2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x22c3433a_c83b_41c0_a296_5e232d64d6af);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22c3433a_c83b_41c0_a296_5e232d64d6af);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPointProperties2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPointerPointStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IPointerPointStatics {
+pub struct IPointerPointStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IPointerPointStatics {
     type Vtable = IPointerPointStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa506638d_2a1a_413e_bc75_9f38381cc069);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa506638d_2a1a_413e_bc75_9f38381cc069);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPointStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pointerid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pointerid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pointerid: u32, transform: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pointerid: u32, transform: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pointerid: u32, transform: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pointerid: u32, transform: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Input`*"]
-pub struct IPointerPointTransform(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IPointerPointTransform {
+pub struct IPointerPointTransform(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IPointerPointTransform {
     type Vtable = IPointerPointTransform_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d5fe14f_b87c_4028_bc9c_59e9947fb056);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d5fe14f_b87c_4028_bc9c_59e9947fb056);
 }
 impl IPointerPointTransform {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Inverse(&self) -> ::windows::runtime::Result<IPointerPointTransform> {
+    pub fn Inverse(&self) -> ::windows::core::Result<IPointerPointTransform> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPointerPointTransform>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPointerPointTransform>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn TryTransform<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::Foundation::Point) -> ::windows::runtime::Result<bool> {
+    pub fn TryTransform<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::Foundation::Point) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn TransformBounds<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::runtime::Result<super::super::Foundation::Rect> {
+    pub fn TransformBounds<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for IPointerPointTransform {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{4d5fe14f-b87c-4028-bc9c-59e9947fb056}");
+unsafe impl ::windows::core::RuntimeType for IPointerPointTransform {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4d5fe14f-b87c-4028-bc9c-59e9947fb056}");
 }
-impl ::core::convert::From<IPointerPointTransform> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPointerPointTransform> for ::windows::core::IUnknown {
     fn from(value: IPointerPointTransform) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&IPointerPointTransform> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPointerPointTransform> for ::windows::core::IUnknown {
     fn from(value: &IPointerPointTransform) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPointerPointTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPointerPointTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPointerPointTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPointerPointTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<IPointerPointTransform> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPointerPointTransform> for ::windows::core::IInspectable {
     fn from(value: IPointerPointTransform) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IPointerPointTransform> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPointerPointTransform> for ::windows::core::IInspectable {
     fn from(value: &IPointerPointTransform) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IPointerPointTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPointerPointTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IPointerPointTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPointerPointTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPointTransform_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inpoint: super::super::Foundation::Point, outpoint: *mut super::super::Foundation::Point, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inpoint: super::super::Foundation::Point, outpoint: *mut super::super::Foundation::Point, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: super::super::Foundation::Rect, result__: *mut super::super::Foundation::Rect) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, rect: super::super::Foundation::Rect, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPointerVisualizationSettings(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IPointerVisualizationSettings {
+pub struct IPointerVisualizationSettings(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IPointerVisualizationSettings {
     type Vtable = IPointerVisualizationSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerVisualizationSettings_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPointerVisualizationSettingsStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IPointerVisualizationSettingsStatics {
+pub struct IPointerVisualizationSettingsStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IPointerVisualizationSettingsStatics {
     type Vtable = IPointerVisualizationSettingsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68870edb_165b_4214_b4f3_584eca8c8a69);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68870edb_165b_4214_b4f3_584eca8c8a69);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerVisualizationSettingsStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialController(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialController {
+pub struct IRadialController(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialController {
     type Vtable = IRadialController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3055d1c8_df51_43d4_b23b_0e1037467a09);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3055d1c8_df51_43d4_b23b_0e1037467a09);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialController_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialController2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialController2 {
+pub struct IRadialController2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialController2 {
     type Vtable = IRadialController2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialController2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerButtonClickedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerButtonClickedEventArgs {
+pub struct IRadialControllerButtonClickedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerButtonClickedEventArgs {
     type Vtable = IRadialControllerButtonClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa438_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa438_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonClickedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerButtonClickedEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerButtonClickedEventArgs2 {
+pub struct IRadialControllerButtonClickedEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerButtonClickedEventArgs2 {
     type Vtable = IRadialControllerButtonClickedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef3_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef3_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonClickedEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerButtonHoldingEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerButtonHoldingEventArgs {
+pub struct IRadialControllerButtonHoldingEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerButtonHoldingEventArgs {
     type Vtable = IRadialControllerButtonHoldingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eee_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eee_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonHoldingEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerButtonPressedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerButtonPressedEventArgs {
+pub struct IRadialControllerButtonPressedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerButtonPressedEventArgs {
     type Vtable = IRadialControllerButtonPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eed_4cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eed_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonPressedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerButtonReleasedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerButtonReleasedEventArgs {
+pub struct IRadialControllerButtonReleasedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerButtonReleasedEventArgs {
     type Vtable = IRadialControllerButtonReleasedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eef_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eef_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonReleasedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerConfiguration(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerConfiguration {
+pub struct IRadialControllerConfiguration(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerConfiguration {
     type Vtable = IRadialControllerConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6b79ecb_6a52_4430_910c_56370a9d6b42);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b79ecb_6a52_4430_910c_56370a9d6b42);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfiguration_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buttons: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, buttons: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: RadialControllerSystemMenuItemKind, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, r#type: RadialControllerSystemMenuItemKind, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerConfiguration2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerConfiguration2 {
+pub struct IRadialControllerConfiguration2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerConfiguration2 {
     type Vtable = IRadialControllerConfiguration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef7_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef7_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfiguration2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerConfigurationStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerConfigurationStatics {
+pub struct IRadialControllerConfigurationStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerConfigurationStatics {
     type Vtable = IRadialControllerConfigurationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79b6b0e5_069a_4486_a99d_8db772b9642f);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79b6b0e5_069a_4486_a99d_8db772b9642f);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfigurationStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerConfigurationStatics2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerConfigurationStatics2 {
+pub struct IRadialControllerConfigurationStatics2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerConfigurationStatics2 {
     type Vtable = IRadialControllerConfigurationStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53e08b17_e205_48d3_9caf_80ff47c4d7c7);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e08b17_e205_48d3_9caf_80ff47c4d7c7);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfigurationStatics2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerControlAcquiredEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerControlAcquiredEventArgs {
+pub struct IRadialControllerControlAcquiredEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerControlAcquiredEventArgs {
     type Vtable = IRadialControllerControlAcquiredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa439_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa439_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerControlAcquiredEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerControlAcquiredEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerControlAcquiredEventArgs2 {
+pub struct IRadialControllerControlAcquiredEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerControlAcquiredEventArgs2 {
     type Vtable = IRadialControllerControlAcquiredEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef4_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef4_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerControlAcquiredEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerMenu(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerMenu {
+pub struct IRadialControllerMenu(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerMenu {
     type Vtable = IRadialControllerMenu_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8506b35d_f640_4412_aba0_bad077e5ea8a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8506b35d_f640_4412_aba0_bad077e5ea8a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerMenu_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, menuitem: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, menuitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerMenuItem(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerMenuItem {
+pub struct IRadialControllerMenuItem(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerMenuItem {
     type Vtable = IRadialControllerMenuItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerMenuItem_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerMenuItemStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerMenuItemStatics {
+pub struct IRadialControllerMenuItemStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerMenuItemStatics {
     type Vtable = IRadialControllerMenuItemStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x249e0887_d842_4524_9df8_e0d647edc887);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x249e0887_d842_4524_9df8_e0d647edc887);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerMenuItemStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, displaytext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, icon: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, icon: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, displaytext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, value: RadialControllerMenuKnownIcon, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: RadialControllerMenuKnownIcon, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerMenuItemStatics2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerMenuItemStatics2 {
+pub struct IRadialControllerMenuItemStatics2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerMenuItemStatics2 {
     type Vtable = IRadialControllerMenuItemStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cbb70be_7e3e_48bd_be04_2c7fcaa9c1ff);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cbb70be_7e3e_48bd_be04_2c7fcaa9c1ff);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerMenuItemStatics2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, displaytext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, glyph: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, fontfamily: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, displaytext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, glyph: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, fontfamily: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, fonturi: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, glyph: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fontfamily: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, glyph: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fontfamily: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fonturi: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerRotationChangedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerRotationChangedEventArgs {
+pub struct IRadialControllerRotationChangedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerRotationChangedEventArgs {
     type Vtable = IRadialControllerRotationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa435_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa435_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerRotationChangedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerRotationChangedEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerRotationChangedEventArgs2 {
+pub struct IRadialControllerRotationChangedEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerRotationChangedEventArgs2 {
     type Vtable = IRadialControllerRotationChangedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eec_4cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eec_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerRotationChangedEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerScreenContact(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContact {
+pub struct IRadialControllerScreenContact(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerScreenContact {
     type Vtable = IRadialControllerScreenContact_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa434_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa434_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContact_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Rect) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerScreenContactContinuedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactContinuedEventArgs {
+pub struct IRadialControllerScreenContactContinuedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerScreenContactContinuedEventArgs {
     type Vtable = IRadialControllerScreenContactContinuedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa437_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa437_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactContinuedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerScreenContactContinuedEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactContinuedEventArgs2 {
+pub struct IRadialControllerScreenContactContinuedEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerScreenContactContinuedEventArgs2 {
     type Vtable = IRadialControllerScreenContactContinuedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef1_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef1_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactContinuedEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerScreenContactEndedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactEndedEventArgs {
+pub struct IRadialControllerScreenContactEndedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerScreenContactEndedEventArgs {
     type Vtable = IRadialControllerScreenContactEndedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef2_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef2_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactEndedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerScreenContactStartedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactStartedEventArgs {
+pub struct IRadialControllerScreenContactStartedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerScreenContactStartedEventArgs {
     type Vtable = IRadialControllerScreenContactStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa436_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa436_e651_11e5_bf62_2c27d7404e85);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactStartedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerScreenContactStartedEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactStartedEventArgs2 {
+pub struct IRadialControllerScreenContactStartedEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerScreenContactStartedEventArgs2 {
     type Vtable = IRadialControllerScreenContactStartedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef0_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef0_3cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactStartedEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Haptics")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRadialControllerStatics {
+pub struct IRadialControllerStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRadialControllerStatics {
     type Vtable = IRadialControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaded0b7_b84c_4894_87aa_8f25aa5f288b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaded0b7_b84c_4894_87aa_8f25aa5f288b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRightTappedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRightTappedEventArgs {
+pub struct IRightTappedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRightTappedEventArgs {
     type Vtable = IRightTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cbf40bd_af7a_4a36_9476_b1dce141709a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cbf40bd_af7a_4a36_9476_b1dce141709a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRightTappedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRightTappedEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRightTappedEventArgs2 {
+pub struct IRightTappedEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRightTappedEventArgs2 {
     type Vtable = IRightTappedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61c7b7bb_9f57_5857_a33c_c58c3dfa959e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c7b7bb_9f57_5857_a33c_c58c3dfa959e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRightTappedEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemButtonEventController(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ISystemButtonEventController {
+pub struct ISystemButtonEventController(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ISystemButtonEventController {
     type Vtable = ISystemButtonEventController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59b893a9_73bc_52b5_ba41_82511b2cb46c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59b893a9_73bc_52b5_ba41_82511b2cb46c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemButtonEventController_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemButtonEventControllerStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ISystemButtonEventControllerStatics {
+pub struct ISystemButtonEventControllerStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ISystemButtonEventControllerStatics {
     type Vtable = ISystemButtonEventControllerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x632fb07b_20bd_5e15_af4a_00dbf2064ffa);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x632fb07b_20bd_5e15_af4a_00dbf2064ffa);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemButtonEventControllerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "System")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, queue: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "System")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, queue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemFunctionButtonEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ISystemFunctionButtonEventArgs {
+pub struct ISystemFunctionButtonEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ISystemFunctionButtonEventArgs {
     type Vtable = ISystemFunctionButtonEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4833896f_80d1_5dd6_92a7_62a508ffef5a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4833896f_80d1_5dd6_92a7_62a508ffef5a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemFunctionButtonEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemFunctionLockChangedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ISystemFunctionLockChangedEventArgs {
+pub struct ISystemFunctionLockChangedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ISystemFunctionLockChangedEventArgs {
     type Vtable = ISystemFunctionLockChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd040608_fcf9_585c_beab_f1d2eaf364ab);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd040608_fcf9_585c_beab_f1d2eaf364ab);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemFunctionLockChangedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemFunctionLockIndicatorChangedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ISystemFunctionLockIndicatorChangedEventArgs {
+pub struct ISystemFunctionLockIndicatorChangedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ISystemFunctionLockIndicatorChangedEventArgs {
     type Vtable = ISystemFunctionLockIndicatorChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb212b94e_7a6f_58ae_b304_bae61d0371b9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb212b94e_7a6f_58ae_b304_bae61d0371b9);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemFunctionLockIndicatorChangedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITappedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ITappedEventArgs {
+pub struct ITappedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ITappedEventArgs {
     type Vtable = ITappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfa126e4_253a_4c3c_953b_395c37aed309);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa126e4_253a_4c3c_953b_395c37aed309);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITappedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Input")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITappedEventArgs2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ITappedEventArgs2 {
+pub struct ITappedEventArgs2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ITappedEventArgs2 {
     type Vtable = ITappedEventArgs2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x294388f2_177e_51d5_be56_ee0866fa968c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x294388f2_177e_51d5_be56_ee0866fa968c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITappedEventArgs2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct InputActivationListener(pub ::windows::runtime::IInspectable);
+pub struct InputActivationListener(pub ::windows::core::IInspectable);
 impl InputActivationListener {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn State(&self) -> ::windows::runtime::Result<InputActivationState> {
+    pub fn State(&self) -> ::windows::core::Result<InputActivationState> {
         let this = self;
         unsafe {
             let mut result__: InputActivationState = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InputActivationState>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InputActivationState>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn InputActivationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn InputActivationChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveInputActivationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveInputActivationChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Close(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for InputActivationListener {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListener;{5d6d4ed2-28c7-5ae3-aa74-c918a9f243ca})");
+unsafe impl ::windows::core::RuntimeType for InputActivationListener {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListener;{5d6d4ed2-28c7-5ae3-aa74-c918a9f243ca})");
 }
-unsafe impl ::windows::runtime::Interface for InputActivationListener {
+unsafe impl ::windows::core::Interface for InputActivationListener {
     type Vtable = IInputActivationListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca);
 }
-impl ::windows::runtime::RuntimeName for InputActivationListener {
+impl ::windows::core::RuntimeName for InputActivationListener {
     const NAME: &'static str = "Windows.UI.Input.InputActivationListener";
 }
-impl ::core::convert::From<InputActivationListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InputActivationListener> for ::windows::core::IUnknown {
     fn from(value: InputActivationListener) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&InputActivationListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InputActivationListener> for ::windows::core::IUnknown {
     fn from(value: &InputActivationListener) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InputActivationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InputActivationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InputActivationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InputActivationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<InputActivationListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InputActivationListener> for ::windows::core::IInspectable {
     fn from(value: InputActivationListener) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&InputActivationListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InputActivationListener> for ::windows::core::IInspectable {
     fn from(value: &InputActivationListener) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InputActivationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InputActivationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InputActivationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InputActivationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<InputActivationListener> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: InputActivationListener) -> ::windows::runtime::Result<Self> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: InputActivationListener) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&InputActivationListener> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: &InputActivationListener) -> ::windows::runtime::Result<Self> {
-        ::windows::runtime::Interface::cast(value)
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InputActivationListener) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for InputActivationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::runtime::IntoParam::into_param(&self)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for InputActivationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &InputActivationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &InputActivationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 impl ::core::convert::From<InputActivationListener> for AttachableInputObject {
@@ -3092,17 +3092,17 @@ impl ::core::convert::From<InputActivationListener> for AttachableInputObject {
 }
 impl ::core::convert::From<&InputActivationListener> for AttachableInputObject {
     fn from(value: &InputActivationListener) -> Self {
-        ::windows::runtime::Interface::cast(value).unwrap()
+        ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, AttachableInputObject> for InputActivationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, AttachableInputObject> {
-        ::windows::runtime::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(self))
+impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for InputActivationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, AttachableInputObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, AttachableInputObject> for &InputActivationListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, AttachableInputObject> {
-        ::windows::runtime::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(::core::clone::Clone::clone(self)))
+impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for &InputActivationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, AttachableInputObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(::core::clone::Clone::clone(self)))
     }
 }
 unsafe impl ::core::marker::Send for InputActivationListener {}
@@ -3110,65 +3110,65 @@ unsafe impl ::core::marker::Sync for InputActivationListener {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct InputActivationListenerActivationChangedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct InputActivationListenerActivationChangedEventArgs(pub ::windows::core::IInspectable);
 impl InputActivationListenerActivationChangedEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn State(&self) -> ::windows::runtime::Result<InputActivationState> {
+    pub fn State(&self) -> ::windows::core::Result<InputActivationState> {
         let this = self;
         unsafe {
             let mut result__: InputActivationState = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InputActivationState>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InputActivationState>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for InputActivationListenerActivationChangedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListenerActivationChangedEventArgs;{7699b465-1dcf-5791-b4b9-6cafbeed2056})");
+unsafe impl ::windows::core::RuntimeType for InputActivationListenerActivationChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListenerActivationChangedEventArgs;{7699b465-1dcf-5791-b4b9-6cafbeed2056})");
 }
-unsafe impl ::windows::runtime::Interface for InputActivationListenerActivationChangedEventArgs {
+unsafe impl ::windows::core::Interface for InputActivationListenerActivationChangedEventArgs {
     type Vtable = IInputActivationListenerActivationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7699b465_1dcf_5791_b4b9_6cafbeed2056);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7699b465_1dcf_5791_b4b9_6cafbeed2056);
 }
-impl ::windows::runtime::RuntimeName for InputActivationListenerActivationChangedEventArgs {
+impl ::windows::core::RuntimeName for InputActivationListenerActivationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.InputActivationListenerActivationChangedEventArgs";
 }
-impl ::core::convert::From<InputActivationListenerActivationChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InputActivationListenerActivationChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: InputActivationListenerActivationChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&InputActivationListenerActivationChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InputActivationListenerActivationChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &InputActivationListenerActivationChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InputActivationListenerActivationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InputActivationListenerActivationChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InputActivationListenerActivationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InputActivationListenerActivationChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<InputActivationListenerActivationChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InputActivationListenerActivationChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: InputActivationListenerActivationChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&InputActivationListenerActivationChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InputActivationListenerActivationChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &InputActivationListenerActivationChangedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InputActivationListenerActivationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InputActivationListenerActivationChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InputActivationListenerActivationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InputActivationListenerActivationChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for InputActivationListenerActivationChangedEventArgs {}
@@ -3188,123 +3188,123 @@ impl ::core::convert::From<i32> for InputActivationState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for InputActivationState {
+unsafe impl ::windows::core::Abi for InputActivationState {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for InputActivationState {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.InputActivationState;i4)");
+unsafe impl ::windows::core::RuntimeType for InputActivationState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.InputActivationState;i4)");
 }
-impl ::windows::runtime::DefaultType for InputActivationState {
+impl ::windows::core::DefaultType for InputActivationState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct KeyboardDeliveryInterceptor(pub ::windows::runtime::IInspectable);
+pub struct KeyboardDeliveryInterceptor(pub ::windows::core::IInspectable);
 impl KeyboardDeliveryInterceptor {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsInterceptionEnabledWhenInForeground(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsInterceptionEnabledWhenInForeground(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetIsInterceptionEnabledWhenInForeground(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetIsInterceptionEnabledWhenInForeground(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     #[doc = "*Required features: `UI_Input`, `Foundation`, `UI_Core`*"]
-    pub fn KeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn KeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveKeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     #[doc = "*Required features: `UI_Input`, `Foundation`, `UI_Core`*"]
-    pub fn KeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn KeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveKeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveKeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn GetForCurrentView() -> ::windows::runtime::Result<KeyboardDeliveryInterceptor> {
+    pub fn GetForCurrentView() -> ::windows::core::Result<KeyboardDeliveryInterceptor> {
         Self::IKeyboardDeliveryInterceptorStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyboardDeliveryInterceptor>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyboardDeliveryInterceptor>(result__)
         })
     }
-    pub fn IKeyboardDeliveryInterceptorStatics<R, F: FnOnce(&IKeyboardDeliveryInterceptorStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<KeyboardDeliveryInterceptor, IKeyboardDeliveryInterceptorStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IKeyboardDeliveryInterceptorStatics<R, F: FnOnce(&IKeyboardDeliveryInterceptorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<KeyboardDeliveryInterceptor, IKeyboardDeliveryInterceptorStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for KeyboardDeliveryInterceptor {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.KeyboardDeliveryInterceptor;{b4baf068-8f49-446c-8db5-8c0ffe85cc9e})");
+unsafe impl ::windows::core::RuntimeType for KeyboardDeliveryInterceptor {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.KeyboardDeliveryInterceptor;{b4baf068-8f49-446c-8db5-8c0ffe85cc9e})");
 }
-unsafe impl ::windows::runtime::Interface for KeyboardDeliveryInterceptor {
+unsafe impl ::windows::core::Interface for KeyboardDeliveryInterceptor {
     type Vtable = IKeyboardDeliveryInterceptor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb4baf068_8f49_446c_8db5_8c0ffe85cc9e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4baf068_8f49_446c_8db5_8c0ffe85cc9e);
 }
-impl ::windows::runtime::RuntimeName for KeyboardDeliveryInterceptor {
+impl ::windows::core::RuntimeName for KeyboardDeliveryInterceptor {
     const NAME: &'static str = "Windows.UI.Input.KeyboardDeliveryInterceptor";
 }
-impl ::core::convert::From<KeyboardDeliveryInterceptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<KeyboardDeliveryInterceptor> for ::windows::core::IUnknown {
     fn from(value: KeyboardDeliveryInterceptor) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&KeyboardDeliveryInterceptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&KeyboardDeliveryInterceptor> for ::windows::core::IUnknown {
     fn from(value: &KeyboardDeliveryInterceptor) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for KeyboardDeliveryInterceptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeyboardDeliveryInterceptor {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a KeyboardDeliveryInterceptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeyboardDeliveryInterceptor {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<KeyboardDeliveryInterceptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<KeyboardDeliveryInterceptor> for ::windows::core::IInspectable {
     fn from(value: KeyboardDeliveryInterceptor) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&KeyboardDeliveryInterceptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&KeyboardDeliveryInterceptor> for ::windows::core::IInspectable {
     fn from(value: &KeyboardDeliveryInterceptor) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for KeyboardDeliveryInterceptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeyboardDeliveryInterceptor {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a KeyboardDeliveryInterceptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeyboardDeliveryInterceptor {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for KeyboardDeliveryInterceptor {}
@@ -3312,109 +3312,109 @@ unsafe impl ::core::marker::Sync for KeyboardDeliveryInterceptor {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ManipulationCompletedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct ManipulationCompletedEventArgs(pub ::windows::core::IInspectable);
 impl ManipulationCompletedEventArgs {
     #[cfg(feature = "Devices_Input")]
     #[doc = "*Required features: `UI_Input`, `Devices_Input`*"]
-    pub fn PointerDeviceType(&self) -> ::windows::runtime::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Cumulative(&self) -> ::windows::runtime::Result<ManipulationDelta> {
+    pub fn Cumulative(&self) -> ::windows::core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__: ManipulationDelta = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Velocities(&self) -> ::windows::runtime::Result<ManipulationVelocities> {
+    pub fn Velocities(&self) -> ::windows::core::Result<ManipulationVelocities> {
         let this = self;
         unsafe {
             let mut result__: ManipulationVelocities = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationVelocities>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationVelocities>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IManipulationCompletedEventArgs2>(self)?;
+    pub fn ContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IManipulationCompletedEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CurrentContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IManipulationCompletedEventArgs2>(self)?;
+    pub fn CurrentContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IManipulationCompletedEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ManipulationCompletedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationCompletedEventArgs;{b34ab22b-d19b-46ff-9f38-dec7754bb9e7})");
+unsafe impl ::windows::core::RuntimeType for ManipulationCompletedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationCompletedEventArgs;{b34ab22b-d19b-46ff-9f38-dec7754bb9e7})");
 }
-unsafe impl ::windows::runtime::Interface for ManipulationCompletedEventArgs {
+unsafe impl ::windows::core::Interface for ManipulationCompletedEventArgs {
     type Vtable = IManipulationCompletedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb34ab22b_d19b_46ff_9f38_dec7754bb9e7);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb34ab22b_d19b_46ff_9f38_dec7754bb9e7);
 }
-impl ::windows::runtime::RuntimeName for ManipulationCompletedEventArgs {
+impl ::windows::core::RuntimeName for ManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationCompletedEventArgs";
 }
-impl ::core::convert::From<ManipulationCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ManipulationCompletedEventArgs> for ::windows::core::IUnknown {
     fn from(value: ManipulationCompletedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ManipulationCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ManipulationCompletedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ManipulationCompletedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ManipulationCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ManipulationCompletedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ManipulationCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ManipulationCompletedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ManipulationCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ManipulationCompletedEventArgs> for ::windows::core::IInspectable {
     fn from(value: ManipulationCompletedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ManipulationCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ManipulationCompletedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ManipulationCompletedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ManipulationCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ManipulationCompletedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ManipulationCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ManipulationCompletedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3450,332 +3450,332 @@ impl ::core::cmp::PartialEq for ManipulationDelta {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::Eq for ManipulationDelta {}
 #[cfg(feature = "Foundation")]
-unsafe impl ::windows::runtime::Abi for ManipulationDelta {
+unsafe impl ::windows::core::Abi for ManipulationDelta {
     type Abi = Self;
 }
 #[cfg(feature = "Foundation")]
-unsafe impl ::windows::runtime::RuntimeType for ManipulationDelta {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationDelta;struct(Windows.Foundation.Point;f4;f4);f4;f4;f4)");
+unsafe impl ::windows::core::RuntimeType for ManipulationDelta {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationDelta;struct(Windows.Foundation.Point;f4;f4);f4;f4;f4)");
 }
 #[cfg(feature = "Foundation")]
-impl ::windows::runtime::DefaultType for ManipulationDelta {
+impl ::windows::core::DefaultType for ManipulationDelta {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ManipulationInertiaStartingEventArgs(pub ::windows::runtime::IInspectable);
+pub struct ManipulationInertiaStartingEventArgs(pub ::windows::core::IInspectable);
 impl ManipulationInertiaStartingEventArgs {
     #[cfg(feature = "Devices_Input")]
     #[doc = "*Required features: `UI_Input`, `Devices_Input`*"]
-    pub fn PointerDeviceType(&self) -> ::windows::runtime::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Delta(&self) -> ::windows::runtime::Result<ManipulationDelta> {
+    pub fn Delta(&self) -> ::windows::core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__: ManipulationDelta = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Cumulative(&self) -> ::windows::runtime::Result<ManipulationDelta> {
+    pub fn Cumulative(&self) -> ::windows::core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__: ManipulationDelta = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Velocities(&self) -> ::windows::runtime::Result<ManipulationVelocities> {
+    pub fn Velocities(&self) -> ::windows::core::Result<ManipulationVelocities> {
         let this = self;
         unsafe {
             let mut result__: ManipulationVelocities = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationVelocities>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationVelocities>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IManipulationInertiaStartingEventArgs2>(self)?;
+    pub fn ContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IManipulationInertiaStartingEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ManipulationInertiaStartingEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationInertiaStartingEventArgs;{dd37a898-26bf-467a-9ce5-ccf3fb11371e})");
+unsafe impl ::windows::core::RuntimeType for ManipulationInertiaStartingEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationInertiaStartingEventArgs;{dd37a898-26bf-467a-9ce5-ccf3fb11371e})");
 }
-unsafe impl ::windows::runtime::Interface for ManipulationInertiaStartingEventArgs {
+unsafe impl ::windows::core::Interface for ManipulationInertiaStartingEventArgs {
     type Vtable = IManipulationInertiaStartingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd37a898_26bf_467a_9ce5_ccf3fb11371e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd37a898_26bf_467a_9ce5_ccf3fb11371e);
 }
-impl ::windows::runtime::RuntimeName for ManipulationInertiaStartingEventArgs {
+impl ::windows::core::RuntimeName for ManipulationInertiaStartingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationInertiaStartingEventArgs";
 }
-impl ::core::convert::From<ManipulationInertiaStartingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ManipulationInertiaStartingEventArgs> for ::windows::core::IUnknown {
     fn from(value: ManipulationInertiaStartingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ManipulationInertiaStartingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ManipulationInertiaStartingEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ManipulationInertiaStartingEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ManipulationInertiaStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ManipulationInertiaStartingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ManipulationInertiaStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ManipulationInertiaStartingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ManipulationInertiaStartingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ManipulationInertiaStartingEventArgs> for ::windows::core::IInspectable {
     fn from(value: ManipulationInertiaStartingEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ManipulationInertiaStartingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ManipulationInertiaStartingEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ManipulationInertiaStartingEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ManipulationInertiaStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ManipulationInertiaStartingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ManipulationInertiaStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ManipulationInertiaStartingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ManipulationStartedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct ManipulationStartedEventArgs(pub ::windows::core::IInspectable);
 impl ManipulationStartedEventArgs {
     #[cfg(feature = "Devices_Input")]
     #[doc = "*Required features: `UI_Input`, `Devices_Input`*"]
-    pub fn PointerDeviceType(&self) -> ::windows::runtime::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Cumulative(&self) -> ::windows::runtime::Result<ManipulationDelta> {
+    pub fn Cumulative(&self) -> ::windows::core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__: ManipulationDelta = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IManipulationStartedEventArgs2>(self)?;
+    pub fn ContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IManipulationStartedEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ManipulationStartedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationStartedEventArgs;{ddec873e-cfce-4932-8c1d-3c3d011a34c0})");
+unsafe impl ::windows::core::RuntimeType for ManipulationStartedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationStartedEventArgs;{ddec873e-cfce-4932-8c1d-3c3d011a34c0})");
 }
-unsafe impl ::windows::runtime::Interface for ManipulationStartedEventArgs {
+unsafe impl ::windows::core::Interface for ManipulationStartedEventArgs {
     type Vtable = IManipulationStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddec873e_cfce_4932_8c1d_3c3d011a34c0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddec873e_cfce_4932_8c1d_3c3d011a34c0);
 }
-impl ::windows::runtime::RuntimeName for ManipulationStartedEventArgs {
+impl ::windows::core::RuntimeName for ManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationStartedEventArgs";
 }
-impl ::core::convert::From<ManipulationStartedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ManipulationStartedEventArgs> for ::windows::core::IUnknown {
     fn from(value: ManipulationStartedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ManipulationStartedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ManipulationStartedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ManipulationStartedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ManipulationStartedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ManipulationStartedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ManipulationStartedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ManipulationStartedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ManipulationStartedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ManipulationStartedEventArgs> for ::windows::core::IInspectable {
     fn from(value: ManipulationStartedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ManipulationStartedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ManipulationStartedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ManipulationStartedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ManipulationStartedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ManipulationStartedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ManipulationStartedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ManipulationStartedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ManipulationUpdatedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct ManipulationUpdatedEventArgs(pub ::windows::core::IInspectable);
 impl ManipulationUpdatedEventArgs {
     #[cfg(feature = "Devices_Input")]
     #[doc = "*Required features: `UI_Input`, `Devices_Input`*"]
-    pub fn PointerDeviceType(&self) -> ::windows::runtime::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Delta(&self) -> ::windows::runtime::Result<ManipulationDelta> {
+    pub fn Delta(&self) -> ::windows::core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__: ManipulationDelta = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Cumulative(&self) -> ::windows::runtime::Result<ManipulationDelta> {
+    pub fn Cumulative(&self) -> ::windows::core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__: ManipulationDelta = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationDelta>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Velocities(&self) -> ::windows::runtime::Result<ManipulationVelocities> {
+    pub fn Velocities(&self) -> ::windows::core::Result<ManipulationVelocities> {
         let this = self;
         unsafe {
             let mut result__: ManipulationVelocities = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationVelocities>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManipulationVelocities>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IManipulationUpdatedEventArgs2>(self)?;
+    pub fn ContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IManipulationUpdatedEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CurrentContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IManipulationUpdatedEventArgs2>(self)?;
+    pub fn CurrentContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IManipulationUpdatedEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ManipulationUpdatedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationUpdatedEventArgs;{cb354ce5-abb8-4f9f-b3ce-8181aa61ad82})");
+unsafe impl ::windows::core::RuntimeType for ManipulationUpdatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationUpdatedEventArgs;{cb354ce5-abb8-4f9f-b3ce-8181aa61ad82})");
 }
-unsafe impl ::windows::runtime::Interface for ManipulationUpdatedEventArgs {
+unsafe impl ::windows::core::Interface for ManipulationUpdatedEventArgs {
     type Vtable = IManipulationUpdatedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcb354ce5_abb8_4f9f_b3ce_8181aa61ad82);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb354ce5_abb8_4f9f_b3ce_8181aa61ad82);
 }
-impl ::windows::runtime::RuntimeName for ManipulationUpdatedEventArgs {
+impl ::windows::core::RuntimeName for ManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationUpdatedEventArgs";
 }
-impl ::core::convert::From<ManipulationUpdatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ManipulationUpdatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: ManipulationUpdatedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ManipulationUpdatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ManipulationUpdatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ManipulationUpdatedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ManipulationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ManipulationUpdatedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ManipulationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ManipulationUpdatedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ManipulationUpdatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ManipulationUpdatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: ManipulationUpdatedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ManipulationUpdatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ManipulationUpdatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ManipulationUpdatedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ManipulationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ManipulationUpdatedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ManipulationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ManipulationUpdatedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3810,543 +3810,543 @@ impl ::core::cmp::PartialEq for ManipulationVelocities {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::Eq for ManipulationVelocities {}
 #[cfg(feature = "Foundation")]
-unsafe impl ::windows::runtime::Abi for ManipulationVelocities {
+unsafe impl ::windows::core::Abi for ManipulationVelocities {
     type Abi = Self;
 }
 #[cfg(feature = "Foundation")]
-unsafe impl ::windows::runtime::RuntimeType for ManipulationVelocities {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationVelocities;struct(Windows.Foundation.Point;f4;f4);f4;f4)");
+unsafe impl ::windows::core::RuntimeType for ManipulationVelocities {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationVelocities;struct(Windows.Foundation.Point;f4;f4);f4;f4)");
 }
 #[cfg(feature = "Foundation")]
-impl ::windows::runtime::DefaultType for ManipulationVelocities {
+impl ::windows::core::DefaultType for ManipulationVelocities {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct MouseWheelParameters(pub ::windows::runtime::IInspectable);
+pub struct MouseWheelParameters(pub ::windows::core::IInspectable);
 impl MouseWheelParameters {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn CharTranslation(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn CharTranslation(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn SetCharTranslation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetCharTranslation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn DeltaScale(&self) -> ::windows::runtime::Result<f32> {
+    pub fn DeltaScale(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetDeltaScale(&self, value: f32) -> ::windows::runtime::Result<()> {
+    pub fn SetDeltaScale(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn DeltaRotationAngle(&self) -> ::windows::runtime::Result<f32> {
+    pub fn DeltaRotationAngle(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetDeltaRotationAngle(&self, value: f32) -> ::windows::runtime::Result<()> {
+    pub fn SetDeltaRotationAngle(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn PageTranslation(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn PageTranslation(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn SetPageTranslation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetPageTranslation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for MouseWheelParameters {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.MouseWheelParameters;{ead0ca44-9ded-4037-8149-5e4cc2564468})");
+unsafe impl ::windows::core::RuntimeType for MouseWheelParameters {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.MouseWheelParameters;{ead0ca44-9ded-4037-8149-5e4cc2564468})");
 }
-unsafe impl ::windows::runtime::Interface for MouseWheelParameters {
+unsafe impl ::windows::core::Interface for MouseWheelParameters {
     type Vtable = IMouseWheelParameters_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xead0ca44_9ded_4037_8149_5e4cc2564468);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xead0ca44_9ded_4037_8149_5e4cc2564468);
 }
-impl ::windows::runtime::RuntimeName for MouseWheelParameters {
+impl ::windows::core::RuntimeName for MouseWheelParameters {
     const NAME: &'static str = "Windows.UI.Input.MouseWheelParameters";
 }
-impl ::core::convert::From<MouseWheelParameters> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MouseWheelParameters> for ::windows::core::IUnknown {
     fn from(value: MouseWheelParameters) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&MouseWheelParameters> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MouseWheelParameters> for ::windows::core::IUnknown {
     fn from(value: &MouseWheelParameters) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MouseWheelParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MouseWheelParameters {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MouseWheelParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MouseWheelParameters {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<MouseWheelParameters> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MouseWheelParameters> for ::windows::core::IInspectable {
     fn from(value: MouseWheelParameters) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&MouseWheelParameters> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MouseWheelParameters> for ::windows::core::IInspectable {
     fn from(value: &MouseWheelParameters) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MouseWheelParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MouseWheelParameters {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MouseWheelParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MouseWheelParameters {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PointerPoint(pub ::windows::runtime::IInspectable);
+pub struct PointerPoint(pub ::windows::core::IInspectable);
 impl PointerPoint {
     #[cfg(feature = "Devices_Input")]
     #[doc = "*Required features: `UI_Input`, `Devices_Input`*"]
-    pub fn PointerDevice(&self) -> ::windows::runtime::Result<super::super::Devices::Input::PointerDevice> {
+    pub fn PointerDevice(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDevice> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDevice>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDevice>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RawPosition(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn RawPosition(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn PointerId(&self) -> ::windows::runtime::Result<u32> {
+    pub fn PointerId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn FrameId(&self) -> ::windows::runtime::Result<u32> {
+    pub fn FrameId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Timestamp(&self) -> ::windows::runtime::Result<u64> {
+    pub fn Timestamp(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsInContact(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsInContact(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Properties(&self) -> ::windows::runtime::Result<PointerPointProperties> {
+    pub fn Properties(&self) -> ::windows::core::Result<PointerPointProperties> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PointerPointProperties>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PointerPointProperties>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn GetCurrentPoint(pointerid: u32) -> ::windows::runtime::Result<PointerPoint> {
+    pub fn GetCurrentPoint(pointerid: u32) -> ::windows::core::Result<PointerPoint> {
         Self::IPointerPointStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pointerid, &mut result__).from_abi::<PointerPoint>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pointerid, &mut result__).from_abi::<PointerPoint>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Input`, `Foundation_Collections`*"]
-    pub fn GetIntermediatePoints(pointerid: u32) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<PointerPoint>> {
+    pub fn GetIntermediatePoints(pointerid: u32) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<PointerPoint>> {
         Self::IPointerPointStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), pointerid, &mut result__).from_abi::<super::super::Foundation::Collections::IVector<PointerPoint>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), pointerid, &mut result__).from_abi::<super::super::Foundation::Collections::IVector<PointerPoint>>(result__)
         })
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn GetCurrentPointTransformed<'a, Param1: ::windows::runtime::IntoParam<'a, IPointerPointTransform>>(pointerid: u32, transform: Param1) -> ::windows::runtime::Result<PointerPoint> {
+    pub fn GetCurrentPointTransformed<'a, Param1: ::windows::core::IntoParam<'a, IPointerPointTransform>>(pointerid: u32, transform: Param1) -> ::windows::core::Result<PointerPoint> {
         Self::IPointerPointStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), pointerid, transform.into_param().abi(), &mut result__).from_abi::<PointerPoint>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), pointerid, transform.into_param().abi(), &mut result__).from_abi::<PointerPoint>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Input`, `Foundation_Collections`*"]
-    pub fn GetIntermediatePointsTransformed<'a, Param1: ::windows::runtime::IntoParam<'a, IPointerPointTransform>>(pointerid: u32, transform: Param1) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<PointerPoint>> {
+    pub fn GetIntermediatePointsTransformed<'a, Param1: ::windows::core::IntoParam<'a, IPointerPointTransform>>(pointerid: u32, transform: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<PointerPoint>> {
         Self::IPointerPointStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), pointerid, transform.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<PointerPoint>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), pointerid, transform.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<PointerPoint>>(result__)
         })
     }
-    pub fn IPointerPointStatics<R, F: FnOnce(&IPointerPointStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<PointerPoint, IPointerPointStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IPointerPointStatics<R, F: FnOnce(&IPointerPointStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<PointerPoint, IPointerPointStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for PointerPoint {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPoint;{e995317d-7296-42d9-8233-c5be73b74a4a})");
+unsafe impl ::windows::core::RuntimeType for PointerPoint {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPoint;{e995317d-7296-42d9-8233-c5be73b74a4a})");
 }
-unsafe impl ::windows::runtime::Interface for PointerPoint {
+unsafe impl ::windows::core::Interface for PointerPoint {
     type Vtable = IPointerPoint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe995317d_7296_42d9_8233_c5be73b74a4a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe995317d_7296_42d9_8233_c5be73b74a4a);
 }
-impl ::windows::runtime::RuntimeName for PointerPoint {
+impl ::windows::core::RuntimeName for PointerPoint {
     const NAME: &'static str = "Windows.UI.Input.PointerPoint";
 }
-impl ::core::convert::From<PointerPoint> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PointerPoint> for ::windows::core::IUnknown {
     fn from(value: PointerPoint) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&PointerPoint> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PointerPoint> for ::windows::core::IUnknown {
     fn from(value: &PointerPoint) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PointerPoint {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PointerPoint {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PointerPoint {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PointerPoint {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<PointerPoint> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PointerPoint> for ::windows::core::IInspectable {
     fn from(value: PointerPoint) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&PointerPoint> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PointerPoint> for ::windows::core::IInspectable {
     fn from(value: &PointerPoint) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PointerPoint {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PointerPoint {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PointerPoint {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PointerPoint {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PointerPointProperties(pub ::windows::runtime::IInspectable);
+pub struct PointerPointProperties(pub ::windows::core::IInspectable);
 impl PointerPointProperties {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Pressure(&self) -> ::windows::runtime::Result<f32> {
+    pub fn Pressure(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsInverted(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsInverted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsEraser(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsEraser(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Orientation(&self) -> ::windows::runtime::Result<f32> {
+    pub fn Orientation(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn XTilt(&self) -> ::windows::runtime::Result<f32> {
+    pub fn XTilt(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn YTilt(&self) -> ::windows::runtime::Result<f32> {
+    pub fn YTilt(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Twist(&self) -> ::windows::runtime::Result<f32> {
+    pub fn Twist(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ContactRect(&self) -> ::windows::runtime::Result<super::super::Foundation::Rect> {
+    pub fn ContactRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ContactRectRaw(&self) -> ::windows::runtime::Result<super::super::Foundation::Rect> {
+    pub fn ContactRectRaw(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn TouchConfidence(&self) -> ::windows::runtime::Result<bool> {
+    pub fn TouchConfidence(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsLeftButtonPressed(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsLeftButtonPressed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsRightButtonPressed(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsRightButtonPressed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsMiddleButtonPressed(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsMiddleButtonPressed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn MouseWheelDelta(&self) -> ::windows::runtime::Result<i32> {
+    pub fn MouseWheelDelta(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsHorizontalMouseWheel(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsHorizontalMouseWheel(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsPrimary(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsPrimary(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsInRange(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsInRange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsBarrelButtonPressed(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsBarrelButtonPressed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsXButton1Pressed(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsXButton1Pressed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsXButton2Pressed(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsXButton2Pressed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn PointerUpdateKind(&self) -> ::windows::runtime::Result<PointerUpdateKind> {
+    pub fn PointerUpdateKind(&self) -> ::windows::core::Result<PointerUpdateKind> {
         let this = self;
         unsafe {
             let mut result__: PointerUpdateKind = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PointerUpdateKind>(result__)
+            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PointerUpdateKind>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn HasUsage(&self, usagepage: u32, usageid: u32) -> ::windows::runtime::Result<bool> {
+    pub fn HasUsage(&self, usagepage: u32, usageid: u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn GetUsageValue(&self, usagepage: u32, usageid: u32) -> ::windows::runtime::Result<i32> {
+    pub fn GetUsageValue(&self, usagepage: u32, usageid: u32) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<i32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ZDistance(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f32>> {
-        let this = &::windows::runtime::Interface::cast::<IPointerPointProperties2>(self)?;
+    pub fn ZDistance(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
+        let this = &::windows::core::Interface::cast::<IPointerPointProperties2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f32>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for PointerPointProperties {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPointProperties;{c79d8a4b-c163-4ee7-803f-67ce79f9972d})");
+unsafe impl ::windows::core::RuntimeType for PointerPointProperties {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPointProperties;{c79d8a4b-c163-4ee7-803f-67ce79f9972d})");
 }
-unsafe impl ::windows::runtime::Interface for PointerPointProperties {
+unsafe impl ::windows::core::Interface for PointerPointProperties {
     type Vtable = IPointerPointProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc79d8a4b_c163_4ee7_803f_67ce79f9972d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79d8a4b_c163_4ee7_803f_67ce79f9972d);
 }
-impl ::windows::runtime::RuntimeName for PointerPointProperties {
+impl ::windows::core::RuntimeName for PointerPointProperties {
     const NAME: &'static str = "Windows.UI.Input.PointerPointProperties";
 }
-impl ::core::convert::From<PointerPointProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PointerPointProperties> for ::windows::core::IUnknown {
     fn from(value: PointerPointProperties) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&PointerPointProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PointerPointProperties> for ::windows::core::IUnknown {
     fn from(value: &PointerPointProperties) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PointerPointProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PointerPointProperties {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PointerPointProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PointerPointProperties {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<PointerPointProperties> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PointerPointProperties> for ::windows::core::IInspectable {
     fn from(value: PointerPointProperties) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&PointerPointProperties> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PointerPointProperties> for ::windows::core::IInspectable {
     fn from(value: &PointerPointProperties) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PointerPointProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PointerPointProperties {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PointerPointProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PointerPointProperties {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
@@ -4371,106 +4371,106 @@ impl ::core::convert::From<i32> for PointerUpdateKind {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PointerUpdateKind {
+unsafe impl ::windows::core::Abi for PointerUpdateKind {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for PointerUpdateKind {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.PointerUpdateKind;i4)");
+unsafe impl ::windows::core::RuntimeType for PointerUpdateKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.PointerUpdateKind;i4)");
 }
-impl ::windows::runtime::DefaultType for PointerUpdateKind {
+impl ::windows::core::DefaultType for PointerUpdateKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PointerVisualizationSettings(pub ::windows::runtime::IInspectable);
+pub struct PointerVisualizationSettings(pub ::windows::core::IInspectable);
 impl PointerVisualizationSettings {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetIsContactFeedbackEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetIsContactFeedbackEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsContactFeedbackEnabled(&self) -> ::windows::runtime::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetIsBarrelButtonFeedbackEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
-        let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsBarrelButtonFeedbackEnabled(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsContactFeedbackEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn GetForCurrentView() -> ::windows::runtime::Result<PointerVisualizationSettings> {
+    pub fn SetIsBarrelButtonFeedbackEnabled(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
+    }
+    #[doc = "*Required features: `UI_Input`*"]
+    pub fn IsBarrelButtonFeedbackEnabled(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `UI_Input`*"]
+    pub fn GetForCurrentView() -> ::windows::core::Result<PointerVisualizationSettings> {
         Self::IPointerVisualizationSettingsStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PointerVisualizationSettings>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PointerVisualizationSettings>(result__)
         })
     }
-    pub fn IPointerVisualizationSettingsStatics<R, F: FnOnce(&IPointerVisualizationSettingsStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<PointerVisualizationSettings, IPointerVisualizationSettingsStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IPointerVisualizationSettingsStatics<R, F: FnOnce(&IPointerVisualizationSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<PointerVisualizationSettings, IPointerVisualizationSettingsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for PointerVisualizationSettings {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerVisualizationSettings;{4d1e6461-84f7-499d-bd91-2a36e2b7aaa2})");
+unsafe impl ::windows::core::RuntimeType for PointerVisualizationSettings {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerVisualizationSettings;{4d1e6461-84f7-499d-bd91-2a36e2b7aaa2})");
 }
-unsafe impl ::windows::runtime::Interface for PointerVisualizationSettings {
+unsafe impl ::windows::core::Interface for PointerVisualizationSettings {
     type Vtable = IPointerVisualizationSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
 }
-impl ::windows::runtime::RuntimeName for PointerVisualizationSettings {
+impl ::windows::core::RuntimeName for PointerVisualizationSettings {
     const NAME: &'static str = "Windows.UI.Input.PointerVisualizationSettings";
 }
-impl ::core::convert::From<PointerVisualizationSettings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PointerVisualizationSettings> for ::windows::core::IUnknown {
     fn from(value: PointerVisualizationSettings) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&PointerVisualizationSettings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PointerVisualizationSettings> for ::windows::core::IUnknown {
     fn from(value: &PointerVisualizationSettings) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PointerVisualizationSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PointerVisualizationSettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PointerVisualizationSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PointerVisualizationSettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<PointerVisualizationSettings> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PointerVisualizationSettings> for ::windows::core::IInspectable {
     fn from(value: PointerVisualizationSettings) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&PointerVisualizationSettings> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PointerVisualizationSettings> for ::windows::core::IInspectable {
     fn from(value: &PointerVisualizationSettings) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PointerVisualizationSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PointerVisualizationSettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PointerVisualizationSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PointerVisualizationSettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for PointerVisualizationSettings {}
@@ -4478,259 +4478,259 @@ unsafe impl ::core::marker::Sync for PointerVisualizationSettings {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialController(pub ::windows::runtime::IInspectable);
+pub struct RadialController(pub ::windows::core::IInspectable);
 impl RadialController {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Menu(&self) -> ::windows::runtime::Result<RadialControllerMenu> {
+    pub fn Menu(&self) -> ::windows::core::Result<RadialControllerMenu> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerMenu>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerMenu>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn RotationResolutionInDegrees(&self) -> ::windows::runtime::Result<f64> {
+    pub fn RotationResolutionInDegrees(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetRotationResolutionInDegrees(&self, value: f64) -> ::windows::runtime::Result<()> {
+    pub fn SetRotationResolutionInDegrees(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn UseAutomaticHapticFeedback(&self) -> ::windows::runtime::Result<bool> {
+    pub fn UseAutomaticHapticFeedback(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetUseAutomaticHapticFeedback(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetUseAutomaticHapticFeedback(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ScreenContactStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactStartedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ScreenContactStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactStartedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveScreenContactStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveScreenContactStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ScreenContactEnded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ScreenContactEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveScreenContactEnded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveScreenContactEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ScreenContactContinued<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactContinuedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ScreenContactContinued<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactContinuedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveScreenContactContinued<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveScreenContactContinued<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ControlLost<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ControlLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveControlLost<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveControlLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RotationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerRotationChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RotationChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerRotationChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveRotationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveRotationChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ButtonClicked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonClickedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ButtonClicked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonClickedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveButtonClicked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveButtonClicked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ControlAcquired<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerControlAcquiredEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ControlAcquired<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerControlAcquiredEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveControlAcquired<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveControlAcquired<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsSupported() -> ::windows::runtime::Result<bool> {
+    pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IRadialControllerStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CreateForCurrentView() -> ::windows::runtime::Result<RadialController> {
+    pub fn CreateForCurrentView() -> ::windows::core::Result<RadialController> {
         Self::IRadialControllerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialController>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ButtonPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::runtime::Interface::cast::<IRadialController2>(self)?;
+    pub fn ButtonPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+        let this = &::windows::core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveButtonPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IRadialController2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+    pub fn RemoveButtonPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IRadialController2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ButtonHolding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonHoldingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::runtime::Interface::cast::<IRadialController2>(self)?;
+    pub fn ButtonHolding<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonHoldingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+        let this = &::windows::core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveButtonHolding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IRadialController2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+    pub fn RemoveButtonHolding<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IRadialController2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn ButtonReleased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonReleasedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::runtime::Interface::cast::<IRadialController2>(self)?;
+    pub fn ButtonReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonReleasedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+        let this = &::windows::core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveButtonReleased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IRadialController2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+    pub fn RemoveButtonReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IRadialController2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    pub fn IRadialControllerStatics<R, F: FnOnce(&IRadialControllerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<RadialController, IRadialControllerStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IRadialControllerStatics<R, F: FnOnce(&IRadialControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<RadialController, IRadialControllerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialController {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialController;{3055d1c8-df51-43d4-b23b-0e1037467a09})");
+unsafe impl ::windows::core::RuntimeType for RadialController {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialController;{3055d1c8-df51-43d4-b23b-0e1037467a09})");
 }
-unsafe impl ::windows::runtime::Interface for RadialController {
+unsafe impl ::windows::core::Interface for RadialController {
     type Vtable = IRadialController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3055d1c8_df51_43d4_b23b_0e1037467a09);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3055d1c8_df51_43d4_b23b_0e1037467a09);
 }
-impl ::windows::runtime::RuntimeName for RadialController {
+impl ::windows::core::RuntimeName for RadialController {
     const NAME: &'static str = "Windows.UI.Input.RadialController";
 }
-impl ::core::convert::From<RadialController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialController> for ::windows::core::IUnknown {
     fn from(value: RadialController) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialController> for ::windows::core::IUnknown {
     fn from(value: &RadialController) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialController {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialController {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialController> for ::windows::core::IInspectable {
     fn from(value: RadialController) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialController> for ::windows::core::IInspectable {
     fn from(value: &RadialController) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialController {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialController {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialController {}
@@ -4738,74 +4738,74 @@ unsafe impl ::core::marker::Sync for RadialController {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerButtonClickedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerButtonClickedEventArgs(pub ::windows::core::IInspectable);
 impl RadialControllerButtonClickedEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Contact(&self) -> ::windows::runtime::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> ::windows::core::Result<RadialControllerScreenContact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
         }
     }
     #[cfg(feature = "Devices_Haptics")]
     #[doc = "*Required features: `UI_Input`, `Devices_Haptics`*"]
-    pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<super::super::Devices::Haptics::SimpleHapticsController> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerButtonClickedEventArgs2>(self)?;
+    pub fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerButtonClickedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerButtonClickedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonClickedEventArgs;{206aa438-e651-11e5-bf62-2c27d7404e85})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerButtonClickedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonClickedEventArgs;{206aa438-e651-11e5-bf62-2c27d7404e85})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerButtonClickedEventArgs {
+unsafe impl ::windows::core::Interface for RadialControllerButtonClickedEventArgs {
     type Vtable = IRadialControllerButtonClickedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa438_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa438_e651_11e5_bf62_2c27d7404e85);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerButtonClickedEventArgs {
+impl ::windows::core::RuntimeName for RadialControllerButtonClickedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonClickedEventArgs";
 }
-impl ::core::convert::From<RadialControllerButtonClickedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerButtonClickedEventArgs> for ::windows::core::IUnknown {
     fn from(value: RadialControllerButtonClickedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerButtonClickedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerButtonClickedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerButtonClickedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerButtonClickedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerButtonClickedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerButtonClickedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerButtonClickedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerButtonClickedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerButtonClickedEventArgs> for ::windows::core::IInspectable {
     fn from(value: RadialControllerButtonClickedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerButtonClickedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerButtonClickedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerButtonClickedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerButtonClickedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerButtonClickedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerButtonClickedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerButtonClickedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerButtonClickedEventArgs {}
@@ -4813,74 +4813,74 @@ unsafe impl ::core::marker::Sync for RadialControllerButtonClickedEventArgs {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerButtonHoldingEventArgs(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerButtonHoldingEventArgs(pub ::windows::core::IInspectable);
 impl RadialControllerButtonHoldingEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Contact(&self) -> ::windows::runtime::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> ::windows::core::Result<RadialControllerScreenContact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
         }
     }
     #[cfg(feature = "Devices_Haptics")]
     #[doc = "*Required features: `UI_Input`, `Devices_Haptics`*"]
-    pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerButtonHoldingEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonHoldingEventArgs;{3d577eee-3cee-11e6-b535-001bdc06ab3b})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerButtonHoldingEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonHoldingEventArgs;{3d577eee-3cee-11e6-b535-001bdc06ab3b})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerButtonHoldingEventArgs {
+unsafe impl ::windows::core::Interface for RadialControllerButtonHoldingEventArgs {
     type Vtable = IRadialControllerButtonHoldingEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eee_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eee_3cee_11e6_b535_001bdc06ab3b);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerButtonHoldingEventArgs {
+impl ::windows::core::RuntimeName for RadialControllerButtonHoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonHoldingEventArgs";
 }
-impl ::core::convert::From<RadialControllerButtonHoldingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerButtonHoldingEventArgs> for ::windows::core::IUnknown {
     fn from(value: RadialControllerButtonHoldingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerButtonHoldingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerButtonHoldingEventArgs> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerButtonHoldingEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerButtonHoldingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerButtonHoldingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerButtonHoldingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerButtonHoldingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerButtonHoldingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerButtonHoldingEventArgs> for ::windows::core::IInspectable {
     fn from(value: RadialControllerButtonHoldingEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerButtonHoldingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerButtonHoldingEventArgs> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerButtonHoldingEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerButtonHoldingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerButtonHoldingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerButtonHoldingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerButtonHoldingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerButtonHoldingEventArgs {}
@@ -4888,74 +4888,74 @@ unsafe impl ::core::marker::Sync for RadialControllerButtonHoldingEventArgs {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerButtonPressedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerButtonPressedEventArgs(pub ::windows::core::IInspectable);
 impl RadialControllerButtonPressedEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Contact(&self) -> ::windows::runtime::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> ::windows::core::Result<RadialControllerScreenContact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
         }
     }
     #[cfg(feature = "Devices_Haptics")]
     #[doc = "*Required features: `UI_Input`, `Devices_Haptics`*"]
-    pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerButtonPressedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonPressedEventArgs;{3d577eed-4cee-11e6-b535-001bdc06ab3b})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerButtonPressedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonPressedEventArgs;{3d577eed-4cee-11e6-b535-001bdc06ab3b})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerButtonPressedEventArgs {
+unsafe impl ::windows::core::Interface for RadialControllerButtonPressedEventArgs {
     type Vtable = IRadialControllerButtonPressedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eed_4cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eed_4cee_11e6_b535_001bdc06ab3b);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerButtonPressedEventArgs {
+impl ::windows::core::RuntimeName for RadialControllerButtonPressedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonPressedEventArgs";
 }
-impl ::core::convert::From<RadialControllerButtonPressedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerButtonPressedEventArgs> for ::windows::core::IUnknown {
     fn from(value: RadialControllerButtonPressedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerButtonPressedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerButtonPressedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerButtonPressedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerButtonPressedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerButtonPressedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerButtonPressedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerButtonPressedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerButtonPressedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerButtonPressedEventArgs> for ::windows::core::IInspectable {
     fn from(value: RadialControllerButtonPressedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerButtonPressedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerButtonPressedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerButtonPressedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerButtonPressedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerButtonPressedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerButtonPressedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerButtonPressedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerButtonPressedEventArgs {}
@@ -4963,74 +4963,74 @@ unsafe impl ::core::marker::Sync for RadialControllerButtonPressedEventArgs {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerButtonReleasedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerButtonReleasedEventArgs(pub ::windows::core::IInspectable);
 impl RadialControllerButtonReleasedEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Contact(&self) -> ::windows::runtime::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> ::windows::core::Result<RadialControllerScreenContact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
         }
     }
     #[cfg(feature = "Devices_Haptics")]
     #[doc = "*Required features: `UI_Input`, `Devices_Haptics`*"]
-    pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerButtonReleasedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonReleasedEventArgs;{3d577eef-3cee-11e6-b535-001bdc06ab3b})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerButtonReleasedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonReleasedEventArgs;{3d577eef-3cee-11e6-b535-001bdc06ab3b})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerButtonReleasedEventArgs {
+unsafe impl ::windows::core::Interface for RadialControllerButtonReleasedEventArgs {
     type Vtable = IRadialControllerButtonReleasedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577eef_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eef_3cee_11e6_b535_001bdc06ab3b);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerButtonReleasedEventArgs {
+impl ::windows::core::RuntimeName for RadialControllerButtonReleasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonReleasedEventArgs";
 }
-impl ::core::convert::From<RadialControllerButtonReleasedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerButtonReleasedEventArgs> for ::windows::core::IUnknown {
     fn from(value: RadialControllerButtonReleasedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerButtonReleasedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerButtonReleasedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerButtonReleasedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerButtonReleasedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerButtonReleasedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerButtonReleasedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerButtonReleasedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerButtonReleasedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerButtonReleasedEventArgs> for ::windows::core::IInspectable {
     fn from(value: RadialControllerButtonReleasedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerButtonReleasedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerButtonReleasedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerButtonReleasedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerButtonReleasedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerButtonReleasedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerButtonReleasedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerButtonReleasedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerButtonReleasedEventArgs {}
@@ -5038,139 +5038,139 @@ unsafe impl ::core::marker::Sync for RadialControllerButtonReleasedEventArgs {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerConfiguration(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerConfiguration(pub ::windows::core::IInspectable);
 impl RadialControllerConfiguration {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Input`, `Foundation_Collections`*"]
-    pub fn SetDefaultMenuItems<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>>>(&self, buttons: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetDefaultMenuItems<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>>>(&self, buttons: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buttons.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buttons.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ResetToDefaultMenuItems(&self) -> ::windows::runtime::Result<()> {
+    pub fn ResetToDefaultMenuItems(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn TrySelectDefaultMenuItem(&self, r#type: RadialControllerSystemMenuItemKind) -> ::windows::runtime::Result<bool> {
+    pub fn TrySelectDefaultMenuItem(&self, r#type: RadialControllerSystemMenuItemKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn GetForCurrentView() -> ::windows::runtime::Result<RadialControllerConfiguration> {
+    pub fn GetForCurrentView() -> ::windows::core::Result<RadialControllerConfiguration> {
         Self::IRadialControllerConfigurationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerConfiguration>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerConfiguration>(result__)
         })
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetActiveControllerWhenMenuIsSuppressed<'a, Param0: ::windows::runtime::IntoParam<'a, RadialController>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerConfiguration2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+    pub fn SetActiveControllerWhenMenuIsSuppressed<'a, Param0: ::windows::core::IntoParam<'a, RadialController>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ActiveControllerWhenMenuIsSuppressed(&self) -> ::windows::runtime::Result<RadialController> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerConfiguration2>(self)?;
+    pub fn ActiveControllerWhenMenuIsSuppressed(&self) -> ::windows::core::Result<RadialController> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialController>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetIsMenuSuppressed(&self, value: bool) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerConfiguration2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
+    pub fn SetIsMenuSuppressed(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsMenuSuppressed(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerConfiguration2>(self)?;
+    pub fn IsMenuSuppressed(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetAppController<'a, Param0: ::windows::runtime::IntoParam<'a, RadialController>>(value: Param0) -> ::windows::runtime::Result<()> {
-        Self::IRadialControllerConfigurationStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
+    pub fn SetAppController<'a, Param0: ::windows::core::IntoParam<'a, RadialController>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IRadialControllerConfigurationStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn AppController() -> ::windows::runtime::Result<RadialController> {
+    pub fn AppController() -> ::windows::core::Result<RadialController> {
         Self::IRadialControllerConfigurationStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialController>(result__)
         })
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetIsAppControllerEnabled(value: bool) -> ::windows::runtime::Result<()> {
-        Self::IRadialControllerConfigurationStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() })
+    pub fn SetIsAppControllerEnabled(value: bool) -> ::windows::core::Result<()> {
+        Self::IRadialControllerConfigurationStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() })
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsAppControllerEnabled() -> ::windows::runtime::Result<bool> {
+    pub fn IsAppControllerEnabled() -> ::windows::core::Result<bool> {
         Self::IRadialControllerConfigurationStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IRadialControllerConfigurationStatics<R, F: FnOnce(&IRadialControllerConfigurationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IRadialControllerConfigurationStatics<R, F: FnOnce(&IRadialControllerConfigurationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    pub fn IRadialControllerConfigurationStatics2<R, F: FnOnce(&IRadialControllerConfigurationStatics2) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics2> = ::windows::runtime::FactoryCache::new();
+    pub fn IRadialControllerConfigurationStatics2<R, F: FnOnce(&IRadialControllerConfigurationStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerConfiguration {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerConfiguration;{a6b79ecb-6a52-4430-910c-56370a9d6b42})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerConfiguration {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerConfiguration;{a6b79ecb-6a52-4430-910c-56370a9d6b42})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerConfiguration {
+unsafe impl ::windows::core::Interface for RadialControllerConfiguration {
     type Vtable = IRadialControllerConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa6b79ecb_6a52_4430_910c_56370a9d6b42);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b79ecb_6a52_4430_910c_56370a9d6b42);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerConfiguration {
+impl ::windows::core::RuntimeName for RadialControllerConfiguration {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerConfiguration";
 }
-impl ::core::convert::From<RadialControllerConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerConfiguration> for ::windows::core::IUnknown {
     fn from(value: RadialControllerConfiguration) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerConfiguration> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerConfiguration) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerConfiguration> for ::windows::core::IInspectable {
     fn from(value: RadialControllerConfiguration) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerConfiguration> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerConfiguration) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerConfiguration {}
@@ -5178,82 +5178,82 @@ unsafe impl ::core::marker::Sync for RadialControllerConfiguration {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerControlAcquiredEventArgs(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerControlAcquiredEventArgs(pub ::windows::core::IInspectable);
 impl RadialControllerControlAcquiredEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Contact(&self) -> ::windows::runtime::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> ::windows::core::Result<RadialControllerScreenContact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsButtonPressed(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerControlAcquiredEventArgs2>(self)?;
+    pub fn IsButtonPressed(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerControlAcquiredEventArgs2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Devices_Haptics")]
     #[doc = "*Required features: `UI_Input`, `Devices_Haptics`*"]
-    pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<super::super::Devices::Haptics::SimpleHapticsController> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerControlAcquiredEventArgs2>(self)?;
+    pub fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerControlAcquiredEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerControlAcquiredEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerControlAcquiredEventArgs;{206aa439-e651-11e5-bf62-2c27d7404e85})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerControlAcquiredEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerControlAcquiredEventArgs;{206aa439-e651-11e5-bf62-2c27d7404e85})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerControlAcquiredEventArgs {
+unsafe impl ::windows::core::Interface for RadialControllerControlAcquiredEventArgs {
     type Vtable = IRadialControllerControlAcquiredEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa439_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa439_e651_11e5_bf62_2c27d7404e85);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerControlAcquiredEventArgs {
+impl ::windows::core::RuntimeName for RadialControllerControlAcquiredEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerControlAcquiredEventArgs";
 }
-impl ::core::convert::From<RadialControllerControlAcquiredEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerControlAcquiredEventArgs> for ::windows::core::IUnknown {
     fn from(value: RadialControllerControlAcquiredEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerControlAcquiredEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerControlAcquiredEventArgs> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerControlAcquiredEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerControlAcquiredEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerControlAcquiredEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerControlAcquiredEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerControlAcquiredEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerControlAcquiredEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerControlAcquiredEventArgs> for ::windows::core::IInspectable {
     fn from(value: RadialControllerControlAcquiredEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerControlAcquiredEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerControlAcquiredEventArgs> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerControlAcquiredEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerControlAcquiredEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerControlAcquiredEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerControlAcquiredEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerControlAcquiredEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerControlAcquiredEventArgs {}
@@ -5261,100 +5261,100 @@ unsafe impl ::core::marker::Sync for RadialControllerControlAcquiredEventArgs {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerMenu(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerMenu(pub ::windows::core::IInspectable);
 impl RadialControllerMenu {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Input`, `Foundation_Collections`*"]
-    pub fn Items(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<RadialControllerMenuItem>> {
+    pub fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<RadialControllerMenuItem>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<RadialControllerMenuItem>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<RadialControllerMenuItem>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
-        let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `UI_Input`*"]
-    pub fn GetSelectedMenuItem(&self) -> ::windows::runtime::Result<RadialControllerMenuItem> {
-        let this = self;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerMenuItem>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Input`*"]
-    pub fn SelectMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, RadialControllerMenuItem>>(&self, menuitem: Param0) -> ::windows::runtime::Result<()> {
-        let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), menuitem.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Input`*"]
-    pub fn TrySelectPreviouslySelectedMenuItem(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `UI_Input`*"]
+    pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
+    }
+    #[doc = "*Required features: `UI_Input`*"]
+    pub fn GetSelectedMenuItem(&self) -> ::windows::core::Result<RadialControllerMenuItem> {
+        let this = self;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerMenuItem>(result__)
+        }
+    }
+    #[doc = "*Required features: `UI_Input`*"]
+    pub fn SelectMenuItem<'a, Param0: ::windows::core::IntoParam<'a, RadialControllerMenuItem>>(&self, menuitem: Param0) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), menuitem.into_param().abi()).ok() }
+    }
+    #[doc = "*Required features: `UI_Input`*"]
+    pub fn TrySelectPreviouslySelectedMenuItem(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerMenu {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenu;{8506b35d-f640-4412-aba0-bad077e5ea8a})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerMenu {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenu;{8506b35d-f640-4412-aba0-bad077e5ea8a})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerMenu {
+unsafe impl ::windows::core::Interface for RadialControllerMenu {
     type Vtable = IRadialControllerMenu_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8506b35d_f640_4412_aba0_bad077e5ea8a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8506b35d_f640_4412_aba0_bad077e5ea8a);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerMenu {
+impl ::windows::core::RuntimeName for RadialControllerMenu {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerMenu";
 }
-impl ::core::convert::From<RadialControllerMenu> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerMenu> for ::windows::core::IUnknown {
     fn from(value: RadialControllerMenu) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerMenu> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerMenu> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerMenu) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerMenu {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerMenu {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerMenu {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerMenu {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerMenu> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerMenu> for ::windows::core::IInspectable {
     fn from(value: RadialControllerMenu) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerMenu> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerMenu> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerMenu) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerMenu {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerMenu {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerMenu {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerMenu {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerMenu {}
@@ -5362,131 +5362,131 @@ unsafe impl ::core::marker::Sync for RadialControllerMenu {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerMenuItem(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerMenuItem(pub ::windows::core::IInspectable);
 impl RadialControllerMenuItem {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn DisplayText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
+    pub fn Tag(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Invoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Invoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `UI_Input`, `Storage_Streams`*"]
-    pub fn CreateFromIcon<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::RandomAccessStreamReference>>(displaytext: Param0, icon: Param1) -> ::windows::runtime::Result<RadialControllerMenuItem> {
+    pub fn CreateFromIcon<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::RandomAccessStreamReference>>(displaytext: Param0, icon: Param1) -> ::windows::core::Result<RadialControllerMenuItem> {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), displaytext.into_param().abi(), icon.into_param().abi(), &mut result__).from_abi::<RadialControllerMenuItem>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), displaytext.into_param().abi(), icon.into_param().abi(), &mut result__).from_abi::<RadialControllerMenuItem>(result__)
         })
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CreateFromKnownIcon<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(displaytext: Param0, value: RadialControllerMenuKnownIcon) -> ::windows::runtime::Result<RadialControllerMenuItem> {
+    pub fn CreateFromKnownIcon<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(displaytext: Param0, value: RadialControllerMenuKnownIcon) -> ::windows::core::Result<RadialControllerMenuItem> {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), displaytext.into_param().abi(), value, &mut result__).from_abi::<RadialControllerMenuItem>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), displaytext.into_param().abi(), value, &mut result__).from_abi::<RadialControllerMenuItem>(result__)
         })
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn CreateFromFontGlyph<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(displaytext: Param0, glyph: Param1, fontfamily: Param2) -> ::windows::runtime::Result<RadialControllerMenuItem> {
+    pub fn CreateFromFontGlyph<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(displaytext: Param0, glyph: Param1, fontfamily: Param2) -> ::windows::core::Result<RadialControllerMenuItem> {
         Self::IRadialControllerMenuItemStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), displaytext.into_param().abi(), glyph.into_param().abi(), fontfamily.into_param().abi(), &mut result__).from_abi::<RadialControllerMenuItem>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), displaytext.into_param().abi(), glyph.into_param().abi(), fontfamily.into_param().abi(), &mut result__).from_abi::<RadialControllerMenuItem>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn CreateFromFontGlyphWithUri<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(displaytext: Param0, glyph: Param1, fontfamily: Param2, fonturi: Param3) -> ::windows::runtime::Result<RadialControllerMenuItem> {
+    pub fn CreateFromFontGlyphWithUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(displaytext: Param0, glyph: Param1, fontfamily: Param2, fonturi: Param3) -> ::windows::core::Result<RadialControllerMenuItem> {
         Self::IRadialControllerMenuItemStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), displaytext.into_param().abi(), glyph.into_param().abi(), fontfamily.into_param().abi(), fonturi.into_param().abi(), &mut result__).from_abi::<RadialControllerMenuItem>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), displaytext.into_param().abi(), glyph.into_param().abi(), fontfamily.into_param().abi(), fonturi.into_param().abi(), &mut result__).from_abi::<RadialControllerMenuItem>(result__)
         })
     }
-    pub fn IRadialControllerMenuItemStatics<R, F: FnOnce(&IRadialControllerMenuItemStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IRadialControllerMenuItemStatics<R, F: FnOnce(&IRadialControllerMenuItemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    pub fn IRadialControllerMenuItemStatics2<R, F: FnOnce(&IRadialControllerMenuItemStatics2) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics2> = ::windows::runtime::FactoryCache::new();
+    pub fn IRadialControllerMenuItemStatics2<R, F: FnOnce(&IRadialControllerMenuItemStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerMenuItem {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenuItem;{c80fc98d-ad0b-4c9c-8f2f-136a2373a6ba})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerMenuItem {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenuItem;{c80fc98d-ad0b-4c9c-8f2f-136a2373a6ba})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerMenuItem {
+unsafe impl ::windows::core::Interface for RadialControllerMenuItem {
     type Vtable = IRadialControllerMenuItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerMenuItem {
+impl ::windows::core::RuntimeName for RadialControllerMenuItem {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerMenuItem";
 }
-impl ::core::convert::From<RadialControllerMenuItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerMenuItem> for ::windows::core::IUnknown {
     fn from(value: RadialControllerMenuItem) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerMenuItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerMenuItem> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerMenuItem) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerMenuItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerMenuItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerMenuItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerMenuItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerMenuItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerMenuItem> for ::windows::core::IInspectable {
     fn from(value: RadialControllerMenuItem) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerMenuItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerMenuItem> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerMenuItem) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerMenuItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerMenuItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerMenuItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerMenuItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerMenuItem {}
@@ -5511,102 +5511,102 @@ impl ::core::convert::From<i32> for RadialControllerMenuKnownIcon {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RadialControllerMenuKnownIcon {
+unsafe impl ::windows::core::Abi for RadialControllerMenuKnownIcon {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerMenuKnownIcon {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerMenuKnownIcon;i4)");
+unsafe impl ::windows::core::RuntimeType for RadialControllerMenuKnownIcon {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerMenuKnownIcon;i4)");
 }
-impl ::windows::runtime::DefaultType for RadialControllerMenuKnownIcon {
+impl ::windows::core::DefaultType for RadialControllerMenuKnownIcon {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerRotationChangedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerRotationChangedEventArgs(pub ::windows::core::IInspectable);
 impl RadialControllerRotationChangedEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn RotationDeltaInDegrees(&self) -> ::windows::runtime::Result<f64> {
+    pub fn RotationDeltaInDegrees(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Contact(&self) -> ::windows::runtime::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> ::windows::core::Result<RadialControllerScreenContact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsButtonPressed(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerRotationChangedEventArgs2>(self)?;
+    pub fn IsButtonPressed(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerRotationChangedEventArgs2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Devices_Haptics")]
     #[doc = "*Required features: `UI_Input`, `Devices_Haptics`*"]
-    pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<super::super::Devices::Haptics::SimpleHapticsController> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerRotationChangedEventArgs2>(self)?;
+    pub fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerRotationChangedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerRotationChangedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerRotationChangedEventArgs;{206aa435-e651-11e5-bf62-2c27d7404e85})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerRotationChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerRotationChangedEventArgs;{206aa435-e651-11e5-bf62-2c27d7404e85})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerRotationChangedEventArgs {
+unsafe impl ::windows::core::Interface for RadialControllerRotationChangedEventArgs {
     type Vtable = IRadialControllerRotationChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa435_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa435_e651_11e5_bf62_2c27d7404e85);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerRotationChangedEventArgs {
+impl ::windows::core::RuntimeName for RadialControllerRotationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerRotationChangedEventArgs";
 }
-impl ::core::convert::From<RadialControllerRotationChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerRotationChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: RadialControllerRotationChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerRotationChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerRotationChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerRotationChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerRotationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerRotationChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerRotationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerRotationChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerRotationChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerRotationChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: RadialControllerRotationChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerRotationChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerRotationChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerRotationChangedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerRotationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerRotationChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerRotationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerRotationChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerRotationChangedEventArgs {}
@@ -5614,75 +5614,75 @@ unsafe impl ::core::marker::Sync for RadialControllerRotationChangedEventArgs {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerScreenContact(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerScreenContact(pub ::windows::core::IInspectable);
 impl RadialControllerScreenContact {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Bounds(&self) -> ::windows::runtime::Result<super::super::Foundation::Rect> {
+    pub fn Bounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerScreenContact {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContact;{206aa434-e651-11e5-bf62-2c27d7404e85})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContact {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContact;{206aa434-e651-11e5-bf62-2c27d7404e85})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerScreenContact {
+unsafe impl ::windows::core::Interface for RadialControllerScreenContact {
     type Vtable = IRadialControllerScreenContact_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa434_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa434_e651_11e5_bf62_2c27d7404e85);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerScreenContact {
+impl ::windows::core::RuntimeName for RadialControllerScreenContact {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContact";
 }
-impl ::core::convert::From<RadialControllerScreenContact> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerScreenContact> for ::windows::core::IUnknown {
     fn from(value: RadialControllerScreenContact) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerScreenContact> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerScreenContact> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerScreenContact) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerScreenContact {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerScreenContact {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerScreenContact {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerScreenContact {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerScreenContact> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerScreenContact> for ::windows::core::IInspectable {
     fn from(value: RadialControllerScreenContact) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerScreenContact> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerScreenContact> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerScreenContact) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerScreenContact {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerScreenContact {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerScreenContact {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerScreenContact {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerScreenContact {}
@@ -5690,82 +5690,82 @@ unsafe impl ::core::marker::Sync for RadialControllerScreenContact {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerScreenContactContinuedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerScreenContactContinuedEventArgs(pub ::windows::core::IInspectable);
 impl RadialControllerScreenContactContinuedEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Contact(&self) -> ::windows::runtime::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> ::windows::core::Result<RadialControllerScreenContact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsButtonPressed(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerScreenContactContinuedEventArgs2>(self)?;
+    pub fn IsButtonPressed(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerScreenContactContinuedEventArgs2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Devices_Haptics")]
     #[doc = "*Required features: `UI_Input`, `Devices_Haptics`*"]
-    pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<super::super::Devices::Haptics::SimpleHapticsController> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerScreenContactContinuedEventArgs2>(self)?;
+    pub fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerScreenContactContinuedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerScreenContactContinuedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs;{206aa437-e651-11e5-bf62-2c27d7404e85})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactContinuedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs;{206aa437-e651-11e5-bf62-2c27d7404e85})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerScreenContactContinuedEventArgs {
+unsafe impl ::windows::core::Interface for RadialControllerScreenContactContinuedEventArgs {
     type Vtable = IRadialControllerScreenContactContinuedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa437_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa437_e651_11e5_bf62_2c27d7404e85);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerScreenContactContinuedEventArgs {
+impl ::windows::core::RuntimeName for RadialControllerScreenContactContinuedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs";
 }
-impl ::core::convert::From<RadialControllerScreenContactContinuedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerScreenContactContinuedEventArgs> for ::windows::core::IUnknown {
     fn from(value: RadialControllerScreenContactContinuedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerScreenContactContinuedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerScreenContactContinuedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerScreenContactContinuedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerScreenContactContinuedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerScreenContactContinuedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerScreenContactContinuedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerScreenContactContinuedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerScreenContactContinuedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerScreenContactContinuedEventArgs> for ::windows::core::IInspectable {
     fn from(value: RadialControllerScreenContactContinuedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerScreenContactContinuedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerScreenContactContinuedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerScreenContactContinuedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerScreenContactContinuedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerScreenContactContinuedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerScreenContactContinuedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerScreenContactContinuedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerScreenContactContinuedEventArgs {}
@@ -5773,74 +5773,74 @@ unsafe impl ::core::marker::Sync for RadialControllerScreenContactContinuedEvent
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerScreenContactEndedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerScreenContactEndedEventArgs(pub ::windows::core::IInspectable);
 impl RadialControllerScreenContactEndedEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsButtonPressed(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsButtonPressed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Devices_Haptics")]
     #[doc = "*Required features: `UI_Input`, `Devices_Haptics`*"]
-    pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerScreenContactEndedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactEndedEventArgs;{3d577ef2-3cee-11e6-b535-001bdc06ab3b})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactEndedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactEndedEventArgs;{3d577ef2-3cee-11e6-b535-001bdc06ab3b})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerScreenContactEndedEventArgs {
+unsafe impl ::windows::core::Interface for RadialControllerScreenContactEndedEventArgs {
     type Vtable = IRadialControllerScreenContactEndedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d577ef2_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef2_3cee_11e6_b535_001bdc06ab3b);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerScreenContactEndedEventArgs {
+impl ::windows::core::RuntimeName for RadialControllerScreenContactEndedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactEndedEventArgs";
 }
-impl ::core::convert::From<RadialControllerScreenContactEndedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerScreenContactEndedEventArgs> for ::windows::core::IUnknown {
     fn from(value: RadialControllerScreenContactEndedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerScreenContactEndedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerScreenContactEndedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerScreenContactEndedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerScreenContactEndedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerScreenContactEndedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerScreenContactEndedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerScreenContactEndedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerScreenContactEndedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerScreenContactEndedEventArgs> for ::windows::core::IInspectable {
     fn from(value: RadialControllerScreenContactEndedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerScreenContactEndedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerScreenContactEndedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerScreenContactEndedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerScreenContactEndedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerScreenContactEndedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerScreenContactEndedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerScreenContactEndedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerScreenContactEndedEventArgs {}
@@ -5848,82 +5848,82 @@ unsafe impl ::core::marker::Sync for RadialControllerScreenContactEndedEventArgs
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RadialControllerScreenContactStartedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct RadialControllerScreenContactStartedEventArgs(pub ::windows::core::IInspectable);
 impl RadialControllerScreenContactStartedEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Contact(&self) -> ::windows::runtime::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> ::windows::core::Result<RadialControllerScreenContact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadialControllerScreenContact>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsButtonPressed(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerScreenContactStartedEventArgs2>(self)?;
+    pub fn IsButtonPressed(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerScreenContactStartedEventArgs2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Devices_Haptics")]
     #[doc = "*Required features: `UI_Input`, `Devices_Haptics`*"]
-    pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<super::super::Devices::Haptics::SimpleHapticsController> {
-        let this = &::windows::runtime::Interface::cast::<IRadialControllerScreenContactStartedEventArgs2>(self)?;
+    pub fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+        let this = &::windows::core::Interface::cast::<IRadialControllerScreenContactStartedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Haptics::SimpleHapticsController>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerScreenContactStartedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactStartedEventArgs;{206aa436-e651-11e5-bf62-2c27d7404e85})");
+unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactStartedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactStartedEventArgs;{206aa436-e651-11e5-bf62-2c27d7404e85})");
 }
-unsafe impl ::windows::runtime::Interface for RadialControllerScreenContactStartedEventArgs {
+unsafe impl ::windows::core::Interface for RadialControllerScreenContactStartedEventArgs {
     type Vtable = IRadialControllerScreenContactStartedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x206aa436_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa436_e651_11e5_bf62_2c27d7404e85);
 }
-impl ::windows::runtime::RuntimeName for RadialControllerScreenContactStartedEventArgs {
+impl ::windows::core::RuntimeName for RadialControllerScreenContactStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactStartedEventArgs";
 }
-impl ::core::convert::From<RadialControllerScreenContactStartedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerScreenContactStartedEventArgs> for ::windows::core::IUnknown {
     fn from(value: RadialControllerScreenContactStartedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RadialControllerScreenContactStartedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerScreenContactStartedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &RadialControllerScreenContactStartedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerScreenContactStartedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadialControllerScreenContactStartedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerScreenContactStartedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadialControllerScreenContactStartedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RadialControllerScreenContactStartedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerScreenContactStartedEventArgs> for ::windows::core::IInspectable {
     fn from(value: RadialControllerScreenContactStartedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RadialControllerScreenContactStartedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerScreenContactStartedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &RadialControllerScreenContactStartedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RadialControllerScreenContactStartedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RadialControllerScreenContactStartedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RadialControllerScreenContactStartedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadialControllerScreenContactStartedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RadialControllerScreenContactStartedEventArgs {}
@@ -5944,255 +5944,255 @@ impl ::core::convert::From<i32> for RadialControllerSystemMenuItemKind {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RadialControllerSystemMenuItemKind {
+unsafe impl ::windows::core::Abi for RadialControllerSystemMenuItemKind {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for RadialControllerSystemMenuItemKind {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerSystemMenuItemKind;i4)");
+unsafe impl ::windows::core::RuntimeType for RadialControllerSystemMenuItemKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerSystemMenuItemKind;i4)");
 }
-impl ::windows::runtime::DefaultType for RadialControllerSystemMenuItemKind {
+impl ::windows::core::DefaultType for RadialControllerSystemMenuItemKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RightTappedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct RightTappedEventArgs(pub ::windows::core::IInspectable);
 impl RightTappedEventArgs {
     #[cfg(feature = "Devices_Input")]
     #[doc = "*Required features: `UI_Input`, `Devices_Input`*"]
-    pub fn PointerDeviceType(&self) -> ::windows::runtime::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IRightTappedEventArgs2>(self)?;
+    pub fn ContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IRightTappedEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RightTappedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RightTappedEventArgs;{4cbf40bd-af7a-4a36-9476-b1dce141709a})");
+unsafe impl ::windows::core::RuntimeType for RightTappedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RightTappedEventArgs;{4cbf40bd-af7a-4a36-9476-b1dce141709a})");
 }
-unsafe impl ::windows::runtime::Interface for RightTappedEventArgs {
+unsafe impl ::windows::core::Interface for RightTappedEventArgs {
     type Vtable = IRightTappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4cbf40bd_af7a_4a36_9476_b1dce141709a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cbf40bd_af7a_4a36_9476_b1dce141709a);
 }
-impl ::windows::runtime::RuntimeName for RightTappedEventArgs {
+impl ::windows::core::RuntimeName for RightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RightTappedEventArgs";
 }
-impl ::core::convert::From<RightTappedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RightTappedEventArgs> for ::windows::core::IUnknown {
     fn from(value: RightTappedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RightTappedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RightTappedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &RightTappedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RightTappedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RightTappedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RightTappedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RightTappedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RightTappedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RightTappedEventArgs> for ::windows::core::IInspectable {
     fn from(value: RightTappedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RightTappedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RightTappedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &RightTappedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RightTappedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RightTappedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RightTappedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RightTappedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SystemButtonEventController(pub ::windows::runtime::IInspectable);
+pub struct SystemButtonEventController(pub ::windows::core::IInspectable);
 impl SystemButtonEventController {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn SystemFunctionButtonPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SystemFunctionButtonPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveSystemFunctionButtonPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveSystemFunctionButtonPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn SystemFunctionButtonReleased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SystemFunctionButtonReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveSystemFunctionButtonReleased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveSystemFunctionButtonReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn SystemFunctionLockChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SystemFunctionLockChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveSystemFunctionLockChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveSystemFunctionLockChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn SystemFunctionLockIndicatorChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SystemFunctionLockIndicatorChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn RemoveSystemFunctionLockIndicatorChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveSystemFunctionLockIndicatorChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "System")]
     #[doc = "*Required features: `UI_Input`, `System`*"]
-    pub fn CreateForDispatcherQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::DispatcherQueue>>(queue: Param0) -> ::windows::runtime::Result<SystemButtonEventController> {
+    pub fn CreateForDispatcherQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::DispatcherQueue>>(queue: Param0) -> ::windows::core::Result<SystemButtonEventController> {
         Self::ISystemButtonEventControllerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), queue.into_param().abi(), &mut result__).from_abi::<SystemButtonEventController>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), queue.into_param().abi(), &mut result__).from_abi::<SystemButtonEventController>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Close(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
-    pub fn ISystemButtonEventControllerStatics<R, F: FnOnce(&ISystemButtonEventControllerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<SystemButtonEventController, ISystemButtonEventControllerStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn ISystemButtonEventControllerStatics<R, F: FnOnce(&ISystemButtonEventControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<SystemButtonEventController, ISystemButtonEventControllerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for SystemButtonEventController {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemButtonEventController;{59b893a9-73bc-52b5-ba41-82511b2cb46c})");
+unsafe impl ::windows::core::RuntimeType for SystemButtonEventController {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemButtonEventController;{59b893a9-73bc-52b5-ba41-82511b2cb46c})");
 }
-unsafe impl ::windows::runtime::Interface for SystemButtonEventController {
+unsafe impl ::windows::core::Interface for SystemButtonEventController {
     type Vtable = ISystemButtonEventController_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x59b893a9_73bc_52b5_ba41_82511b2cb46c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59b893a9_73bc_52b5_ba41_82511b2cb46c);
 }
-impl ::windows::runtime::RuntimeName for SystemButtonEventController {
+impl ::windows::core::RuntimeName for SystemButtonEventController {
     const NAME: &'static str = "Windows.UI.Input.SystemButtonEventController";
 }
-impl ::core::convert::From<SystemButtonEventController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SystemButtonEventController> for ::windows::core::IUnknown {
     fn from(value: SystemButtonEventController) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&SystemButtonEventController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SystemButtonEventController> for ::windows::core::IUnknown {
     fn from(value: &SystemButtonEventController) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemButtonEventController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemButtonEventController {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SystemButtonEventController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemButtonEventController {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<SystemButtonEventController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SystemButtonEventController> for ::windows::core::IInspectable {
     fn from(value: SystemButtonEventController) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&SystemButtonEventController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SystemButtonEventController> for ::windows::core::IInspectable {
     fn from(value: &SystemButtonEventController) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemButtonEventController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemButtonEventController {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemButtonEventController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemButtonEventController {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SystemButtonEventController> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: SystemButtonEventController) -> ::windows::runtime::Result<Self> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: SystemButtonEventController) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&SystemButtonEventController> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: &SystemButtonEventController) -> ::windows::runtime::Result<Self> {
-        ::windows::runtime::Interface::cast(value)
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SystemButtonEventController) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for SystemButtonEventController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::runtime::IntoParam::into_param(&self)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for SystemButtonEventController {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &SystemButtonEventController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &SystemButtonEventController {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 impl ::core::convert::From<SystemButtonEventController> for AttachableInputObject {
@@ -6202,17 +6202,17 @@ impl ::core::convert::From<SystemButtonEventController> for AttachableInputObjec
 }
 impl ::core::convert::From<&SystemButtonEventController> for AttachableInputObject {
     fn from(value: &SystemButtonEventController) -> Self {
-        ::windows::runtime::Interface::cast(value).unwrap()
+        ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, AttachableInputObject> for SystemButtonEventController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, AttachableInputObject> {
-        ::windows::runtime::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(self))
+impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for SystemButtonEventController {
+    fn into_param(self) -> ::windows::core::Param<'a, AttachableInputObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, AttachableInputObject> for &SystemButtonEventController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, AttachableInputObject> {
-        ::windows::runtime::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(::core::clone::Clone::clone(self)))
+impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for &SystemButtonEventController {
+    fn into_param(self) -> ::windows::core::Param<'a, AttachableInputObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(::core::clone::Clone::clone(self)))
     }
 }
 unsafe impl ::core::marker::Send for SystemButtonEventController {}
@@ -6220,78 +6220,78 @@ unsafe impl ::core::marker::Sync for SystemButtonEventController {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SystemFunctionButtonEventArgs(pub ::windows::runtime::IInspectable);
+pub struct SystemFunctionButtonEventArgs(pub ::windows::core::IInspectable);
 impl SystemFunctionButtonEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Timestamp(&self) -> ::windows::runtime::Result<u64> {
+    pub fn Timestamp(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
+    pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for SystemFunctionButtonEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionButtonEventArgs;{4833896f-80d1-5dd6-92a7-62a508ffef5a})");
+unsafe impl ::windows::core::RuntimeType for SystemFunctionButtonEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionButtonEventArgs;{4833896f-80d1-5dd6-92a7-62a508ffef5a})");
 }
-unsafe impl ::windows::runtime::Interface for SystemFunctionButtonEventArgs {
+unsafe impl ::windows::core::Interface for SystemFunctionButtonEventArgs {
     type Vtable = ISystemFunctionButtonEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4833896f_80d1_5dd6_92a7_62a508ffef5a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4833896f_80d1_5dd6_92a7_62a508ffef5a);
 }
-impl ::windows::runtime::RuntimeName for SystemFunctionButtonEventArgs {
+impl ::windows::core::RuntimeName for SystemFunctionButtonEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionButtonEventArgs";
 }
-impl ::core::convert::From<SystemFunctionButtonEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SystemFunctionButtonEventArgs> for ::windows::core::IUnknown {
     fn from(value: SystemFunctionButtonEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&SystemFunctionButtonEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SystemFunctionButtonEventArgs> for ::windows::core::IUnknown {
     fn from(value: &SystemFunctionButtonEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemFunctionButtonEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemFunctionButtonEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SystemFunctionButtonEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemFunctionButtonEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<SystemFunctionButtonEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SystemFunctionButtonEventArgs> for ::windows::core::IInspectable {
     fn from(value: SystemFunctionButtonEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&SystemFunctionButtonEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SystemFunctionButtonEventArgs> for ::windows::core::IInspectable {
     fn from(value: &SystemFunctionButtonEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemFunctionButtonEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemFunctionButtonEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemFunctionButtonEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemFunctionButtonEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for SystemFunctionButtonEventArgs {}
@@ -6299,86 +6299,86 @@ unsafe impl ::core::marker::Sync for SystemFunctionButtonEventArgs {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SystemFunctionLockChangedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct SystemFunctionLockChangedEventArgs(pub ::windows::core::IInspectable);
 impl SystemFunctionLockChangedEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Timestamp(&self) -> ::windows::runtime::Result<u64> {
+    pub fn Timestamp(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsLocked(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsLocked(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
+    pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for SystemFunctionLockChangedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockChangedEventArgs;{cd040608-fcf9-585c-beab-f1d2eaf364ab})");
+unsafe impl ::windows::core::RuntimeType for SystemFunctionLockChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockChangedEventArgs;{cd040608-fcf9-585c-beab-f1d2eaf364ab})");
 }
-unsafe impl ::windows::runtime::Interface for SystemFunctionLockChangedEventArgs {
+unsafe impl ::windows::core::Interface for SystemFunctionLockChangedEventArgs {
     type Vtable = ISystemFunctionLockChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd040608_fcf9_585c_beab_f1d2eaf364ab);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd040608_fcf9_585c_beab_f1d2eaf364ab);
 }
-impl ::windows::runtime::RuntimeName for SystemFunctionLockChangedEventArgs {
+impl ::windows::core::RuntimeName for SystemFunctionLockChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionLockChangedEventArgs";
 }
-impl ::core::convert::From<SystemFunctionLockChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SystemFunctionLockChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: SystemFunctionLockChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&SystemFunctionLockChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SystemFunctionLockChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &SystemFunctionLockChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemFunctionLockChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemFunctionLockChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SystemFunctionLockChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemFunctionLockChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<SystemFunctionLockChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SystemFunctionLockChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: SystemFunctionLockChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&SystemFunctionLockChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SystemFunctionLockChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &SystemFunctionLockChangedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemFunctionLockChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemFunctionLockChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemFunctionLockChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemFunctionLockChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for SystemFunctionLockChangedEventArgs {}
@@ -6386,86 +6386,86 @@ unsafe impl ::core::marker::Sync for SystemFunctionLockChangedEventArgs {}
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SystemFunctionLockIndicatorChangedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct SystemFunctionLockIndicatorChangedEventArgs(pub ::windows::core::IInspectable);
 impl SystemFunctionLockIndicatorChangedEventArgs {
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Timestamp(&self) -> ::windows::runtime::Result<u64> {
+    pub fn Timestamp(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn IsIndicatorOn(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsIndicatorOn(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
+    pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for SystemFunctionLockIndicatorChangedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockIndicatorChangedEventArgs;{b212b94e-7a6f-58ae-b304-bae61d0371b9})");
+unsafe impl ::windows::core::RuntimeType for SystemFunctionLockIndicatorChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockIndicatorChangedEventArgs;{b212b94e-7a6f-58ae-b304-bae61d0371b9})");
 }
-unsafe impl ::windows::runtime::Interface for SystemFunctionLockIndicatorChangedEventArgs {
+unsafe impl ::windows::core::Interface for SystemFunctionLockIndicatorChangedEventArgs {
     type Vtable = ISystemFunctionLockIndicatorChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb212b94e_7a6f_58ae_b304_bae61d0371b9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb212b94e_7a6f_58ae_b304_bae61d0371b9);
 }
-impl ::windows::runtime::RuntimeName for SystemFunctionLockIndicatorChangedEventArgs {
+impl ::windows::core::RuntimeName for SystemFunctionLockIndicatorChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionLockIndicatorChangedEventArgs";
 }
-impl ::core::convert::From<SystemFunctionLockIndicatorChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SystemFunctionLockIndicatorChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: SystemFunctionLockIndicatorChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&SystemFunctionLockIndicatorChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SystemFunctionLockIndicatorChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &SystemFunctionLockIndicatorChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemFunctionLockIndicatorChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemFunctionLockIndicatorChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SystemFunctionLockIndicatorChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemFunctionLockIndicatorChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<SystemFunctionLockIndicatorChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SystemFunctionLockIndicatorChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: SystemFunctionLockIndicatorChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&SystemFunctionLockIndicatorChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SystemFunctionLockIndicatorChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &SystemFunctionLockIndicatorChangedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemFunctionLockIndicatorChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemFunctionLockIndicatorChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemFunctionLockIndicatorChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemFunctionLockIndicatorChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for SystemFunctionLockIndicatorChangedEventArgs {}
@@ -6473,90 +6473,90 @@ unsafe impl ::core::marker::Sync for SystemFunctionLockIndicatorChangedEventArgs
 #[doc = "*Required features: `UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct TappedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct TappedEventArgs(pub ::windows::core::IInspectable);
 impl TappedEventArgs {
     #[cfg(feature = "Devices_Input")]
     #[doc = "*Required features: `UI_Input`, `Devices_Input`*"]
-    pub fn PointerDeviceType(&self) -> ::windows::runtime::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input`, `Foundation`*"]
-    pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn TapCount(&self) -> ::windows::runtime::Result<u32> {
+    pub fn TapCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input`*"]
-    pub fn ContactCount(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<ITappedEventArgs2>(self)?;
+    pub fn ContactCount(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<ITappedEventArgs2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for TappedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Input.TappedEventArgs;{cfa126e4-253a-4c3c-953b-395c37aed309})");
+unsafe impl ::windows::core::RuntimeType for TappedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.TappedEventArgs;{cfa126e4-253a-4c3c-953b-395c37aed309})");
 }
-unsafe impl ::windows::runtime::Interface for TappedEventArgs {
+unsafe impl ::windows::core::Interface for TappedEventArgs {
     type Vtable = ITappedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfa126e4_253a_4c3c_953b_395c37aed309);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa126e4_253a_4c3c_953b_395c37aed309);
 }
-impl ::windows::runtime::RuntimeName for TappedEventArgs {
+impl ::windows::core::RuntimeName for TappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.TappedEventArgs";
 }
-impl ::core::convert::From<TappedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TappedEventArgs> for ::windows::core::IUnknown {
     fn from(value: TappedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&TappedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TappedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &TappedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TappedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TappedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TappedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TappedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<TappedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TappedEventArgs> for ::windows::core::IInspectable {
     fn from(value: TappedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&TappedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TappedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &TappedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TappedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TappedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TappedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TappedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }

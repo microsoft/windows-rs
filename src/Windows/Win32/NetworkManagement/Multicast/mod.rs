@@ -18,7 +18,7 @@ impl ::core::cmp::PartialEq for IPNG_ADDRESS {
     }
 }
 impl ::core::cmp::Eq for IPNG_ADDRESS {}
-unsafe impl ::windows::runtime::Abi for IPNG_ADDRESS {
+unsafe impl ::windows::core::Abi for IPNG_ADDRESS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
@@ -53,7 +53,7 @@ impl ::core::cmp::PartialEq for MCAST_CLIENT_UID {
     }
 }
 impl ::core::cmp::Eq for MCAST_CLIENT_UID {}
-unsafe impl ::windows::runtime::Abi for MCAST_CLIENT_UID {
+unsafe impl ::windows::core::Abi for MCAST_CLIENT_UID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -81,7 +81,7 @@ impl ::core::cmp::PartialEq for MCAST_LEASE_REQUEST {
     }
 }
 impl ::core::cmp::Eq for MCAST_LEASE_REQUEST {}
-unsafe impl ::windows::runtime::Abi for MCAST_LEASE_REQUEST {
+unsafe impl ::windows::core::Abi for MCAST_LEASE_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -106,7 +106,7 @@ impl ::core::cmp::PartialEq for MCAST_LEASE_RESPONSE {
     }
 }
 impl ::core::cmp::Eq for MCAST_LEASE_RESPONSE {}
-unsafe impl ::windows::runtime::Abi for MCAST_LEASE_RESPONSE {
+unsafe impl ::windows::core::Abi for MCAST_LEASE_RESPONSE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -129,7 +129,7 @@ impl ::core::cmp::PartialEq for MCAST_SCOPE_CTX {
     }
 }
 impl ::core::cmp::Eq for MCAST_SCOPE_CTX {}
-unsafe impl ::windows::runtime::Abi for MCAST_SCOPE_CTX {
+unsafe impl ::windows::core::Abi for MCAST_SCOPE_CTX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -159,7 +159,7 @@ impl ::core::cmp::PartialEq for MCAST_SCOPE_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MCAST_SCOPE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MCAST_SCOPE_ENTRY {
+unsafe impl ::windows::core::Abi for MCAST_SCOPE_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
@@ -193,7 +193,7 @@ pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
 #[doc = "*Required features: `Win32_NetworkManagement_Multicast`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn McastEnumerateScopes<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(addrfamily: u16, requery: Param1, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32 {
+pub unsafe fn McastEnumerateScopes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(addrfamily: u16, requery: Param1, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

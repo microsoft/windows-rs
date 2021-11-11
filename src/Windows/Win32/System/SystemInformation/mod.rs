@@ -26,7 +26,7 @@ impl ::core::cmp::PartialEq for CACHE_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for CACHE_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for CACHE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for CACHE_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -54,7 +54,7 @@ impl ::core::cmp::PartialEq for CACHE_RELATIONSHIP {
     }
 }
 impl ::core::cmp::Eq for CACHE_RELATIONSHIP {}
-unsafe impl ::windows::runtime::Abi for CACHE_RELATIONSHIP {
+unsafe impl ::windows::core::Abi for CACHE_RELATIONSHIP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -76,7 +76,7 @@ impl ::core::cmp::PartialEq for CACHE_RELATIONSHIP_0 {
     }
 }
 impl ::core::cmp::Eq for CACHE_RELATIONSHIP_0 {}
-unsafe impl ::windows::runtime::Abi for CACHE_RELATIONSHIP_0 {
+unsafe impl ::windows::core::Abi for CACHE_RELATIONSHIP_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
@@ -97,7 +97,7 @@ impl ::core::convert::From<i32> for COMPUTER_NAME_FORMAT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COMPUTER_NAME_FORMAT {
+unsafe impl ::windows::core::Abi for COMPUTER_NAME_FORMAT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
@@ -110,7 +110,7 @@ impl ::core::convert::From<i32> for CPU_SET_INFORMATION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CPU_SET_INFORMATION_TYPE {
+unsafe impl ::windows::core::Abi for CPU_SET_INFORMATION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
@@ -127,7 +127,7 @@ impl ::core::convert::From<i32> for DEP_SYSTEM_POLICY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DEP_SYSTEM_POLICY_TYPE {
+unsafe impl ::windows::core::Abi for DEP_SYSTEM_POLICY_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
@@ -186,7 +186,7 @@ impl ::core::convert::From<u32> for DEVICEFAMILYDEVICEFORM {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DEVICEFAMILYDEVICEFORM {
+unsafe impl ::windows::core::Abi for DEVICEFAMILYDEVICEFORM {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DEVICEFAMILYDEVICEFORM {
@@ -245,7 +245,7 @@ impl ::core::convert::From<u32> for DEVICEFAMILYINFOENUM {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DEVICEFAMILYINFOENUM {
+unsafe impl ::windows::core::Abi for DEVICEFAMILYINFOENUM {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DEVICEFAMILYINFOENUM {
@@ -279,7 +279,7 @@ impl ::core::ops::Not for DEVICEFAMILYINFOENUM {
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsHostnameToComputerNameExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, computername: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn DnsHostnameToComputerNameExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, computername: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -313,8 +313,8 @@ impl ::core::default::Default for FIRMWARE_TABLE_ID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for FIRMWARE_TABLE_ID {}
-unsafe impl ::windows::runtime::Abi for FIRMWARE_TABLE_ID {
+unsafe impl ::windows::core::Handle for FIRMWARE_TABLE_ID {}
+unsafe impl ::windows::core::Abi for FIRMWARE_TABLE_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
@@ -329,7 +329,7 @@ impl ::core::convert::From<u32> for FIRMWARE_TABLE_PROVIDER {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FIRMWARE_TABLE_PROVIDER {
+unsafe impl ::windows::core::Abi for FIRMWARE_TABLE_PROVIDER {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FIRMWARE_TABLE_PROVIDER {
@@ -373,7 +373,7 @@ impl ::core::convert::From<i32> for FIRMWARE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FIRMWARE_TYPE {
+unsafe impl ::windows::core::Abi for FIRMWARE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -401,7 +401,7 @@ impl ::core::cmp::PartialEq for GROUP_AFFINITY {
     }
 }
 impl ::core::cmp::Eq for GROUP_AFFINITY {}
-unsafe impl ::windows::runtime::Abi for GROUP_AFFINITY {
+unsafe impl ::windows::core::Abi for GROUP_AFFINITY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -430,7 +430,7 @@ impl ::core::cmp::PartialEq for GROUP_RELATIONSHIP {
     }
 }
 impl ::core::cmp::Eq for GROUP_RELATIONSHIP {}
-unsafe impl ::windows::runtime::Abi for GROUP_RELATIONSHIP {
+unsafe impl ::windows::core::Abi for GROUP_RELATIONSHIP {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
@@ -480,14 +480,14 @@ pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super:
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
-pub unsafe fn GetIntegratedDisplaySize() -> ::windows::runtime::Result<f64> {
+pub unsafe fn GetIntegratedDisplaySize() -> ::windows::core::Result<f64> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIntegratedDisplaySize(sizeininches: *mut f64) -> ::windows::runtime::HRESULT;
+            fn GetIntegratedDisplaySize(sizeininches: *mut f64) -> ::windows::core::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetIntegratedDisplaySize(&mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
@@ -631,7 +631,7 @@ pub unsafe fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspm
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSystemCpuSetInformation<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(information: *mut SYSTEM_CPU_SET_INFORMATION, bufferlength: u32, returnedlength: *mut u32, process: Param3, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetSystemCpuSetInformation<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(information: *mut SYSTEM_CPU_SET_INFORMATION, bufferlength: u32, returnedlength: *mut u32, process: Param3, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -689,7 +689,7 @@ pub unsafe fn GetSystemDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usi
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
-pub unsafe fn GetSystemFirmwareTable<'a, Param1: ::windows::runtime::IntoParam<'a, FIRMWARE_TABLE_ID>>(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: Param1, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32 {
+pub unsafe fn GetSystemFirmwareTable<'a, Param1: ::windows::core::IntoParam<'a, FIRMWARE_TABLE_ID>>(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: Param1, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1045,14 +1045,14 @@ pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIR
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsWow64GuestMachineSupported(wowguestmachine: u16, machineissupported: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn IsWow64GuestMachineSupported(wowguestmachine: u16, machineissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         IsWow64GuestMachineSupported(::core::mem::transmute(wowguestmachine), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
@@ -1076,7 +1076,7 @@ impl ::core::convert::From<i32> for LOGICAL_PROCESSOR_RELATIONSHIP {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for LOGICAL_PROCESSOR_RELATIONSHIP {
+unsafe impl ::windows::core::Abi for LOGICAL_PROCESSOR_RELATIONSHIP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1118,7 +1118,7 @@ impl ::core::cmp::PartialEq for MEMORYSTATUS {
     }
 }
 impl ::core::cmp::Eq for MEMORYSTATUS {}
-unsafe impl ::windows::runtime::Abi for MEMORYSTATUS {
+unsafe impl ::windows::core::Abi for MEMORYSTATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1162,7 +1162,7 @@ impl ::core::cmp::PartialEq for MEMORYSTATUSEX {
     }
 }
 impl ::core::cmp::Eq for MEMORYSTATUSEX {}
-unsafe impl ::windows::runtime::Abi for MEMORYSTATUSEX {
+unsafe impl ::windows::core::Abi for MEMORYSTATUSEX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
@@ -1282,7 +1282,7 @@ impl ::core::cmp::PartialEq for NUMA_NODE_RELATIONSHIP {
     }
 }
 impl ::core::cmp::Eq for NUMA_NODE_RELATIONSHIP {}
-unsafe impl ::windows::runtime::Abi for NUMA_NODE_RELATIONSHIP {
+unsafe impl ::windows::core::Abi for NUMA_NODE_RELATIONSHIP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1304,7 +1304,7 @@ impl ::core::cmp::PartialEq for NUMA_NODE_RELATIONSHIP_0 {
     }
 }
 impl ::core::cmp::Eq for NUMA_NODE_RELATIONSHIP_0 {}
-unsafe impl ::windows::runtime::Abi for NUMA_NODE_RELATIONSHIP_0 {
+unsafe impl ::windows::core::Abi for NUMA_NODE_RELATIONSHIP_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1349,7 +1349,7 @@ impl ::core::cmp::PartialEq for OSVERSIONINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OSVERSIONINFOA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OSVERSIONINFOA {
+unsafe impl ::windows::core::Abi for OSVERSIONINFOA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1414,7 +1414,7 @@ impl ::core::cmp::PartialEq for OSVERSIONINFOEXA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OSVERSIONINFOEXA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OSVERSIONINFOEXA {
+unsafe impl ::windows::core::Abi for OSVERSIONINFOEXA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1472,7 +1472,7 @@ impl ::core::cmp::PartialEq for OSVERSIONINFOEXW {
     }
 }
 impl ::core::cmp::Eq for OSVERSIONINFOEXW {}
-unsafe impl ::windows::runtime::Abi for OSVERSIONINFOEXW {
+unsafe impl ::windows::core::Abi for OSVERSIONINFOEXW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1510,7 +1510,7 @@ impl ::core::cmp::PartialEq for OSVERSIONINFOW {
     }
 }
 impl ::core::cmp::Eq for OSVERSIONINFOW {}
-unsafe impl ::windows::runtime::Abi for OSVERSIONINFOW {
+unsafe impl ::windows::core::Abi for OSVERSIONINFOW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
@@ -1526,7 +1526,7 @@ impl ::core::convert::From<i32> for OS_DEPLOYEMENT_STATE_VALUES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OS_DEPLOYEMENT_STATE_VALUES {
+unsafe impl ::windows::core::Abi for OS_DEPLOYEMENT_STATE_VALUES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
@@ -1634,7 +1634,7 @@ impl ::core::convert::From<u32> for OS_PRODUCT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OS_PRODUCT_TYPE {
+unsafe impl ::windows::core::Abi for OS_PRODUCT_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for OS_PRODUCT_TYPE {
@@ -1684,7 +1684,7 @@ impl ::core::convert::From<i32> for PROCESSOR_CACHE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PROCESSOR_CACHE_TYPE {
+unsafe impl ::windows::core::Abi for PROCESSOR_CACHE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1713,7 +1713,7 @@ impl ::core::cmp::PartialEq for PROCESSOR_GROUP_INFO {
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_GROUP_INFO {}
-unsafe impl ::windows::runtime::Abi for PROCESSOR_GROUP_INFO {
+unsafe impl ::windows::core::Abi for PROCESSOR_GROUP_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1743,7 +1743,7 @@ impl ::core::cmp::PartialEq for PROCESSOR_RELATIONSHIP {
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_RELATIONSHIP {}
-unsafe impl ::windows::runtime::Abi for PROCESSOR_RELATIONSHIP {
+unsafe impl ::windows::core::Abi for PROCESSOR_RELATIONSHIP {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
@@ -1769,7 +1769,7 @@ impl ::core::convert::From<i32> for RTL_SYSTEM_GLOBAL_DATA_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RTL_SYSTEM_GLOBAL_DATA_ID {
+unsafe impl ::windows::core::Abi for RTL_SYSTEM_GLOBAL_DATA_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
@@ -1884,7 +1884,7 @@ impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION {
+unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1905,7 +1905,7 @@ impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0 {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0 {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0 {
+unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1935,7 +1935,7 @@ impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0 {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0 {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0 {
+unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1957,7 +1957,7 @@ impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_0 {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1983,7 +1983,7 @@ impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2005,7 +2005,7 @@ impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_1 {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
@@ -2049,7 +2049,7 @@ impl ::core::cmp::PartialEq for SYSTEM_INFO {
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::cmp::Eq for SYSTEM_INFO {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::runtime::Abi for SYSTEM_INFO {
+unsafe impl ::windows::core::Abi for SYSTEM_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2076,7 +2076,7 @@ impl ::core::cmp::PartialEq for SYSTEM_INFO_0 {
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::cmp::Eq for SYSTEM_INFO_0 {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::runtime::Abi for SYSTEM_INFO_0 {
+unsafe impl ::windows::core::Abi for SYSTEM_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2109,7 +2109,7 @@ impl ::core::cmp::PartialEq for SYSTEM_INFO_0_0 {
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::cmp::Eq for SYSTEM_INFO_0_0 {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::runtime::Abi for SYSTEM_INFO_0_0 {
+unsafe impl ::windows::core::Abi for SYSTEM_INFO_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2132,7 +2132,7 @@ impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2156,7 +2156,7 @@ impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
+unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2182,7 +2182,7 @@ impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2208,7 +2208,7 @@ impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2231,7 +2231,7 @@ impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2255,7 +2255,7 @@ impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2288,7 +2288,7 @@ impl ::core::cmp::PartialEq for SYSTEM_POOL_ZEROING_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SYSTEM_POOL_ZEROING_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SYSTEM_POOL_ZEROING_INFORMATION {
+unsafe impl ::windows::core::Abi for SYSTEM_POOL_ZEROING_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2314,7 +2314,7 @@ impl ::core::cmp::PartialEq for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+unsafe impl ::windows::core::Abi for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2340,13 +2340,13 @@ impl ::core::cmp::PartialEq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMA
     }
 }
 impl ::core::cmp::Eq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+unsafe impl ::windows::core::Abi for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpcomputername: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn SetComputerNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpcomputername: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2361,7 +2361,7 @@ pub unsafe fn SetComputerNameA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameEx2W<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn SetComputerNameEx2W<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2376,7 +2376,7 @@ pub unsafe fn SetComputerNameEx2W<'a, Param2: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetComputerNameExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2391,7 +2391,7 @@ pub unsafe fn SetComputerNameExA<'a, Param1: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetComputerNameExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2406,7 +2406,7 @@ pub unsafe fn SetComputerNameExW<'a, Param1: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpcomputername: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn SetComputerNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpcomputername: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2451,7 +2451,7 @@ pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTE
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSystemTimeAdjustment<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(dwtimeadjustment: u32, btimeadjustmentdisabled: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetSystemTimeAdjustment<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwtimeadjustment: u32, btimeadjustmentdisabled: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2466,7 +2466,7 @@ pub unsafe fn SetSystemTimeAdjustment<'a, Param1: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSystemTimeAdjustmentPrecise<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(dwtimeadjustment: u64, btimeadjustmentdisabled: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetSystemTimeAdjustmentPrecise<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwtimeadjustment: u64, btimeadjustmentdisabled: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2491,7 +2491,7 @@ impl ::core::convert::From<u32> for USER_CET_ENVIRONMENT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USER_CET_ENVIRONMENT {
+unsafe impl ::windows::core::Abi for USER_CET_ENVIRONMENT {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for USER_CET_ENVIRONMENT {
@@ -2539,7 +2539,7 @@ impl ::core::convert::From<u32> for VER_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VER_FLAGS {
+unsafe impl ::windows::core::Abi for VER_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for VER_FLAGS {

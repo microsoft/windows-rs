@@ -23,7 +23,7 @@ impl ::core::cmp::PartialEq for NV_MEMORY_RANGE {
     }
 }
 impl ::core::cmp::Eq for NV_MEMORY_RANGE {}
-unsafe impl ::windows::runtime::Abi for NV_MEMORY_RANGE {
+unsafe impl ::windows::core::Abi for NV_MEMORY_RANGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Memory_NonVolatile`*"]

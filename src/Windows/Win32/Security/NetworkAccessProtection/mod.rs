@@ -8,7 +8,7 @@ pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`, `Win32_Foundation`*"]
 pub struct CorrelationId {
-    pub connId: ::windows::runtime::GUID,
+    pub connId: ::windows::core::GUID,
     pub timeStamp: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -34,7 +34,7 @@ impl ::core::cmp::PartialEq for CorrelationId {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CorrelationId {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CorrelationId {
+unsafe impl ::windows::core::Abi for CorrelationId {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -68,7 +68,7 @@ impl ::core::cmp::PartialEq for CountedString {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CountedString {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CountedString {
+unsafe impl ::windows::core::Abi for CountedString {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
@@ -84,7 +84,7 @@ impl ::core::convert::From<i32> for ExtendedIsolationState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ExtendedIsolationState {
+unsafe impl ::windows::core::Abi for ExtendedIsolationState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
@@ -102,7 +102,7 @@ impl ::core::convert::From<i32> for FailureCategory {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FailureCategory {
+unsafe impl ::windows::core::Abi for FailureCategory {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -135,7 +135,7 @@ impl ::core::cmp::PartialEq for FailureCategoryMapping {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FailureCategoryMapping {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FailureCategoryMapping {
+unsafe impl ::windows::core::Abi for FailureCategoryMapping {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -164,7 +164,7 @@ impl ::core::cmp::PartialEq for FixupInfo {
     }
 }
 impl ::core::cmp::Eq for FixupInfo {}
-unsafe impl ::windows::runtime::Abi for FixupInfo {
+unsafe impl ::windows::core::Abi for FixupInfo {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
@@ -179,7 +179,7 @@ impl ::core::convert::From<i32> for FixupState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FixupState {
+unsafe impl ::windows::core::Abi for FixupState {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -205,7 +205,7 @@ impl ::core::cmp::PartialEq for Ipv4Address {
     }
 }
 impl ::core::cmp::Eq for Ipv4Address {}
-unsafe impl ::windows::runtime::Abi for Ipv4Address {
+unsafe impl ::windows::core::Abi for Ipv4Address {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -231,7 +231,7 @@ impl ::core::cmp::PartialEq for Ipv6Address {
     }
 }
 impl ::core::cmp::Eq for Ipv6Address {}
-unsafe impl ::windows::runtime::Abi for Ipv6Address {
+unsafe impl ::windows::core::Abi for Ipv6Address {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -266,7 +266,7 @@ impl ::core::cmp::PartialEq for IsolationInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IsolationInfo {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IsolationInfo {
+unsafe impl ::windows::core::Abi for IsolationInfo {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -302,7 +302,7 @@ impl ::core::cmp::PartialEq for IsolationInfoEx {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IsolationInfoEx {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IsolationInfoEx {
+unsafe impl ::windows::core::Abi for IsolationInfoEx {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
@@ -317,7 +317,7 @@ impl ::core::convert::From<i32> for IsolationState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IsolationState {
+unsafe impl ::windows::core::Abi for IsolationState {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -330,8 +330,8 @@ pub struct NapComponentRegistrationInfo {
     pub description: CountedString,
     pub version: CountedString,
     pub vendorName: CountedString,
-    pub infoClsid: ::windows::runtime::GUID,
-    pub configClsid: ::windows::runtime::GUID,
+    pub infoClsid: ::windows::core::GUID,
+    pub configClsid: ::windows::core::GUID,
     pub registrationDate: super::super::Foundation::FILETIME,
     pub componentType: u32,
 }
@@ -368,7 +368,7 @@ impl ::core::cmp::PartialEq for NapComponentRegistrationInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NapComponentRegistrationInfo {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NapComponentRegistrationInfo {
+unsafe impl ::windows::core::Abi for NapComponentRegistrationInfo {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
@@ -383,7 +383,7 @@ impl ::core::convert::From<i32> for NapNotifyType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NapNotifyType {
+unsafe impl ::windows::core::Abi for NapNotifyType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
@@ -399,7 +399,7 @@ impl ::core::convert::From<i32> for NapTracingLevel {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NapTracingLevel {
+unsafe impl ::windows::core::Abi for NapTracingLevel {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -426,7 +426,7 @@ impl ::core::cmp::PartialEq for NetworkSoH {
     }
 }
 impl ::core::cmp::Eq for NetworkSoH {}
-unsafe impl ::windows::runtime::Abi for NetworkSoH {
+unsafe impl ::windows::core::Abi for NetworkSoH {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -453,7 +453,7 @@ impl ::core::cmp::PartialEq for PrivateData {
     }
 }
 impl ::core::cmp::Eq for PrivateData {}
-unsafe impl ::windows::runtime::Abi for PrivateData {
+unsafe impl ::windows::core::Abi for PrivateData {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
@@ -467,7 +467,7 @@ impl ::core::convert::From<i32> for RemoteConfigurationType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RemoteConfigurationType {
+unsafe impl ::windows::core::Abi for RemoteConfigurationType {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -475,7 +475,7 @@ unsafe impl ::windows::runtime::Abi for RemoteConfigurationType {
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub struct ResultCodes {
     pub count: u16,
-    pub results: *mut ::windows::runtime::HRESULT,
+    pub results: *mut ::windows::core::HRESULT,
 }
 impl ResultCodes {}
 impl ::core::default::Default for ResultCodes {
@@ -494,7 +494,7 @@ impl ::core::cmp::PartialEq for ResultCodes {
     }
 }
 impl ::core::cmp::Eq for ResultCodes {}
-unsafe impl ::windows::runtime::Abi for ResultCodes {
+unsafe impl ::windows::core::Abi for ResultCodes {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -521,7 +521,7 @@ impl ::core::cmp::PartialEq for SoH {
     }
 }
 impl ::core::cmp::Eq for SoH {}
-unsafe impl ::windows::runtime::Abi for SoH {
+unsafe impl ::windows::core::Abi for SoH {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -549,7 +549,7 @@ impl ::core::cmp::PartialEq for SoHAttribute {
     }
 }
 impl ::core::cmp::Eq for SoHAttribute {}
-unsafe impl ::windows::runtime::Abi for SoHAttribute {
+unsafe impl ::windows::core::Abi for SoHAttribute {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -578,6 +578,6 @@ impl ::core::cmp::PartialEq for SystemHealthAgentState {
     }
 }
 impl ::core::cmp::Eq for SystemHealthAgentState {}
-unsafe impl ::windows::runtime::Abi for SystemHealthAgentState {
+unsafe impl ::windows::core::Abi for SystemHealthAgentState {
     type Abi = Self;
 }

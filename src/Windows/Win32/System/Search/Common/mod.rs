@@ -23,7 +23,7 @@ impl ::core::convert::From<i32> for CONDITION_OPERATION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CONDITION_OPERATION {
+unsafe impl ::windows::core::Abi for CONDITION_OPERATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Search_Common`*"]
@@ -39,6 +39,6 @@ impl ::core::convert::From<i32> for CONDITION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CONDITION_TYPE {
+unsafe impl ::windows::core::Abi for CONDITION_TYPE {
     type Abi = Self;
 }

@@ -1,5 +1,5 @@
 use test_implement::*;
-use windows::runtime::*;
+use windows::core::*;
 use Windows::Foundation::Collections::*;
 
 #[implement(

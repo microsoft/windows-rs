@@ -2,12 +2,12 @@
 #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_UI_Controls`*"]
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
-pub unsafe fn CreateSecurityPage<'a, Param0: ::windows::runtime::IntoParam<'a, ISecurityInformation>>(psi: Param0) -> super::super::super::UI::Controls::HPROPSHEETPAGE {
+pub unsafe fn CreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, ISecurityInformation>>(psi: Param0) -> super::super::super::UI::Controls::HPROPSHEETPAGE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateSecurityPage(psi: ::windows::runtime::RawPtr) -> super::super::super::UI::Controls::HPROPSHEETPAGE;
+            fn CreateSecurityPage(psi: ::windows::core::RawPtr) -> super::super::super::UI::Controls::HPROPSHEETPAGE;
         }
         ::core::mem::transmute(CreateSecurityPage(psi.into_param().abi()))
     }
@@ -57,18 +57,18 @@ impl ::core::cmp::PartialEq for EFFPERM_RESULT_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EFFPERM_RESULT_LIST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EFFPERM_RESULT_LIST {
+unsafe impl ::windows::core::Abi for EFFPERM_RESULT_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ISecurityInformation>>(hwndowner: Param0, psi: Param1) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EditSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ISecurityInformation>>(hwndowner: Param0, psi: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditSecurity(hwndowner: super::super::super::Foundation::HWND, psi: ::windows::runtime::RawPtr) -> super::super::super::Foundation::BOOL;
+            fn EditSecurity(hwndowner: super::super::super::Foundation::HWND, psi: ::windows::core::RawPtr) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EditSecurity(hwndowner.into_param().abi(), psi.into_param().abi()))
     }
@@ -78,12 +78,12 @@ pub unsafe fn EditSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditSecurityAdvanced<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ISecurityInformation>>(hwndowner: Param0, psi: Param1, usipage: SI_PAGE_TYPE) -> ::windows::runtime::Result<()> {
+pub unsafe fn EditSecurityAdvanced<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ISecurityInformation>>(hwndowner: Param0, psi: Param1, usipage: SI_PAGE_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditSecurityAdvanced(hwndowner: super::super::super::Foundation::HWND, psi: ::windows::runtime::RawPtr, usipage: SI_PAGE_TYPE) -> ::windows::runtime::HRESULT;
+            fn EditSecurityAdvanced(hwndowner: super::super::super::Foundation::HWND, psi: ::windows::core::RawPtr, usipage: SI_PAGE_TYPE) -> ::windows::core::HRESULT;
         }
         EditSecurityAdvanced(hwndowner.into_param().abi(), psi.into_param().abi(), ::core::mem::transmute(usipage)).ok()
     }
@@ -93,13 +93,13 @@ pub unsafe fn EditSecurityAdvanced<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IEffectivePermission(pub ::windows::runtime::IUnknown);
+pub struct IEffectivePermission(pub ::windows::core::IUnknown);
 impl IEffectivePermission {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
-    pub unsafe fn GetEffectivePermission<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
+    pub unsafe fn GetEffectivePermission<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
         &self,
-        pguidobjecttype: *const ::windows::runtime::GUID,
+        pguidobjecttype: *const ::windows::core::GUID,
         pusersid: Param1,
         pszservername: Param2,
         psd: *mut super::super::SECURITY_DESCRIPTOR,
@@ -107,8 +107,8 @@ impl IEffectivePermission {
         pcobjecttypelistlength: *mut u32,
         ppgrantedaccesslist: *mut *mut u32,
         pcgrantedaccesslistlength: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(pguidobjecttype),
             pusersid.into_param().abi(),
@@ -122,48 +122,47 @@ impl IEffectivePermission {
         .ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IEffectivePermission {
+unsafe impl ::windows::core::Interface for IEffectivePermission {
     type Vtable = IEffectivePermission_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3853dc76_9f35_407c_88a1_d19344365fbc);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3853dc76_9f35_407c_88a1_d19344365fbc);
 }
-impl ::core::convert::From<IEffectivePermission> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEffectivePermission> for ::windows::core::IUnknown {
     fn from(value: IEffectivePermission) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IEffectivePermission> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEffectivePermission> for ::windows::core::IUnknown {
     fn from(value: &IEffectivePermission) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEffectivePermission {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEffectivePermission {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEffectivePermission {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEffectivePermission {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEffectivePermission_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidobjecttype: *const ::windows::runtime::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: super::super::super::Foundation::PWSTR, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguidobjecttype: *const ::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: super::super::super::Foundation::PWSTR, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IEffectivePermission2(pub ::windows::runtime::IUnknown);
+pub struct IEffectivePermission2(pub ::windows::core::IUnknown);
 impl IEffectivePermission2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
-    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
+    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
         &self,
         psid: Param0,
         pdevicesid: Param1,
@@ -179,8 +178,8 @@ impl IEffectivePermission2 {
         pauthzdeviceclaims: *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION,
         pauthzdeviceclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(
             ::core::mem::transmute_copy(self),
             psid.into_param().abi(),
             pdevicesid.into_param().abi(),
@@ -200,39 +199,39 @@ impl IEffectivePermission2 {
         .ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IEffectivePermission2 {
+unsafe impl ::windows::core::Interface for IEffectivePermission2 {
     type Vtable = IEffectivePermission2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x941fabca_dd47_4fca_90bb_b0e10255f20d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x941fabca_dd47_4fca_90bb_b0e10255f20d);
 }
-impl ::core::convert::From<IEffectivePermission2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEffectivePermission2> for ::windows::core::IUnknown {
     fn from(value: IEffectivePermission2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IEffectivePermission2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEffectivePermission2> for ::windows::core::IUnknown {
     fn from(value: &IEffectivePermission2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEffectivePermission2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEffectivePermission2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEffectivePermission2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEffectivePermission2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEffectivePermission2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
+        this: ::windows::core::RawPtr,
         psid: super::super::super::Foundation::PSID,
         pdevicesid: super::super::super::Foundation::PSID,
         pszservername: super::super::super::Foundation::PWSTR,
@@ -247,282 +246,282 @@ pub struct IEffectivePermission2_abi(
         pauthzdeviceclaims: *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION,
         pauthzdeviceclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
-    ) -> ::windows::runtime::HRESULT,
+    ) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISecurityInformation(pub ::windows::runtime::IUnknown);
+pub struct ISecurityInformation(pub ::windows::core::IUnknown);
 impl ISecurityInformation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
-    pub unsafe fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pobjectinfo)).ok()
+    pub unsafe fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pobjectinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
-    pub unsafe fn GetSecurity<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR, fdefault: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(ppsecuritydescriptor), fdefault.into_param().abi()).ok()
+    pub unsafe fn GetSecurity<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR, fdefault: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(ppsecuritydescriptor), fdefault.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
-    pub unsafe fn SetSecurity(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut super::super::SECURITY_DESCRIPTOR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)).ok()
+    pub unsafe fn SetSecurity(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut super::super::SECURITY_DESCRIPTOR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
-    pub unsafe fn GetAccessRights(&self, pguidobjecttype: *const ::windows::runtime::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidobjecttype), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaccess), ::core::mem::transmute(pcaccesses), ::core::mem::transmute(pidefaultaccess)).ok()
+    pub unsafe fn GetAccessRights(&self, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidobjecttype), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaccess), ::core::mem::transmute(pcaccesses), ::core::mem::transmute(pidefaultaccess)).ok()
     }
     #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
-    pub unsafe fn MapGeneric(&self, pguidobjecttype: *const ::windows::runtime::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidobjecttype), ::core::mem::transmute(paceflags), ::core::mem::transmute(pmask)).ok()
+    pub unsafe fn MapGeneric(&self, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidobjecttype), ::core::mem::transmute(paceflags), ::core::mem::transmute(pmask)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
-    pub unsafe fn GetInheritTypes(&self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppinherittypes), ::core::mem::transmute(pcinherittypes)).ok()
+    pub unsafe fn GetInheritTypes(&self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppinherittypes), ::core::mem::transmute(pcinherittypes)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`, `Win32_UI_Controls`*"]
-    pub unsafe fn PropertySheetPageCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(upage)).ok()
+    pub unsafe fn PropertySheetPageCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(upage)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISecurityInformation {
+unsafe impl ::windows::core::Interface for ISecurityInformation {
     type Vtable = ISecurityInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x965fc360_16ff_11d0_91cb_00aa00bbb723);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965fc360_16ff_11d0_91cb_00aa00bbb723);
 }
-impl ::core::convert::From<ISecurityInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISecurityInformation> for ::windows::core::IUnknown {
     fn from(value: ISecurityInformation) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISecurityInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISecurityInformation> for ::windows::core::IUnknown {
     fn from(value: &ISecurityInformation) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISecurityInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISecurityInformation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISecurityInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISecurityInformation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInformation_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR, fdefault: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR, fdefault: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut super::super::SECURITY_DESCRIPTOR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut super::super::SECURITY_DESCRIPTOR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidobjecttype: *const ::windows::runtime::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidobjecttype: *const ::windows::runtime::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls")))] usize,
 );
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISecurityInformation2(pub ::windows::runtime::IUnknown);
+pub struct ISecurityInformation2(pub ::windows::core::IUnknown);
 impl ISecurityInformation2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
     pub unsafe fn IsDaclCanonical(&self, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdacl)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdacl)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(csids), ::core::mem::transmute(rgpsids), ::core::mem::transmute(ppdo)).ok()
+    pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(csids), ::core::mem::transmute(rgpsids), ::core::mem::transmute(ppdo)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISecurityInformation2 {
+unsafe impl ::windows::core::Interface for ISecurityInformation2 {
     type Vtable = ISecurityInformation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
 }
-impl ::core::convert::From<ISecurityInformation2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISecurityInformation2> for ::windows::core::IUnknown {
     fn from(value: ISecurityInformation2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISecurityInformation2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISecurityInformation2> for ::windows::core::IUnknown {
     fn from(value: &ISecurityInformation2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISecurityInformation2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISecurityInformation2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISecurityInformation2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISecurityInformation2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInformation2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISecurityInformation3(pub ::windows::runtime::IUnknown);
+pub struct ISecurityInformation3(pub ::windows::core::IUnknown);
 impl ISecurityInformation3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
-    pub unsafe fn GetFullResourceName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetFullResourceName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
-    pub unsafe fn OpenElevatedEditor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, upage: SI_PAGE_TYPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(upage)).ok()
+    pub unsafe fn OpenElevatedEditor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(upage)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISecurityInformation3 {
+unsafe impl ::windows::core::Interface for ISecurityInformation3 {
     type Vtable = ISecurityInformation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
 }
-impl ::core::convert::From<ISecurityInformation3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISecurityInformation3> for ::windows::core::IUnknown {
     fn from(value: ISecurityInformation3) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISecurityInformation3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISecurityInformation3> for ::windows::core::IUnknown {
     fn from(value: &ISecurityInformation3) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISecurityInformation3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISecurityInformation3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISecurityInformation3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISecurityInformation3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInformation3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszresourcename: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszresourcename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISecurityInformation4(pub ::windows::runtime::IUnknown);
+pub struct ISecurityInformation4(pub ::windows::core::IUnknown);
 impl ISecurityInformation4 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
-    pub unsafe fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(psecurityobjects), ::core::mem::transmute(psecurityobjectcount)).ok()
+    pub unsafe fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(psecurityobjects), ::core::mem::transmute(psecurityobjectcount)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISecurityInformation4 {
+unsafe impl ::windows::core::Interface for ISecurityInformation4 {
     type Vtable = ISecurityInformation4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea961070_cd14_4621_ace4_f63c03e583e4);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea961070_cd14_4621_ace4_f63c03e583e4);
 }
-impl ::core::convert::From<ISecurityInformation4> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISecurityInformation4> for ::windows::core::IUnknown {
     fn from(value: ISecurityInformation4) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISecurityInformation4> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISecurityInformation4> for ::windows::core::IUnknown {
     fn from(value: &ISecurityInformation4) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISecurityInformation4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISecurityInformation4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISecurityInformation4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISecurityInformation4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInformation4_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISecurityObjectTypeInfo(pub ::windows::runtime::IUnknown);
+pub struct ISecurityObjectTypeInfo(pub ::windows::core::IUnknown);
 impl ISecurityObjectTypeInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
-    pub unsafe fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(si), ::core::mem::transmute(pacl), ::core::mem::transmute(ppinheritarray)).ok()
+    pub unsafe fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(si), ::core::mem::transmute(pacl), ::core::mem::transmute(ppinheritarray)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISecurityObjectTypeInfo {
+unsafe impl ::windows::core::Interface for ISecurityObjectTypeInfo {
     type Vtable = ISecurityObjectTypeInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
 }
-impl ::core::convert::From<ISecurityObjectTypeInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISecurityObjectTypeInfo> for ::windows::core::IUnknown {
     fn from(value: ISecurityObjectTypeInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISecurityObjectTypeInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISecurityObjectTypeInfo> for ::windows::core::IUnknown {
     fn from(value: &ISecurityObjectTypeInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISecurityObjectTypeInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISecurityObjectTypeInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISecurityObjectTypeInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISecurityObjectTypeInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityObjectTypeInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
@@ -537,7 +536,7 @@ impl ::core::convert::From<u32> for SECURITY_INFO_PAGE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SECURITY_INFO_PAGE_FLAGS {
+unsafe impl ::windows::core::Abi for SECURITY_INFO_PAGE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SECURITY_INFO_PAGE_FLAGS {
@@ -604,7 +603,7 @@ impl ::core::cmp::PartialEq for SECURITY_OBJECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SECURITY_OBJECT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SECURITY_OBJECT {
+unsafe impl ::windows::core::Abi for SECURITY_OBJECT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
@@ -648,7 +647,7 @@ impl ::core::cmp::PartialEq for SID_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SID_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SID_INFO {
+unsafe impl ::windows::core::Abi for SID_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -682,7 +681,7 @@ impl ::core::cmp::PartialEq for SID_INFO_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SID_INFO_LIST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SID_INFO_LIST {
+unsafe impl ::windows::core::Abi for SID_INFO_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -690,7 +689,7 @@ unsafe impl ::windows::runtime::Abi for SID_INFO_LIST {
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
 pub struct SI_ACCESS {
-    pub pguid: *mut ::windows::runtime::GUID,
+    pub pguid: *mut ::windows::core::GUID,
     pub mask: u32,
     pub pszName: super::super::super::Foundation::PWSTR,
     pub dwFlags: u32,
@@ -718,7 +717,7 @@ impl ::core::cmp::PartialEq for SI_ACCESS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SI_ACCESS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SI_ACCESS {
+unsafe impl ::windows::core::Abi for SI_ACCESS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
@@ -740,7 +739,7 @@ pub const SI_EDIT_PERMS: i32 = 0i32;
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Authorization_UI`, `Win32_Foundation`*"]
 pub struct SI_INHERIT_TYPE {
-    pub pguid: *mut ::windows::runtime::GUID,
+    pub pguid: *mut ::windows::core::GUID,
     pub dwFlags: super::super::ACE_FLAGS,
     pub pszName: super::super::super::Foundation::PWSTR,
 }
@@ -767,7 +766,7 @@ impl ::core::cmp::PartialEq for SI_INHERIT_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SI_INHERIT_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SI_INHERIT_TYPE {
+unsafe impl ::windows::core::Abi for SI_INHERIT_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
@@ -786,7 +785,7 @@ pub struct SI_OBJECT_INFO {
     pub pszServerName: super::super::super::Foundation::PWSTR,
     pub pszObjectName: super::super::super::Foundation::PWSTR,
     pub pszPageTitle: super::super::super::Foundation::PWSTR,
-    pub guidObjectType: ::windows::runtime::GUID,
+    pub guidObjectType: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl SI_OBJECT_INFO {}
@@ -811,7 +810,7 @@ impl ::core::cmp::PartialEq for SI_OBJECT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SI_OBJECT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SI_OBJECT_INFO {
+unsafe impl ::windows::core::Abi for SI_OBJECT_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
@@ -837,7 +836,7 @@ impl ::core::convert::From<u32> for SI_OBJECT_INFO_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SI_OBJECT_INFO_FLAGS {
+unsafe impl ::windows::core::Abi for SI_OBJECT_INFO_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SI_OBJECT_INFO_FLAGS {
@@ -888,7 +887,7 @@ impl ::core::convert::From<i32> for SI_PAGE_ACTIVATED {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SI_PAGE_ACTIVATED {
+unsafe impl ::windows::core::Abi for SI_PAGE_ACTIVATED {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
@@ -909,7 +908,7 @@ impl ::core::convert::From<i32> for SI_PAGE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SI_PAGE_TYPE {
+unsafe impl ::windows::core::Abi for SI_PAGE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]

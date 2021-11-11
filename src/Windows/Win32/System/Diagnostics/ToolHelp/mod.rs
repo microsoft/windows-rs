@@ -15,7 +15,7 @@ impl ::core::convert::From<u32> for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+unsafe impl ::windows::core::Abi for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
@@ -109,7 +109,7 @@ impl ::core::cmp::PartialEq for HEAPENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HEAPENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HEAPENTRY32 {
+unsafe impl ::windows::core::Abi for HEAPENTRY32 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`*"]
@@ -124,7 +124,7 @@ impl ::core::convert::From<u32> for HEAPENTRY32_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HEAPENTRY32_FLAGS {
+unsafe impl ::windows::core::Abi for HEAPENTRY32_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for HEAPENTRY32_FLAGS {
@@ -181,7 +181,7 @@ impl ::core::cmp::PartialEq for HEAPLIST32 {
     }
 }
 impl ::core::cmp::Eq for HEAPLIST32 {}
-unsafe impl ::windows::runtime::Abi for HEAPLIST32 {
+unsafe impl ::windows::core::Abi for HEAPLIST32 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`*"]
@@ -206,7 +206,7 @@ pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Heap32ListFirst<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Heap32ListFirst<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -221,7 +221,7 @@ pub unsafe fn Heap32ListFirst<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Heap32ListNext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Heap32ListNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -300,7 +300,7 @@ impl ::core::cmp::PartialEq for MODULEENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MODULEENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MODULEENTRY32 {
+unsafe impl ::windows::core::Abi for MODULEENTRY32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -353,13 +353,13 @@ impl ::core::cmp::PartialEq for MODULEENTRY32W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MODULEENTRY32W {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MODULEENTRY32W {
+unsafe impl ::windows::core::Abi for MODULEENTRY32W {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32First<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Module32First<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -374,7 +374,7 @@ pub unsafe fn Module32First<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Module32FirstW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -389,7 +389,7 @@ pub unsafe fn Module32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Module32Next<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -404,7 +404,7 @@ pub unsafe fn Module32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32NextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Module32NextW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -466,7 +466,7 @@ impl ::core::cmp::PartialEq for PROCESSENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROCESSENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PROCESSENTRY32 {
+unsafe impl ::windows::core::Abi for PROCESSENTRY32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -512,13 +512,13 @@ impl ::core::cmp::PartialEq for PROCESSENTRY32W {
     }
 }
 impl ::core::cmp::Eq for PROCESSENTRY32W {}
-unsafe impl ::windows::runtime::Abi for PROCESSENTRY32W {
+unsafe impl ::windows::core::Abi for PROCESSENTRY32W {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32First<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Process32First<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -533,7 +533,7 @@ pub unsafe fn Process32First<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Process32FirstW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -548,7 +548,7 @@ pub unsafe fn Process32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Process32Next<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -563,7 +563,7 @@ pub unsafe fn Process32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32NextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Process32NextW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -612,13 +612,13 @@ impl ::core::cmp::PartialEq for THREADENTRY32 {
     }
 }
 impl ::core::cmp::Eq for THREADENTRY32 {}
-unsafe impl ::windows::runtime::Abi for THREADENTRY32 {
+unsafe impl ::windows::core::Abi for THREADENTRY32 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Thread32First<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Thread32First<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -633,7 +633,7 @@ pub unsafe fn Thread32First<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Thread32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Thread32Next<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

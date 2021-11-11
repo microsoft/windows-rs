@@ -1,50 +1,50 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_CONFIGURATION_PREVIOUSLY_LOADED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220731i32 as _);
+pub const FHCFG_E_CONFIGURATION_PREVIOUSLY_LOADED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220731i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_CONFIG_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220734i32 as _);
+pub const FHCFG_E_CONFIG_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220734i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_CONFIG_FILE_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220735i32 as _);
+pub const FHCFG_E_CONFIG_FILE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220735i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_CORRUPT_CONFIG_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220736i32 as _);
+pub const FHCFG_E_CORRUPT_CONFIG_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220736i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_INVALID_REHYDRATION_STATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220726i32 as _);
+pub const FHCFG_E_INVALID_REHYDRATION_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220726i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_LEGACY_BACKUP_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220715i32 as _);
+pub const FHCFG_E_LEGACY_BACKUP_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220715i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_LEGACY_BACKUP_USER_EXCLUDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220716i32 as _);
+pub const FHCFG_E_LEGACY_BACKUP_USER_EXCLUDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220716i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_LEGACY_TARGET_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220718i32 as _);
+pub const FHCFG_E_LEGACY_TARGET_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220718i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_LEGACY_TARGET_VALIDATION_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220717i32 as _);
+pub const FHCFG_E_LEGACY_TARGET_VALIDATION_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220717i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_NO_VALID_CONFIGURATION_LOADED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220733i32 as _);
+pub const FHCFG_E_NO_VALID_CONFIGURATION_LOADED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220733i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_RECOMMENDATION_CHANGE_NOT_ALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220720i32 as _);
+pub const FHCFG_E_RECOMMENDATION_CHANGE_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220720i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_TARGET_CANNOT_BE_USED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220727i32 as _);
+pub const FHCFG_E_TARGET_CANNOT_BE_USED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220727i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_TARGET_NOT_CONFIGURED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220729i32 as _);
+pub const FHCFG_E_TARGET_NOT_CONFIGURED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220729i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_TARGET_NOT_CONNECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220732i32 as _);
+pub const FHCFG_E_TARGET_NOT_CONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220732i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_TARGET_NOT_ENOUGH_FREE_SPACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220728i32 as _);
+pub const FHCFG_E_TARGET_NOT_ENOUGH_FREE_SPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220728i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_TARGET_REHYDRATED_ELSEWHERE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220719i32 as _);
+pub const FHCFG_E_TARGET_REHYDRATED_ELSEWHERE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220719i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHCFG_E_TARGET_VERIFICATION_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220730i32 as _);
+pub const FHCFG_E_TARGET_VERIFICATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220730i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHSVC_E_BACKUP_BLOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147219968i32 as _);
+pub const FHSVC_E_BACKUP_BLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147219968i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHSVC_E_CONFIG_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147219966i32 as _);
+pub const FHSVC_E_CONFIG_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147219966i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHSVC_E_CONFIG_DISABLED_GP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147219965i32 as _);
+pub const FHSVC_E_CONFIG_DISABLED_GP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147219965i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHSVC_E_CONFIG_REHYDRATING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147219963i32 as _);
+pub const FHSVC_E_CONFIG_REHYDRATING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147219963i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHSVC_E_FATAL_CONFIG_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147219964i32 as _);
+pub const FHSVC_E_FATAL_CONFIG_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147219964i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-pub const FHSVC_E_NOT_CONFIGURED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147219967i32 as _);
+pub const FHSVC_E_NOT_CONFIGURED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147219967i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -59,7 +59,7 @@ impl ::core::convert::From<i32> for FH_BACKUP_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FH_BACKUP_STATUS {
+unsafe impl ::windows::core::Abi for FH_BACKUP_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
@@ -79,7 +79,7 @@ impl ::core::convert::From<i32> for FH_DEVICE_VALIDATION_RESULT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FH_DEVICE_VALIDATION_RESULT {
+unsafe impl ::windows::core::Abi for FH_DEVICE_VALIDATION_RESULT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
@@ -95,7 +95,7 @@ impl ::core::convert::From<i32> for FH_LOCAL_POLICY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FH_LOCAL_POLICY_TYPE {
+unsafe impl ::windows::core::Abi for FH_LOCAL_POLICY_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
@@ -110,7 +110,7 @@ impl ::core::convert::From<i32> for FH_PROTECTED_ITEM_CATEGORY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FH_PROTECTED_ITEM_CATEGORY {
+unsafe impl ::windows::core::Abi for FH_PROTECTED_ITEM_CATEGORY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
@@ -126,7 +126,7 @@ impl ::core::convert::From<i32> for FH_RETENTION_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FH_RETENTION_TYPES {
+unsafe impl ::windows::core::Abi for FH_RETENTION_TYPES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
@@ -180,7 +180,7 @@ impl ::core::convert::From<i32> for FH_TARGET_DRIVE_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FH_TARGET_DRIVE_TYPES {
+unsafe impl ::windows::core::Abi for FH_TARGET_DRIVE_TYPES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
@@ -196,7 +196,7 @@ impl ::core::convert::From<i32> for FH_TARGET_PROPERTY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FH_TARGET_PROPERTY_TYPE {
+unsafe impl ::windows::core::Abi for FH_TARGET_PROPERTY_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
@@ -213,20 +213,20 @@ impl ::core::convert::From<i32> for FhBackupStopReason {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FhBackupStopReason {
+unsafe impl ::windows::core::Abi for FhBackupStopReason {
     type Abi = Self;
 }
-pub const FhConfigMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed43bb3c_09e9_498a_9df6_2177244c6db4);
-pub const FhReassociation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d728e35_16fa_4320_9e8b_bfd7100a8846);
+pub const FhConfigMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed43bb3c_09e9_498a_9df6_2177244c6db4);
+pub const FhReassociation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d728e35_16fa_4320_9e8b_bfd7100a8846);
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FhServiceBlockBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn FhServiceBlockBackup<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FhServiceBlockBackup(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE) -> ::windows::runtime::HRESULT;
+            fn FhServiceBlockBackup(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE) -> ::windows::core::HRESULT;
         }
         FhServiceBlockBackup(pipe.into_param().abi()).ok()
     }
@@ -236,12 +236,12 @@ pub unsafe fn FhServiceBlockBackup<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FhServiceClosePipe<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn FhServiceClosePipe<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FhServiceClosePipe(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE) -> ::windows::runtime::HRESULT;
+            fn FhServiceClosePipe(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE) -> ::windows::core::HRESULT;
         }
         FhServiceClosePipe(pipe.into_param().abi()).ok()
     }
@@ -251,14 +251,14 @@ pub unsafe fn FhServiceClosePipe<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn FhServiceOpenPipe<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(startserviceifstopped: Param0) -> ::windows::runtime::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE> {
+pub unsafe fn FhServiceOpenPipe<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(startserviceifstopped: Param0) -> ::windows::core::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FhServiceOpenPipe(startserviceifstopped: super::super::Foundation::BOOL, pipe: *mut super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE) -> ::windows::runtime::HRESULT;
+            fn FhServiceOpenPipe(startserviceifstopped: super::super::Foundation::BOOL, pipe: *mut super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         FhServiceOpenPipe(startserviceifstopped.into_param().abi(), &mut result__).from_abi::<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>(result__)
     }
     #[cfg(not(windows))]
@@ -267,12 +267,12 @@ pub unsafe fn FhServiceOpenPipe<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FhServiceReloadConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn FhServiceReloadConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FhServiceReloadConfiguration(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE) -> ::windows::runtime::HRESULT;
+            fn FhServiceReloadConfiguration(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE) -> ::windows::core::HRESULT;
         }
         FhServiceReloadConfiguration(pipe.into_param().abi()).ok()
     }
@@ -282,12 +282,12 @@ pub unsafe fn FhServiceReloadConfiguration<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn FhServiceStartBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pipe: Param0, lowpriorityio: Param1) -> ::windows::runtime::Result<()> {
+pub unsafe fn FhServiceStartBackup<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pipe: Param0, lowpriorityio: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FhServiceStartBackup(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE, lowpriorityio: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn FhServiceStartBackup(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE, lowpriorityio: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         FhServiceStartBackup(pipe.into_param().abi(), lowpriorityio.into_param().abi()).ok()
     }
@@ -297,12 +297,12 @@ pub unsafe fn FhServiceStartBackup<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn FhServiceStopBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pipe: Param0, stoptracking: Param1) -> ::windows::runtime::Result<()> {
+pub unsafe fn FhServiceStopBackup<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pipe: Param0, stoptracking: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FhServiceStopBackup(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE, stoptracking: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn FhServiceStopBackup(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE, stoptracking: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         FhServiceStopBackup(pipe.into_param().abi(), stoptracking.into_param().abi()).ok()
     }
@@ -312,12 +312,12 @@ pub unsafe fn FhServiceStopBackup<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FhServiceUnblockBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn FhServiceUnblockBackup<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FhServiceUnblockBackup(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE) -> ::windows::runtime::HRESULT;
+            fn FhServiceUnblockBackup(pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE) -> ::windows::core::HRESULT;
         }
         FhServiceUnblockBackup(pipe.into_param().abi()).ok()
     }
@@ -327,298 +327,298 @@ pub unsafe fn FhServiceUnblockBackup<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IFhConfigMgr(pub ::windows::runtime::IUnknown);
+pub struct IFhConfigMgr(pub ::windows::core::IUnknown);
 impl IFhConfigMgr {
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-    pub unsafe fn LoadConfiguration(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn LoadConfiguration(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn CreateDefaultConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, overwriteifexists: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), overwriteifexists.into_param().abi()).ok()
+    pub unsafe fn CreateDefaultConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, overwriteifexists: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), overwriteifexists.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-    pub unsafe fn SaveConfiguration(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn SaveConfiguration(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn AddRemoveExcludeRule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, add: Param0, category: FH_PROTECTED_ITEM_CATEGORY, item: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), add.into_param().abi(), ::core::mem::transmute(category), item.into_param().abi()).ok()
+    pub unsafe fn AddRemoveExcludeRule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, add: Param0, category: FH_PROTECTED_ITEM_CATEGORY, item: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), add.into_param().abi(), ::core::mem::transmute(category), item.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn GetIncludeExcludeRules<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, include: Param0, category: FH_PROTECTED_ITEM_CATEGORY) -> ::windows::runtime::Result<IFhScopeIterator> {
-        let mut result__: <IFhScopeIterator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), include.into_param().abi(), ::core::mem::transmute(category), &mut result__).from_abi::<IFhScopeIterator>(result__)
+    pub unsafe fn GetIncludeExcludeRules<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, include: Param0, category: FH_PROTECTED_ITEM_CATEGORY) -> ::windows::core::Result<IFhScopeIterator> {
+        let mut result__: <IFhScopeIterator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), include.into_param().abi(), ::core::mem::transmute(category), &mut result__).from_abi::<IFhScopeIterator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-    pub unsafe fn GetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(localpolicytype), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(localpolicytype), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-    pub unsafe fn SetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(localpolicytype), ::core::mem::transmute(policyvalue)).ok()
+    pub unsafe fn SetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(localpolicytype), ::core::mem::transmute(policyvalue)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-    pub unsafe fn GetBackupStatus(&self) -> ::windows::runtime::Result<FH_BACKUP_STATUS> {
-        let mut result__: <FH_BACKUP_STATUS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FH_BACKUP_STATUS>(result__)
+    pub unsafe fn GetBackupStatus(&self) -> ::windows::core::Result<FH_BACKUP_STATUS> {
+        let mut result__: <FH_BACKUP_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FH_BACKUP_STATUS>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-    pub unsafe fn SetBackupStatus(&self, backupstatus: FH_BACKUP_STATUS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(backupstatus)).ok()
+    pub unsafe fn SetBackupStatus(&self, backupstatus: FH_BACKUP_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(backupstatus)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-    pub unsafe fn GetDefaultTarget(&self) -> ::windows::runtime::Result<IFhTarget> {
-        let mut result__: <IFhTarget as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IFhTarget>(result__)
+    pub unsafe fn GetDefaultTarget(&self) -> ::windows::core::Result<IFhTarget> {
+        let mut result__: <IFhTarget as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IFhTarget>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn ValidateTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targeturl: Param0) -> ::windows::runtime::Result<FH_DEVICE_VALIDATION_RESULT> {
-        let mut result__: <FH_DEVICE_VALIDATION_RESULT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), targeturl.into_param().abi(), &mut result__).from_abi::<FH_DEVICE_VALIDATION_RESULT>(result__)
+    pub unsafe fn ValidateTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targeturl: Param0) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT> {
+        let mut result__: <FH_DEVICE_VALIDATION_RESULT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), targeturl.into_param().abi(), &mut result__).from_abi::<FH_DEVICE_VALIDATION_RESULT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn ProvisionAndSetNewTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targeturl: Param0, targetname: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), targeturl.into_param().abi(), targetname.into_param().abi()).ok()
+    pub unsafe fn ProvisionAndSetNewTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targeturl: Param0, targetname: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), targeturl.into_param().abi(), targetname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn ChangeDefaultTargetRecommendation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, recommend: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), recommend.into_param().abi()).ok()
+    pub unsafe fn ChangeDefaultTargetRecommendation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, recommend: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), recommend.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn QueryProtectionStatus(&self, protectionstate: *mut u32, protecteduntiltime: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(protectionstate), ::core::mem::transmute(protecteduntiltime)).ok()
+    pub unsafe fn QueryProtectionStatus(&self, protectionstate: *mut u32, protecteduntiltime: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(protectionstate), ::core::mem::transmute(protecteduntiltime)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IFhConfigMgr {
+unsafe impl ::windows::core::Interface for IFhConfigMgr {
     type Vtable = IFhConfigMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
 }
-impl ::core::convert::From<IFhConfigMgr> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFhConfigMgr> for ::windows::core::IUnknown {
     fn from(value: IFhConfigMgr) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IFhConfigMgr> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFhConfigMgr> for ::windows::core::IUnknown {
     fn from(value: &IFhConfigMgr) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhConfigMgr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFhConfigMgr {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhConfigMgr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFhConfigMgr {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhConfigMgr_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, overwriteifexists: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, overwriteifexists: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, include: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, iterator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, include: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, iterator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, backupstatus: *mut FH_BACKUP_STATUS) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, backupstatus: FH_BACKUP_STATUS) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, defaulttarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, backupstatus: *mut FH_BACKUP_STATUS) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, backupstatus: FH_BACKUP_STATUS) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, defaulttarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, targetname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, targetname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, recommend: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, recommend: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, protectionstate: *mut u32, protecteduntiltime: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, protectionstate: *mut u32, protecteduntiltime: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IFhReassociation(pub ::windows::runtime::IUnknown);
+pub struct IFhReassociation(pub ::windows::core::IUnknown);
 impl IFhReassociation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn ValidateTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targeturl: Param0) -> ::windows::runtime::Result<FH_DEVICE_VALIDATION_RESULT> {
-        let mut result__: <FH_DEVICE_VALIDATION_RESULT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), targeturl.into_param().abi(), &mut result__).from_abi::<FH_DEVICE_VALIDATION_RESULT>(result__)
+    pub unsafe fn ValidateTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targeturl: Param0) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT> {
+        let mut result__: <FH_DEVICE_VALIDATION_RESULT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), targeturl.into_param().abi(), &mut result__).from_abi::<FH_DEVICE_VALIDATION_RESULT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn ScanTargetForConfigurations<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targeturl: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), targeturl.into_param().abi()).ok()
+    pub unsafe fn ScanTargetForConfigurations<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targeturl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), targeturl.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn GetConfigurationDetails(&self, index: u32, username: *mut super::super::Foundation::BSTR, pcname: *mut super::super::Foundation::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(username), ::core::mem::transmute(pcname), ::core::mem::transmute(backuptime)).ok()
+    pub unsafe fn GetConfigurationDetails(&self, index: u32, username: *mut super::super::Foundation::BSTR, pcname: *mut super::super::Foundation::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(username), ::core::mem::transmute(pcname), ::core::mem::transmute(backuptime)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-    pub unsafe fn SelectConfiguration(&self, index: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
+    pub unsafe fn SelectConfiguration(&self, index: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn PerformReassociation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, overwriteifexists: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), overwriteifexists.into_param().abi()).ok()
+    pub unsafe fn PerformReassociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, overwriteifexists: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), overwriteifexists.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IFhReassociation {
+unsafe impl ::windows::core::Interface for IFhReassociation {
     type Vtable = IFhReassociation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
 }
-impl ::core::convert::From<IFhReassociation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFhReassociation> for ::windows::core::IUnknown {
     fn from(value: IFhReassociation) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IFhReassociation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFhReassociation> for ::windows::core::IUnknown {
     fn from(value: &IFhReassociation) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhReassociation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFhReassociation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhReassociation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFhReassociation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhReassociation_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, username: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, username: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, overwriteifexists: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, overwriteifexists: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IFhScopeIterator(pub ::windows::runtime::IUnknown);
+pub struct IFhScopeIterator(pub ::windows::core::IUnknown);
 impl IFhScopeIterator {
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-    pub unsafe fn MoveToNextItem(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn MoveToNextItem(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn GetItem(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn GetItem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IFhScopeIterator {
+unsafe impl ::windows::core::Interface for IFhScopeIterator {
     type Vtable = IFhScopeIterator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3197abce_532a_44c6_8615_f3666566a720);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3197abce_532a_44c6_8615_f3666566a720);
 }
-impl ::core::convert::From<IFhScopeIterator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFhScopeIterator> for ::windows::core::IUnknown {
     fn from(value: IFhScopeIterator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IFhScopeIterator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFhScopeIterator> for ::windows::core::IUnknown {
     fn from(value: &IFhScopeIterator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhScopeIterator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFhScopeIterator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhScopeIterator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFhScopeIterator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhScopeIterator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, item: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, item: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IFhTarget(pub ::windows::runtime::IUnknown);
+pub struct IFhTarget(pub ::windows::core::IUnknown);
 impl IFhTarget {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
-    pub unsafe fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertytype), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertytype), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
-    pub unsafe fn GetNumericalProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertytype), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetNumericalProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertytype), &mut result__).from_abi::<u64>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IFhTarget {
+unsafe impl ::windows::core::Interface for IFhTarget {
     type Vtable = IFhTarget_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd87965fd_2bad_4657_bd3b_9567eb300ced);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd87965fd_2bad_4657_bd3b_9567eb300ced);
 }
-impl ::core::convert::From<IFhTarget> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFhTarget> for ::windows::core::IUnknown {
     fn from(value: IFhTarget) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IFhTarget> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFhTarget> for ::windows::core::IUnknown {
     fn from(value: &IFhTarget) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFhTarget {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFhTarget {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhTarget_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut u64) -> ::windows::core::HRESULT,
 );

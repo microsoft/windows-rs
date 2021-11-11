@@ -7,8 +7,8 @@ impl ::core::default::Default for JET_API_PTR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for JET_API_PTR {}
-unsafe impl ::windows::runtime::Abi for JET_API_PTR {
+unsafe impl ::windows::core::Handle for JET_API_PTR {}
+unsafe impl ::windows::core::Abi for JET_API_PTR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -19,8 +19,8 @@ impl ::core::default::Default for JET_HANDLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for JET_HANDLE {}
-unsafe impl ::windows::runtime::Abi for JET_HANDLE {
+unsafe impl ::windows::core::Handle for JET_HANDLE {}
+unsafe impl ::windows::core::Abi for JET_HANDLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -31,8 +31,8 @@ impl ::core::default::Default for JET_INSTANCE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for JET_INSTANCE {}
-unsafe impl ::windows::runtime::Abi for JET_INSTANCE {
+unsafe impl ::windows::core::Handle for JET_INSTANCE {}
+unsafe impl ::windows::core::Abi for JET_INSTANCE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -43,8 +43,8 @@ impl ::core::default::Default for JET_SESID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for JET_SESID {}
-unsafe impl ::windows::runtime::Abi for JET_SESID {
+unsafe impl ::windows::core::Handle for JET_SESID {}
+unsafe impl ::windows::core::Abi for JET_SESID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -55,7 +55,7 @@ impl ::core::default::Default for JET_TABLEID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for JET_TABLEID {}
-unsafe impl ::windows::runtime::Abi for JET_TABLEID {
+unsafe impl ::windows::core::Handle for JET_TABLEID {}
+unsafe impl ::windows::core::Abi for JET_TABLEID {
     type Abi = Self;
 }

@@ -22,12 +22,12 @@ impl ::core::convert::From<i32> for AudioRenderCategory {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AudioRenderCategory {
+unsafe impl ::windows::core::Abi for AudioRenderCategory {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for AudioRenderCategory {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
+unsafe impl ::windows::core::RuntimeType for AudioRenderCategory {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
 }
-impl ::windows::runtime::DefaultType for AudioRenderCategory {
+impl ::windows::core::DefaultType for AudioRenderCategory {
     type DefaultType = Self;
 }

@@ -6,7 +6,7 @@ pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AssociateColorProfileWithDeviceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn AssociateColorProfileWithDeviceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21,7 +21,7 @@ pub unsafe fn AssociateColorProfileWithDeviceA<'a, Param0: ::windows::runtime::I
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AssociateColorProfileWithDeviceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn AssociateColorProfileWithDeviceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -85,7 +85,7 @@ impl ::core::convert::From<i32> for BMFORMAT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BMFORMAT {
+unsafe impl ::windows::core::Abi for BMFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -119,10 +119,10 @@ impl ::core::cmp::PartialEq for BlackInformation {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for BlackInformation {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for BlackInformation {
+unsafe impl ::windows::core::Abi for BlackInformation {
     type Abi = Self;
 }
-pub const CATID_WcsPlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
+pub const CATID_WcsPlugin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -156,12 +156,12 @@ pub unsafe fn CMCheckColorsInGamut(hcmtransform: isize, lpargbtriple: *const sup
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CMCheckRGBs<'a, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: ::core::option::Option<LPBMCALLBACKFN>, ulcallbackdata: Param8) -> super::super::Foundation::BOOL {
+pub unsafe fn CMCheckRGBs<'a, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: ::core::option::Option<LPBMCALLBACKFN>, ulcallbackdata: Param8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CMCheckRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: ::windows::runtime::RawPtr, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn CMCheckRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: ::windows::core::RawPtr, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CMCheckRGBs(
             ::core::mem::transmute(hcmtransform),
@@ -494,12 +494,12 @@ pub unsafe fn CMTranslateRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CMTranslateRGBsExt<'a, Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: ::core::option::Option<LPBMCALLBACKFN>, ulcallbackdata: Param10) -> super::super::Foundation::BOOL {
+pub unsafe fn CMTranslateRGBsExt<'a, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: ::core::option::Option<LPBMCALLBACKFN>, ulcallbackdata: Param10) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CMTranslateRGBsExt(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: ::windows::runtime::RawPtr, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn CMTranslateRGBsExt(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: ::windows::core::RawPtr, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CMTranslateRGBsExt(
             ::core::mem::transmute(hcmtransform),
@@ -544,7 +544,7 @@ impl ::core::cmp::PartialEq for CMYKCOLOR {
     }
 }
 impl ::core::cmp::Eq for CMYKCOLOR {}
-unsafe impl ::windows::runtime::Abi for CMYKCOLOR {
+unsafe impl ::windows::core::Abi for CMYKCOLOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -574,7 +574,7 @@ impl ::core::cmp::PartialEq for COLOR {
     }
 }
 impl ::core::cmp::Eq for COLOR {}
-unsafe impl ::windows::runtime::Abi for COLOR {
+unsafe impl ::windows::core::Abi for COLOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -601,7 +601,7 @@ impl ::core::cmp::PartialEq for COLOR_0 {
     }
 }
 impl ::core::cmp::Eq for COLOR_0 {}
-unsafe impl ::windows::runtime::Abi for COLOR_0 {
+unsafe impl ::windows::core::Abi for COLOR_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -620,7 +620,7 @@ impl ::core::convert::From<i32> for COLORDATATYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COLORDATATYPE {
+unsafe impl ::windows::core::Abi for COLORDATATYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -707,7 +707,7 @@ impl ::core::cmp::PartialEq for COLORMATCHSETUPA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for COLORMATCHSETUPA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for COLORMATCHSETUPA {
+unsafe impl ::windows::core::Abi for COLORMATCHSETUPA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -794,7 +794,7 @@ impl ::core::cmp::PartialEq for COLORMATCHSETUPW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for COLORMATCHSETUPW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for COLORMATCHSETUPW {
+unsafe impl ::windows::core::Abi for COLORMATCHSETUPW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -815,7 +815,7 @@ impl ::core::convert::From<i32> for COLORPROFILESUBTYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COLORPROFILESUBTYPE {
+unsafe impl ::windows::core::Abi for COLORPROFILESUBTYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -831,7 +831,7 @@ impl ::core::convert::From<i32> for COLORPROFILETYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COLORPROFILETYPE {
+unsafe impl ::windows::core::Abi for COLORPROFILETYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -855,7 +855,7 @@ impl ::core::convert::From<i32> for COLORTYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COLORTYPE {
+unsafe impl ::windows::core::Abi for COLORTYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -870,7 +870,7 @@ impl ::core::convert::From<i32> for COLOR_MATCH_TO_TARGET_ACTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COLOR_MATCH_TO_TARGET_ACTION {
+unsafe impl ::windows::core::Abi for COLOR_MATCH_TO_TARGET_ACTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -894,12 +894,12 @@ pub const CSA_RGB: u32 = 6u32;
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckBitmapBits<'a, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: ::core::option::Option<LPBMCALLBACKFN>, lpcallbackdata: Param8) -> super::super::Foundation::BOOL {
+pub unsafe fn CheckBitmapBits<'a, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: ::core::option::Option<LPBMCALLBACKFN>, lpcallbackdata: Param8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CheckBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: ::windows::runtime::RawPtr, lpcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn CheckBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: ::windows::core::RawPtr, lpcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CheckBitmapBits(
             ::core::mem::transmute(hcolortransform),
@@ -934,7 +934,7 @@ pub unsafe fn CheckColors(hcolortransform: isize, painputcolors: *const COLOR, n
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn CheckColorsInGamut<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lprgbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, dlpbuffer: *mut ::core::ffi::c_void, ncount: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CheckColorsInGamut<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lprgbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, dlpbuffer: *mut ::core::ffi::c_void, ncount: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -964,7 +964,7 @@ pub unsafe fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BO
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ColorCorrectPalette<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(hdc: Param0, hpal: Param1, defirst: u32, num: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ColorCorrectPalette<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(hdc: Param0, hpal: Param1, defirst: u32, num: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -979,7 +979,7 @@ pub unsafe fn ColorCorrectPalette<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ColorMatchToTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, hdctarget: Param1, action: COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation::BOOL {
+pub unsafe fn ColorMatchToTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, hdctarget: Param1, action: COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -994,19 +994,19 @@ pub unsafe fn ColorMatchToTarget<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ColorProfileAddDisplayAssociation<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
+pub unsafe fn ColorProfileAddDisplayAssociation<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
     scope: WCS_PROFILE_MANAGEMENT_SCOPE,
     profilename: Param1,
     targetadapterid: Param2,
     sourceid: u32,
     setasdefault: Param4,
     associateasadvancedcolor: Param5,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: super::super::Foundation::PWSTR, targetadapterid: super::super::Foundation::LUID, sourceid: u32, setasdefault: super::super::Foundation::BOOL, associateasadvancedcolor: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: super::super::Foundation::PWSTR, targetadapterid: super::super::Foundation::LUID, sourceid: u32, setasdefault: super::super::Foundation::BOOL, associateasadvancedcolor: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         ColorProfileAddDisplayAssociation(::core::mem::transmute(scope), profilename.into_param().abi(), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), setasdefault.into_param().abi(), associateasadvancedcolor.into_param().abi()).ok()
     }
@@ -1016,14 +1016,14 @@ pub unsafe fn ColorProfileAddDisplayAssociation<'a, Param1: ::windows::runtime::
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ColorProfileGetDisplayDefault<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: Param1, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn ColorProfileGetDisplayDefault<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: Param1, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, profilename: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, profilename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         ColorProfileGetDisplayDefault(::core::mem::transmute(scope), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), ::core::mem::transmute(profiletype), ::core::mem::transmute(profilesubtype), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -1032,12 +1032,12 @@ pub unsafe fn ColorProfileGetDisplayDefault<'a, Param1: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ColorProfileGetDisplayList<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: Param1, sourceid: u32, profilelist: *mut *mut super::super::Foundation::PWSTR, profilecount: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn ColorProfileGetDisplayList<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: Param1, sourceid: u32, profilelist: *mut *mut super::super::Foundation::PWSTR, profilecount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profilelist: *mut *mut super::super::Foundation::PWSTR, profilecount: *mut u32) -> ::windows::runtime::HRESULT;
+            fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profilelist: *mut *mut super::super::Foundation::PWSTR, profilecount: *mut u32) -> ::windows::core::HRESULT;
         }
         ColorProfileGetDisplayList(::core::mem::transmute(scope), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), ::core::mem::transmute(profilelist), ::core::mem::transmute(profilecount)).ok()
     }
@@ -1047,14 +1047,14 @@ pub unsafe fn ColorProfileGetDisplayList<'a, Param1: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ColorProfileGetDisplayUserScope<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>>(targetadapterid: Param0, sourceid: u32) -> ::windows::runtime::Result<WCS_PROFILE_MANAGEMENT_SCOPE> {
+pub unsafe fn ColorProfileGetDisplayUserScope<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(targetadapterid: Param0, sourceid: u32) -> ::windows::core::Result<WCS_PROFILE_MANAGEMENT_SCOPE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ColorProfileGetDisplayUserScope(targetadapterid: super::super::Foundation::LUID, sourceid: u32, scope: *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> ::windows::runtime::HRESULT;
+            fn ColorProfileGetDisplayUserScope(targetadapterid: super::super::Foundation::LUID, sourceid: u32, scope: *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <WCS_PROFILE_MANAGEMENT_SCOPE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <WCS_PROFILE_MANAGEMENT_SCOPE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         ColorProfileGetDisplayUserScope(targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), &mut result__).from_abi::<WCS_PROFILE_MANAGEMENT_SCOPE>(result__)
     }
     #[cfg(not(windows))]
@@ -1063,12 +1063,12 @@ pub unsafe fn ColorProfileGetDisplayUserScope<'a, Param0: ::windows::runtime::In
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ColorProfileRemoveDisplayAssociation<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: Param1, targetadapterid: Param2, sourceid: u32, dissociateadvancedcolor: Param4) -> ::windows::runtime::Result<()> {
+pub unsafe fn ColorProfileRemoveDisplayAssociation<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: Param1, targetadapterid: Param2, sourceid: u32, dissociateadvancedcolor: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: super::super::Foundation::PWSTR, targetadapterid: super::super::Foundation::LUID, sourceid: u32, dissociateadvancedcolor: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: super::super::Foundation::PWSTR, targetadapterid: super::super::Foundation::LUID, sourceid: u32, dissociateadvancedcolor: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         ColorProfileRemoveDisplayAssociation(::core::mem::transmute(scope), profilename.into_param().abi(), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), dissociateadvancedcolor.into_param().abi()).ok()
     }
@@ -1078,12 +1078,12 @@ pub unsafe fn ColorProfileRemoveDisplayAssociation<'a, Param1: ::windows::runtim
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ColorProfileSetDisplayDefaultAssociation<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: Param1, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: Param4, sourceid: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn ColorProfileSetDisplayDefaultAssociation<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: Param1, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: Param4, sourceid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: super::super::Foundation::PWSTR, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> ::windows::runtime::HRESULT;
+            fn ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: super::super::Foundation::PWSTR, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> ::windows::core::HRESULT;
         }
         ColorProfileSetDisplayDefaultAssociation(::core::mem::transmute(scope), profilename.into_param().abi(), ::core::mem::transmute(profiletype), ::core::mem::transmute(profilesubtype), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid)).ok()
     }
@@ -1244,7 +1244,7 @@ pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1i32;
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteColorSpace<'a, Param0: ::windows::runtime::IntoParam<'a, HCOLORSPACE>>(hcs: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteColorSpace<'a, Param0: ::windows::core::IntoParam<'a, HCOLORSPACE>>(hcs: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1274,7 +1274,7 @@ pub unsafe fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::B
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DisassociateColorProfileFromDeviceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn DisassociateColorProfileFromDeviceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1289,7 +1289,7 @@ pub unsafe fn DisassociateColorProfileFromDeviceA<'a, Param0: ::windows::runtime
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DisassociateColorProfileFromDeviceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn DisassociateColorProfileFromDeviceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1333,7 +1333,7 @@ impl ::core::cmp::PartialEq for EMRCREATECOLORSPACE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for EMRCREATECOLORSPACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for EMRCREATECOLORSPACE {
+unsafe impl ::windows::core::Abi for EMRCREATECOLORSPACE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1371,7 +1371,7 @@ impl ::core::cmp::PartialEq for EMRCREATECOLORSPACEW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for EMRCREATECOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::runtime::Abi for EMRCREATECOLORSPACEW {
+unsafe impl ::windows::core::Abi for EMRCREATECOLORSPACEW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -1465,7 +1465,7 @@ impl ::core::cmp::PartialEq for ENUMTYPEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENUMTYPEA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ENUMTYPEA {
+unsafe impl ::windows::core::Abi for ENUMTYPEA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1557,7 +1557,7 @@ impl ::core::cmp::PartialEq for ENUMTYPEW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENUMTYPEW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ENUMTYPEW {
+unsafe impl ::windows::core::Abi for ENUMTYPEW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -1603,7 +1603,7 @@ pub const ET_STANDARDDISPLAYCOLOR: u32 = 131072u32;
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumColorProfilesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, penumrecord: *const ENUMTYPEA, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumColorProfilesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, penumrecord: *const ENUMTYPEA, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1618,7 +1618,7 @@ pub unsafe fn EnumColorProfilesA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumColorProfilesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, penumrecord: *const ENUMTYPEW, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumColorProfilesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, penumrecord: *const ENUMTYPEW, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1633,12 +1633,12 @@ pub unsafe fn EnumColorProfilesW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn EnumICMProfilesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, proc: ::core::option::Option<ICMENUMPROCA>, param2: Param2) -> i32 {
+pub unsafe fn EnumICMProfilesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, proc: ::core::option::Option<ICMENUMPROCA>, param2: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumICMProfilesA(hdc: super::super::Graphics::Gdi::HDC, proc: ::windows::runtime::RawPtr, param2: super::super::Foundation::LPARAM) -> i32;
+            fn EnumICMProfilesA(hdc: super::super::Graphics::Gdi::HDC, proc: ::windows::core::RawPtr, param2: super::super::Foundation::LPARAM) -> i32;
         }
         ::core::mem::transmute(EnumICMProfilesA(hdc.into_param().abi(), ::core::mem::transmute(proc), param2.into_param().abi()))
     }
@@ -1648,12 +1648,12 @@ pub unsafe fn EnumICMProfilesA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn EnumICMProfilesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, proc: ::core::option::Option<ICMENUMPROCW>, param2: Param2) -> i32 {
+pub unsafe fn EnumICMProfilesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, proc: ::core::option::Option<ICMENUMPROCW>, param2: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumICMProfilesW(hdc: super::super::Graphics::Gdi::HDC, proc: ::windows::runtime::RawPtr, param2: super::super::Foundation::LPARAM) -> i32;
+            fn EnumICMProfilesW(hdc: super::super::Graphics::Gdi::HDC, proc: ::windows::core::RawPtr, param2: super::super::Foundation::LPARAM) -> i32;
         }
         ::core::mem::transmute(EnumICMProfilesW(hdc.into_param().abi(), ::core::mem::transmute(proc), param2.into_param().abi()))
     }
@@ -1693,7 +1693,7 @@ impl ::core::cmp::PartialEq for GENERIC3CHANNEL {
     }
 }
 impl ::core::cmp::Eq for GENERIC3CHANNEL {}
-unsafe impl ::windows::runtime::Abi for GENERIC3CHANNEL {
+unsafe impl ::windows::core::Abi for GENERIC3CHANNEL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1719,7 +1719,7 @@ impl ::core::cmp::PartialEq for GRAYCOLOR {
     }
 }
 impl ::core::cmp::Eq for GRAYCOLOR {}
-unsafe impl ::windows::runtime::Abi for GRAYCOLOR {
+unsafe impl ::windows::core::Abi for GRAYCOLOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1757,7 +1757,7 @@ impl ::core::cmp::PartialEq for GamutBoundaryDescription {
     }
 }
 impl ::core::cmp::Eq for GamutBoundaryDescription {}
-unsafe impl ::windows::runtime::Abi for GamutBoundaryDescription {
+unsafe impl ::windows::core::Abi for GamutBoundaryDescription {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1788,7 +1788,7 @@ impl ::core::cmp::PartialEq for GamutShell {
     }
 }
 impl ::core::cmp::Eq for GamutShell {}
-unsafe impl ::windows::runtime::Abi for GamutShell {
+unsafe impl ::windows::core::Abi for GamutShell {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1814,7 +1814,7 @@ impl ::core::cmp::PartialEq for GamutShellTriangle {
     }
 }
 impl ::core::cmp::Eq for GamutShellTriangle {}
-unsafe impl ::windows::runtime::Abi for GamutShellTriangle {
+unsafe impl ::windows::core::Abi for GamutShellTriangle {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -1834,7 +1834,7 @@ pub unsafe fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32 {
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetColorDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, pbuffer: super::super::Foundation::PSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetColorDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, pbuffer: super::super::Foundation::PSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1849,7 +1849,7 @@ pub unsafe fn GetColorDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetColorDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, pbuffer: super::super::Foundation::PWSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetColorDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, pbuffer: super::super::Foundation::PWSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1924,7 +1924,7 @@ pub unsafe fn GetColorProfileHeader(hprofile: isize, pheader: *mut PROFILEHEADER
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Graphics_Gdi`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetColorSpace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> HCOLORSPACE {
+pub unsafe fn GetColorSpace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> HCOLORSPACE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1954,7 +1954,7 @@ pub unsafe fn GetCountColorProfileElements(hprofile: isize, pnelementcount: *mut
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetDeviceGammaRamp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lpramp: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDeviceGammaRamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lpramp: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1969,7 +1969,7 @@ pub unsafe fn GetDeviceGammaRamp<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetICMProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, pbufsize: *mut u32, pszfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn GetICMProfileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, pbufsize: *mut u32, pszfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1984,7 +1984,7 @@ pub unsafe fn GetICMProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetICMProfileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, pbufsize: *mut u32, pszfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn GetICMProfileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, pbufsize: *mut u32, pszfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1999,7 +1999,7 @@ pub unsafe fn GetICMProfileW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetLogColorSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, HCOLORSPACE>>(hcolorspace: Param0, lpbuffer: *mut LOGCOLORSPACEA, nsize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetLogColorSpaceA<'a, Param0: ::windows::core::IntoParam<'a, HCOLORSPACE>>(hcolorspace: Param0, lpbuffer: *mut LOGCOLORSPACEA, nsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2014,7 +2014,7 @@ pub unsafe fn GetLogColorSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, HC
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetLogColorSpaceW<'a, Param0: ::windows::runtime::IntoParam<'a, HCOLORSPACE>>(hcolorspace: Param0, lpbuffer: *mut LOGCOLORSPACEW, nsize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetLogColorSpaceW<'a, Param0: ::windows::core::IntoParam<'a, HCOLORSPACE>>(hcolorspace: Param0, lpbuffer: *mut LOGCOLORSPACEW, nsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2089,7 +2089,7 @@ pub unsafe fn GetPS2ColorSpaceArray(hprofile: isize, dwintent: u32, dwcsatype: u
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStandardColorSpaceProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, dwscs: u32, pbuffer: super::super::Foundation::PSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetStandardColorSpaceProfileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, dwscs: u32, pbuffer: super::super::Foundation::PSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2104,7 +2104,7 @@ pub unsafe fn GetStandardColorSpaceProfileA<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStandardColorSpaceProfileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, dwscs: u32, pbuffer: super::super::Foundation::PWSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetStandardColorSpaceProfileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, dwscs: u32, pbuffer: super::super::Foundation::PWSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2124,8 +2124,8 @@ impl ::core::default::Default for HCOLORSPACE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HCOLORSPACE {}
-unsafe impl ::windows::runtime::Abi for HCOLORSPACE {
+unsafe impl ::windows::core::Handle for HCOLORSPACE {}
+unsafe impl ::windows::core::Abi for HCOLORSPACE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2151,7 +2151,7 @@ impl ::core::cmp::PartialEq for HiFiCOLOR {
     }
 }
 impl ::core::cmp::Eq for HiFiCOLOR {}
-unsafe impl ::windows::runtime::Abi for HiFiCOLOR {
+unsafe impl ::windows::core::Abi for HiFiCOLOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
@@ -2176,7 +2176,7 @@ impl ::core::convert::From<u32> for ICM_COMMAND {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ICM_COMMAND {
+unsafe impl ::windows::core::Abi for ICM_COMMAND {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for ICM_COMMAND {
@@ -2210,152 +2210,152 @@ impl ::core::ops::Not for ICM_COMMAND {
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDeviceModelPlugIn(pub ::windows::runtime::IUnknown);
+pub struct IDeviceModelPlugIn(pub ::windows::core::IUnknown);
 impl IDeviceModelPlugIn {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrxml: Param0, cnummodels: u32, imodelposition: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrxml.into_param().abi(), ::core::mem::transmute(cnummodels), ::core::mem::transmute(imodelposition)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrxml: Param0, cnummodels: u32, imodelposition: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrxml.into_param().abi(), ::core::mem::transmute(cnummodels), ::core::mem::transmute(imodelposition)).ok()
     }
     #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
-    pub unsafe fn GetNumChannels(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetNumChannels(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
-    pub unsafe fn DeviceToColorimetricColors(&self, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(cchannels), ::core::mem::transmute(pdevicevalues), ::core::mem::transmute(pxyzcolors)).ok()
+    pub unsafe fn DeviceToColorimetricColors(&self, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(cchannels), ::core::mem::transmute(pdevicevalues), ::core::mem::transmute(pxyzcolors)).ok()
     }
     #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
-    pub unsafe fn ColorimetricToDeviceColors(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(cchannels), ::core::mem::transmute(pxyzcolors), &mut result__).from_abi::<f32>(result__)
+    pub unsafe fn ColorimetricToDeviceColors(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF) -> ::windows::core::Result<f32> {
+        let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(cchannels), ::core::mem::transmute(pxyzcolors), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
-    pub unsafe fn ColorimetricToDeviceColorsWithBlack(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(cchannels), ::core::mem::transmute(pxyzcolors), ::core::mem::transmute(pblackinformation), &mut result__).from_abi::<f32>(result__)
+    pub unsafe fn ColorimetricToDeviceColorsWithBlack(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> ::windows::core::Result<f32> {
+        let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(cchannels), ::core::mem::transmute(pxyzcolors), ::core::mem::transmute(pblackinformation), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
-    pub unsafe fn SetTransformDeviceModelInfo<'a, Param1: ::windows::runtime::IntoParam<'a, IDeviceModelPlugIn>>(&self, imodelposition: u32, pidevicemodelother: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(imodelposition), pidevicemodelother.into_param().abi()).ok()
+    pub unsafe fn SetTransformDeviceModelInfo<'a, Param1: ::windows::core::IntoParam<'a, IDeviceModelPlugIn>>(&self, imodelposition: u32, pidevicemodelother: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(imodelposition), pidevicemodelother.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
-    pub unsafe fn GetPrimarySamples(&self) -> ::windows::runtime::Result<PrimaryXYZColors> {
-        let mut result__: <PrimaryXYZColors as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PrimaryXYZColors>(result__)
+    pub unsafe fn GetPrimarySamples(&self) -> ::windows::core::Result<PrimaryXYZColors> {
+        let mut result__: <PrimaryXYZColors as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PrimaryXYZColors>(result__)
     }
     #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
-    pub unsafe fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnumvertices), ::core::mem::transmute(pnumtriangles)).ok()
+    pub unsafe fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnumvertices), ::core::mem::transmute(pnumtriangles)).ok()
     }
     #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
-    pub unsafe fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchannels), ::core::mem::transmute(cvertices), ::core::mem::transmute(ctriangles), ::core::mem::transmute(pvertices), ::core::mem::transmute(ptriangles)).ok()
+    pub unsafe fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchannels), ::core::mem::transmute(cvertices), ::core::mem::transmute(ctriangles), ::core::mem::transmute(pvertices), ::core::mem::transmute(ptriangles)).ok()
     }
     #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
-    pub unsafe fn GetNeutralAxisSize(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetNeutralAxisSize(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
-    pub unsafe fn GetNeutralAxis(&self, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(pxyzcolors)).ok()
+    pub unsafe fn GetNeutralAxis(&self, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(pxyzcolors)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDeviceModelPlugIn {
+unsafe impl ::windows::core::Interface for IDeviceModelPlugIn {
     type Vtable = IDeviceModelPlugIn_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1cd63475_07c4_46fe_a903_d655316d11fd);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cd63475_07c4_46fe_a903_d655316d11fd);
 }
-impl ::core::convert::From<IDeviceModelPlugIn> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDeviceModelPlugIn> for ::windows::core::IUnknown {
     fn from(value: IDeviceModelPlugIn) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDeviceModelPlugIn> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDeviceModelPlugIn> for ::windows::core::IUnknown {
     fn from(value: &IDeviceModelPlugIn) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDeviceModelPlugIn {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDeviceModelPlugIn {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDeviceModelPlugIn {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDeviceModelPlugIn {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceModelPlugIn_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, cnummodels: u32, imodelposition: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, cnummodels: u32, imodelposition: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnumchannels: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pdevicevalues: *mut f32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation, pdevicevalues: *mut f32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pnumchannels: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pdevicevalues: *mut f32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation, pdevicevalues: *mut f32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, imodelposition: u32, pidevicemodelother: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprimarycolor: *mut PrimaryXYZColors) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pccolors: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, imodelposition: u32, pidevicemodelother: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pprimarycolor: *mut PrimaryXYZColors) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pccolors: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IGamutMapModelPlugIn(pub ::windows::runtime::IUnknown);
+pub struct IGamutMapModelPlugIn(pub ::windows::core::IUnknown);
 impl IGamutMapModelPlugIn {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, IDeviceModelPlugIn>, Param2: ::windows::runtime::IntoParam<'a, IDeviceModelPlugIn>>(&self, bstrxml: Param0, psrcplugin: Param1, pdestplugin: Param2, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrxml.into_param().abi(), psrcplugin.into_param().abi(), pdestplugin.into_param().abi(), ::core::mem::transmute(psrcgbd), ::core::mem::transmute(pdestgbd)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IDeviceModelPlugIn>, Param2: ::windows::core::IntoParam<'a, IDeviceModelPlugIn>>(&self, bstrxml: Param0, psrcplugin: Param1, pdestplugin: Param2, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrxml.into_param().abi(), psrcplugin.into_param().abi(), pdestplugin.into_param().abi(), ::core::mem::transmute(psrcgbd), ::core::mem::transmute(pdestgbd)).ok()
     }
     #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
-    pub unsafe fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(pinputcolors), ::core::mem::transmute(poutputcolors)).ok()
+    pub unsafe fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(pinputcolors), ::core::mem::transmute(poutputcolors)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IGamutMapModelPlugIn {
+unsafe impl ::windows::core::Interface for IGamutMapModelPlugIn {
     type Vtable = IGamutMapModelPlugIn_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
 }
-impl ::core::convert::From<IGamutMapModelPlugIn> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IGamutMapModelPlugIn> for ::windows::core::IUnknown {
     fn from(value: IGamutMapModelPlugIn) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IGamutMapModelPlugIn> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IGamutMapModelPlugIn> for ::windows::core::IUnknown {
     fn from(value: &IGamutMapModelPlugIn) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGamutMapModelPlugIn {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGamutMapModelPlugIn {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGamutMapModelPlugIn {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGamutMapModelPlugIn {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGamutMapModelPlugIn_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, psrcplugin: ::windows::runtime::RawPtr, pdestplugin: ::windows::runtime::RawPtr, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, psrcplugin: ::windows::core::RawPtr, pdestplugin: ::windows::core::RawPtr, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const INDEX_DONT_CARE: u32 = 0u32;
@@ -2370,7 +2370,7 @@ pub const INTENT_SATURATION: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InstallColorProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, pprofilename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn InstallColorProfileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, pprofilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2385,7 +2385,7 @@ pub unsafe fn InstallColorProfileA<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InstallColorProfileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, pprofilename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn InstallColorProfileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, pprofilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2452,7 +2452,7 @@ impl ::core::cmp::PartialEq for JChColorF {
     }
 }
 impl ::core::cmp::Eq for JChColorF {}
-unsafe impl ::windows::runtime::Abi for JChColorF {
+unsafe impl ::windows::core::Abi for JChColorF {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2480,7 +2480,7 @@ impl ::core::cmp::PartialEq for JabColorF {
     }
 }
 impl ::core::cmp::Eq for JabColorF {}
-unsafe impl ::windows::runtime::Abi for JabColorF {
+unsafe impl ::windows::core::Abi for JabColorF {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2533,7 +2533,7 @@ impl ::core::cmp::PartialEq for LOGCOLORSPACEA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for LOGCOLORSPACEA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for LOGCOLORSPACEA {
+unsafe impl ::windows::core::Abi for LOGCOLORSPACEA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2586,7 +2586,7 @@ impl ::core::cmp::PartialEq for LOGCOLORSPACEW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for LOGCOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::runtime::Abi for LOGCOLORSPACEW {
+unsafe impl ::windows::core::Abi for LOGCOLORSPACEW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
@@ -2617,7 +2617,7 @@ impl ::core::cmp::PartialEq for LabCOLOR {
     }
 }
 impl ::core::cmp::Eq for LabCOLOR {}
-unsafe impl ::windows::runtime::Abi for LabCOLOR {
+unsafe impl ::windows::core::Abi for LabCOLOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -2645,7 +2645,7 @@ impl ::core::cmp::PartialEq for NAMEDCOLOR {
     }
 }
 impl ::core::cmp::Eq for NAMEDCOLOR {}
-unsafe impl ::windows::runtime::Abi for NAMEDCOLOR {
+unsafe impl ::windows::core::Abi for NAMEDCOLOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2675,7 +2675,7 @@ impl ::core::cmp::PartialEq for NAMED_PROFILE_INFO {
     }
 }
 impl ::core::cmp::Eq for NAMED_PROFILE_INFO {}
-unsafe impl ::windows::runtime::Abi for NAMED_PROFILE_INFO {
+unsafe impl ::windows::core::Abi for NAMED_PROFILE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -2741,7 +2741,7 @@ impl ::core::cmp::PartialEq for PROFILE {
     }
 }
 impl ::core::cmp::Eq for PROFILE {}
-unsafe impl ::windows::runtime::Abi for PROFILE {
+unsafe impl ::windows::core::Abi for PROFILE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2824,7 +2824,7 @@ impl ::core::cmp::PartialEq for PROFILEHEADER {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for PROFILEHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::runtime::Abi for PROFILEHEADER {
+unsafe impl ::windows::core::Abi for PROFILEHEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -2867,7 +2867,7 @@ impl ::core::cmp::PartialEq for PrimaryJabColors {
     }
 }
 impl ::core::cmp::Eq for PrimaryJabColors {}
-unsafe impl ::windows::runtime::Abi for PrimaryJabColors {
+unsafe impl ::windows::core::Abi for PrimaryJabColors {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2900,7 +2900,7 @@ impl ::core::cmp::PartialEq for PrimaryXYZColors {
     }
 }
 impl ::core::cmp::Eq for PrimaryXYZColors {}
-unsafe impl ::windows::runtime::Abi for PrimaryXYZColors {
+unsafe impl ::windows::core::Abi for PrimaryXYZColors {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -2930,13 +2930,13 @@ impl ::core::cmp::PartialEq for RGBCOLOR {
     }
 }
 impl ::core::cmp::Eq for RGBCOLOR {}
-unsafe impl ::windows::runtime::Abi for RGBCOLOR {
+unsafe impl ::windows::core::Abi for RGBCOLOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterCMMA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, cmmid: u32, pcmmdll: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn RegisterCMMA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, cmmid: u32, pcmmdll: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2951,7 +2951,7 @@ pub unsafe fn RegisterCMMA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterCMMW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, cmmid: u32, pcmmdll: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn RegisterCMMW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, cmmid: u32, pcmmdll: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3043,7 +3043,7 @@ pub unsafe fn SetColorProfileHeader(hprofile: isize, pheader: *const PROFILEHEAD
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Graphics_Gdi`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetColorSpace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::runtime::IntoParam<'a, HCOLORSPACE>>(hdc: Param0, hcs: Param1) -> HCOLORSPACE {
+pub unsafe fn SetColorSpace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, HCOLORSPACE>>(hdc: Param0, hcs: Param1) -> HCOLORSPACE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3058,7 +3058,7 @@ pub unsafe fn SetColorSpace<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn SetDeviceGammaRamp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lpramp: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SetDeviceGammaRamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lpramp: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3073,7 +3073,7 @@ pub unsafe fn SetDeviceGammaRamp<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Graphics_Gdi`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetICMMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, mode: i32) -> i32 {
+pub unsafe fn SetICMMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, mode: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3088,7 +3088,7 @@ pub unsafe fn SetICMMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn SetICMProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpfilename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetICMProfileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3103,7 +3103,7 @@ pub unsafe fn SetICMProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn SetICMProfileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpfilename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetICMProfileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3118,7 +3118,7 @@ pub unsafe fn SetICMProfileW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetStandardColorSpaceProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, dwprofileid: u32, pprofilename: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn SetStandardColorSpaceProfileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, dwprofileid: u32, pprofilename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3133,7 +3133,7 @@ pub unsafe fn SetStandardColorSpaceProfileA<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetStandardColorSpaceProfileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, dwprofileid: u32, pprofilename: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn SetStandardColorSpaceProfileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, dwprofileid: u32, pprofilename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3178,12 +3178,12 @@ pub unsafe fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TranslateBitmapBits<'a, Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: ::core::option::Option<LPBMCALLBACKFN>, ulcallbackdata: Param10) -> super::super::Foundation::BOOL {
+pub unsafe fn TranslateBitmapBits<'a, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: ::core::option::Option<LPBMCALLBACKFN>, ulcallbackdata: Param10) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TranslateBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: ::windows::runtime::RawPtr, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn TranslateBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: ::windows::core::RawPtr, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(TranslateBitmapBits(
             ::core::mem::transmute(hcolortransform),
@@ -3222,7 +3222,7 @@ pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UninstallColorProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pmachinename: Param0, pprofilename: Param1, bdelete: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn UninstallColorProfileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pmachinename: Param0, pprofilename: Param1, bdelete: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3237,7 +3237,7 @@ pub unsafe fn UninstallColorProfileA<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UninstallColorProfileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pmachinename: Param0, pprofilename: Param1, bdelete: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn UninstallColorProfileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pmachinename: Param0, pprofilename: Param1, bdelete: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3252,7 +3252,7 @@ pub unsafe fn UninstallColorProfileW<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnregisterCMMA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, cmmid: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn UnregisterCMMA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pmachinename: Param0, cmmid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3267,7 +3267,7 @@ pub unsafe fn UnregisterCMMA<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnregisterCMMW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, cmmid: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn UnregisterCMMW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pmachinename: Param0, cmmid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3282,7 +3282,7 @@ pub unsafe fn UnregisterCMMW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateICMRegKeyA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reserved: u32, lpszcmid: Param1, lpszfilename: Param2, command: ICM_COMMAND) -> super::super::Foundation::BOOL {
+pub unsafe fn UpdateICMRegKeyA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(reserved: u32, lpszcmid: Param1, lpszfilename: Param2, command: ICM_COMMAND) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3297,7 +3297,7 @@ pub unsafe fn UpdateICMRegKeyA<'a, Param1: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateICMRegKeyW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: u32, lpszcmid: Param1, lpszfilename: Param2, command: ICM_COMMAND) -> super::super::Foundation::BOOL {
+pub unsafe fn UpdateICMRegKeyW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: u32, lpszcmid: Param1, lpszfilename: Param2, command: ICM_COMMAND) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3324,7 +3324,7 @@ impl ::core::convert::From<i32> for WCS_DEVICE_CAPABILITIES_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WCS_DEVICE_CAPABILITIES_TYPE {
+unsafe impl ::windows::core::Abi for WCS_DEVICE_CAPABILITIES_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3361,7 +3361,7 @@ impl ::core::cmp::PartialEq for WCS_DEVICE_MHC2_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WCS_DEVICE_MHC2_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WCS_DEVICE_MHC2_CAPABILITIES {
+unsafe impl ::windows::core::Abi for WCS_DEVICE_MHC2_CAPABILITIES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3395,7 +3395,7 @@ impl ::core::cmp::PartialEq for WCS_DEVICE_VCGT_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WCS_DEVICE_VCGT_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WCS_DEVICE_VCGT_CAPABILITIES {
+unsafe impl ::windows::core::Abi for WCS_DEVICE_VCGT_CAPABILITIES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -3411,13 +3411,13 @@ impl ::core::convert::From<i32> for WCS_PROFILE_MANAGEMENT_SCOPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WCS_PROFILE_MANAGEMENT_SCOPE {
+unsafe impl ::windows::core::Abi for WCS_PROFILE_MANAGEMENT_SCOPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcsAssociateColorProfileWithDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn WcsAssociateColorProfileWithDevice<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3461,7 +3461,7 @@ pub unsafe fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize {
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcsDisassociateColorProfileFromDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn WcsDisassociateColorProfileFromDevice<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3521,7 +3521,7 @@ pub unsafe fn WcsGetCalibrationManagementState(pbisenabled: *mut super::super::F
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcsGetDefaultColorProfile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: Param1, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, cbprofilename: u32, pprofilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn WcsGetDefaultColorProfile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: Param1, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, cbprofilename: u32, pprofilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3536,7 +3536,7 @@ pub unsafe fn WcsGetDefaultColorProfile<'a, Param1: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcsGetDefaultColorProfileSize<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: Param1, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pcbprofilename: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn WcsGetDefaultColorProfileSize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: Param1, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pcbprofilename: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3566,7 +3566,7 @@ pub unsafe fn WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, 
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcsGetUsePerUserProfiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pdevicename: Param0, dwdeviceclass: u32, puseperuserprofiles: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+pub unsafe fn WcsGetUsePerUserProfiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pdevicename: Param0, dwdeviceclass: u32, puseperuserprofiles: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3609,7 +3609,7 @@ pub unsafe fn WcsOpenColorProfileW(pcdmpprofile: *const PROFILE, pcampprofile: *
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcsSetCalibrationManagementState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bisenabled: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn WcsSetCalibrationManagementState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bisenabled: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3624,7 +3624,7 @@ pub unsafe fn WcsSetCalibrationManagementState<'a, Param0: ::windows::runtime::I
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcsSetDefaultColorProfile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: Param1, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pprofilename: Param5) -> super::super::Foundation::BOOL {
+pub unsafe fn WcsSetDefaultColorProfile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: Param1, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pprofilename: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3654,7 +3654,7 @@ pub unsafe fn WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, 
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcsSetUsePerUserProfiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pdevicename: Param0, dwdeviceclass: u32, useperuserprofiles: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn WcsSetUsePerUserProfiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pdevicename: Param0, dwdeviceclass: u32, useperuserprofiles: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3717,7 +3717,7 @@ impl ::core::cmp::PartialEq for XYZCOLOR {
     }
 }
 impl ::core::cmp::Eq for XYZCOLOR {}
-unsafe impl ::windows::runtime::Abi for XYZCOLOR {
+unsafe impl ::windows::core::Abi for XYZCOLOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3745,7 +3745,7 @@ impl ::core::cmp::PartialEq for XYZColorF {
     }
 }
 impl ::core::cmp::Eq for XYZColorF {}
-unsafe impl ::windows::runtime::Abi for XYZColorF {
+unsafe impl ::windows::core::Abi for XYZColorF {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3773,6 +3773,6 @@ impl ::core::cmp::PartialEq for YxyCOLOR {
     }
 }
 impl ::core::cmp::Eq for YxyCOLOR {}
-unsafe impl ::windows::runtime::Abi for YxyCOLOR {
+unsafe impl ::windows::core::Abi for YxyCOLOR {
     type Abi = Self;
 }

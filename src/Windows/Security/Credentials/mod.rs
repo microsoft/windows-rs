@@ -3,516 +3,516 @@
 pub mod UI;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICredentialFactory(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ICredentialFactory {
+pub struct ICredentialFactory(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ICredentialFactory {
     type Vtable = ICredentialFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54ef13a1_bf26_47b5_97dd_de779b7cad58);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54ef13a1_bf26_47b5_97dd_de779b7cad58);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICredentialFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resource: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, username: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resource: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKeyCredential(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IKeyCredential {
+pub struct IKeyCredential(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IKeyCredential {
     type Vtable = IKeyCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9585ef8d_457b_4847_b11a_fa960bbdb138);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9585ef8d_457b_4847_b11a_fa960bbdb138);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyCredential_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blobtype: super::Cryptography::Core::CryptographicPublicKeyBlobType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, blobtype: super::Cryptography::Core::CryptographicPublicKeyBlobType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, data: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKeyCredentialAttestationResult(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IKeyCredentialAttestationResult {
+pub struct IKeyCredentialAttestationResult(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IKeyCredentialAttestationResult {
     type Vtable = IKeyCredentialAttestationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyCredentialAttestationResult_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut KeyCredentialAttestationStatus) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut KeyCredentialAttestationStatus) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKeyCredentialManagerStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IKeyCredentialManagerStatics {
+pub struct IKeyCredentialManagerStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IKeyCredentialManagerStatics {
     type Vtable = IKeyCredentialManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6aac468b_0ef1_4ce0_8290_4106da6a63b5);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aac468b_0ef1_4ce0_8290_4106da6a63b5);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyCredentialManagerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, option: KeyCredentialCreationOption, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: KeyCredentialCreationOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKeyCredentialOperationResult(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IKeyCredentialOperationResult {
+pub struct IKeyCredentialOperationResult(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IKeyCredentialOperationResult {
     type Vtable = IKeyCredentialOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf53786c1_5261_4cdd_976d_cc909ac71620);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf53786c1_5261_4cdd_976d_cc909ac71620);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyCredentialOperationResult_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut KeyCredentialStatus) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut KeyCredentialStatus) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKeyCredentialRetrievalResult(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IKeyCredentialRetrievalResult {
+pub struct IKeyCredentialRetrievalResult(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IKeyCredentialRetrievalResult {
     type Vtable = IKeyCredentialRetrievalResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58cd7703_8d87_4249_9b58_f6598cc9644e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58cd7703_8d87_4249_9b58_f6598cc9644e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyCredentialRetrievalResult_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut KeyCredentialStatus) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut KeyCredentialStatus) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPasswordCredential(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IPasswordCredential {
+pub struct IPasswordCredential(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IPasswordCredential {
     type Vtable = IPasswordCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ab18989_c720_41a7_a6c1_feadb36329a0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ab18989_c720_41a7_a6c1_feadb36329a0);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPasswordCredential_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resource: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, username: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, password: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resource: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPasswordVault(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IPasswordVault {
+pub struct IPasswordVault(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IPasswordVault {
     type Vtable = IPasswordVault_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPasswordVault_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, credential: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, credential: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resource: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, username: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resource: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, credential: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, credential: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resource: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resource: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, username: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Security_Credentials`*"]
-pub struct IWebAccount(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IWebAccount {
+pub struct IWebAccount(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IWebAccount {
     type Vtable = IWebAccount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69473eb2_8031_49be_80bb_96cb46d99aba);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69473eb2_8031_49be_80bb_96cb46d99aba);
 }
 impl IWebAccount {
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn WebAccountProvider(&self) -> ::windows::runtime::Result<WebAccountProvider> {
+    pub fn WebAccountProvider(&self) -> ::windows::core::Result<WebAccountProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAccountProvider>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAccountProvider>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn UserName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn State(&self) -> ::windows::runtime::Result<WebAccountState> {
+    pub fn State(&self) -> ::windows::core::Result<WebAccountState> {
         let this = self;
         unsafe {
             let mut result__: WebAccountState = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAccountState>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAccountState>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for IWebAccount {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{69473eb2-8031-49be-80bb-96cb46d99aba}");
+unsafe impl ::windows::core::RuntimeType for IWebAccount {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69473eb2-8031-49be-80bb-96cb46d99aba}");
 }
-impl ::core::convert::From<IWebAccount> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWebAccount> for ::windows::core::IUnknown {
     fn from(value: IWebAccount) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&IWebAccount> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWebAccount> for ::windows::core::IUnknown {
     fn from(value: &IWebAccount) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebAccount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebAccount {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWebAccount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebAccount {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<IWebAccount> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IWebAccount> for ::windows::core::IInspectable {
     fn from(value: IWebAccount) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IWebAccount> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IWebAccount> for ::windows::core::IInspectable {
     fn from(value: &IWebAccount) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebAccount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccount {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebAccount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWebAccount {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccount_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WebAccountState) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut WebAccountState) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWebAccount2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IWebAccount2 {
+pub struct IWebAccount2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IWebAccount2 {
     type Vtable = IWebAccount2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b56d6f8_990b_4eb5_94a7_5621f3a8b824);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b56d6f8_990b_4eb5_94a7_5621f3a8b824);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccount2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desizedsize: WebAccountPictureSize, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, desizedsize: WebAccountPictureSize, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, clientid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, clientid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWebAccountFactory(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IWebAccountFactory {
+pub struct IWebAccountFactory(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IWebAccountFactory {
     type Vtable = IWebAccountFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xac9afb39_1de9_4e92_b78f_0581a87f6e5c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac9afb39_1de9_4e92_b78f_0581a87f6e5c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, webaccountprovider: ::windows::runtime::RawPtr, username: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, state: WebAccountState, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, webaccountprovider: ::windows::core::RawPtr, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, state: WebAccountState, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWebAccountProvider(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IWebAccountProvider {
+pub struct IWebAccountProvider(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IWebAccountProvider {
     type Vtable = IWebAccountProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProvider_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWebAccountProvider2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IWebAccountProvider2 {
+pub struct IWebAccountProvider2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IWebAccountProvider2 {
     type Vtable = IWebAccountProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4a01eb05_4e42_41d4_b518_e008a5163614);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a01eb05_4e42_41d4_b518_e008a5163614);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProvider2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWebAccountProvider3(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IWebAccountProvider3 {
+pub struct IWebAccountProvider3(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IWebAccountProvider3 {
     type Vtable = IWebAccountProvider3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda1c518b_970d_4d49_825c_f2706f8ca7fe);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda1c518b_970d_4d49_825c_f2706f8ca7fe);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProvider3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "System")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "System")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWebAccountProvider4(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IWebAccountProvider4 {
+pub struct IWebAccountProvider4(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IWebAccountProvider4 {
     type Vtable = IWebAccountProvider4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x718fd8db_e796_4210_b74e_84d29894b080);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x718fd8db_e796_4210_b74e_84d29894b080);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProvider4_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWebAccountProviderFactory(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IWebAccountProviderFactory {
+pub struct IWebAccountProviderFactory(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IWebAccountProviderFactory {
     type Vtable = IWebAccountProviderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1d767df1_e1e1_4b9a_a774_5c7c7e3bf371);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d767df1_e1e1_4b9a_a774_5c7c7e3bf371);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, iconuri: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, iconuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[doc = "*Required features: `Security_Credentials`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct KeyCredential(pub ::windows::runtime::IInspectable);
+pub struct KeyCredential(pub ::windows::core::IInspectable);
 impl KeyCredential {
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Security_Credentials`, `Storage_Streams`*"]
-    pub fn RetrievePublicKeyWithDefaultBlobType(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RetrievePublicKeyWithDefaultBlobType(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Security_Credentials`, `Security_Cryptography_Core`, `Storage_Streams`*"]
-    pub fn RetrievePublicKeyWithBlobType(&self, blobtype: super::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RetrievePublicKeyWithBlobType(&self, blobtype: super::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), blobtype, &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), blobtype, &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`, `Storage_Streams`*"]
-    pub fn RequestSignAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, data: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<KeyCredentialOperationResult>> {
+    pub fn RequestSignAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, data: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialOperationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<KeyCredentialOperationResult>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<KeyCredentialOperationResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`*"]
-    pub fn GetAttestationAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<KeyCredentialAttestationResult>> {
+    pub fn GetAttestationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialAttestationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<KeyCredentialAttestationResult>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<KeyCredentialAttestationResult>>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for KeyCredential {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredential;{9585ef8d-457b-4847-b11a-fa960bbdb138})");
+unsafe impl ::windows::core::RuntimeType for KeyCredential {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredential;{9585ef8d-457b-4847-b11a-fa960bbdb138})");
 }
-unsafe impl ::windows::runtime::Interface for KeyCredential {
+unsafe impl ::windows::core::Interface for KeyCredential {
     type Vtable = IKeyCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9585ef8d_457b_4847_b11a_fa960bbdb138);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9585ef8d_457b_4847_b11a_fa960bbdb138);
 }
-impl ::windows::runtime::RuntimeName for KeyCredential {
+impl ::windows::core::RuntimeName for KeyCredential {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredential";
 }
-impl ::core::convert::From<KeyCredential> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<KeyCredential> for ::windows::core::IUnknown {
     fn from(value: KeyCredential) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&KeyCredential> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&KeyCredential> for ::windows::core::IUnknown {
     fn from(value: &KeyCredential) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for KeyCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeyCredential {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a KeyCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeyCredential {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<KeyCredential> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<KeyCredential> for ::windows::core::IInspectable {
     fn from(value: KeyCredential) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&KeyCredential> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&KeyCredential> for ::windows::core::IInspectable {
     fn from(value: &KeyCredential) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for KeyCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeyCredential {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a KeyCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeyCredential {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for KeyCredential {}
@@ -520,83 +520,83 @@ unsafe impl ::core::marker::Sync for KeyCredential {}
 #[doc = "*Required features: `Security_Credentials`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct KeyCredentialAttestationResult(pub ::windows::runtime::IInspectable);
+pub struct KeyCredentialAttestationResult(pub ::windows::core::IInspectable);
 impl KeyCredentialAttestationResult {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Security_Credentials`, `Storage_Streams`*"]
-    pub fn CertificateChainBuffer(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn CertificateChainBuffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Security_Credentials`, `Storage_Streams`*"]
-    pub fn AttestationBuffer(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn AttestationBuffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Status(&self) -> ::windows::runtime::Result<KeyCredentialAttestationStatus> {
+    pub fn Status(&self) -> ::windows::core::Result<KeyCredentialAttestationStatus> {
         let this = self;
         unsafe {
             let mut result__: KeyCredentialAttestationStatus = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyCredentialAttestationStatus>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyCredentialAttestationStatus>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for KeyCredentialAttestationResult {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialAttestationResult;{78aab3a1-a3c1-4103-b6cc-472c44171cbb})");
+unsafe impl ::windows::core::RuntimeType for KeyCredentialAttestationResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialAttestationResult;{78aab3a1-a3c1-4103-b6cc-472c44171cbb})");
 }
-unsafe impl ::windows::runtime::Interface for KeyCredentialAttestationResult {
+unsafe impl ::windows::core::Interface for KeyCredentialAttestationResult {
     type Vtable = IKeyCredentialAttestationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
 }
-impl ::windows::runtime::RuntimeName for KeyCredentialAttestationResult {
+impl ::windows::core::RuntimeName for KeyCredentialAttestationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialAttestationResult";
 }
-impl ::core::convert::From<KeyCredentialAttestationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<KeyCredentialAttestationResult> for ::windows::core::IUnknown {
     fn from(value: KeyCredentialAttestationResult) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&KeyCredentialAttestationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&KeyCredentialAttestationResult> for ::windows::core::IUnknown {
     fn from(value: &KeyCredentialAttestationResult) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for KeyCredentialAttestationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeyCredentialAttestationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a KeyCredentialAttestationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeyCredentialAttestationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<KeyCredentialAttestationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<KeyCredentialAttestationResult> for ::windows::core::IInspectable {
     fn from(value: KeyCredentialAttestationResult) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&KeyCredentialAttestationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&KeyCredentialAttestationResult> for ::windows::core::IInspectable {
     fn from(value: &KeyCredentialAttestationResult) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for KeyCredentialAttestationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeyCredentialAttestationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a KeyCredentialAttestationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeyCredentialAttestationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for KeyCredentialAttestationResult {}
@@ -616,13 +616,13 @@ impl ::core::convert::From<i32> for KeyCredentialAttestationStatus {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for KeyCredentialAttestationStatus {
+unsafe impl ::windows::core::Abi for KeyCredentialAttestationStatus {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for KeyCredentialAttestationStatus {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialAttestationStatus;i4)");
+unsafe impl ::windows::core::RuntimeType for KeyCredentialAttestationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialAttestationStatus;i4)");
 }
-impl ::windows::runtime::DefaultType for KeyCredentialAttestationStatus {
+impl ::windows::core::DefaultType for KeyCredentialAttestationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Credentials`*"]
@@ -638,13 +638,13 @@ impl ::core::convert::From<i32> for KeyCredentialCreationOption {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for KeyCredentialCreationOption {
+unsafe impl ::windows::core::Abi for KeyCredentialCreationOption {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for KeyCredentialCreationOption {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCreationOption;i4)");
+unsafe impl ::windows::core::RuntimeType for KeyCredentialCreationOption {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCreationOption;i4)");
 }
-impl ::windows::runtime::DefaultType for KeyCredentialCreationOption {
+impl ::windows::core::DefaultType for KeyCredentialCreationOption {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Credentials`*"]
@@ -652,123 +652,123 @@ pub struct KeyCredentialManager {}
 impl KeyCredentialManager {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`*"]
-    pub fn IsSupportedAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsSupportedAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`*"]
-    pub fn RenewAttestationAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RenewAttestationAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`*"]
-    pub fn RequestCreateAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0, option: KeyCredentialCreationOption) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>> {
+    pub fn RequestCreateAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0, option: KeyCredentialCreationOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), name.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), name.into_param().abi(), option, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`*"]
-    pub fn OpenAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>> {
+    pub fn OpenAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`*"]
-    pub fn DeleteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    pub fn IKeyCredentialManagerStatics<R, F: FnOnce(&IKeyCredentialManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<KeyCredentialManager, IKeyCredentialManagerStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IKeyCredentialManagerStatics<R, F: FnOnce(&IKeyCredentialManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<KeyCredentialManager, IKeyCredentialManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-impl ::windows::runtime::RuntimeName for KeyCredentialManager {
+impl ::windows::core::RuntimeName for KeyCredentialManager {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialManager";
 }
 #[doc = "*Required features: `Security_Credentials`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct KeyCredentialOperationResult(pub ::windows::runtime::IInspectable);
+pub struct KeyCredentialOperationResult(pub ::windows::core::IInspectable);
 impl KeyCredentialOperationResult {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Security_Credentials`, `Storage_Streams`*"]
-    pub fn Result(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn Result(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Status(&self) -> ::windows::runtime::Result<KeyCredentialStatus> {
+    pub fn Status(&self) -> ::windows::core::Result<KeyCredentialStatus> {
         let this = self;
         unsafe {
             let mut result__: KeyCredentialStatus = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyCredentialStatus>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyCredentialStatus>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for KeyCredentialOperationResult {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialOperationResult;{f53786c1-5261-4cdd-976d-cc909ac71620})");
+unsafe impl ::windows::core::RuntimeType for KeyCredentialOperationResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialOperationResult;{f53786c1-5261-4cdd-976d-cc909ac71620})");
 }
-unsafe impl ::windows::runtime::Interface for KeyCredentialOperationResult {
+unsafe impl ::windows::core::Interface for KeyCredentialOperationResult {
     type Vtable = IKeyCredentialOperationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf53786c1_5261_4cdd_976d_cc909ac71620);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf53786c1_5261_4cdd_976d_cc909ac71620);
 }
-impl ::windows::runtime::RuntimeName for KeyCredentialOperationResult {
+impl ::windows::core::RuntimeName for KeyCredentialOperationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialOperationResult";
 }
-impl ::core::convert::From<KeyCredentialOperationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<KeyCredentialOperationResult> for ::windows::core::IUnknown {
     fn from(value: KeyCredentialOperationResult) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&KeyCredentialOperationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&KeyCredentialOperationResult> for ::windows::core::IUnknown {
     fn from(value: &KeyCredentialOperationResult) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for KeyCredentialOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeyCredentialOperationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a KeyCredentialOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeyCredentialOperationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<KeyCredentialOperationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<KeyCredentialOperationResult> for ::windows::core::IInspectable {
     fn from(value: KeyCredentialOperationResult) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&KeyCredentialOperationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&KeyCredentialOperationResult> for ::windows::core::IInspectable {
     fn from(value: &KeyCredentialOperationResult) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for KeyCredentialOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeyCredentialOperationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a KeyCredentialOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeyCredentialOperationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for KeyCredentialOperationResult {}
@@ -776,73 +776,73 @@ unsafe impl ::core::marker::Sync for KeyCredentialOperationResult {}
 #[doc = "*Required features: `Security_Credentials`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct KeyCredentialRetrievalResult(pub ::windows::runtime::IInspectable);
+pub struct KeyCredentialRetrievalResult(pub ::windows::core::IInspectable);
 impl KeyCredentialRetrievalResult {
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Credential(&self) -> ::windows::runtime::Result<KeyCredential> {
+    pub fn Credential(&self) -> ::windows::core::Result<KeyCredential> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyCredential>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyCredential>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Status(&self) -> ::windows::runtime::Result<KeyCredentialStatus> {
+    pub fn Status(&self) -> ::windows::core::Result<KeyCredentialStatus> {
         let this = self;
         unsafe {
             let mut result__: KeyCredentialStatus = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyCredentialStatus>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyCredentialStatus>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for KeyCredentialRetrievalResult {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialRetrievalResult;{58cd7703-8d87-4249-9b58-f6598cc9644e})");
+unsafe impl ::windows::core::RuntimeType for KeyCredentialRetrievalResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialRetrievalResult;{58cd7703-8d87-4249-9b58-f6598cc9644e})");
 }
-unsafe impl ::windows::runtime::Interface for KeyCredentialRetrievalResult {
+unsafe impl ::windows::core::Interface for KeyCredentialRetrievalResult {
     type Vtable = IKeyCredentialRetrievalResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58cd7703_8d87_4249_9b58_f6598cc9644e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58cd7703_8d87_4249_9b58_f6598cc9644e);
 }
-impl ::windows::runtime::RuntimeName for KeyCredentialRetrievalResult {
+impl ::windows::core::RuntimeName for KeyCredentialRetrievalResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialRetrievalResult";
 }
-impl ::core::convert::From<KeyCredentialRetrievalResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<KeyCredentialRetrievalResult> for ::windows::core::IUnknown {
     fn from(value: KeyCredentialRetrievalResult) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&KeyCredentialRetrievalResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&KeyCredentialRetrievalResult> for ::windows::core::IUnknown {
     fn from(value: &KeyCredentialRetrievalResult) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for KeyCredentialRetrievalResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeyCredentialRetrievalResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a KeyCredentialRetrievalResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeyCredentialRetrievalResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<KeyCredentialRetrievalResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<KeyCredentialRetrievalResult> for ::windows::core::IInspectable {
     fn from(value: KeyCredentialRetrievalResult) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&KeyCredentialRetrievalResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&KeyCredentialRetrievalResult> for ::windows::core::IInspectable {
     fn from(value: &KeyCredentialRetrievalResult) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for KeyCredentialRetrievalResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeyCredentialRetrievalResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a KeyCredentialRetrievalResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeyCredentialRetrievalResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for KeyCredentialRetrievalResult {}
@@ -865,140 +865,140 @@ impl ::core::convert::From<i32> for KeyCredentialStatus {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for KeyCredentialStatus {
+unsafe impl ::windows::core::Abi for KeyCredentialStatus {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for KeyCredentialStatus {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialStatus;i4)");
+unsafe impl ::windows::core::RuntimeType for KeyCredentialStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialStatus;i4)");
 }
-impl ::windows::runtime::DefaultType for KeyCredentialStatus {
+impl ::windows::core::DefaultType for KeyCredentialStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Credentials`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PasswordCredential(pub ::windows::runtime::IInspectable);
+pub struct PasswordCredential(pub ::windows::core::IInspectable);
 impl PasswordCredential {
-    pub fn new() -> ::windows::runtime::Result<Self> {
+    pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<PasswordCredential, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<PasswordCredential, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Resource(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn Resource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn SetResource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, resource: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, resource: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), resource.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), resource.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn UserName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn SetUserName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, username: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetUserName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, username: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), username.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), username.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Password(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn Password(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn SetPassword<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, password: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetPassword<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, password: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), password.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), password.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn RetrievePassword(&self) -> ::windows::runtime::Result<()> {
+    pub fn RetrievePassword(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
+    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn CreatePasswordCredential<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(resource: Param0, username: Param1, password: Param2) -> ::windows::runtime::Result<PasswordCredential> {
+    pub fn CreatePasswordCredential<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(resource: Param0, username: Param1, password: Param2) -> ::windows::core::Result<PasswordCredential> {
         Self::ICredentialFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), resource.into_param().abi(), username.into_param().abi(), password.into_param().abi(), &mut result__).from_abi::<PasswordCredential>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), resource.into_param().abi(), username.into_param().abi(), password.into_param().abi(), &mut result__).from_abi::<PasswordCredential>(result__)
         })
     }
-    pub fn ICredentialFactory<R, F: FnOnce(&ICredentialFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<PasswordCredential, ICredentialFactory> = ::windows::runtime::FactoryCache::new();
+    pub fn ICredentialFactory<R, F: FnOnce(&ICredentialFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<PasswordCredential, ICredentialFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for PasswordCredential {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordCredential;{6ab18989-c720-41a7-a6c1-feadb36329a0})");
+unsafe impl ::windows::core::RuntimeType for PasswordCredential {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordCredential;{6ab18989-c720-41a7-a6c1-feadb36329a0})");
 }
-unsafe impl ::windows::runtime::Interface for PasswordCredential {
+unsafe impl ::windows::core::Interface for PasswordCredential {
     type Vtable = IPasswordCredential_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ab18989_c720_41a7_a6c1_feadb36329a0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ab18989_c720_41a7_a6c1_feadb36329a0);
 }
-impl ::windows::runtime::RuntimeName for PasswordCredential {
+impl ::windows::core::RuntimeName for PasswordCredential {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordCredential";
 }
-impl ::core::convert::From<PasswordCredential> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PasswordCredential> for ::windows::core::IUnknown {
     fn from(value: PasswordCredential) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&PasswordCredential> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PasswordCredential> for ::windows::core::IUnknown {
     fn from(value: &PasswordCredential) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PasswordCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PasswordCredential {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PasswordCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PasswordCredential {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<PasswordCredential> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PasswordCredential> for ::windows::core::IInspectable {
     fn from(value: PasswordCredential) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&PasswordCredential> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PasswordCredential> for ::windows::core::IInspectable {
     fn from(value: &PasswordCredential) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PasswordCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PasswordCredential {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PasswordCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PasswordCredential {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for PasswordCredential {}
@@ -1007,157 +1007,157 @@ unsafe impl ::core::marker::Sync for PasswordCredential {}
 #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PasswordCredentialPropertyStore(pub ::windows::runtime::IInspectable);
+pub struct PasswordCredentialPropertyStore(pub ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl PasswordCredentialPropertyStore {
-    pub fn new() -> ::windows::runtime::Result<Self> {
+    pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<PasswordCredentialPropertyStore, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<PasswordCredentialPropertyStore, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(self)?;
+    pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
+    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn Size(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
+    pub fn Size(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
+    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn GetView(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
+    pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
+    pub fn Insert<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), key.into_param().abi()).ok() }
+    pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn Clear(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
+    pub fn Clear(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`, `Foundation_Collections`*"]
-    pub fn MapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::MapChangedEventHandler<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(&self, vhnd: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
+    pub fn MapChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::IInspectable>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), vhnd.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), vhnd.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`, `Foundation_Collections`*"]
-    pub fn RemoveMapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+    pub fn RemoveMapChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::runtime::RuntimeType for PasswordCredentialPropertyStore {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordCredentialPropertyStore;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+unsafe impl ::windows::core::RuntimeType for PasswordCredentialPropertyStore {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordCredentialPropertyStore;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::runtime::Interface for PasswordCredentialPropertyStore {
+unsafe impl ::windows::core::Interface for PasswordCredentialPropertyStore {
     type Vtable = super::super::Foundation::Collections::IPropertySet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::windows::runtime::RuntimeName for PasswordCredentialPropertyStore {
+impl ::windows::core::RuntimeName for PasswordCredentialPropertyStore {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordCredentialPropertyStore";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PasswordCredentialPropertyStore> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PasswordCredentialPropertyStore> for ::windows::core::IUnknown {
     fn from(value: PasswordCredentialPropertyStore) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PasswordCredentialPropertyStore> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PasswordCredentialPropertyStore> for ::windows::core::IUnknown {
     fn from(value: &PasswordCredentialPropertyStore) -> Self {
         value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PasswordCredentialPropertyStore> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PasswordCredentialPropertyStore> for ::windows::core::IInspectable {
     fn from(value: PasswordCredentialPropertyStore) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PasswordCredentialPropertyStore> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PasswordCredentialPropertyStore> for ::windows::core::IInspectable {
     fn from(value: &PasswordCredentialPropertyStore) -> Self {
         value.0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1173,93 +1173,93 @@ impl ::core::convert::From<&PasswordCredentialPropertyStore> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IPropertySet> for PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IPropertySet> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet> for PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IPropertySet> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IPropertySet> for &PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IPropertySet> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet> for &PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IPropertySet> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: PasswordCredentialPropertyStore) -> ::windows::runtime::Result<Self> {
+impl ::core::convert::TryFrom<PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: PasswordCredentialPropertyStore) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: &PasswordCredentialPropertyStore) -> ::windows::runtime::Result<Self> {
-        ::windows::runtime::Interface::cast(value)
+impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PasswordCredentialPropertyStore) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> for PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
-        ::windows::runtime::IntoParam::into_param(&self)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> for &PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for &PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable> {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: PasswordCredentialPropertyStore) -> ::windows::runtime::Result<Self> {
+impl ::core::convert::TryFrom<PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: PasswordCredentialPropertyStore) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable> {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: &PasswordCredentialPropertyStore) -> ::windows::runtime::Result<Self> {
-        ::windows::runtime::Interface::cast(value)
+impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PasswordCredentialPropertyStore) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> for PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
-        ::windows::runtime::IntoParam::into_param(&self)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> for &PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for &PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+        ::core::convert::TryInto::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable> {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: PasswordCredentialPropertyStore) -> ::windows::runtime::Result<Self> {
+impl ::core::convert::TryFrom<PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: PasswordCredentialPropertyStore) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable> {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: &PasswordCredentialPropertyStore) -> ::windows::runtime::Result<Self> {
-        ::windows::runtime::Interface::cast(value)
+impl ::core::convert::TryFrom<&PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PasswordCredentialPropertyStore) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> for PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
-        ::windows::runtime::IntoParam::into_param(&self)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> for &PasswordCredentialPropertyStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for &PasswordCredentialPropertyStore {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+        ::core::convert::TryInto::<super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1268,7 +1268,7 @@ unsafe impl ::core::marker::Send for PasswordCredentialPropertyStore {}
 unsafe impl ::core::marker::Sync for PasswordCredentialPropertyStore {}
 #[cfg(all(feature = "Foundation_Collections"))]
 impl ::core::iter::IntoIterator for PasswordCredentialPropertyStore {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>;
+    type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
     type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         ::core::iter::IntoIterator::into_iter(&self)
@@ -1276,7 +1276,7 @@ impl ::core::iter::IntoIterator for PasswordCredentialPropertyStore {
 }
 #[cfg(all(feature = "Foundation_Collections"))]
 impl ::core::iter::IntoIterator for &PasswordCredentialPropertyStore {
-    type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>;
+    type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
     type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
@@ -1285,109 +1285,109 @@ impl ::core::iter::IntoIterator for &PasswordCredentialPropertyStore {
 #[doc = "*Required features: `Security_Credentials`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PasswordVault(pub ::windows::runtime::IInspectable);
+pub struct PasswordVault(pub ::windows::core::IInspectable);
 impl PasswordVault {
-    pub fn new() -> ::windows::runtime::Result<Self> {
+    pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<PasswordVault, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<PasswordVault, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, PasswordCredential>>(&self, credential: Param0) -> ::windows::runtime::Result<()> {
+    pub fn Add<'a, Param0: ::windows::core::IntoParam<'a, PasswordCredential>>(&self, credential: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), credential.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), credential.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, PasswordCredential>>(&self, credential: Param0) -> ::windows::runtime::Result<()> {
+    pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, PasswordCredential>>(&self, credential: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), credential.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), credential.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Retrieve<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, resource: Param0, username: Param1) -> ::windows::runtime::Result<PasswordCredential> {
+    pub fn Retrieve<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, resource: Param0, username: Param1) -> ::windows::core::Result<PasswordCredential> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), resource.into_param().abi(), username.into_param().abi(), &mut result__).from_abi::<PasswordCredential>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), resource.into_param().abi(), username.into_param().abi(), &mut result__).from_abi::<PasswordCredential>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn FindAllByResource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, resource: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>> {
+    pub fn FindAllByResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, resource: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), resource.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PasswordCredential>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), resource.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PasswordCredential>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn FindAllByUserName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, username: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>> {
+    pub fn FindAllByUserName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, username: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), username.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PasswordCredential>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), username.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PasswordCredential>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn RetrieveAll(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>> {
+    pub fn RetrieveAll(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PasswordCredential>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PasswordCredential>>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for PasswordVault {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordVault;{61fd2c0b-c8d4-48c1-a54f-bc5a64205af2})");
+unsafe impl ::windows::core::RuntimeType for PasswordVault {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordVault;{61fd2c0b-c8d4-48c1-a54f-bc5a64205af2})");
 }
-unsafe impl ::windows::runtime::Interface for PasswordVault {
+unsafe impl ::windows::core::Interface for PasswordVault {
     type Vtable = IPasswordVault_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
 }
-impl ::windows::runtime::RuntimeName for PasswordVault {
+impl ::windows::core::RuntimeName for PasswordVault {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordVault";
 }
-impl ::core::convert::From<PasswordVault> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PasswordVault> for ::windows::core::IUnknown {
     fn from(value: PasswordVault) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&PasswordVault> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PasswordVault> for ::windows::core::IUnknown {
     fn from(value: &PasswordVault) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PasswordVault {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PasswordVault {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PasswordVault {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PasswordVault {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<PasswordVault> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PasswordVault> for ::windows::core::IInspectable {
     fn from(value: PasswordVault) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&PasswordVault> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PasswordVault> for ::windows::core::IInspectable {
     fn from(value: &PasswordVault) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PasswordVault {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PasswordVault {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PasswordVault {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PasswordVault {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for PasswordVault {}
@@ -1395,136 +1395,136 @@ unsafe impl ::core::marker::Sync for PasswordVault {}
 #[doc = "*Required features: `Security_Credentials`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct WebAccount(pub ::windows::runtime::IInspectable);
+pub struct WebAccount(pub ::windows::core::IInspectable);
 impl WebAccount {
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn WebAccountProvider(&self) -> ::windows::runtime::Result<WebAccountProvider> {
+    pub fn WebAccountProvider(&self) -> ::windows::core::Result<WebAccountProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAccountProvider>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAccountProvider>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn UserName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn State(&self) -> ::windows::runtime::Result<WebAccountState> {
+    pub fn State(&self) -> ::windows::core::Result<WebAccountState> {
         let this = self;
         unsafe {
             let mut result__: WebAccountState = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAccountState>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAccountState>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<IWebAccount2>(self)?;
+    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation_Collections`*"]
-    pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
-        let this = &::windows::runtime::Interface::cast::<IWebAccount2>(self)?;
+    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+        let this = &::windows::core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`, `Storage_Streams`*"]
-    pub fn GetPictureAsync(&self, desizedsize: WebAccountPictureSize) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
-        let this = &::windows::runtime::Interface::cast::<IWebAccount2>(self)?;
+    pub fn GetPictureAsync(&self, desizedsize: WebAccountPictureSize) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
+        let this = &::windows::core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), desizedsize, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), desizedsize, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`*"]
-    pub fn SignOutAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::runtime::Interface::cast::<IWebAccount2>(self)?;
+    pub fn SignOutAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = &::windows::core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`*"]
-    pub fn SignOutWithClientIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, clientid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::runtime::Interface::cast::<IWebAccount2>(self)?;
+    pub fn SignOutWithClientIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, clientid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = &::windows::core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), clientid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), clientid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn CreateWebAccount<'a, Param0: ::windows::runtime::IntoParam<'a, WebAccountProvider>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(webaccountprovider: Param0, username: Param1, state: WebAccountState) -> ::windows::runtime::Result<WebAccount> {
+    pub fn CreateWebAccount<'a, Param0: ::windows::core::IntoParam<'a, WebAccountProvider>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(webaccountprovider: Param0, username: Param1, state: WebAccountState) -> ::windows::core::Result<WebAccount> {
         Self::IWebAccountFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), webaccountprovider.into_param().abi(), username.into_param().abi(), state, &mut result__).from_abi::<WebAccount>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), webaccountprovider.into_param().abi(), username.into_param().abi(), state, &mut result__).from_abi::<WebAccount>(result__)
         })
     }
-    pub fn IWebAccountFactory<R, F: FnOnce(&IWebAccountFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<WebAccount, IWebAccountFactory> = ::windows::runtime::FactoryCache::new();
+    pub fn IWebAccountFactory<R, F: FnOnce(&IWebAccountFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<WebAccount, IWebAccountFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for WebAccount {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.WebAccount;{69473eb2-8031-49be-80bb-96cb46d99aba})");
+unsafe impl ::windows::core::RuntimeType for WebAccount {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.WebAccount;{69473eb2-8031-49be-80bb-96cb46d99aba})");
 }
-unsafe impl ::windows::runtime::Interface for WebAccount {
+unsafe impl ::windows::core::Interface for WebAccount {
     type Vtable = IWebAccount_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69473eb2_8031_49be_80bb_96cb46d99aba);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69473eb2_8031_49be_80bb_96cb46d99aba);
 }
-impl ::windows::runtime::RuntimeName for WebAccount {
+impl ::windows::core::RuntimeName for WebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccount";
 }
-impl ::core::convert::From<WebAccount> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebAccount> for ::windows::core::IUnknown {
     fn from(value: WebAccount) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&WebAccount> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebAccount> for ::windows::core::IUnknown {
     fn from(value: &WebAccount) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebAccount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebAccount {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WebAccount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebAccount {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<WebAccount> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebAccount> for ::windows::core::IInspectable {
     fn from(value: WebAccount) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&WebAccount> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebAccount> for ::windows::core::IInspectable {
     fn from(value: &WebAccount) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebAccount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebAccount {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebAccount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebAccount {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<WebAccount> for IWebAccount {
@@ -1537,14 +1537,14 @@ impl ::core::convert::From<&WebAccount> for IWebAccount {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWebAccount> for WebAccount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccount> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IWebAccount> for WebAccount {
+    fn into_param(self) -> ::windows::core::Param<'a, IWebAccount> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWebAccount> for &WebAccount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccount> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IWebAccount> for &WebAccount {
+    fn into_param(self) -> ::windows::core::Param<'a, IWebAccount> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 unsafe impl ::core::marker::Send for WebAccount {}
@@ -1564,140 +1564,140 @@ impl ::core::convert::From<i32> for WebAccountPictureSize {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WebAccountPictureSize {
+unsafe impl ::windows::core::Abi for WebAccountPictureSize {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for WebAccountPictureSize {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountPictureSize;i4)");
+unsafe impl ::windows::core::RuntimeType for WebAccountPictureSize {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountPictureSize;i4)");
 }
-impl ::windows::runtime::DefaultType for WebAccountPictureSize {
+impl ::windows::core::DefaultType for WebAccountPictureSize {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Credentials`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct WebAccountProvider(pub ::windows::runtime::IInspectable);
+pub struct WebAccountProvider(pub ::windows::core::IInspectable);
 impl WebAccountProvider {
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`*"]
-    pub fn IconUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
+    pub fn IconUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn DisplayPurpose(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<IWebAccountProvider2>(self)?;
+    pub fn DisplayPurpose(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IWebAccountProvider2>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn Authority(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<IWebAccountProvider2>(self)?;
+    pub fn Authority(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IWebAccountProvider2>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "System")]
     #[doc = "*Required features: `Security_Credentials`, `System`*"]
-    pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
-        let this = &::windows::runtime::Interface::cast::<IWebAccountProvider3>(self)?;
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IWebAccountProvider3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Credentials`, `Foundation`*"]
-    pub fn CreateWebAccountProvider<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(id: Param0, displayname: Param1, iconuri: Param2) -> ::windows::runtime::Result<WebAccountProvider> {
+    pub fn CreateWebAccountProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(id: Param0, displayname: Param1, iconuri: Param2) -> ::windows::core::Result<WebAccountProvider> {
         Self::IWebAccountProviderFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), id.into_param().abi(), displayname.into_param().abi(), iconuri.into_param().abi(), &mut result__).from_abi::<WebAccountProvider>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), id.into_param().abi(), displayname.into_param().abi(), iconuri.into_param().abi(), &mut result__).from_abi::<WebAccountProvider>(result__)
         })
     }
     #[doc = "*Required features: `Security_Credentials`*"]
-    pub fn IsSystemProvider(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IWebAccountProvider4>(self)?;
+    pub fn IsSystemProvider(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IWebAccountProvider4>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    pub fn IWebAccountProviderFactory<R, F: FnOnce(&IWebAccountProviderFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<WebAccountProvider, IWebAccountProviderFactory> = ::windows::runtime::FactoryCache::new();
+    pub fn IWebAccountProviderFactory<R, F: FnOnce(&IWebAccountProviderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<WebAccountProvider, IWebAccountProviderFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for WebAccountProvider {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.WebAccountProvider;{29dcc8c3-7ab9-4a7c-a336-b942f9dbf7c7})");
+unsafe impl ::windows::core::RuntimeType for WebAccountProvider {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.WebAccountProvider;{29dcc8c3-7ab9-4a7c-a336-b942f9dbf7c7})");
 }
-unsafe impl ::windows::runtime::Interface for WebAccountProvider {
+unsafe impl ::windows::core::Interface for WebAccountProvider {
     type Vtable = IWebAccountProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
 }
-impl ::windows::runtime::RuntimeName for WebAccountProvider {
+impl ::windows::core::RuntimeName for WebAccountProvider {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccountProvider";
 }
-impl ::core::convert::From<WebAccountProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebAccountProvider> for ::windows::core::IUnknown {
     fn from(value: WebAccountProvider) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&WebAccountProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebAccountProvider> for ::windows::core::IUnknown {
     fn from(value: &WebAccountProvider) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebAccountProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebAccountProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WebAccountProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebAccountProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<WebAccountProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebAccountProvider> for ::windows::core::IInspectable {
     fn from(value: WebAccountProvider) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&WebAccountProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebAccountProvider> for ::windows::core::IInspectable {
     fn from(value: &WebAccountProvider) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebAccountProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebAccountProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebAccountProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebAccountProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for WebAccountProvider {}
@@ -1716,12 +1716,12 @@ impl ::core::convert::From<i32> for WebAccountState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WebAccountState {
+unsafe impl ::windows::core::Abi for WebAccountState {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for WebAccountState {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountState;i4)");
+unsafe impl ::windows::core::RuntimeType for WebAccountState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountState;i4)");
 }
-impl ::windows::runtime::DefaultType for WebAccountState {
+impl ::windows::core::DefaultType for WebAccountState {
     type DefaultType = Self;
 }

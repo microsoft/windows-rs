@@ -11,7 +11,7 @@ impl ::core::convert::From<i32> for AUTHENTICATEF {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AUTHENTICATEF {
+unsafe impl ::windows::core::Abi for AUTHENTICATEF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -54,7 +54,7 @@ impl ::core::convert::From<i32> for BINDF {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BINDF {
+unsafe impl ::windows::core::Abi for BINDF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -97,7 +97,7 @@ impl ::core::convert::From<i32> for BINDF2 {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BINDF2 {
+unsafe impl ::windows::core::Abi for BINDF2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -112,7 +112,7 @@ impl ::core::convert::From<i32> for BINDHANDLETYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BINDHANDLETYPES {
+unsafe impl ::windows::core::Abi for BINDHANDLETYPES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -139,7 +139,7 @@ impl ::core::convert::From<i32> for BINDINFO_OPTIONS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BINDINFO_OPTIONS {
+unsafe impl ::windows::core::Abi for BINDINFO_OPTIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -230,7 +230,7 @@ impl ::core::convert::From<i32> for BINDSTATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BINDSTATUS {
+unsafe impl ::windows::core::Abi for BINDSTATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -268,7 +268,7 @@ impl ::core::convert::From<i32> for BINDSTRING {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BINDSTRING {
+unsafe impl ::windows::core::Abi for BINDSTRING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -285,7 +285,7 @@ impl ::core::convert::From<i32> for BINDVERB {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BINDVERB {
+unsafe impl ::windows::core::Abi for BINDVERB {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -304,7 +304,7 @@ impl ::core::convert::From<i32> for BSCF {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BSCF {
+unsafe impl ::windows::core::Abi for BSCF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -328,7 +328,7 @@ impl ::core::convert::From<i32> for CIP_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CIP_STATUS {
+unsafe impl ::windows::core::Abi for CIP_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -366,15 +366,15 @@ impl ::core::cmp::PartialEq for CODEBASEHOLD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CODEBASEHOLD {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CODEBASEHOLD {
+unsafe impl ::windows::core::Abi for CODEBASEHOLD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub struct CONFIRMSAFETY {
-    pub clsid: ::windows::runtime::GUID,
-    pub pUnk: ::core::option::Option<::windows::runtime::IUnknown>,
+    pub clsid: ::windows::core::GUID,
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
     pub dwFlags: u32,
 }
 impl CONFIRMSAFETY {}
@@ -394,7 +394,7 @@ impl ::core::cmp::PartialEq for CONFIRMSAFETY {
     }
 }
 impl ::core::cmp::Eq for CONFIRMSAFETY {}
-unsafe impl ::windows::runtime::Abi for CONFIRMSAFETY {
+unsafe impl ::windows::core::Abi for CONFIRMSAFETY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -402,8 +402,8 @@ pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoGetClassObjectFromURL<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::IBindCtx>>(
-    rclassid: *const ::windows::runtime::GUID,
+pub unsafe fn CoGetClassObjectFromURL<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::IBindCtx>>(
+    rclassid: *const ::windows::core::GUID,
     szcode: Param1,
     dwfileversionms: u32,
     dwfileversionls: u32,
@@ -411,14 +411,14 @@ pub unsafe fn CoGetClassObjectFromURL<'a, Param1: ::windows::runtime::IntoParam<
     pbindctx: Param5,
     dwclscontext: super::CLSCTX,
     pvreserved: *mut ::core::ffi::c_void,
-    riid: *const ::windows::runtime::GUID,
+    riid: *const ::windows::core::GUID,
     ppv: *mut *mut ::core::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoGetClassObjectFromURL(rclassid: *const ::windows::runtime::GUID, szcode: super::super::super::Foundation::PWSTR, dwfileversionms: u32, dwfileversionls: u32, sztype: super::super::super::Foundation::PWSTR, pbindctx: ::windows::runtime::RawPtr, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn CoGetClassObjectFromURL(rclassid: *const ::windows::core::GUID, szcode: super::super::super::Foundation::PWSTR, dwfileversionms: u32, dwfileversionls: u32, sztype: super::super::super::Foundation::PWSTR, pbindctx: ::windows::core::RawPtr, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         CoGetClassObjectFromURL(
             ::core::mem::transmute(rclassid),
@@ -439,12 +439,12 @@ pub unsafe fn CoGetClassObjectFromURL<'a, Param1: ::windows::runtime::IntoParam<
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CoInternetCombineIUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>, Param1: ::windows::runtime::IntoParam<'a, super::IUri>>(pbaseuri: Param0, prelativeuri: Param1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetCombineIUri<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>, Param1: ::windows::core::IntoParam<'a, super::IUri>>(pbaseuri: Param0, prelativeuri: Param1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetCombineIUri(pbaseuri: ::windows::runtime::RawPtr, prelativeuri: ::windows::runtime::RawPtr, dwcombineflags: u32, ppcombineduri: *mut ::windows::runtime::RawPtr, dwreserved: usize) -> ::windows::runtime::HRESULT;
+            fn CoInternetCombineIUri(pbaseuri: ::windows::core::RawPtr, prelativeuri: ::windows::core::RawPtr, dwcombineflags: u32, ppcombineduri: *mut ::windows::core::RawPtr, dwreserved: usize) -> ::windows::core::HRESULT;
         }
         CoInternetCombineIUri(pbaseuri.into_param().abi(), prelativeuri.into_param().abi(), ::core::mem::transmute(dwcombineflags), ::core::mem::transmute(ppcombineduri), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -454,12 +454,12 @@ pub unsafe fn CoInternetCombineIUri<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetCombineUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzbaseurl: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetCombineUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzbaseurl: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetCombineUrl(pwzbaseurl: super::super::super::Foundation::PWSTR, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn CoInternetCombineUrl(pwzbaseurl: super::super::super::Foundation::PWSTR, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         CoInternetCombineUrl(pwzbaseurl.into_param().abi(), pwzrelativeurl.into_param().abi(), ::core::mem::transmute(dwcombineflags), ::core::mem::transmute(pszresult), ::core::mem::transmute(cchresult), ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -469,12 +469,12 @@ pub unsafe fn CoInternetCombineUrl<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetCombineUrlEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbaseuri: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetCombineUrlEx<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbaseuri: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetCombineUrlEx(pbaseuri: ::windows::runtime::RawPtr, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, ppcombineduri: *mut ::windows::runtime::RawPtr, dwreserved: usize) -> ::windows::runtime::HRESULT;
+            fn CoInternetCombineUrlEx(pbaseuri: ::windows::core::RawPtr, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, ppcombineduri: *mut ::windows::core::RawPtr, dwreserved: usize) -> ::windows::core::HRESULT;
         }
         CoInternetCombineUrlEx(pbaseuri.into_param().abi(), pwzrelativeurl.into_param().abi(), ::core::mem::transmute(dwcombineflags), ::core::mem::transmute(ppcombineduri), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -484,12 +484,12 @@ pub unsafe fn CoInternetCombineUrlEx<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetCompareUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl1: Param0, pwzurl2: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetCompareUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl1: Param0, pwzurl2: Param1, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetCompareUrl(pwzurl1: super::super::super::Foundation::PWSTR, pwzurl2: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::runtime::HRESULT;
+            fn CoInternetCompareUrl(pwzurl1: super::super::super::Foundation::PWSTR, pwzurl2: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT;
         }
         CoInternetCompareUrl(pwzurl1.into_param().abi(), pwzurl2.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
@@ -498,12 +498,12 @@ pub unsafe fn CoInternetCompareUrl<'a, Param0: ::windows::runtime::IntoParam<'a,
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CoInternetCreateSecurityManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::IServiceProvider>>(psp: Param0, ppsm: *mut ::core::option::Option<IInternetSecurityManager>, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetCreateSecurityManager<'a, Param0: ::windows::core::IntoParam<'a, super::IServiceProvider>>(psp: Param0, ppsm: *mut ::core::option::Option<IInternetSecurityManager>, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetCreateSecurityManager(psp: ::windows::runtime::RawPtr, ppsm: *mut ::windows::runtime::RawPtr, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn CoInternetCreateSecurityManager(psp: ::windows::core::RawPtr, ppsm: *mut ::windows::core::RawPtr, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         CoInternetCreateSecurityManager(psp.into_param().abi(), ::core::mem::transmute(ppsm), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -512,12 +512,12 @@ pub unsafe fn CoInternetCreateSecurityManager<'a, Param0: ::windows::runtime::In
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CoInternetCreateZoneManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::IServiceProvider>>(psp: Param0, ppzm: *mut ::core::option::Option<IInternetZoneManager>, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetCreateZoneManager<'a, Param0: ::windows::core::IntoParam<'a, super::IServiceProvider>>(psp: Param0, ppzm: *mut ::core::option::Option<IInternetZoneManager>, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetCreateZoneManager(psp: ::windows::runtime::RawPtr, ppzm: *mut ::windows::runtime::RawPtr, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn CoInternetCreateZoneManager(psp: ::windows::core::RawPtr, ppzm: *mut ::windows::core::RawPtr, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         CoInternetCreateZoneManager(psp.into_param().abi(), ::core::mem::transmute(ppzm), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -527,12 +527,12 @@ pub unsafe fn CoInternetCreateZoneManager<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetGetProtocolFlags<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, pdwflags: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetGetProtocolFlags<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, pdwflags: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetGetProtocolFlags(pwzurl: super::super::super::Foundation::PWSTR, pdwflags: *mut u32, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn CoInternetGetProtocolFlags(pwzurl: super::super::super::Foundation::PWSTR, pdwflags: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         CoInternetGetProtocolFlags(pwzurl.into_param().abi(), ::core::mem::transmute(pdwflags), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -542,12 +542,12 @@ pub unsafe fn CoInternetGetProtocolFlags<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetGetSecurityUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszurl: Param0, ppwszsecurl: *mut super::super::super::Foundation::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetGetSecurityUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszurl: Param0, ppwszsecurl: *mut super::super::super::Foundation::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetGetSecurityUrl(pwszurl: super::super::super::Foundation::PWSTR, ppwszsecurl: *mut super::super::super::Foundation::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn CoInternetGetSecurityUrl(pwszurl: super::super::super::Foundation::PWSTR, ppwszsecurl: *mut super::super::super::Foundation::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         CoInternetGetSecurityUrl(pwszurl.into_param().abi(), ::core::mem::transmute(ppwszsecurl), ::core::mem::transmute(psuaction), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -556,12 +556,12 @@ pub unsafe fn CoInternetGetSecurityUrl<'a, Param0: ::windows::runtime::IntoParam
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CoInternetGetSecurityUrlEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>>(puri: Param0, ppsecuri: *mut ::core::option::Option<super::IUri>, psuaction: PSUACTION, dwreserved: usize) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetGetSecurityUrlEx<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(puri: Param0, ppsecuri: *mut ::core::option::Option<super::IUri>, psuaction: PSUACTION, dwreserved: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetGetSecurityUrlEx(puri: ::windows::runtime::RawPtr, ppsecuri: *mut ::windows::runtime::RawPtr, psuaction: PSUACTION, dwreserved: usize) -> ::windows::runtime::HRESULT;
+            fn CoInternetGetSecurityUrlEx(puri: ::windows::core::RawPtr, ppsecuri: *mut ::windows::core::RawPtr, psuaction: PSUACTION, dwreserved: usize) -> ::windows::core::HRESULT;
         }
         CoInternetGetSecurityUrlEx(puri.into_param().abi(), ::core::mem::transmute(ppsecuri), ::core::mem::transmute(psuaction), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -570,12 +570,12 @@ pub unsafe fn CoInternetGetSecurityUrlEx<'a, Param0: ::windows::runtime::IntoPar
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut ::core::option::Option<IInternetSession>, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut ::core::option::Option<IInternetSession>, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut ::windows::runtime::RawPtr, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut ::windows::core::RawPtr, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         CoInternetGetSession(::core::mem::transmute(dwsessionmode), ::core::mem::transmute(ppiinternetsession), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -584,12 +584,12 @@ pub unsafe fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut 
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows::runtime::HRESULT;
+            fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows::core::HRESULT;
         }
         CoInternetIsFeatureEnabled(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags)).ok()
     }
@@ -598,12 +598,12 @@ pub unsafe fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwfl
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CoInternetIsFeatureEnabledForIUri<'a, Param2: ::windows::runtime::IntoParam<'a, super::IUri>, Param3: ::windows::runtime::IntoParam<'a, IInternetSecurityManagerEx2>>(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: Param2, psecmgr: Param3) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetIsFeatureEnabledForIUri<'a, Param2: ::windows::core::IntoParam<'a, super::IUri>, Param3: ::windows::core::IntoParam<'a, IInternetSecurityManagerEx2>>(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: Param2, psecmgr: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetIsFeatureEnabledForIUri(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: ::windows::runtime::RawPtr, psecmgr: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn CoInternetIsFeatureEnabledForIUri(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: ::windows::core::RawPtr, psecmgr: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         CoInternetIsFeatureEnabledForIUri(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), piuri.into_param().abi(), psecmgr.into_param().abi()).ok()
     }
@@ -613,12 +613,12 @@ pub unsafe fn CoInternetIsFeatureEnabledForIUri<'a, Param2: ::windows::runtime::
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IInternetSecurityManager>>(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: Param2, psecmgr: Param3) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IInternetSecurityManager>>(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: Param2, psecmgr: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetIsFeatureEnabledForUrl(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: super::super::super::Foundation::PWSTR, psecmgr: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn CoInternetIsFeatureEnabledForUrl(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: super::super::super::Foundation::PWSTR, psecmgr: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         CoInternetIsFeatureEnabledForUrl(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), szurl.into_param().abi(), psecmgr.into_param().abi()).ok()
     }
@@ -628,12 +628,12 @@ pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, Param2: ::windows::runtime::I
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IInternetSecurityManager>>(szfromurl: Param0, sztourl: Param1, psecmgr: Param2, dwflags: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IInternetSecurityManager>>(szfromurl: Param0, sztourl: Param1, psecmgr: Param2, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetIsFeatureZoneElevationEnabled(szfromurl: super::super::super::Foundation::PWSTR, sztourl: super::super::super::Foundation::PWSTR, psecmgr: ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT;
+            fn CoInternetIsFeatureZoneElevationEnabled(szfromurl: super::super::super::Foundation::PWSTR, sztourl: super::super::super::Foundation::PWSTR, psecmgr: ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT;
         }
         CoInternetIsFeatureZoneElevationEnabled(szfromurl.into_param().abi(), sztourl.into_param().abi(), psecmgr.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
@@ -643,12 +643,12 @@ pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<'a, Param0: ::windows::run
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetParseIUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>>(piuri: Param0, parseaction: PARSEACTION, dwflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetParseIUri<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(piuri: Param0, parseaction: PARSEACTION, dwflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetParseIUri(piuri: ::windows::runtime::RawPtr, parseaction: PARSEACTION, dwflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows::runtime::HRESULT;
+            fn CoInternetParseIUri(piuri: ::windows::core::RawPtr, parseaction: PARSEACTION, dwflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT;
         }
         CoInternetParseIUri(piuri.into_param().abi(), ::core::mem::transmute(parseaction), ::core::mem::transmute(dwflags), ::core::mem::transmute(pwzresult), ::core::mem::transmute(cchresult), ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -658,12 +658,12 @@ pub unsafe fn CoInternetParseIUri<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetParseUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, parseaction: PARSEACTION, dwflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetParseUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, parseaction: PARSEACTION, dwflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetParseUrl(pwzurl: super::super::super::Foundation::PWSTR, parseaction: PARSEACTION, dwflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn CoInternetParseUrl(pwzurl: super::super::super::Foundation::PWSTR, parseaction: PARSEACTION, dwflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         CoInternetParseUrl(pwzurl.into_param().abi(), ::core::mem::transmute(parseaction), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszresult), ::core::mem::transmute(cchresult), ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -673,12 +673,12 @@ pub unsafe fn CoInternetParseUrl<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetQueryInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetQueryInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetQueryInfo(pwzurl: super::super::super::Foundation::PWSTR, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn CoInternetQueryInfo(pwzurl: super::super::super::Foundation::PWSTR, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         CoInternetQueryInfo(pwzurl.into_param().abi(), ::core::mem::transmute(queryoptions), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbbuffer), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -688,12 +688,12 @@ pub unsafe fn CoInternetQueryInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetSetFeatureEnabled<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: Param2) -> ::windows::runtime::Result<()> {
+pub unsafe fn CoInternetSetFeatureEnabled<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CoInternetSetFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn CoInternetSetFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         CoInternetSetFeatureEnabled(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), fenable.into_param().abi()).ok()
     }
@@ -702,12 +702,12 @@ pub unsafe fn CoInternetSetFeatureEnabled<'a, Param2: ::windows::runtime::IntoPa
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CompareSecurityIds(pbsecurityid1: *const u8, dwlen1: u32, pbsecurityid2: *const u8, dwlen2: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CompareSecurityIds(pbsecurityid1: *const u8, dwlen1: u32, pbsecurityid2: *const u8, dwlen2: u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CompareSecurityIds(pbsecurityid1: *const u8, dwlen1: u32, pbsecurityid2: *const u8, dwlen2: u32, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn CompareSecurityIds(pbsecurityid1: *const u8, dwlen1: u32, pbsecurityid2: *const u8, dwlen2: u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         CompareSecurityIds(::core::mem::transmute(pbsecurityid1), ::core::mem::transmute(dwlen1), ::core::mem::transmute(pbsecurityid2), ::core::mem::transmute(dwlen2), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -716,12 +716,12 @@ pub unsafe fn CompareSecurityIds(pbsecurityid1: *const u8, dwlen1: u32, pbsecuri
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows::runtime::GUID, pdwcompatflags: *mut u32, pdwmiscstatusflags: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows::core::GUID, pdwcompatflags: *mut u32, pdwmiscstatusflags: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CompatFlagsFromClsid(pclsid: *const ::windows::runtime::GUID, pdwcompatflags: *mut u32, pdwmiscstatusflags: *mut u32) -> ::windows::runtime::HRESULT;
+            fn CompatFlagsFromClsid(pclsid: *const ::windows::core::GUID, pdwcompatflags: *mut u32, pdwmiscstatusflags: *mut u32) -> ::windows::core::HRESULT;
         }
         CompatFlagsFromClsid(::core::mem::transmute(pclsid), ::core::mem::transmute(pdwcompatflags), ::core::mem::transmute(pdwmiscstatusflags)).ok()
     }
@@ -731,14 +731,14 @@ pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows::runtime::GUID, pdwc
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::runtime::Result<super::BINDINFO> {
+pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::core::Result<super::BINDINFO> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyBindInfo(pcbisrc: *const ::core::mem::ManuallyDrop<super::BINDINFO>, pbidest: *mut ::core::mem::ManuallyDrop<super::BINDINFO>) -> ::windows::runtime::HRESULT;
+            fn CopyBindInfo(pcbisrc: *const ::core::mem::ManuallyDrop<super::BINDINFO>, pbidest: *mut ::core::mem::ManuallyDrop<super::BINDINFO>) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::BINDINFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::BINDINFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CopyBindInfo(::core::mem::transmute(pcbisrc), &mut result__).from_abi::<super::BINDINFO>(result__)
     }
     #[cfg(not(windows))]
@@ -747,14 +747,14 @@ pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::runtim
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::runtime::Result<super::STGMEDIUM> {
+pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::core::Result<super::STGMEDIUM> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyStgMedium(pcstgmedsrc: *const ::core::mem::ManuallyDrop<super::STGMEDIUM>, pstgmeddest: *mut ::core::mem::ManuallyDrop<super::STGMEDIUM>) -> ::windows::runtime::HRESULT;
+            fn CopyStgMedium(pcstgmedsrc: *const ::core::mem::ManuallyDrop<super::STGMEDIUM>, pstgmeddest: *mut ::core::mem::ManuallyDrop<super::STGMEDIUM>) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::STGMEDIUM as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::STGMEDIUM as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CopyStgMedium(::core::mem::transmute(pcstgmedsrc), &mut result__).from_abi::<super::STGMEDIUM>(result__)
     }
     #[cfg(not(windows))]
@@ -762,14 +762,14 @@ pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CreateAsyncBindCtx<'a, Param1: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>, Param2: ::windows::runtime::IntoParam<'a, super::IEnumFORMATETC>>(reserved: u32, pbscb: Param1, pefetc: Param2) -> ::windows::runtime::Result<super::IBindCtx> {
+pub unsafe fn CreateAsyncBindCtx<'a, Param1: ::windows::core::IntoParam<'a, super::IBindStatusCallback>, Param2: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(reserved: u32, pbscb: Param1, pefetc: Param2) -> ::windows::core::Result<super::IBindCtx> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateAsyncBindCtx(reserved: u32, pbscb: ::windows::runtime::RawPtr, pefetc: ::windows::runtime::RawPtr, ppbc: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn CreateAsyncBindCtx(reserved: u32, pbscb: ::windows::core::RawPtr, pefetc: ::windows::core::RawPtr, ppbc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::IBindCtx as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::IBindCtx as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CreateAsyncBindCtx(::core::mem::transmute(reserved), pbscb.into_param().abi(), pefetc.into_param().abi(), &mut result__).from_abi::<super::IBindCtx>(result__)
     }
     #[cfg(not(windows))]
@@ -777,12 +777,12 @@ pub unsafe fn CreateAsyncBindCtx<'a, Param1: ::windows::runtime::IntoParam<'a, s
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CreateAsyncBindCtxEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param2: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>, Param3: ::windows::runtime::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, dwoptions: u32, pbscb: Param2, penum: Param3, ppbc: *mut ::core::option::Option<super::IBindCtx>, reserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateAsyncBindCtxEx<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param2: ::windows::core::IntoParam<'a, super::IBindStatusCallback>, Param3: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, dwoptions: u32, pbscb: Param2, penum: Param3, ppbc: *mut ::core::option::Option<super::IBindCtx>, reserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateAsyncBindCtxEx(pbc: ::windows::runtime::RawPtr, dwoptions: u32, pbscb: ::windows::runtime::RawPtr, penum: ::windows::runtime::RawPtr, ppbc: *mut ::windows::runtime::RawPtr, reserved: u32) -> ::windows::runtime::HRESULT;
+            fn CreateAsyncBindCtxEx(pbc: ::windows::core::RawPtr, dwoptions: u32, pbscb: ::windows::core::RawPtr, penum: ::windows::core::RawPtr, ppbc: *mut ::windows::core::RawPtr, reserved: u32) -> ::windows::core::HRESULT;
         }
         CreateAsyncBindCtxEx(pbc.into_param().abi(), ::core::mem::transmute(dwoptions), pbscb.into_param().abi(), penum.into_param().abi(), ::core::mem::transmute(ppbc), ::core::mem::transmute(reserved)).ok()
     }
@@ -791,14 +791,14 @@ pub unsafe fn CreateAsyncBindCtxEx<'a, Param0: ::windows::runtime::IntoParam<'a,
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMATETC) -> ::windows::runtime::Result<super::IEnumFORMATETC> {
+pub unsafe fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMATETC) -> ::windows::core::Result<super::IEnumFORMATETC> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMATETC, ppenumfmtetc: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMATETC, ppenumfmtetc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::IEnumFORMATETC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::IEnumFORMATETC as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CreateFormatEnumerator(::core::mem::transmute(cfmtetc), ::core::mem::transmute(rgfmtetc), &mut result__).from_abi::<super::IEnumFORMATETC>(result__)
     }
     #[cfg(not(windows))]
@@ -807,14 +807,14 @@ pub unsafe fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMA
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateURLMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pmkctx: Param0, szurl: Param1) -> ::windows::runtime::Result<super::IMoniker> {
+pub unsafe fn CreateURLMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pmkctx: Param0, szurl: Param1) -> ::windows::core::Result<super::IMoniker> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateURLMoniker(pmkctx: ::windows::runtime::RawPtr, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn CreateURLMoniker(pmkctx: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::IMoniker as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::IMoniker as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CreateURLMoniker(pmkctx.into_param().abi(), szurl.into_param().abi(), &mut result__).from_abi::<super::IMoniker>(result__)
     }
     #[cfg(not(windows))]
@@ -823,12 +823,12 @@ pub unsafe fn CreateURLMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateURLMonikerEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pmkctx: Param0, szurl: Param1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateURLMonikerEx<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pmkctx: Param0, szurl: Param1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateURLMonikerEx(pmkctx: ::windows::runtime::RawPtr, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT;
+            fn CreateURLMonikerEx(pmkctx: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT;
         }
         CreateURLMonikerEx(pmkctx.into_param().abi(), szurl.into_param().abi(), ::core::mem::transmute(ppmk), ::core::mem::transmute(dwflags)).ok()
     }
@@ -837,12 +837,12 @@ pub unsafe fn CreateURLMonikerEx<'a, Param0: ::windows::runtime::IntoParam<'a, s
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn CreateURLMonikerEx2<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::IUri>>(pmkctx: Param0, puri: Param1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateURLMonikerEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, super::IUri>>(pmkctx: Param0, puri: Param1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateURLMonikerEx2(pmkctx: ::windows::runtime::RawPtr, puri: ::windows::runtime::RawPtr, ppmk: *mut ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT;
+            fn CreateURLMonikerEx2(pmkctx: ::windows::core::RawPtr, puri: ::windows::core::RawPtr, ppmk: *mut ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT;
         }
         CreateURLMonikerEx2(pmkctx.into_param().abi(), puri.into_param().abi(), ::core::mem::transmute(ppmk), ::core::mem::transmute(dwflags)).ok()
     }
@@ -875,11 +875,11 @@ impl ::core::cmp::PartialEq for DATAINFO {
     }
 }
 impl ::core::cmp::Eq for DATAINFO {}
-unsafe impl ::windows::runtime::Abi for DATAINFO {
+unsafe impl ::windows::core::Abi for DATAINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const E_PENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147483638i32 as _);
+pub const E_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147483638i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const FIEF_FLAG_FORCE_JITUI: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -909,12 +909,12 @@ pub const FMFD_URLASFILENAME: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FaultInIEFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn FaultInIEFeature<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FaultInIEFeature(hwnd: super::super::super::Foundation::HWND, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows::runtime::HRESULT;
+            fn FaultInIEFeature(hwnd: super::super::super::Foundation::HWND, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows::core::HRESULT;
         }
         FaultInIEFeature(hwnd.into_param().abi(), ::core::mem::transmute(pclassspec), ::core::mem::transmute(pquery), ::core::mem::transmute(dwflags)).ok()
     }
@@ -924,14 +924,14 @@ pub unsafe fn FaultInIEFeature<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(rgsztypes: Param0) -> ::windows::runtime::Result<u16> {
+pub unsafe fn FindMediaType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(rgsztypes: Param0) -> ::windows::core::Result<u16> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindMediaType(rgsztypes: super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows::runtime::HRESULT;
+            fn FindMediaType(rgsztypes: super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <u16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         FindMediaType(rgsztypes.into_param().abi(), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
@@ -940,12 +940,12 @@ pub unsafe fn FindMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(pbc: Param0, sztype: Param1, pclsid: *mut ::windows::runtime::GUID, reserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn FindMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pbc: Param0, sztype: Param1, pclsid: *mut ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindMediaTypeClass(pbc: ::windows::runtime::RawPtr, sztype: super::super::super::Foundation::PSTR, pclsid: *mut ::windows::runtime::GUID, reserved: u32) -> ::windows::runtime::HRESULT;
+            fn FindMediaTypeClass(pbc: ::windows::core::RawPtr, sztype: super::super::super::Foundation::PSTR, pclsid: *mut ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
         }
         FindMediaTypeClass(pbc.into_param().abi(), sztype.into_param().abi(), ::core::mem::transmute(pclsid), ::core::mem::transmute(reserved)).ok()
     }
@@ -955,12 +955,12 @@ pub unsafe fn FindMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindMimeFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, pwzurl: Param1, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: Param4, dwmimeflags: u32, ppwzmimeout: *mut super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn FindMimeFromData<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, pwzurl: Param1, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: Param4, dwmimeflags: u32, ppwzmimeout: *mut super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindMimeFromData(pbc: ::windows::runtime::RawPtr, pwzurl: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: super::super::super::Foundation::PWSTR, dwmimeflags: u32, ppwzmimeout: *mut super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn FindMimeFromData(pbc: ::windows::core::RawPtr, pwzurl: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: super::super::super::Foundation::PWSTR, dwmimeflags: u32, ppwzmimeout: *mut super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         FindMimeFromData(pbc.into_param().abi(), pwzurl.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbsize), pwzmimeproposed.into_param().abi(), ::core::mem::transmute(dwmimeflags), ::core::mem::transmute(ppwzmimeout), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -986,15 +986,15 @@ pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetClassFileOrMime<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szfilename: Param1, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: Param4, dwreserved: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
+pub unsafe fn GetClassFileOrMime<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szfilename: Param1, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: Param4, dwreserved: u32) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClassFileOrMime(pbc: ::windows::runtime::RawPtr, szfilename: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: super::super::super::Foundation::PWSTR, dwreserved: u32, pclsid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
+            fn GetClassFileOrMime(pbc: ::windows::core::RawPtr, szfilename: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: super::super::super::Foundation::PWSTR, dwreserved: u32, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        GetClassFileOrMime(pbc.into_param().abi(), szfilename.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbsize), szmime.into_param().abi(), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        GetClassFileOrMime(pbc.into_param().abi(), szfilename.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbsize), szmime.into_param().abi(), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1002,15 +1002,15 @@ pub unsafe fn GetClassFileOrMime<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetClassURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szurl: Param0) -> ::windows::runtime::Result<::windows::runtime::GUID> {
+pub unsafe fn GetClassURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szurl: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClassURL(szurl: super::super::super::Foundation::PWSTR, pclsid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
+            fn GetClassURL(szurl: super::super::super::Foundation::PWSTR, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        GetClassURL(szurl.into_param().abi(), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        GetClassURL(szurl.into_param().abi(), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1018,14 +1018,14 @@ pub unsafe fn GetClassURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> ::windows::runtime::Result<super::super::super::Foundation::PSTR> {
+pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> ::windows::core::Result<super::super::super::Foundation::PSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC, ppszcomponentid: *mut super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
+            fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC, ppszcomponentid: *mut super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::PSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::super::Foundation::PSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetComponentIDFromCLSSPEC(::core::mem::transmute(pclassspec), &mut result__).from_abi::<super::super::super::Foundation::PSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -1034,14 +1034,14 @@ pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> :
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSoftwareUpdateInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szdistunit: Param0) -> ::windows::runtime::Result<SOFTDISTINFO> {
+pub unsafe fn GetSoftwareUpdateInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szdistunit: Param0) -> ::windows::core::Result<SOFTDISTINFO> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSoftwareUpdateInfo(szdistunit: super::super::super::Foundation::PWSTR, psdi: *mut SOFTDISTINFO) -> ::windows::runtime::HRESULT;
+            fn GetSoftwareUpdateInfo(szdistunit: super::super::super::Foundation::PWSTR, psdi: *mut SOFTDISTINFO) -> ::windows::core::HRESULT;
         }
-        let mut result__: <SOFTDISTINFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <SOFTDISTINFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetSoftwareUpdateInfo(szdistunit.into_param().abi(), &mut result__).from_abi::<SOFTDISTINFO>(result__)
     }
     #[cfg(not(windows))]
@@ -1081,17 +1081,17 @@ impl ::core::cmp::PartialEq for HIT_LOGGING_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HIT_LOGGING_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HIT_LOGGING_INFO {
+unsafe impl ::windows::core::Abi for HIT_LOGGING_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn HlinkGoBack<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(punk: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn HlinkGoBack<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HlinkGoBack(punk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn HlinkGoBack(punk: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         HlinkGoBack(punk.into_param().abi()).ok()
     }
@@ -1100,12 +1100,12 @@ pub unsafe fn HlinkGoBack<'a, Param0: ::windows::runtime::IntoParam<'a, ::window
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn HlinkGoForward<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(punk: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn HlinkGoForward<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HlinkGoForward(punk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn HlinkGoForward(punk: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         HlinkGoForward(punk.into_param().abi()).ok()
     }
@@ -1114,12 +1114,12 @@ pub unsafe fn HlinkGoForward<'a, Param0: ::windows::runtime::IntoParam<'a, ::win
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn HlinkNavigateMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::IMoniker>>(punk: Param0, pmktarget: Param1) -> ::windows::runtime::Result<()> {
+pub unsafe fn HlinkNavigateMoniker<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::IMoniker>>(punk: Param0, pmktarget: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HlinkNavigateMoniker(punk: ::windows::runtime::RawPtr, pmktarget: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn HlinkNavigateMoniker(punk: ::windows::core::RawPtr, pmktarget: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         HlinkNavigateMoniker(punk.into_param().abi(), pmktarget.into_param().abi()).ok()
     }
@@ -1129,12 +1129,12 @@ pub unsafe fn HlinkNavigateMoniker<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HlinkNavigateString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(punk: Param0, sztarget: Param1) -> ::windows::runtime::Result<()> {
+pub unsafe fn HlinkNavigateString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(punk: Param0, sztarget: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HlinkNavigateString(punk: ::windows::runtime::RawPtr, sztarget: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HlinkNavigateString(punk: ::windows::core::RawPtr, sztarget: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HlinkNavigateString(punk.into_param().abi(), sztarget.into_param().abi()).ok()
     }
@@ -1144,7 +1144,7 @@ pub unsafe fn HlinkNavigateString<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HlinkSimpleNavigateToMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param4: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param5: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(
+pub unsafe fn HlinkSimpleNavigateToMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, super::IBindCtx>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(
     pmktarget: Param0,
     szlocation: Param1,
     sztargetframename: Param2,
@@ -1153,12 +1153,12 @@ pub unsafe fn HlinkSimpleNavigateToMoniker<'a, Param0: ::windows::runtime::IntoP
     param5: Param5,
     grfhlnf: u32,
     dwreserved: u32,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HlinkSimpleNavigateToMoniker(pmktarget: ::windows::runtime::RawPtr, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: ::windows::runtime::RawPtr, pbc: ::windows::runtime::RawPtr, param5: ::windows::runtime::RawPtr, grfhlnf: u32, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn HlinkSimpleNavigateToMoniker(pmktarget: ::windows::core::RawPtr, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: ::windows::core::RawPtr, pbc: ::windows::core::RawPtr, param5: ::windows::core::RawPtr, grfhlnf: u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         HlinkSimpleNavigateToMoniker(pmktarget.into_param().abi(), szlocation.into_param().abi(), sztargetframename.into_param().abi(), punk.into_param().abi(), pbc.into_param().abi(), param5.into_param().abi(), ::core::mem::transmute(grfhlnf), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -1168,15 +1168,7 @@ pub unsafe fn HlinkSimpleNavigateToMoniker<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HlinkSimpleNavigateToString<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    Param4: ::windows::runtime::IntoParam<'a, super::IBindCtx>,
-    Param5: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>,
->(
+pub unsafe fn HlinkSimpleNavigateToString<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, super::IBindCtx>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(
     sztarget: Param0,
     szlocation: Param1,
     sztargetframename: Param2,
@@ -1185,12 +1177,12 @@ pub unsafe fn HlinkSimpleNavigateToString<
     param5: Param5,
     grfhlnf: u32,
     dwreserved: u32,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HlinkSimpleNavigateToString(sztarget: super::super::super::Foundation::PWSTR, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: ::windows::runtime::RawPtr, pbc: ::windows::runtime::RawPtr, param5: ::windows::runtime::RawPtr, grfhlnf: u32, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn HlinkSimpleNavigateToString(sztarget: super::super::super::Foundation::PWSTR, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: ::windows::core::RawPtr, pbc: ::windows::core::RawPtr, param5: ::windows::core::RawPtr, grfhlnf: u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         HlinkSimpleNavigateToString(sztarget.into_param().abi(), szlocation.into_param().abi(), sztargetframename.into_param().abi(), punk.into_param().abi(), pbc.into_param().abi(), param5.into_param().abi(), ::core::mem::transmute(grfhlnf), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -1200,225 +1192,225 @@ pub unsafe fn HlinkSimpleNavigateToString<
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBindCallbackRedirect(pub ::windows::runtime::IUnknown);
+pub struct IBindCallbackRedirect(pub ::windows::core::IUnknown);
 impl IBindCallbackRedirect {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn Redirect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, lpcurl: Param0) -> ::windows::runtime::Result<i16> {
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), lpcurl.into_param().abi(), &mut result__).from_abi::<i16>(result__)
+    pub unsafe fn Redirect<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, lpcurl: Param0) -> ::windows::core::Result<i16> {
+        let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), lpcurl.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IBindCallbackRedirect {
+unsafe impl ::windows::core::Interface for IBindCallbackRedirect {
     type Vtable = IBindCallbackRedirect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11c81bc2_121e_4ed5_b9c4_b430bd54f2c0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c81bc2_121e_4ed5_b9c4_b430bd54f2c0);
 }
-impl ::core::convert::From<IBindCallbackRedirect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IBindCallbackRedirect> for ::windows::core::IUnknown {
     fn from(value: IBindCallbackRedirect) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IBindCallbackRedirect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IBindCallbackRedirect> for ::windows::core::IUnknown {
     fn from(value: &IBindCallbackRedirect) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindCallbackRedirect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBindCallbackRedirect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindCallbackRedirect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBindCallbackRedirect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindCallbackRedirect_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpcurl: super::super::super::Foundation::PWSTR, vbcancel: *mut i16) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpcurl: super::super::super::Foundation::PWSTR, vbcancel: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBindHttpSecurity(pub ::windows::runtime::IUnknown);
+pub struct IBindHttpSecurity(pub ::windows::core::IUnknown);
 impl IBindHttpSecurity {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetIgnoreCertMask(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetIgnoreCertMask(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IBindHttpSecurity {
+unsafe impl ::windows::core::Interface for IBindHttpSecurity {
     type Vtable = IBindHttpSecurity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9eda967_f50e_4a33_b358_206f6ef3086d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9eda967_f50e_4a33_b358_206f6ef3086d);
 }
-impl ::core::convert::From<IBindHttpSecurity> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IBindHttpSecurity> for ::windows::core::IUnknown {
     fn from(value: IBindHttpSecurity) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IBindHttpSecurity> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IBindHttpSecurity> for ::windows::core::IUnknown {
     fn from(value: &IBindHttpSecurity) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindHttpSecurity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBindHttpSecurity {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindHttpSecurity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBindHttpSecurity {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindHttpSecurity_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwignorecertmask: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwignorecertmask: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBindProtocol(pub ::windows::runtime::IUnknown);
+pub struct IBindProtocol(pub ::windows::core::IUnknown);
 impl IBindProtocol {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn CreateBinding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::IBindCtx>>(&self, szurl: Param0, pbc: Param1) -> ::windows::runtime::Result<super::IBinding> {
-        let mut result__: <super::IBinding as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), pbc.into_param().abi(), &mut result__).from_abi::<super::IBinding>(result__)
+    pub unsafe fn CreateBinding<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::IBindCtx>>(&self, szurl: Param0, pbc: Param1) -> ::windows::core::Result<super::IBinding> {
+        let mut result__: <super::IBinding as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), pbc.into_param().abi(), &mut result__).from_abi::<super::IBinding>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IBindProtocol {
+unsafe impl ::windows::core::Interface for IBindProtocol {
     type Vtable = IBindProtocol_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9cd_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9cd_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IBindProtocol> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IBindProtocol> for ::windows::core::IUnknown {
     fn from(value: IBindProtocol) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IBindProtocol> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IBindProtocol> for ::windows::core::IUnknown {
     fn from(value: &IBindProtocol) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindProtocol {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBindProtocol {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindProtocol {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBindProtocol {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindProtocol_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szurl: super::super::super::Foundation::PWSTR, pbc: ::windows::runtime::RawPtr, ppb: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, pbc: ::windows::core::RawPtr, ppb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ICatalogFileInfo(pub ::windows::runtime::IUnknown);
+pub struct ICatalogFileInfo(pub ::windows::core::IUnknown);
 impl ICatalogFileInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetCatalogFile(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PSTR> {
-        let mut result__: <super::super::super::Foundation::PSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PSTR>(result__)
+    pub unsafe fn GetCatalogFile(&self) -> ::windows::core::Result<super::super::super::Foundation::PSTR> {
+        let mut result__: <super::super::super::Foundation::PSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetJavaTrust(&self, ppjavatrust: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppjavatrust)).ok()
+    pub unsafe fn GetJavaTrust(&self, ppjavatrust: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppjavatrust)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ICatalogFileInfo {
+unsafe impl ::windows::core::Interface for ICatalogFileInfo {
     type Vtable = ICatalogFileInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x711c7600_6b48_11d1_b403_00aa00b92af1);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x711c7600_6b48_11d1_b403_00aa00b92af1);
 }
-impl ::core::convert::From<ICatalogFileInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICatalogFileInfo> for ::windows::core::IUnknown {
     fn from(value: ICatalogFileInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ICatalogFileInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICatalogFileInfo> for ::windows::core::IUnknown {
     fn from(value: &ICatalogFileInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICatalogFileInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICatalogFileInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICatalogFileInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICatalogFileInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICatalogFileInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszcatalogfile: *mut super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszcatalogfile: *mut super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppjavatrust: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppjavatrust: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ICodeInstall(pub ::windows::runtime::IUnknown);
+pub struct ICodeInstall(pub ::windows::core::IUnknown);
 impl ICodeInstall {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::super::Foundation::HWND> {
-        let mut result__: <super::super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidreason), &mut result__).from_abi::<super::super::super::Foundation::HWND>(result__)
+    pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
+        let mut result__: <super::super::super::Foundation::HWND as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidreason), &mut result__).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn OnCodeInstallProblem<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, ulstatuscode: u32, szdestination: Param1, szsource: Param2, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstatuscode), szdestination.into_param().abi(), szsource.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn OnCodeInstallProblem<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, ulstatuscode: u32, szdestination: Param1, szsource: Param2, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstatuscode), szdestination.into_param().abi(), szsource.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ICodeInstall {
+unsafe impl ::windows::core::Interface for ICodeInstall {
     type Vtable = ICodeInstall_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d1_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d1_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<ICodeInstall> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICodeInstall> for ::windows::core::IUnknown {
     fn from(value: ICodeInstall) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ICodeInstall> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICodeInstall> for ::windows::core::IUnknown {
     fn from(value: &ICodeInstall) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICodeInstall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICodeInstall {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICodeInstall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICodeInstall {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<ICodeInstall> for IWindowForBindingUI {
@@ -1431,35 +1423,35 @@ impl ::core::convert::From<&ICodeInstall> for IWindowForBindingUI {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for ICodeInstall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IWindowForBindingUI> for ICodeInstall {
+    fn into_param(self) -> ::windows::core::Param<'a, IWindowForBindingUI> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for &ICodeInstall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IWindowForBindingUI> for &ICodeInstall {
+    fn into_param(self) -> ::windows::core::Param<'a, IWindowForBindingUI> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICodeInstall_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguidreason: *const ::windows::runtime::GUID, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, rguidreason: *const ::windows::core::GUID, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulstatuscode: u32, szdestination: super::super::super::Foundation::PWSTR, szsource: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulstatuscode: u32, szdestination: super::super::super::Foundation::PWSTR, szsource: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDataFilter(pub ::windows::runtime::IUnknown);
+pub struct IDataFilter(pub ::windows::core::IUnknown);
 impl IDataFilter {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn DoEncode(&self, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
+    pub unsafe fn DoEncode(&self, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dwflags),
             ::core::mem::transmute(linbuffersize),
@@ -1474,8 +1466,8 @@ impl IDataFilter {
         .ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn DoDecode(&self, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
+    pub unsafe fn DoDecode(&self, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dwflags),
             ::core::mem::transmute(linbuffersize),
@@ -1490,43 +1482,43 @@ impl IDataFilter {
         .ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetEncodingLevel(&self, dwenclevel: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenclevel)).ok()
+    pub unsafe fn SetEncodingLevel(&self, dwenclevel: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenclevel)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDataFilter {
+unsafe impl ::windows::core::Interface for IDataFilter {
     type Vtable = IDataFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x69d14c80_c18e_11d0_a9ce_006097942311);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69d14c80_c18e_11d0_a9ce_006097942311);
 }
-impl ::core::convert::From<IDataFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDataFilter> for ::windows::core::IUnknown {
     fn from(value: IDataFilter) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDataFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDataFilter> for ::windows::core::IUnknown {
     fn from(value: &IDataFilter) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDataFilter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDataFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDataFilter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataFilter_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwenclevel: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwenclevel: u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1545,14 +1537,14 @@ pub unsafe fn IEGetUserPrivateNamespaceName() -> super::super::super::Foundation
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn IEInstallScope() -> ::windows::runtime::Result<u32> {
+pub unsafe fn IEInstallScope() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IEInstallScope(pdwscope: *mut u32) -> ::windows::runtime::HRESULT;
+            fn IEInstallScope(pdwscope: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         IEInstallScope(&mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
@@ -1575,204 +1567,204 @@ impl ::core::convert::From<i32> for IEObjectType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IEObjectType {
+unsafe impl ::windows::core::Abi for IEObjectType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IEncodingFilterFactory(pub ::windows::runtime::IUnknown);
+pub struct IEncodingFilterFactory(pub ::windows::core::IUnknown);
 impl IEncodingFilterFactory {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn FindBestFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, DATAINFO>>(&self, pwzcodein: Param0, pwzcodeout: Param1, info: Param2) -> ::windows::runtime::Result<IDataFilter> {
-        let mut result__: <IDataFilter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzcodein.into_param().abi(), pwzcodeout.into_param().abi(), info.into_param().abi(), &mut result__).from_abi::<IDataFilter>(result__)
+    pub unsafe fn FindBestFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, DATAINFO>>(&self, pwzcodein: Param0, pwzcodeout: Param1, info: Param2) -> ::windows::core::Result<IDataFilter> {
+        let mut result__: <IDataFilter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzcodein.into_param().abi(), pwzcodeout.into_param().abi(), info.into_param().abi(), &mut result__).from_abi::<IDataFilter>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetDefaultFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzcodein: Param0, pwzcodeout: Param1) -> ::windows::runtime::Result<IDataFilter> {
-        let mut result__: <IDataFilter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwzcodein.into_param().abi(), pwzcodeout.into_param().abi(), &mut result__).from_abi::<IDataFilter>(result__)
+    pub unsafe fn GetDefaultFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzcodein: Param0, pwzcodeout: Param1) -> ::windows::core::Result<IDataFilter> {
+        let mut result__: <IDataFilter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwzcodein.into_param().abi(), pwzcodeout.into_param().abi(), &mut result__).from_abi::<IDataFilter>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IEncodingFilterFactory {
+unsafe impl ::windows::core::Interface for IEncodingFilterFactory {
     type Vtable = IEncodingFilterFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x70bdde00_c18e_11d0_a9ce_006097942311);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70bdde00_c18e_11d0_a9ce_006097942311);
 }
-impl ::core::convert::From<IEncodingFilterFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEncodingFilterFactory> for ::windows::core::IUnknown {
     fn from(value: IEncodingFilterFactory) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IEncodingFilterFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEncodingFilterFactory> for ::windows::core::IUnknown {
     fn from(value: &IEncodingFilterFactory) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEncodingFilterFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEncodingFilterFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEncodingFilterFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEncodingFilterFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEncodingFilterFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzcodein: super::super::super::Foundation::PWSTR, pwzcodeout: super::super::super::Foundation::PWSTR, info: DATAINFO, ppdf: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwzcodein: super::super::super::Foundation::PWSTR, pwzcodeout: super::super::super::Foundation::PWSTR, info: DATAINFO, ppdf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzcodein: super::super::super::Foundation::PWSTR, pwzcodeout: super::super::super::Foundation::PWSTR, ppdf: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwzcodein: super::super::super::Foundation::PWSTR, pwzcodeout: super::super::super::Foundation::PWSTR, ppdf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IGetBindHandle(pub ::windows::runtime::IUnknown);
+pub struct IGetBindHandle(pub ::windows::core::IUnknown);
 impl IGetBindHandle {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
-        let mut result__: <super::super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumrequestedhandle), &mut result__).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+    pub unsafe fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
+        let mut result__: <super::super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumrequestedhandle), &mut result__).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IGetBindHandle {
+unsafe impl ::windows::core::Interface for IGetBindHandle {
     type Vtable = IGetBindHandle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf0ff408_129d_4b20_91f0_02bd23d88352);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf0ff408_129d_4b20_91f0_02bd23d88352);
 }
-impl ::core::convert::From<IGetBindHandle> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IGetBindHandle> for ::windows::core::IUnknown {
     fn from(value: IGetBindHandle) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IGetBindHandle> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IGetBindHandle> for ::windows::core::IUnknown {
     fn from(value: &IGetBindHandle) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetBindHandle {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGetBindHandle {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetBindHandle {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGetBindHandle {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetBindHandle_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumrequestedhandle: BINDHANDLETYPES, prethandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, enumrequestedhandle: BINDHANDLETYPES, prethandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IHttpNegotiate(pub ::windows::runtime::IUnknown);
+pub struct IHttpNegotiate(pub ::windows::core::IUnknown);
 impl IHttpNegotiate {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn BeginningTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szurl: Param0, szheaders: Param1, dwreserved: u32) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), szheaders.into_param().abi(), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn BeginningTransaction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szurl: Param0, szheaders: Param1, dwreserved: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), szheaders.into_param().abi(), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn OnResponse<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwresponsecode: u32, szresponseheaders: Param1, szrequestheaders: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwresponsecode), szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn OnResponse<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwresponsecode: u32, szresponseheaders: Param1, szrequestheaders: Param2) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwresponsecode), szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IHttpNegotiate {
+unsafe impl ::windows::core::Interface for IHttpNegotiate {
     type Vtable = IHttpNegotiate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d2_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d2_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IHttpNegotiate> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IHttpNegotiate> for ::windows::core::IUnknown {
     fn from(value: IHttpNegotiate) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IHttpNegotiate> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IHttpNegotiate> for ::windows::core::IUnknown {
     fn from(value: &IHttpNegotiate) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHttpNegotiate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IHttpNegotiate {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IHttpNegotiate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IHttpNegotiate {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpNegotiate_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szurl: super::super::super::Foundation::PWSTR, szheaders: super::super::super::Foundation::PWSTR, dwreserved: u32, pszadditionalheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, szheaders: super::super::super::Foundation::PWSTR, dwreserved: u32, pszadditionalheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwresponsecode: u32, szresponseheaders: super::super::super::Foundation::PWSTR, szrequestheaders: super::super::super::Foundation::PWSTR, pszadditionalrequestheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwresponsecode: u32, szresponseheaders: super::super::super::Foundation::PWSTR, szrequestheaders: super::super::super::Foundation::PWSTR, pszadditionalrequestheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IHttpNegotiate2(pub ::windows::runtime::IUnknown);
+pub struct IHttpNegotiate2(pub ::windows::core::IUnknown);
 impl IHttpNegotiate2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn BeginningTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szurl: Param0, szheaders: Param1, dwreserved: u32) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), szheaders.into_param().abi(), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn BeginningTransaction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szurl: Param0, szheaders: Param1, dwreserved: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), szheaders.into_param().abi(), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn OnResponse<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwresponsecode: u32, szresponseheaders: Param1, szrequestheaders: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwresponsecode), szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn OnResponse<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwresponsecode: u32, szresponseheaders: Param1, szrequestheaders: Param2) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwresponsecode), szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IHttpNegotiate2 {
+unsafe impl ::windows::core::Interface for IHttpNegotiate2 {
     type Vtable = IHttpNegotiate2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f9f9fcb_e0f4_48eb_b7ab_fa2ea9365cb4);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f9f9fcb_e0f4_48eb_b7ab_fa2ea9365cb4);
 }
-impl ::core::convert::From<IHttpNegotiate2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IHttpNegotiate2> for ::windows::core::IUnknown {
     fn from(value: IHttpNegotiate2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IHttpNegotiate2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IHttpNegotiate2> for ::windows::core::IUnknown {
     fn from(value: &IHttpNegotiate2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHttpNegotiate2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IHttpNegotiate2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IHttpNegotiate2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IHttpNegotiate2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IHttpNegotiate2> for IHttpNegotiate {
@@ -1785,76 +1777,76 @@ impl ::core::convert::From<&IHttpNegotiate2> for IHttpNegotiate {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for IHttpNegotiate2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IHttpNegotiate> for IHttpNegotiate2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IHttpNegotiate> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for &IHttpNegotiate2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IHttpNegotiate> for &IHttpNegotiate2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IHttpNegotiate> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpNegotiate2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szurl: super::super::super::Foundation::PWSTR, szheaders: super::super::super::Foundation::PWSTR, dwreserved: u32, pszadditionalheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, szheaders: super::super::super::Foundation::PWSTR, dwreserved: u32, pszadditionalheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwresponsecode: u32, szresponseheaders: super::super::super::Foundation::PWSTR, szrequestheaders: super::super::super::Foundation::PWSTR, pszadditionalrequestheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwresponsecode: u32, szresponseheaders: super::super::super::Foundation::PWSTR, szrequestheaders: super::super::super::Foundation::PWSTR, pszadditionalrequestheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IHttpNegotiate3(pub ::windows::runtime::IUnknown);
+pub struct IHttpNegotiate3(pub ::windows::core::IUnknown);
 impl IHttpNegotiate3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn BeginningTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szurl: Param0, szheaders: Param1, dwreserved: u32) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), szheaders.into_param().abi(), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn BeginningTransaction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szurl: Param0, szheaders: Param1, dwreserved: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), szheaders.into_param().abi(), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn OnResponse<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwresponsecode: u32, szresponseheaders: Param1, szrequestheaders: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwresponsecode), szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn OnResponse<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwresponsecode: u32, szresponseheaders: Param1, szrequestheaders: Param2) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwresponsecode), szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetSerializedClientCertContext(&self, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppbcert), ::core::mem::transmute(pcbcert)).ok()
+    pub unsafe fn GetSerializedClientCertContext(&self, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppbcert), ::core::mem::transmute(pcbcert)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IHttpNegotiate3 {
+unsafe impl ::windows::core::Interface for IHttpNegotiate3 {
     type Vtable = IHttpNegotiate3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57b6c80a_34c2_4602_bc26_66a02fc57153);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57b6c80a_34c2_4602_bc26_66a02fc57153);
 }
-impl ::core::convert::From<IHttpNegotiate3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IHttpNegotiate3> for ::windows::core::IUnknown {
     fn from(value: IHttpNegotiate3) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IHttpNegotiate3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IHttpNegotiate3> for ::windows::core::IUnknown {
     fn from(value: &IHttpNegotiate3) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHttpNegotiate3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IHttpNegotiate3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IHttpNegotiate3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IHttpNegotiate3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IHttpNegotiate3> for IHttpNegotiate2 {
@@ -1867,14 +1859,14 @@ impl ::core::convert::From<&IHttpNegotiate3> for IHttpNegotiate2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate2> for IHttpNegotiate3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate2> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IHttpNegotiate2> for IHttpNegotiate3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IHttpNegotiate2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate2> for &IHttpNegotiate3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate2> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IHttpNegotiate2> for &IHttpNegotiate3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IHttpNegotiate2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IHttpNegotiate3> for IHttpNegotiate {
@@ -1887,67 +1879,67 @@ impl ::core::convert::From<&IHttpNegotiate3> for IHttpNegotiate {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for IHttpNegotiate3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IHttpNegotiate> for IHttpNegotiate3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IHttpNegotiate> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for &IHttpNegotiate3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IHttpNegotiate> for &IHttpNegotiate3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IHttpNegotiate> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpNegotiate3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szurl: super::super::super::Foundation::PWSTR, szheaders: super::super::super::Foundation::PWSTR, dwreserved: u32, pszadditionalheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, szheaders: super::super::super::Foundation::PWSTR, dwreserved: u32, pszadditionalheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwresponsecode: u32, szresponseheaders: super::super::super::Foundation::PWSTR, szrequestheaders: super::super::super::Foundation::PWSTR, pszadditionalrequestheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwresponsecode: u32, szresponseheaders: super::super::super::Foundation::PWSTR, szrequestheaders: super::super::super::Foundation::PWSTR, pszadditionalrequestheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IHttpSecurity(pub ::windows::runtime::IUnknown);
+pub struct IHttpSecurity(pub ::windows::core::IUnknown);
 impl IHttpSecurity {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::super::Foundation::HWND> {
-        let mut result__: <super::super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidreason), &mut result__).from_abi::<super::super::super::Foundation::HWND>(result__)
+    pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
+        let mut result__: <super::super::super::Foundation::HWND as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidreason), &mut result__).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn OnSecurityProblem(&self, dwproblem: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwproblem)).ok()
+    pub unsafe fn OnSecurityProblem(&self, dwproblem: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwproblem)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IHttpSecurity {
+unsafe impl ::windows::core::Interface for IHttpSecurity {
     type Vtable = IHttpSecurity_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d7_bafa_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d7_bafa_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IHttpSecurity> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IHttpSecurity> for ::windows::core::IUnknown {
     fn from(value: IHttpSecurity) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IHttpSecurity> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IHttpSecurity> for ::windows::core::IUnknown {
     fn from(value: &IHttpSecurity) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHttpSecurity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IHttpSecurity {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IHttpSecurity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IHttpSecurity {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IHttpSecurity> for IWindowForBindingUI {
@@ -1960,156 +1952,152 @@ impl ::core::convert::From<&IHttpSecurity> for IWindowForBindingUI {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for IHttpSecurity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IWindowForBindingUI> for IHttpSecurity {
+    fn into_param(self) -> ::windows::core::Param<'a, IWindowForBindingUI> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for &IHttpSecurity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IWindowForBindingUI> for &IHttpSecurity {
+    fn into_param(self) -> ::windows::core::Param<'a, IWindowForBindingUI> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpSecurity_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguidreason: *const ::windows::runtime::GUID, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, rguidreason: *const ::windows::core::GUID, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwproblem: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwproblem: u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternet(pub ::windows::runtime::IUnknown);
+pub struct IInternet(pub ::windows::core::IUnknown);
 impl IInternet {}
-unsafe impl ::windows::runtime::Interface for IInternet {
+unsafe impl ::windows::core::Interface for IInternet {
     type Vtable = IInternet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e0_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e0_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternet> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternet> for ::windows::core::IUnknown {
     fn from(value: IInternet) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternet> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternet> for ::windows::core::IUnknown {
     fn from(value: &IInternet) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternet {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternet {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternet_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-);
+pub struct IInternet_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetBindInfo(pub ::windows::runtime::IUnknown);
+pub struct IInternetBindInfo(pub ::windows::core::IUnknown);
 impl IInternetBindInfo {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`*"]
-    pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo)).ok()
+    pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstringtype), ::core::mem::transmute(ppwzstr), ::core::mem::transmute(cel), ::core::mem::transmute(pcelfetched)).ok()
+    pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstringtype), ::core::mem::transmute(ppwzstr), ::core::mem::transmute(cel), ::core::mem::transmute(pcelfetched)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetBindInfo {
+unsafe impl ::windows::core::Interface for IInternetBindInfo {
     type Vtable = IInternetBindInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e1_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e1_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetBindInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetBindInfo> for ::windows::core::IUnknown {
     fn from(value: IInternetBindInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetBindInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetBindInfo> for ::windows::core::IUnknown {
     fn from(value: &IInternetBindInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetBindInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetBindInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetBindInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetBindInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetBindInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, grfbindf: *mut u32, pbindinfo: *mut ::core::mem::ManuallyDrop<super::BINDINFO>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, grfbindf: *mut u32, pbindinfo: *mut ::core::mem::ManuallyDrop<super::BINDINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetBindInfoEx(pub ::windows::runtime::IUnknown);
+pub struct IInternetBindInfoEx(pub ::windows::core::IUnknown);
 impl IInternetBindInfoEx {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`*"]
-    pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo)).ok()
+    pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstringtype), ::core::mem::transmute(ppwzstr), ::core::mem::transmute(cel), ::core::mem::transmute(pcelfetched)).ok()
+    pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstringtype), ::core::mem::transmute(ppwzstr), ::core::mem::transmute(cel), ::core::mem::transmute(pcelfetched)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`*"]
-    pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo), ::core::mem::transmute(grfbindf2), ::core::mem::transmute(pdwreserved)).ok()
+    pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo), ::core::mem::transmute(grfbindf2), ::core::mem::transmute(pdwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetBindInfoEx {
+unsafe impl ::windows::core::Interface for IInternetBindInfoEx {
     type Vtable = IInternetBindInfoEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3e015b7_a82c_4dcd_a150_569aeeed36ab);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3e015b7_a82c_4dcd_a150_569aeeed36ab);
 }
-impl ::core::convert::From<IInternetBindInfoEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetBindInfoEx> for ::windows::core::IUnknown {
     fn from(value: IInternetBindInfoEx) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetBindInfoEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetBindInfoEx> for ::windows::core::IUnknown {
     fn from(value: &IInternetBindInfoEx) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetBindInfoEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetBindInfoEx {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetBindInfoEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetBindInfoEx {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IInternetBindInfoEx> for IInternetBindInfo {
@@ -2122,199 +2110,199 @@ impl ::core::convert::From<&IInternetBindInfoEx> for IInternetBindInfo {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetBindInfo> for IInternetBindInfoEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetBindInfo> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetBindInfo> for IInternetBindInfoEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetBindInfo> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetBindInfo> for &IInternetBindInfoEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetBindInfo> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetBindInfo> for &IInternetBindInfoEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetBindInfo> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetBindInfoEx_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, grfbindf: *mut u32, pbindinfo: *mut ::core::mem::ManuallyDrop<super::BINDINFO>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, grfbindf: *mut u32, pbindinfo: *mut ::core::mem::ManuallyDrop<super::BINDINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, grfbindf: *mut u32, pbindinfo: *mut ::core::mem::ManuallyDrop<super::BINDINFO>, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, grfbindf: *mut u32, pbindinfo: *mut ::core::mem::ManuallyDrop<super::BINDINFO>, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetHostSecurityManager(pub ::windows::runtime::IUnknown);
+pub struct IInternetHostSecurityManager(pub ::windows::core::IUnknown);
 impl IInternetHostSecurityManager {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn GetSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn ProcessUrlAction(&self, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn ProcessUrlAction(&self, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn QueryCustomPolicy(&self, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn QueryCustomPolicy(&self, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetHostSecurityManager {
+unsafe impl ::windows::core::Interface for IInternetHostSecurityManager {
     type Vtable = IInternetHostSecurityManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3af280b6_cb3f_11d0_891e_00c04fb6bfc4);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3af280b6_cb3f_11d0_891e_00c04fb6bfc4);
 }
-impl ::core::convert::From<IInternetHostSecurityManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetHostSecurityManager> for ::windows::core::IUnknown {
     fn from(value: IInternetHostSecurityManager) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetHostSecurityManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetHostSecurityManager> for ::windows::core::IUnknown {
     fn from(value: &IInternetHostSecurityManager) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetHostSecurityManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetHostSecurityManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetHostSecurityManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetHostSecurityManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetHostSecurityManager_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetPriority(pub ::windows::runtime::IUnknown);
+pub struct IInternetPriority(pub ::windows::core::IUnknown);
 impl IInternetPriority {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetPriority(&self, npriority: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(npriority)).ok()
+    pub unsafe fn SetPriority(&self, npriority: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(npriority)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetPriority(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+    pub unsafe fn GetPriority(&self) -> ::windows::core::Result<i32> {
+        let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetPriority {
+unsafe impl ::windows::core::Interface for IInternetPriority {
     type Vtable = IInternetPriority_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9eb_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9eb_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetPriority> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetPriority> for ::windows::core::IUnknown {
     fn from(value: IInternetPriority) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetPriority> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetPriority> for ::windows::core::IUnknown {
     fn from(value: &IInternetPriority) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetPriority {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetPriority {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetPriority {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetPriority {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetPriority_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, npriority: i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnpriority: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, npriority: i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pnpriority: *mut i32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetProtocol(pub ::windows::runtime::IUnknown);
+pub struct IInternetProtocol(pub ::windows::core::IUnknown);
 impl IInternetProtocol {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn Start<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::runtime::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, szurl: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
+    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::core::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, szurl: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
+    pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Abort(&self, hrreason: ::windows::runtime::HRESULT, dwoptions: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason), ::core::mem::transmute(dwoptions)).ok()
+    pub unsafe fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason), ::core::mem::transmute(dwoptions)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
+    pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Suspend(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Suspend(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Resume(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
+    pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn LockRequest(&self, dwoptions: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
+    pub unsafe fn LockRequest(&self, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn UnlockRequest(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn UnlockRequest(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetProtocol {
+unsafe impl ::windows::core::Interface for IInternetProtocol {
     type Vtable = IInternetProtocol_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e4_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e4_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetProtocol> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetProtocol> for ::windows::core::IUnknown {
     fn from(value: IInternetProtocol) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetProtocol> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetProtocol> for ::windows::core::IUnknown {
     fn from(value: &IInternetProtocol) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocol {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetProtocol {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocol {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetProtocol {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IInternetProtocol> for IInternetProtocolRoot {
@@ -2327,109 +2315,109 @@ impl ::core::convert::From<&IInternetProtocol> for IInternetProtocolRoot {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for IInternetProtocol {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetProtocolRoot> for IInternetProtocol {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetProtocolRoot> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for &IInternetProtocol {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetProtocolRoot> for &IInternetProtocol {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetProtocolRoot> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocol_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szurl: super::super::super::Foundation::PWSTR, poiprotsink: ::windows::runtime::RawPtr, poibindinfo: ::windows::runtime::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, poiprotsink: ::windows::core::RawPtr, poibindinfo: ::windows::core::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprotocoldata: *const PROTOCOLDATA) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hrreason: ::windows::runtime::HRESULT, dwoptions: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoptions: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoptions: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoptions: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoptions: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetProtocolEx(pub ::windows::runtime::IUnknown);
+pub struct IInternetProtocolEx(pub ::windows::core::IUnknown);
 impl IInternetProtocolEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn Start<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::runtime::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, szurl: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
+    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::core::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, szurl: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
+    pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Abort(&self, hrreason: ::windows::runtime::HRESULT, dwoptions: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason), ::core::mem::transmute(dwoptions)).ok()
+    pub unsafe fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason), ::core::mem::transmute(dwoptions)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
+    pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Suspend(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Suspend(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Resume(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
+    pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn LockRequest(&self, dwoptions: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
+    pub unsafe fn LockRequest(&self, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn UnlockRequest(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn UnlockRequest(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn StartEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>, Param1: ::windows::runtime::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::runtime::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, puri: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), puri.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
+    pub unsafe fn StartEx<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>, Param1: ::windows::core::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::core::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, puri: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), puri.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetProtocolEx {
+unsafe impl ::windows::core::Interface for IInternetProtocolEx {
     type Vtable = IInternetProtocolEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7a98e66_1010_492c_a1c8_c809e1f75905);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7a98e66_1010_492c_a1c8_c809e1f75905);
 }
-impl ::core::convert::From<IInternetProtocolEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetProtocolEx> for ::windows::core::IUnknown {
     fn from(value: IInternetProtocolEx) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetProtocolEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetProtocolEx> for ::windows::core::IUnknown {
     fn from(value: &IInternetProtocolEx) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocolEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetProtocolEx {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocolEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetProtocolEx {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IInternetProtocolEx> for IInternetProtocol {
@@ -2442,14 +2430,14 @@ impl ::core::convert::From<&IInternetProtocolEx> for IInternetProtocol {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocol> for IInternetProtocolEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocol> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetProtocol> for IInternetProtocolEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetProtocol> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocol> for &IInternetProtocolEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocol> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetProtocol> for &IInternetProtocolEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetProtocol> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IInternetProtocolEx> for IInternetProtocolRoot {
@@ -2462,418 +2450,418 @@ impl ::core::convert::From<&IInternetProtocolEx> for IInternetProtocolRoot {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for IInternetProtocolEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetProtocolRoot> for IInternetProtocolEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetProtocolRoot> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for &IInternetProtocolEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetProtocolRoot> for &IInternetProtocolEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetProtocolRoot> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolEx_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szurl: super::super::super::Foundation::PWSTR, poiprotsink: ::windows::runtime::RawPtr, poibindinfo: ::windows::runtime::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, poiprotsink: ::windows::core::RawPtr, poibindinfo: ::windows::core::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprotocoldata: *const PROTOCOLDATA) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hrreason: ::windows::runtime::HRESULT, dwoptions: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoptions: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoptions: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puri: ::windows::runtime::RawPtr, poiprotsink: ::windows::runtime::RawPtr, poibindinfo: ::windows::runtime::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoptions: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoptions: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puri: ::windows::core::RawPtr, poiprotsink: ::windows::core::RawPtr, poibindinfo: ::windows::core::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetProtocolInfo(pub ::windows::runtime::IUnknown);
+pub struct IInternetProtocolInfo(pub ::windows::core::IUnknown);
 impl IInternetProtocolInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn ParseUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzurl: Param0, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzurl.into_param().abi(), ::core::mem::transmute(parseaction), ::core::mem::transmute(dwparseflags), ::core::mem::transmute(pwzresult), ::core::mem::transmute(cchresult), ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn ParseUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzurl: Param0, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzurl.into_param().abi(), ::core::mem::transmute(parseaction), ::core::mem::transmute(dwparseflags), ::core::mem::transmute(pwzresult), ::core::mem::transmute(cchresult), ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn CombineUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzbaseurl: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, pwzresult: Param3, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwzbaseurl.into_param().abi(), pwzrelativeurl.into_param().abi(), ::core::mem::transmute(dwcombineflags), pwzresult.into_param().abi(), ::core::mem::transmute(cchresult), ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn CombineUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzbaseurl: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, pwzresult: Param3, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwzbaseurl.into_param().abi(), pwzrelativeurl.into_param().abi(), ::core::mem::transmute(dwcombineflags), pwzresult.into_param().abi(), ::core::mem::transmute(cchresult), ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn CompareUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzurl1: Param0, pwzurl2: Param1, dwcompareflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwzurl1.into_param().abi(), pwzurl2.into_param().abi(), ::core::mem::transmute(dwcompareflags)).ok()
+    pub unsafe fn CompareUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzurl1: Param0, pwzurl2: Param1, dwcompareflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwzurl1.into_param().abi(), pwzurl2.into_param().abi(), ::core::mem::transmute(dwcompareflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn QueryInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzurl: Param0, oueryoption: QUERYOPTION, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwzurl.into_param().abi(), ::core::mem::transmute(oueryoption), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbbuf), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn QueryInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzurl: Param0, oueryoption: QUERYOPTION, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwzurl.into_param().abi(), ::core::mem::transmute(oueryoption), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbbuf), ::core::mem::transmute(dwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetProtocolInfo {
+unsafe impl ::windows::core::Interface for IInternetProtocolInfo {
     type Vtable = IInternetProtocolInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9ec_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ec_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetProtocolInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetProtocolInfo> for ::windows::core::IUnknown {
     fn from(value: IInternetProtocolInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetProtocolInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetProtocolInfo> for ::windows::core::IUnknown {
     fn from(value: &IInternetProtocolInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocolInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetProtocolInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocolInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetProtocolInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzurl: super::super::super::Foundation::PWSTR, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwzurl: super::super::super::Foundation::PWSTR, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzbaseurl: super::super::super::Foundation::PWSTR, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwzbaseurl: super::super::super::Foundation::PWSTR, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzurl1: super::super::super::Foundation::PWSTR, pwzurl2: super::super::super::Foundation::PWSTR, dwcompareflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwzurl1: super::super::super::Foundation::PWSTR, pwzurl2: super::super::super::Foundation::PWSTR, dwcompareflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzurl: super::super::super::Foundation::PWSTR, oueryoption: QUERYOPTION, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwzurl: super::super::super::Foundation::PWSTR, oueryoption: QUERYOPTION, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetProtocolRoot(pub ::windows::runtime::IUnknown);
+pub struct IInternetProtocolRoot(pub ::windows::core::IUnknown);
 impl IInternetProtocolRoot {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn Start<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::runtime::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, szurl: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
+    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::core::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, szurl: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szurl.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
+    pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Abort(&self, hrreason: ::windows::runtime::HRESULT, dwoptions: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason), ::core::mem::transmute(dwoptions)).ok()
+    pub unsafe fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason), ::core::mem::transmute(dwoptions)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
+    pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Suspend(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Suspend(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Resume(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetProtocolRoot {
+unsafe impl ::windows::core::Interface for IInternetProtocolRoot {
     type Vtable = IInternetProtocolRoot_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e3_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e3_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetProtocolRoot> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetProtocolRoot> for ::windows::core::IUnknown {
     fn from(value: IInternetProtocolRoot) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetProtocolRoot> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetProtocolRoot> for ::windows::core::IUnknown {
     fn from(value: &IInternetProtocolRoot) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocolRoot {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetProtocolRoot {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocolRoot {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetProtocolRoot {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolRoot_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szurl: super::super::super::Foundation::PWSTR, poiprotsink: ::windows::runtime::RawPtr, poibindinfo: ::windows::runtime::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, poiprotsink: ::windows::core::RawPtr, poibindinfo: ::windows::core::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprotocoldata: *const PROTOCOLDATA) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hrreason: ::windows::runtime::HRESULT, dwoptions: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoptions: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoptions: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetProtocolSink(pub ::windows::runtime::IUnknown);
+pub struct IInternetProtocolSink(pub ::windows::core::IUnknown);
 impl IInternetProtocolSink {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Switch(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
+    pub unsafe fn Switch(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn ReportProgress<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, ulstatuscode: u32, szstatustext: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstatuscode), szstatustext.into_param().abi()).ok()
+    pub unsafe fn ReportProgress<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, ulstatuscode: u32, szstatustext: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstatuscode), szstatustext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn ReportData(&self, grfbscf: u32, ulprogress: u32, ulprogressmax: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbscf), ::core::mem::transmute(ulprogress), ::core::mem::transmute(ulprogressmax)).ok()
+    pub unsafe fn ReportData(&self, grfbscf: u32, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbscf), ::core::mem::transmute(ulprogress), ::core::mem::transmute(ulprogressmax)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn ReportResult<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hrresult: ::windows::runtime::HRESULT, dwerror: u32, szresult: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrresult), ::core::mem::transmute(dwerror), szresult.into_param().abi()).ok()
+    pub unsafe fn ReportResult<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hrresult: ::windows::core::HRESULT, dwerror: u32, szresult: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrresult), ::core::mem::transmute(dwerror), szresult.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetProtocolSink {
+unsafe impl ::windows::core::Interface for IInternetProtocolSink {
     type Vtable = IInternetProtocolSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e5_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e5_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetProtocolSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetProtocolSink> for ::windows::core::IUnknown {
     fn from(value: IInternetProtocolSink) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetProtocolSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetProtocolSink> for ::windows::core::IUnknown {
     fn from(value: &IInternetProtocolSink) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocolSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetProtocolSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocolSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetProtocolSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolSink_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprotocoldata: *const PROTOCOLDATA) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulstatuscode: u32, szstatustext: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulstatuscode: u32, szstatustext: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, grfbscf: u32, ulprogress: u32, ulprogressmax: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hrresult: ::windows::runtime::HRESULT, dwerror: u32, szresult: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, grfbscf: u32, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hrresult: ::windows::core::HRESULT, dwerror: u32, szresult: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetProtocolSinkStackable(pub ::windows::runtime::IUnknown);
+pub struct IInternetProtocolSinkStackable(pub ::windows::core::IUnknown);
 impl IInternetProtocolSinkStackable {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SwitchSink<'a, Param0: ::windows::runtime::IntoParam<'a, IInternetProtocolSink>>(&self, poiprotsink: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), poiprotsink.into_param().abi()).ok()
+    pub unsafe fn SwitchSink<'a, Param0: ::windows::core::IntoParam<'a, IInternetProtocolSink>>(&self, poiprotsink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), poiprotsink.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn CommitSwitch(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn CommitSwitch(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn RollbackSwitch(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn RollbackSwitch(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetProtocolSinkStackable {
+unsafe impl ::windows::core::Interface for IInternetProtocolSinkStackable {
     type Vtable = IInternetProtocolSinkStackable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9f0_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9f0_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetProtocolSinkStackable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetProtocolSinkStackable> for ::windows::core::IUnknown {
     fn from(value: IInternetProtocolSinkStackable) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetProtocolSinkStackable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetProtocolSinkStackable> for ::windows::core::IUnknown {
     fn from(value: &IInternetProtocolSinkStackable) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocolSinkStackable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetProtocolSinkStackable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocolSinkStackable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetProtocolSinkStackable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolSinkStackable_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, poiprotsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poiprotsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetSecurityManager(pub ::windows::runtime::IUnknown);
+pub struct IInternetSecurityManager(pub ::windows::core::IUnknown);
 impl IInternetSecurityManager {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetSecuritySite<'a, Param0: ::windows::runtime::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), psite.into_param().abi()).ok()
+    pub unsafe fn SetSecuritySite<'a, Param0: ::windows::core::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), psite.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetSecuritySite(&self) -> ::windows::runtime::Result<IInternetSecurityMgrSite> {
-        let mut result__: <IInternetSecurityMgrSite as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IInternetSecurityMgrSite>(result__)
+    pub unsafe fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite> {
+        let mut result__: <IInternetSecurityMgrSite as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IInternetSecurityMgrSite>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn MapUrlToZone<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pdwzone: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn MapUrlToZone<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetSecurityId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn QueryCustomPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn QueryCustomPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn SetZoneMapping<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwzone: u32, lpszpattern: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), lpszpattern.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn SetZoneMapping<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwzone: u32, lpszpattern: Param1, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), lpszpattern.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(ppenumstring), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(ppenumstring), ::core::mem::transmute(dwflags)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetSecurityManager {
+unsafe impl ::windows::core::Interface for IInternetSecurityManager {
     type Vtable = IInternetSecurityManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9ee_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ee_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetSecurityManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetSecurityManager> for ::windows::core::IUnknown {
     fn from(value: IInternetSecurityManager) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetSecurityManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetSecurityManager> for ::windows::core::IUnknown {
     fn from(value: &IInternetSecurityManager) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetSecurityManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetSecurityManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetSecurityManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetSecurityManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetSecurityManager_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psite: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsite: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pdwzone: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psite: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppsite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, lpszpattern: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, lpszpattern: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, ppenumstring: *mut ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, ppenumstring: *mut ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetSecurityManagerEx(pub ::windows::runtime::IUnknown);
+pub struct IInternetSecurityManagerEx(pub ::windows::core::IUnknown);
 impl IInternetSecurityManagerEx {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetSecuritySite<'a, Param0: ::windows::runtime::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), psite.into_param().abi()).ok()
+    pub unsafe fn SetSecuritySite<'a, Param0: ::windows::core::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), psite.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetSecuritySite(&self) -> ::windows::runtime::Result<IInternetSecurityMgrSite> {
-        let mut result__: <IInternetSecurityMgrSite as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IInternetSecurityMgrSite>(result__)
+    pub unsafe fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite> {
+        let mut result__: <IInternetSecurityMgrSite as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IInternetSecurityMgrSite>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn MapUrlToZone<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pdwzone: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn MapUrlToZone<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetSecurityId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn QueryCustomPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn QueryCustomPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn SetZoneMapping<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwzone: u32, lpszpattern: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), lpszpattern.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn SetZoneMapping<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwzone: u32, lpszpattern: Param1, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), lpszpattern.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(ppenumstring), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(ppenumstring), ::core::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn ProcessUrlActionEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
+    pub unsafe fn ProcessUrlActionEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(
             ::core::mem::transmute_copy(self),
             pwszurl.into_param().abi(),
             ::core::mem::transmute(dwaction),
@@ -2888,28 +2876,28 @@ impl IInternetSecurityManagerEx {
         .ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetSecurityManagerEx {
+unsafe impl ::windows::core::Interface for IInternetSecurityManagerEx {
     type Vtable = IInternetSecurityManagerEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf164edf1_cc7c_4f0d_9a94_34222625c393);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf164edf1_cc7c_4f0d_9a94_34222625c393);
 }
-impl ::core::convert::From<IInternetSecurityManagerEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetSecurityManagerEx> for ::windows::core::IUnknown {
     fn from(value: IInternetSecurityManagerEx) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetSecurityManagerEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetSecurityManagerEx> for ::windows::core::IUnknown {
     fn from(value: &IInternetSecurityManagerEx) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetSecurityManagerEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetSecurityManagerEx {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetSecurityManagerEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetSecurityManagerEx {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IInternetSecurityManagerEx> for IInternetSecurityManager {
@@ -2922,85 +2910,85 @@ impl ::core::convert::From<&IInternetSecurityManagerEx> for IInternetSecurityMan
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for IInternetSecurityManagerEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetSecurityManager> for IInternetSecurityManagerEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetSecurityManager> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for &IInternetSecurityManagerEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetSecurityManager> for &IInternetSecurityManagerEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetSecurityManager> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetSecurityManagerEx_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psite: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsite: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pdwzone: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psite: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppsite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, lpszpattern: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, lpszpattern: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, ppenumstring: *mut ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, ppenumstring: *mut ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetSecurityManagerEx2(pub ::windows::runtime::IUnknown);
+pub struct IInternetSecurityManagerEx2(pub ::windows::core::IUnknown);
 impl IInternetSecurityManagerEx2 {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetSecuritySite<'a, Param0: ::windows::runtime::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), psite.into_param().abi()).ok()
+    pub unsafe fn SetSecuritySite<'a, Param0: ::windows::core::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), psite.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetSecuritySite(&self) -> ::windows::runtime::Result<IInternetSecurityMgrSite> {
-        let mut result__: <IInternetSecurityMgrSite as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IInternetSecurityMgrSite>(result__)
+    pub unsafe fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite> {
+        let mut result__: <IInternetSecurityMgrSite as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IInternetSecurityMgrSite>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn MapUrlToZone<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pdwzone: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn MapUrlToZone<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetSecurityId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn QueryCustomPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn QueryCustomPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn SetZoneMapping<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwzone: u32, lpszpattern: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), lpszpattern.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn SetZoneMapping<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwzone: u32, lpszpattern: Param1, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), lpszpattern.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(ppenumstring), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(ppenumstring), ::core::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn ProcessUrlActionEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
+    pub unsafe fn ProcessUrlActionEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(
             ::core::mem::transmute_copy(self),
             pwszurl.into_param().abi(),
             ::core::mem::transmute(dwaction),
@@ -3016,12 +3004,12 @@ impl IInternetSecurityManagerEx2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn MapUrlToZoneEx2<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>>(&self, puri: Param0, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut super::super::super::Foundation::PWSTR, pdwoutflags: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppwszmappedurl), ::core::mem::transmute(pdwoutflags)).ok()
+    pub unsafe fn MapUrlToZoneEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(&self, puri: Param0, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut super::super::super::Foundation::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppwszmappedurl), ::core::mem::transmute(pdwoutflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn ProcessUrlActionEx2<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>>(&self, puri: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
+    pub unsafe fn ProcessUrlActionEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(&self, puri: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(
             ::core::mem::transmute_copy(self),
             puri.into_param().abi(),
             ::core::mem::transmute(dwaction),
@@ -3036,36 +3024,36 @@ impl IInternetSecurityManagerEx2 {
         .ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetSecurityIdEx2<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>>(&self, puri: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn GetSecurityIdEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(&self, puri: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn QueryCustomPolicyEx2<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>>(&self, puri: Param0, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn QueryCustomPolicyEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(&self, puri: Param0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetSecurityManagerEx2 {
+unsafe impl ::windows::core::Interface for IInternetSecurityManagerEx2 {
     type Vtable = IInternetSecurityManagerEx2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1e50292_a795_4117_8e09_2b560a72ac60);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1e50292_a795_4117_8e09_2b560a72ac60);
 }
-impl ::core::convert::From<IInternetSecurityManagerEx2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetSecurityManagerEx2> for ::windows::core::IUnknown {
     fn from(value: IInternetSecurityManagerEx2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetSecurityManagerEx2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetSecurityManagerEx2> for ::windows::core::IUnknown {
     fn from(value: &IInternetSecurityManagerEx2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetSecurityManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetSecurityManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetSecurityManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetSecurityManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IInternetSecurityManagerEx2> for IInternetSecurityManagerEx {
@@ -3078,14 +3066,14 @@ impl ::core::convert::From<&IInternetSecurityManagerEx2> for IInternetSecurityMa
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManagerEx> for IInternetSecurityManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManagerEx> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetSecurityManagerEx> for IInternetSecurityManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetSecurityManagerEx> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManagerEx> for &IInternetSecurityManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManagerEx> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetSecurityManagerEx> for &IInternetSecurityManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetSecurityManagerEx> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IInternetSecurityManagerEx2> for IInternetSecurityManager {
@@ -3098,413 +3086,413 @@ impl ::core::convert::From<&IInternetSecurityManagerEx2> for IInternetSecurityMa
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for IInternetSecurityManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetSecurityManager> for IInternetSecurityManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetSecurityManager> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for &IInternetSecurityManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetSecurityManager> for &IInternetSecurityManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetSecurityManager> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetSecurityManagerEx2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psite: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsite: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pdwzone: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psite: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppsite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, lpszpattern: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, lpszpattern: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, ppenumstring: *mut ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, ppenumstring: *mut ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puri: ::windows::runtime::RawPtr, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut super::super::super::Foundation::PWSTR, pdwoutflags: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puri: ::windows::core::RawPtr, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut super::super::super::Foundation::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puri: ::windows::runtime::RawPtr, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puri: ::windows::runtime::RawPtr, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puri: ::windows::runtime::RawPtr, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puri: ::windows::core::RawPtr, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puri: ::windows::core::RawPtr, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puri: ::windows::core::RawPtr, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetSecurityMgrSite(pub ::windows::runtime::IUnknown);
+pub struct IInternetSecurityMgrSite(pub ::windows::core::IUnknown);
 impl IInternetSecurityMgrSite {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::super::Foundation::HWND> {
-        let mut result__: <super::super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::HWND>(result__)
+    pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
+        let mut result__: <super::super::super::Foundation::HWND as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn EnableModeless<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
+    pub unsafe fn EnableModeless<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetSecurityMgrSite {
+unsafe impl ::windows::core::Interface for IInternetSecurityMgrSite {
     type Vtable = IInternetSecurityMgrSite_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9ed_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ed_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetSecurityMgrSite> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetSecurityMgrSite> for ::windows::core::IUnknown {
     fn from(value: IInternetSecurityMgrSite) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetSecurityMgrSite> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetSecurityMgrSite> for ::windows::core::IUnknown {
     fn from(value: &IInternetSecurityMgrSite) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetSecurityMgrSite {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetSecurityMgrSite {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetSecurityMgrSite {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetSecurityMgrSite {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetSecurityMgrSite_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fenable: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetSession(pub ::windows::runtime::IUnknown);
+pub struct IInternetSession(pub ::windows::core::IUnknown);
 impl IInternetSession {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn RegisterNameSpace<'a, Param0: ::windows::runtime::IntoParam<'a, super::IClassFactory>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pcf: Param0, rclsid: *const ::windows::runtime::GUID, pwzprotocol: Param2, cpatterns: u32, ppwzpatterns: *const super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pcf.into_param().abi(), ::core::mem::transmute(rclsid), pwzprotocol.into_param().abi(), ::core::mem::transmute(cpatterns), ::core::mem::transmute(ppwzpatterns), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn RegisterNameSpace<'a, Param0: ::windows::core::IntoParam<'a, super::IClassFactory>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pcf: Param0, rclsid: *const ::windows::core::GUID, pwzprotocol: Param2, cpatterns: u32, ppwzpatterns: *const super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pcf.into_param().abi(), ::core::mem::transmute(rclsid), pwzprotocol.into_param().abi(), ::core::mem::transmute(cpatterns), ::core::mem::transmute(ppwzpatterns), ::core::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn UnregisterNameSpace<'a, Param0: ::windows::runtime::IntoParam<'a, super::IClassFactory>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pcf: Param0, pszprotocol: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pcf.into_param().abi(), pszprotocol.into_param().abi()).ok()
+    pub unsafe fn UnregisterNameSpace<'a, Param0: ::windows::core::IntoParam<'a, super::IClassFactory>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pcf: Param0, pszprotocol: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pcf.into_param().abi(), pszprotocol.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn RegisterMimeFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::IClassFactory>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pcf: Param0, rclsid: *const ::windows::runtime::GUID, pwztype: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pcf.into_param().abi(), ::core::mem::transmute(rclsid), pwztype.into_param().abi()).ok()
+    pub unsafe fn RegisterMimeFilter<'a, Param0: ::windows::core::IntoParam<'a, super::IClassFactory>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pcf: Param0, rclsid: *const ::windows::core::GUID, pwztype: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pcf.into_param().abi(), ::core::mem::transmute(rclsid), pwztype.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn UnregisterMimeFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::IClassFactory>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pcf: Param0, pwztype: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pcf.into_param().abi(), pwztype.into_param().abi()).ok()
+    pub unsafe fn UnregisterMimeFilter<'a, Param0: ::windows::core::IntoParam<'a, super::IClassFactory>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pcf: Param0, pwztype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pcf.into_param().abi(), pwztype.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn CreateBinding<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pbc: Param0, szurl: Param1, punkouter: Param2, ppunk: *mut ::core::option::Option<::windows::runtime::IUnknown>, ppoinetprot: *mut ::core::option::Option<IInternetProtocol>, dwoption: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pbc.into_param().abi(), szurl.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppunk), ::core::mem::transmute(ppoinetprot), ::core::mem::transmute(dwoption)).ok()
+    pub unsafe fn CreateBinding<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pbc: Param0, szurl: Param1, punkouter: Param2, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>, ppoinetprot: *mut ::core::option::Option<IInternetProtocol>, dwoption: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pbc.into_param().abi(), szurl.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppunk), ::core::mem::transmute(ppoinetprot), ::core::mem::transmute(dwoption)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetSessionOption(&self, dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwbufferlength), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn SetSessionOption(&self, dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwbufferlength), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetSessionOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwbufferlength), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn GetSessionOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwbufferlength), ::core::mem::transmute(dwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetSession {
+unsafe impl ::windows::core::Interface for IInternetSession {
     type Vtable = IInternetSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e7_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e7_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetSession> for ::windows::core::IUnknown {
     fn from(value: IInternetSession) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetSession> for ::windows::core::IUnknown {
     fn from(value: &IInternetSession) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetSession_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcf: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, pwzprotocol: super::super::super::Foundation::PWSTR, cpatterns: u32, ppwzpatterns: *const super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcf: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, pwzprotocol: super::super::super::Foundation::PWSTR, cpatterns: u32, ppwzpatterns: *const super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcf: ::windows::runtime::RawPtr, pszprotocol: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcf: ::windows::core::RawPtr, pszprotocol: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcf: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcf: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcf: ::windows::runtime::RawPtr, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcf: ::windows::core::RawPtr, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbc: ::windows::runtime::RawPtr, szurl: super::super::super::Foundation::PWSTR, punkouter: ::windows::runtime::RawPtr, ppunk: *mut ::windows::runtime::RawPtr, ppoinetprot: *mut ::windows::runtime::RawPtr, dwoption: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbc: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, punkouter: ::windows::core::RawPtr, ppunk: *mut ::windows::core::RawPtr, ppoinetprot: *mut ::windows::core::RawPtr, dwoption: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetThreadSwitch(pub ::windows::runtime::IUnknown);
+pub struct IInternetThreadSwitch(pub ::windows::core::IUnknown);
 impl IInternetThreadSwitch {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Prepare(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Prepare(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Continue(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Continue(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetThreadSwitch {
+unsafe impl ::windows::core::Interface for IInternetThreadSwitch {
     type Vtable = IInternetThreadSwitch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9e8_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e8_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetThreadSwitch> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetThreadSwitch> for ::windows::core::IUnknown {
     fn from(value: IInternetThreadSwitch) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetThreadSwitch> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetThreadSwitch> for ::windows::core::IUnknown {
     fn from(value: &IInternetThreadSwitch) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetThreadSwitch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetThreadSwitch {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetThreadSwitch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetThreadSwitch {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetThreadSwitch_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetZoneManager(pub ::windows::runtime::IUnknown);
+pub struct IInternetZoneManager(pub ::windows::core::IUnknown);
 impl IInternetZoneManager {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
+    pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
+    pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::runtime::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn PromptAction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, hwndparent: Param1, pwszurl: Param2, pwsztext: Param3, dwpromptflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), hwndparent.into_param().abi(), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwpromptflags)).ok()
+    pub unsafe fn PromptAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, hwndparent: Param1, pwszurl: Param2, pwsztext: Param3, dwpromptflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), hwndparent.into_param().abi(), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwpromptflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn LogAction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, pwszurl: Param1, pwsztext: Param2, dwlogflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwlogflags)).ok()
+    pub unsafe fn LogAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, pwszurl: Param1, pwsztext: Param2, dwlogflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwlogflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum), ::core::mem::transmute(dwindex), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum), ::core::mem::transmute(dwindex), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum)).ok()
+    pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetZoneManager {
+unsafe impl ::windows::core::Interface for IInternetZoneManager {
     type Vtable = IInternetZoneManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9ef_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ef_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IInternetZoneManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetZoneManager> for ::windows::core::IUnknown {
     fn from(value: IInternetZoneManager) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetZoneManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetZoneManager> for ::windows::core::IUnknown {
     fn from(value: &IInternetZoneManager) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetZoneManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetZoneManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetZoneManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetZoneManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetZoneManager_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, guidkey: *const ::windows::runtime::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwaction: u32, hwndparent: super::super::super::Foundation::HWND, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwpromptflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwaction: u32, hwndparent: super::super::super::Foundation::HWND, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwpromptflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwaction: u32, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwlogflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwaction: u32, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwlogflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwenum: u32, dwindex: u32, pdwzone: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwenum: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwenum: u32, dwindex: u32, pdwzone: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwenum: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetZoneManagerEx(pub ::windows::runtime::IUnknown);
+pub struct IInternetZoneManagerEx(pub ::windows::core::IUnknown);
 impl IInternetZoneManagerEx {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
+    pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
+    pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::runtime::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn PromptAction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, hwndparent: Param1, pwszurl: Param2, pwsztext: Param3, dwpromptflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), hwndparent.into_param().abi(), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwpromptflags)).ok()
+    pub unsafe fn PromptAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, hwndparent: Param1, pwszurl: Param2, pwsztext: Param3, dwpromptflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), hwndparent.into_param().abi(), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwpromptflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn LogAction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, pwszurl: Param1, pwsztext: Param2, dwlogflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwlogflags)).ok()
+    pub unsafe fn LogAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, pwszurl: Param1, pwsztext: Param2, dwlogflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwlogflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum), ::core::mem::transmute(dwindex), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum), ::core::mem::transmute(dwindex), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum)).ok()
+    pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetZoneManagerEx {
+unsafe impl ::windows::core::Interface for IInternetZoneManagerEx {
     type Vtable = IInternetZoneManagerEx_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4c23339_8e06_431e_9bf4_7e711c085648);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c23339_8e06_431e_9bf4_7e711c085648);
 }
-impl ::core::convert::From<IInternetZoneManagerEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetZoneManagerEx> for ::windows::core::IUnknown {
     fn from(value: IInternetZoneManagerEx) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetZoneManagerEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetZoneManagerEx> for ::windows::core::IUnknown {
     fn from(value: &IInternetZoneManagerEx) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetZoneManagerEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetZoneManagerEx {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetZoneManagerEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetZoneManagerEx {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IInternetZoneManagerEx> for IInternetZoneManager {
@@ -3517,144 +3505,144 @@ impl ::core::convert::From<&IInternetZoneManagerEx> for IInternetZoneManager {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for IInternetZoneManagerEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetZoneManager> for IInternetZoneManagerEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetZoneManager> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for &IInternetZoneManagerEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetZoneManager> for &IInternetZoneManagerEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetZoneManager> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetZoneManagerEx_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, guidkey: *const ::windows::runtime::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwaction: u32, hwndparent: super::super::super::Foundation::HWND, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwpromptflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwaction: u32, hwndparent: super::super::super::Foundation::HWND, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwpromptflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwaction: u32, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwlogflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwaction: u32, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwlogflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwenum: u32, dwindex: u32, pdwzone: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwenum: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwenum: u32, dwindex: u32, pdwzone: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwenum: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IInternetZoneManagerEx2(pub ::windows::runtime::IUnknown);
+pub struct IInternetZoneManagerEx2(pub ::windows::core::IUnknown);
 impl IInternetZoneManagerEx2 {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
+    pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
+    pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::runtime::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn PromptAction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, hwndparent: Param1, pwszurl: Param2, pwsztext: Param3, dwpromptflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), hwndparent.into_param().abi(), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwpromptflags)).ok()
+    pub unsafe fn PromptAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, hwndparent: Param1, pwszurl: Param2, pwsztext: Param3, dwpromptflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), hwndparent.into_param().abi(), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwpromptflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn LogAction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, pwszurl: Param1, pwsztext: Param2, dwlogflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwlogflags)).ok()
+    pub unsafe fn LogAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, pwszurl: Param1, pwsztext: Param2, dwlogflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwlogflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum), ::core::mem::transmute(dwindex), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum), ::core::mem::transmute(dwindex), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum)).ok()
+    pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes), ::core::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetZoneSecurityState<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, dwzoneindex: u32, frespectpolicy: Param1, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzoneindex), frespectpolicy.into_param().abi(), ::core::mem::transmute(pdwstate), ::core::mem::transmute(pfpolicyencountered)).ok()
+    pub unsafe fn GetZoneSecurityState<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, dwzoneindex: u32, frespectpolicy: Param1, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzoneindex), frespectpolicy.into_param().abi(), ::core::mem::transmute(pdwstate), ::core::mem::transmute(pfpolicyencountered)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetIESecurityState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, frespectpolicy: Param0, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), frespectpolicy.into_param().abi(), ::core::mem::transmute(pdwstate), ::core::mem::transmute(pfpolicyencountered), fnocache.into_param().abi()).ok()
+    pub unsafe fn GetIESecurityState<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, frespectpolicy: Param0, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), frespectpolicy.into_param().abi(), ::core::mem::transmute(pdwstate), ::core::mem::transmute(pfpolicyencountered), fnocache.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn FixUnsecureSettings(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn FixUnsecureSettings(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IInternetZoneManagerEx2 {
+unsafe impl ::windows::core::Interface for IInternetZoneManagerEx2 {
     type Vtable = IInternetZoneManagerEx2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xedc17559_dd5d_4846_8eef_8becba5a4abf);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedc17559_dd5d_4846_8eef_8becba5a4abf);
 }
-impl ::core::convert::From<IInternetZoneManagerEx2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInternetZoneManagerEx2> for ::windows::core::IUnknown {
     fn from(value: IInternetZoneManagerEx2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IInternetZoneManagerEx2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInternetZoneManagerEx2> for ::windows::core::IUnknown {
     fn from(value: &IInternetZoneManagerEx2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetZoneManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInternetZoneManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetZoneManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInternetZoneManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IInternetZoneManagerEx2> for IInternetZoneManagerEx {
@@ -3667,14 +3655,14 @@ impl ::core::convert::From<&IInternetZoneManagerEx2> for IInternetZoneManagerEx 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManagerEx> for IInternetZoneManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManagerEx> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetZoneManagerEx> for IInternetZoneManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetZoneManagerEx> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManagerEx> for &IInternetZoneManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManagerEx> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetZoneManagerEx> for &IInternetZoneManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetZoneManagerEx> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IInternetZoneManagerEx2> for IInternetZoneManager {
@@ -3687,189 +3675,189 @@ impl ::core::convert::From<&IInternetZoneManagerEx2> for IInternetZoneManager {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for IInternetZoneManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetZoneManager> for IInternetZoneManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetZoneManager> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for &IInternetZoneManagerEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IInternetZoneManager> for &IInternetZoneManagerEx2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IInternetZoneManager> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetZoneManagerEx2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, guidkey: *const ::windows::runtime::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, guidkey: *const ::windows::runtime::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwaction: u32, hwndparent: super::super::super::Foundation::HWND, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwpromptflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwaction: u32, hwndparent: super::super::super::Foundation::HWND, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwpromptflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwaction: u32, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwlogflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwaction: u32, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwlogflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwenum: u32, dwindex: u32, pdwzone: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwenum: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzoneindex: u32, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwenum: u32, dwindex: u32, pdwzone: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwenum: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzoneindex: u32, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IMonikerProp(pub ::windows::runtime::IUnknown);
+pub struct IMonikerProp(pub ::windows::core::IUnknown);
 impl IMonikerProp {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn PutProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, mkp: MONIKERPROPERTY, val: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(mkp), val.into_param().abi()).ok()
+    pub unsafe fn PutProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, mkp: MONIKERPROPERTY, val: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(mkp), val.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IMonikerProp {
+unsafe impl ::windows::core::Interface for IMonikerProp {
     type Vtable = IMonikerProp_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5ca5f7f_1847_4d87_9c5b_918509f7511d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5ca5f7f_1847_4d87_9c5b_918509f7511d);
 }
-impl ::core::convert::From<IMonikerProp> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMonikerProp> for ::windows::core::IUnknown {
     fn from(value: IMonikerProp) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IMonikerProp> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMonikerProp> for ::windows::core::IUnknown {
     fn from(value: &IMonikerProp) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMonikerProp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMonikerProp {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMonikerProp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMonikerProp {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMonikerProp_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mkp: MONIKERPROPERTY, val: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, mkp: MONIKERPROPERTY, val: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_AUTHENTICATION_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697207i32 as _);
+pub const INET_E_AUTHENTICATION_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697207i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_BLOCKED_ENHANCEDPROTECTEDMODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146695930i32 as _);
+pub const INET_E_BLOCKED_ENHANCEDPROTECTEDMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695930i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_BLOCKED_PLUGGABLE_PROTOCOL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146695931i32 as _);
+pub const INET_E_BLOCKED_PLUGGABLE_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695931i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_BLOCKED_REDIRECT_XSECURITYID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697189i32 as _);
+pub const INET_E_BLOCKED_REDIRECT_XSECURITYID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697189i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CANNOT_CONNECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697212i32 as _);
+pub const INET_E_CANNOT_CONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697212i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CANNOT_INSTANTIATE_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697200i32 as _);
+pub const INET_E_CANNOT_INSTANTIATE_OBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697200i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CANNOT_LOAD_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697201i32 as _);
+pub const INET_E_CANNOT_LOAD_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697201i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CANNOT_LOCK_REQUEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697194i32 as _);
+pub const INET_E_CANNOT_LOCK_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697194i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CANNOT_REPLACE_SFP_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146696448i32 as _);
+pub const INET_E_CANNOT_REPLACE_SFP_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696448i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CODE_DOWNLOAD_DECLINED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146696960i32 as _);
+pub const INET_E_CODE_DOWNLOAD_DECLINED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696960i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CODE_INSTALL_BLOCKED_ARM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146695932i32 as _);
+pub const INET_E_CODE_INSTALL_BLOCKED_ARM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695932i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CODE_INSTALL_BLOCKED_BITNESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146695929i32 as _);
+pub const INET_E_CODE_INSTALL_BLOCKED_BITNESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695929i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CODE_INSTALL_BLOCKED_BY_HASH_POLICY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146695936i32 as _);
+pub const INET_E_CODE_INSTALL_BLOCKED_BY_HASH_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695936i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CODE_INSTALL_BLOCKED_IMMERSIVE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146695934i32 as _);
+pub const INET_E_CODE_INSTALL_BLOCKED_IMMERSIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695934i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CODE_INSTALL_SUPPRESSED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146696192i32 as _);
+pub const INET_E_CODE_INSTALL_SUPPRESSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696192i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_CONNECTION_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697205i32 as _);
+pub const INET_E_CONNECTION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697205i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_DATA_NOT_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697209i32 as _);
+pub const INET_E_DATA_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697209i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const INET_E_DEFAULT_ACTION: i32 = -2146697199i32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_DOMINJECTIONVALIDATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697188i32 as _);
+pub const INET_E_DOMINJECTIONVALIDATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697188i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_DOWNLOAD_BLOCKED_BY_CSP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146695928i32 as _);
+pub const INET_E_DOWNLOAD_BLOCKED_BY_CSP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695928i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_DOWNLOAD_BLOCKED_BY_INPRIVATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146695935i32 as _);
+pub const INET_E_DOWNLOAD_BLOCKED_BY_INPRIVATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695935i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_DOWNLOAD_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697208i32 as _);
+pub const INET_E_DOWNLOAD_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697208i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_ERROR_FIRST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697214i32 as _);
+pub const INET_E_ERROR_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697214i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const INET_E_ERROR_LAST: i32 = -2146695928i32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_FORBIDFRAMING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146695933i32 as _);
+pub const INET_E_FORBIDFRAMING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695933i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_HSTS_CERTIFICATE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697186i32 as _);
+pub const INET_E_HSTS_CERTIFICATE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697186i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_INVALID_CERTIFICATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697191i32 as _);
+pub const INET_E_INVALID_CERTIFICATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697191i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_INVALID_REQUEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697204i32 as _);
+pub const INET_E_INVALID_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697204i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_INVALID_URL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697214i32 as _);
+pub const INET_E_INVALID_URL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697214i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_NO_SESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697213i32 as _);
+pub const INET_E_NO_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697213i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_NO_VALID_MEDIA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697206i32 as _);
+pub const INET_E_NO_VALID_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697206i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_OBJECT_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697210i32 as _);
+pub const INET_E_OBJECT_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697210i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_QUERYOPTION_UNKNOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697197i32 as _);
+pub const INET_E_QUERYOPTION_UNKNOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697197i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_REDIRECTING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697196i32 as _);
+pub const INET_E_REDIRECTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697196i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_REDIRECT_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697196i32 as _);
+pub const INET_E_REDIRECT_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697196i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_REDIRECT_TO_DIR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697195i32 as _);
+pub const INET_E_REDIRECT_TO_DIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697195i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_RESERVED_1: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697190i32 as _);
+pub const INET_E_RESERVED_1: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697190i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_RESERVED_2: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697185i32 as _);
+pub const INET_E_RESERVED_2: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697185i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_RESERVED_3: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697184i32 as _);
+pub const INET_E_RESERVED_3: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697184i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_RESERVED_4: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697183i32 as _);
+pub const INET_E_RESERVED_4: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697183i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_RESERVED_5: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697182i32 as _);
+pub const INET_E_RESERVED_5: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697182i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_RESOURCE_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697211i32 as _);
+pub const INET_E_RESOURCE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697211i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_RESULT_DISPATCHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146696704i32 as _);
+pub const INET_E_RESULT_DISPATCHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696704i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_SECURITY_PROBLEM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697202i32 as _);
+pub const INET_E_SECURITY_PROBLEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697202i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_TERMINATED_BIND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697192i32 as _);
+pub const INET_E_TERMINATED_BIND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697192i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_UNKNOWN_PROTOCOL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697203i32 as _);
+pub const INET_E_UNKNOWN_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697203i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_USE_DEFAULT_PROTOCOLHANDLER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697199i32 as _);
+pub const INET_E_USE_DEFAULT_PROTOCOLHANDLER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697199i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_USE_DEFAULT_SETTING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697198i32 as _);
+pub const INET_E_USE_DEFAULT_SETTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697198i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_USE_EXTEND_BINDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697193i32 as _);
+pub const INET_E_USE_EXTEND_BINDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697193i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146697187i32 as _);
+pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697187i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -3881,7 +3869,7 @@ impl ::core::convert::From<i32> for INET_ZONE_MANAGER_CONSTANTS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for INET_ZONE_MANAGER_CONSTANTS {
+unsafe impl ::windows::core::Abi for INET_ZONE_MANAGER_CONSTANTS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -3922,321 +3910,321 @@ impl ::core::convert::From<i32> for INTERNETFEATURELIST {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for INTERNETFEATURELIST {
+unsafe impl ::windows::core::Abi for INTERNETFEATURELIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IPersistMoniker(pub ::windows::runtime::IUnknown);
+pub struct IPersistMoniker(pub ::windows::core::IUnknown);
 impl IPersistMoniker {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+    pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn IsDirty(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param2: ::windows::runtime::IntoParam<'a, super::IBindCtx>>(&self, ffullyavailable: Param0, pimkname: Param1, pibc: Param2, grfmode: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ffullyavailable.into_param().abi(), pimkname.into_param().abi(), pibc.into_param().abi(), ::core::mem::transmute(grfmode)).ok()
+    pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::IMoniker>, Param2: ::windows::core::IntoParam<'a, super::IBindCtx>>(&self, ffullyavailable: Param0, pimkname: Param1, pibc: Param2, grfmode: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ffullyavailable.into_param().abi(), pimkname.into_param().abi(), pibc.into_param().abi(), ::core::mem::transmute(grfmode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, pimkname: Param0, pbc: Param1, fremember: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pimkname.into_param().abi(), pbc.into_param().abi(), fremember.into_param().abi()).ok()
+    pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, super::IBindCtx>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, pimkname: Param0, pbc: Param1, fremember: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pimkname.into_param().abi(), pbc.into_param().abi(), fremember.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SaveCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::IBindCtx>>(&self, pimkname: Param0, pibc: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pimkname.into_param().abi(), pibc.into_param().abi()).ok()
+    pub unsafe fn SaveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, super::IBindCtx>>(&self, pimkname: Param0, pibc: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pimkname.into_param().abi(), pibc.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetCurMoniker(&self) -> ::windows::runtime::Result<super::IMoniker> {
-        let mut result__: <super::IMoniker as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::IMoniker>(result__)
+    pub unsafe fn GetCurMoniker(&self) -> ::windows::core::Result<super::IMoniker> {
+        let mut result__: <super::IMoniker as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::IMoniker>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IPersistMoniker {
+unsafe impl ::windows::core::Interface for IPersistMoniker {
     type Vtable = IPersistMoniker_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9c9_baf9_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9c9_baf9_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IPersistMoniker> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPersistMoniker> for ::windows::core::IUnknown {
     fn from(value: IPersistMoniker) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IPersistMoniker> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPersistMoniker> for ::windows::core::IUnknown {
     fn from(value: &IPersistMoniker) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPersistMoniker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPersistMoniker {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPersistMoniker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPersistMoniker {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistMoniker_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclassid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: ::windows::runtime::RawPtr, pibc: ::windows::runtime::RawPtr, grfmode: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pclassid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: ::windows::core::RawPtr, pibc: ::windows::core::RawPtr, grfmode: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pimkname: ::windows::runtime::RawPtr, pbc: ::windows::runtime::RawPtr, fremember: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pimkname: ::windows::core::RawPtr, pbc: ::windows::core::RawPtr, fremember: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pimkname: ::windows::runtime::RawPtr, pibc: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppimkname: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pimkname: ::windows::core::RawPtr, pibc: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppimkname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISoftDistExt(pub ::windows::runtime::IUnknown);
+pub struct ISoftDistExt(pub ::windows::core::IUnknown);
 impl ISoftDistExt {
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
-    pub unsafe fn ProcessSoftDist<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Data::Xml::MsXml::IXMLElement>>(&self, szcdfurl: Param0, psoftdistelement: Param1, lpsdi: *mut SOFTDISTINFO) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szcdfurl.into_param().abi(), psoftdistelement.into_param().abi(), ::core::mem::transmute(lpsdi)).ok()
+    pub unsafe fn ProcessSoftDist<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Data::Xml::MsXml::IXMLElement>>(&self, szcdfurl: Param0, psoftdistelement: Param1, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szcdfurl.into_param().abi(), psoftdistelement.into_param().abi(), ::core::mem::transmute(lpsdi)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetFirstCodeBase(&self, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(szcodebase), ::core::mem::transmute(dwmaxsize)).ok()
+    pub unsafe fn GetFirstCodeBase(&self, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(szcodebase), ::core::mem::transmute(dwmaxsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetNextCodeBase(&self, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(szcodebase), ::core::mem::transmute(dwmaxsize)).ok()
+    pub unsafe fn GetNextCodeBase(&self, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(szcodebase), ::core::mem::transmute(dwmaxsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn AsyncInstallDistributionUnit<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>>(&self, pbc: Param0, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pbc.into_param().abi(), ::core::mem::transmute(pvreserved), ::core::mem::transmute(flags), ::core::mem::transmute(lpcbh)).ok()
+    pub unsafe fn AsyncInstallDistributionUnit<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>>(&self, pbc: Param0, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pbc.into_param().abi(), ::core::mem::transmute(pvreserved), ::core::mem::transmute(flags), ::core::mem::transmute(lpcbh)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISoftDistExt {
+unsafe impl ::windows::core::Interface for ISoftDistExt {
     type Vtable = ISoftDistExt_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb15b8dc1_c7e1_11d0_8680_00aa00bdcb71);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb15b8dc1_c7e1_11d0_8680_00aa00bdcb71);
 }
-impl ::core::convert::From<ISoftDistExt> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISoftDistExt> for ::windows::core::IUnknown {
     fn from(value: ISoftDistExt) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISoftDistExt> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISoftDistExt> for ::windows::core::IUnknown {
     fn from(value: &ISoftDistExt) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISoftDistExt {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISoftDistExt {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISoftDistExt {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISoftDistExt {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftDistExt_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szcdfurl: super::super::super::Foundation::PWSTR, psoftdistelement: ::windows::runtime::RawPtr, lpsdi: *mut SOFTDISTINFO) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, szcdfurl: super::super::super::Foundation::PWSTR, psoftdistelement: ::windows::core::RawPtr, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbc: ::windows::runtime::RawPtr, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbc: ::windows::core::RawPtr, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IUriBuilderFactory(pub ::windows::runtime::IUnknown);
+pub struct IUriBuilderFactory(pub ::windows::core::IUnknown);
 impl IUriBuilderFactory {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn CreateIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows::runtime::Result<super::IUriBuilder> {
-        let mut result__: <super::IUriBuilder as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<super::IUriBuilder>(result__)
+    pub unsafe fn CreateIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<super::IUriBuilder> {
+        let mut result__: <super::IUriBuilder as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<super::IUriBuilder>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn CreateInitializedIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows::runtime::Result<super::IUriBuilder> {
-        let mut result__: <super::IUriBuilder as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<super::IUriBuilder>(result__)
+    pub unsafe fn CreateInitializedIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<super::IUriBuilder> {
+        let mut result__: <super::IUriBuilder as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), &mut result__).from_abi::<super::IUriBuilder>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IUriBuilderFactory {
+unsafe impl ::windows::core::Interface for IUriBuilderFactory {
     type Vtable = IUriBuilderFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe982ce48_0b96_440c_bc37_0c869b27a29e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe982ce48_0b96_440c_bc37_0c869b27a29e);
 }
-impl ::core::convert::From<IUriBuilderFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IUriBuilderFactory> for ::windows::core::IUnknown {
     fn from(value: IUriBuilderFactory) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IUriBuilderFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IUriBuilderFactory> for ::windows::core::IUnknown {
     fn from(value: &IUriBuilderFactory) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUriBuilderFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUriBuilderFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUriBuilderFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUriBuilderFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriBuilderFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IUriContainer(pub ::windows::runtime::IUnknown);
+pub struct IUriContainer(pub ::windows::core::IUnknown);
 impl IUriContainer {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetIUri(&self) -> ::windows::runtime::Result<super::IUri> {
-        let mut result__: <super::IUri as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::IUri>(result__)
+    pub unsafe fn GetIUri(&self) -> ::windows::core::Result<super::IUri> {
+        let mut result__: <super::IUri as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::IUri>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IUriContainer {
+unsafe impl ::windows::core::Interface for IUriContainer {
     type Vtable = IUriContainer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa158a630_ed6f_45fb_b987_f68676f57752);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa158a630_ed6f_45fb_b987_f68676f57752);
 }
-impl ::core::convert::From<IUriContainer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IUriContainer> for ::windows::core::IUnknown {
     fn from(value: IUriContainer) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IUriContainer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IUriContainer> for ::windows::core::IUnknown {
     fn from(value: &IUriContainer) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUriContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUriContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUriContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUriContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriContainer_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppiuri: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppiuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IWinInetCacheHints(pub ::windows::runtime::IUnknown);
+pub struct IWinInetCacheHints(pub ::windows::core::IUnknown);
 impl IWinInetCacheHints {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn SetCacheExtension<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzext: Param0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzext.into_param().abi(), ::core::mem::transmute(pszcachefile), ::core::mem::transmute(pcbcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
+    pub unsafe fn SetCacheExtension<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzext: Param0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzext.into_param().abi(), ::core::mem::transmute(pszcachefile), ::core::mem::transmute(pcbcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IWinInetCacheHints {
+unsafe impl ::windows::core::Interface for IWinInetCacheHints {
     type Vtable = IWinInetCacheHints_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd1ec3b3_8391_4fdb_a9e6_347c3caaa7dd);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd1ec3b3_8391_4fdb_a9e6_347c3caaa7dd);
 }
-impl ::core::convert::From<IWinInetCacheHints> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWinInetCacheHints> for ::windows::core::IUnknown {
     fn from(value: IWinInetCacheHints) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IWinInetCacheHints> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWinInetCacheHints> for ::windows::core::IUnknown {
     fn from(value: &IWinInetCacheHints) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetCacheHints {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWinInetCacheHints {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetCacheHints {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWinInetCacheHints {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinInetCacheHints_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzext: super::super::super::Foundation::PWSTR, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwzext: super::super::super::Foundation::PWSTR, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IWinInetCacheHints2(pub ::windows::runtime::IUnknown);
+pub struct IWinInetCacheHints2(pub ::windows::core::IUnknown);
 impl IWinInetCacheHints2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn SetCacheExtension<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzext: Param0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzext.into_param().abi(), ::core::mem::transmute(pszcachefile), ::core::mem::transmute(pcbcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
+    pub unsafe fn SetCacheExtension<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzext: Param0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzext.into_param().abi(), ::core::mem::transmute(pszcachefile), ::core::mem::transmute(pcbcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn SetCacheExtension2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzext: Param0, pwzcachefile: super::super::super::Foundation::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwzext.into_param().abi(), ::core::mem::transmute(pwzcachefile), ::core::mem::transmute(pcchcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
+    pub unsafe fn SetCacheExtension2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzext: Param0, pwzcachefile: super::super::super::Foundation::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwzext.into_param().abi(), ::core::mem::transmute(pwzcachefile), ::core::mem::transmute(pcchcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IWinInetCacheHints2 {
+unsafe impl ::windows::core::Interface for IWinInetCacheHints2 {
     type Vtable = IWinInetCacheHints2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7857aeac_d31f_49bf_884e_dd46df36780a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7857aeac_d31f_49bf_884e_dd46df36780a);
 }
-impl ::core::convert::From<IWinInetCacheHints2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWinInetCacheHints2> for ::windows::core::IUnknown {
     fn from(value: IWinInetCacheHints2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IWinInetCacheHints2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWinInetCacheHints2> for ::windows::core::IUnknown {
     fn from(value: &IWinInetCacheHints2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetCacheHints2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWinInetCacheHints2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetCacheHints2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWinInetCacheHints2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IWinInetCacheHints2> for IWinInetCacheHints {
@@ -4249,110 +4237,110 @@ impl ::core::convert::From<&IWinInetCacheHints2> for IWinInetCacheHints {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWinInetCacheHints> for IWinInetCacheHints2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetCacheHints> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IWinInetCacheHints> for IWinInetCacheHints2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IWinInetCacheHints> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWinInetCacheHints> for &IWinInetCacheHints2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetCacheHints> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IWinInetCacheHints> for &IWinInetCacheHints2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IWinInetCacheHints> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinInetCacheHints2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzext: super::super::super::Foundation::PWSTR, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwzext: super::super::super::Foundation::PWSTR, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzext: super::super::super::Foundation::PWSTR, pwzcachefile: super::super::super::Foundation::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwzext: super::super::super::Foundation::PWSTR, pwzcachefile: super::super::super::Foundation::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IWinInetFileStream(pub ::windows::runtime::IUnknown);
+pub struct IWinInetFileStream(pub ::windows::core::IUnknown);
 impl IWinInetFileStream {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetHandleForUnlock(&self, hwininetlockhandle: usize, dwreserved: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwininetlockhandle), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn SetHandleForUnlock(&self, hwininetlockhandle: usize, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwininetlockhandle), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetDeleteFile(&self, dwreserved: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn SetDeleteFile(&self, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IWinInetFileStream {
+unsafe impl ::windows::core::Interface for IWinInetFileStream {
     type Vtable = IWinInetFileStream_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf134c4b7_b1f8_4e75_b886_74b90943becb);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf134c4b7_b1f8_4e75_b886_74b90943becb);
 }
-impl ::core::convert::From<IWinInetFileStream> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWinInetFileStream> for ::windows::core::IUnknown {
     fn from(value: IWinInetFileStream) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IWinInetFileStream> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWinInetFileStream> for ::windows::core::IUnknown {
     fn from(value: &IWinInetFileStream) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetFileStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWinInetFileStream {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetFileStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWinInetFileStream {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinInetFileStream_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwininetlockhandle: usize, dwreserved: usize) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwreserved: usize) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwininetlockhandle: usize, dwreserved: usize) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwreserved: usize) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IWinInetHttpInfo(pub ::windows::runtime::IUnknown);
+pub struct IWinInetHttpInfo(pub ::windows::core::IUnknown);
 impl IWinInetHttpInfo {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf)).ok()
+    pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn QueryInfo(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32, pdwflags: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf), ::core::mem::transmute(pdwflags), ::core::mem::transmute(pdwreserved)).ok()
+    pub unsafe fn QueryInfo(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32, pdwflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf), ::core::mem::transmute(pdwflags), ::core::mem::transmute(pdwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IWinInetHttpInfo {
+unsafe impl ::windows::core::Interface for IWinInetHttpInfo {
     type Vtable = IWinInetHttpInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d8_bafa_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d8_bafa_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IWinInetHttpInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWinInetHttpInfo> for ::windows::core::IUnknown {
     fn from(value: IWinInetHttpInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IWinInetHttpInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWinInetHttpInfo> for ::windows::core::IUnknown {
     fn from(value: &IWinInetHttpInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetHttpInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWinInetHttpInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetHttpInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWinInetHttpInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IWinInetHttpInfo> for IWinInetInfo {
@@ -4365,318 +4353,318 @@ impl ::core::convert::From<&IWinInetHttpInfo> for IWinInetInfo {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWinInetInfo> for IWinInetHttpInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetInfo> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IWinInetInfo> for IWinInetHttpInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, IWinInetInfo> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWinInetInfo> for &IWinInetHttpInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetInfo> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IWinInetInfo> for &IWinInetHttpInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, IWinInetInfo> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinInetHttpInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32, pdwflags: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32, pdwflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IWinInetHttpTimeouts(pub ::windows::runtime::IUnknown);
+pub struct IWinInetHttpTimeouts(pub ::windows::core::IUnknown);
 impl IWinInetHttpTimeouts {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetRequestTimeouts(&self, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwconnecttimeout), ::core::mem::transmute(pdwsendtimeout), ::core::mem::transmute(pdwreceivetimeout)).ok()
+    pub unsafe fn GetRequestTimeouts(&self, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwconnecttimeout), ::core::mem::transmute(pdwsendtimeout), ::core::mem::transmute(pdwreceivetimeout)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IWinInetHttpTimeouts {
+unsafe impl ::windows::core::Interface for IWinInetHttpTimeouts {
     type Vtable = IWinInetHttpTimeouts_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf286fa56_c1fd_4270_8e67_b3eb790a81e8);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf286fa56_c1fd_4270_8e67_b3eb790a81e8);
 }
-impl ::core::convert::From<IWinInetHttpTimeouts> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWinInetHttpTimeouts> for ::windows::core::IUnknown {
     fn from(value: IWinInetHttpTimeouts) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IWinInetHttpTimeouts> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWinInetHttpTimeouts> for ::windows::core::IUnknown {
     fn from(value: &IWinInetHttpTimeouts) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetHttpTimeouts {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWinInetHttpTimeouts {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetHttpTimeouts {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWinInetHttpTimeouts {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinInetHttpTimeouts_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IWinInetInfo(pub ::windows::runtime::IUnknown);
+pub struct IWinInetInfo(pub ::windows::core::IUnknown);
 impl IWinInetInfo {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf)).ok()
+    pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IWinInetInfo {
+unsafe impl ::windows::core::Interface for IWinInetInfo {
     type Vtable = IWinInetInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d6_bafa_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d6_bafa_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IWinInetInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWinInetInfo> for ::windows::core::IUnknown {
     fn from(value: IWinInetInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IWinInetInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWinInetInfo> for ::windows::core::IUnknown {
     fn from(value: &IWinInetInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWinInetInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWinInetInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinInetInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IWindowForBindingUI(pub ::windows::runtime::IUnknown);
+pub struct IWindowForBindingUI(pub ::windows::core::IUnknown);
 impl IWindowForBindingUI {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::super::Foundation::HWND> {
-        let mut result__: <super::super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidreason), &mut result__).from_abi::<super::super::super::Foundation::HWND>(result__)
+    pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
+        let mut result__: <super::super::super::Foundation::HWND as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidreason), &mut result__).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IWindowForBindingUI {
+unsafe impl ::windows::core::Interface for IWindowForBindingUI {
     type Vtable = IWindowForBindingUI_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x79eac9d5_bafa_11ce_8c82_00aa004ba90b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d5_bafa_11ce_8c82_00aa004ba90b);
 }
-impl ::core::convert::From<IWindowForBindingUI> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWindowForBindingUI> for ::windows::core::IUnknown {
     fn from(value: IWindowForBindingUI) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IWindowForBindingUI> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWindowForBindingUI> for ::windows::core::IUnknown {
     fn from(value: &IWindowForBindingUI) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowForBindingUI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowForBindingUI {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWindowForBindingUI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowForBindingUI {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowForBindingUI_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguidreason: *const ::windows::runtime::GUID, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, rguidreason: *const ::windows::core::GUID, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IWrappedProtocol(pub ::windows::runtime::IUnknown);
+pub struct IWrappedProtocol(pub ::windows::core::IUnknown);
 impl IWrappedProtocol {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetWrapperCode(&self, pncode: *mut i32, dwreserved: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pncode), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn GetWrapperCode(&self, pncode: *mut i32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pncode), ::core::mem::transmute(dwreserved)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IWrappedProtocol {
+unsafe impl ::windows::core::Interface for IWrappedProtocol {
     type Vtable = IWrappedProtocol_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53c84785_8425_4dc5_971b_e58d9c19f9b6);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53c84785_8425_4dc5_971b_e58d9c19f9b6);
 }
-impl ::core::convert::From<IWrappedProtocol> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWrappedProtocol> for ::windows::core::IUnknown {
     fn from(value: IWrappedProtocol) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IWrappedProtocol> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWrappedProtocol> for ::windows::core::IUnknown {
     fn from(value: &IWrappedProtocol) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWrappedProtocol {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWrappedProtocol {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWrappedProtocol {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWrappedProtocol {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWrappedProtocol_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pncode: *mut i32, dwreserved: usize) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pncode: *mut i32, dwreserved: usize) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IZoneIdentifier(pub ::windows::runtime::IUnknown);
+pub struct IZoneIdentifier(pub ::windows::core::IUnknown);
 impl IZoneIdentifier {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetId(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetId(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetId(&self, dwzone: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone)).ok()
+    pub unsafe fn SetId(&self, dwzone: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Remove(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Remove(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IZoneIdentifier {
+unsafe impl ::windows::core::Interface for IZoneIdentifier {
     type Vtable = IZoneIdentifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd45f185_1b21_48e2_967b_ead743a8914e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd45f185_1b21_48e2_967b_ead743a8914e);
 }
-impl ::core::convert::From<IZoneIdentifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IZoneIdentifier> for ::windows::core::IUnknown {
     fn from(value: IZoneIdentifier) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IZoneIdentifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IZoneIdentifier> for ::windows::core::IUnknown {
     fn from(value: &IZoneIdentifier) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IZoneIdentifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IZoneIdentifier {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IZoneIdentifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IZoneIdentifier {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IZoneIdentifier_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwzone: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwzone: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IZoneIdentifier2(pub ::windows::runtime::IUnknown);
+pub struct IZoneIdentifier2(pub ::windows::core::IUnknown);
 impl IZoneIdentifier2 {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetId(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetId(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetId(&self, dwzone: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone)).ok()
+    pub unsafe fn SetId(&self, dwzone: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn Remove(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Remove(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn GetLastWriterPackageFamilyName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetLastWriterPackageFamilyName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
-    pub unsafe fn SetLastWriterPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, packagefamilyname: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), packagefamilyname.into_param().abi()).ok()
+    pub unsafe fn SetLastWriterPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), packagefamilyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn RemoveLastWriterPackageFamilyName(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn RemoveLastWriterPackageFamilyName(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn GetAppZoneId(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetAppZoneId(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn SetAppZoneId(&self, zone: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(zone)).ok()
+    pub unsafe fn SetAppZoneId(&self, zone: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(zone)).ok()
     }
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-    pub unsafe fn RemoveAppZoneId(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn RemoveAppZoneId(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IZoneIdentifier2 {
+unsafe impl ::windows::core::Interface for IZoneIdentifier2 {
     type Vtable = IZoneIdentifier2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb5e760c_09ef_45c0_b510_70830ce31e6a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb5e760c_09ef_45c0_b510_70830ce31e6a);
 }
-impl ::core::convert::From<IZoneIdentifier2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IZoneIdentifier2> for ::windows::core::IUnknown {
     fn from(value: IZoneIdentifier2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IZoneIdentifier2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IZoneIdentifier2> for ::windows::core::IUnknown {
     fn from(value: &IZoneIdentifier2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IZoneIdentifier2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IZoneIdentifier2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IZoneIdentifier2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IZoneIdentifier2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IZoneIdentifier2> for IZoneIdentifier {
@@ -4689,42 +4677,42 @@ impl ::core::convert::From<&IZoneIdentifier2> for IZoneIdentifier {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IZoneIdentifier> for IZoneIdentifier2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IZoneIdentifier> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IZoneIdentifier> for IZoneIdentifier2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IZoneIdentifier> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IZoneIdentifier> for &IZoneIdentifier2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IZoneIdentifier> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IZoneIdentifier> for &IZoneIdentifier2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IZoneIdentifier> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IZoneIdentifier2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwzone: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwzone: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwzone: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwzone: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packagefamilyname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, zone: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, zone: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, zone: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, zone: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn IsAsyncMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>>(pmk: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn IsAsyncMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>>(pmk: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsAsyncMoniker(pmk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn IsAsyncMoniker(pmk: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         IsAsyncMoniker(pmk.into_param().abi()).ok()
     }
@@ -4734,7 +4722,7 @@ pub unsafe fn IsAsyncMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsLoggingEnabledA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszurl: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn IsLoggingEnabledA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszurl: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4749,7 +4737,7 @@ pub unsafe fn IsLoggingEnabledA<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsLoggingEnabledW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszurl: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn IsLoggingEnabledW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszurl: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4764,12 +4752,12 @@ pub unsafe fn IsLoggingEnabledW<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsValidURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szurl: Param1, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn IsValidURL<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szurl: Param1, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsValidURL(pbc: ::windows::runtime::RawPtr, szurl: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn IsValidURL(pbc: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         IsValidURL(pbc.into_param().abi(), szurl.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -4781,7 +4769,7 @@ pub const MAX_SIZE_SECURITY_ID: u32 = 512u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const MKSYS_URLMONIKER: u32 = 6u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
-pub const MK_S_ASYNCHRONOUS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(262632i32 as _);
+pub const MK_S_ASYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(262632i32 as _);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -4796,7 +4784,7 @@ impl ::core::convert::From<i32> for MONIKERPROPERTY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MONIKERPROPERTY {
+unsafe impl ::windows::core::Abi for MONIKERPROPERTY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -4822,12 +4810,12 @@ pub const MUTZ_RESERVED: u32 = 512u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MkParseDisplayNameEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szdisplayname: Param1, pcheaten: *mut u32, ppmk: *mut ::core::option::Option<super::IMoniker>) -> ::windows::runtime::Result<()> {
+pub unsafe fn MkParseDisplayNameEx<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szdisplayname: Param1, pcheaten: *mut u32, ppmk: *mut ::core::option::Option<super::IMoniker>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MkParseDisplayNameEx(pbc: ::windows::runtime::RawPtr, szdisplayname: super::super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn MkParseDisplayNameEx(pbc: ::windows::core::RawPtr, szdisplayname: super::super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         MkParseDisplayNameEx(pbc.into_param().abi(), szdisplayname.into_param().abi(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmk)).ok()
     }
@@ -4845,18 +4833,18 @@ impl ::core::convert::From<i32> for OIBDG_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OIBDG_FLAGS {
+unsafe impl ::windows::core::Abi for OIBDG_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: super::super::super::Foundation::PSTR, cbsize: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: super::super::super::Foundation::PSTR, cbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ObtainUserAgentString(dwoption: u32, pszuaout: super::super::super::Foundation::PSTR, cbsize: *mut u32) -> ::windows::runtime::HRESULT;
+            fn ObtainUserAgentString(dwoption: u32, pszuaout: super::super::super::Foundation::PSTR, cbsize: *mut u32) -> ::windows::core::HRESULT;
         }
         ObtainUserAgentString(::core::mem::transmute(dwoption), ::core::mem::transmute(pszuaout), ::core::mem::transmute(cbsize)).ok()
     }
@@ -4891,7 +4879,7 @@ impl ::core::convert::From<i32> for PARSEACTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PARSEACTION {
+unsafe impl ::windows::core::Abi for PARSEACTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -4918,7 +4906,7 @@ impl ::core::convert::From<i32> for PI_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PI_FLAGS {
+unsafe impl ::windows::core::Abi for PI_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4947,7 +4935,7 @@ impl ::core::cmp::PartialEq for PROTOCOLDATA {
     }
 }
 impl ::core::cmp::Eq for PROTOCOLDATA {}
-unsafe impl ::windows::runtime::Abi for PROTOCOLDATA {
+unsafe impl ::windows::core::Abi for PROTOCOLDATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -4957,7 +4945,7 @@ pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
     pub pProtocolSink: ::core::option::Option<IInternetProtocolSink>,
     pub pProtocol: ::core::option::Option<IInternetProtocol>,
-    pub pUnk: ::core::option::Option<::windows::runtime::IUnknown>,
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
     pub dwFilterFlags: u32,
 }
 impl PROTOCOLFILTERDATA {}
@@ -4977,7 +4965,7 @@ impl ::core::cmp::PartialEq for PROTOCOLFILTERDATA {
     }
 }
 impl ::core::cmp::Eq for PROTOCOLFILTERDATA {}
-unsafe impl ::windows::runtime::Abi for PROTOCOLFILTERDATA {
+unsafe impl ::windows::core::Abi for PROTOCOLFILTERDATA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -5013,7 +5001,7 @@ impl ::core::cmp::PartialEq for PROTOCOL_ARGUMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROTOCOL_ARGUMENT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PROTOCOL_ARGUMENT {
+unsafe impl ::windows::core::Abi for PROTOCOL_ARGUMENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -5027,7 +5015,7 @@ impl ::core::convert::From<i32> for PSUACTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PSUACTION {
+unsafe impl ::windows::core::Abi for PSUACTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -5060,7 +5048,7 @@ impl ::core::convert::From<i32> for PUAF {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PUAF {
+unsafe impl ::windows::core::Abi for PUAF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -5074,7 +5062,7 @@ impl ::core::convert::From<i32> for PUAFOUT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PUAFOUT {
+unsafe impl ::windows::core::Abi for PUAFOUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -5102,7 +5090,7 @@ impl ::core::convert::From<i32> for QUERYOPTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for QUERYOPTION {
+unsafe impl ::windows::core::Abi for QUERYOPTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5137,17 +5125,17 @@ impl ::core::cmp::PartialEq for REMSECURITY_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for REMSECURITY_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for REMSECURITY_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for REMSECURITY_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn RegisterBindStatusCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(pbc: Param0, pbscb: Param1, ppbscbprev: *mut ::core::option::Option<super::IBindStatusCallback>, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn RegisterBindStatusCallback<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(pbc: Param0, pbscb: Param1, ppbscbprev: *mut ::core::option::Option<super::IBindStatusCallback>, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterBindStatusCallback(pbc: ::windows::runtime::RawPtr, pbscb: ::windows::runtime::RawPtr, ppbscbprev: *mut ::windows::runtime::RawPtr, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn RegisterBindStatusCallback(pbc: ::windows::core::RawPtr, pbscb: ::windows::core::RawPtr, ppbscbprev: *mut ::windows::core::RawPtr, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         RegisterBindStatusCallback(pbc.into_param().abi(), pbscb.into_param().abi(), ::core::mem::transmute(ppbscbprev), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -5156,12 +5144,12 @@ pub unsafe fn RegisterBindStatusCallback<'a, Param0: ::windows::runtime::IntoPar
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn RegisterFormatEnumerator<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, pefetc: Param1, reserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn RegisterFormatEnumerator<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, pefetc: Param1, reserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterFormatEnumerator(pbc: ::windows::runtime::RawPtr, pefetc: ::windows::runtime::RawPtr, reserved: u32) -> ::windows::runtime::HRESULT;
+            fn RegisterFormatEnumerator(pbc: ::windows::core::RawPtr, pefetc: ::windows::core::RawPtr, reserved: u32) -> ::windows::core::HRESULT;
         }
         RegisterFormatEnumerator(pbc.into_param().abi(), pefetc.into_param().abi(), ::core::mem::transmute(reserved)).ok()
     }
@@ -5171,12 +5159,12 @@ pub unsafe fn RegisterFormatEnumerator<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>>(pbc: Param0, ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgclsid: *const ::windows::runtime::GUID, reserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>>(pbc: Param0, ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterMediaTypeClass(pbc: ::windows::runtime::RawPtr, ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgclsid: *const ::windows::runtime::GUID, reserved: u32) -> ::windows::runtime::HRESULT;
+            fn RegisterMediaTypeClass(pbc: ::windows::core::RawPtr, ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
         }
         RegisterMediaTypeClass(pbc.into_param().abi(), ::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgclsid), ::core::mem::transmute(reserved)).ok()
     }
@@ -5186,12 +5174,12 @@ pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows::runtime::Result<()> {
+pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows::runtime::HRESULT;
+            fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
         }
         RegisterMediaTypes(::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgcftypes)).ok()
     }
@@ -5228,8 +5216,8 @@ pub struct RemBINDINFO {
     pub dwOptionsFlags: u32,
     pub dwCodePage: u32,
     pub securityAttributes: REMSECURITY_ATTRIBUTES,
-    pub iid: ::windows::runtime::GUID,
-    pub pUnk: ::core::option::Option<::windows::runtime::IUnknown>,
+    pub iid: ::windows::core::GUID,
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5281,7 +5269,7 @@ impl ::core::cmp::PartialEq for RemBINDINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RemBINDINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RemBINDINFO {
+unsafe impl ::windows::core::Abi for RemBINDINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5311,17 +5299,17 @@ impl ::core::cmp::PartialEq for RemFORMATETC {
     }
 }
 impl ::core::cmp::Eq for RemFORMATETC {}
-unsafe impl ::windows::runtime::Abi for RemFORMATETC {
+unsafe impl ::windows::core::Abi for RemFORMATETC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn RevokeBindStatusCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(pbc: Param0, pbscb: Param1) -> ::windows::runtime::Result<()> {
+pub unsafe fn RevokeBindStatusCallback<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(pbc: Param0, pbscb: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RevokeBindStatusCallback(pbc: ::windows::runtime::RawPtr, pbscb: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn RevokeBindStatusCallback(pbc: ::windows::core::RawPtr, pbscb: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         RevokeBindStatusCallback(pbc.into_param().abi(), pbscb.into_param().abi()).ok()
     }
@@ -5330,12 +5318,12 @@ pub unsafe fn RevokeBindStatusCallback<'a, Param0: ::windows::runtime::IntoParam
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn RevokeFormatEnumerator<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, pefetc: Param1) -> ::windows::runtime::Result<()> {
+pub unsafe fn RevokeFormatEnumerator<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, pefetc: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RevokeFormatEnumerator(pbc: ::windows::runtime::RawPtr, pefetc: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn RevokeFormatEnumerator(pbc: ::windows::core::RawPtr, pefetc: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         RevokeFormatEnumerator(pbc.into_param().abi(), pefetc.into_param().abi()).ok()
     }
@@ -5430,7 +5418,7 @@ impl ::core::cmp::PartialEq for SOFTDISTINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SOFTDISTINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SOFTDISTINFO {
+unsafe impl ::windows::core::Abi for SOFTDISTINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -5460,7 +5448,7 @@ impl ::core::convert::From<i32> for SZM_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SZM_FLAGS {
+unsafe impl ::windows::core::Abi for SZM_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -5468,12 +5456,12 @@ pub const S_ASYNCHRONOUS: i32 = 262632i32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetAccessForIEAppContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hobject: Param0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn SetAccessForIEAppContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hobject: Param0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetAccessForIEAppContainer(hobject: super::super::super::Foundation::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::runtime::HRESULT;
+            fn SetAccessForIEAppContainer(hobject: super::super::super::Foundation::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::HRESULT;
         }
         SetAccessForIEAppContainer(hobject.into_param().abi(), ::core::mem::transmute(ieobjecttype), ::core::mem::transmute(dwaccessmask)).ok()
     }
@@ -5483,12 +5471,12 @@ pub unsafe fn SetAccessForIEAppContainer<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSoftwareUpdateAdvertisementState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szdistunit: Param0, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn SetSoftwareUpdateAdvertisementState<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szdistunit: Param0, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetSoftwareUpdateAdvertisementState(szdistunit: super::super::super::Foundation::PWSTR, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::runtime::HRESULT;
+            fn SetSoftwareUpdateAdvertisementState(szdistunit: super::super::super::Foundation::PWSTR, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::HRESULT;
         }
         SetSoftwareUpdateAdvertisementState(szdistunit.into_param().abi(), ::core::mem::transmute(dwadstate), ::core::mem::transmute(dwadvertisedversionms), ::core::mem::transmute(dwadvertisedversionls)).ok()
     }
@@ -5499,9 +5487,9 @@ pub unsafe fn SetSoftwareUpdateAdvertisementState<'a, Param0: ::windows::runtime
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub struct StartParam {
-    pub iid: ::windows::runtime::GUID,
+    pub iid: ::windows::core::GUID,
     pub pIBindCtx: ::core::option::Option<super::IBindCtx>,
-    pub pItf: ::core::option::Option<::windows::runtime::IUnknown>,
+    pub pItf: ::core::option::Option<::windows::core::IUnknown>,
 }
 impl StartParam {}
 impl ::core::default::Default for StartParam {
@@ -5520,7 +5508,7 @@ impl ::core::cmp::PartialEq for StartParam {
     }
 }
 impl ::core::cmp::Eq for StartParam {}
-unsafe impl ::windows::runtime::Abi for StartParam {
+unsafe impl ::windows::core::Abi for StartParam {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -5812,12 +5800,12 @@ pub const URLACTION_XPS_DOCUMENTS: u32 = 9217u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn URLDownloadToCacheFileA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: super::super::super::Foundation::PSTR, cchfilename: u32, param4: u32, param5: Param5) -> ::windows::runtime::Result<()> {
+pub unsafe fn URLDownloadToCacheFileA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: super::super::super::Foundation::PSTR, cchfilename: u32, param4: u32, param5: Param5) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn URLDownloadToCacheFileA(param0: ::windows::runtime::RawPtr, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, cchfilename: u32, param4: u32, param5: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn URLDownloadToCacheFileA(param0: ::windows::core::RawPtr, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, cchfilename: u32, param4: u32, param5: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         URLDownloadToCacheFileA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(cchfilename), ::core::mem::transmute(param4), param5.into_param().abi()).ok()
     }
@@ -5827,12 +5815,12 @@ pub unsafe fn URLDownloadToCacheFileA<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn URLDownloadToCacheFileW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: super::super::super::Foundation::PWSTR, cchfilename: u32, param4: u32, param5: Param5) -> ::windows::runtime::Result<()> {
+pub unsafe fn URLDownloadToCacheFileW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: super::super::super::Foundation::PWSTR, cchfilename: u32, param4: u32, param5: Param5) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn URLDownloadToCacheFileW(param0: ::windows::runtime::RawPtr, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, cchfilename: u32, param4: u32, param5: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn URLDownloadToCacheFileW(param0: ::windows::core::RawPtr, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, cchfilename: u32, param4: u32, param5: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         URLDownloadToCacheFileW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(cchfilename), ::core::mem::transmute(param4), param5.into_param().abi()).ok()
     }
@@ -5842,12 +5830,12 @@ pub unsafe fn URLDownloadToCacheFileW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn URLDownloadToFileA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
+pub unsafe fn URLDownloadToFileA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn URLDownloadToFileA(param0: ::windows::runtime::RawPtr, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: u32, param4: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn URLDownloadToFileA(param0: ::windows::core::RawPtr, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: u32, param4: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         URLDownloadToFileA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi(), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
     }
@@ -5857,12 +5845,12 @@ pub unsafe fn URLDownloadToFileA<'a, Param0: ::windows::runtime::IntoParam<'a, :
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn URLDownloadToFileW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
+pub unsafe fn URLDownloadToFileW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn URLDownloadToFileW(param0: ::windows::runtime::RawPtr, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: u32, param4: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn URLDownloadToFileW(param0: ::windows::core::RawPtr, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: u32, param4: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         URLDownloadToFileW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi(), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
     }
@@ -5888,12 +5876,12 @@ pub const URLOSTRM_USECACHEDCOPY_ONLY: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn URLOpenBlockingStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
+pub unsafe fn URLOpenBlockingStreamA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn URLOpenBlockingStreamA(param0: ::windows::runtime::RawPtr, param1: super::super::super::Foundation::PSTR, param2: *mut ::windows::runtime::RawPtr, param3: u32, param4: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn URLOpenBlockingStreamA(param0: ::windows::core::RawPtr, param1: super::super::super::Foundation::PSTR, param2: *mut ::windows::core::RawPtr, param3: u32, param4: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         URLOpenBlockingStreamA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
     }
@@ -5903,12 +5891,12 @@ pub unsafe fn URLOpenBlockingStreamA<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn URLOpenBlockingStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
+pub unsafe fn URLOpenBlockingStreamW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn URLOpenBlockingStreamW(param0: ::windows::runtime::RawPtr, param1: super::super::super::Foundation::PWSTR, param2: *mut ::windows::runtime::RawPtr, param3: u32, param4: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn URLOpenBlockingStreamW(param0: ::windows::core::RawPtr, param1: super::super::super::Foundation::PWSTR, param2: *mut ::windows::core::RawPtr, param3: u32, param4: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         URLOpenBlockingStreamW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
     }
@@ -5918,12 +5906,12 @@ pub unsafe fn URLOpenBlockingStreamW<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn URLOpenPullStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
+pub unsafe fn URLOpenPullStreamA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn URLOpenPullStreamA(param0: ::windows::runtime::RawPtr, param1: super::super::super::Foundation::PSTR, param2: u32, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn URLOpenPullStreamA(param0: ::windows::core::RawPtr, param1: super::super::super::Foundation::PSTR, param2: u32, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         URLOpenPullStreamA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
@@ -5933,12 +5921,12 @@ pub unsafe fn URLOpenPullStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, :
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn URLOpenPullStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
+pub unsafe fn URLOpenPullStreamW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn URLOpenPullStreamW(param0: ::windows::runtime::RawPtr, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn URLOpenPullStreamW(param0: ::windows::core::RawPtr, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         URLOpenPullStreamW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
@@ -5948,12 +5936,12 @@ pub unsafe fn URLOpenPullStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, :
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn URLOpenStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
+pub unsafe fn URLOpenStreamA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn URLOpenStreamA(param0: ::windows::runtime::RawPtr, param1: super::super::super::Foundation::PSTR, param2: u32, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn URLOpenStreamA(param0: ::windows::core::RawPtr, param1: super::super::super::Foundation::PSTR, param2: u32, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         URLOpenStreamA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
@@ -5963,12 +5951,12 @@ pub unsafe fn URLOpenStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::win
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn URLOpenStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
+pub unsafe fn URLOpenStreamW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn URLOpenStreamW(param0: ::windows::runtime::RawPtr, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn URLOpenStreamW(param0: ::windows::core::RawPtr, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         URLOpenStreamW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
@@ -6044,7 +6032,7 @@ impl ::core::convert::From<i32> for URLTEMPLATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for URLTEMPLATE {
+unsafe impl ::windows::core::Abi for URLTEMPLATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -6066,7 +6054,7 @@ impl ::core::convert::From<i32> for URLZONE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for URLZONE {
+unsafe impl ::windows::core::Abi for URLZONE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -6081,7 +6069,7 @@ impl ::core::convert::From<i32> for URLZONEREG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for URLZONEREG {
+unsafe impl ::windows::core::Abi for URLZONEREG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -6098,7 +6086,7 @@ impl ::core::convert::From<i32> for URL_ENCODING {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for URL_ENCODING {
+unsafe impl ::windows::core::Abi for URL_ENCODING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -6143,19 +6131,19 @@ impl ::core::convert::From<i32> for Uri_HOST_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for Uri_HOST_TYPE {
+unsafe impl ::windows::core::Abi for Uri_HOST_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const Uri_PUNYCODE_IDN_HOST: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         UrlMkGetSessionOption(::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwbufferlength), ::core::mem::transmute(pdwbufferlengthout), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -6164,12 +6152,12 @@ pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
-pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::runtime::HRESULT;
+            fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
         UrlMkSetSessionOption(::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwbufferlength), ::core::mem::transmute(dwreserved)).ok()
     }
@@ -6214,7 +6202,7 @@ impl ::core::convert::From<i32> for ZAFLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ZAFLAGS {
+unsafe impl ::windows::core::Abi for ZAFLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6256,6 +6244,6 @@ impl ::core::cmp::PartialEq for ZONEATTRIBUTES {
     }
 }
 impl ::core::cmp::Eq for ZONEATTRIBUTES {}
-unsafe impl ::windows::runtime::Abi for ZONEATTRIBUTES {
+unsafe impl ::windows::core::Abi for ZONEATTRIBUTES {
     type Abi = Self;
 }

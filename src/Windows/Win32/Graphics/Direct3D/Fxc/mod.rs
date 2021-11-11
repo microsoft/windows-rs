@@ -14,7 +14,7 @@ impl ::core::convert::From<i32> for D3DCOMPILER_STRIP_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D3DCOMPILER_STRIP_FLAGS {
+unsafe impl ::windows::core::Abi for D3DCOMPILER_STRIP_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
@@ -86,7 +86,7 @@ pub const D3DCOMPILE_WARNINGS_ARE_ERRORS: u32 = 262144u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DCompile<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::ID3DInclude>, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(
+pub unsafe fn D3DCompile<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
     psrcdata: *const ::core::ffi::c_void,
     srcdatasize: usize,
     psourcename: Param2,
@@ -98,12 +98,12 @@ pub unsafe fn D3DCompile<'a, Param2: ::windows::runtime::IntoParam<'a, super::su
     flags2: u32,
     ppcode: *mut ::core::option::Option<super::ID3DBlob>,
     pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DCompile(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::runtime::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::runtime::RawPtr, pperrormsgs: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DCompile(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         D3DCompile(
             ::core::mem::transmute(psrcdata),
@@ -126,7 +126,7 @@ pub unsafe fn D3DCompile<'a, Param2: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DCompile2<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::ID3DInclude>, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(
+pub unsafe fn D3DCompile2<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
     psrcdata: *const ::core::ffi::c_void,
     srcdatasize: usize,
     psourcename: Param2,
@@ -141,7 +141,7 @@ pub unsafe fn D3DCompile2<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
     secondarydatasize: usize,
     ppcode: *mut ::core::option::Option<super::ID3DBlob>,
     pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -151,7 +151,7 @@ pub unsafe fn D3DCompile2<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
                 srcdatasize: usize,
                 psourcename: super::super::super::Foundation::PSTR,
                 pdefines: *const super::D3D_SHADER_MACRO,
-                pinclude: ::windows::runtime::RawPtr,
+                pinclude: ::windows::core::RawPtr,
                 pentrypoint: super::super::super::Foundation::PSTR,
                 ptarget: super::super::super::Foundation::PSTR,
                 flags1: u32,
@@ -159,9 +159,9 @@ pub unsafe fn D3DCompile2<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
                 secondarydataflags: u32,
                 psecondarydata: *const ::core::ffi::c_void,
                 secondarydatasize: usize,
-                ppcode: *mut ::windows::runtime::RawPtr,
-                pperrormsgs: *mut ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+                ppcode: *mut ::windows::core::RawPtr,
+                pperrormsgs: *mut ::windows::core::RawPtr,
+            ) -> ::windows::core::HRESULT;
         }
         D3DCompile2(
             ::core::mem::transmute(psrcdata),
@@ -187,7 +187,7 @@ pub unsafe fn D3DCompile2<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::ID3DInclude>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(
+pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
     pfilename: Param0,
     pdefines: *const super::D3D_SHADER_MACRO,
     pinclude: Param2,
@@ -197,12 +197,12 @@ pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::runtime::IntoParam<'a, s
     flags2: u32,
     ppcode: *mut ::core::option::Option<super::ID3DBlob>,
     pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DCompileFromFile(pfilename: super::super::super::Foundation::PWSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::runtime::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::runtime::RawPtr, pperrormsgs: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DCompileFromFile(pfilename: super::super::super::Foundation::PWSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         D3DCompileFromFile(pfilename.into_param().abi(), ::core::mem::transmute(pdefines), pinclude.into_param().abi(), pentrypoint.into_param().abi(), ptarget.into_param().abi(), ::core::mem::transmute(flags1), ::core::mem::transmute(flags2), ::core::mem::transmute(ppcode), ::core::mem::transmute(pperrormsgs)).ok()
     }
@@ -211,14 +211,14 @@ pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::runtime::IntoParam<'a, s
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32, ppcompresseddata: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32, ppcompresseddata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DCompressShaders(::core::mem::transmute(unumshaders), ::core::mem::transmute(pshaderdata), ::core::mem::transmute(uflags), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -226,14 +226,14 @@ pub unsafe fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADE
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DCreateBlob(size: usize) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DCreateBlob(size: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DCreateBlob(size: usize, ppblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DCreateBlob(size: usize, ppblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DCreateBlob(::core::mem::transmute(size), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -242,14 +242,14 @@ pub unsafe fn D3DCreateBlob(size: usize) -> ::windows::runtime::Result<super::ID
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
-pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows::runtime::Result<super::super::Direct3D11::ID3D11FunctionLinkingGraph> {
+pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows::core::Result<super::super::Direct3D11::ID3D11FunctionLinkingGraph> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DCreateFunctionLinkingGraph(uflags: u32, ppfunctionlinkinggraph: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DCreateFunctionLinkingGraph(uflags: u32, ppfunctionlinkinggraph: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Direct3D11::ID3D11FunctionLinkingGraph as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Direct3D11::ID3D11FunctionLinkingGraph as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DCreateFunctionLinkingGraph(::core::mem::transmute(uflags), &mut result__).from_abi::<super::super::Direct3D11::ID3D11FunctionLinkingGraph>(result__)
     }
     #[cfg(not(windows))]
@@ -258,14 +258,14 @@ pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows::runtime::
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
-pub unsafe fn D3DCreateLinker() -> ::windows::runtime::Result<super::super::Direct3D11::ID3D11Linker> {
+pub unsafe fn D3DCreateLinker() -> ::windows::core::Result<super::super::Direct3D11::ID3D11Linker> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DCreateLinker(pplinker: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DCreateLinker(pplinker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Direct3D11::ID3D11Linker as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Direct3D11::ID3D11Linker as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DCreateLinker(&mut result__).from_abi::<super::super::Direct3D11::ID3D11Linker>(result__)
     }
     #[cfg(not(windows))]
@@ -273,12 +273,12 @@ pub unsafe fn D3DCreateLinker() -> ::windows::runtime::Result<super::super::Dire
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut ::core::option::Option<super::ID3DBlob>, ptotalshaders: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut ::core::option::Option<super::ID3DBlob>, ptotalshaders: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut ::windows::runtime::RawPtr, ptotalshaders: *mut u32) -> ::windows::runtime::HRESULT;
+            fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut ::windows::core::RawPtr, ptotalshaders: *mut u32) -> ::windows::core::HRESULT;
         }
         D3DDecompressShaders(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(unumshaders), ::core::mem::transmute(ustartindex), ::core::mem::transmute(pindices), ::core::mem::transmute(uflags), ::core::mem::transmute(ppshaders), ::core::mem::transmute(ptotalshaders)).ok()
     }
@@ -288,14 +288,14 @@ pub unsafe fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdata
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DDisassemble<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: Param3) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DDisassemble<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: Param3) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DDisassemble(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::super::Foundation::PSTR, ppdisassembly: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DDisassemble(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::super::Foundation::PSTR, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DDisassemble(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(flags), szcomments.into_param().abi(), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -304,14 +304,14 @@ pub unsafe fn D3DDisassemble<'a, Param3: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Graphics_Direct3D10`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D10")]
 #[inline]
-pub unsafe fn D3DDisassemble10Effect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Direct3D10::ID3D10Effect>>(peffect: Param0, flags: u32) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DDisassemble10Effect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Direct3D10::ID3D10Effect>>(peffect: Param0, flags: u32) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DDisassemble10Effect(peffect: ::windows::runtime::RawPtr, flags: u32, ppdisassembly: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DDisassemble10Effect(peffect: ::windows::core::RawPtr, flags: u32, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DDisassemble10Effect(peffect.into_param().abi(), ::core::mem::transmute(flags), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -320,12 +320,12 @@ pub unsafe fn D3DDisassemble10Effect<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DDisassembleRegion<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: Param3, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: *mut usize, ppdisassembly: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::runtime::Result<()> {
+pub unsafe fn D3DDisassembleRegion<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: Param3, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: *mut usize, ppdisassembly: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DDisassembleRegion(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::super::Foundation::PSTR, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: *mut usize, ppdisassembly: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DDisassembleRegion(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::super::Foundation::PSTR, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: *mut usize, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         D3DDisassembleRegion(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(flags), szcomments.into_param().abi(), ::core::mem::transmute(startbyteoffset), ::core::mem::transmute(numinsts), ::core::mem::transmute(pfinishbyteoffset), ::core::mem::transmute(ppdisassembly)).ok()
     }
@@ -334,14 +334,14 @@ pub unsafe fn D3DDisassembleRegion<'a, Param3: ::windows::runtime::IntoParam<'a,
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, pppart: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, pppart: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DGetBlobPart(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(part), ::core::mem::transmute(flags), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -349,14 +349,14 @@ pub unsafe fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: 
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DGetDebugInfo(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DGetDebugInfo(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DGetDebugInfo(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppdebuginfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DGetDebugInfo(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppdebuginfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DGetDebugInfo(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -364,14 +364,14 @@ pub unsafe fn D3DGetDebugInfo(psrcdata: *const ::core::ffi::c_void, srcdatasize:
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DGetInputAndOutputSignatureBlob(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -379,14 +379,14 @@ pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::core::ffi::c_
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DGetInputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DGetInputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DGetInputSignatureBlob(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -394,14 +394,14 @@ pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const ::core::ffi::c_void, src
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DGetOutputSignatureBlob(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -409,12 +409,12 @@ pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, sr
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, numinsts: usize, poffsets: *mut usize, ptotalinsts: *mut usize) -> ::windows::runtime::Result<()> {
+pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, numinsts: usize, poffsets: *mut usize, ptotalinsts: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, numinsts: usize, poffsets: *mut usize, ptotalinsts: *mut usize) -> ::windows::runtime::HRESULT;
+            fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, numinsts: usize, poffsets: *mut usize, ptotalinsts: *mut usize) -> ::windows::core::HRESULT;
         }
         D3DGetTraceInstructionOffsets(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(flags), ::core::mem::transmute(startinstindex), ::core::mem::transmute(numinsts), ::core::mem::transmute(poffsets), ::core::mem::transmute(ptotalinsts)).ok()
     }
@@ -424,14 +424,14 @@ pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
-pub unsafe fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize: usize) -> ::windows::runtime::Result<super::super::Direct3D11::ID3D11Module> {
+pub unsafe fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize: usize) -> ::windows::core::Result<super::super::Direct3D11::ID3D11Module> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize: usize, ppmodule: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize: usize, ppmodule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Direct3D11::ID3D11Module as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Direct3D11::ID3D11Module as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DLoadModule(::core::mem::transmute(psrcdata), ::core::mem::transmute(cbsrcdatasize), &mut result__).from_abi::<super::super::Direct3D11::ID3D11Module>(result__)
     }
     #[cfg(not(windows))]
@@ -440,12 +440,12 @@ pub unsafe fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize:
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DPreprocess<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::ID3DInclude>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: Param2, pdefines: *const super::D3D_SHADER_MACRO, pinclude: Param4, ppcodetext: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::runtime::Result<()> {
+pub unsafe fn D3DPreprocess<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::ID3DInclude>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: Param2, pdefines: *const super::D3D_SHADER_MACRO, pinclude: Param4, ppcodetext: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DPreprocess(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::runtime::RawPtr, ppcodetext: *mut ::windows::runtime::RawPtr, pperrormsgs: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DPreprocess(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, ppcodetext: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         D3DPreprocess(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), psourcename.into_param().abi(), ::core::mem::transmute(pdefines), pinclude.into_param().abi(), ::core::mem::transmute(ppcodetext), ::core::mem::transmute(pperrormsgs)).ok()
     }
@@ -455,14 +455,14 @@ pub unsafe fn D3DPreprocess<'a, Param2: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DReadFileToBlob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pfilename: Param0) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DReadFileToBlob<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pfilename: Param0) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DReadFileToBlob(pfilename: super::super::super::Foundation::PWSTR, ppcontents: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DReadFileToBlob(pfilename: super::super::super::Foundation::PWSTR, ppcontents: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DReadFileToBlob(pfilename.into_param().abi(), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -470,12 +470,12 @@ pub unsafe fn D3DReadFileToBlob<'a, Param0: ::windows::runtime::IntoParam<'a, su
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DReflect(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pinterface: *const ::windows::runtime::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn D3DReflect(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pinterface: *const ::windows::core::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DReflect(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pinterface: *const ::windows::runtime::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn D3DReflect(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pinterface: *const ::windows::core::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         D3DReflect(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(pinterface), ::core::mem::transmute(ppreflector)).ok()
     }
@@ -484,12 +484,12 @@ pub unsafe fn D3DReflect(psrcdata: *const ::core::ffi::c_void, srcdatasize: usiz
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DReflectLibrary(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, riid: *const ::windows::runtime::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn D3DReflectLibrary(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, riid: *const ::windows::core::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DReflectLibrary(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, riid: *const ::windows::runtime::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn D3DReflectLibrary(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, riid: *const ::windows::core::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         D3DReflectLibrary(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(riid), ::core::mem::transmute(ppreflector)).ok()
     }
@@ -498,14 +498,14 @@ pub unsafe fn D3DReflectLibrary(psrcdata: *const ::core::ffi::c_void, srcdatasiz
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::core::ffi::c_void, partsize: usize) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::core::ffi::c_void, partsize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::core::ffi::c_void, partsize: usize, ppnewshader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::core::ffi::c_void, partsize: usize, ppnewshader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DSetBlobPart(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(part), ::core::mem::transmute(flags), ::core::mem::transmute(ppart), ::core::mem::transmute(partsize), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -513,14 +513,14 @@ pub unsafe fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: 
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 #[inline]
-pub unsafe fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ustripflags: u32) -> ::windows::runtime::Result<super::ID3DBlob> {
+pub unsafe fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ustripflags: u32) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ustripflags: u32, ppstrippedblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ustripflags: u32, ppstrippedblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         D3DStripShader(::core::mem::transmute(pshaderbytecode), ::core::mem::transmute(bytecodelength), ::core::mem::transmute(ustripflags), &mut result__).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
@@ -529,12 +529,12 @@ pub unsafe fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, byteco
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DWriteBlobToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::ID3DBlob>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(pblob: Param0, pfilename: Param1, boverwrite: Param2) -> ::windows::runtime::Result<()> {
+pub unsafe fn D3DWriteBlobToFile<'a, Param0: ::windows::core::IntoParam<'a, super::ID3DBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(pblob: Param0, pfilename: Param1, boverwrite: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DWriteBlobToFile(pblob: ::windows::runtime::RawPtr, pfilename: super::super::super::Foundation::PWSTR, boverwrite: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn D3DWriteBlobToFile(pblob: ::windows::core::RawPtr, pfilename: super::super::super::Foundation::PWSTR, boverwrite: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         D3DWriteBlobToFile(pblob.into_param().abi(), pfilename.into_param().abi(), boverwrite.into_param().abi()).ok()
     }
@@ -567,7 +567,7 @@ impl ::core::convert::From<i32> for D3D_BLOB_PART {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D3D_BLOB_PART {
+unsafe impl ::windows::core::Abi for D3D_BLOB_PART {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
@@ -616,15 +616,15 @@ impl ::core::cmp::PartialEq for D3D_SHADER_DATA {
     }
 }
 impl ::core::cmp::Eq for D3D_SHADER_DATA {}
-unsafe impl ::windows::runtime::Abi for D3D_SHADER_DATA {
+unsafe impl ::windows::core::Abi for D3D_SHADER_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type pD3DCompile = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::runtime::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::runtime::RawPtr, pperrormsgs: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+pub type pD3DCompile = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type pD3DDisassemble = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::super::Foundation::PSTR, ppdisassembly: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+pub type pD3DDisassemble = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::super::Foundation::PSTR, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type pD3DPreprocess = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::runtime::RawPtr, ppcodetext: *mut ::windows::runtime::RawPtr, pperrormsgs: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+pub type pD3DPreprocess = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, ppcodetext: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;

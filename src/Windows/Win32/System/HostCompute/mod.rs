@@ -7,7 +7,7 @@ impl ::core::default::Default for HCS_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HCS_CALLBACK {}
-unsafe impl ::windows::runtime::Abi for HCS_CALLBACK {
+unsafe impl ::windows::core::Handle for HCS_CALLBACK {}
+unsafe impl ::windows::core::Abi for HCS_CALLBACK {
     type Abi = Self;
 }

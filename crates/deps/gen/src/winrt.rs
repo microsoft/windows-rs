@@ -11,7 +11,7 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
                         *result__ = ok_data__;
                         *result_size__ = ok_data_len__;
-                        ::windows::runtime::HRESULT(0)
+                        ::windows::core::HRESULT(0)
                     }
                     ::core::result::Result::Err(err) => err.into()
                 }
@@ -23,7 +23,7 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
                     ::core::result::Result::Ok(ok__) => {
                         *result__ = ::core::mem::transmute_copy(&ok__);
                         ::core::mem::forget(ok__);
-                        ::windows::runtime::HRESULT(0)
+                        ::windows::core::HRESULT(0)
                     }
                     ::core::result::Result::Err(err) => err.into()
                 }
@@ -74,7 +74,7 @@ pub fn gen_winrt_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
         }));
 
     quote! {
-        (this: ::windows::runtime::RawPtr, #(#params),*) -> ::windows::runtime::HRESULT
+        (this: ::windows::core::RawPtr, #(#params),*) -> ::windows::core::HRESULT
     }
 }
 
@@ -88,7 +88,7 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
         if param.param.is_input() {
             quote! { ::core::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
         } else if param.signature.by_ref {
-            quote! { ::windows::runtime::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
+            quote! { ::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
         } else {
             quote! { ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
         }
@@ -96,9 +96,9 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
         if param.signature.kind.is_primitive() {
             quote! { #name }
         } else if param.signature.is_const {
-            quote! { &*(#name as *const <#kind as ::windows::runtime::Abi>::Abi as *const <#kind as ::windows::runtime::DefaultType>::DefaultType) }
+            quote! { &*(#name as *const <#kind as ::windows::core::Abi>::Abi as *const <#kind as ::windows::core::DefaultType>::DefaultType) }
         } else {
-            quote! { &*(&#name as *const <#kind as ::windows::runtime::Abi>::Abi as *const <#kind as ::windows::runtime::DefaultType>::DefaultType) }
+            quote! { &*(&#name as *const <#kind as ::windows::core::Abi>::Abi as *const <#kind as ::windows::core::DefaultType>::DefaultType) }
         }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }
@@ -115,11 +115,11 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 
             if param.signature.is_array {
                 if param.param.is_input() {
-                    quote! { #name: &[<#tokens as ::windows::runtime::DefaultType>::DefaultType], }
+                    quote! { #name: &[<#tokens as ::windows::core::DefaultType>::DefaultType], }
                 } else if param.signature.by_ref {
-                    quote! { #name: &mut ::windows::runtime::Array<#tokens>, }
+                    quote! { #name: &mut ::windows::core::Array<#tokens>, }
                 } else {
-                    quote! { #name: &mut [<#tokens as ::windows::runtime::DefaultType>::DefaultType], }
+                    quote! { #name: &mut [<#tokens as ::windows::core::DefaultType>::DefaultType], }
                 }
             } else if param.param.is_input() {
                 if param.is_convertible() {
@@ -131,7 +131,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             } else if param.signature.kind.is_nullable() {
                 quote! { #name: &mut ::core::option::Option<#tokens>, }
             } else if let ElementType::GenericParam(_) = param.signature.kind {
-                quote! { &mut <#tokens as ::windows::runtime::DefaultType>::DefaultType, }
+                quote! { &mut <#tokens as ::windows::core::DefaultType>::DefaultType, }
             } else if param.signature.pointers > 0 {
                 let tokens = gen_abi_sig(&param.signature, gen);
                 quote! { #name: #tokens, }
@@ -163,7 +163,7 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
         let tokens = gen_name(&return_sig.kind, gen);
 
         if return_sig.is_array {
-            quote! { ::windows::runtime::Array<#tokens> }
+            quote! { ::windows::core::Array<#tokens> }
         } else {
             tokens
         }
@@ -174,7 +174,7 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
     let return_arg = if let Some(return_sig) = &sig.return_sig {
         if return_sig.is_array {
             let return_sig = gen_name(&return_sig.kind, gen);
-            quote! { ::windows::runtime::Array::<#return_sig>::set_abi_len(&mut result__), &mut result__ as *mut _ as _ }
+            quote! { ::windows::core::Array::<#return_sig>::set_abi_len(&mut result__), &mut result__ as *mut _ as _ }
         } else {
             quote! { &mut result__ }
         }
@@ -186,7 +186,7 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
     // arguments to ensure the call succeeds in the non-aggregating case.
     let composable_args = match interface.kind {
         InterfaceKind::Composable => quote! {
-            ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _,
+            ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _,
         },
         InterfaceKind::Extend => quote! {
             ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _,
@@ -198,7 +198,7 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
         if return_sig.is_array {
             quote! {
                 let mut result__: #return_type_tokens = ::core::mem::zeroed();
-                (::windows::runtime::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
+                (::windows::core::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
                     .and_then(|| result__ )
             }
         } else {
@@ -206,13 +206,13 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
 
             quote! {
                 let mut result__: #abi_type_name = ::core::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
+                    (::windows::core::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
                         .from_abi::<#return_type_tokens>(result__ )
             }
         }
     } else {
         quote! {
-            (::windows::runtime::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
+            (::windows::core::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
         }
     };
 
@@ -233,7 +233,7 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
             #deprecated
             #cfg
             #doc
-            pub fn #name<#constraints>(&self, #params) -> ::windows::runtime::Result<#return_type_tokens> {
+            pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
                 let this = self;
                 unsafe {
                     #vcall
@@ -245,8 +245,8 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
                 #deprecated
                 #cfg
                 #doc
-                pub fn #name<#constraints>(&self, #params) -> ::windows::runtime::Result<#return_type_tokens> {
-                    let this = &::windows::runtime::Interface::cast::<#interface_name>(self)?;
+                pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
+                    let this = &::windows::core::Interface::cast::<#interface_name>(self)?;
                     unsafe {
                         #vcall
                     }
@@ -258,7 +258,7 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
                 #deprecated
                 #cfg
                 #doc
-                pub fn #name<#constraints>(#params) -> ::windows::runtime::Result<#return_type_tokens> {
+                pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
                     Self::#interface_name(|this| unsafe { #vcall })
                 }
             }
@@ -269,9 +269,9 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
                 // TODO: why no deprecated?
                 #cfg
                 #doc
-                pub fn #name<#constraints>(self, #params) -> ::windows::runtime::Result<#return_type_tokens> {
+                pub fn #name<#constraints>(self, #params) -> ::windows::core::Result<#return_type_tokens> {
                     unsafe {
-                        let (derived__, base__) = ::windows::runtime::Compose::compose(self);
+                        let (derived__, base__) = ::windows::core::Compose::compose(self);
                         #return_type_tokens::#interface_name(|this| unsafe { #vcall })
                     }
                 }
@@ -317,15 +317,15 @@ pub fn gen_winrt_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
 
     if param.signature.is_array {
         if param.param.is_input() {
-            quote! { &[<#tokens as ::windows::runtime::DefaultType>::DefaultType] }
+            quote! { &[<#tokens as ::windows::core::DefaultType>::DefaultType] }
         } else if param.signature.by_ref {
-            quote! { &mut ::windows::runtime::Array<#tokens> }
+            quote! { &mut ::windows::core::Array<#tokens> }
         } else {
-            quote! { &mut [<#tokens as ::windows::runtime::DefaultType>::DefaultType] }
+            quote! { &mut [<#tokens as ::windows::core::DefaultType>::DefaultType] }
         }
     } else if param.param.is_input() {
         if let ElementType::GenericParam(_) = param.signature.kind {
-            quote! { &<#tokens as ::windows::runtime::DefaultType>::DefaultType }
+            quote! { &<#tokens as ::windows::core::DefaultType>::DefaultType }
         } else if param.signature.kind.is_primitive() {
             quote! { #tokens }
         } else if param.signature.kind.is_nullable() {
@@ -352,7 +352,7 @@ pub fn gen_constraints(def: &TypeDef) -> TokenStream {
         .iter()
         .map(|g| {
             let g = gen_name(g, &Gen::absolute());
-            quote! { #g: ::windows::runtime::RuntimeType + 'static, }
+            quote! { #g: ::windows::core::RuntimeType + 'static, }
         })
         .collect()
 }

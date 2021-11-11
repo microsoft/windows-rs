@@ -79,7 +79,7 @@ impl ::core::cmp::PartialEq for CHOOSECOLORA {
 impl ::core::cmp::Eq for CHOOSECOLORA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CHOOSECOLORA {
+unsafe impl ::windows::core::Abi for CHOOSECOLORA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -126,7 +126,7 @@ impl ::core::cmp::PartialEq for CHOOSECOLORA {
 impl ::core::cmp::Eq for CHOOSECOLORA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CHOOSECOLORA {
+unsafe impl ::windows::core::Abi for CHOOSECOLORA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -183,7 +183,7 @@ impl ::core::cmp::PartialEq for CHOOSECOLORW {
 impl ::core::cmp::Eq for CHOOSECOLORW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CHOOSECOLORW {
+unsafe impl ::windows::core::Abi for CHOOSECOLORW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -230,7 +230,7 @@ impl ::core::cmp::PartialEq for CHOOSECOLORW {
 impl ::core::cmp::Eq for CHOOSECOLORW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CHOOSECOLORW {
+unsafe impl ::windows::core::Abi for CHOOSECOLORW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -316,7 +316,7 @@ impl ::core::cmp::PartialEq for CHOOSEFONTA {
 impl ::core::cmp::Eq for CHOOSEFONTA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for CHOOSEFONTA {
+unsafe impl ::windows::core::Abi for CHOOSEFONTA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -370,7 +370,7 @@ impl ::core::cmp::PartialEq for CHOOSEFONTA {
 impl ::core::cmp::Eq for CHOOSEFONTA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for CHOOSEFONTA {
+unsafe impl ::windows::core::Abi for CHOOSEFONTA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -456,7 +456,7 @@ impl ::core::cmp::PartialEq for CHOOSEFONTW {
 impl ::core::cmp::Eq for CHOOSEFONTW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for CHOOSEFONTW {
+unsafe impl ::windows::core::Abi for CHOOSEFONTW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -510,7 +510,7 @@ impl ::core::cmp::PartialEq for CHOOSEFONTW {
 impl ::core::cmp::Eq for CHOOSEFONTW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for CHOOSEFONTW {
+unsafe impl ::windows::core::Abi for CHOOSEFONTW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
@@ -551,7 +551,7 @@ impl ::core::convert::From<u32> for CHOOSEFONT_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CHOOSEFONT_FLAGS {
+unsafe impl ::windows::core::Abi for CHOOSEFONT_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CHOOSEFONT_FLAGS {
@@ -597,7 +597,7 @@ impl ::core::convert::From<u16> for CHOOSEFONT_FONT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CHOOSEFONT_FONT_TYPE {
+unsafe impl ::windows::core::Abi for CHOOSEFONT_FONT_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CHOOSEFONT_FONT_TYPE {
@@ -734,7 +734,7 @@ impl ::core::convert::From<u32> for COMMON_DLG_ERRORS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COMMON_DLG_ERRORS {
+unsafe impl ::windows::core::Abi for COMMON_DLG_ERRORS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for COMMON_DLG_ERRORS {
@@ -872,7 +872,7 @@ impl ::core::cmp::PartialEq for DEVNAMES {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for DEVNAMES {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for DEVNAMES {
+unsafe impl ::windows::core::Abi for DEVNAMES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -902,7 +902,7 @@ impl ::core::cmp::PartialEq for DEVNAMES {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for DEVNAMES {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for DEVNAMES {
+unsafe impl ::windows::core::Abi for DEVNAMES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
@@ -967,7 +967,7 @@ impl ::core::cmp::PartialEq for FINDREPLACEA {
 impl ::core::cmp::Eq for FINDREPLACEA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FINDREPLACEA {
+unsafe impl ::windows::core::Abi for FINDREPLACEA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -1016,7 +1016,7 @@ impl ::core::cmp::PartialEq for FINDREPLACEA {
 impl ::core::cmp::Eq for FINDREPLACEA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FINDREPLACEA {
+unsafe impl ::windows::core::Abi for FINDREPLACEA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -1077,7 +1077,7 @@ impl ::core::cmp::PartialEq for FINDREPLACEW {
 impl ::core::cmp::Eq for FINDREPLACEW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FINDREPLACEW {
+unsafe impl ::windows::core::Abi for FINDREPLACEW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -1126,7 +1126,7 @@ impl ::core::cmp::PartialEq for FINDREPLACEW {
 impl ::core::cmp::Eq for FINDREPLACEW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FINDREPLACEW {
+unsafe impl ::windows::core::Abi for FINDREPLACEW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
@@ -1155,7 +1155,7 @@ impl ::core::convert::From<u32> for FINDREPLACE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FINDREPLACE_FLAGS {
+unsafe impl ::windows::core::Abi for FINDREPLACE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FINDREPLACE_FLAGS {
@@ -1235,7 +1235,7 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileTitleA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, buf: super::super::super::Foundation::PSTR, cchsize: u16) -> i16 {
+pub unsafe fn GetFileTitleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, buf: super::super::super::Foundation::PSTR, cchsize: u16) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1250,7 +1250,7 @@ pub unsafe fn GetFileTitleA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileTitleW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, buf: super::super::super::Foundation::PWSTR, cchsize: u16) -> i16 {
+pub unsafe fn GetFileTitleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, buf: super::super::super::Foundation::PWSTR, cchsize: u16) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1325,113 +1325,113 @@ pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::supe
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IPrintDialogCallback(pub ::windows::runtime::IUnknown);
+pub struct IPrintDialogCallback(pub ::windows::core::IUnknown);
 impl IPrintDialogCallback {
     #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
-    pub unsafe fn InitDone(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn InitDone(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
-    pub unsafe fn SelectionChange(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn SelectionChange(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
-    pub unsafe fn HandleMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hdlg: Param0, umsg: u32, wparam: Param2, lparam: Param3, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), hdlg.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(presult)).ok()
+    pub unsafe fn HandleMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hdlg: Param0, umsg: u32, wparam: Param2, lparam: Param3, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), hdlg.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(presult)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IPrintDialogCallback {
+unsafe impl ::windows::core::Interface for IPrintDialogCallback {
     type Vtable = IPrintDialogCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
 }
-impl ::core::convert::From<IPrintDialogCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPrintDialogCallback> for ::windows::core::IUnknown {
     fn from(value: IPrintDialogCallback) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IPrintDialogCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPrintDialogCallback> for ::windows::core::IUnknown {
     fn from(value: &IPrintDialogCallback) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintDialogCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintDialogCallback {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintDialogCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrintDialogCallback {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDialogCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IPrintDialogServices(pub ::windows::runtime::IUnknown);
+pub struct IPrintDialogServices(pub ::windows::core::IUnknown);
 impl IPrintDialogServices {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
-    pub unsafe fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pcbsize)).ok()
+    pub unsafe fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pcbsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
-    pub unsafe fn GetCurrentPrinterName(&self, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprintername), ::core::mem::transmute(pcchsize)).ok()
+    pub unsafe fn GetCurrentPrinterName(&self, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprintername), ::core::mem::transmute(pcchsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
-    pub unsafe fn GetCurrentPortName(&self, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pportname), ::core::mem::transmute(pcchsize)).ok()
+    pub unsafe fn GetCurrentPortName(&self, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pportname), ::core::mem::transmute(pcchsize)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IPrintDialogServices {
+unsafe impl ::windows::core::Interface for IPrintDialogServices {
     type Vtable = IPrintDialogServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
 }
-impl ::core::convert::From<IPrintDialogServices> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPrintDialogServices> for ::windows::core::IUnknown {
     fn from(value: IPrintDialogServices) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IPrintDialogServices> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPrintDialogServices> for ::windows::core::IUnknown {
     fn from(value: &IPrintDialogServices) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintDialogServices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintDialogServices {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintDialogServices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrintDialogServices {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDialogServices_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
@@ -1501,7 +1501,7 @@ impl ::core::cmp::PartialEq for OFNOTIFYA {
 impl ::core::cmp::Eq for OFNOTIFYA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OFNOTIFYA {
+unsafe impl ::windows::core::Abi for OFNOTIFYA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1536,7 +1536,7 @@ impl ::core::cmp::PartialEq for OFNOTIFYA {
 impl ::core::cmp::Eq for OFNOTIFYA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OFNOTIFYA {
+unsafe impl ::windows::core::Abi for OFNOTIFYA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1579,7 +1579,7 @@ impl ::core::cmp::PartialEq for OFNOTIFYEXA {
 impl ::core::cmp::Eq for OFNOTIFYEXA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OFNOTIFYEXA {
+unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1615,7 +1615,7 @@ impl ::core::cmp::PartialEq for OFNOTIFYEXA {
 impl ::core::cmp::Eq for OFNOTIFYEXA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OFNOTIFYEXA {
+unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1658,7 +1658,7 @@ impl ::core::cmp::PartialEq for OFNOTIFYEXW {
 impl ::core::cmp::Eq for OFNOTIFYEXW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OFNOTIFYEXW {
+unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1694,7 +1694,7 @@ impl ::core::cmp::PartialEq for OFNOTIFYEXW {
 impl ::core::cmp::Eq for OFNOTIFYEXW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OFNOTIFYEXW {
+unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1736,7 +1736,7 @@ impl ::core::cmp::PartialEq for OFNOTIFYW {
 impl ::core::cmp::Eq for OFNOTIFYW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OFNOTIFYW {
+unsafe impl ::windows::core::Abi for OFNOTIFYW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1771,7 +1771,7 @@ impl ::core::cmp::PartialEq for OFNOTIFYW {
 impl ::core::cmp::Eq for OFNOTIFYW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OFNOTIFYW {
+unsafe impl ::windows::core::Abi for OFNOTIFYW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
@@ -1884,7 +1884,7 @@ impl ::core::cmp::PartialEq for OPENFILENAMEA {
 impl ::core::cmp::Eq for OPENFILENAMEA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENFILENAMEA {
+unsafe impl ::windows::core::Abi for OPENFILENAMEA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -1945,7 +1945,7 @@ impl ::core::cmp::PartialEq for OPENFILENAMEA {
 impl ::core::cmp::Eq for OPENFILENAMEA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENFILENAMEA {
+unsafe impl ::windows::core::Abi for OPENFILENAMEA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2052,7 +2052,7 @@ impl ::core::cmp::PartialEq for OPENFILENAMEW {
 impl ::core::cmp::Eq for OPENFILENAMEW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENFILENAMEW {
+unsafe impl ::windows::core::Abi for OPENFILENAMEW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -2113,7 +2113,7 @@ impl ::core::cmp::PartialEq for OPENFILENAMEW {
 impl ::core::cmp::Eq for OPENFILENAMEW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENFILENAMEW {
+unsafe impl ::windows::core::Abi for OPENFILENAMEW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2211,7 +2211,7 @@ impl ::core::cmp::PartialEq for OPENFILENAME_NT4A {
 impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENFILENAME_NT4A {
+unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -2269,7 +2269,7 @@ impl ::core::cmp::PartialEq for OPENFILENAME_NT4A {
 impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENFILENAME_NT4A {
+unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2367,7 +2367,7 @@ impl ::core::cmp::PartialEq for OPENFILENAME_NT4W {
 impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENFILENAME_NT4W {
+unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -2425,7 +2425,7 @@ impl ::core::cmp::PartialEq for OPENFILENAME_NT4W {
 impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENFILENAME_NT4W {
+unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
@@ -2463,7 +2463,7 @@ impl ::core::convert::From<u32> for OPEN_FILENAME_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OPEN_FILENAME_FLAGS {
+unsafe impl ::windows::core::Abi for OPEN_FILENAME_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for OPEN_FILENAME_FLAGS {
@@ -2505,7 +2505,7 @@ impl ::core::convert::From<u32> for OPEN_FILENAME_FLAGS_EX {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OPEN_FILENAME_FLAGS_EX {
+unsafe impl ::windows::core::Abi for OPEN_FILENAME_FLAGS_EX {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for OPEN_FILENAME_FLAGS_EX {
@@ -2612,7 +2612,7 @@ impl ::core::cmp::PartialEq for PAGESETUPDLGA {
 impl ::core::cmp::Eq for PAGESETUPDLGA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PAGESETUPDLGA {
+unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -2664,7 +2664,7 @@ impl ::core::cmp::PartialEq for PAGESETUPDLGA {
 impl ::core::cmp::Eq for PAGESETUPDLGA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PAGESETUPDLGA {
+unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2743,7 +2743,7 @@ impl ::core::cmp::PartialEq for PAGESETUPDLGW {
 impl ::core::cmp::Eq for PAGESETUPDLGW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PAGESETUPDLGW {
+unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -2795,7 +2795,7 @@ impl ::core::cmp::PartialEq for PAGESETUPDLGW {
 impl ::core::cmp::Eq for PAGESETUPDLGW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PAGESETUPDLGW {
+unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
@@ -2826,7 +2826,7 @@ impl ::core::convert::From<u32> for PAGESETUPDLG_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PAGESETUPDLG_FLAGS {
+unsafe impl ::windows::core::Abi for PAGESETUPDLG_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PAGESETUPDLG_FLAGS {
@@ -2954,7 +2954,7 @@ impl ::core::cmp::PartialEq for PRINTDLGA {
 impl ::core::cmp::Eq for PRINTDLGA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for PRINTDLGA {
+unsafe impl ::windows::core::Abi for PRINTDLGA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -3011,7 +3011,7 @@ impl ::core::cmp::PartialEq for PRINTDLGA {
 impl ::core::cmp::Eq for PRINTDLGA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for PRINTDLGA {
+unsafe impl ::windows::core::Abi for PRINTDLGA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -3036,7 +3036,7 @@ pub struct PRINTDLGEXA {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: super::super::super::Foundation::PSTR,
-    pub lpCallback: ::core::option::Option<::windows::runtime::IUnknown>,
+    pub lpCallback: ::core::option::Option<::windows::core::IUnknown>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -3113,7 +3113,7 @@ impl ::core::cmp::PartialEq for PRINTDLGEXA {
 impl ::core::cmp::Eq for PRINTDLGEXA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for PRINTDLGEXA {
+unsafe impl ::windows::core::Abi for PRINTDLGEXA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -3144,7 +3144,7 @@ pub struct PRINTDLGEXA {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: super::super::super::Foundation::PSTR,
-    pub lpCallback: ::core::option::Option<::windows::runtime::IUnknown>,
+    pub lpCallback: ::core::option::Option<::windows::core::IUnknown>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -3172,7 +3172,7 @@ impl ::core::cmp::PartialEq for PRINTDLGEXA {
 impl ::core::cmp::Eq for PRINTDLGEXA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for PRINTDLGEXA {
+unsafe impl ::windows::core::Abi for PRINTDLGEXA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -3197,7 +3197,7 @@ pub struct PRINTDLGEXW {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: super::super::super::Foundation::PWSTR,
-    pub lpCallback: ::core::option::Option<::windows::runtime::IUnknown>,
+    pub lpCallback: ::core::option::Option<::windows::core::IUnknown>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -3274,7 +3274,7 @@ impl ::core::cmp::PartialEq for PRINTDLGEXW {
 impl ::core::cmp::Eq for PRINTDLGEXW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for PRINTDLGEXW {
+unsafe impl ::windows::core::Abi for PRINTDLGEXW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -3305,7 +3305,7 @@ pub struct PRINTDLGEXW {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: super::super::super::Foundation::PWSTR,
-    pub lpCallback: ::core::option::Option<::windows::runtime::IUnknown>,
+    pub lpCallback: ::core::option::Option<::windows::core::IUnknown>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -3333,7 +3333,7 @@ impl ::core::cmp::PartialEq for PRINTDLGEXW {
 impl ::core::cmp::Eq for PRINTDLGEXW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for PRINTDLGEXW {
+unsafe impl ::windows::core::Abi for PRINTDLGEXW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
@@ -3373,7 +3373,7 @@ impl ::core::convert::From<u32> for PRINTDLGEX_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRINTDLGEX_FLAGS {
+unsafe impl ::windows::core::Abi for PRINTDLGEX_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PRINTDLGEX_FLAGS {
@@ -3495,7 +3495,7 @@ impl ::core::cmp::PartialEq for PRINTDLGW {
 impl ::core::cmp::Eq for PRINTDLGW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for PRINTDLGW {
+unsafe impl ::windows::core::Abi for PRINTDLGW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "x86",))]
@@ -3552,7 +3552,7 @@ impl ::core::cmp::PartialEq for PRINTDLGW {
 impl ::core::cmp::Eq for PRINTDLGW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for PRINTDLGW {
+unsafe impl ::windows::core::Abi for PRINTDLGW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3586,7 +3586,7 @@ impl ::core::cmp::PartialEq for PRINTPAGERANGE {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for PRINTPAGERANGE {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for PRINTPAGERANGE {
+unsafe impl ::windows::core::Abi for PRINTPAGERANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3614,7 +3614,7 @@ impl ::core::cmp::PartialEq for PRINTPAGERANGE {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for PRINTPAGERANGE {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for PRINTPAGERANGE {
+unsafe impl ::windows::core::Abi for PRINTPAGERANGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
@@ -3667,12 +3667,12 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation:
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::runtime::Result<()> {
+pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrintDlgExA(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGEXA>) -> ::windows::runtime::HRESULT;
+            fn PrintDlgExA(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGEXA>) -> ::windows::core::HRESULT;
         }
         PrintDlgExA(::core::mem::transmute(ppd)).ok()
     }
@@ -3682,12 +3682,12 @@ pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::runtime::Result<(
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::runtime::Result<()> {
+pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrintDlgExW(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGEXW>) -> ::windows::runtime::HRESULT;
+            fn PrintDlgExW(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGEXW>) -> ::windows::core::HRESULT;
         }
         PrintDlgExW(::core::mem::transmute(ppd)).ok()
     }

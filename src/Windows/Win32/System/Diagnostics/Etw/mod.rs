@@ -3,7 +3,7 @@
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub struct CLASSIC_EVENT_ID {
-    pub EventGuid: ::windows::runtime::GUID,
+    pub EventGuid: ::windows::core::GUID,
     pub Type: u8,
     pub Reserved: [u8; 7],
 }
@@ -24,11 +24,11 @@ impl ::core::cmp::PartialEq for CLASSIC_EVENT_ID {
     }
 }
 impl ::core::cmp::Eq for CLASSIC_EVENT_ID {}
-unsafe impl ::windows::runtime::Abi for CLASSIC_EVENT_ID {
+unsafe impl ::windows::core::Abi for CLASSIC_EVENT_ID {
     type Abi = Self;
 }
-pub const CLSID_TraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
-pub const CTraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
+pub const CLSID_TraceRelogger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
+pub const CTraceRelogger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
 pub unsafe fn CloseTrace(tracehandle: u64) -> u32 {
@@ -46,7 +46,7 @@ pub unsafe fn CloseTrace(tracehandle: u64) -> u32 {
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ControlTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32 {
+pub unsafe fn ControlTraceA<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -61,7 +61,7 @@ pub unsafe fn ControlTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ControlTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32 {
+pub unsafe fn ControlTraceW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -76,7 +76,7 @@ pub unsafe fn ControlTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateTraceInstanceId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(reghandle: Param0, instinfo: *mut EVENT_INSTANCE_INFO) -> u32 {
+pub unsafe fn CreateTraceInstanceId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(reghandle: Param0, instinfo: *mut EVENT_INSTANCE_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -91,7 +91,7 @@ pub unsafe fn CreateTraceInstanceId<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CveEventWrite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(cveid: Param0, additionaldetails: Param1) -> i32 {
+pub unsafe fn CveEventWrite<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(cveid: Param0, additionaldetails: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -117,10 +117,10 @@ impl ::core::convert::From<i32> for DECODING_SOURCE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DECODING_SOURCE {
+unsafe impl ::windows::core::Abi for DECODING_SOURCE {
     type Abi = Self;
 }
-pub const DefaultTraceSecurityGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713);
+pub const DefaultTraceSecurityGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -133,7 +133,7 @@ impl ::core::convert::From<u32> for ENABLECALLBACK_ENABLED_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ENABLECALLBACK_ENABLED_STATE {
+unsafe impl ::windows::core::Abi for ENABLECALLBACK_ENABLED_STATE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for ENABLECALLBACK_ENABLED_STATE {
@@ -171,7 +171,7 @@ pub struct ENABLE_TRACE_PARAMETERS {
     pub Version: u32,
     pub EnableProperty: u32,
     pub ControlFlags: u32,
-    pub SourceId: ::windows::runtime::GUID,
+    pub SourceId: ::windows::core::GUID,
     pub EnableFilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
     pub FilterDescCount: u32,
 }
@@ -199,7 +199,7 @@ impl ::core::cmp::PartialEq for ENABLE_TRACE_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for ENABLE_TRACE_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for ENABLE_TRACE_PARAMETERS {
+unsafe impl ::windows::core::Abi for ENABLE_TRACE_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -209,7 +209,7 @@ pub struct ENABLE_TRACE_PARAMETERS_V1 {
     pub Version: u32,
     pub EnableProperty: u32,
     pub ControlFlags: u32,
-    pub SourceId: ::windows::runtime::GUID,
+    pub SourceId: ::windows::core::GUID,
     pub EnableFilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
 }
 impl ENABLE_TRACE_PARAMETERS_V1 {}
@@ -229,7 +229,7 @@ impl ::core::cmp::PartialEq for ENABLE_TRACE_PARAMETERS_V1 {
     }
 }
 impl ::core::cmp::Eq for ENABLE_TRACE_PARAMETERS_V1 {}
-unsafe impl ::windows::runtime::Abi for ENABLE_TRACE_PARAMETERS_V1 {
+unsafe impl ::windows::core::Abi for ENABLE_TRACE_PARAMETERS_V1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -263,7 +263,7 @@ impl ::core::cmp::PartialEq for ETW_BUFFER_CONTEXT {
     }
 }
 impl ::core::cmp::Eq for ETW_BUFFER_CONTEXT {}
-unsafe impl ::windows::runtime::Abi for ETW_BUFFER_CONTEXT {
+unsafe impl ::windows::core::Abi for ETW_BUFFER_CONTEXT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -285,7 +285,7 @@ impl ::core::cmp::PartialEq for ETW_BUFFER_CONTEXT_0 {
     }
 }
 impl ::core::cmp::Eq for ETW_BUFFER_CONTEXT_0 {}
-unsafe impl ::windows::runtime::Abi for ETW_BUFFER_CONTEXT_0 {
+unsafe impl ::windows::core::Abi for ETW_BUFFER_CONTEXT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -312,7 +312,7 @@ impl ::core::cmp::PartialEq for ETW_BUFFER_CONTEXT_0_0 {
     }
 }
 impl ::core::cmp::Eq for ETW_BUFFER_CONTEXT_0_0 {}
-unsafe impl ::windows::runtime::Abi for ETW_BUFFER_CONTEXT_0_0 {
+unsafe impl ::windows::core::Abi for ETW_BUFFER_CONTEXT_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -331,7 +331,7 @@ impl ::core::convert::From<i32> for ETW_COMPRESSION_RESUMPTION_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ETW_COMPRESSION_RESUMPTION_MODE {
+unsafe impl ::windows::core::Abi for ETW_COMPRESSION_RESUMPTION_MODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -385,7 +385,7 @@ impl ::core::cmp::PartialEq for ETW_PMC_COUNTER_OWNER {
     }
 }
 impl ::core::cmp::Eq for ETW_PMC_COUNTER_OWNER {}
-unsafe impl ::windows::runtime::Abi for ETW_PMC_COUNTER_OWNER {
+unsafe impl ::windows::core::Abi for ETW_PMC_COUNTER_OWNER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -413,7 +413,7 @@ impl ::core::cmp::PartialEq for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     }
 }
 impl ::core::cmp::Eq for ETW_PMC_COUNTER_OWNERSHIP_STATUS {}
-unsafe impl ::windows::runtime::Abi for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
+unsafe impl ::windows::core::Abi for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -429,7 +429,7 @@ impl ::core::convert::From<i32> for ETW_PMC_COUNTER_OWNER_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ETW_PMC_COUNTER_OWNER_TYPE {
+unsafe impl ::windows::core::Abi for ETW_PMC_COUNTER_OWNER_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -447,7 +447,7 @@ impl ::core::convert::From<i32> for ETW_PROCESS_HANDLE_INFO_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ETW_PROCESS_HANDLE_INFO_TYPE {
+unsafe impl ::windows::core::Abi for ETW_PROCESS_HANDLE_INFO_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -462,7 +462,7 @@ impl ::core::convert::From<i32> for ETW_PROVIDER_TRAIT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ETW_PROVIDER_TRAIT_TYPE {
+unsafe impl ::windows::core::Abi for ETW_PROVIDER_TRAIT_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -491,8 +491,8 @@ pub const ETW_STRING_TYPE_VALUE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub struct ETW_TRACE_PARTITION_INFORMATION {
-    pub PartitionId: ::windows::runtime::GUID,
-    pub ParentId: ::windows::runtime::GUID,
+    pub PartitionId: ::windows::core::GUID,
+    pub ParentId: ::windows::core::GUID,
     pub QpcOffsetFromRoot: i64,
     pub PartitionType: u32,
 }
@@ -513,7 +513,7 @@ impl ::core::cmp::PartialEq for ETW_TRACE_PARTITION_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for ETW_TRACE_PARTITION_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for ETW_TRACE_PARTITION_INFORMATION {
+unsafe impl ::windows::core::Abi for ETW_TRACE_PARTITION_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -549,7 +549,7 @@ impl ::core::cmp::PartialEq for ETW_TRACE_PARTITION_INFORMATION_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ETW_TRACE_PARTITION_INFORMATION_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ETW_TRACE_PARTITION_INFORMATION_V2 {
+unsafe impl ::windows::core::Abi for ETW_TRACE_PARTITION_INFORMATION_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -576,7 +576,7 @@ impl ::core::convert::From<i32> for EVENTSECURITYOPERATION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EVENTSECURITYOPERATION {
+unsafe impl ::windows::core::Abi for EVENTSECURITYOPERATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -609,7 +609,7 @@ impl ::core::cmp::PartialEq for EVENT_DATA_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for EVENT_DATA_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for EVENT_DATA_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for EVENT_DATA_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -631,7 +631,7 @@ impl ::core::cmp::PartialEq for EVENT_DATA_DESCRIPTOR_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_DATA_DESCRIPTOR_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_DATA_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for EVENT_DATA_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -659,7 +659,7 @@ impl ::core::cmp::PartialEq for EVENT_DATA_DESCRIPTOR_0_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_DATA_DESCRIPTOR_0_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_DATA_DESCRIPTOR_0_0 {
+unsafe impl ::windows::core::Abi for EVENT_DATA_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -699,7 +699,7 @@ impl ::core::cmp::PartialEq for EVENT_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for EVENT_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for EVENT_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for EVENT_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -749,7 +749,7 @@ impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_EVENT_KEY {
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_EVENT_KEY {}
-unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_EVENT_KEY {
+unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_EVENT_KEY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -758,7 +758,7 @@ unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_EVENT_KEY {
 pub struct EVENT_EXTENDED_ITEM_INSTANCE {
     pub InstanceId: u32,
     pub ParentInstanceId: u32,
-    pub ParentGuid: ::windows::runtime::GUID,
+    pub ParentGuid: ::windows::core::GUID,
 }
 impl EVENT_EXTENDED_ITEM_INSTANCE {}
 impl ::core::default::Default for EVENT_EXTENDED_ITEM_INSTANCE {
@@ -777,7 +777,7 @@ impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_INSTANCE {
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_INSTANCE {}
-unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_INSTANCE {
+unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_INSTANCE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -803,7 +803,7 @@ impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_PEBS_INDEX {
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_PEBS_INDEX {}
-unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_PEBS_INDEX {
+unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PEBS_INDEX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -829,7 +829,7 @@ impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_PMC_COUNTERS {}
-unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
+unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -855,14 +855,14 @@ impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {}
-unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
+unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
-    pub RelatedActivityId: ::windows::runtime::GUID,
+    pub RelatedActivityId: ::windows::core::GUID,
 }
 impl EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {}
 impl ::core::default::Default for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
@@ -881,7 +881,7 @@ impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {}
-unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
+unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -909,7 +909,7 @@ impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_KEY32 {
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_KEY32 {}
-unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_STACK_KEY32 {
+unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_KEY32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -936,7 +936,7 @@ impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_KEY64 {
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_KEY64 {}
-unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_STACK_KEY64 {
+unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_KEY64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -963,7 +963,7 @@ impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_TRACE32 {}
-unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
+unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -990,7 +990,7 @@ impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_TRACE64 {}
-unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
+unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1016,7 +1016,7 @@ impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_TS_ID {
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_TS_ID {}
-unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_TS_ID {
+unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_TS_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -1034,7 +1034,7 @@ impl ::core::convert::From<i32> for EVENT_FIELD_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EVENT_FIELD_TYPE {
+unsafe impl ::windows::core::Abi for EVENT_FIELD_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1062,7 +1062,7 @@ impl ::core::cmp::PartialEq for EVENT_FILTER_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for EVENT_FILTER_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for EVENT_FILTER_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for EVENT_FILTER_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1098,7 +1098,7 @@ impl ::core::cmp::PartialEq for EVENT_FILTER_EVENT_ID {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_FILTER_EVENT_ID {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_FILTER_EVENT_ID {
+unsafe impl ::windows::core::Abi for EVENT_FILTER_EVENT_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1136,7 +1136,7 @@ impl ::core::cmp::PartialEq for EVENT_FILTER_EVENT_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_FILTER_EVENT_NAME {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_FILTER_EVENT_NAME {
+unsafe impl ::windows::core::Abi for EVENT_FILTER_EVENT_NAME {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1167,7 +1167,7 @@ impl ::core::cmp::PartialEq for EVENT_FILTER_HEADER {
     }
 }
 impl ::core::cmp::Eq for EVENT_FILTER_HEADER {}
-unsafe impl ::windows::runtime::Abi for EVENT_FILTER_HEADER {
+unsafe impl ::windows::core::Abi for EVENT_FILTER_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1203,7 +1203,7 @@ impl ::core::cmp::PartialEq for EVENT_FILTER_LEVEL_KW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_FILTER_LEVEL_KW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_FILTER_LEVEL_KW {
+unsafe impl ::windows::core::Abi for EVENT_FILTER_LEVEL_KW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -1247,10 +1247,10 @@ pub struct EVENT_HEADER {
     pub ThreadId: u32,
     pub ProcessId: u32,
     pub TimeStamp: i64,
-    pub ProviderId: ::windows::runtime::GUID,
+    pub ProviderId: ::windows::core::GUID,
     pub EventDescriptor: EVENT_DESCRIPTOR,
     pub Anonymous: EVENT_HEADER_0,
-    pub ActivityId: ::windows::runtime::GUID,
+    pub ActivityId: ::windows::core::GUID,
 }
 impl EVENT_HEADER {}
 impl ::core::default::Default for EVENT_HEADER {
@@ -1264,7 +1264,7 @@ impl ::core::cmp::PartialEq for EVENT_HEADER {
     }
 }
 impl ::core::cmp::Eq for EVENT_HEADER {}
-unsafe impl ::windows::runtime::Abi for EVENT_HEADER {
+unsafe impl ::windows::core::Abi for EVENT_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1286,7 +1286,7 @@ impl ::core::cmp::PartialEq for EVENT_HEADER_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_HEADER_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_HEADER_0 {
+unsafe impl ::windows::core::Abi for EVENT_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1313,7 +1313,7 @@ impl ::core::cmp::PartialEq for EVENT_HEADER_0_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_HEADER_0_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_HEADER_0_0 {
+unsafe impl ::windows::core::Abi for EVENT_HEADER_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1343,7 +1343,7 @@ impl ::core::cmp::PartialEq for EVENT_HEADER_EXTENDED_DATA_ITEM {
     }
 }
 impl ::core::cmp::Eq for EVENT_HEADER_EXTENDED_DATA_ITEM {}
-unsafe impl ::windows::runtime::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM {
+unsafe impl ::windows::core::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1369,7 +1369,7 @@ impl ::core::cmp::PartialEq for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
+unsafe impl ::windows::core::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -1452,7 +1452,7 @@ impl ::core::convert::From<i32> for EVENT_INFO_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EVENT_INFO_CLASS {
+unsafe impl ::windows::core::Abi for EVENT_INFO_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1483,7 +1483,7 @@ impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER {
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER {}
-unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER {
+unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1505,7 +1505,7 @@ impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_0 {
+unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1532,7 +1532,7 @@ impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_0_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_0_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_0_0 {
+unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1554,7 +1554,7 @@ impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_1 {
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_1 {}
-unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_1 {
+unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1582,7 +1582,7 @@ impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_1_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_1_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_1_0 {
+unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1605,7 +1605,7 @@ impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_2 {
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_2 {}
-unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_2 {
+unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1632,7 +1632,7 @@ impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_2_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_2_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_2_0 {
+unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_2_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1659,7 +1659,7 @@ impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_2_1 {
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_2_1 {}
-unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_2_1 {
+unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_2_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1693,7 +1693,7 @@ impl ::core::cmp::PartialEq for EVENT_INSTANCE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_INSTANCE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_INFO {
+unsafe impl ::windows::core::Abi for EVENT_INSTANCE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1715,7 +1715,7 @@ impl ::core::cmp::PartialEq for EVENT_MAP_ENTRY {
     }
 }
 impl ::core::cmp::Eq for EVENT_MAP_ENTRY {}
-unsafe impl ::windows::runtime::Abi for EVENT_MAP_ENTRY {
+unsafe impl ::windows::core::Abi for EVENT_MAP_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1737,7 +1737,7 @@ impl ::core::cmp::PartialEq for EVENT_MAP_ENTRY_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_MAP_ENTRY_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_MAP_ENTRY_0 {
+unsafe impl ::windows::core::Abi for EVENT_MAP_ENTRY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1762,7 +1762,7 @@ impl ::core::cmp::PartialEq for EVENT_MAP_INFO {
     }
 }
 impl ::core::cmp::Eq for EVENT_MAP_INFO {}
-unsafe impl ::windows::runtime::Abi for EVENT_MAP_INFO {
+unsafe impl ::windows::core::Abi for EVENT_MAP_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1784,7 +1784,7 @@ impl ::core::cmp::PartialEq for EVENT_MAP_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_MAP_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_MAP_INFO_0 {
+unsafe impl ::windows::core::Abi for EVENT_MAP_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -1814,7 +1814,7 @@ impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO {
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO {}
-unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO {
+unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1837,7 +1837,7 @@ impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_0 {
+unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1865,7 +1865,7 @@ impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_0_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_0_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_0_0 {
+unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1893,7 +1893,7 @@ impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_0_1 {
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_0_1 {}
-unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_0_1 {
+unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1921,7 +1921,7 @@ impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_0_2 {
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_0_2 {}
-unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_0_2 {
+unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1943,7 +1943,7 @@ impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_1 {
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_1 {}
-unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_1 {
+unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1965,7 +1965,7 @@ impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_2 {
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_2 {}
-unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_2 {
+unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1987,7 +1987,7 @@ impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_3 {
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_3 {}
-unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_3 {
+unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2013,7 +2013,7 @@ impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_3_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_3_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_3_0 {
+unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_3_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2040,7 +2040,7 @@ impl ::core::cmp::PartialEq for EVENT_RECORD {
     }
 }
 impl ::core::cmp::Eq for EVENT_RECORD {}
-unsafe impl ::windows::runtime::Abi for EVENT_RECORD {
+unsafe impl ::windows::core::Abi for EVENT_RECORD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2050,7 +2050,7 @@ pub struct EVENT_TRACE {
     pub Header: EVENT_TRACE_HEADER,
     pub InstanceId: u32,
     pub ParentInstanceId: u32,
-    pub ParentGuid: ::windows::runtime::GUID,
+    pub ParentGuid: ::windows::core::GUID,
     pub MofData: *mut ::core::ffi::c_void,
     pub MofLength: u32,
     pub Anonymous: EVENT_TRACE_0,
@@ -2067,7 +2067,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE {
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE {}
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE {
+unsafe impl ::windows::core::Abi for EVENT_TRACE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2089,7 +2089,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_0 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -2113,7 +2113,7 @@ impl ::core::convert::From<u32> for EVENT_TRACE_CONTROL {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_CONTROL {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_CONTROL {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for EVENT_TRACE_CONTROL {
@@ -2198,7 +2198,7 @@ impl ::core::convert::From<u32> for EVENT_TRACE_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_FLAG {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for EVENT_TRACE_FLAG {
@@ -2262,7 +2262,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER {
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER {}
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2284,7 +2284,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_0 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2311,7 +2311,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_0_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_0_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_0_0 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2333,7 +2333,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_1 {
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_1 {}
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_1 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2361,14 +2361,14 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_1_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_1_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_1_0 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub union EVENT_TRACE_HEADER_2 {
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
     pub GuidPtr: u64,
 }
 impl EVENT_TRACE_HEADER_2 {}
@@ -2383,7 +2383,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_2 {
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_2 {}
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_2 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2406,7 +2406,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_3 {
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_3 {}
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_3 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2433,7 +2433,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_3_0 {
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_3_0 {}
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_3_0 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2460,7 +2460,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_3_1 {
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_3_1 {}
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_3_1 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -2507,7 +2507,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEA {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2534,7 +2534,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEA_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEA_0 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA_0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -2546,8 +2546,8 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_1 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union EVENT_TRACE_LOGFILEA_1 {
-    pub EventCallback: ::windows::runtime::RawPtr,
-    pub EventRecordCallback: ::windows::runtime::RawPtr,
+    pub EventCallback: ::windows::core::RawPtr,
+    pub EventRecordCallback: ::windows::core::RawPtr,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl EVENT_TRACE_LOGFILEA_1 {}
@@ -2566,7 +2566,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEA_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEA_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEA_1 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA_1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -2611,7 +2611,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEW {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2638,7 +2638,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEW_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEW_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEW_0 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW_0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -2650,8 +2650,8 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW_1 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union EVENT_TRACE_LOGFILEW_1 {
-    pub EventCallback: ::windows::runtime::RawPtr,
-    pub EventRecordCallback: ::windows::runtime::RawPtr,
+    pub EventCallback: ::windows::core::RawPtr,
+    pub EventRecordCallback: ::windows::core::RawPtr,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl EVENT_TRACE_LOGFILEW_1 {}
@@ -2670,7 +2670,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEW_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEW_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEW_1 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW_1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -2726,7 +2726,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2753,7 +2753,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_0 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2801,7 +2801,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2828,7 +2828,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2_0 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2855,7 +2855,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2_1 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2887,7 +2887,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2_1_0 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2914,7 +2914,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2_2 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2946,7 +2946,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2_2_0 {
+unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_2_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -3195,12 +3195,12 @@ pub const EVENT_WRITE_FLAG_INPRIVATE: u32 = 2u32;
 pub const EVENT_WRITE_FLAG_NO_FAULTING: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const ::windows::runtime::GUID, tracehandle: u64) -> u32 {
+pub unsafe fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const ::windows::core::GUID, tracehandle: u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const ::windows::runtime::GUID, tracehandle: u64) -> u32;
+            fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const ::windows::core::GUID, tracehandle: u64) -> u32;
         }
         ::core::mem::transmute(EnableTrace(::core::mem::transmute(enable), ::core::mem::transmute(enableflag), ::core::mem::transmute(enablelevel), ::core::mem::transmute(controlguid), ::core::mem::transmute(tracehandle)))
     }
@@ -3209,12 +3209,12 @@ pub unsafe fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, contro
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn EnableTraceEx(providerid: *const ::windows::runtime::GUID, sourceid: *const ::windows::runtime::GUID, tracehandle: u64, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> u32 {
+pub unsafe fn EnableTraceEx(providerid: *const ::windows::core::GUID, sourceid: *const ::windows::core::GUID, tracehandle: u64, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnableTraceEx(providerid: *const ::windows::runtime::GUID, sourceid: *const ::windows::runtime::GUID, tracehandle: u64, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> u32;
+            fn EnableTraceEx(providerid: *const ::windows::core::GUID, sourceid: *const ::windows::core::GUID, tracehandle: u64, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> u32;
         }
         ::core::mem::transmute(EnableTraceEx(
             ::core::mem::transmute(providerid),
@@ -3233,12 +3233,12 @@ pub unsafe fn EnableTraceEx(providerid: *const ::windows::runtime::GUID, sourcei
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows::runtime::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> u32 {
+pub unsafe fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows::core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows::runtime::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> u32;
+            fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows::core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> u32;
         }
         ::core::mem::transmute(EnableTraceEx2(
             ::core::mem::transmute(tracehandle),
@@ -3286,12 +3286,12 @@ pub unsafe fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS,
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EventAccessControl<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(guid: *const ::windows::runtime::GUID, operation: u32, sid: Param2, rights: u32, allowordeny: Param4) -> u32 {
+pub unsafe fn EventAccessControl<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(guid: *const ::windows::core::GUID, operation: u32, sid: Param2, rights: u32, allowordeny: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventAccessControl(guid: *const ::windows::runtime::GUID, operation: u32, sid: super::super::super::Foundation::PSID, rights: u32, allowordeny: super::super::super::Foundation::BOOLEAN) -> u32;
+            fn EventAccessControl(guid: *const ::windows::core::GUID, operation: u32, sid: super::super::super::Foundation::PSID, rights: u32, allowordeny: super::super::super::Foundation::BOOLEAN) -> u32;
         }
         ::core::mem::transmute(EventAccessControl(::core::mem::transmute(guid), ::core::mem::transmute(operation), sid.into_param().abi(), ::core::mem::transmute(rights), allowordeny.into_param().abi()))
     }
@@ -3301,12 +3301,12 @@ pub unsafe fn EventAccessControl<'a, Param2: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EventAccessQuery(guid: *const ::windows::runtime::GUID, buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32 {
+pub unsafe fn EventAccessQuery(guid: *const ::windows::core::GUID, buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventAccessQuery(guid: *const ::windows::runtime::GUID, buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32;
+            fn EventAccessQuery(guid: *const ::windows::core::GUID, buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32;
         }
         ::core::mem::transmute(EventAccessQuery(::core::mem::transmute(guid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
     }
@@ -3315,12 +3315,12 @@ pub unsafe fn EventAccessQuery(guid: *const ::windows::runtime::GUID, buffer: *m
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn EventAccessRemove(guid: *const ::windows::runtime::GUID) -> u32 {
+pub unsafe fn EventAccessRemove(guid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventAccessRemove(guid: *const ::windows::runtime::GUID) -> u32;
+            fn EventAccessRemove(guid: *const ::windows::core::GUID) -> u32;
         }
         ::core::mem::transmute(EventAccessRemove(::core::mem::transmute(guid)))
     }
@@ -3329,12 +3329,12 @@ pub unsafe fn EventAccessRemove(guid: *const ::windows::runtime::GUID) -> u32 {
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn EventActivityIdControl(controlcode: u32, activityid: *mut ::windows::runtime::GUID) -> u32 {
+pub unsafe fn EventActivityIdControl(controlcode: u32, activityid: *mut ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventActivityIdControl(controlcode: u32, activityid: *mut ::windows::runtime::GUID) -> u32;
+            fn EventActivityIdControl(controlcode: u32, activityid: *mut ::windows::core::GUID) -> u32;
         }
         ::core::mem::transmute(EventActivityIdControl(::core::mem::transmute(controlcode), ::core::mem::transmute(activityid)))
     }
@@ -3373,12 +3373,12 @@ pub unsafe fn EventProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> s
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn EventRegister(providerid: *const ::windows::runtime::GUID, enablecallback: ::core::option::Option<PENABLECALLBACK>, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32 {
+pub unsafe fn EventRegister(providerid: *const ::windows::core::GUID, enablecallback: ::core::option::Option<PENABLECALLBACK>, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventRegister(providerid: *const ::windows::runtime::GUID, enablecallback: ::windows::runtime::RawPtr, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32;
+            fn EventRegister(providerid: *const ::windows::core::GUID, enablecallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32;
         }
         ::core::mem::transmute(EventRegister(::core::mem::transmute(providerid), ::core::mem::transmute(enablecallback), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(reghandle)))
     }
@@ -3399,8 +3399,8 @@ pub unsafe fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_C
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const EventTraceConfigGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01853a65_418f_4f36_aefc_dc0f1d2fd235);
-pub const EventTraceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68fdd900_4a3e_11d1_84f4_0000f80464e3);
+pub const EventTraceConfigGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01853a65_418f_4f36_aefc_dc0f1d2fd235);
+pub const EventTraceGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68fdd900_4a3e_11d1_84f4_0000f80464e3);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
 pub unsafe fn EventUnregister(reghandle: u64) -> u32 {
@@ -3431,12 +3431,12 @@ pub unsafe fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTO
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows::runtime::GUID, relatedactivityid: *const ::windows::runtime::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32 {
+pub unsafe fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows::core::GUID, relatedactivityid: *const ::windows::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows::runtime::GUID, relatedactivityid: *const ::windows::runtime::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
+            fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows::core::GUID, relatedactivityid: *const ::windows::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
         }
         ::core::mem::transmute(EventWriteEx(
             ::core::mem::transmute(reghandle),
@@ -3455,7 +3455,7 @@ pub unsafe fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIP
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EventWriteString<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(reghandle: u64, level: u8, keyword: u64, string: Param3) -> u32 {
+pub unsafe fn EventWriteString<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(reghandle: u64, level: u8, keyword: u64, string: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3469,12 +3469,12 @@ pub unsafe fn EventWriteString<'a, Param3: ::windows::runtime::IntoParam<'a, sup
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows::runtime::GUID, relatedactivityid: *const ::windows::runtime::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32 {
+pub unsafe fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows::core::GUID, relatedactivityid: *const ::windows::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows::runtime::GUID, relatedactivityid: *const ::windows::runtime::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
+            fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows::core::GUID, relatedactivityid: *const ::windows::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
         }
         ::core::mem::transmute(EventWriteTransfer(::core::mem::transmute(reghandle), ::core::mem::transmute(eventdescriptor), ::core::mem::transmute(activityid), ::core::mem::transmute(relatedactivityid), ::core::mem::transmute(userdatacount), ::core::mem::transmute(userdata)))
     }
@@ -3484,7 +3484,7 @@ pub unsafe fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_D
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FlushTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
+pub unsafe fn FlushTraceA<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3499,7 +3499,7 @@ pub unsafe fn FlushTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FlushTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
+pub unsafe fn FlushTraceW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3556,246 +3556,246 @@ pub unsafe fn GetTraceLoggerHandle(buffer: *const ::core::ffi::c_void) -> u64 {
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ITraceEvent(pub ::windows::runtime::IUnknown);
+pub struct ITraceEvent(pub ::windows::core::IUnknown);
 impl ITraceEvent {
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn Clone(&self) -> ::windows::runtime::Result<ITraceEvent> {
-        let mut result__: <ITraceEvent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITraceEvent>(result__)
+    pub unsafe fn Clone(&self) -> ::windows::core::Result<ITraceEvent> {
+        let mut result__: <ITraceEvent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITraceEvent>(result__)
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn GetUserContext(&self, usercontext: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(usercontext)).ok()
+    pub unsafe fn GetUserContext(&self, usercontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(usercontext)).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn GetEventRecord(&self) -> ::windows::runtime::Result<*mut EVENT_RECORD> {
-        let mut result__: <*mut EVENT_RECORD as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut EVENT_RECORD>(result__)
+    pub unsafe fn GetEventRecord(&self) -> ::windows::core::Result<*mut EVENT_RECORD> {
+        let mut result__: <*mut EVENT_RECORD as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut EVENT_RECORD>(result__)
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn SetPayload(&self, payload: *const u8, payloadsize: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(payload), ::core::mem::transmute(payloadsize)).ok()
+    pub unsafe fn SetPayload(&self, payload: *const u8, payloadsize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(payload), ::core::mem::transmute(payloadsize)).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn SetEventDescriptor(&self, eventdescriptor: *const EVENT_DESCRIPTOR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventdescriptor)).ok()
+    pub unsafe fn SetEventDescriptor(&self, eventdescriptor: *const EVENT_DESCRIPTOR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventdescriptor)).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn SetProcessId(&self, processid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(processid)).ok()
+    pub unsafe fn SetProcessId(&self, processid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(processid)).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn SetProcessorIndex(&self, processorindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(processorindex)).ok()
+    pub unsafe fn SetProcessorIndex(&self, processorindex: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(processorindex)).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn SetThreadId(&self, threadid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadid)).ok()
+    pub unsafe fn SetThreadId(&self, threadid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadid)).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn SetThreadTimes(&self, kerneltime: u32, usertime: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(kerneltime), ::core::mem::transmute(usertime)).ok()
+    pub unsafe fn SetThreadTimes(&self, kerneltime: u32, usertime: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(kerneltime), ::core::mem::transmute(usertime)).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn SetActivityId(&self, activityid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(activityid)).ok()
+    pub unsafe fn SetActivityId(&self, activityid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(activityid)).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn SetTimeStamp(&self, timestamp: *const i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(timestamp)).ok()
+    pub unsafe fn SetTimeStamp(&self, timestamp: *const i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(timestamp)).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn SetProviderId(&self, providerid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(providerid)).ok()
+    pub unsafe fn SetProviderId(&self, providerid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(providerid)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ITraceEvent {
+unsafe impl ::windows::core::Interface for ITraceEvent {
     type Vtable = ITraceEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
 }
-impl ::core::convert::From<ITraceEvent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITraceEvent> for ::windows::core::IUnknown {
     fn from(value: ITraceEvent) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ITraceEvent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITraceEvent> for ::windows::core::IUnknown {
     fn from(value: &ITraceEvent) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITraceEvent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITraceEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITraceEvent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceEvent_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, newevent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, usercontext: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventrecord: *mut *mut EVENT_RECORD) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, payload: *const u8, payloadsize: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventdescriptor: *const EVENT_DESCRIPTOR) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, processid: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, processorindex: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threadid: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kerneltime: u32, usertime: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, activityid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: *const i64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, providerid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, usercontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, eventrecord: *mut *mut EVENT_RECORD) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, payload: *const u8, payloadsize: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, eventdescriptor: *const EVENT_DESCRIPTOR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, processid: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, processorindex: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, threadid: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, kerneltime: u32, usertime: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, activityid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, timestamp: *const i64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, providerid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ITraceEventCallback(pub ::windows::runtime::IUnknown);
+pub struct ITraceEventCallback(pub ::windows::core::IUnknown);
 impl ITraceEventCallback {
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn OnBeginProcessTrace<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceEvent>, Param1: ::windows::runtime::IntoParam<'a, ITraceRelogger>>(&self, headerevent: Param0, relogger: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), headerevent.into_param().abi(), relogger.into_param().abi()).ok()
+    pub unsafe fn OnBeginProcessTrace<'a, Param0: ::windows::core::IntoParam<'a, ITraceEvent>, Param1: ::windows::core::IntoParam<'a, ITraceRelogger>>(&self, headerevent: Param0, relogger: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), headerevent.into_param().abi(), relogger.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn OnFinalizeProcessTrace<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceRelogger>>(&self, relogger: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), relogger.into_param().abi()).ok()
+    pub unsafe fn OnFinalizeProcessTrace<'a, Param0: ::windows::core::IntoParam<'a, ITraceRelogger>>(&self, relogger: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), relogger.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn OnEvent<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceEvent>, Param1: ::windows::runtime::IntoParam<'a, ITraceRelogger>>(&self, event: Param0, relogger: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), event.into_param().abi(), relogger.into_param().abi()).ok()
+    pub unsafe fn OnEvent<'a, Param0: ::windows::core::IntoParam<'a, ITraceEvent>, Param1: ::windows::core::IntoParam<'a, ITraceRelogger>>(&self, event: Param0, relogger: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), event.into_param().abi(), relogger.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ITraceEventCallback {
+unsafe impl ::windows::core::Interface for ITraceEventCallback {
     type Vtable = ITraceEventCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
 }
-impl ::core::convert::From<ITraceEventCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITraceEventCallback> for ::windows::core::IUnknown {
     fn from(value: ITraceEventCallback) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ITraceEventCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITraceEventCallback> for ::windows::core::IUnknown {
     fn from(value: &ITraceEventCallback) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceEventCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITraceEventCallback {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITraceEventCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITraceEventCallback {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceEventCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, headerevent: ::windows::runtime::RawPtr, relogger: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, relogger: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, event: ::windows::runtime::RawPtr, relogger: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, headerevent: ::windows::core::RawPtr, relogger: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, relogger: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, event: ::windows::core::RawPtr, relogger: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ITraceRelogger(pub ::windows::runtime::IUnknown);
+pub struct ITraceRelogger(pub ::windows::core::IUnknown);
 impl ITraceRelogger {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    pub unsafe fn AddLogfileTraceStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, logfilename: Param0, usercontext: *const ::core::ffi::c_void) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), logfilename.into_param().abi(), ::core::mem::transmute(usercontext), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn AddLogfileTraceStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, logfilename: Param0, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), logfilename.into_param().abi(), ::core::mem::transmute(usercontext), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    pub unsafe fn AddRealtimeTraceStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, loggername: Param0, usercontext: *const ::core::ffi::c_void) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), loggername.into_param().abi(), ::core::mem::transmute(usercontext), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn AddRealtimeTraceStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, loggername: Param0, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), loggername.into_param().abi(), ::core::mem::transmute(usercontext), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn RegisterCallback<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceEventCallback>>(&self, callback: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), callback.into_param().abi()).ok()
+    pub unsafe fn RegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, ITraceEventCallback>>(&self, callback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), callback.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn Inject<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceEvent>>(&self, event: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), event.into_param().abi()).ok()
+    pub unsafe fn Inject<'a, Param0: ::windows::core::IntoParam<'a, ITraceEvent>>(&self, event: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), event.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn CreateEventInstance(&self, tracehandle: u64, flags: u32) -> ::windows::runtime::Result<ITraceEvent> {
-        let mut result__: <ITraceEvent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(tracehandle), ::core::mem::transmute(flags), &mut result__).from_abi::<ITraceEvent>(result__)
+    pub unsafe fn CreateEventInstance(&self, tracehandle: u64, flags: u32) -> ::windows::core::Result<ITraceEvent> {
+        let mut result__: <ITraceEvent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(tracehandle), ::core::mem::transmute(flags), &mut result__).from_abi::<ITraceEvent>(result__)
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn ProcessTrace(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn ProcessTrace(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    pub unsafe fn SetOutputFilename<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, logfilename: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), logfilename.into_param().abi()).ok()
+    pub unsafe fn SetOutputFilename<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, logfilename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), logfilename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    pub unsafe fn SetCompressionMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(&self, compressionmode: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), compressionmode.into_param().abi()).ok()
+    pub unsafe fn SetCompressionMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(&self, compressionmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), compressionmode.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ITraceRelogger {
+unsafe impl ::windows::core::Interface for ITraceRelogger {
     type Vtable = ITraceRelogger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf754ad43_3bcc_4286_8009_9c5da214e84e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf754ad43_3bcc_4286_8009_9c5da214e84e);
 }
-impl ::core::convert::From<ITraceRelogger> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITraceRelogger> for ::windows::core::IUnknown {
     fn from(value: ITraceRelogger) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ITraceRelogger> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITraceRelogger> for ::windows::core::IUnknown {
     fn from(value: &ITraceRelogger) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceRelogger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITraceRelogger {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITraceRelogger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITraceRelogger {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceRelogger_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, logfilename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, logfilename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, loggername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut u64) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, loggername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callback: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, event: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tracehandle: u64, flags: u32, event: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, logfilename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, callback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, event: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, tracehandle: u64, flags: u32, event: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, logfilename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compressionmode: super::super::super::Foundation::BOOLEAN) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, compressionmode: super::super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
@@ -3813,7 +3813,7 @@ impl ::core::convert::From<i32> for MAP_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MAP_FLAGS {
+unsafe impl ::windows::core::Abi for MAP_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -3827,7 +3827,7 @@ impl ::core::convert::From<i32> for MAP_VALUETYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MAP_VALUETYPE {
+unsafe impl ::windows::core::Abi for MAP_VALUETYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -3873,7 +3873,7 @@ impl ::core::cmp::PartialEq for MOF_FIELD {
     }
 }
 impl ::core::cmp::Eq for MOF_FIELD {}
-unsafe impl ::windows::runtime::Abi for MOF_FIELD {
+unsafe impl ::windows::core::Abi for MOF_FIELD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3900,7 +3900,7 @@ impl ::core::cmp::PartialEq for OFFSETINSTANCEDATAANDLENGTH {
     }
 }
 impl ::core::cmp::Eq for OFFSETINSTANCEDATAANDLENGTH {}
-unsafe impl ::windows::runtime::Abi for OFFSETINSTANCEDATAANDLENGTH {
+unsafe impl ::windows::core::Abi for OFFSETINSTANCEDATAANDLENGTH {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_System_Time`*"]
@@ -3965,7 +3965,7 @@ impl ::core::cmp::PartialEq for PAYLOAD_FILTER_PREDICATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PAYLOAD_FILTER_PREDICATE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PAYLOAD_FILTER_PREDICATE {
+unsafe impl ::windows::core::Abi for PAYLOAD_FILTER_PREDICATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -3991,11 +3991,11 @@ impl ::core::convert::From<i32> for PAYLOAD_OPERATOR {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PAYLOAD_OPERATOR {
+unsafe impl ::windows::core::Abi for PAYLOAD_OPERATOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-pub type PENABLECALLBACK = unsafe extern "system" fn(sourceid: *const ::windows::runtime::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void);
+pub type PENABLECALLBACK = unsafe extern "system" fn(sourceid: *const ::windows::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub type PEVENT_CALLBACK = unsafe extern "system" fn(pevent: *mut EVENT_TRACE);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -4040,7 +4040,7 @@ impl ::core::cmp::PartialEq for PROFILE_SOURCE_INFO {
     }
 }
 impl ::core::cmp::Eq for PROFILE_SOURCE_INFO {}
-unsafe impl ::windows::runtime::Abi for PROFILE_SOURCE_INFO {
+unsafe impl ::windows::core::Abi for PROFILE_SOURCE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4068,7 +4068,7 @@ impl ::core::cmp::PartialEq for PROPERTY_DATA_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for PROPERTY_DATA_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for PROPERTY_DATA_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for PROPERTY_DATA_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -4088,7 +4088,7 @@ impl ::core::convert::From<i32> for PROPERTY_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PROPERTY_FLAGS {
+unsafe impl ::windows::core::Abi for PROPERTY_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4116,7 +4116,7 @@ impl ::core::cmp::PartialEq for PROVIDER_ENUMERATION_INFO {
     }
 }
 impl ::core::cmp::Eq for PROVIDER_ENUMERATION_INFO {}
-unsafe impl ::windows::runtime::Abi for PROVIDER_ENUMERATION_INFO {
+unsafe impl ::windows::core::Abi for PROVIDER_ENUMERATION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4144,7 +4144,7 @@ impl ::core::cmp::PartialEq for PROVIDER_EVENT_INFO {
     }
 }
 impl ::core::cmp::Eq for PROVIDER_EVENT_INFO {}
-unsafe impl ::windows::runtime::Abi for PROVIDER_EVENT_INFO {
+unsafe impl ::windows::core::Abi for PROVIDER_EVENT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4172,7 +4172,7 @@ impl ::core::cmp::PartialEq for PROVIDER_FIELD_INFO {
     }
 }
 impl ::core::cmp::Eq for PROVIDER_FIELD_INFO {}
-unsafe impl ::windows::runtime::Abi for PROVIDER_FIELD_INFO {
+unsafe impl ::windows::core::Abi for PROVIDER_FIELD_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4200,7 +4200,7 @@ impl ::core::cmp::PartialEq for PROVIDER_FIELD_INFOARRAY {
     }
 }
 impl ::core::cmp::Eq for PROVIDER_FIELD_INFOARRAY {}
-unsafe impl ::windows::runtime::Abi for PROVIDER_FIELD_INFOARRAY {
+unsafe impl ::windows::core::Abi for PROVIDER_FIELD_INFOARRAY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4226,10 +4226,10 @@ impl ::core::cmp::PartialEq for PROVIDER_FILTER_INFO {
     }
 }
 impl ::core::cmp::Eq for PROVIDER_FILTER_INFO {}
-unsafe impl ::windows::runtime::Abi for PROVIDER_FILTER_INFO {
+unsafe impl ::windows::core::Abi for PROVIDER_FILTER_INFO {
     type Abi = Self;
 }
-pub const PrivateLoggerNotificationGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3595ab5c_042a_4c8e_b942_2d059bfeb1b1);
+pub const PrivateLoggerNotificationGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3595ab5c_042a_4c8e_b942_2d059bfeb1b1);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4278,7 +4278,7 @@ pub unsafe fn QueryAllTracesW(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, p
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
+pub unsafe fn QueryTraceA<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4307,7 +4307,7 @@ pub unsafe fn QueryTraceProcessingHandle(processinghandle: u64, informationclass
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
+pub unsafe fn QueryTraceW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4322,12 +4322,12 @@ pub unsafe fn QueryTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterTraceGuidsA<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(requestaddress: ::core::option::Option<WMIDPREQUEST>, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::runtime::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
+pub unsafe fn RegisterTraceGuidsA<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(requestaddress: ::core::option::Option<WMIDPREQUEST>, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterTraceGuidsA(requestaddress: ::windows::runtime::RawPtr, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::runtime::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
+            fn RegisterTraceGuidsA(requestaddress: ::windows::core::RawPtr, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
         }
         ::core::mem::transmute(RegisterTraceGuidsA(
             ::core::mem::transmute(requestaddress),
@@ -4346,12 +4346,12 @@ pub unsafe fn RegisterTraceGuidsA<'a, Param5: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterTraceGuidsW<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(requestaddress: ::core::option::Option<WMIDPREQUEST>, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::runtime::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
+pub unsafe fn RegisterTraceGuidsW<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(requestaddress: ::core::option::Option<WMIDPREQUEST>, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterTraceGuidsW(requestaddress: ::windows::runtime::RawPtr, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::runtime::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
+            fn RegisterTraceGuidsW(requestaddress: ::windows::core::RawPtr, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
         }
         ::core::mem::transmute(RegisterTraceGuidsW(
             ::core::mem::transmute(requestaddress),
@@ -4369,12 +4369,12 @@ pub unsafe fn RegisterTraceGuidsW<'a, Param5: ::windows::runtime::IntoParam<'a, 
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn RemoveTraceCallback(pguid: *const ::windows::runtime::GUID) -> u32 {
+pub unsafe fn RemoveTraceCallback(pguid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemoveTraceCallback(pguid: *const ::windows::runtime::GUID) -> u32;
+            fn RemoveTraceCallback(pguid: *const ::windows::core::GUID) -> u32;
         }
         ::core::mem::transmute(RemoveTraceCallback(::core::mem::transmute(pguid)))
     }
@@ -4573,12 +4573,12 @@ pub const SYSTEM_TIMER_KW_CLOCK_TIMER: u64 = 2u64;
 pub const SYSTEM_TIMER_KW_GENERAL: u64 = 1u64;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn SetTraceCallback(pguid: *const ::windows::runtime::GUID, eventcallback: ::core::option::Option<PEVENT_CALLBACK>) -> u32 {
+pub unsafe fn SetTraceCallback(pguid: *const ::windows::core::GUID, eventcallback: ::core::option::Option<PEVENT_CALLBACK>) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetTraceCallback(pguid: *const ::windows::runtime::GUID, eventcallback: ::windows::runtime::RawPtr) -> u32;
+            fn SetTraceCallback(pguid: *const ::windows::core::GUID, eventcallback: ::windows::core::RawPtr) -> u32;
         }
         ::core::mem::transmute(SetTraceCallback(::core::mem::transmute(pguid), ::core::mem::transmute(eventcallback)))
     }
@@ -4588,7 +4588,7 @@ pub unsafe fn SetTraceCallback(pguid: *const ::windows::runtime::GUID, eventcall
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StartTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: *mut u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
+pub unsafe fn StartTraceA<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: *mut u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4603,7 +4603,7 @@ pub unsafe fn StartTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StartTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: *mut u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
+pub unsafe fn StartTraceW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: *mut u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4618,7 +4618,7 @@ pub unsafe fn StartTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StopTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
+pub unsafe fn StopTraceA<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4633,7 +4633,7 @@ pub unsafe fn StopTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StopTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
+pub unsafe fn StopTraceW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4645,24 +4645,24 @@ pub unsafe fn StopTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SystemAlpcProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfcb9baaf_e529_4980_92e9_ced1a6aadfdf);
-pub const SystemConfigProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfef3a8b6_318d_4b67_a96a_3b0f6b8f18fe);
-pub const SystemCpuProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc6c5265f_eae8_4650_aae4_9d48603d8510);
-pub const SystemHypervisorProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbafa072a_918a_4bed_b622_bc152097098f);
-pub const SystemInterruptProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd4bbee17_b545_4888_858b_744169015b25);
-pub const SystemIoFilterProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbd09363_9e22_4661_b8bf_e7a34b535b8c);
-pub const SystemIoProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d5c43e3_0f1c_4202_b817_174c0070dc79);
-pub const SystemLockProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x721ddfd3_dacc_4e1e_b26a_a2cb31d4705a);
-pub const SystemMemoryProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82958ca9_b6cd_47f8_a3a8_03ae85a4bc24);
-pub const SystemObjectProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfebd7460_3d1d_47eb_af49_c9eeb1e146f2);
-pub const SystemPowerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc134884a_32d5_4488_80e5_14ed7abb8269);
-pub const SystemProcessProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x151f55dc_467d_471f_83b5_5f889d46ff66);
-pub const SystemProfileProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbfeb0324_1cee_496f_a409_2ac2b48a6322);
-pub const SystemRegistryProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16156bd9_fab4_4cfa_a232_89d1099058e3);
-pub const SystemSchedulerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x599a2a76_4d91_4910_9ac7_7d33f2e97a6c);
-pub const SystemSyscallProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x434286f7_6f1b_45bb_b37e_95f623046c7c);
-pub const SystemTimerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f061568_e215_499f_ab2e_eda0ae890a5b);
-pub const SystemTraceControlGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e814aad_3204_11d2_9a82_006008a86939);
+pub const SystemAlpcProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcb9baaf_e529_4980_92e9_ced1a6aadfdf);
+pub const SystemConfigProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfef3a8b6_318d_4b67_a96a_3b0f6b8f18fe);
+pub const SystemCpuProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6c5265f_eae8_4650_aae4_9d48603d8510);
+pub const SystemHypervisorProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafa072a_918a_4bed_b622_bc152097098f);
+pub const SystemInterruptProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4bbee17_b545_4888_858b_744169015b25);
+pub const SystemIoFilterProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd09363_9e22_4661_b8bf_e7a34b535b8c);
+pub const SystemIoProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d5c43e3_0f1c_4202_b817_174c0070dc79);
+pub const SystemLockProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x721ddfd3_dacc_4e1e_b26a_a2cb31d4705a);
+pub const SystemMemoryProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82958ca9_b6cd_47f8_a3a8_03ae85a4bc24);
+pub const SystemObjectProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfebd7460_3d1d_47eb_af49_c9eeb1e146f2);
+pub const SystemPowerProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc134884a_32d5_4488_80e5_14ed7abb8269);
+pub const SystemProcessProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x151f55dc_467d_471f_83b5_5f889d46ff66);
+pub const SystemProfileProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfeb0324_1cee_496f_a409_2ac2b48a6322);
+pub const SystemRegistryProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16156bd9_fab4_4cfa_a232_89d1099058e3);
+pub const SystemSchedulerProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x599a2a76_4d91_4910_9ac7_7d33f2e97a6c);
+pub const SystemSyscallProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x434286f7_6f1b_45bb_b37e_95f623046c7c);
+pub const SystemTimerProviderGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f061568_e215_499f_ab2e_eda0ae890a5b);
+pub const SystemTraceControlGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e814aad_3204_11d2_9a82_006008a86939);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -4688,7 +4688,7 @@ impl ::core::cmp::PartialEq for TDH_CONTEXT {
     }
 }
 impl ::core::cmp::Eq for TDH_CONTEXT {}
-unsafe impl ::windows::runtime::Abi for TDH_CONTEXT {
+unsafe impl ::windows::core::Abi for TDH_CONTEXT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -4706,7 +4706,7 @@ impl ::core::convert::From<i32> for TDH_CONTEXT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TDH_CONTEXT_TYPE {
+unsafe impl ::windows::core::Abi for TDH_CONTEXT_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -4717,8 +4717,8 @@ impl ::core::default::Default for TDH_HANDLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for TDH_HANDLE {}
-unsafe impl ::windows::runtime::Abi for TDH_HANDLE {
+unsafe impl ::windows::core::Handle for TDH_HANDLE {}
+unsafe impl ::windows::core::Abi for TDH_HANDLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -4733,7 +4733,7 @@ impl ::core::convert::From<i32> for TEMPLATE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TEMPLATE_FLAGS {
+unsafe impl ::windows::core::Abi for TEMPLATE_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -4793,15 +4793,15 @@ impl ::core::cmp::PartialEq for TRACE_ENABLE_INFO {
     }
 }
 impl ::core::cmp::Eq for TRACE_ENABLE_INFO {}
-unsafe impl ::windows::runtime::Abi for TRACE_ENABLE_INFO {
+unsafe impl ::windows::core::Abi for TRACE_ENABLE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub struct TRACE_EVENT_INFO {
-    pub ProviderGuid: ::windows::runtime::GUID,
-    pub EventGuid: ::windows::runtime::GUID,
+    pub ProviderGuid: ::windows::core::GUID,
+    pub EventGuid: ::windows::core::GUID,
     pub EventDescriptor: EVENT_DESCRIPTOR,
     pub DecodingSource: DECODING_SOURCE,
     pub ProviderNameOffset: u32,
@@ -4833,7 +4833,7 @@ impl ::core::cmp::PartialEq for TRACE_EVENT_INFO {
     }
 }
 impl ::core::cmp::Eq for TRACE_EVENT_INFO {}
-unsafe impl ::windows::runtime::Abi for TRACE_EVENT_INFO {
+unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4855,7 +4855,7 @@ impl ::core::cmp::PartialEq for TRACE_EVENT_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for TRACE_EVENT_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for TRACE_EVENT_INFO_0 {
+unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4877,7 +4877,7 @@ impl ::core::cmp::PartialEq for TRACE_EVENT_INFO_1 {
     }
 }
 impl ::core::cmp::Eq for TRACE_EVENT_INFO_1 {}
-unsafe impl ::windows::runtime::Abi for TRACE_EVENT_INFO_1 {
+unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4899,7 +4899,7 @@ impl ::core::cmp::PartialEq for TRACE_EVENT_INFO_2 {
     }
 }
 impl ::core::cmp::Eq for TRACE_EVENT_INFO_2 {}
-unsafe impl ::windows::runtime::Abi for TRACE_EVENT_INFO_2 {
+unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4925,7 +4925,7 @@ impl ::core::cmp::PartialEq for TRACE_EVENT_INFO_2_0 {
     }
 }
 impl ::core::cmp::Eq for TRACE_EVENT_INFO_2_0 {}
-unsafe impl ::windows::runtime::Abi for TRACE_EVENT_INFO_2_0 {
+unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_2_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4952,7 +4952,7 @@ impl ::core::cmp::PartialEq for TRACE_GUID_INFO {
     }
 }
 impl ::core::cmp::Eq for TRACE_GUID_INFO {}
-unsafe impl ::windows::runtime::Abi for TRACE_GUID_INFO {
+unsafe impl ::windows::core::Abi for TRACE_GUID_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4960,7 +4960,7 @@ unsafe impl ::windows::runtime::Abi for TRACE_GUID_INFO {
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 pub struct TRACE_GUID_PROPERTIES {
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
     pub GuidType: u32,
     pub LoggerId: u32,
     pub EnableLevel: u32,
@@ -4990,7 +4990,7 @@ impl ::core::cmp::PartialEq for TRACE_GUID_PROPERTIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TRACE_GUID_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TRACE_GUID_PROPERTIES {
+unsafe impl ::windows::core::Abi for TRACE_GUID_PROPERTIES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4998,7 +4998,7 @@ unsafe impl ::windows::runtime::Abi for TRACE_GUID_PROPERTIES {
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 pub struct TRACE_GUID_REGISTRATION {
-    pub Guid: *mut ::windows::runtime::GUID,
+    pub Guid: *mut ::windows::core::GUID,
     pub RegHandle: super::super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5024,7 +5024,7 @@ impl ::core::cmp::PartialEq for TRACE_GUID_REGISTRATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TRACE_GUID_REGISTRATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TRACE_GUID_REGISTRATION {
+unsafe impl ::windows::core::Abi for TRACE_GUID_REGISTRATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -5100,7 +5100,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5127,7 +5127,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER_0 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5162,14 +5162,14 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER_0_0 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union TRACE_LOGFILE_HEADER_1 {
-    pub LogInstanceGuid: ::windows::runtime::GUID,
+    pub LogInstanceGuid: ::windows::core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER_1_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -5189,7 +5189,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER_1 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5224,7 +5224,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER_1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER_1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER_1_0 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5268,7 +5268,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER32 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER32 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5295,7 +5295,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER32_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER32_0 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5330,14 +5330,14 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER32_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER32_0_0 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union TRACE_LOGFILE_HEADER32_1 {
-    pub LogInstanceGuid: ::windows::runtime::GUID,
+    pub LogInstanceGuid: ::windows::core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER32_1_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -5357,7 +5357,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER32_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER32_1 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5392,7 +5392,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32_1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER32_1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER32_1_0 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5436,7 +5436,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER64 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER64 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5463,7 +5463,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER64_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER64_0 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5498,14 +5498,14 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER64_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER64_0_0 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union TRACE_LOGFILE_HEADER64_1 {
-    pub LogInstanceGuid: ::windows::runtime::GUID,
+    pub LogInstanceGuid: ::windows::core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER64_1_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -5525,7 +5525,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER64_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER64_1 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5560,7 +5560,7 @@ impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64_1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER64_1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER64_1_0 {
+unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_1_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -5577,7 +5577,7 @@ impl ::core::convert::From<u32> for TRACE_MESSAGE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TRACE_MESSAGE_FLAGS {
+unsafe impl ::windows::core::Abi for TRACE_MESSAGE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for TRACE_MESSAGE_FLAGS {
@@ -5641,7 +5641,7 @@ impl ::core::cmp::PartialEq for TRACE_PERIODIC_CAPTURE_STATE_INFO {
     }
 }
 impl ::core::cmp::Eq for TRACE_PERIODIC_CAPTURE_STATE_INFO {}
-unsafe impl ::windows::runtime::Abi for TRACE_PERIODIC_CAPTURE_STATE_INFO {
+unsafe impl ::windows::core::Abi for TRACE_PERIODIC_CAPTURE_STATE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5668,7 +5668,7 @@ impl ::core::cmp::PartialEq for TRACE_PROFILE_INTERVAL {
     }
 }
 impl ::core::cmp::Eq for TRACE_PROFILE_INTERVAL {}
-unsafe impl ::windows::runtime::Abi for TRACE_PROFILE_INTERVAL {
+unsafe impl ::windows::core::Abi for TRACE_PROFILE_INTERVAL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -5679,7 +5679,7 @@ pub const TRACE_PROVIDER_FLAG_PRE_ENABLE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub struct TRACE_PROVIDER_INFO {
-    pub ProviderGuid: ::windows::runtime::GUID,
+    pub ProviderGuid: ::windows::core::GUID,
     pub SchemaSource: u32,
     pub ProviderNameOffset: u32,
 }
@@ -5700,7 +5700,7 @@ impl ::core::cmp::PartialEq for TRACE_PROVIDER_INFO {
     }
 }
 impl ::core::cmp::Eq for TRACE_PROVIDER_INFO {}
-unsafe impl ::windows::runtime::Abi for TRACE_PROVIDER_INFO {
+unsafe impl ::windows::core::Abi for TRACE_PROVIDER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5729,7 +5729,7 @@ impl ::core::cmp::PartialEq for TRACE_PROVIDER_INSTANCE_INFO {
     }
 }
 impl ::core::cmp::Eq for TRACE_PROVIDER_INSTANCE_INFO {}
-unsafe impl ::windows::runtime::Abi for TRACE_PROVIDER_INSTANCE_INFO {
+unsafe impl ::windows::core::Abi for TRACE_PROVIDER_INSTANCE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -5769,7 +5769,7 @@ impl ::core::convert::From<i32> for TRACE_QUERY_INFO_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TRACE_QUERY_INFO_CLASS {
+unsafe impl ::windows::core::Abi for TRACE_QUERY_INFO_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5804,7 +5804,7 @@ impl ::core::cmp::PartialEq for TRACE_STACK_CACHING_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TRACE_STACK_CACHING_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TRACE_STACK_CACHING_INFO {
+unsafe impl ::windows::core::Abi for TRACE_STACK_CACHING_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5831,7 +5831,7 @@ impl ::core::cmp::PartialEq for TRACE_VERSION_INFO {
     }
 }
 impl ::core::cmp::Eq for TRACE_VERSION_INFO {}
-unsafe impl ::windows::runtime::Abi for TRACE_VERSION_INFO {
+unsafe impl ::windows::core::Abi for TRACE_VERSION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
@@ -5865,7 +5865,7 @@ pub unsafe fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: *mut
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn TdhCloseDecodingHandle<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(handle: Param0) -> u32 {
+pub unsafe fn TdhCloseDecodingHandle<'a, Param0: ::windows::core::IntoParam<'a, TDH_HANDLE>>(handle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5880,12 +5880,12 @@ pub unsafe fn TdhCloseDecodingHandle<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhCreatePayloadFilter<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(providerguid: *const ::windows::runtime::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: Param2, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn TdhCreatePayloadFilter<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(providerguid: *const ::windows::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: Param2, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhCreatePayloadFilter(providerguid: *const ::windows::runtime::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: super::super::super::Foundation::BOOLEAN, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut ::core::ffi::c_void) -> u32;
+            fn TdhCreatePayloadFilter(providerguid: *const ::windows::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: super::super::super::Foundation::BOOLEAN, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TdhCreatePayloadFilter(::core::mem::transmute(providerguid), ::core::mem::transmute(eventdescriptor), eventmatchany.into_param().abi(), ::core::mem::transmute(payloadpredicatecount), ::core::mem::transmute(payloadpredicates), ::core::mem::transmute(payloadfilter)))
     }
@@ -5908,12 +5908,12 @@ pub unsafe fn TdhDeletePayloadFilter(payloadfilter: *mut *mut ::core::ffi::c_voi
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn TdhEnumerateManifestProviderEvents(providerguid: *const ::windows::runtime::GUID, buffer: *mut PROVIDER_EVENT_INFO, buffersize: *mut u32) -> u32 {
+pub unsafe fn TdhEnumerateManifestProviderEvents(providerguid: *const ::windows::core::GUID, buffer: *mut PROVIDER_EVENT_INFO, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhEnumerateManifestProviderEvents(providerguid: *const ::windows::runtime::GUID, buffer: *mut PROVIDER_EVENT_INFO, buffersize: *mut u32) -> u32;
+            fn TdhEnumerateManifestProviderEvents(providerguid: *const ::windows::core::GUID, buffer: *mut PROVIDER_EVENT_INFO, buffersize: *mut u32) -> u32;
         }
         ::core::mem::transmute(TdhEnumerateManifestProviderEvents(::core::mem::transmute(providerguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
     }
@@ -5922,12 +5922,12 @@ pub unsafe fn TdhEnumerateManifestProviderEvents(providerguid: *const ::windows:
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows::runtime::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32 {
+pub unsafe fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows::core::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows::runtime::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
+            fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows::core::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
         }
         ::core::mem::transmute(TdhEnumerateProviderFieldInformation(::core::mem::transmute(pguid), ::core::mem::transmute(eventfieldtype), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pbuffersize)))
     }
@@ -5936,12 +5936,12 @@ pub unsafe fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows::runt
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn TdhEnumerateProviderFilters(guid: *const ::windows::runtime::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32 {
+pub unsafe fn TdhEnumerateProviderFilters(guid: *const ::windows::core::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhEnumerateProviderFilters(guid: *const ::windows::runtime::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32;
+            fn TdhEnumerateProviderFilters(guid: *const ::windows::core::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32;
         }
         ::core::mem::transmute(TdhEnumerateProviderFilters(::core::mem::transmute(guid), ::core::mem::transmute(tdhcontextcount), ::core::mem::transmute(tdhcontext), ::core::mem::transmute(filtercount), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
     }
@@ -6005,7 +6005,7 @@ pub unsafe fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: *co
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn TdhGetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(handle: Param0, tdhcontext: *mut TDH_CONTEXT) -> u32 {
+pub unsafe fn TdhGetDecodingParameter<'a, Param0: ::windows::core::IntoParam<'a, TDH_HANDLE>>(handle: Param0, tdhcontext: *mut TDH_CONTEXT) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6034,7 +6034,7 @@ pub unsafe fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontextcount
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhGetEventMapInformation<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pevent: *const EVENT_RECORD, pmapname: Param1, pbuffer: *mut EVENT_MAP_INFO, pbuffersize: *mut u32) -> u32 {
+pub unsafe fn TdhGetEventMapInformation<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pevent: *const EVENT_RECORD, pmapname: Param1, pbuffer: *mut EVENT_MAP_INFO, pbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6048,12 +6048,12 @@ pub unsafe fn TdhGetEventMapInformation<'a, Param1: ::windows::runtime::IntoPara
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn TdhGetManifestEventInformation(providerguid: *const ::windows::runtime::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32 {
+pub unsafe fn TdhGetManifestEventInformation(providerguid: *const ::windows::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhGetManifestEventInformation(providerguid: *const ::windows::runtime::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
+            fn TdhGetManifestEventInformation(providerguid: *const ::windows::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
         }
         ::core::mem::transmute(TdhGetManifestEventInformation(::core::mem::transmute(providerguid), ::core::mem::transmute(eventdescriptor), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
     }
@@ -6090,7 +6090,7 @@ pub unsafe fn TdhGetPropertySize(pevent: *const EVENT_RECORD, tdhcontextcount: u
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn TdhGetWppMessage<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(handle: Param0, eventrecord: *const EVENT_RECORD, buffersize: *mut u32, buffer: *mut u8) -> u32 {
+pub unsafe fn TdhGetWppMessage<'a, Param0: ::windows::core::IntoParam<'a, TDH_HANDLE>>(handle: Param0, eventrecord: *const EVENT_RECORD, buffersize: *mut u32, buffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6105,7 +6105,7 @@ pub unsafe fn TdhGetWppMessage<'a, Param0: ::windows::runtime::IntoParam<'a, TDH
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhGetWppProperty<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(handle: Param0, eventrecord: *const EVENT_RECORD, propertyname: Param2, buffersize: *mut u32, buffer: *mut u8) -> u32 {
+pub unsafe fn TdhGetWppProperty<'a, Param0: ::windows::core::IntoParam<'a, TDH_HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(handle: Param0, eventrecord: *const EVENT_RECORD, propertyname: Param2, buffersize: *mut u32, buffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6120,7 +6120,7 @@ pub unsafe fn TdhGetWppProperty<'a, Param0: ::windows::runtime::IntoParam<'a, TD
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhLoadManifest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(manifest: Param0) -> u32 {
+pub unsafe fn TdhLoadManifest<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(manifest: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6135,7 +6135,7 @@ pub unsafe fn TdhLoadManifest<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhLoadManifestFromBinary<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(binarypath: Param0) -> u32 {
+pub unsafe fn TdhLoadManifestFromBinary<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(binarypath: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6177,12 +6177,12 @@ pub unsafe fn TdhOpenDecodingHandle(handle: *mut TDH_HANDLE) -> u32 {
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn TdhQueryProviderFieldInformation(pguid: *const ::windows::runtime::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32 {
+pub unsafe fn TdhQueryProviderFieldInformation(pguid: *const ::windows::core::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhQueryProviderFieldInformation(pguid: *const ::windows::runtime::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
+            fn TdhQueryProviderFieldInformation(pguid: *const ::windows::core::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
         }
         ::core::mem::transmute(TdhQueryProviderFieldInformation(::core::mem::transmute(pguid), ::core::mem::transmute(eventfieldvalue), ::core::mem::transmute(eventfieldtype), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pbuffersize)))
     }
@@ -6191,7 +6191,7 @@ pub unsafe fn TdhQueryProviderFieldInformation(pguid: *const ::windows::runtime:
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn TdhSetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(handle: Param0, tdhcontext: *const TDH_CONTEXT) -> u32 {
+pub unsafe fn TdhSetDecodingParameter<'a, Param0: ::windows::core::IntoParam<'a, TDH_HANDLE>>(handle: Param0, tdhcontext: *const TDH_CONTEXT) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6206,7 +6206,7 @@ pub unsafe fn TdhSetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhUnloadManifest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(manifest: Param0) -> u32 {
+pub unsafe fn TdhUnloadManifest<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(manifest: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6263,12 +6263,12 @@ pub unsafe fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INST
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::runtime::GUID, messagenumber: u16) -> u32 {
+pub unsafe fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::core::GUID, messagenumber: u16) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::runtime::GUID, messagenumber: u16) -> u32;
+            fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::core::GUID, messagenumber: u16) -> u32;
         }
         ::core::mem::transmute(TraceMessage(::core::mem::transmute(loggerhandle), ::core::mem::transmute(messageflags), ::core::mem::transmute(messageguid), ::core::mem::transmute(messagenumber)))
     }
@@ -6277,12 +6277,12 @@ pub unsafe fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS,
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[inline]
-pub unsafe fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::runtime::GUID, messagenumber: u16, messagearglist: *const i8) -> u32 {
+pub unsafe fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::core::GUID, messagenumber: u16, messagearglist: *const i8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::runtime::GUID, messagenumber: u16, messagearglist: *const i8) -> u32;
+            fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::core::GUID, messagenumber: u16, messagearglist: *const i8) -> u32;
         }
         ::core::mem::transmute(TraceMessageVa(::core::mem::transmute(loggerhandle), ::core::mem::transmute(messageflags), ::core::mem::transmute(messageguid), ::core::mem::transmute(messagenumber), ::core::mem::transmute(messagearglist)))
     }
@@ -6334,7 +6334,7 @@ pub unsafe fn UnregisterTraceGuids(registrationhandle: u64) -> u32 {
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
+pub unsafe fn UpdateTraceA<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6349,7 +6349,7 @@ pub unsafe fn UpdateTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
+pub unsafe fn UpdateTraceW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6383,7 +6383,7 @@ impl ::core::convert::From<i32> for WMIDPREQUESTCODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WMIDPREQUESTCODE {
+unsafe impl ::windows::core::Abi for WMIDPREQUESTCODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -6400,7 +6400,7 @@ pub const WMIGUID_SET: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub struct WMIREGGUIDW {
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
     pub Flags: u32,
     pub InstanceCount: u32,
     pub Anonymous: WMIREGGUIDW_0,
@@ -6417,7 +6417,7 @@ impl ::core::cmp::PartialEq for WMIREGGUIDW {
     }
 }
 impl ::core::cmp::Eq for WMIREGGUIDW {}
-unsafe impl ::windows::runtime::Abi for WMIREGGUIDW {
+unsafe impl ::windows::core::Abi for WMIREGGUIDW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6441,7 +6441,7 @@ impl ::core::cmp::PartialEq for WMIREGGUIDW_0 {
     }
 }
 impl ::core::cmp::Eq for WMIREGGUIDW_0 {}
-unsafe impl ::windows::runtime::Abi for WMIREGGUIDW_0 {
+unsafe impl ::windows::core::Abi for WMIREGGUIDW_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6467,7 +6467,7 @@ impl ::core::cmp::PartialEq for WMIREGINFOW {
     }
 }
 impl ::core::cmp::Eq for WMIREGINFOW {}
-unsafe impl ::windows::runtime::Abi for WMIREGINFOW {
+unsafe impl ::windows::core::Abi for WMIREGINFOW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -6528,7 +6528,7 @@ impl ::core::cmp::PartialEq for WNODE_ALL_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_ALL_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_ALL_DATA {
+unsafe impl ::windows::core::Abi for WNODE_ALL_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6555,7 +6555,7 @@ impl ::core::cmp::PartialEq for WNODE_ALL_DATA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_ALL_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_ALL_DATA_0 {
+unsafe impl ::windows::core::Abi for WNODE_ALL_DATA_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6582,7 +6582,7 @@ impl ::core::cmp::PartialEq for WNODE_EVENT_ITEM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_EVENT_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_EVENT_ITEM {
+unsafe impl ::windows::core::Abi for WNODE_EVENT_ITEM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6591,7 +6591,7 @@ unsafe impl ::windows::runtime::Abi for WNODE_EVENT_ITEM {
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
 pub struct WNODE_EVENT_REFERENCE {
     pub WnodeHeader: WNODE_HEADER,
-    pub TargetGuid: ::windows::runtime::GUID,
+    pub TargetGuid: ::windows::core::GUID,
     pub TargetDataBlockSize: u32,
     pub Anonymous: WNODE_EVENT_REFERENCE_0,
 }
@@ -6612,7 +6612,7 @@ impl ::core::cmp::PartialEq for WNODE_EVENT_REFERENCE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_EVENT_REFERENCE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_EVENT_REFERENCE {
+unsafe impl ::windows::core::Abi for WNODE_EVENT_REFERENCE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6639,7 +6639,7 @@ impl ::core::cmp::PartialEq for WNODE_EVENT_REFERENCE_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_EVENT_REFERENCE_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_EVENT_REFERENCE_0 {
+unsafe impl ::windows::core::Abi for WNODE_EVENT_REFERENCE_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -6697,7 +6697,7 @@ pub struct WNODE_HEADER {
     pub ProviderId: u32,
     pub Anonymous1: WNODE_HEADER_0,
     pub Anonymous2: WNODE_HEADER_1,
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
     pub ClientContext: u32,
     pub Flags: u32,
 }
@@ -6718,7 +6718,7 @@ impl ::core::cmp::PartialEq for WNODE_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_HEADER {
+unsafe impl ::windows::core::Abi for WNODE_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6745,7 +6745,7 @@ impl ::core::cmp::PartialEq for WNODE_HEADER_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_HEADER_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_HEADER_0 {
+unsafe impl ::windows::core::Abi for WNODE_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6778,7 +6778,7 @@ impl ::core::cmp::PartialEq for WNODE_HEADER_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_HEADER_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_HEADER_0_0 {
+unsafe impl ::windows::core::Abi for WNODE_HEADER_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6806,7 +6806,7 @@ impl ::core::cmp::PartialEq for WNODE_HEADER_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_HEADER_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_HEADER_1 {
+unsafe impl ::windows::core::Abi for WNODE_HEADER_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6839,7 +6839,7 @@ impl ::core::cmp::PartialEq for WNODE_METHOD_ITEM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_METHOD_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_METHOD_ITEM {
+unsafe impl ::windows::core::Abi for WNODE_METHOD_ITEM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6871,7 +6871,7 @@ impl ::core::cmp::PartialEq for WNODE_SINGLE_INSTANCE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_SINGLE_INSTANCE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_SINGLE_INSTANCE {
+unsafe impl ::windows::core::Abi for WNODE_SINGLE_INSTANCE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6904,7 +6904,7 @@ impl ::core::cmp::PartialEq for WNODE_SINGLE_ITEM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_SINGLE_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_SINGLE_ITEM {
+unsafe impl ::windows::core::Abi for WNODE_SINGLE_ITEM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6932,7 +6932,7 @@ impl ::core::cmp::PartialEq for WNODE_TOO_SMALL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNODE_TOO_SMALL {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNODE_TOO_SMALL {
+unsafe impl ::windows::core::Abi for WNODE_TOO_SMALL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -6981,7 +6981,7 @@ impl ::core::convert::From<i32> for _TDH_IN_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for _TDH_IN_TYPE {
+unsafe impl ::windows::core::Abi for _TDH_IN_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -7034,6 +7034,6 @@ impl ::core::convert::From<i32> for _TDH_OUT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for _TDH_OUT_TYPE {
+unsafe impl ::windows::core::Abi for _TDH_OUT_TYPE {
     type Abi = Self;
 }

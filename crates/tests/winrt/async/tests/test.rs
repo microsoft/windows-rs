@@ -1,5 +1,5 @@
 use test_winrt_async::*;
-use windows::runtime::*;
+use windows::core::*;
 use Component::Async::*;
 
 async fn action() -> Result<()> {

@@ -2,12 +2,12 @@
 #[doc = "*Required features: `Win32_System_TpmBaseServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         GetDeviceID(::core::mem::transmute(pbwindowsaik), ::core::mem::transmute(cbwindowsaik), ::core::mem::transmute(pcbresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
     }
@@ -17,12 +17,12 @@ pub unsafe fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *
 #[doc = "*Required features: `Win32_System_TpmBaseServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeviceIDString(pszwindowsaik: super::super::Foundation::PWSTR, cchwindowsaik: u32, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetDeviceIDString(pszwindowsaik: super::super::Foundation::PWSTR, cchwindowsaik: u32, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDeviceIDString(pszwindowsaik: super::super::Foundation::PWSTR, cchwindowsaik: u32, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn GetDeviceIDString(pszwindowsaik: super::super::Foundation::PWSTR, cchwindowsaik: u32, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         GetDeviceIDString(::core::mem::transmute(pszwindowsaik), ::core::mem::transmute(cchwindowsaik), ::core::mem::transmute(pcchresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
     }
@@ -43,7 +43,7 @@ impl ::core::convert::From<u32> for TBS_COMMAND_LOCALITY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TBS_COMMAND_LOCALITY {
+unsafe impl ::windows::core::Abi for TBS_COMMAND_LOCALITY {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for TBS_COMMAND_LOCALITY {
@@ -88,7 +88,7 @@ impl ::core::convert::From<u32> for TBS_COMMAND_PRIORITY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TBS_COMMAND_PRIORITY {
+unsafe impl ::windows::core::Abi for TBS_COMMAND_PRIORITY {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for TBS_COMMAND_PRIORITY {
@@ -142,7 +142,7 @@ impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS {
     }
 }
 impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS {}
-unsafe impl ::windows::runtime::Abi for TBS_CONTEXT_PARAMS {
+unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -164,7 +164,7 @@ impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2 {
     }
 }
 impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2 {}
-unsafe impl ::windows::runtime::Abi for TBS_CONTEXT_PARAMS2 {
+unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -186,7 +186,7 @@ impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0 {
     }
 }
 impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2_0 {}
-unsafe impl ::windows::runtime::Abi for TBS_CONTEXT_PARAMS2_0 {
+unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -212,7 +212,7 @@ impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0_0 {
     }
 }
 impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2_0_0 {}
-unsafe impl ::windows::runtime::Abi for TBS_CONTEXT_PARAMS2_0_0 {
+unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_TpmBaseServices`*"]
@@ -271,7 +271,7 @@ impl ::core::cmp::PartialEq for TPM_DEVICE_INFO {
     }
 }
 impl ::core::cmp::Eq for TPM_DEVICE_INFO {}
-unsafe impl ::windows::runtime::Abi for TPM_DEVICE_INFO {
+unsafe impl ::windows::core::Abi for TPM_DEVICE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_TpmBaseServices`*"]
@@ -476,6 +476,6 @@ impl ::core::cmp::PartialEq for tdTPM_WNF_PROVISIONING {
     }
 }
 impl ::core::cmp::Eq for tdTPM_WNF_PROVISIONING {}
-unsafe impl ::windows::runtime::Abi for tdTPM_WNF_PROVISIONING {
+unsafe impl ::windows::core::Abi for tdTPM_WNF_PROVISIONING {
     type Abi = Self;
 }

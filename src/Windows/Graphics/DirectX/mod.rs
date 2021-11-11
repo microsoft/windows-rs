@@ -16,13 +16,13 @@ impl ::core::convert::From<i32> for DirectXAlphaMode {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DirectXAlphaMode {
+unsafe impl ::windows::core::Abi for DirectXAlphaMode {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DirectXAlphaMode {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
+unsafe impl ::windows::core::RuntimeType for DirectXAlphaMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
 }
-impl ::windows::runtime::DefaultType for DirectXAlphaMode {
+impl ::windows::core::DefaultType for DirectXAlphaMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_DirectX`*"]
@@ -61,13 +61,13 @@ impl ::core::convert::From<i32> for DirectXColorSpace {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DirectXColorSpace {
+unsafe impl ::windows::core::Abi for DirectXColorSpace {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DirectXColorSpace {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
+unsafe impl ::windows::core::RuntimeType for DirectXColorSpace {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
 }
-impl ::windows::runtime::DefaultType for DirectXColorSpace {
+impl ::windows::core::DefaultType for DirectXColorSpace {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_DirectX`*"]
@@ -202,13 +202,13 @@ impl ::core::convert::From<i32> for DirectXPixelFormat {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DirectXPixelFormat {
+unsafe impl ::windows::core::Abi for DirectXPixelFormat {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DirectXPixelFormat {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
+unsafe impl ::windows::core::RuntimeType for DirectXPixelFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
 }
-impl ::windows::runtime::DefaultType for DirectXPixelFormat {
+impl ::windows::core::DefaultType for DirectXPixelFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_DirectX`*"]
@@ -228,12 +228,12 @@ impl ::core::convert::From<i32> for DirectXPrimitiveTopology {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DirectXPrimitiveTopology {
+unsafe impl ::windows::core::Abi for DirectXPrimitiveTopology {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DirectXPrimitiveTopology {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");
+unsafe impl ::windows::core::RuntimeType for DirectXPrimitiveTopology {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");
 }
-impl ::windows::runtime::DefaultType for DirectXPrimitiveTopology {
+impl ::windows::core::DefaultType for DirectXPrimitiveTopology {
     type DefaultType = Self;
 }

@@ -10,7 +10,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
         // If the type is IIterator<T> then simply implement the Iterator trait over top.
         TypeName::IIterator => {
             return quote! {
-                impl<T: ::windows::runtime::RuntimeType> ::core::iter::Iterator for IIterator<T> {
+                impl<T: ::windows::core::RuntimeType> ::core::iter::Iterator for IIterator<T> {
                     type Item = T;
 
                     fn next(&mut self) -> ::core::option::Option<Self::Item> {
@@ -29,7 +29,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
         // IIterator<T> returned by first() to implement the Iterator trait.
         TypeName::IIterable => {
             return quote! {
-                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for IIterable<T> {
+                impl<T: ::windows::core::RuntimeType> ::core::iter::IntoIterator for IIterable<T> {
                     type Item = T;
                     type IntoIter = IIterator<Self::Item>;
 
@@ -37,7 +37,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                         ::core::iter::IntoIterator::into_iter(&self)
                     }
                 }
-                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for &IIterable<T> {
+                impl<T: ::windows::core::RuntimeType> ::core::iter::IntoIterator for &IIterable<T> {
                     type Item = T;
                     type IntoIter = IIterator<Self::Item>;
 
@@ -51,18 +51,18 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
         // If the type is IVectorView<T> then provide the VectorViewIterator fast iterator.
         TypeName::IVectorView => {
             return quote! {
-                pub struct VectorViewIterator<T: ::windows::runtime::RuntimeType + 'static> {
+                pub struct VectorViewIterator<T: ::windows::core::RuntimeType + 'static> {
                     vector: ::core::option::Option<IVectorView<T>>,
                     current: u32,
                 }
 
-                impl<T: ::windows::runtime::RuntimeType> VectorViewIterator<T> {
+                impl<T: ::windows::core::RuntimeType> VectorViewIterator<T> {
                     pub fn new(vector: ::core::option::Option<IVectorView<T>>) -> Self {
                         Self { vector, current: 0 }
                     }
                 }
 
-                impl<T: ::windows::runtime::RuntimeType> ::core::iter::Iterator for VectorViewIterator<T> {
+                impl<T: ::windows::core::RuntimeType> ::core::iter::Iterator for VectorViewIterator<T> {
                     type Item = T;
 
                     fn next(&mut self) -> ::core::option::Option<Self::Item> {
@@ -77,7 +77,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     }
                 }
 
-                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for IVectorView<T> {
+                impl<T: ::windows::core::RuntimeType> ::core::iter::IntoIterator for IVectorView<T> {
                     type Item = T;
                     type IntoIter = VectorViewIterator<Self::Item>;
 
@@ -85,7 +85,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                         ::core::iter::IntoIterator::into_iter(&self)
                     }
                 }
-                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for &IVectorView<T> {
+                impl<T: ::windows::core::RuntimeType> ::core::iter::IntoIterator for &IVectorView<T> {
                     type Item = T;
                     type IntoIter = VectorViewIterator<Self::Item>;
 
@@ -98,18 +98,18 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
         }
         TypeName::IVector => {
             return quote! {
-                pub struct VectorIterator<T: ::windows::runtime::RuntimeType + 'static> {
+                pub struct VectorIterator<T: ::windows::core::RuntimeType + 'static> {
                     vector: ::core::option::Option<IVector<T>>,
                     current: u32,
                 }
 
-                impl<T: ::windows::runtime::RuntimeType> VectorIterator<T> {
+                impl<T: ::windows::core::RuntimeType> VectorIterator<T> {
                     pub fn new(vector: ::core::option::Option<IVector<T>>) -> Self {
                         Self { vector, current: 0 }
                     }
                 }
 
-                impl<T: ::windows::runtime::RuntimeType> ::core::iter::Iterator for VectorIterator<T> {
+                impl<T: ::windows::core::RuntimeType> ::core::iter::Iterator for VectorIterator<T> {
                     type Item = T;
 
                     fn next(&mut self) -> ::core::option::Option<Self::Item> {
@@ -124,7 +124,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     }
                 }
 
-                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for IVector<T> {
+                impl<T: ::windows::core::RuntimeType> ::core::iter::IntoIterator for IVector<T> {
                     type Item = T;
                     type IntoIter = VectorIterator<Self::Item>;
 
@@ -132,7 +132,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                         ::core::iter::IntoIterator::into_iter(&self)
                     }
                 }
-                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for &IVector<T> {
+                impl<T: ::windows::core::RuntimeType> ::core::iter::IntoIterator for &IVector<T> {
                     type Item = T;
                     type IntoIter = VectorIterator<Self::Item>;
 

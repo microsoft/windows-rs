@@ -34,7 +34,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
     let box_ident = format_token!("{}_box", impl_name);
 
     let constraints = quote! {
-        #(#generics: ::windows::runtime::RuntimeType + 'static,)*
+        #(#generics: ::windows::core::RuntimeType + 'static,)*
     };
 
     let interfaces_len = Literal::usize_unsuffixed(interfaces.len());
@@ -69,16 +69,16 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
         };
 
         shims.combine(&quote! {
-            unsafe extern "system" fn #query_interface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
-                let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut Self;
+            unsafe extern "system" fn #query_interface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+                let this = (this as *mut ::windows::core::RawPtr).sub(2 + #interface_count) as *mut Self;
                 (*this).QueryInterface(iid, interface)
             }
-            unsafe extern "system" fn #add_ref(this: ::windows::runtime::RawPtr) -> u32 {
-                let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut Self;
+            unsafe extern "system" fn #add_ref(this: ::windows::core::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::core::RawPtr).sub(2 + #interface_count) as *mut Self;
                 (*this).AddRef()
             }
-            unsafe extern "system" fn #release(this: ::windows::runtime::RawPtr) -> u32 {
-                let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut Self;
+            unsafe extern "system" fn #release(this: ::windows::core::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::core::RawPtr).sub(2 + #interface_count) as *mut Self;
                 (*this).Release()
             }
         });
@@ -98,7 +98,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
             let interface_ident = gen_type_name(base, &gen);
 
             queries.combine(&quote! {
-                else if iid == &<#interface_ident as ::windows::runtime::Interface>::IID {
+                else if iid == &<#interface_ident as ::windows::core::Interface>::IID {
                     &mut self.vtables.#interface_literal as *mut _ as _
                 }
             });
@@ -106,7 +106,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
 
         // Constants are required for generic interfaces due to limitations in Rust.
         query_constants.combine(&quote! {
-            const #interface_constant: ::windows::runtime::GUID = <#interface_ident as ::windows::runtime::Interface>::IID;
+            const #interface_constant: ::windows::core::GUID = <#interface_ident as ::windows::core::Interface>::IID;
         });
 
         for method in base_interfaces.iter().rev().chain(core::iter::once(def)).map(|def| def.methods()).flatten() {
@@ -128,7 +128,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                     if implements.overrides.contains(method.name()) {
                         gen_winrt_upcall(&signature, quote! { (*this).implementation.#method_ident }, &gen)
                     } else {
-                        quote! { ::windows::runtime::HRESULT(0) }
+                        quote! { ::windows::core::HRESULT(0) }
                     }
                 } else {
                     gen_winrt_upcall(&signature, quote! { (*this).implementation.#method_ident }, &gen)
@@ -139,7 +139,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
 
             shims.combine(&quote! {
                 unsafe extern "system" fn #vcall_ident #abi_signature {
-                    let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut Self;
+                    let this = (this as *mut ::windows::core::RawPtr).sub(2 + #interface_count) as *mut Self;
                     #upcall
                 }
             });
@@ -160,16 +160,16 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 impl <#constraints> ::core::convert::From<&mut #impl_ident> for #interface_ident {
                     fn from(implementation: &mut #impl_ident) -> Self {
                         unsafe {
-                            let mut ptr = (implementation as *mut _ as *mut ::windows::runtime::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
+                            let mut ptr = (implementation as *mut _ as *mut ::windows::core::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
                             (*ptr).count.add_ref();
                             ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
                         }
                     }
                 }
-                impl<#constraints> ::windows::runtime::ToImpl<#interface_ident> for #impl_ident {
+                impl<#constraints> ::windows::core::ToImpl<#interface_ident> for #impl_ident {
                     unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
-                        let this: ::windows::runtime::RawPtr = core::mem::transmute_copy(interface);
-                        let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
+                        let this: ::windows::core::RawPtr = core::mem::transmute_copy(interface);
+                        let this = (this as *mut ::windows::core::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
                         &mut (*this).implementation
                     }
                 }
@@ -211,15 +211,15 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
     tokens.combine(&quote! {
         impl <#constraints> #impl_ident {
             #constructors
-            fn cast<ResultType: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<ResultType> {
+            fn cast<ResultType: ::windows::core::Interface>(&self) -> ::windows::core::Result<ResultType> {
                 unsafe {
-                    let boxed = (self as *const #impl_ident as *mut #impl_ident as *mut ::windows::runtime::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
+                    let boxed = (self as *const #impl_ident as *mut #impl_ident as *mut ::windows::core::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
                     let mut result = None;
                     (*boxed).QueryInterface(&ResultType::IID, &mut result as *mut _ as _).and_some(result)
                 }
             }
         }
-        impl <#constraints> ::core::convert::From<#impl_ident> for ::windows::runtime::IUnknown {
+        impl <#constraints> ::core::convert::From<#impl_ident> for ::windows::core::IUnknown {
             fn from(implementation: #impl_ident) -> Self {
                 let com = #box_ident::<#(#generics,)*>::new(implementation);
 
@@ -229,7 +229,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 }
             }
         }
-        impl <#constraints> ::core::convert::From<#impl_ident> for ::windows::runtime::IInspectable {
+        impl <#constraints> ::core::convert::From<#impl_ident> for ::windows::core::IInspectable {
             fn from(implementation: #impl_ident) -> Self {
                 let com = #box_ident::<#(#generics,)*>::new(implementation);
 
@@ -239,26 +239,26 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 }
             }
         }
-        impl <#constraints> ::windows::runtime::Compose for #impl_ident {
-            unsafe fn compose<'a>(implementation: Self) -> (::windows::runtime::IInspectable, &'a mut core::option::Option<::windows::runtime::IInspectable>) {
-                let inspectable: ::windows::runtime::IInspectable = implementation.into();
-                let this = (&inspectable as *const _ as *mut ::windows::runtime::RawPtr).sub(1) as *mut #box_ident::<#(#generics,)*>;
+        impl <#constraints> ::windows::core::Compose for #impl_ident {
+            unsafe fn compose<'a>(implementation: Self) -> (::windows::core::IInspectable, &'a mut core::option::Option<::windows::core::IInspectable>) {
+                let inspectable: ::windows::core::IInspectable = implementation.into();
+                let this = (&inspectable as *const _ as *mut ::windows::core::RawPtr).sub(1) as *mut #box_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
             }
         }
         #[repr(C)]
         struct #box_ident<#(#generics,)*> where #constraints {
-            base: ::core::option::Option<::windows::runtime::IInspectable>,
-            identity_vtable: *const ::windows::runtime::IInspectable_abi,
+            base: ::core::option::Option<::windows::core::IInspectable>,
+            identity_vtable: *const ::windows::core::IInspectable_abi,
             vtables: (#(*const #vtable_idents,)*),
             implementation: #impl_ident,
-            count: ::windows::runtime::WeakRefCount,
+            count: ::windows::core::WeakRefCount,
         }
         impl <#constraints> #box_ident::<#(#generics,)*> {
             const VTABLES: (#(#vtable_idents,)*) = (
                 #vtable_ctors
             );
-            const IDENTITY_VTABLE: ::windows::runtime::IInspectable_abi = ::windows::runtime::IInspectable_abi(
+            const IDENTITY_VTABLE: ::windows::core::IInspectable_abi = ::windows::core::IInspectable_abi(
                 Self::identity_query_interface,
                 Self::identity_add_ref,
                 Self::identity_release,
@@ -273,14 +273,14 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                     identity_vtable: &Self::IDENTITY_VTABLE,
                     vtables: (#(&Self::VTABLES.#vtable_ordinals,)*),
                     implementation,
-                    count: ::windows::runtime::WeakRefCount::new(),
+                    count: ::windows::core::WeakRefCount::new(),
                 }
             }
-            fn QueryInterface(&mut self, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
+            fn QueryInterface(&mut self, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
                 unsafe {
-                    *interface = if iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID
-                        || iid == &<::windows::runtime::IInspectable as ::windows::runtime::Interface>::IID
-                        || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
+                    *interface = if iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID
+                        || iid == &<::windows::core::IInspectable as ::windows::core::Interface>::IID
+                        || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
                             &mut self.identity_vtable as *mut _ as _
                     } #queries else {
                         ::core::ptr::null_mut()
@@ -288,19 +288,19 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
 
                     if !(*interface).is_null() {
                         self.count.add_ref();
-                        return ::windows::runtime::HRESULT(0);
+                        return ::windows::core::HRESULT(0);
                     }
 
                     *interface = self.count.query(iid, &mut self.identity_vtable as *mut _ as _);
 
                     if (*interface).is_null() {
                         if let Some(base) = &self.base {
-                            ::windows::runtime::Interface::query(base, iid, interface)
+                            ::windows::core::Interface::query(base, iid, interface)
                         } else {
-                            ::windows::runtime::HRESULT(0x8000_4002) // E_NOINTERFACE
+                            ::windows::core::HRESULT(0x8000_4002) // E_NOINTERFACE
                         }
                     } else {
-                        ::windows::runtime::HRESULT(0)
+                        ::windows::core::HRESULT(0)
                     }
                 }
             }
@@ -317,46 +317,46 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 remaining
             }
             unsafe extern "system" fn GetIids(
-                _: ::windows::runtime::RawPtr,
+                _: ::windows::core::RawPtr,
                 count: *mut u32,
-                values: *mut *mut ::windows::runtime::GUID,
-            ) -> ::windows::runtime::HRESULT {
+                values: *mut *mut ::windows::core::GUID,
+            ) -> ::windows::core::HRESULT {
                 // Note: even if we end up implementing this in future, it still doesn't need a this pointer
                 // since the data to be returned is type- not instance-specific so can be shared for all
                 // interfaces.
                 *count = 0;
                 *values = ::core::ptr::null_mut();
-                ::windows::runtime::HRESULT(0)
+                ::windows::core::HRESULT(0)
             }
             unsafe extern "system" fn GetRuntimeClassName(
-                _: ::windows::runtime::RawPtr,
-                value: *mut ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT {
+                _: ::windows::core::RawPtr,
+                value: *mut ::windows::core::RawPtr,
+            ) -> ::windows::core::HRESULT {
                 // TODO: if a class is being implemented then the class name should be returned in all cases.
                 // Otherwise, the interface name should be returned on a per-interface basis and the identity
                 // implementation should return an empty string.
 
-                let h = ::windows::runtime::HSTRING::new();
+                let h = ::windows::core::HSTRING::new();
                 *value = ::core::mem::transmute(h);
-                ::windows::runtime::HRESULT(0)
+                ::windows::core::HRESULT(0)
             }
-            unsafe extern "system" fn GetTrustLevel(_: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT {
+            unsafe extern "system" fn GetTrustLevel(_: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT {
                 // Note: even if we end up implementing this in future, it still doesn't need a this pointer
                 // since the data to be returned is type- not instance-specific so can be shared for all
                 // interfaces.
                 *value = 0;
-                ::windows::runtime::HRESULT(0)
+                ::windows::core::HRESULT(0)
             }
-            unsafe extern "system" fn identity_query_interface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
-                let this = (this as *mut ::windows::runtime::RawPtr).sub(1) as *mut Self;
+            unsafe extern "system" fn identity_query_interface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+                let this = (this as *mut ::windows::core::RawPtr).sub(1) as *mut Self;
                 (*this).QueryInterface(iid, interface)
             }
-            unsafe extern "system" fn identity_add_ref(this: ::windows::runtime::RawPtr) -> u32 {
-                let this = (this as *mut ::windows::runtime::RawPtr).sub(1) as *mut Self;
+            unsafe extern "system" fn identity_add_ref(this: ::windows::core::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::core::RawPtr).sub(1) as *mut Self;
                 (*this).AddRef()
             }
-            unsafe extern "system" fn identity_release(this: ::windows::runtime::RawPtr) -> u32 {
-                let this = (this as *mut ::windows::runtime::RawPtr).sub(1) as *mut Self;
+            unsafe extern "system" fn identity_release(this: ::windows::core::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::core::RawPtr).sub(1) as *mut Self;
                 (*this).Release()
             }
             #shims

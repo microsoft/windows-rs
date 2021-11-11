@@ -2,10 +2,10 @@
 // and thus only provide static methods.
 
 use test_winrt::Windows::Foundation::PropertyValue;
-use windows::runtime::RuntimeName;
+use windows::core::RuntimeName;
 
 #[test]
-fn static_class() -> windows::runtime::Result<()> {
+fn static_class() -> windows::core::Result<()> {
     assert_eq!(PropertyValue::NAME, "Windows.Foundation.PropertyValue");
 
     // TODO: test PropertyValue's methods here

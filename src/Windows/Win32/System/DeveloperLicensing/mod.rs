@@ -2,14 +2,14 @@
 #[doc = "*Required features: `Win32_System_DeveloperLicensing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AcquireDeveloperLicense<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
+pub unsafe fn AcquireDeveloperLicense<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AcquireDeveloperLicense(hwndparent: super::super::Foundation::HWND, pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::HRESULT;
+            fn AcquireDeveloperLicense(hwndparent: super::super::Foundation::HWND, pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::FILETIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         AcquireDeveloperLicense(hwndparent.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(not(windows))]
@@ -18,14 +18,14 @@ pub unsafe fn AcquireDeveloperLicense<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_DeveloperLicensing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckDeveloperLicense() -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
+pub unsafe fn CheckDeveloperLicense() -> ::windows::core::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CheckDeveloperLicense(pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::HRESULT;
+            fn CheckDeveloperLicense(pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::FILETIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CheckDeveloperLicense(&mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(not(windows))]
@@ -34,12 +34,12 @@ pub unsafe fn CheckDeveloperLicense() -> ::windows::runtime::Result<super::super
 #[doc = "*Required features: `Win32_System_DeveloperLicensing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveDeveloperLicense<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn RemoveDeveloperLicense<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemoveDeveloperLicense(hwndparent: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
+            fn RemoveDeveloperLicense(hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
         RemoveDeveloperLicense(hwndparent.into_param().abi()).ok()
     }

@@ -10,7 +10,7 @@ impl ::core::convert::From<i32> for COMPARTMENT_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COMPARTMENT_ID {
+unsafe impl ::windows::core::Abi for COMPARTMENT_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -45,7 +45,7 @@ impl ::core::cmp::PartialEq for CSTRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CSTRING {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CSTRING {
+unsafe impl ::windows::core::Abi for CSTRING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
@@ -59,7 +59,7 @@ impl ::core::convert::From<i32> for EVENT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EVENT_TYPE {
+unsafe impl ::windows::core::Abi for EVENT_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
@@ -75,7 +75,7 @@ impl ::core::convert::From<i32> for EXCEPTION_DISPOSITION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EXCEPTION_DISPOSITION {
+unsafe impl ::windows::core::Abi for EXCEPTION_DISPOSITION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -109,7 +109,7 @@ impl ::core::cmp::PartialEq for EXCEPTION_REGISTRATION_RECORD {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::cmp::Eq for EXCEPTION_REGISTRATION_RECORD {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-unsafe impl ::windows::runtime::Abi for EXCEPTION_REGISTRATION_RECORD {
+unsafe impl ::windows::core::Abi for EXCEPTION_REGISTRATION_RECORD {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Kernel`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
@@ -163,7 +163,7 @@ impl ::core::cmp::PartialEq for FLOATING_SAVE_AREA {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for FLOATING_SAVE_AREA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for FLOATING_SAVE_AREA {
+unsafe impl ::windows::core::Abi for FLOATING_SAVE_AREA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -214,7 +214,7 @@ impl ::core::cmp::PartialEq for FLOATING_SAVE_AREA {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for FLOATING_SAVE_AREA {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for FLOATING_SAVE_AREA {
+unsafe impl ::windows::core::Abi for FLOATING_SAVE_AREA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -241,7 +241,7 @@ impl ::core::cmp::PartialEq for LIST_ENTRY {
     }
 }
 impl ::core::cmp::Eq for LIST_ENTRY {}
-unsafe impl ::windows::runtime::Abi for LIST_ENTRY {
+unsafe impl ::windows::core::Abi for LIST_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -268,7 +268,7 @@ impl ::core::cmp::PartialEq for LIST_ENTRY32 {
     }
 }
 impl ::core::cmp::Eq for LIST_ENTRY32 {}
-unsafe impl ::windows::runtime::Abi for LIST_ENTRY32 {
+unsafe impl ::windows::core::Abi for LIST_ENTRY32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -295,7 +295,7 @@ impl ::core::cmp::PartialEq for LIST_ENTRY64 {
     }
 }
 impl ::core::cmp::Eq for LIST_ENTRY64 {}
-unsafe impl ::windows::runtime::Abi for LIST_ENTRY64 {
+unsafe impl ::windows::core::Abi for LIST_ENTRY64 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
@@ -316,7 +316,7 @@ impl ::core::convert::From<i32> for NT_PRODUCT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NT_PRODUCT_TYPE {
+unsafe impl ::windows::core::Abi for NT_PRODUCT_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -349,7 +349,7 @@ impl ::core::cmp::PartialEq for NT_TIB {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::cmp::Eq for NT_TIB {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-unsafe impl ::windows::runtime::Abi for NT_TIB {
+unsafe impl ::windows::core::Abi for NT_TIB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -376,7 +376,7 @@ impl ::core::cmp::PartialEq for NT_TIB_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::cmp::Eq for NT_TIB_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-unsafe impl ::windows::runtime::Abi for NT_TIB_0 {
+unsafe impl ::windows::core::Abi for NT_TIB_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
@@ -385,7 +385,7 @@ pub const NULL64: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct OBJECTID {
-    pub Lineage: ::windows::runtime::GUID,
+    pub Lineage: ::windows::core::GUID,
     pub Uniquifier: u32,
 }
 impl OBJECTID {}
@@ -405,7 +405,7 @@ impl ::core::cmp::PartialEq for OBJECTID {
     }
 }
 impl ::core::cmp::Eq for OBJECTID {}
-unsafe impl ::windows::runtime::Abi for OBJECTID {
+unsafe impl ::windows::core::Abi for OBJECTID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -443,7 +443,7 @@ impl ::core::cmp::PartialEq for OBJECT_ATTRIBUTES32 {
     }
 }
 impl ::core::cmp::Eq for OBJECT_ATTRIBUTES32 {}
-unsafe impl ::windows::runtime::Abi for OBJECT_ATTRIBUTES32 {
+unsafe impl ::windows::core::Abi for OBJECT_ATTRIBUTES32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -481,7 +481,7 @@ impl ::core::cmp::PartialEq for OBJECT_ATTRIBUTES64 {
     }
 }
 impl ::core::cmp::Eq for OBJECT_ATTRIBUTES64 {}
-unsafe impl ::windows::runtime::Abi for OBJECT_ATTRIBUTES64 {
+unsafe impl ::windows::core::Abi for OBJECT_ATTRIBUTES64 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
@@ -533,7 +533,7 @@ impl ::core::cmp::PartialEq for PROCESSOR_NUMBER {
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_NUMBER {}
-unsafe impl ::windows::runtime::Abi for PROCESSOR_NUMBER {
+unsafe impl ::windows::core::Abi for PROCESSOR_NUMBER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -554,7 +554,7 @@ impl ::core::cmp::PartialEq for QUAD {
     }
 }
 impl ::core::cmp::Eq for QUAD {}
-unsafe impl ::windows::runtime::Abi for QUAD {
+unsafe impl ::windows::core::Abi for QUAD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -576,7 +576,7 @@ impl ::core::cmp::PartialEq for QUAD_0 {
     }
 }
 impl ::core::cmp::Eq for QUAD_0 {}
-unsafe impl ::windows::runtime::Abi for QUAD_0 {
+unsafe impl ::windows::core::Abi for QUAD_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -598,7 +598,7 @@ impl ::core::cmp::PartialEq for RTL_BALANCED_NODE {
     }
 }
 impl ::core::cmp::Eq for RTL_BALANCED_NODE {}
-unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE {
+unsafe impl ::windows::core::Abi for RTL_BALANCED_NODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -620,7 +620,7 @@ impl ::core::cmp::PartialEq for RTL_BALANCED_NODE_0 {
     }
 }
 impl ::core::cmp::Eq for RTL_BALANCED_NODE_0 {}
-unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE_0 {
+unsafe impl ::windows::core::Abi for RTL_BALANCED_NODE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -647,7 +647,7 @@ impl ::core::cmp::PartialEq for RTL_BALANCED_NODE_0_0 {
     }
 }
 impl ::core::cmp::Eq for RTL_BALANCED_NODE_0_0 {}
-unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE_0_0 {
+unsafe impl ::windows::core::Abi for RTL_BALANCED_NODE_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -669,7 +669,7 @@ impl ::core::cmp::PartialEq for RTL_BALANCED_NODE_1 {
     }
 }
 impl ::core::cmp::Eq for RTL_BALANCED_NODE_1 {}
-unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE_1 {
+unsafe impl ::windows::core::Abi for RTL_BALANCED_NODE_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
@@ -795,7 +795,7 @@ impl ::core::cmp::PartialEq for SINGLE_LIST_ENTRY {
     }
 }
 impl ::core::cmp::Eq for SINGLE_LIST_ENTRY {}
-unsafe impl ::windows::runtime::Abi for SINGLE_LIST_ENTRY {
+unsafe impl ::windows::core::Abi for SINGLE_LIST_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -821,7 +821,7 @@ impl ::core::cmp::PartialEq for SINGLE_LIST_ENTRY32 {
     }
 }
 impl ::core::cmp::Eq for SINGLE_LIST_ENTRY32 {}
-unsafe impl ::windows::runtime::Abi for SINGLE_LIST_ENTRY32 {
+unsafe impl ::windows::core::Abi for SINGLE_LIST_ENTRY32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -847,7 +847,7 @@ impl ::core::cmp::PartialEq for SLIST_ENTRY {
     }
 }
 impl ::core::cmp::Eq for SLIST_ENTRY {}
-unsafe impl ::windows::runtime::Abi for SLIST_ENTRY {
+unsafe impl ::windows::core::Abi for SLIST_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -875,7 +875,7 @@ impl ::core::cmp::PartialEq for SLIST_HEADER {
 #[cfg(any(target_arch = "aarch64",))]
 impl ::core::cmp::Eq for SLIST_HEADER {}
 #[cfg(any(target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for SLIST_HEADER {
+unsafe impl ::windows::core::Abi for SLIST_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -908,7 +908,7 @@ impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
 #[cfg(any(target_arch = "aarch64",))]
 impl ::core::cmp::Eq for SLIST_HEADER_0 {}
 #[cfg(any(target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for SLIST_HEADER_0 {
+unsafe impl ::windows::core::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -941,7 +941,7 @@ impl ::core::cmp::PartialEq for SLIST_HEADER_1 {
 #[cfg(any(target_arch = "aarch64",))]
 impl ::core::cmp::Eq for SLIST_HEADER_1 {}
 #[cfg(any(target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for SLIST_HEADER_1 {
+unsafe impl ::windows::core::Abi for SLIST_HEADER_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -969,7 +969,7 @@ impl ::core::cmp::PartialEq for SLIST_HEADER {
 #[cfg(any(target_arch = "x86_64",))]
 impl ::core::cmp::Eq for SLIST_HEADER {}
 #[cfg(any(target_arch = "x86_64",))]
-unsafe impl ::windows::runtime::Abi for SLIST_HEADER {
+unsafe impl ::windows::core::Abi for SLIST_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1002,7 +1002,7 @@ impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
 #[cfg(any(target_arch = "x86_64",))]
 impl ::core::cmp::Eq for SLIST_HEADER_0 {}
 #[cfg(any(target_arch = "x86_64",))]
-unsafe impl ::windows::runtime::Abi for SLIST_HEADER_0 {
+unsafe impl ::windows::core::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1035,7 +1035,7 @@ impl ::core::cmp::PartialEq for SLIST_HEADER_1 {
 #[cfg(any(target_arch = "x86_64",))]
 impl ::core::cmp::Eq for SLIST_HEADER_1 {}
 #[cfg(any(target_arch = "x86_64",))]
-unsafe impl ::windows::runtime::Abi for SLIST_HEADER_1 {
+unsafe impl ::windows::core::Abi for SLIST_HEADER_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1063,7 +1063,7 @@ impl ::core::cmp::PartialEq for SLIST_HEADER {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for SLIST_HEADER {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for SLIST_HEADER {
+unsafe impl ::windows::core::Abi for SLIST_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1097,7 +1097,7 @@ impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for SLIST_HEADER_0 {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for SLIST_HEADER_0 {
+unsafe impl ::windows::core::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1132,7 +1132,7 @@ impl ::core::cmp::PartialEq for STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STRING {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STRING {
+unsafe impl ::windows::core::Abi for STRING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1160,7 +1160,7 @@ impl ::core::cmp::PartialEq for STRING32 {
     }
 }
 impl ::core::cmp::Eq for STRING32 {}
-unsafe impl ::windows::runtime::Abi for STRING32 {
+unsafe impl ::windows::core::Abi for STRING32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1188,7 +1188,7 @@ impl ::core::cmp::PartialEq for STRING64 {
     }
 }
 impl ::core::cmp::Eq for STRING64 {}
-unsafe impl ::windows::runtime::Abi for STRING64 {
+unsafe impl ::windows::core::Abi for STRING64 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
@@ -1219,7 +1219,7 @@ impl ::core::convert::From<i32> for SUITE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SUITE_TYPE {
+unsafe impl ::windows::core::Abi for SUITE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
@@ -1233,7 +1233,7 @@ impl ::core::convert::From<i32> for TIMER_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TIMER_TYPE {
+unsafe impl ::windows::core::Abi for TIMER_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
@@ -1250,7 +1250,7 @@ impl ::core::convert::From<i32> for WAIT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WAIT_TYPE {
+unsafe impl ::windows::core::Abi for WAIT_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1276,6 +1276,6 @@ impl ::core::cmp::PartialEq for WNF_STATE_NAME {
     }
 }
 impl ::core::cmp::Eq for WNF_STATE_NAME {}
-unsafe impl ::windows::runtime::Abi for WNF_STATE_NAME {
+unsafe impl ::windows::core::Abi for WNF_STATE_NAME {
     type Abi = Self;
 }

@@ -2,7 +2,7 @@
 #![cfg(target_pointer_width = "64")]
 
 use test_win32_return::*;
-use windows::runtime::*;
+use windows::core::*;
 use Component::Win32::Return::*;
 use Windows::Win32::Foundation::*;
 

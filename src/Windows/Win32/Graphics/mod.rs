@@ -57,7 +57,7 @@ impl ::core::convert::From<u32> for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
+unsafe impl ::windows::core::Abi for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {

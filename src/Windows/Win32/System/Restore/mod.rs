@@ -62,7 +62,7 @@ impl ::core::cmp::PartialEq for RESTOREPOINTINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RESTOREPOINTINFOA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RESTOREPOINTINFOA {
+unsafe impl ::windows::core::Abi for RESTOREPOINTINFOA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -86,7 +86,7 @@ impl ::core::cmp::PartialEq for RESTOREPOINTINFOW {
     }
 }
 impl ::core::cmp::Eq for RESTOREPOINTINFOW {}
-unsafe impl ::windows::runtime::Abi for RESTOREPOINTINFOW {
+unsafe impl ::windows::core::Abi for RESTOREPOINTINFOW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Restore`*"]
@@ -102,7 +102,7 @@ impl ::core::convert::From<u32> for RESTOREPOINTINFO_EVENT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RESTOREPOINTINFO_EVENT_TYPE {
+unsafe impl ::windows::core::Abi for RESTOREPOINTINFO_EVENT_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RESTOREPOINTINFO_EVENT_TYPE {
@@ -147,7 +147,7 @@ impl ::core::convert::From<u32> for RESTOREPOINTINFO_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RESTOREPOINTINFO_TYPE {
+unsafe impl ::windows::core::Abi for RESTOREPOINTINFO_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RESTOREPOINTINFO_TYPE {
@@ -227,7 +227,7 @@ impl ::core::cmp::PartialEq for STATEMGRSTATUS {
     }
 }
 impl ::core::cmp::Eq for STATEMGRSTATUS {}
-unsafe impl ::windows::runtime::Abi for STATEMGRSTATUS {
+unsafe impl ::windows::core::Abi for STATEMGRSTATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Restore`*"]
@@ -264,6 +264,6 @@ impl ::core::cmp::PartialEq for _RESTOREPTINFOEX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for _RESTOREPTINFOEX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for _RESTOREPTINFOEX {
+unsafe impl ::windows::core::Abi for _RESTOREPTINFOEX {
     type Abi = Self;
 }

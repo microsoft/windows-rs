@@ -16,7 +16,7 @@ use test_win32::Windows::Win32::{
 };
 
 use std::convert::TryInto;
-use windows::runtime::GUID;
+use windows::core::GUID;
 
 #[test]
 fn signed_enum32() {
@@ -89,7 +89,7 @@ fn constant() {
 }
 
 #[test]
-fn function() -> windows::runtime::Result<()> {
+fn function() -> windows::core::Result<()> {
     unsafe {
         let event = CreateEventW(core::ptr::null_mut(), true, false, PWSTR(core::ptr::null_mut()));
         assert!(event.0 != 0);
@@ -110,18 +110,18 @@ fn bool_as_error() {
         assert!(helpers::set_thread_ui_language("en-US"));
         assert!(!SetEvent(HANDLE(0)).as_bool());
 
-        let result: windows::runtime::Result<()> = SetEvent(HANDLE(0)).ok();
+        let result: windows::core::Result<()> = SetEvent(HANDLE(0)).ok();
         assert!(result.is_err());
 
-        let error: windows::runtime::Error = result.unwrap_err();
-        assert_eq!(error.code(), windows::runtime::HRESULT(0x8007_0006));
+        let error: windows::core::Error = result.unwrap_err();
+        assert_eq!(error.code(), windows::core::HRESULT(0x8007_0006));
         let message: String = error.message().try_into().unwrap();
         assert_eq!(message.trim_end(), "The handle is invalid.");
     }
 }
 
 #[test]
-fn com() -> windows::runtime::Result<()> {
+fn com() -> windows::core::Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(0, true)?;
         let values = vec![1, 20, 300, 4000];
@@ -129,9 +129,9 @@ fn com() -> windows::runtime::Result<()> {
 
         assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
 
-        let copied = stream.Write(&UIAnimationTransitionLibrary as *const _ as _, core::mem::size_of::<windows::runtime::GUID>() as u32)?;
+        let copied = stream.Write(&UIAnimationTransitionLibrary as *const _ as _, core::mem::size_of::<windows::core::GUID>() as u32)?;
 
-        assert!(copied == core::mem::size_of::<windows::runtime::GUID>() as u32);
+        assert!(copied == core::mem::size_of::<windows::core::GUID>() as u32);
         let position = stream.Seek(0, STREAM_SEEK_SET)?;
 
         assert!(position == 0);
@@ -142,12 +142,12 @@ fn com() -> windows::runtime::Result<()> {
 
         assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
-        let mut value: windows::runtime::GUID = windows::runtime::GUID::default();
+        let mut value: windows::core::GUID = windows::core::GUID::default();
         let mut copied = 0;
 
-        stream.Read(&mut value as *mut _ as _, core::mem::size_of::<windows::runtime::GUID>() as u32, &mut copied)?;
+        stream.Read(&mut value as *mut _ as _, core::mem::size_of::<windows::core::GUID>() as u32, &mut copied)?;
 
-        assert!(copied == core::mem::size_of::<windows::runtime::GUID>() as u32);
+        assert!(copied == core::mem::size_of::<windows::core::GUID>() as u32);
         assert!(value == UIAnimationTransitionLibrary);
     }
 
@@ -178,11 +178,11 @@ fn com_inheritance() {
 
 // Tests for https://github.com/microsoft/windows-rs/issues/463
 #[test]
-fn onecore_imports() -> windows::runtime::Result<()> {
+fn onecore_imports() -> windows::core::Result<()> {
     unsafe {
         HasExpandedResources()?;
 
-        let uri = CreateUri(PWSTR(windows::runtime::HSTRING::from("http://kennykerr.ca").as_wide().as_ptr() as _), Default::default(), 0)?;
+        let uri = CreateUri(PWSTR(windows::core::HSTRING::from("http://kennykerr.ca").as_wide().as_ptr() as _), Default::default(), 0)?;
 
         let port = uri.GetPort()?;
         assert!(port == 80);
@@ -197,7 +197,7 @@ fn onecore_imports() -> windows::runtime::Result<()> {
 }
 
 #[test]
-fn interface() -> windows::runtime::Result<()> {
+fn interface() -> windows::core::Result<()> {
     unsafe {
         let uri = CreateUri("http://kennykerr.ca", Default::default(), 0)?;
 
@@ -214,7 +214,7 @@ fn callback() {
         assert!(BOOL(789) == a(HWND(123), PSTR("hello a\0".as_ptr() as _), HANDLE(456)));
 
         let a: PROPENUMPROCW = callback_w;
-        assert!(BOOL(789) == a(HWND(123), PWSTR(windows::runtime::HSTRING::from("hello w\0").as_wide().as_ptr() as _), HANDLE(456)));
+        assert!(BOOL(789) == a(HWND(123), PWSTR(windows::core::HSTRING::from("hello w\0").as_wide().as_ptr() as _), HANDLE(456)));
     }
 }
 

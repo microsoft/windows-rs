@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnableMouseInPointer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(fenable: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnableMouseInPointer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(fenable: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -32,7 +32,7 @@ pub unsafe fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> super::s
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
 #[inline]
-pub unsafe fn GetPointerDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, pointerdevice: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetPointerDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, pointerdevice: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -47,7 +47,7 @@ pub unsafe fn GetPointerDevice<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
-pub unsafe fn GetPointerDeviceCursors<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, cursorcount: *mut u32, devicecursors: *mut super::super::Controls::POINTER_DEVICE_CURSOR_INFO) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetPointerDeviceCursors<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, cursorcount: *mut u32, devicecursors: *mut super::super::Controls::POINTER_DEVICE_CURSOR_INFO) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -62,7 +62,7 @@ pub unsafe fn GetPointerDeviceCursors<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
-pub unsafe fn GetPointerDeviceProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, propertycount: *mut u32, pointerproperties: *mut super::super::Controls::POINTER_DEVICE_PROPERTY) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetPointerDeviceProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, propertycount: *mut u32, pointerproperties: *mut super::super::Controls::POINTER_DEVICE_PROPERTY) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -77,7 +77,7 @@ pub unsafe fn GetPointerDeviceProperties<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPointerDeviceRects<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, pointerdevicerect: *mut super::super::super::Foundation::RECT, displayrect: *mut super::super::super::Foundation::RECT) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetPointerDeviceRects<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, pointerdevicerect: *mut super::super::super::Foundation::RECT, displayrect: *mut super::super::super::Foundation::RECT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -369,7 +369,7 @@ impl ::core::cmp::PartialEq for INPUT_INJECTION_VALUE {
     }
 }
 impl ::core::cmp::Eq for INPUT_INJECTION_VALUE {}
-unsafe impl ::windows::runtime::Abi for INPUT_INJECTION_VALUE {
+unsafe impl ::windows::core::Abi for INPUT_INJECTION_VALUE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -390,7 +390,7 @@ impl ::core::cmp::PartialEq for INPUT_TRANSFORM {
     }
 }
 impl ::core::cmp::Eq for INPUT_TRANSFORM {}
-unsafe impl ::windows::runtime::Abi for INPUT_TRANSFORM {
+unsafe impl ::windows::core::Abi for INPUT_TRANSFORM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -412,7 +412,7 @@ impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0 {
     }
 }
 impl ::core::cmp::Eq for INPUT_TRANSFORM_0 {}
-unsafe impl ::windows::runtime::Abi for INPUT_TRANSFORM_0 {
+unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -470,7 +470,7 @@ impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0_0 {
     }
 }
 impl ::core::cmp::Eq for INPUT_TRANSFORM_0_0 {}
-unsafe impl ::windows::runtime::Abi for INPUT_TRANSFORM_0_0 {
+unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`*"]
@@ -491,7 +491,7 @@ pub unsafe fn InitializeTouchInjection(maxcount: u32, dwmode: TOUCH_FEEDBACK_MOD
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn InjectSyntheticPointerInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Controls::HSYNTHETICPOINTERDEVICE>>(device: Param0, pointerinfo: *const super::super::Controls::POINTER_TYPE_INFO, count: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn InjectSyntheticPointerInput<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::HSYNTHETICPOINTERDEVICE>>(device: Param0, pointerinfo: *const super::super::Controls::POINTER_TYPE_INFO, count: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -553,7 +553,7 @@ impl ::core::convert::From<i32> for POINTER_BUTTON_CHANGE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for POINTER_BUTTON_CHANGE_TYPE {
+unsafe impl ::windows::core::Abi for POINTER_BUTTON_CHANGE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Pointer`*"]
@@ -584,7 +584,7 @@ impl ::core::convert::From<u32> for POINTER_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for POINTER_FLAGS {
+unsafe impl ::windows::core::Abi for POINTER_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for POINTER_FLAGS {
@@ -692,7 +692,7 @@ impl ::core::cmp::PartialEq for POINTER_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for POINTER_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for POINTER_INFO {
+unsafe impl ::windows::core::Abi for POINTER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -731,7 +731,7 @@ impl ::core::cmp::PartialEq for POINTER_PEN_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for POINTER_PEN_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for POINTER_PEN_INFO {
+unsafe impl ::windows::core::Abi for POINTER_PEN_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -778,7 +778,7 @@ impl ::core::cmp::PartialEq for POINTER_TOUCH_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for POINTER_TOUCH_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for POINTER_TOUCH_INFO {
+unsafe impl ::windows::core::Abi for POINTER_TOUCH_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`*"]
@@ -808,7 +808,7 @@ impl ::core::convert::From<u32> for TOUCH_FEEDBACK_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TOUCH_FEEDBACK_MODE {
+unsafe impl ::windows::core::Abi for TOUCH_FEEDBACK_MODE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for TOUCH_FEEDBACK_MODE {

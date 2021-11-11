@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization_UI`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
 #[inline]
-pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(
+pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(
     pwszobjectpath: Param0,
     pwszobjectclass: Param1,
     dwflags: u32,
@@ -10,12 +10,12 @@ pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::runtime::IntoPa
     pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
     pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
     lpcontext: Param6,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSCreateISecurityInfoObject(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, ppsi: *mut ::windows::runtime::RawPtr, pfnreadsd: ::windows::runtime::RawPtr, pfnwritesd: ::windows::runtime::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+            fn DSCreateISecurityInfoObject(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, ppsi: *mut ::windows::core::RawPtr, pfnreadsd: ::windows::core::RawPtr, pfnwritesd: ::windows::core::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
         }
         DSCreateISecurityInfoObject(pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppsi), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into_param().abi()).ok()
     }
@@ -25,15 +25,7 @@ pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization_UI`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
 #[inline]
-pub unsafe fn DSCreateISecurityInfoObjectEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
+pub unsafe fn DSCreateISecurityInfoObjectEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(
     pwszobjectpath: Param0,
     pwszobjectclass: Param1,
     pwszserver: Param2,
@@ -44,12 +36,12 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<
     pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
     pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
     lpcontext: Param9,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSCreateISecurityInfoObjectEx(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, pwszserver: super::super::Foundation::PWSTR, pwszusername: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR, dwflags: u32, ppsi: *mut ::windows::runtime::RawPtr, pfnreadsd: ::windows::runtime::RawPtr, pfnwritesd: ::windows::runtime::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+            fn DSCreateISecurityInfoObjectEx(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, pwszserver: super::super::Foundation::PWSTR, pwszusername: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR, dwflags: u32, ppsi: *mut ::windows::core::RawPtr, pfnreadsd: ::windows::core::RawPtr, pfnwritesd: ::windows::core::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
         }
         DSCreateISecurityInfoObjectEx(
             pwszobjectpath.into_param().abi(),
@@ -71,7 +63,7 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<
 #[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
-pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(
+pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(
     pwszobjectpath: Param0,
     pwszobjectclass: Param1,
     dwflags: u32,
@@ -79,12 +71,12 @@ pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::runtime::IntoParam<'a,
     pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
     pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
     lpcontext: Param6,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSCreateSecurityPage(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd: ::windows::runtime::RawPtr, pfnwritesd: ::windows::runtime::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+            fn DSCreateSecurityPage(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd: ::windows::core::RawPtr, pfnwritesd: ::windows::core::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
         }
         DSCreateSecurityPage(pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(phpage), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into_param().abi()).ok()
     }
@@ -94,7 +86,7 @@ pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DSEditSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(
+pub unsafe fn DSEditSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(
     hwndowner: Param0,
     pwszobjectpath: Param1,
     pwszobjectclass: Param2,
@@ -103,12 +95,12 @@ pub unsafe fn DSEditSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super
     pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
     pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
     lpcontext: Param7,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSEditSecurity(hwndowner: super::super::Foundation::HWND, pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, pwszcaption: super::super::Foundation::PWSTR, pfnreadsd: ::windows::runtime::RawPtr, pfnwritesd: ::windows::runtime::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+            fn DSEditSecurity(hwndowner: super::super::Foundation::HWND, pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, pwszcaption: super::super::Foundation::PWSTR, pfnreadsd: ::windows::core::RawPtr, pfnwritesd: ::windows::core::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
         }
         DSEditSecurity(hwndowner.into_param().abi(), pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), pwszcaption.into_param().abi(), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into_param().abi()).ok()
     }
@@ -131,19 +123,19 @@ pub const DSSI_NO_READONLY_MESSAGE: u32 = 64u32;
 pub const DSSI_READ_ONLY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization_UI`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
-pub type PFNDSCREATEISECINFO = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut ::windows::runtime::RawPtr, param4: ::windows::runtime::RawPtr, param5: ::windows::runtime::RawPtr, param6: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+pub type PFNDSCREATEISECINFO = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut ::windows::core::RawPtr, param4: ::windows::core::RawPtr, param5: ::windows::core::RawPtr, param6: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
 #[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization_UI`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
-pub type PFNDSCREATEISECINFOEX = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: super::super::Foundation::PWSTR, param4: super::super::Foundation::PWSTR, param5: u32, param6: *mut ::windows::runtime::RawPtr, param7: ::windows::runtime::RawPtr, param8: ::windows::runtime::RawPtr, param9: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+pub type PFNDSCREATEISECINFOEX = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: super::super::Foundation::PWSTR, param4: super::super::Foundation::PWSTR, param5: u32, param6: *mut ::windows::core::RawPtr, param7: ::windows::core::RawPtr, param8: ::windows::core::RawPtr, param9: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
 #[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-pub type PFNDSCREATESECPAGE = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut super::super::UI::Controls::HPROPSHEETPAGE, param4: ::windows::runtime::RawPtr, param5: ::windows::runtime::RawPtr, param6: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+pub type PFNDSCREATESECPAGE = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut super::super::UI::Controls::HPROPSHEETPAGE, param4: ::windows::core::RawPtr, param5: ::windows::core::RawPtr, param6: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
 #[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNDSEDITSECURITY = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: u32, param4: super::super::Foundation::PWSTR, param5: ::windows::runtime::RawPtr, param6: ::windows::runtime::RawPtr, param7: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+pub type PFNDSEDITSECURITY = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: u32, param4: super::super::Foundation::PWSTR, param5: ::windows::core::RawPtr, param6: ::windows::core::RawPtr, param7: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
 #[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNREADOBJECTSECURITY = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut *mut super::SECURITY_DESCRIPTOR, param3: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+pub type PFNREADOBJECTSECURITY = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut *mut super::SECURITY_DESCRIPTOR, param3: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
 #[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNWRITEOBJECTSECURITY = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::SECURITY_DESCRIPTOR, param3: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+pub type PFNWRITEOBJECTSECURITY = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::SECURITY_DESCRIPTOR, param3: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;

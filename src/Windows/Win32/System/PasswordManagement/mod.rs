@@ -29,7 +29,7 @@ impl ::core::cmp::PartialEq for CYPHER_BLOCK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CYPHER_BLOCK {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CYPHER_BLOCK {
+unsafe impl ::windows::core::Abi for CYPHER_BLOCK {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -62,7 +62,7 @@ impl ::core::cmp::PartialEq for ENCRYPTED_LM_OWF_PASSWORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENCRYPTED_LM_OWF_PASSWORD {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ENCRYPTED_LM_OWF_PASSWORD {
+unsafe impl ::windows::core::Abi for ENCRYPTED_LM_OWF_PASSWORD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -95,21 +95,13 @@ impl ::core::cmp::PartialEq for LM_OWF_PASSWORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LM_OWF_PASSWORD {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for LM_OWF_PASSWORD {
+unsafe impl ::windows::core::Abi for LM_OWF_PASSWORD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MSChapSrvChangePassword<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
-    servername: Param0,
-    username: Param1,
-    lmoldpresent: Param2,
-    lmoldowfpassword: *const LM_OWF_PASSWORD,
-    lmnewowfpassword: *const LM_OWF_PASSWORD,
-    ntoldowfpassword: *const LM_OWF_PASSWORD,
-    ntnewowfpassword: *const LM_OWF_PASSWORD,
-) -> u32 {
+pub unsafe fn MSChapSrvChangePassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(servername: Param0, username: Param1, lmoldpresent: Param2, lmoldowfpassword: *const LM_OWF_PASSWORD, lmnewowfpassword: *const LM_OWF_PASSWORD, ntoldowfpassword: *const LM_OWF_PASSWORD, ntnewowfpassword: *const LM_OWF_PASSWORD) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -124,7 +116,7 @@ pub unsafe fn MSChapSrvChangePassword<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MSChapSrvChangePassword2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
+pub unsafe fn MSChapSrvChangePassword2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
     servername: Param0,
     username: Param1,
     newpasswordencryptedwitholdnt: *const SAMPR_ENCRYPTED_USER_PASSWORD,
@@ -175,6 +167,6 @@ impl ::core::cmp::PartialEq for SAMPR_ENCRYPTED_USER_PASSWORD {
     }
 }
 impl ::core::cmp::Eq for SAMPR_ENCRYPTED_USER_PASSWORD {}
-unsafe impl ::windows::runtime::Abi for SAMPR_ENCRYPTED_USER_PASSWORD {
+unsafe impl ::windows::core::Abi for SAMPR_ENCRYPTED_USER_PASSWORD {
     type Abi = Self;
 }

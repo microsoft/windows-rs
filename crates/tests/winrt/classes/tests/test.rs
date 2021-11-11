@@ -1,5 +1,5 @@
 use test_winrt_classes::*;
-use windows::runtime::*;
+use windows::core::*;
 use Component::Classes::*;
 use Component::Interfaces::*;
 

@@ -45,7 +45,7 @@ impl ::core::cmp::PartialEq for XINPUT_BATTERY_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for XINPUT_BATTERY_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for XINPUT_BATTERY_INFORMATION {
+unsafe impl ::windows::core::Abi for XINPUT_BATTERY_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -75,7 +75,7 @@ impl ::core::cmp::PartialEq for XINPUT_CAPABILITIES {
     }
 }
 impl ::core::cmp::Eq for XINPUT_CAPABILITIES {}
-unsafe impl ::windows::runtime::Abi for XINPUT_CAPABILITIES {
+unsafe impl ::windows::core::Abi for XINPUT_CAPABILITIES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
@@ -143,7 +143,7 @@ impl ::core::cmp::PartialEq for XINPUT_GAMEPAD {
     }
 }
 impl ::core::cmp::Eq for XINPUT_GAMEPAD {}
-unsafe impl ::windows::runtime::Abi for XINPUT_GAMEPAD {
+unsafe impl ::windows::core::Abi for XINPUT_GAMEPAD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
@@ -207,7 +207,7 @@ impl ::core::cmp::PartialEq for XINPUT_KEYSTROKE {
     }
 }
 impl ::core::cmp::Eq for XINPUT_KEYSTROKE {}
-unsafe impl ::windows::runtime::Abi for XINPUT_KEYSTROKE {
+unsafe impl ::windows::core::Abi for XINPUT_KEYSTROKE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
@@ -240,7 +240,7 @@ impl ::core::cmp::PartialEq for XINPUT_STATE {
     }
 }
 impl ::core::cmp::Eq for XINPUT_STATE {}
-unsafe impl ::windows::runtime::Abi for XINPUT_STATE {
+unsafe impl ::windows::core::Abi for XINPUT_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -267,7 +267,7 @@ impl ::core::cmp::PartialEq for XINPUT_VIBRATION {
     }
 }
 impl ::core::cmp::Eq for XINPUT_VIBRATION {}
-unsafe impl ::windows::runtime::Abi for XINPUT_VIBRATION {
+unsafe impl ::windows::core::Abi for XINPUT_VIBRATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
@@ -311,13 +311,13 @@ impl ::core::convert::From<u16> for XINPUT_VIRTUAL_KEY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for XINPUT_VIRTUAL_KEY {
+unsafe impl ::windows::core::Abi for XINPUT_VIRTUAL_KEY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_XboxController`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn XInputEnable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(enable: Param0) {
+pub unsafe fn XInputEnable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(enable: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

@@ -3,11 +3,11 @@
 pub const BREADCRUMBING_UNSUPPORTED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const BREADCRUMBING_VERSION_1: u32 = 1u32;
-pub const CivicAddressReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd39e7bdd_7d05_46b8_8721_80cf035f57d7);
-pub const CivicAddressReportFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2a11f42c_3e81_4ad4_9cbe_45579d89671a);
-pub const DefaultLocation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8b7fbfe0_5cd7_494a_af8c_283a65707506);
-pub const DispCivicAddressReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c596aec_8544_4082_ba9f_eb0a7d8e65c6);
-pub const DispLatLongReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a7c3277_8f84_4636_95b2_ebb5507ff77e);
+pub const CivicAddressReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd39e7bdd_7d05_46b8_8721_80cf035f57d7);
+pub const CivicAddressReportFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a11f42c_3e81_4ad4_9cbe_45579d89671a);
+pub const DefaultLocation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b7fbfe0_5cd7_494a_af8c_283a65707506);
+pub const DispCivicAddressReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c596aec_8544_4082_ba9f_eb0a7d8e65c6);
+pub const DispLatLongReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a7c3277_8f84_4636_95b2_ebb5507ff77e);
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const GNSS_AGNSSFORMAT_LTO: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -52,7 +52,7 @@ impl ::core::cmp::PartialEq for GNSS_AGNSS_INJECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_AGNSS_INJECT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_INJECT {
+unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -80,7 +80,7 @@ impl ::core::cmp::PartialEq for GNSS_AGNSS_INJECT_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_AGNSS_INJECT_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_INJECT_0 {
+unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -112,7 +112,7 @@ impl ::core::cmp::PartialEq for GNSS_AGNSS_INJECTBLOB {
     }
 }
 impl ::core::cmp::Eq for GNSS_AGNSS_INJECTBLOB {}
-unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_INJECTBLOB {
+unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECTBLOB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -142,7 +142,7 @@ impl ::core::cmp::PartialEq for GNSS_AGNSS_INJECTPOSITION {
     }
 }
 impl ::core::cmp::Eq for GNSS_AGNSS_INJECTPOSITION {}
-unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_INJECTPOSITION {
+unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECTPOSITION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -178,7 +178,7 @@ impl ::core::cmp::PartialEq for GNSS_AGNSS_INJECTTIME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_AGNSS_INJECTTIME {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_INJECTTIME {
+unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECTTIME {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -207,7 +207,7 @@ impl ::core::cmp::PartialEq for GNSS_AGNSS_REQUEST_PARAM {
     }
 }
 impl ::core::cmp::Eq for GNSS_AGNSS_REQUEST_PARAM {}
-unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_REQUEST_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_AGNSS_REQUEST_PARAM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -222,7 +222,7 @@ impl ::core::convert::From<i32> for GNSS_AGNSS_REQUEST_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_REQUEST_TYPE {
+unsafe impl ::windows::core::Abi for GNSS_AGNSS_REQUEST_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -250,7 +250,7 @@ impl ::core::cmp::PartialEq for GNSS_BREADCRUMBING_ALERT_DATA {
     }
 }
 impl ::core::cmp::Eq for GNSS_BREADCRUMBING_ALERT_DATA {}
-unsafe impl ::windows::runtime::Abi for GNSS_BREADCRUMBING_ALERT_DATA {
+unsafe impl ::windows::core::Abi for GNSS_BREADCRUMBING_ALERT_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -288,7 +288,7 @@ impl ::core::cmp::PartialEq for GNSS_BREADCRUMBING_PARAM {
     }
 }
 impl ::core::cmp::Eq for GNSS_BREADCRUMBING_PARAM {}
-unsafe impl ::windows::runtime::Abi for GNSS_BREADCRUMBING_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_BREADCRUMBING_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -318,7 +318,7 @@ impl ::core::cmp::PartialEq for GNSS_BREADCRUMB_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_BREADCRUMB_LIST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_BREADCRUMB_LIST {
+unsafe impl ::windows::core::Abi for GNSS_BREADCRUMB_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -344,7 +344,7 @@ impl ::core::cmp::PartialEq for GNSS_BREADCRUMB_LIST_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_BREADCRUMB_LIST_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_BREADCRUMB_LIST_0 {
+unsafe impl ::windows::core::Abi for GNSS_BREADCRUMB_LIST_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -399,7 +399,7 @@ impl ::core::cmp::PartialEq for GNSS_BREADCRUMB_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_BREADCRUMB_V1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_BREADCRUMB_V1 {
+unsafe impl ::windows::core::Abi for GNSS_BREADCRUMB_V1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -430,7 +430,7 @@ impl ::core::cmp::PartialEq for GNSS_CHIPSETINFO {
     }
 }
 impl ::core::cmp::Eq for GNSS_CHIPSETINFO {}
-unsafe impl ::windows::runtime::Abi for GNSS_CHIPSETINFO {
+unsafe impl ::windows::core::Abi for GNSS_CHIPSETINFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -458,7 +458,7 @@ impl ::core::cmp::PartialEq for GNSS_CONTINUOUSTRACKING_PARAM {
     }
 }
 impl ::core::cmp::Eq for GNSS_CONTINUOUSTRACKING_PARAM {}
-unsafe impl ::windows::runtime::Abi for GNSS_CONTINUOUSTRACKING_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_CONTINUOUSTRACKING_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -487,7 +487,7 @@ impl ::core::cmp::PartialEq for GNSS_CP_NI_INFO {
     }
 }
 impl ::core::cmp::Eq for GNSS_CP_NI_INFO {}
-unsafe impl ::windows::runtime::Abi for GNSS_CP_NI_INFO {
+unsafe impl ::windows::core::Abi for GNSS_CP_NI_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -525,7 +525,7 @@ impl ::core::cmp::PartialEq for GNSS_CWTESTDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_CWTESTDATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_CWTESTDATA {
+unsafe impl ::windows::core::Abi for GNSS_CWTESTDATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -638,7 +638,7 @@ impl ::core::cmp::PartialEq for GNSS_DEVICE_CAPABILITY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_DEVICE_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_DEVICE_CAPABILITY {
+unsafe impl ::windows::core::Abi for GNSS_DEVICE_CAPABILITY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -666,7 +666,7 @@ impl ::core::cmp::PartialEq for GNSS_DISTANCETRACKING_PARAM {
     }
 }
 impl ::core::cmp::Eq for GNSS_DISTANCETRACKING_PARAM {}
-unsafe impl ::windows::runtime::Abi for GNSS_DISTANCETRACKING_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_DISTANCETRACKING_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -706,7 +706,7 @@ impl ::core::cmp::PartialEq for GNSS_DRIVERCOMMAND_PARAM {
     }
 }
 impl ::core::cmp::Eq for GNSS_DRIVERCOMMAND_PARAM {}
-unsafe impl ::windows::runtime::Abi for GNSS_DRIVERCOMMAND_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_DRIVERCOMMAND_PARAM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -731,7 +731,7 @@ impl ::core::convert::From<i32> for GNSS_DRIVERCOMMAND_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_DRIVERCOMMAND_TYPE {
+unsafe impl ::windows::core::Abi for GNSS_DRIVERCOMMAND_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -744,7 +744,7 @@ impl ::core::convert::From<i32> for GNSS_DRIVER_REQUEST {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_DRIVER_REQUEST {
+unsafe impl ::windows::core::Abi for GNSS_DRIVER_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -773,7 +773,7 @@ impl ::core::cmp::PartialEq for GNSS_DRIVER_REQUEST_DATA {
     }
 }
 impl ::core::cmp::Eq for GNSS_DRIVER_REQUEST_DATA {}
-unsafe impl ::windows::runtime::Abi for GNSS_DRIVER_REQUEST_DATA {
+unsafe impl ::windows::core::Abi for GNSS_DRIVER_REQUEST_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -823,7 +823,7 @@ impl ::core::cmp::PartialEq for GNSS_ERRORINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_ERRORINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_ERRORINFO {
+unsafe impl ::windows::core::Abi for GNSS_ERRORINFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -855,7 +855,7 @@ impl ::core::cmp::PartialEq for GNSS_EVENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_EVENT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_EVENT {
+unsafe impl ::windows::core::Abi for GNSS_EVENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -890,7 +890,7 @@ impl ::core::cmp::PartialEq for GNSS_EVENT_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_EVENT_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_EVENT_0 {
+unsafe impl ::windows::core::Abi for GNSS_EVENT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -922,7 +922,7 @@ impl ::core::cmp::PartialEq for GNSS_EVENT_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_EVENT_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_EVENT_2 {
+unsafe impl ::windows::core::Abi for GNSS_EVENT_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -958,7 +958,7 @@ impl ::core::cmp::PartialEq for GNSS_EVENT_2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_EVENT_2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_EVENT_2_0 {
+unsafe impl ::windows::core::Abi for GNSS_EVENT_2_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -981,7 +981,7 @@ impl ::core::convert::From<i32> for GNSS_EVENT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_EVENT_TYPE {
+unsafe impl ::windows::core::Abi for GNSS_EVENT_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1034,7 +1034,7 @@ impl ::core::cmp::PartialEq for GNSS_FIXDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_FIXDATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA {
+unsafe impl ::windows::core::Abi for GNSS_FIXDATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1087,7 +1087,7 @@ impl ::core::cmp::PartialEq for GNSS_FIXDATA_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_FIXDATA_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_2 {
+unsafe impl ::windows::core::Abi for GNSS_FIXDATA_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1160,7 +1160,7 @@ impl ::core::cmp::PartialEq for GNSS_FIXDATA_ACCURACY {
     }
 }
 impl ::core::cmp::Eq for GNSS_FIXDATA_ACCURACY {}
-unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_ACCURACY {
+unsafe impl ::windows::core::Abi for GNSS_FIXDATA_ACCURACY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1239,7 +1239,7 @@ impl ::core::cmp::PartialEq for GNSS_FIXDATA_ACCURACY_2 {
     }
 }
 impl ::core::cmp::Eq for GNSS_FIXDATA_ACCURACY_2 {}
-unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_ACCURACY_2 {
+unsafe impl ::windows::core::Abi for GNSS_FIXDATA_ACCURACY_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1271,7 +1271,7 @@ impl ::core::cmp::PartialEq for GNSS_FIXDATA_BASIC {
     }
 }
 impl ::core::cmp::Eq for GNSS_FIXDATA_BASIC {}
-unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_BASIC {
+unsafe impl ::windows::core::Abi for GNSS_FIXDATA_BASIC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1313,7 +1313,7 @@ impl ::core::cmp::PartialEq for GNSS_FIXDATA_BASIC_2 {
     }
 }
 impl ::core::cmp::Eq for GNSS_FIXDATA_BASIC_2 {}
-unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_BASIC_2 {
+unsafe impl ::windows::core::Abi for GNSS_FIXDATA_BASIC_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1349,7 +1349,7 @@ impl ::core::cmp::PartialEq for GNSS_FIXDATA_SATELLITE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_FIXDATA_SATELLITE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_SATELLITE {
+unsafe impl ::windows::core::Abi for GNSS_FIXDATA_SATELLITE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -1371,7 +1371,7 @@ impl ::core::convert::From<i32> for GNSS_FIXSESSIONTYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_FIXSESSIONTYPE {
+unsafe impl ::windows::core::Abi for GNSS_FIXSESSIONTYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1401,7 +1401,7 @@ impl ::core::cmp::PartialEq for GNSS_FIXSESSION_PARAM {
     }
 }
 impl ::core::cmp::Eq for GNSS_FIXSESSION_PARAM {}
-unsafe impl ::windows::runtime::Abi for GNSS_FIXSESSION_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_FIXSESSION_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1426,7 +1426,7 @@ impl ::core::cmp::PartialEq for GNSS_FIXSESSION_PARAM_0 {
     }
 }
 impl ::core::cmp::Eq for GNSS_FIXSESSION_PARAM_0 {}
-unsafe impl ::windows::runtime::Abi for GNSS_FIXSESSION_PARAM_0 {
+unsafe impl ::windows::core::Abi for GNSS_FIXSESSION_PARAM_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -1467,7 +1467,7 @@ impl ::core::cmp::PartialEq for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
+unsafe impl ::windows::core::Abi for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1507,7 +1507,7 @@ impl ::core::cmp::PartialEq for GNSS_GEOFENCE_ALERT_DATA {
     }
 }
 impl ::core::cmp::Eq for GNSS_GEOFENCE_ALERT_DATA {}
-unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCE_ALERT_DATA {
+unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_ALERT_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1533,7 +1533,7 @@ impl ::core::cmp::PartialEq for GNSS_GEOFENCE_CREATE_PARAM {
     }
 }
 impl ::core::cmp::Eq for GNSS_GEOFENCE_CREATE_PARAM {}
-unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCE_CREATE_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_CREATE_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1570,7 +1570,7 @@ impl ::core::cmp::PartialEq for GNSS_GEOFENCE_CREATE_RESPONSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_GEOFENCE_CREATE_RESPONSE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCE_CREATE_RESPONSE {
+unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_CREATE_RESPONSE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1599,7 +1599,7 @@ impl ::core::cmp::PartialEq for GNSS_GEOFENCE_DELETE_PARAM {
     }
 }
 impl ::core::cmp::Eq for GNSS_GEOFENCE_DELETE_PARAM {}
-unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCE_DELETE_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_DELETE_PARAM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -1614,7 +1614,7 @@ impl ::core::convert::From<i32> for GNSS_GEOFENCE_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCE_STATE {
+unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1638,7 +1638,7 @@ impl ::core::cmp::PartialEq for GNSS_GEOREGION {
     }
 }
 impl ::core::cmp::Eq for GNSS_GEOREGION {}
-unsafe impl ::windows::runtime::Abi for GNSS_GEOREGION {
+unsafe impl ::windows::core::Abi for GNSS_GEOREGION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1660,7 +1660,7 @@ impl ::core::cmp::PartialEq for GNSS_GEOREGION_0 {
     }
 }
 impl ::core::cmp::Eq for GNSS_GEOREGION_0 {}
-unsafe impl ::windows::runtime::Abi for GNSS_GEOREGION_0 {
+unsafe impl ::windows::core::Abi for GNSS_GEOREGION_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -1673,7 +1673,7 @@ impl ::core::convert::From<i32> for GNSS_GEOREGIONTYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_GEOREGIONTYPE {
+unsafe impl ::windows::core::Abi for GNSS_GEOREGIONTYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1701,7 +1701,7 @@ impl ::core::cmp::PartialEq for GNSS_GEOREGION_CIRCLE {
     }
 }
 impl ::core::cmp::Eq for GNSS_GEOREGION_CIRCLE {}
-unsafe impl ::windows::runtime::Abi for GNSS_GEOREGION_CIRCLE {
+unsafe impl ::windows::core::Abi for GNSS_GEOREGION_CIRCLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1728,7 +1728,7 @@ impl ::core::cmp::PartialEq for GNSS_LKGFIX_PARAM {
     }
 }
 impl ::core::cmp::Eq for GNSS_LKGFIX_PARAM {}
-unsafe impl ::windows::runtime::Abi for GNSS_LKGFIX_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_LKGFIX_PARAM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -1747,7 +1747,7 @@ impl ::core::convert::From<i32> for GNSS_NI_NOTIFICATION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_NI_NOTIFICATION_TYPE {
+unsafe impl ::windows::core::Abi for GNSS_NI_NOTIFICATION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -1762,7 +1762,7 @@ impl ::core::convert::From<i32> for GNSS_NI_PLANE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_NI_PLANE_TYPE {
+unsafe impl ::windows::core::Abi for GNSS_NI_PLANE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1797,7 +1797,7 @@ impl ::core::cmp::PartialEq for GNSS_NI_REQUEST_PARAM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_NI_REQUEST_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_NI_REQUEST_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_NI_REQUEST_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1825,7 +1825,7 @@ impl ::core::cmp::PartialEq for GNSS_NI_REQUEST_PARAM_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_NI_REQUEST_PARAM_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_NI_REQUEST_PARAM_0 {
+unsafe impl ::windows::core::Abi for GNSS_NI_REQUEST_PARAM_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -1839,7 +1839,7 @@ impl ::core::convert::From<i32> for GNSS_NI_REQUEST_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_NI_REQUEST_TYPE {
+unsafe impl ::windows::core::Abi for GNSS_NI_REQUEST_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1868,7 +1868,7 @@ impl ::core::cmp::PartialEq for GNSS_NI_RESPONSE {
     }
 }
 impl ::core::cmp::Eq for GNSS_NI_RESPONSE {}
-unsafe impl ::windows::runtime::Abi for GNSS_NI_RESPONSE {
+unsafe impl ::windows::core::Abi for GNSS_NI_RESPONSE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -1883,7 +1883,7 @@ impl ::core::convert::From<i32> for GNSS_NI_USER_RESPONSE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_NI_USER_RESPONSE {
+unsafe impl ::windows::core::Abi for GNSS_NI_USER_RESPONSE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -1922,7 +1922,7 @@ impl ::core::cmp::PartialEq for GNSS_NMEA_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_NMEA_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_NMEA_DATA {
+unsafe impl ::windows::core::Abi for GNSS_NMEA_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -1973,7 +1973,7 @@ impl ::core::cmp::PartialEq for GNSS_PLATFORM_CAPABILITY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_PLATFORM_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_PLATFORM_CAPABILITY {
+unsafe impl ::windows::core::Abi for GNSS_PLATFORM_CAPABILITY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2010,7 +2010,7 @@ impl ::core::cmp::PartialEq for GNSS_SATELLITEINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_SATELLITEINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_SATELLITEINFO {
+unsafe impl ::windows::core::Abi for GNSS_SATELLITEINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -2051,7 +2051,7 @@ impl ::core::cmp::PartialEq for GNSS_SELFTESTCONFIG {
     }
 }
 impl ::core::cmp::Eq for GNSS_SELFTESTCONFIG {}
-unsafe impl ::windows::runtime::Abi for GNSS_SELFTESTCONFIG {
+unsafe impl ::windows::core::Abi for GNSS_SELFTESTCONFIG {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2100,7 +2100,7 @@ impl ::core::cmp::PartialEq for GNSS_SELFTESTRESULT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_SELFTESTRESULT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_SELFTESTRESULT {
+unsafe impl ::windows::core::Abi for GNSS_SELFTESTRESULT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2128,7 +2128,7 @@ impl ::core::cmp::PartialEq for GNSS_SINGLESHOT_PARAM {
     }
 }
 impl ::core::cmp::Eq for GNSS_SINGLESHOT_PARAM {}
-unsafe impl ::windows::runtime::Abi for GNSS_SINGLESHOT_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_SINGLESHOT_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2157,7 +2157,7 @@ impl ::core::cmp::PartialEq for GNSS_STOPFIXSESSION_PARAM {
     }
 }
 impl ::core::cmp::Eq for GNSS_STOPFIXSESSION_PARAM {}
-unsafe impl ::windows::runtime::Abi for GNSS_STOPFIXSESSION_PARAM {
+unsafe impl ::windows::core::Abi for GNSS_STOPFIXSESSION_PARAM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -2172,7 +2172,7 @@ impl ::core::convert::From<i32> for GNSS_SUPL_CERT_ACTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GNSS_SUPL_CERT_ACTION {
+unsafe impl ::windows::core::Abi for GNSS_SUPL_CERT_ACTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2211,7 +2211,7 @@ impl ::core::cmp::PartialEq for GNSS_SUPL_CERT_CONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_SUPL_CERT_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_SUPL_CERT_CONFIG {
+unsafe impl ::windows::core::Abi for GNSS_SUPL_CERT_CONFIG {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2249,7 +2249,7 @@ impl ::core::cmp::PartialEq for GNSS_SUPL_HSLP_CONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_SUPL_HSLP_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_SUPL_HSLP_CONFIG {
+unsafe impl ::windows::core::Abi for GNSS_SUPL_HSLP_CONFIG {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2286,7 +2286,7 @@ impl ::core::cmp::PartialEq for GNSS_SUPL_NI_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_SUPL_NI_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_SUPL_NI_INFO {
+unsafe impl ::windows::core::Abi for GNSS_SUPL_NI_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2313,7 +2313,7 @@ impl ::core::cmp::PartialEq for GNSS_SUPL_VERSION {
     }
 }
 impl ::core::cmp::Eq for GNSS_SUPL_VERSION {}
-unsafe impl ::windows::runtime::Abi for GNSS_SUPL_VERSION {
+unsafe impl ::windows::core::Abi for GNSS_SUPL_VERSION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2341,7 +2341,7 @@ impl ::core::cmp::PartialEq for GNSS_SUPL_VERSION_2 {
     }
 }
 impl ::core::cmp::Eq for GNSS_SUPL_VERSION_2 {}
-unsafe impl ::windows::runtime::Abi for GNSS_SUPL_VERSION_2 {
+unsafe impl ::windows::core::Abi for GNSS_SUPL_VERSION_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2379,7 +2379,7 @@ impl ::core::cmp::PartialEq for GNSS_V2UPL_CONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GNSS_V2UPL_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GNSS_V2UPL_CONFIG {
+unsafe impl ::windows::core::Abi for GNSS_V2UPL_CONFIG {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2407,96 +2407,96 @@ impl ::core::cmp::PartialEq for GNSS_V2UPL_NI_INFO {
     }
 }
 impl ::core::cmp::Eq for GNSS_V2UPL_NI_INFO {}
-unsafe impl ::windows::runtime::Abi for GNSS_V2UPL_NI_INFO {
+unsafe impl ::windows::core::Abi for GNSS_V2UPL_NI_INFO {
     type Abi = Self;
 }
-pub const GUID_DEVINTERFACE_GNSS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3336e5e4_018a_4669_84c5_bd05f3bd368b);
+pub const GUID_DEVINTERFACE_GNSS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3336e5e4_018a_4669_84c5_bd05f3bd368b);
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ICivicAddressReport(pub ::windows::runtime::IUnknown);
+pub struct ICivicAddressReport(pub ::windows::core::IUnknown);
 impl ICivicAddressReport {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetSensorID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+    pub unsafe fn GetSensorID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn GetTimestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+    pub unsafe fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
+        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
-    pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn GetAddressLine1(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn GetAddressLine1(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn GetAddressLine2(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn GetAddressLine2(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn GetCity(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn GetCity(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn GetStateProvince(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn GetStateProvince(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn GetPostalCode(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn GetPostalCode(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn GetCountryRegion(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn GetCountryRegion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetDetailLevel(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetDetailLevel(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for ICivicAddressReport {
+unsafe impl ::windows::core::Interface for ICivicAddressReport {
     type Vtable = ICivicAddressReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0b19f70_4adf_445d_87f2_cad8fd711792);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b19f70_4adf_445d_87f2_cad8fd711792);
 }
-impl ::core::convert::From<ICivicAddressReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICivicAddressReport> for ::windows::core::IUnknown {
     fn from(value: ICivicAddressReport) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ICivicAddressReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICivicAddressReport> for ::windows::core::IUnknown {
     fn from(value: &ICivicAddressReport) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICivicAddressReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICivicAddressReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICivicAddressReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICivicAddressReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<ICivicAddressReport> for ILocationReport {
@@ -2509,66 +2509,66 @@ impl ::core::convert::From<&ICivicAddressReport> for ILocationReport {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ILocationReport> for ICivicAddressReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ILocationReport> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, ILocationReport> for ICivicAddressReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ILocationReport> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ILocationReport> for &ICivicAddressReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ILocationReport> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, ILocationReport> for &ICivicAddressReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ILocationReport> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICivicAddressReport_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psensorid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psensorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstraddress1: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstraddress1: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstraddress2: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstraddress2: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrcity: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrcity: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrstateprovince: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrstateprovince: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrpostalcode: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrpostalcode: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrcountryregion: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrcountryregion: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdetaillevel: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdetaillevel: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ICivicAddressReportFactory(pub ::windows::runtime::IUnknown);
+pub struct ICivicAddressReportFactory(pub ::windows::core::IUnknown);
 impl ICivicAddressReportFactory {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_System_Com`*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
-        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dispidmember),
             ::core::mem::transmute(riid),
@@ -2582,68 +2582,68 @@ impl ICivicAddressReportFactory {
         .ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
+    pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn StopListeningForReports(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn StopListeningForReports(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn Status(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn Status(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn ReportInterval(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn ReportInterval(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
+    pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn DesiredAccuracy(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn DesiredAccuracy(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
+    pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
+    pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn CivicAddressReport(&self) -> ::windows::runtime::Result<IDispCivicAddressReport> {
-        let mut result__: <IDispCivicAddressReport as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDispCivicAddressReport>(result__)
+    pub unsafe fn CivicAddressReport(&self) -> ::windows::core::Result<IDispCivicAddressReport> {
+        let mut result__: <IDispCivicAddressReport as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDispCivicAddressReport>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for ICivicAddressReportFactory {
+unsafe impl ::windows::core::Interface for ICivicAddressReportFactory {
     type Vtable = ICivicAddressReportFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbf773b93_c64f_4bee_beb2_67c0b8df66e0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf773b93_c64f_4bee_beb2_67c0b8df66e0);
 }
-impl ::core::convert::From<ICivicAddressReportFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICivicAddressReportFactory> for ::windows::core::IUnknown {
     fn from(value: ICivicAddressReportFactory) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ICivicAddressReportFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICivicAddressReportFactory> for ::windows::core::IUnknown {
     fn from(value: &ICivicAddressReportFactory) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICivicAddressReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICivicAddressReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICivicAddressReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICivicAddressReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<ICivicAddressReportFactory> for ILocationReportFactory {
@@ -2656,14 +2656,14 @@ impl ::core::convert::From<&ICivicAddressReportFactory> for ILocationReportFacto
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ILocationReportFactory> for ICivicAddressReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ILocationReportFactory> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, ILocationReportFactory> for ICivicAddressReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ILocationReportFactory> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ILocationReportFactory> for &ICivicAddressReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ILocationReportFactory> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, ILocationReportFactory> for &ICivicAddressReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ILocationReportFactory> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2679,163 +2679,163 @@ impl ::core::convert::From<&ICivicAddressReportFactory> for super::super::System
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ICivicAddressReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for ICivicAddressReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ICivicAddressReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &ICivicAddressReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICivicAddressReportFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pctinfo: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, requestedreportinterval: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmilliseconds: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, millisecondsrequested: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesiredaccuracy: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredaccuracy: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: *const u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, requestedreportinterval: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pmilliseconds: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, millisecondsrequested: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdesiredaccuracy: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, desiredaccuracy: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwnd: *const u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDefaultLocation(pub ::windows::runtime::IUnknown);
+pub struct IDefaultLocation(pub ::windows::core::IUnknown);
 impl IDefaultLocation {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn SetReport<'a, Param1: ::windows::runtime::IntoParam<'a, ILocationReport>>(&self, reporttype: *const ::windows::runtime::GUID, plocationreport: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), plocationreport.into_param().abi()).ok()
+    pub unsafe fn SetReport<'a, Param1: ::windows::core::IntoParam<'a, ILocationReport>>(&self, reporttype: *const ::windows::core::GUID, plocationreport: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), plocationreport.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetReport(&self, reporttype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ILocationReport> {
-        let mut result__: <ILocationReport as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), &mut result__).from_abi::<ILocationReport>(result__)
+    pub unsafe fn GetReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport> {
+        let mut result__: <ILocationReport as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), &mut result__).from_abi::<ILocationReport>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IDefaultLocation {
+unsafe impl ::windows::core::Interface for IDefaultLocation {
     type Vtable = IDefaultLocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa65af77e_969a_4a2e_8aca_33bb7cbb1235);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa65af77e_969a_4a2e_8aca_33bb7cbb1235);
 }
-impl ::core::convert::From<IDefaultLocation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDefaultLocation> for ::windows::core::IUnknown {
     fn from(value: IDefaultLocation) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDefaultLocation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDefaultLocation> for ::windows::core::IUnknown {
     fn from(value: &IDefaultLocation) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDefaultLocation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDefaultLocation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDefaultLocation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDefaultLocation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDefaultLocation_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID, plocationreport: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID, pplocationreport: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, pplocationreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDispCivicAddressReport(pub ::windows::runtime::IUnknown);
+pub struct IDispCivicAddressReport(pub ::windows::core::IUnknown);
 impl IDispCivicAddressReport {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn AddressLine1(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn AddressLine1(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn AddressLine2(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn AddressLine2(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn City(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn City(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn StateProvince(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn StateProvince(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn PostalCode(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn PostalCode(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn CountryRegion(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn CountryRegion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn DetailLevel(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn DetailLevel(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn Timestamp(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn Timestamp(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IDispCivicAddressReport {
+unsafe impl ::windows::core::Interface for IDispCivicAddressReport {
     type Vtable = IDispCivicAddressReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16ff1a34_9e30_42c3_b44d_e22513b5767a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ff1a34_9e30_42c3_b44d_e22513b5767a);
 }
-impl ::core::convert::From<IDispCivicAddressReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDispCivicAddressReport> for ::windows::core::IUnknown {
     fn from(value: IDispCivicAddressReport) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDispCivicAddressReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDispCivicAddressReport> for ::windows::core::IUnknown {
     fn from(value: &IDispCivicAddressReport) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDispCivicAddressReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDispCivicAddressReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDispCivicAddressReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDispCivicAddressReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2851,104 +2851,104 @@ impl ::core::convert::From<&IDispCivicAddressReport> for super::super::System::C
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for IDispCivicAddressReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IDispCivicAddressReport {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &IDispCivicAddressReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IDispCivicAddressReport {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDispCivicAddressReport_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pctinfo: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddress1: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, paddress1: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddress2: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, paddress2: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcity: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcity: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstateprovince: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstateprovince: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppostalcode: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppostalcode: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcountryregion: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcountryregion: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdetaillevel: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut f64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdetaillevel: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut f64) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDispLatLongReport(pub ::windows::runtime::IUnknown);
+pub struct IDispLatLongReport(pub ::windows::core::IUnknown);
 impl IDispLatLongReport {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn Latitude(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn Latitude(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn Longitude(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn Longitude(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn ErrorRadius(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn ErrorRadius(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn Altitude(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn Altitude(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn AltitudeError(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn AltitudeError(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn Timestamp(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn Timestamp(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IDispLatLongReport {
+unsafe impl ::windows::core::Interface for IDispLatLongReport {
     type Vtable = IDispLatLongReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ae32723_389b_4a11_9957_5bdd48fc9617);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ae32723_389b_4a11_9957_5bdd48fc9617);
 }
-impl ::core::convert::From<IDispLatLongReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDispLatLongReport> for ::windows::core::IUnknown {
     fn from(value: IDispLatLongReport) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDispLatLongReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDispLatLongReport> for ::windows::core::IUnknown {
     fn from(value: &IDispLatLongReport) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDispLatLongReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDispLatLongReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDispLatLongReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDispLatLongReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2964,108 +2964,108 @@ impl ::core::convert::From<&IDispLatLongReport> for super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for IDispLatLongReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IDispLatLongReport {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &IDispLatLongReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IDispLatLongReport {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDispLatLongReport_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pctinfo: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut f64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut f64) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ILatLongReport(pub ::windows::runtime::IUnknown);
+pub struct ILatLongReport(pub ::windows::core::IUnknown);
 impl ILatLongReport {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetSensorID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+    pub unsafe fn GetSensorID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn GetTimestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+    pub unsafe fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
+        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
-    pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetLatitude(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn GetLatitude(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetLongitude(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn GetLongitude(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetErrorRadius(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn GetErrorRadius(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetAltitude(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn GetAltitude(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetAltitudeError(&self) -> ::windows::runtime::Result<f64> {
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
+    pub unsafe fn GetAltitudeError(&self) -> ::windows::core::Result<f64> {
+        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for ILatLongReport {
+unsafe impl ::windows::core::Interface for ILatLongReport {
     type Vtable = ILatLongReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fed806d_0ef8_4f07_80ac_36a0beae3134);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fed806d_0ef8_4f07_80ac_36a0beae3134);
 }
-impl ::core::convert::From<ILatLongReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ILatLongReport> for ::windows::core::IUnknown {
     fn from(value: ILatLongReport) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ILatLongReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ILatLongReport> for ::windows::core::IUnknown {
     fn from(value: &ILatLongReport) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILatLongReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILatLongReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILatLongReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILatLongReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<ILatLongReport> for ILocationReport {
@@ -3078,58 +3078,58 @@ impl ::core::convert::From<&ILatLongReport> for ILocationReport {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ILocationReport> for ILatLongReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ILocationReport> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, ILocationReport> for ILatLongReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ILocationReport> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ILocationReport> for &ILatLongReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ILocationReport> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, ILocationReport> for &ILatLongReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ILocationReport> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILatLongReport_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psensorid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psensorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, platitude: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plongitude: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, perrorradius: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paltitude: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paltitudeerror: *mut f64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, platitude: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, plongitude: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, perrorradius: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, paltitude: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, paltitudeerror: *mut f64) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ILatLongReportFactory(pub ::windows::runtime::IUnknown);
+pub struct ILatLongReportFactory(pub ::windows::core::IUnknown);
 impl ILatLongReportFactory {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_System_Com`*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
-        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dispidmember),
             ::core::mem::transmute(riid),
@@ -3143,68 +3143,68 @@ impl ILatLongReportFactory {
         .ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
+    pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn StopListeningForReports(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn StopListeningForReports(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn Status(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn Status(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn ReportInterval(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn ReportInterval(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
+    pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn DesiredAccuracy(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn DesiredAccuracy(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
+    pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
+    pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn LatLongReport(&self) -> ::windows::runtime::Result<IDispLatLongReport> {
-        let mut result__: <IDispLatLongReport as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDispLatLongReport>(result__)
+    pub unsafe fn LatLongReport(&self) -> ::windows::core::Result<IDispLatLongReport> {
+        let mut result__: <IDispLatLongReport as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDispLatLongReport>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for ILatLongReportFactory {
+unsafe impl ::windows::core::Interface for ILatLongReportFactory {
     type Vtable = ILatLongReportFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3f0804cb_b114_447d_83dd_390174ebb082);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f0804cb_b114_447d_83dd_390174ebb082);
 }
-impl ::core::convert::From<ILatLongReportFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ILatLongReportFactory> for ::windows::core::IUnknown {
     fn from(value: ILatLongReportFactory) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ILatLongReportFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ILatLongReportFactory> for ::windows::core::IUnknown {
     fn from(value: &ILatLongReportFactory) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILatLongReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILatLongReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILatLongReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILatLongReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<ILatLongReportFactory> for ILocationReportFactory {
@@ -3217,14 +3217,14 @@ impl ::core::convert::From<&ILatLongReportFactory> for ILocationReportFactory {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ILocationReportFactory> for ILatLongReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ILocationReportFactory> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, ILocationReportFactory> for ILatLongReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ILocationReportFactory> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ILocationReportFactory> for &ILatLongReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ILocationReportFactory> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, ILocationReportFactory> for &ILatLongReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ILocationReportFactory> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3240,349 +3240,349 @@ impl ::core::convert::From<&ILatLongReportFactory> for super::super::System::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ILatLongReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for ILatLongReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ILatLongReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &ILatLongReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILatLongReportFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pctinfo: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, requestedreportinterval: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmilliseconds: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, millisecondsrequested: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesiredaccuracy: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredaccuracy: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: *const u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, requestedreportinterval: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pmilliseconds: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, millisecondsrequested: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdesiredaccuracy: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, desiredaccuracy: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwnd: *const u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ILocation(pub ::windows::runtime::IUnknown);
+pub struct ILocation(pub ::windows::core::IUnknown);
 impl ILocation {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn RegisterForReport<'a, Param0: ::windows::runtime::IntoParam<'a, ILocationEvents>>(&self, pevents: Param0, reporttype: *const ::windows::runtime::GUID, dwrequestedreportinterval: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pevents.into_param().abi(), ::core::mem::transmute(reporttype), ::core::mem::transmute(dwrequestedreportinterval)).ok()
+    pub unsafe fn RegisterForReport<'a, Param0: ::windows::core::IntoParam<'a, ILocationEvents>>(&self, pevents: Param0, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pevents.into_param().abi(), ::core::mem::transmute(reporttype), ::core::mem::transmute(dwrequestedreportinterval)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn UnregisterForReport(&self, reporttype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype)).ok()
+    pub unsafe fn UnregisterForReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetReport(&self, reporttype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ILocationReport> {
-        let mut result__: <ILocationReport as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), &mut result__).from_abi::<ILocationReport>(result__)
+    pub unsafe fn GetReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport> {
+        let mut result__: <ILocationReport as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), &mut result__).from_abi::<ILocationReport>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetReportStatus(&self, reporttype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<LOCATION_REPORT_STATUS> {
-        let mut result__: <LOCATION_REPORT_STATUS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), &mut result__).from_abi::<LOCATION_REPORT_STATUS>(result__)
+    pub unsafe fn GetReportStatus(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<LOCATION_REPORT_STATUS> {
+        let mut result__: <LOCATION_REPORT_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), &mut result__).from_abi::<LOCATION_REPORT_STATUS>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetReportInterval(&self, reporttype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetReportInterval(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn SetReportInterval(&self, reporttype: *const ::windows::runtime::GUID, millisecondsrequested: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(millisecondsrequested)).ok()
+    pub unsafe fn SetReportInterval(&self, reporttype: *const ::windows::core::GUID, millisecondsrequested: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(millisecondsrequested)).ok()
     }
     #[cfg(feature = "Win32_Devices_Sensors")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Devices_Sensors`*"]
-    pub unsafe fn GetDesiredAccuracy(&self, reporttype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::Sensors::LOCATION_DESIRED_ACCURACY> {
-        let mut result__: <super::Sensors::LOCATION_DESIRED_ACCURACY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), &mut result__).from_abi::<super::Sensors::LOCATION_DESIRED_ACCURACY>(result__)
+    pub unsafe fn GetDesiredAccuracy(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<super::Sensors::LOCATION_DESIRED_ACCURACY> {
+        let mut result__: <super::Sensors::LOCATION_DESIRED_ACCURACY as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), &mut result__).from_abi::<super::Sensors::LOCATION_DESIRED_ACCURACY>(result__)
     }
     #[cfg(feature = "Win32_Devices_Sensors")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Devices_Sensors`*"]
-    pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const ::windows::runtime::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(desiredaccuracy)).ok()
+    pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const ::windows::core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(desiredaccuracy)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn RequestPermissions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hparent: Param0, preporttypes: *const ::windows::runtime::GUID, count: u32, fmodal: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), hparent.into_param().abi(), ::core::mem::transmute(preporttypes), ::core::mem::transmute(count), fmodal.into_param().abi()).ok()
+    pub unsafe fn RequestPermissions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hparent: Param0, preporttypes: *const ::windows::core::GUID, count: u32, fmodal: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), hparent.into_param().abi(), ::core::mem::transmute(preporttypes), ::core::mem::transmute(count), fmodal.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ILocation {
+unsafe impl ::windows::core::Interface for ILocation {
     type Vtable = ILocation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xab2ece69_56d9_4f28_b525_de1b0ee44237);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab2ece69_56d9_4f28_b525_de1b0ee44237);
 }
-impl ::core::convert::From<ILocation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ILocation> for ::windows::core::IUnknown {
     fn from(value: ILocation) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ILocation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ILocation> for ::windows::core::IUnknown {
     fn from(value: &ILocation) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILocation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILocation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILocation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocation_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevents: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID, dwrequestedreportinterval: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID, pplocationreport: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID, pstatus: *mut LOCATION_REPORT_STATUS) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID, pmilliseconds: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID, millisecondsrequested: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Devices_Sensors")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID, pdesiredaccuracy: *mut super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pevents: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, pplocationreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, pstatus: *mut LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, pmilliseconds: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, millisecondsrequested: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Devices_Sensors")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, pdesiredaccuracy: *mut super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_Sensors"))] usize,
-    #[cfg(feature = "Win32_Devices_Sensors")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Devices_Sensors")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_Sensors"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hparent: super::super::Foundation::HWND, preporttypes: *const ::windows::runtime::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hparent: super::super::Foundation::HWND, preporttypes: *const ::windows::core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ILocationEvents(pub ::windows::runtime::IUnknown);
+pub struct ILocationEvents(pub ::windows::core::IUnknown);
 impl ILocationEvents {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn OnLocationChanged<'a, Param1: ::windows::runtime::IntoParam<'a, ILocationReport>>(&self, reporttype: *const ::windows::runtime::GUID, plocationreport: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), plocationreport.into_param().abi()).ok()
+    pub unsafe fn OnLocationChanged<'a, Param1: ::windows::core::IntoParam<'a, ILocationReport>>(&self, reporttype: *const ::windows::core::GUID, plocationreport: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), plocationreport.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn OnStatusChanged(&self, reporttype: *const ::windows::runtime::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(newstatus)).ok()
+    pub unsafe fn OnStatusChanged(&self, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(newstatus)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ILocationEvents {
+unsafe impl ::windows::core::Interface for ILocationEvents {
     type Vtable = ILocationEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcae02bbf_798b_4508_a207_35a7906dc73d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcae02bbf_798b_4508_a207_35a7906dc73d);
 }
-impl ::core::convert::From<ILocationEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ILocationEvents> for ::windows::core::IUnknown {
     fn from(value: ILocationEvents) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ILocationEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ILocationEvents> for ::windows::core::IUnknown {
     fn from(value: &ILocationEvents) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocationEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILocationEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILocationEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILocationEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationEvents_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID, plocationreport: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reporttype: *const ::windows::runtime::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ILocationPower(pub ::windows::runtime::IUnknown);
+pub struct ILocationPower(pub ::windows::core::IUnknown);
 impl ILocationPower {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn Connect(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Connect(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn Disconnect(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ILocationPower {
+unsafe impl ::windows::core::Interface for ILocationPower {
     type Vtable = ILocationPower_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x193e7729_ab6b_4b12_8617_7596e1bb191c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193e7729_ab6b_4b12_8617_7596e1bb191c);
 }
-impl ::core::convert::From<ILocationPower> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ILocationPower> for ::windows::core::IUnknown {
     fn from(value: ILocationPower) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ILocationPower> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ILocationPower> for ::windows::core::IUnknown {
     fn from(value: &ILocationPower) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocationPower {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILocationPower {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILocationPower {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILocationPower {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationPower_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ILocationReport(pub ::windows::runtime::IUnknown);
+pub struct ILocationReport(pub ::windows::core::IUnknown);
 impl ILocationReport {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn GetSensorID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+    pub unsafe fn GetSensorID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
-    pub unsafe fn GetTimestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+    pub unsafe fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
+        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
-    pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for ILocationReport {
+unsafe impl ::windows::core::Interface for ILocationReport {
     type Vtable = ILocationReport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc8b7f7ee_75d0_4db9_b62d_7a0f369ca456);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b7f7ee_75d0_4db9_b62d_7a0f369ca456);
 }
-impl ::core::convert::From<ILocationReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ILocationReport> for ::windows::core::IUnknown {
     fn from(value: ILocationReport) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ILocationReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ILocationReport> for ::windows::core::IUnknown {
     fn from(value: &ILocationReport) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocationReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILocationReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILocationReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILocationReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationReport_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psensorid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psensorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ILocationReportFactory(pub ::windows::runtime::IUnknown);
+pub struct ILocationReportFactory(pub ::windows::core::IUnknown);
 impl ILocationReportFactory {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
+    pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn StopListeningForReports(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn StopListeningForReports(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn Status(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn Status(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn ReportInterval(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn ReportInterval(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
+    pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn DesiredAccuracy(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn DesiredAccuracy(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
+    pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
-    pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
+    pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ILocationReportFactory {
+unsafe impl ::windows::core::Interface for ILocationReportFactory {
     type Vtable = ILocationReportFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2daec322_90b2_47e4_bb08_0da841935a6b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2daec322_90b2_47e4_bb08_0da841935a6b);
 }
-impl ::core::convert::From<ILocationReportFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ILocationReportFactory> for ::windows::core::IUnknown {
     fn from(value: ILocationReportFactory) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ILocationReportFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ILocationReportFactory> for ::windows::core::IUnknown {
     fn from(value: &ILocationReportFactory) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocationReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILocationReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILocationReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILocationReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3598,39 +3598,39 @@ impl ::core::convert::From<&ILocationReportFactory> for super::super::System::Co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ILocationReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for ILocationReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ILocationReportFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &ILocationReportFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationReportFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pctinfo: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, requestedreportinterval: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmilliseconds: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, millisecondsrequested: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesiredaccuracy: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredaccuracy: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: *const u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, requestedreportinterval: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pval: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pmilliseconds: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, millisecondsrequested: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdesiredaccuracy: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, desiredaccuracy: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwnd: *const u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const IOCTL_GNSS_CONFIG_SUPL_CERT: u32 = 2228488u32;
@@ -3704,12 +3704,12 @@ impl ::core::convert::From<i32> for LOCATION_REPORT_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for LOCATION_REPORT_STATUS {
+unsafe impl ::windows::core::Abi for LOCATION_REPORT_STATUS {
     type Abi = Self;
 }
-pub const LatLongReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed81c073_1f84_4ca8_a161_183c776bc651);
-pub const LatLongReportFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9dcc3cc8_8609_4863_bad4_03601f4c65e8);
-pub const Location: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe5b8e079_ee6d_4e33_a438_c87f2e959254);
+pub const LatLongReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed81c073_1f84_4ca8_a161_183c776bc651);
+pub const LatLongReportFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dcc3cc8_8609_4863_bad4_03601f4c65e8);
+pub const Location: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b8e079_ee6d_4e33_a438_c87f2e959254);
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const MAX_SERVER_URL_NAME: u32 = 260u32;
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -3719,30 +3719,30 @@ pub const MIN_GEOFENCES_REQUIRED: u32 = 100u32;
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct _ICivicAddressReportFactoryEvents(pub ::windows::runtime::IUnknown);
+pub struct _ICivicAddressReportFactoryEvents(pub ::windows::core::IUnknown);
 impl _ICivicAddressReportFactoryEvents {}
-unsafe impl ::windows::runtime::Interface for _ICivicAddressReportFactoryEvents {
+unsafe impl ::windows::core::Interface for _ICivicAddressReportFactoryEvents {
     type Vtable = _ICivicAddressReportFactoryEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc96039ff_72ec_4617_89bd_84d88bedc722);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96039ff_72ec_4617_89bd_84d88bedc722);
 }
-impl ::core::convert::From<_ICivicAddressReportFactoryEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<_ICivicAddressReportFactoryEvents> for ::windows::core::IUnknown {
     fn from(value: _ICivicAddressReportFactoryEvents) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&_ICivicAddressReportFactoryEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&_ICivicAddressReportFactoryEvents> for ::windows::core::IUnknown {
     fn from(value: &_ICivicAddressReportFactoryEvents) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _ICivicAddressReportFactoryEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _ICivicAddressReportFactoryEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _ICivicAddressReportFactoryEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _ICivicAddressReportFactoryEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3758,59 +3758,59 @@ impl ::core::convert::From<&_ICivicAddressReportFactoryEvents> for super::super:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for _ICivicAddressReportFactoryEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _ICivicAddressReportFactoryEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &_ICivicAddressReportFactoryEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &_ICivicAddressReportFactoryEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ICivicAddressReportFactoryEvents_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pctinfo: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct _ILatLongReportFactoryEvents(pub ::windows::runtime::IUnknown);
+pub struct _ILatLongReportFactoryEvents(pub ::windows::core::IUnknown);
 impl _ILatLongReportFactoryEvents {}
-unsafe impl ::windows::runtime::Interface for _ILatLongReportFactoryEvents {
+unsafe impl ::windows::core::Interface for _ILatLongReportFactoryEvents {
     type Vtable = _ILatLongReportFactoryEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x16ee6cb7_ab3c_424b_849f_269be551fcbc);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ee6cb7_ab3c_424b_849f_269be551fcbc);
 }
-impl ::core::convert::From<_ILatLongReportFactoryEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<_ILatLongReportFactoryEvents> for ::windows::core::IUnknown {
     fn from(value: _ILatLongReportFactoryEvents) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&_ILatLongReportFactoryEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&_ILatLongReportFactoryEvents> for ::windows::core::IUnknown {
     fn from(value: &_ILatLongReportFactoryEvents) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _ILatLongReportFactoryEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _ILatLongReportFactoryEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _ILatLongReportFactoryEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _ILatLongReportFactoryEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3826,29 +3826,29 @@ impl ::core::convert::From<&_ILatLongReportFactoryEvents> for super::super::Syst
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for _ILatLongReportFactoryEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _ILatLongReportFactoryEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &_ILatLongReportFactoryEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &_ILatLongReportFactoryEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ILatLongReportFactoryEvents_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pctinfo: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );

@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const GUID_DEVINTERFACE_PWM_CONTROLLER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60824b4c_eed1_4c9c_b49c_1b961461a819);
+pub const GUID_DEVINTERFACE_PWM_CONTROLLER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60824b4c_eed1_4c9c_b49c_1b961461a819);
 #[doc = "*Required features: `Win32_Devices_Pwm`*"]
 pub const IOCTL_PWM_CONTROLLER_GET_ACTUAL_PERIOD: u32 = 262148u32;
 #[doc = "*Required features: `Win32_Devices_Pwm`*"]
@@ -43,7 +43,7 @@ impl ::core::cmp::PartialEq for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
+unsafe impl ::windows::core::Abi for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -72,7 +72,7 @@ impl ::core::cmp::PartialEq for PWM_CONTROLLER_INFO {
     }
 }
 impl ::core::cmp::Eq for PWM_CONTROLLER_INFO {}
-unsafe impl ::windows::runtime::Abi for PWM_CONTROLLER_INFO {
+unsafe impl ::windows::core::Abi for PWM_CONTROLLER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -98,7 +98,7 @@ impl ::core::cmp::PartialEq for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     }
 }
 impl ::core::cmp::Eq for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {}
-unsafe impl ::windows::runtime::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
+unsafe impl ::windows::core::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -124,7 +124,7 @@ impl ::core::cmp::PartialEq for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
+unsafe impl ::windows::core::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Pwm`*"]
@@ -170,7 +170,7 @@ impl ::core::cmp::PartialEq for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT 
     }
 }
 impl ::core::cmp::Eq for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
+unsafe impl ::windows::core::Abi for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -196,7 +196,7 @@ impl ::core::cmp::PartialEq for PWM_PIN_GET_POLARITY_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for PWM_PIN_GET_POLARITY_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for PWM_PIN_GET_POLARITY_OUTPUT {
+unsafe impl ::windows::core::Abi for PWM_PIN_GET_POLARITY_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -229,7 +229,7 @@ impl ::core::cmp::PartialEq for PWM_PIN_IS_STARTED_OUTPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PWM_PIN_IS_STARTED_OUTPUT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PWM_PIN_IS_STARTED_OUTPUT {
+unsafe impl ::windows::core::Abi for PWM_PIN_IS_STARTED_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -255,7 +255,7 @@ impl ::core::cmp::PartialEq for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     }
 }
 impl ::core::cmp::Eq for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {}
-unsafe impl ::windows::runtime::Abi for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
+unsafe impl ::windows::core::Abi for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -281,7 +281,7 @@ impl ::core::cmp::PartialEq for PWM_PIN_SET_POLARITY_INPUT {
     }
 }
 impl ::core::cmp::Eq for PWM_PIN_SET_POLARITY_INPUT {}
-unsafe impl ::windows::runtime::Abi for PWM_PIN_SET_POLARITY_INPUT {
+unsafe impl ::windows::core::Abi for PWM_PIN_SET_POLARITY_INPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Pwm`*"]
@@ -295,6 +295,6 @@ impl ::core::convert::From<i32> for PWM_POLARITY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PWM_POLARITY {
+unsafe impl ::windows::core::Abi for PWM_POLARITY {
     type Abi = Self;
 }

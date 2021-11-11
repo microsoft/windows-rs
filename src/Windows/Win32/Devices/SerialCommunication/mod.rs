@@ -9,7 +9,7 @@ pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
 pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
 #[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 #[inline]
-pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(hcomdb: Param0, comnumber: *mut u32) -> i32 {
+pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, comnumber: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -24,7 +24,7 @@ pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Devices_SerialCommunication`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ComDBClaimPort<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcomdb: Param0, comnumber: u32, forceclaim: Param2, forced: *mut super::super::Foundation::BOOL) -> i32 {
+pub unsafe fn ComDBClaimPort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcomdb: Param0, comnumber: u32, forceclaim: Param2, forced: *mut super::super::Foundation::BOOL) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -38,7 +38,7 @@ pub unsafe fn ComDBClaimPort<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMD
 }
 #[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 #[inline]
-pub unsafe fn ComDBClose<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(hcomdb: Param0) -> i32 {
+pub unsafe fn ComDBClose<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52,7 +52,7 @@ pub unsafe fn ComDBClose<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(
 }
 #[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 #[inline]
-pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(hcomdb: Param0, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32 {
+pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -80,7 +80,7 @@ pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
 }
 #[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 #[inline]
-pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(hcomdb: Param0, comnumber: u32) -> i32 {
+pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, comnumber: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -94,7 +94,7 @@ pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::runtime::IntoParam<'a, HCO
 }
 #[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 #[inline]
-pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(hcomdb: Param0, newsize: u32) -> i32 {
+pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, newsize: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -114,7 +114,7 @@ impl ::core::default::Default for HCOMDB {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HCOMDB {}
-unsafe impl ::windows::runtime::Abi for HCOMDB {
+unsafe impl ::windows::core::Handle for HCOMDB {}
+unsafe impl ::windows::core::Abi for HCOMDB {
     type Abi = Self;
 }

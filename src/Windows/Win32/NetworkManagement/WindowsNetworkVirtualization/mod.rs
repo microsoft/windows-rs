@@ -16,7 +16,7 @@ impl ::core::convert::From<i32> for WNV_CA_NOTIFICATION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WNV_CA_NOTIFICATION_TYPE {
+unsafe impl ::windows::core::Abi for WNV_CA_NOTIFICATION_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -49,7 +49,7 @@ impl ::core::cmp::PartialEq for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {}
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
+unsafe impl ::windows::core::Abi for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -76,7 +76,7 @@ impl ::core::cmp::PartialEq for WNV_IP_ADDRESS {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for WNV_IP_ADDRESS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for WNV_IP_ADDRESS {
+unsafe impl ::windows::core::Abi for WNV_IP_ADDRESS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -104,7 +104,7 @@ impl ::core::cmp::PartialEq for WNV_IP_ADDRESS_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for WNV_IP_ADDRESS_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for WNV_IP_ADDRESS_0 {
+unsafe impl ::windows::core::Abi for WNV_IP_ADDRESS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -133,7 +133,7 @@ impl ::core::cmp::PartialEq for WNV_NOTIFICATION_PARAM {
     }
 }
 impl ::core::cmp::Eq for WNV_NOTIFICATION_PARAM {}
-unsafe impl ::windows::runtime::Abi for WNV_NOTIFICATION_PARAM {
+unsafe impl ::windows::core::Abi for WNV_NOTIFICATION_PARAM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`*"]
@@ -149,7 +149,7 @@ impl ::core::convert::From<i32> for WNV_NOTIFICATION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WNV_NOTIFICATION_TYPE {
+unsafe impl ::windows::core::Abi for WNV_NOTIFICATION_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -177,7 +177,7 @@ impl ::core::cmp::PartialEq for WNV_OBJECT_CHANGE_PARAM {
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for WNV_OBJECT_CHANGE_PARAM {}
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for WNV_OBJECT_CHANGE_PARAM {
+unsafe impl ::windows::core::Abi for WNV_OBJECT_CHANGE_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -204,7 +204,7 @@ impl ::core::cmp::PartialEq for WNV_OBJECT_CHANGE_PARAM_0 {
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for WNV_OBJECT_CHANGE_PARAM_0 {}
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for WNV_OBJECT_CHANGE_PARAM_0 {
+unsafe impl ::windows::core::Abi for WNV_OBJECT_CHANGE_PARAM_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -232,7 +232,7 @@ impl ::core::cmp::PartialEq for WNV_OBJECT_HEADER {
     }
 }
 impl ::core::cmp::Eq for WNV_OBJECT_HEADER {}
-unsafe impl ::windows::runtime::Abi for WNV_OBJECT_HEADER {
+unsafe impl ::windows::core::Abi for WNV_OBJECT_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`*"]
@@ -247,7 +247,7 @@ impl ::core::convert::From<i32> for WNV_OBJECT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WNV_OBJECT_TYPE {
+unsafe impl ::windows::core::Abi for WNV_OBJECT_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -278,7 +278,7 @@ impl ::core::cmp::PartialEq for WNV_POLICY_MISMATCH_PARAM {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for WNV_POLICY_MISMATCH_PARAM {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for WNV_POLICY_MISMATCH_PARAM {
+unsafe impl ::windows::core::Abi for WNV_POLICY_MISMATCH_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -307,7 +307,7 @@ impl ::core::cmp::PartialEq for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
+unsafe impl ::windows::core::Abi for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -340,7 +340,7 @@ impl ::core::cmp::PartialEq for WNV_REDIRECT_PARAM {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for WNV_REDIRECT_PARAM {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for WNV_REDIRECT_PARAM {
+unsafe impl ::windows::core::Abi for WNV_REDIRECT_PARAM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Foundation`*"]
@@ -361,7 +361,7 @@ pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WnvRequestNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(wnvhandle: Param0, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32 {
+pub unsafe fn WnvRequestNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(wnvhandle: Param0, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

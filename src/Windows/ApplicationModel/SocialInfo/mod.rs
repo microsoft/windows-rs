@@ -3,340 +3,340 @@
 pub mod Provider;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISocialFeedChildItem(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ISocialFeedChildItem {
+pub struct ISocialFeedChildItem(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ISocialFeedChildItem {
     type Vtable = ISocialFeedChildItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b6a985a_d59d_40be_980c_488a2ab30a83);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b6a985a_d59d_40be_980c_488a2ab30a83);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialFeedChildItem_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISocialFeedContent(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ISocialFeedContent {
+pub struct ISocialFeedContent(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ISocialFeedContent {
     type Vtable = ISocialFeedContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa234e429_3e39_494d_a37c_f462a2494514);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa234e429_3e39_494d_a37c_f462a2494514);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialFeedContent_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISocialFeedItem(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ISocialFeedItem {
+pub struct ISocialFeedItem(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ISocialFeedItem {
     type Vtable = ISocialFeedItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f1392ab_1f72_4d33_b695_de3e1db60317);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f1392ab_1f72_4d33_b695_de3e1db60317);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialFeedItem_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SocialItemBadgeStyle) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SocialItemBadgeStyle) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SocialFeedItemStyle) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SocialFeedItemStyle) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut SocialItemBadgeStyle) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: SocialItemBadgeStyle) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut SocialFeedItemStyle) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: SocialFeedItemStyle) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISocialFeedSharedItem(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ISocialFeedSharedItem {
+pub struct ISocialFeedSharedItem(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ISocialFeedSharedItem {
     type Vtable = ISocialFeedSharedItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialFeedSharedItem_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISocialItemThumbnail(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ISocialItemThumbnail {
+pub struct ISocialItemThumbnail(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ISocialItemThumbnail {
     type Vtable = ISocialItemThumbnail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cbf831a_3f08_497f_917f_57e09d84b141);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cbf831a_3f08_497f_917f_57e09d84b141);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialItemThumbnail_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Graphics_Imaging")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Graphics_Imaging")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
-    #[cfg(feature = "Graphics_Imaging")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Graphics_Imaging")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, image: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, image: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISocialUserInfo(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ISocialUserInfo {
+pub struct ISocialUserInfo(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ISocialUserInfo {
     type Vtable = ISocialUserInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialUserInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SocialFeedChildItem(pub ::windows::runtime::IInspectable);
+pub struct SocialFeedChildItem(pub ::windows::core::IInspectable);
 impl SocialFeedChildItem {
-    pub fn new() -> ::windows::runtime::Result<Self> {
+    pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<SocialFeedChildItem, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<SocialFeedChildItem, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn Author(&self) -> ::windows::runtime::Result<SocialUserInfo> {
+    pub fn Author(&self) -> ::windows::core::Result<SocialUserInfo> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialUserInfo>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialUserInfo>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn PrimaryContent(&self) -> ::windows::runtime::Result<SocialFeedContent> {
+    pub fn PrimaryContent(&self) -> ::windows::core::Result<SocialFeedContent> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedContent>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedContent>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SecondaryContent(&self) -> ::windows::runtime::Result<SocialFeedContent> {
+    pub fn SecondaryContent(&self) -> ::windows::core::Result<SocialFeedContent> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedContent>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedContent>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn SetTimestamp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn TargetUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
+    pub fn TargetUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn SetTargetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetTargetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation_Collections`*"]
-    pub fn Thumbnails(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<SocialItemThumbnail>> {
+    pub fn Thumbnails(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SocialItemThumbnail>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SocialItemThumbnail>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SocialItemThumbnail>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SharedItem(&self) -> ::windows::runtime::Result<SocialFeedSharedItem> {
+    pub fn SharedItem(&self) -> ::windows::core::Result<SocialFeedSharedItem> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedSharedItem>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedSharedItem>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetSharedItem<'a, Param0: ::windows::runtime::IntoParam<'a, SocialFeedSharedItem>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetSharedItem<'a, Param0: ::windows::core::IntoParam<'a, SocialFeedSharedItem>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for SocialFeedChildItem {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedChildItem;{0b6a985a-d59d-40be-980c-488a2ab30a83})");
+unsafe impl ::windows::core::RuntimeType for SocialFeedChildItem {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedChildItem;{0b6a985a-d59d-40be-980c-488a2ab30a83})");
 }
-unsafe impl ::windows::runtime::Interface for SocialFeedChildItem {
+unsafe impl ::windows::core::Interface for SocialFeedChildItem {
     type Vtable = ISocialFeedChildItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0b6a985a_d59d_40be_980c_488a2ab30a83);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b6a985a_d59d_40be_980c_488a2ab30a83);
 }
-impl ::windows::runtime::RuntimeName for SocialFeedChildItem {
+impl ::windows::core::RuntimeName for SocialFeedChildItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedChildItem";
 }
-impl ::core::convert::From<SocialFeedChildItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SocialFeedChildItem> for ::windows::core::IUnknown {
     fn from(value: SocialFeedChildItem) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&SocialFeedChildItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SocialFeedChildItem> for ::windows::core::IUnknown {
     fn from(value: &SocialFeedChildItem) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialFeedChildItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocialFeedChildItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SocialFeedChildItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocialFeedChildItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<SocialFeedChildItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SocialFeedChildItem> for ::windows::core::IInspectable {
     fn from(value: SocialFeedChildItem) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&SocialFeedChildItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SocialFeedChildItem> for ::windows::core::IInspectable {
     fn from(value: &SocialFeedChildItem) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialFeedChildItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SocialFeedChildItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialFeedChildItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocialFeedChildItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for SocialFeedChildItem {}
@@ -344,104 +344,104 @@ unsafe impl ::core::marker::Sync for SocialFeedChildItem {}
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SocialFeedContent(pub ::windows::runtime::IInspectable);
+pub struct SocialFeedContent(pub ::windows::core::IInspectable);
 impl SocialFeedContent {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn Message(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetMessage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn TargetUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
+    pub fn TargetUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn SetTargetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetTargetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for SocialFeedContent {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedContent;{a234e429-3e39-494d-a37c-f462a2494514})");
+unsafe impl ::windows::core::RuntimeType for SocialFeedContent {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedContent;{a234e429-3e39-494d-a37c-f462a2494514})");
 }
-unsafe impl ::windows::runtime::Interface for SocialFeedContent {
+unsafe impl ::windows::core::Interface for SocialFeedContent {
     type Vtable = ISocialFeedContent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa234e429_3e39_494d_a37c_f462a2494514);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa234e429_3e39_494d_a37c_f462a2494514);
 }
-impl ::windows::runtime::RuntimeName for SocialFeedContent {
+impl ::windows::core::RuntimeName for SocialFeedContent {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedContent";
 }
-impl ::core::convert::From<SocialFeedContent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SocialFeedContent> for ::windows::core::IUnknown {
     fn from(value: SocialFeedContent) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&SocialFeedContent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SocialFeedContent> for ::windows::core::IUnknown {
     fn from(value: &SocialFeedContent) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialFeedContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocialFeedContent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SocialFeedContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocialFeedContent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<SocialFeedContent> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SocialFeedContent> for ::windows::core::IInspectable {
     fn from(value: SocialFeedContent) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&SocialFeedContent> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SocialFeedContent> for ::windows::core::IInspectable {
     fn from(value: &SocialFeedContent) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialFeedContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SocialFeedContent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialFeedContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocialFeedContent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for SocialFeedContent {}
@@ -449,225 +449,225 @@ unsafe impl ::core::marker::Sync for SocialFeedContent {}
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SocialFeedItem(pub ::windows::runtime::IInspectable);
+pub struct SocialFeedItem(pub ::windows::core::IInspectable);
 impl SocialFeedItem {
-    pub fn new() -> ::windows::runtime::Result<Self> {
+    pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<SocialFeedItem, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<SocialFeedItem, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn Author(&self) -> ::windows::runtime::Result<SocialUserInfo> {
+    pub fn Author(&self) -> ::windows::core::Result<SocialUserInfo> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialUserInfo>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialUserInfo>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn PrimaryContent(&self) -> ::windows::runtime::Result<SocialFeedContent> {
+    pub fn PrimaryContent(&self) -> ::windows::core::Result<SocialFeedContent> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedContent>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedContent>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SecondaryContent(&self) -> ::windows::runtime::Result<SocialFeedContent> {
+    pub fn SecondaryContent(&self) -> ::windows::core::Result<SocialFeedContent> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedContent>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedContent>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn SetTimestamp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn TargetUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
+    pub fn TargetUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn SetTargetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetTargetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation_Collections`*"]
-    pub fn Thumbnails(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<SocialItemThumbnail>> {
+    pub fn Thumbnails(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SocialItemThumbnail>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SocialItemThumbnail>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SocialItemThumbnail>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SharedItem(&self) -> ::windows::runtime::Result<SocialFeedSharedItem> {
+    pub fn SharedItem(&self) -> ::windows::core::Result<SocialFeedSharedItem> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedSharedItem>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedSharedItem>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetSharedItem<'a, Param0: ::windows::runtime::IntoParam<'a, SocialFeedSharedItem>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetSharedItem<'a, Param0: ::windows::core::IntoParam<'a, SocialFeedSharedItem>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn BadgeStyle(&self) -> ::windows::runtime::Result<SocialItemBadgeStyle> {
+    pub fn BadgeStyle(&self) -> ::windows::core::Result<SocialItemBadgeStyle> {
         let this = self;
         unsafe {
             let mut result__: SocialItemBadgeStyle = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialItemBadgeStyle>(result__)
+            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialItemBadgeStyle>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetBadgeStyle(&self, value: SocialItemBadgeStyle) -> ::windows::runtime::Result<()> {
+    pub fn SetBadgeStyle(&self, value: SocialItemBadgeStyle) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn BadgeCountValue(&self) -> ::windows::runtime::Result<i32> {
+    pub fn BadgeCountValue(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetBadgeCountValue(&self, value: i32) -> ::windows::runtime::Result<()> {
+    pub fn SetBadgeCountValue(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn RemoteId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetRemoteId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetRemoteId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn ChildItem(&self) -> ::windows::runtime::Result<SocialFeedChildItem> {
+    pub fn ChildItem(&self) -> ::windows::core::Result<SocialFeedChildItem> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedChildItem>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedChildItem>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetChildItem<'a, Param0: ::windows::runtime::IntoParam<'a, SocialFeedChildItem>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetChildItem<'a, Param0: ::windows::core::IntoParam<'a, SocialFeedChildItem>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn Style(&self) -> ::windows::runtime::Result<SocialFeedItemStyle> {
+    pub fn Style(&self) -> ::windows::core::Result<SocialFeedItemStyle> {
         let this = self;
         unsafe {
             let mut result__: SocialFeedItemStyle = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedItemStyle>(result__)
+            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedItemStyle>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetStyle(&self, value: SocialFeedItemStyle) -> ::windows::runtime::Result<()> {
+    pub fn SetStyle(&self, value: SocialFeedItemStyle) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for SocialFeedItem {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedItem;{4f1392ab-1f72-4d33-b695-de3e1db60317})");
+unsafe impl ::windows::core::RuntimeType for SocialFeedItem {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedItem;{4f1392ab-1f72-4d33-b695-de3e1db60317})");
 }
-unsafe impl ::windows::runtime::Interface for SocialFeedItem {
+unsafe impl ::windows::core::Interface for SocialFeedItem {
     type Vtable = ISocialFeedItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f1392ab_1f72_4d33_b695_de3e1db60317);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f1392ab_1f72_4d33_b695_de3e1db60317);
 }
-impl ::windows::runtime::RuntimeName for SocialFeedItem {
+impl ::windows::core::RuntimeName for SocialFeedItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedItem";
 }
-impl ::core::convert::From<SocialFeedItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SocialFeedItem> for ::windows::core::IUnknown {
     fn from(value: SocialFeedItem) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&SocialFeedItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SocialFeedItem> for ::windows::core::IUnknown {
     fn from(value: &SocialFeedItem) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialFeedItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocialFeedItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SocialFeedItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocialFeedItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<SocialFeedItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SocialFeedItem> for ::windows::core::IInspectable {
     fn from(value: SocialFeedItem) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&SocialFeedItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SocialFeedItem> for ::windows::core::IInspectable {
     fn from(value: &SocialFeedItem) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialFeedItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SocialFeedItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialFeedItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocialFeedItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for SocialFeedItem {}
@@ -685,13 +685,13 @@ impl ::core::convert::From<i32> for SocialFeedItemStyle {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SocialFeedItemStyle {
+unsafe impl ::windows::core::Abi for SocialFeedItemStyle {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for SocialFeedItemStyle {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedItemStyle;i4)");
+unsafe impl ::windows::core::RuntimeType for SocialFeedItemStyle {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedItemStyle;i4)");
 }
-impl ::windows::runtime::DefaultType for SocialFeedItemStyle {
+impl ::windows::core::DefaultType for SocialFeedItemStyle {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
@@ -708,151 +708,151 @@ impl ::core::convert::From<i32> for SocialFeedKind {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SocialFeedKind {
+unsafe impl ::windows::core::Abi for SocialFeedKind {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for SocialFeedKind {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedKind;i4)");
+unsafe impl ::windows::core::RuntimeType for SocialFeedKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedKind;i4)");
 }
-impl ::windows::runtime::DefaultType for SocialFeedKind {
+impl ::windows::core::DefaultType for SocialFeedKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SocialFeedSharedItem(pub ::windows::runtime::IInspectable);
+pub struct SocialFeedSharedItem(pub ::windows::core::IInspectable);
 impl SocialFeedSharedItem {
-    pub fn new() -> ::windows::runtime::Result<Self> {
+    pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<SocialFeedSharedItem, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<SocialFeedSharedItem, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn OriginalSource(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
+    pub fn OriginalSource(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn SetOriginalSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetOriginalSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn Content(&self) -> ::windows::runtime::Result<SocialFeedContent> {
+    pub fn Content(&self) -> ::windows::core::Result<SocialFeedContent> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedContent>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialFeedContent>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn SetTimestamp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn TargetUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
+    pub fn TargetUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn SetTargetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetTargetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetThumbnail<'a, Param0: ::windows::runtime::IntoParam<'a, SocialItemThumbnail>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, SocialItemThumbnail>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn Thumbnail(&self) -> ::windows::runtime::Result<SocialItemThumbnail> {
+    pub fn Thumbnail(&self) -> ::windows::core::Result<SocialItemThumbnail> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialItemThumbnail>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocialItemThumbnail>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for SocialFeedSharedItem {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedSharedItem;{7bfb9e40-a6aa-45a7-9ff6-54c42105dd1f})");
+unsafe impl ::windows::core::RuntimeType for SocialFeedSharedItem {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialFeedSharedItem;{7bfb9e40-a6aa-45a7-9ff6-54c42105dd1f})");
 }
-unsafe impl ::windows::runtime::Interface for SocialFeedSharedItem {
+unsafe impl ::windows::core::Interface for SocialFeedSharedItem {
     type Vtable = ISocialFeedSharedItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f);
 }
-impl ::windows::runtime::RuntimeName for SocialFeedSharedItem {
+impl ::windows::core::RuntimeName for SocialFeedSharedItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedSharedItem";
 }
-impl ::core::convert::From<SocialFeedSharedItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SocialFeedSharedItem> for ::windows::core::IUnknown {
     fn from(value: SocialFeedSharedItem) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&SocialFeedSharedItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SocialFeedSharedItem> for ::windows::core::IUnknown {
     fn from(value: &SocialFeedSharedItem) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialFeedSharedItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocialFeedSharedItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SocialFeedSharedItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocialFeedSharedItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<SocialFeedSharedItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SocialFeedSharedItem> for ::windows::core::IInspectable {
     fn from(value: SocialFeedSharedItem) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&SocialFeedSharedItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SocialFeedSharedItem> for ::windows::core::IInspectable {
     fn from(value: &SocialFeedSharedItem) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialFeedSharedItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SocialFeedSharedItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialFeedSharedItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocialFeedSharedItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for SocialFeedSharedItem {}
@@ -870,13 +870,13 @@ impl ::core::convert::From<i32> for SocialFeedUpdateMode {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SocialFeedUpdateMode {
+unsafe impl ::windows::core::Abi for SocialFeedUpdateMode {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for SocialFeedUpdateMode {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedUpdateMode;i4)");
+unsafe impl ::windows::core::RuntimeType for SocialFeedUpdateMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedUpdateMode;i4)");
 }
-impl ::windows::runtime::DefaultType for SocialFeedUpdateMode {
+impl ::windows::core::DefaultType for SocialFeedUpdateMode {
     type DefaultType = Self;
 }
 #[repr(C)]
@@ -896,137 +896,137 @@ impl ::core::convert::From<i32> for SocialItemBadgeStyle {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SocialItemBadgeStyle {
+unsafe impl ::windows::core::Abi for SocialItemBadgeStyle {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for SocialItemBadgeStyle {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialItemBadgeStyle;i4)");
+unsafe impl ::windows::core::RuntimeType for SocialItemBadgeStyle {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialItemBadgeStyle;i4)");
 }
-impl ::windows::runtime::DefaultType for SocialItemBadgeStyle {
+impl ::windows::core::DefaultType for SocialItemBadgeStyle {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SocialItemThumbnail(pub ::windows::runtime::IInspectable);
+pub struct SocialItemThumbnail(pub ::windows::core::IInspectable);
 impl SocialItemThumbnail {
-    pub fn new() -> ::windows::runtime::Result<Self> {
+    pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<SocialItemThumbnail, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<SocialItemThumbnail, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn TargetUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
+    pub fn TargetUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn SetTargetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetTargetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn ImageUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
+    pub fn ImageUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn SetImageUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetImageUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Graphics_Imaging`*"]
-    pub fn BitmapSize(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::BitmapSize> {
+    pub fn BitmapSize(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
             let mut result__: super::super::Graphics::Imaging::BitmapSize = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapSize>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapSize>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Graphics_Imaging`*"]
-    pub fn SetBitmapSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::BitmapSize>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetBitmapSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapSize>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`, `Storage_Streams`*"]
-    pub fn SetImageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, image: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetImageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, image: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), image.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), image.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for SocialItemThumbnail {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialItemThumbnail;{5cbf831a-3f08-497f-917f-57e09d84b141})");
+unsafe impl ::windows::core::RuntimeType for SocialItemThumbnail {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialItemThumbnail;{5cbf831a-3f08-497f-917f-57e09d84b141})");
 }
-unsafe impl ::windows::runtime::Interface for SocialItemThumbnail {
+unsafe impl ::windows::core::Interface for SocialItemThumbnail {
     type Vtable = ISocialItemThumbnail_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5cbf831a_3f08_497f_917f_57e09d84b141);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cbf831a_3f08_497f_917f_57e09d84b141);
 }
-impl ::windows::runtime::RuntimeName for SocialItemThumbnail {
+impl ::windows::core::RuntimeName for SocialItemThumbnail {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialItemThumbnail";
 }
-impl ::core::convert::From<SocialItemThumbnail> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SocialItemThumbnail> for ::windows::core::IUnknown {
     fn from(value: SocialItemThumbnail) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&SocialItemThumbnail> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SocialItemThumbnail> for ::windows::core::IUnknown {
     fn from(value: &SocialItemThumbnail) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialItemThumbnail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocialItemThumbnail {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SocialItemThumbnail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocialItemThumbnail {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<SocialItemThumbnail> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SocialItemThumbnail> for ::windows::core::IInspectable {
     fn from(value: SocialItemThumbnail) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&SocialItemThumbnail> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SocialItemThumbnail> for ::windows::core::IInspectable {
     fn from(value: &SocialItemThumbnail) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialItemThumbnail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SocialItemThumbnail {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialItemThumbnail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocialItemThumbnail {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for SocialItemThumbnail {}
@@ -1034,119 +1034,119 @@ unsafe impl ::core::marker::Sync for SocialItemThumbnail {}
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SocialUserInfo(pub ::windows::runtime::IInspectable);
+pub struct SocialUserInfo(pub ::windows::core::IInspectable);
 impl SocialUserInfo {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn UserName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetUserName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetUserName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn RemoteId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
-    pub fn SetRemoteId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetRemoteId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn TargetUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
+    pub fn TargetUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo`, `Foundation`*"]
-    pub fn SetTargetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetTargetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for SocialUserInfo {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialUserInfo;{9e5e1bd1-90d0-4e1d-9554-844d46607f61})");
+unsafe impl ::windows::core::RuntimeType for SocialUserInfo {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SocialInfo.SocialUserInfo;{9e5e1bd1-90d0-4e1d-9554-844d46607f61})");
 }
-unsafe impl ::windows::runtime::Interface for SocialUserInfo {
+unsafe impl ::windows::core::Interface for SocialUserInfo {
     type Vtable = ISocialUserInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61);
 }
-impl ::windows::runtime::RuntimeName for SocialUserInfo {
+impl ::windows::core::RuntimeName for SocialUserInfo {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialUserInfo";
 }
-impl ::core::convert::From<SocialUserInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SocialUserInfo> for ::windows::core::IUnknown {
     fn from(value: SocialUserInfo) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&SocialUserInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SocialUserInfo> for ::windows::core::IUnknown {
     fn from(value: &SocialUserInfo) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialUserInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocialUserInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SocialUserInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocialUserInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<SocialUserInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SocialUserInfo> for ::windows::core::IInspectable {
     fn from(value: SocialUserInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&SocialUserInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SocialUserInfo> for ::windows::core::IInspectable {
     fn from(value: &SocialUserInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialUserInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SocialUserInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialUserInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocialUserInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for SocialUserInfo {}

@@ -24,7 +24,7 @@ impl ::core::cmp::PartialEq for AVRF_BACKTRACE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for AVRF_BACKTRACE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for AVRF_BACKTRACE_INFORMATION {
+unsafe impl ::windows::core::Abi for AVRF_BACKTRACE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
@@ -57,7 +57,7 @@ impl ::core::cmp::PartialEq for AVRF_HANDLE_OPERATION {
     }
 }
 impl ::core::cmp::Eq for AVRF_HANDLE_OPERATION {}
-unsafe impl ::windows::runtime::Abi for AVRF_HANDLE_OPERATION {
+unsafe impl ::windows::core::Abi for AVRF_HANDLE_OPERATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
@@ -103,7 +103,7 @@ impl ::core::cmp::PartialEq for AVRF_HEAP_ALLOCATION {
     }
 }
 impl ::core::cmp::Eq for AVRF_HEAP_ALLOCATION {}
-unsafe impl ::windows::runtime::Abi for AVRF_HEAP_ALLOCATION {
+unsafe impl ::windows::core::Abi for AVRF_HEAP_ALLOCATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
@@ -121,7 +121,7 @@ impl ::core::convert::From<u32> for VERIFIER_ENUM_RESOURCE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VERIFIER_ENUM_RESOURCE_FLAGS {
+unsafe impl ::windows::core::Abi for VERIFIER_ENUM_RESOURCE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for VERIFIER_ENUM_RESOURCE_FLAGS {
@@ -155,12 +155,12 @@ impl ::core::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifierEnumerateResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: ::core::option::Option<AVRF_RESOURCE_ENUMERATE_CALLBACK>, enumerationcontext: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn VerifierEnumerateResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: ::core::option::Option<AVRF_RESOURCE_ENUMERATE_CALLBACK>, enumerationcontext: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VerifierEnumerateResource(process: super::super::Foundation::HANDLE, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: ::windows::runtime::RawPtr, enumerationcontext: *mut ::core::ffi::c_void) -> u32;
+            fn VerifierEnumerateResource(process: super::super::Foundation::HANDLE, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: ::windows::core::RawPtr, enumerationcontext: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(VerifierEnumerateResource(process.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(resourcetype), ::core::mem::transmute(resourcecallback), ::core::mem::transmute(enumerationcontext)))
     }
@@ -179,7 +179,7 @@ impl ::core::convert::From<i32> for eAvrfResourceTypes {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for eAvrfResourceTypes {
+unsafe impl ::windows::core::Abi for eAvrfResourceTypes {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
@@ -195,7 +195,7 @@ impl ::core::convert::From<i32> for eHANDLE_TRACE_OPERATIONS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for eHANDLE_TRACE_OPERATIONS {
+unsafe impl ::windows::core::Abi for eHANDLE_TRACE_OPERATIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
@@ -210,7 +210,7 @@ impl ::core::convert::From<i32> for eHeapAllocationState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for eHeapAllocationState {
+unsafe impl ::windows::core::Abi for eHeapAllocationState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
@@ -224,7 +224,7 @@ impl ::core::convert::From<i32> for eHeapEnumerationLevel {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for eHeapEnumerationLevel {
+unsafe impl ::windows::core::Abi for eHeapEnumerationLevel {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
@@ -239,6 +239,6 @@ impl ::core::convert::From<i32> for eUserAllocationState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for eUserAllocationState {
+unsafe impl ::windows::core::Abi for eUserAllocationState {
     type Abi = Self;
 }

@@ -92,11 +92,11 @@ impl Class {
                         let interface_type = gen_type_name(&interface.def, gen);
 
                         Some(quote! {
-                            pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::runtime::Result<R>>(
+                            pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::core::Result<R>>(
                                 callback: F,
-                            ) -> ::windows::runtime::Result<R> {
-                                static mut SHARED: ::windows::runtime::FactoryCache<#name, #interface_type> =
-                                    ::windows::runtime::FactoryCache::new();
+                            ) -> ::windows::core::Result<R> {
+                                static mut SHARED: ::windows::core::FactoryCache<#name, #interface_type> =
+                                    ::windows::core::FactoryCache::new();
                                 unsafe { SHARED.call(callback) }
                             }
                         })
@@ -116,14 +116,14 @@ impl Class {
 
                 let new = if self.0.has_default_constructor() {
                     quote! {
-                        pub fn new() -> ::windows::runtime::Result<Self> {
+                        pub fn new() -> ::windows::core::Result<Self> {
                             Self::IActivationFactory(|f| f.activate_instance::<Self>())
                         }
-                        fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(
+                        fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(
                             callback: F,
-                        ) -> ::windows::runtime::Result<R> {
-                            static mut SHARED: ::windows::runtime::FactoryCache<#name, ::windows::runtime::IActivationFactory> =
-                                ::windows::runtime::FactoryCache::new();
+                        ) -> ::windows::core::Result<R> {
+                            static mut SHARED: ::windows::core::FactoryCache<#name, ::windows::core::IActivationFactory> =
+                                ::windows::core::FactoryCache::new();
                             unsafe { SHARED.call(callback) }
                         }
                     }
@@ -152,7 +152,7 @@ impl Class {
                     #doc
                     #[repr(transparent)]
                     #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)]
-                    pub struct #name(pub ::windows::runtime::IInspectable);
+                    pub struct #name(pub ::windows::core::IInspectable);
                     #cfg
                     impl #name {
                         #new
@@ -161,16 +161,16 @@ impl Class {
                         #(#factories)*
                     }
                     #cfg
-                    unsafe impl ::windows::runtime::RuntimeType for #name {
-                        const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(#type_signature);
+                    unsafe impl ::windows::core::RuntimeType for #name {
+                        const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#type_signature);
                     }
                     #cfg
-                    unsafe impl ::windows::runtime::Interface for #name {
+                    unsafe impl ::windows::core::Interface for #name {
                         type Vtable = #default_abi_name;
-                        const IID: ::windows::runtime::GUID = #guid;
+                        const IID: ::windows::core::GUID = #guid;
                     }
                     #cfg
-                    impl ::windows::runtime::RuntimeName for #name {
+                    impl ::windows::core::RuntimeName for #name {
                         const NAME: &'static str = #runtime_name;
                     }
                     #future
@@ -188,7 +188,7 @@ impl Class {
                         #methods
                         #(#factories)*
                     }
-                    impl ::windows::runtime::RuntimeName for #name {
+                    impl ::windows::core::RuntimeName for #name {
                         const NAME: &'static str = #runtime_name;
                     }
                 }
@@ -204,15 +204,15 @@ impl Class {
                 #[repr(transparent)]
                 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)]
                 #[doc(hidden)]
-                pub struct #name(pub ::windows::runtime::IInspectable);
+                pub struct #name(pub ::windows::core::IInspectable);
                 #cfg
-                unsafe impl ::windows::runtime::Interface for #name {
-                    type Vtable = <::windows::runtime::IUnknown as ::windows::runtime::Interface>::Vtable;
-                    const IID: ::windows::runtime::GUID = #guid;
+                unsafe impl ::windows::core::Interface for #name {
+                    type Vtable = <::windows::core::IUnknown as ::windows::core::Interface>::Vtable;
+                    const IID: ::windows::core::GUID = #guid;
                 }
                 #cfg
-                unsafe impl ::windows::runtime::RuntimeType for #name {
-                    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(#type_signature);
+                unsafe impl ::windows::core::RuntimeType for #name {
+                    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#type_signature);
                 }
             }
         }
@@ -246,19 +246,19 @@ impl Class {
                     fn from(value: &#from) -> Self {
                         // This unwrap is legitimate because conversion to base can never fail because
                         // the base can never change across versions.
-                        ::windows::runtime::Interface::cast(value).unwrap()
+                        ::windows::core::Interface::cast(value).unwrap()
                     }
                 }
                 #cfg
-                impl<'a> ::windows::runtime::IntoParam<'a, #into> for #from {
-                    fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                        ::windows::runtime::Param::Owned(::core::convert::Into::<#into>::into(self))
+                impl<'a> ::windows::core::IntoParam<'a, #into> for #from {
+                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                        ::windows::core::Param::Owned(::core::convert::Into::<#into>::into(self))
                     }
                 }
                 #cfg
-                impl<'a> ::windows::runtime::IntoParam<'a, #into> for &#from {
-                    fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                        ::windows::runtime::Param::Owned(::core::convert::Into::<#into>::into(::core::clone::Clone::clone(self)))
+                impl<'a> ::windows::core::IntoParam<'a, #into> for &#from {
+                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                        ::windows::core::Param::Owned(::core::convert::Into::<#into>::into(::core::clone::Clone::clone(self)))
                     }
                 }
             }
@@ -283,13 +283,13 @@ mod tests {
         let i = c.interfaces();
         assert_eq!(i.len(), 3);
 
-        assert_eq!(gen_type_name(&i[0].def, &Gen::absolute()).as_str(), "Windows::Foundation::Collections:: IMap :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING >");
+        assert_eq!(gen_type_name(&i[0].def, &Gen::absolute()).as_str(), "Windows::Foundation::Collections:: IMap :: < :: windows :: core :: HSTRING , :: windows :: core :: HSTRING >");
         assert_eq!(i[0].kind, InterfaceKind::Default);
 
-        assert_eq!(gen_type_name(&i[1].def, &Gen::absolute()).as_str(), "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING > >");
+        assert_eq!(gen_type_name(&i[1].def, &Gen::absolute()).as_str(), "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < :: windows :: core :: HSTRING , :: windows :: core :: HSTRING > >");
         assert_eq!(i[1].kind, InterfaceKind::NonDefault);
 
-        assert_eq!(gen_type_name(&i[2].def, &Gen::absolute()).as_str(), "Windows::Foundation::Collections:: IObservableMap :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING >");
+        assert_eq!(gen_type_name(&i[2].def, &Gen::absolute()).as_str(), "Windows::Foundation::Collections:: IObservableMap :: < :: windows :: core :: HSTRING , :: windows :: core :: HSTRING >");
         assert_eq!(i[2].kind, InterfaceKind::NonDefault);
     }
 

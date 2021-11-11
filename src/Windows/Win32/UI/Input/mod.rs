@@ -75,7 +75,7 @@ pub unsafe fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeh
 }
 #[doc = "*Required features: `Win32_UI_Input`*"]
 #[inline]
-pub unsafe fn GetRawInputData<'a, Param0: ::windows::runtime::IntoParam<'a, HRAWINPUT>>(hrawinput: Param0, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32 {
+pub unsafe fn GetRawInputData<'a, Param0: ::windows::core::IntoParam<'a, HRAWINPUT>>(hrawinput: Param0, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -90,7 +90,7 @@ pub unsafe fn GetRawInputData<'a, Param0: ::windows::runtime::IntoParam<'a, HRAW
 #[doc = "*Required features: `Win32_UI_Input`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRawInputDeviceInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32 {
+pub unsafe fn GetRawInputDeviceInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -105,7 +105,7 @@ pub unsafe fn GetRawInputDeviceInfoA<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_UI_Input`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRawInputDeviceInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32 {
+pub unsafe fn GetRawInputDeviceInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -155,8 +155,8 @@ impl ::core::default::Default for HRAWINPUT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HRAWINPUT {}
-unsafe impl ::windows::runtime::Abi for HRAWINPUT {
+unsafe impl ::windows::core::Handle for HRAWINPUT {}
+unsafe impl ::windows::core::Abi for HRAWINPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input`*"]
@@ -174,7 +174,7 @@ impl ::core::convert::From<i32> for INPUT_MESSAGE_DEVICE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for INPUT_MESSAGE_DEVICE_TYPE {
+unsafe impl ::windows::core::Abi for INPUT_MESSAGE_DEVICE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input`*"]
@@ -190,7 +190,7 @@ impl ::core::convert::From<i32> for INPUT_MESSAGE_ORIGIN_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for INPUT_MESSAGE_ORIGIN_ID {
+unsafe impl ::windows::core::Abi for INPUT_MESSAGE_ORIGIN_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -217,7 +217,7 @@ impl ::core::cmp::PartialEq for INPUT_MESSAGE_SOURCE {
     }
 }
 impl ::core::cmp::Eq for INPUT_MESSAGE_SOURCE {}
-unsafe impl ::windows::runtime::Abi for INPUT_MESSAGE_SOURCE {
+unsafe impl ::windows::core::Abi for INPUT_MESSAGE_SOURCE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -245,7 +245,7 @@ impl ::core::cmp::PartialEq for RAWHID {
     }
 }
 impl ::core::cmp::Eq for RAWHID {}
-unsafe impl ::windows::runtime::Abi for RAWHID {
+unsafe impl ::windows::core::Abi for RAWHID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -273,7 +273,7 @@ impl ::core::cmp::PartialEq for RAWINPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RAWINPUT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RAWINPUT {
+unsafe impl ::windows::core::Abi for RAWINPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -301,7 +301,7 @@ impl ::core::cmp::PartialEq for RAWINPUT_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RAWINPUT_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RAWINPUT_0 {
+unsafe impl ::windows::core::Abi for RAWINPUT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -337,7 +337,7 @@ impl ::core::cmp::PartialEq for RAWINPUTDEVICE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RAWINPUTDEVICE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RAWINPUTDEVICE {
+unsafe impl ::windows::core::Abi for RAWINPUTDEVICE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -371,7 +371,7 @@ impl ::core::cmp::PartialEq for RAWINPUTDEVICELIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RAWINPUTDEVICELIST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RAWINPUTDEVICELIST {
+unsafe impl ::windows::core::Abi for RAWINPUTDEVICELIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input`*"]
@@ -393,7 +393,7 @@ impl ::core::convert::From<u32> for RAWINPUTDEVICE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RAWINPUTDEVICE_FLAGS {
+unsafe impl ::windows::core::Abi for RAWINPUTDEVICE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RAWINPUTDEVICE_FLAGS {
@@ -457,7 +457,7 @@ impl ::core::cmp::PartialEq for RAWINPUTHEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RAWINPUTHEADER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RAWINPUTHEADER {
+unsafe impl ::windows::core::Abi for RAWINPUTHEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -488,7 +488,7 @@ impl ::core::cmp::PartialEq for RAWKEYBOARD {
     }
 }
 impl ::core::cmp::Eq for RAWKEYBOARD {}
-unsafe impl ::windows::runtime::Abi for RAWKEYBOARD {
+unsafe impl ::windows::core::Abi for RAWKEYBOARD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -514,7 +514,7 @@ impl ::core::cmp::PartialEq for RAWMOUSE {
     }
 }
 impl ::core::cmp::Eq for RAWMOUSE {}
-unsafe impl ::windows::runtime::Abi for RAWMOUSE {
+unsafe impl ::windows::core::Abi for RAWMOUSE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -536,7 +536,7 @@ impl ::core::cmp::PartialEq for RAWMOUSE_0 {
     }
 }
 impl ::core::cmp::Eq for RAWMOUSE_0 {}
-unsafe impl ::windows::runtime::Abi for RAWMOUSE_0 {
+unsafe impl ::windows::core::Abi for RAWMOUSE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -563,7 +563,7 @@ impl ::core::cmp::PartialEq for RAWMOUSE_0_0 {
     }
 }
 impl ::core::cmp::Eq for RAWMOUSE_0_0 {}
-unsafe impl ::windows::runtime::Abi for RAWMOUSE_0_0 {
+unsafe impl ::windows::core::Abi for RAWMOUSE_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input`*"]
@@ -577,7 +577,7 @@ impl ::core::convert::From<u32> for RAW_INPUT_DATA_COMMAND_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RAW_INPUT_DATA_COMMAND_FLAGS {
+unsafe impl ::windows::core::Abi for RAW_INPUT_DATA_COMMAND_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RAW_INPUT_DATA_COMMAND_FLAGS {
@@ -620,7 +620,7 @@ impl ::core::convert::From<u32> for RAW_INPUT_DEVICE_INFO_COMMAND {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RAW_INPUT_DEVICE_INFO_COMMAND {
+unsafe impl ::windows::core::Abi for RAW_INPUT_DEVICE_INFO_COMMAND {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RAW_INPUT_DEVICE_INFO_COMMAND {
@@ -677,7 +677,7 @@ impl ::core::cmp::PartialEq for RID_DEVICE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RID_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO {
+unsafe impl ::windows::core::Abi for RID_DEVICE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -705,7 +705,7 @@ impl ::core::cmp::PartialEq for RID_DEVICE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RID_DEVICE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO_0 {
+unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -735,7 +735,7 @@ impl ::core::cmp::PartialEq for RID_DEVICE_INFO_HID {
     }
 }
 impl ::core::cmp::Eq for RID_DEVICE_INFO_HID {}
-unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO_HID {
+unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_HID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -773,7 +773,7 @@ impl ::core::cmp::PartialEq for RID_DEVICE_INFO_KEYBOARD {
     }
 }
 impl ::core::cmp::Eq for RID_DEVICE_INFO_KEYBOARD {}
-unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO_KEYBOARD {
+unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_KEYBOARD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -809,7 +809,7 @@ impl ::core::cmp::PartialEq for RID_DEVICE_INFO_MOUSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RID_DEVICE_INFO_MOUSE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO_MOUSE {
+unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_MOUSE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input`*"]
@@ -824,7 +824,7 @@ impl ::core::convert::From<u32> for RID_DEVICE_INFO_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO_TYPE {
+unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RID_DEVICE_INFO_TYPE {

@@ -96,7 +96,7 @@ unsafe impl RuntimeType for HRESULT {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"struct(Windows.Foundation.HResult;i32)");
 }
 
-impl ::windows::runtime::DefaultType for HRESULT {
+impl ::windows::core::DefaultType for HRESULT {
     type DefaultType = Self;
 }
 

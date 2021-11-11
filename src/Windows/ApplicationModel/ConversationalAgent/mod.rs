@@ -2,321 +2,321 @@
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ActivationSignalDetectionConfiguration(pub ::windows::runtime::IInspectable);
+pub struct ActivationSignalDetectionConfiguration(pub ::windows::core::IInspectable);
 impl ActivationSignalDetectionConfiguration {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn Close(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SignalId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn SignalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn ModelId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn ModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn IsActive(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsActive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SetEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn SetEnabledAsync(&self, value: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetEnabledAsync(&self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn AvailabilityInfo(&self) -> ::windows::runtime::Result<DetectionConfigurationAvailabilityInfo> {
+    pub fn AvailabilityInfo(&self) -> ::windows::core::Result<DetectionConfigurationAvailabilityInfo> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DetectionConfigurationAvailabilityInfo>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DetectionConfigurationAvailabilityInfo>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn AvailabilityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AvailabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn RemoveAvailabilityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveAvailabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Storage_Streams`*"]
-    pub fn SetModelData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, datatype: Param0, data: Param1) -> ::windows::runtime::Result<()> {
+    pub fn SetModelData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, datatype: Param0, data: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Storage_Streams`*"]
-    pub fn SetModelDataAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, datatype: Param0, data: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetModelDataAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, datatype: Param0, data: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn GetModelDataType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn GetModelDataType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn GetModelDataTypeAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
+    pub fn GetModelDataTypeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Storage_Streams`*"]
-    pub fn GetModelData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
+    pub fn GetModelData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Storage_Streams`*"]
-    pub fn GetModelDataAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IInputStream>> {
+    pub fn GetModelDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IInputStream>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IInputStream>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IInputStream>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn ClearModelData(&self) -> ::windows::runtime::Result<()> {
+    pub fn ClearModelData(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn ClearModelDataAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ClearModelDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn TrainingStepsCompleted(&self) -> ::windows::runtime::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
-        }
-    }
-    #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn TrainingStepsRemaining(&self) -> ::windows::runtime::Result<u32> {
+    pub fn TrainingStepsCompleted(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn TrainingDataFormat(&self) -> ::windows::runtime::Result<ActivationSignalDetectionTrainingDataFormat> {
+    pub fn TrainingStepsRemaining(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+        }
+    }
+    #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
+    pub fn TrainingDataFormat(&self) -> ::windows::core::Result<ActivationSignalDetectionTrainingDataFormat> {
         let this = self;
         unsafe {
             let mut result__: ActivationSignalDetectionTrainingDataFormat = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectionTrainingDataFormat>(result__)
+            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectionTrainingDataFormat>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Storage_Streams`*"]
-    pub fn ApplyTrainingData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: Param1) -> ::windows::runtime::Result<DetectionConfigurationTrainingStatus> {
+    pub fn ApplyTrainingData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: Param1) -> ::windows::core::Result<DetectionConfigurationTrainingStatus> {
         let this = self;
         unsafe {
             let mut result__: DetectionConfigurationTrainingStatus = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).from_abi::<DetectionConfigurationTrainingStatus>(result__)
+            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).from_abi::<DetectionConfigurationTrainingStatus>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Storage_Streams`*"]
-    pub fn ApplyTrainingDataAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>> {
+    pub fn ApplyTrainingDataAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn ClearTrainingData(&self) -> ::windows::runtime::Result<()> {
+    pub fn ClearTrainingData(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn ClearTrainingDataAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ClearTrainingDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Storage_Streams`*"]
-    pub fn SetModelDataWithResult<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, datatype: Param0, data: Param1) -> ::windows::runtime::Result<ActivationSignalDetectionConfigurationSetModelDataResult> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
+    pub fn SetModelDataWithResult<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, datatype: Param0, data: Param1) -> ::windows::core::Result<ActivationSignalDetectionConfigurationSetModelDataResult> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__: ActivationSignalDetectionConfigurationSetModelDataResult = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationSetModelDataResult>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationSetModelDataResult>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Storage_Streams`*"]
-    pub fn SetModelDataWithResultAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, datatype: Param0, data: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
+    pub fn SetModelDataWithResultAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, datatype: Param0, data: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn SetEnabledWithResultAsync(&self, value: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
+    pub fn SetEnabledWithResultAsync(&self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SetEnabledWithResult(&self, value: bool) -> ::windows::runtime::Result<ActivationSignalDetectionConfigurationStateChangeResult> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
+    pub fn SetEnabledWithResult(&self, value: bool) -> ::windows::core::Result<ActivationSignalDetectionConfigurationStateChangeResult> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__: ActivationSignalDetectionConfigurationStateChangeResult = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<ActivationSignalDetectionConfigurationStateChangeResult>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<ActivationSignalDetectionConfigurationStateChangeResult>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn TrainingStepCompletionMaxAllowedTime(&self) -> ::windows::runtime::Result<u32> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
+    pub fn TrainingStepCompletionMaxAllowedTime(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfiguration {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration;{40d8be16-5217-581c-9ab2-ce9b2f2e8e00})");
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfiguration {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration;{40d8be16-5217-581c-9ab2-ce9b2f2e8e00})");
 }
-unsafe impl ::windows::runtime::Interface for ActivationSignalDetectionConfiguration {
+unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfiguration {
     type Vtable = IActivationSignalDetectionConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
 }
-impl ::windows::runtime::RuntimeName for ActivationSignalDetectionConfiguration {
+impl ::windows::core::RuntimeName for ActivationSignalDetectionConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration";
 }
-impl ::core::convert::From<ActivationSignalDetectionConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ActivationSignalDetectionConfiguration> for ::windows::core::IUnknown {
     fn from(value: ActivationSignalDetectionConfiguration) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ActivationSignalDetectionConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ActivationSignalDetectionConfiguration> for ::windows::core::IUnknown {
     fn from(value: &ActivationSignalDetectionConfiguration) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivationSignalDetectionConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ActivationSignalDetectionConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivationSignalDetectionConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivationSignalDetectionConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ActivationSignalDetectionConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ActivationSignalDetectionConfiguration> for ::windows::core::IInspectable {
     fn from(value: ActivationSignalDetectionConfiguration) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ActivationSignalDetectionConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ActivationSignalDetectionConfiguration> for ::windows::core::IInspectable {
     fn from(value: &ActivationSignalDetectionConfiguration) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivationSignalDetectionConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ActivationSignalDetectionConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivationSignalDetectionConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivationSignalDetectionConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ActivationSignalDetectionConfiguration> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: ActivationSignalDetectionConfiguration) -> ::windows::runtime::Result<Self> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ActivationSignalDetectionConfiguration) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&ActivationSignalDetectionConfiguration> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: &ActivationSignalDetectionConfiguration) -> ::windows::runtime::Result<Self> {
-        ::windows::runtime::Interface::cast(value)
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ActivationSignalDetectionConfiguration) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for ActivationSignalDetectionConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::runtime::IntoParam::into_param(&self)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for ActivationSignalDetectionConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &ActivationSignalDetectionConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &ActivationSignalDetectionConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 unsafe impl ::core::marker::Send for ActivationSignalDetectionConfiguration {}
@@ -324,73 +324,73 @@ unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfiguration {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ActivationSignalDetectionConfigurationCreationResult(pub ::windows::runtime::IInspectable);
+pub struct ActivationSignalDetectionConfigurationCreationResult(pub ::windows::core::IInspectable);
 impl ActivationSignalDetectionConfigurationCreationResult {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn Status(&self) -> ::windows::runtime::Result<ActivationSignalDetectionConfigurationCreationStatus> {
+    pub fn Status(&self) -> ::windows::core::Result<ActivationSignalDetectionConfigurationCreationStatus> {
         let this = self;
         unsafe {
             let mut result__: ActivationSignalDetectionConfigurationCreationStatus = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectionConfigurationCreationStatus>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectionConfigurationCreationStatus>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn Configuration(&self) -> ::windows::runtime::Result<ActivationSignalDetectionConfiguration> {
+    pub fn Configuration(&self) -> ::windows::core::Result<ActivationSignalDetectionConfiguration> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectionConfiguration>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectionConfiguration>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfigurationCreationResult {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult;{4c89bc1b-8d12-5e48-a71c-7f6bc1cd66e0})");
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationCreationResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult;{4c89bc1b-8d12-5e48-a71c-7f6bc1cd66e0})");
 }
-unsafe impl ::windows::runtime::Interface for ActivationSignalDetectionConfigurationCreationResult {
+unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfigurationCreationResult {
     type Vtable = IActivationSignalDetectionConfigurationCreationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
 }
-impl ::windows::runtime::RuntimeName for ActivationSignalDetectionConfigurationCreationResult {
+impl ::windows::core::RuntimeName for ActivationSignalDetectionConfigurationCreationResult {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult";
 }
-impl ::core::convert::From<ActivationSignalDetectionConfigurationCreationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ActivationSignalDetectionConfigurationCreationResult> for ::windows::core::IUnknown {
     fn from(value: ActivationSignalDetectionConfigurationCreationResult) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ActivationSignalDetectionConfigurationCreationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ActivationSignalDetectionConfigurationCreationResult> for ::windows::core::IUnknown {
     fn from(value: &ActivationSignalDetectionConfigurationCreationResult) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivationSignalDetectionConfigurationCreationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ActivationSignalDetectionConfigurationCreationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivationSignalDetectionConfigurationCreationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivationSignalDetectionConfigurationCreationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ActivationSignalDetectionConfigurationCreationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ActivationSignalDetectionConfigurationCreationResult> for ::windows::core::IInspectable {
     fn from(value: ActivationSignalDetectionConfigurationCreationResult) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ActivationSignalDetectionConfigurationCreationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ActivationSignalDetectionConfigurationCreationResult> for ::windows::core::IInspectable {
     fn from(value: &ActivationSignalDetectionConfigurationCreationResult) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivationSignalDetectionConfigurationCreationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ActivationSignalDetectionConfigurationCreationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivationSignalDetectionConfigurationCreationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivationSignalDetectionConfigurationCreationResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ActivationSignalDetectionConfigurationCreationResult {}
@@ -414,13 +414,13 @@ impl ::core::convert::From<i32> for ActivationSignalDetectionConfigurationCreati
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ActivationSignalDetectionConfigurationCreationStatus {
+unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationCreationStatus {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfigurationCreationStatus {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationCreationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
 }
-impl ::windows::runtime::DefaultType for ActivationSignalDetectionConfigurationCreationStatus {
+impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationCreationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -438,13 +438,13 @@ impl ::core::convert::From<i32> for ActivationSignalDetectionConfigurationRemova
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ActivationSignalDetectionConfigurationRemovalResult {
+unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationRemovalResult {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfigurationRemovalResult {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationRemovalResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
 }
-impl ::windows::runtime::DefaultType for ActivationSignalDetectionConfigurationRemovalResult {
+impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationRemovalResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -466,13 +466,13 @@ impl ::core::convert::From<i32> for ActivationSignalDetectionConfigurationSetMod
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ActivationSignalDetectionConfigurationSetModelDataResult {
+unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationSetModelDataResult {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfigurationSetModelDataResult {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationSetModelDataResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
 }
-impl ::windows::runtime::DefaultType for ActivationSignalDetectionConfigurationSetModelDataResult {
+impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationSetModelDataResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -489,13 +489,13 @@ impl ::core::convert::From<i32> for ActivationSignalDetectionConfigurationStateC
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ActivationSignalDetectionConfigurationStateChangeResult {
+unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationStateChangeResult {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfigurationStateChangeResult {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationStateChangeResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
 }
-impl ::windows::runtime::DefaultType for ActivationSignalDetectionConfigurationStateChangeResult {
+impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationStateChangeResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -520,261 +520,261 @@ impl ::core::convert::From<i32> for ActivationSignalDetectionTrainingDataFormat 
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ActivationSignalDetectionTrainingDataFormat {
+unsafe impl ::windows::core::Abi for ActivationSignalDetectionTrainingDataFormat {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionTrainingDataFormat {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionTrainingDataFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
 }
-impl ::windows::runtime::DefaultType for ActivationSignalDetectionTrainingDataFormat {
+impl ::windows::core::DefaultType for ActivationSignalDetectionTrainingDataFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ActivationSignalDetector(pub ::windows::runtime::IInspectable);
+pub struct ActivationSignalDetector(pub ::windows::core::IInspectable);
 impl ActivationSignalDetector {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn ProviderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn Kind(&self) -> ::windows::runtime::Result<ActivationSignalDetectorKind> {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationSignalDetectorKind> {
         let this = self;
         unsafe {
             let mut result__: ActivationSignalDetectorKind = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectorKind>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectorKind>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn CanCreateConfigurations(&self) -> ::windows::runtime::Result<bool> {
+    pub fn CanCreateConfigurations(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
-    pub fn SupportedModelDataTypes(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
+    pub fn SupportedModelDataTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
-    pub fn SupportedTrainingDataFormats(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionTrainingDataFormat>> {
+    pub fn SupportedTrainingDataFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionTrainingDataFormat>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionTrainingDataFormat>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionTrainingDataFormat>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
-    pub fn SupportedPowerStates(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectorPowerState>> {
+    pub fn SupportedPowerStates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectorPowerState>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectorPowerState>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectorPowerState>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
-    pub fn GetSupportedModelIdsForSignalId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
+    pub fn GetSupportedModelIdsForSignalId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetSupportedModelIdsForSignalIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>> {
+    pub fn GetSupportedModelIdsForSignalIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn CreateConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0, modelid: Param1, displayname: Param2) -> ::windows::runtime::Result<()> {
+    pub fn CreateConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1, displayname: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn CreateConfigurationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0, modelid: Param1, displayname: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn CreateConfigurationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1, displayname: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
-    pub fn GetConfigurations(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>> {
+    pub fn GetConfigurations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetConfigurationsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>> {
+    pub fn GetConfigurationsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn GetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::runtime::Result<ActivationSignalDetectionConfiguration> {
+    pub fn GetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::core::Result<ActivationSignalDetectionConfiguration> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfiguration>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfiguration>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn GetConfigurationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfiguration>> {
+    pub fn GetConfigurationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfiguration>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfiguration>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfiguration>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn RemoveConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::runtime::Result<()> {
+    pub fn RemoveConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn RemoveConfigurationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RemoveConfigurationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetAvailableModelIdsForSignalIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetector2>(self)?;
+    pub fn GetAvailableModelIdsForSignalIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
-    pub fn GetAvailableModelIdsForSignalId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetector2>(self)?;
+    pub fn GetAvailableModelIdsForSignalId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn CreateConfigurationWithResultAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0, modelid: Param1, displayname: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetector2>(self)?;
+    pub fn CreateConfigurationWithResultAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1, displayname: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn CreateConfigurationWithResult<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0, modelid: Param1, displayname: Param2) -> ::windows::runtime::Result<ActivationSignalDetectionConfigurationCreationResult> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetector2>(self)?;
+    pub fn CreateConfigurationWithResult<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1, displayname: Param2) -> ::windows::core::Result<ActivationSignalDetectionConfigurationCreationResult> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationCreationResult>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationCreationResult>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn RemoveConfigurationWithResultAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetector2>(self)?;
+    pub fn RemoveConfigurationWithResultAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn RemoveConfigurationWithResult<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::runtime::Result<ActivationSignalDetectionConfigurationRemovalResult> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetector2>(self)?;
+    pub fn RemoveConfigurationWithResult<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::core::Result<ActivationSignalDetectionConfigurationRemovalResult> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__: ActivationSignalDetectionConfigurationRemovalResult = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationRemovalResult>(result__)
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationRemovalResult>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn DetectorId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<IActivationSignalDetector2>(self)?;
+    pub fn DetectorId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetector {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector;{b5bf345f-a4d0-5b2b-8e65-b3c55ee756ff})");
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetector {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector;{b5bf345f-a4d0-5b2b-8e65-b3c55ee756ff})");
 }
-unsafe impl ::windows::runtime::Interface for ActivationSignalDetector {
+unsafe impl ::windows::core::Interface for ActivationSignalDetector {
     type Vtable = IActivationSignalDetector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
 }
-impl ::windows::runtime::RuntimeName for ActivationSignalDetector {
+impl ::windows::core::RuntimeName for ActivationSignalDetector {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector";
 }
-impl ::core::convert::From<ActivationSignalDetector> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ActivationSignalDetector> for ::windows::core::IUnknown {
     fn from(value: ActivationSignalDetector) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ActivationSignalDetector> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ActivationSignalDetector> for ::windows::core::IUnknown {
     fn from(value: &ActivationSignalDetector) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivationSignalDetector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ActivationSignalDetector {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivationSignalDetector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivationSignalDetector {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ActivationSignalDetector> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ActivationSignalDetector> for ::windows::core::IInspectable {
     fn from(value: ActivationSignalDetector) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ActivationSignalDetector> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ActivationSignalDetector> for ::windows::core::IInspectable {
     fn from(value: &ActivationSignalDetector) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivationSignalDetector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ActivationSignalDetector {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivationSignalDetector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivationSignalDetector {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ActivationSignalDetector {}
@@ -793,13 +793,13 @@ impl ::core::convert::From<i32> for ActivationSignalDetectorKind {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ActivationSignalDetectorKind {
+unsafe impl ::windows::core::Abi for ActivationSignalDetectorKind {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectorKind {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
 }
-impl ::windows::runtime::DefaultType for ActivationSignalDetectorKind {
+impl ::windows::core::DefaultType for ActivationSignalDetectorKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -816,13 +816,13 @@ impl ::core::convert::From<i32> for ActivationSignalDetectorPowerState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ActivationSignalDetectorPowerState {
+unsafe impl ::windows::core::Abi for ActivationSignalDetectorPowerState {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectorPowerState {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorPowerState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
 }
-impl ::windows::runtime::DefaultType for ActivationSignalDetectorPowerState {
+impl ::windows::core::DefaultType for ActivationSignalDetectorPowerState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -838,13 +838,13 @@ impl ::core::convert::From<i32> for ConversationalAgentActivationKind {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ConversationalAgentActivationKind {
+unsafe impl ::windows::core::Abi for ConversationalAgentActivationKind {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentActivationKind {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
 }
-impl ::windows::runtime::DefaultType for ConversationalAgentActivationKind {
+impl ::windows::core::DefaultType for ConversationalAgentActivationKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -862,133 +862,133 @@ impl ::core::convert::From<i32> for ConversationalAgentActivationResult {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ConversationalAgentActivationResult {
+unsafe impl ::windows::core::Abi for ConversationalAgentActivationResult {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentActivationResult {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
 }
-impl ::windows::runtime::DefaultType for ConversationalAgentActivationResult {
+impl ::windows::core::DefaultType for ConversationalAgentActivationResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConversationalAgentDetectorManager(pub ::windows::runtime::IInspectable);
+pub struct ConversationalAgentDetectorManager(pub ::windows::core::IInspectable);
 impl ConversationalAgentDetectorManager {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
-    pub fn GetAllActivationSignalDetectors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>> {
+    pub fn GetAllActivationSignalDetectors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetAllActivationSignalDetectorsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>> {
+    pub fn GetAllActivationSignalDetectorsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
-    pub fn GetActivationSignalDetectors(&self, kind: ActivationSignalDetectorKind) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>> {
+    pub fn GetActivationSignalDetectors(&self, kind: ActivationSignalDetectorKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), kind, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), kind, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetActivationSignalDetectorsAsync(&self, kind: ActivationSignalDetectorKind) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>> {
+    pub fn GetActivationSignalDetectorsAsync(&self, kind: ActivationSignalDetectorKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), kind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), kind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn Default() -> ::windows::runtime::Result<ConversationalAgentDetectorManager> {
+    pub fn Default() -> ::windows::core::Result<ConversationalAgentDetectorManager> {
         Self::IConversationalAgentDetectorManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentDetectorManager>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentDetectorManager>(result__)
         })
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn GetActivationSignalDetectorFromId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, detectorid: Param0) -> ::windows::runtime::Result<ActivationSignalDetector> {
-        let this = &::windows::runtime::Interface::cast::<IConversationalAgentDetectorManager2>(self)?;
+    pub fn GetActivationSignalDetectorFromId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, detectorid: Param0) -> ::windows::core::Result<ActivationSignalDetector> {
+        let this = &::windows::core::Interface::cast::<IConversationalAgentDetectorManager2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), detectorid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetector>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), detectorid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetector>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn GetActivationSignalDetectorFromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, detectorid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>> {
-        let this = &::windows::runtime::Interface::cast::<IConversationalAgentDetectorManager2>(self)?;
+    pub fn GetActivationSignalDetectorFromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, detectorid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>> {
+        let this = &::windows::core::Interface::cast::<IConversationalAgentDetectorManager2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), detectorid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), detectorid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>>(result__)
         }
     }
-    pub fn IConversationalAgentDetectorManagerStatics<R, F: FnOnce(&IConversationalAgentDetectorManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<ConversationalAgentDetectorManager, IConversationalAgentDetectorManagerStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IConversationalAgentDetectorManagerStatics<R, F: FnOnce(&IConversationalAgentDetectorManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<ConversationalAgentDetectorManager, IConversationalAgentDetectorManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentDetectorManager {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager;{de94fbb0-597a-5df8-8cfb-9dbb583ba3ff})");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentDetectorManager {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager;{de94fbb0-597a-5df8-8cfb-9dbb583ba3ff})");
 }
-unsafe impl ::windows::runtime::Interface for ConversationalAgentDetectorManager {
+unsafe impl ::windows::core::Interface for ConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
 }
-impl ::windows::runtime::RuntimeName for ConversationalAgentDetectorManager {
+impl ::windows::core::RuntimeName for ConversationalAgentDetectorManager {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager";
 }
-impl ::core::convert::From<ConversationalAgentDetectorManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConversationalAgentDetectorManager> for ::windows::core::IUnknown {
     fn from(value: ConversationalAgentDetectorManager) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ConversationalAgentDetectorManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConversationalAgentDetectorManager> for ::windows::core::IUnknown {
     fn from(value: &ConversationalAgentDetectorManager) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentDetectorManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConversationalAgentDetectorManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentDetectorManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentDetectorManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ConversationalAgentDetectorManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConversationalAgentDetectorManager> for ::windows::core::IInspectable {
     fn from(value: ConversationalAgentDetectorManager) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ConversationalAgentDetectorManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConversationalAgentDetectorManager> for ::windows::core::IInspectable {
     fn from(value: &ConversationalAgentDetectorManager) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentDetectorManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConversationalAgentDetectorManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentDetectorManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentDetectorManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ConversationalAgentDetectorManager {}
@@ -996,438 +996,438 @@ unsafe impl ::core::marker::Sync for ConversationalAgentDetectorManager {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConversationalAgentSession(pub ::windows::runtime::IInspectable);
+pub struct ConversationalAgentSession(pub ::windows::core::IInspectable);
 impl ConversationalAgentSession {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn Close(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn SessionInterrupted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SessionInterrupted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn RemoveSessionInterrupted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveSessionInterrupted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn SignalDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SignalDetected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn RemoveSignalDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveSignalDetected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn SystemStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SystemStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn RemoveSystemStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
+    pub fn RemoveSystemStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn AgentState(&self) -> ::windows::runtime::Result<ConversationalAgentState> {
+    pub fn AgentState(&self) -> ::windows::core::Result<ConversationalAgentState> {
         let this = self;
         unsafe {
             let mut result__: ConversationalAgentState = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentState>(result__)
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentState>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn Signal(&self) -> ::windows::runtime::Result<ConversationalAgentSignal> {
+    pub fn Signal(&self) -> ::windows::core::Result<ConversationalAgentSignal> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSignal>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSignal>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn IsIndicatorLightAvailable(&self) -> ::windows::runtime::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn IsScreenAvailable(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsIndicatorLightAvailable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn IsUserAuthenticated(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsScreenAvailable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn IsVoiceActivationAvailable(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsUserAuthenticated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn IsInterruptible(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsVoiceActivationAvailable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn IsInterrupted(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsInterruptible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
+    pub fn IsInterrupted(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn RequestInterruptibleAsync(&self, interruptible: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>> {
+    pub fn RequestInterruptibleAsync(&self, interruptible: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), interruptible, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), interruptible, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn RequestInterruptible(&self, interruptible: bool) -> ::windows::runtime::Result<ConversationalAgentSessionUpdateResponse> {
+    pub fn RequestInterruptible(&self, interruptible: bool) -> ::windows::core::Result<ConversationalAgentSessionUpdateResponse> {
         let this = self;
         unsafe {
             let mut result__: ConversationalAgentSessionUpdateResponse = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), interruptible, &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
+            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), interruptible, &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn RequestAgentStateChangeAsync(&self, state: ConversationalAgentState) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>> {
+    pub fn RequestAgentStateChangeAsync(&self, state: ConversationalAgentState) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), state, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), state, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn RequestAgentStateChange(&self, state: ConversationalAgentState) -> ::windows::runtime::Result<ConversationalAgentSessionUpdateResponse> {
+    pub fn RequestAgentStateChange(&self, state: ConversationalAgentState) -> ::windows::core::Result<ConversationalAgentSessionUpdateResponse> {
         let this = self;
         unsafe {
             let mut result__: ConversationalAgentSessionUpdateResponse = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), state, &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
+            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), state, &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn RequestForegroundActivationAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>> {
+    pub fn RequestForegroundActivationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn RequestForegroundActivation(&self) -> ::windows::runtime::Result<ConversationalAgentSessionUpdateResponse> {
+    pub fn RequestForegroundActivation(&self) -> ::windows::core::Result<ConversationalAgentSessionUpdateResponse> {
         let this = self;
         unsafe {
             let mut result__: ConversationalAgentSessionUpdateResponse = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
+            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn GetAudioClientAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::IInspectable>> {
+    pub fn GetAudioClientAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::runtime::IInspectable>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn GetAudioClient(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
+    pub fn GetAudioClient(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Media_Audio"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Media_Audio`*"]
-    pub fn CreateAudioDeviceInputNodeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Media::Audio::AudioGraph>>(&self, graph: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>> {
+    pub fn CreateAudioDeviceInputNodeAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Audio::AudioGraph>>(&self, graph: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), graph.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), graph.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>>(result__)
         }
     }
     #[cfg(feature = "Media_Audio")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Media_Audio`*"]
-    pub fn CreateAudioDeviceInputNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Media::Audio::AudioGraph>>(&self, graph: Param0) -> ::windows::runtime::Result<super::super::Media::Audio::AudioDeviceInputNode> {
+    pub fn CreateAudioDeviceInputNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Audio::AudioGraph>>(&self, graph: Param0) -> ::windows::core::Result<super::super::Media::Audio::AudioDeviceInputNode> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), graph.into_param().abi(), &mut result__).from_abi::<super::super::Media::Audio::AudioDeviceInputNode>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), graph.into_param().abi(), &mut result__).from_abi::<super::super::Media::Audio::AudioDeviceInputNode>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn GetAudioCaptureDeviceIdAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
+    pub fn GetAudioCaptureDeviceIdAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn GetAudioCaptureDeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn GetAudioCaptureDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn GetAudioRenderDeviceIdAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
+    pub fn GetAudioRenderDeviceIdAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn GetAudioRenderDeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn GetAudioRenderDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn GetSignalModelIdAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn GetSignalModelIdAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn GetSignalModelId(&self) -> ::windows::runtime::Result<u32> {
+    pub fn GetSignalModelId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).35)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn SetSignalModelIdAsync(&self, signalmodelid: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SetSignalModelIdAsync(&self, signalmodelid: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).36)(::core::mem::transmute_copy(this), signalmodelid, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), signalmodelid, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SetSignalModelId(&self, signalmodelid: u32) -> ::windows::runtime::Result<bool> {
+    pub fn SetSignalModelId(&self, signalmodelid: u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).37)(::core::mem::transmute_copy(this), signalmodelid, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), signalmodelid, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetSupportedSignalModelIdsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>> {
+    pub fn GetSupportedSignalModelIdsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).38)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
-    pub fn GetSupportedSignalModelIds(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+    pub fn GetSupportedSignalModelIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).39)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn GetCurrentSessionAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>> {
+    pub fn GetCurrentSessionAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>> {
         Self::IConversationalAgentSessionStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>>(result__)
         })
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn GetCurrentSessionSync() -> ::windows::runtime::Result<ConversationalAgentSession> {
+    pub fn GetCurrentSessionSync() -> ::windows::core::Result<ConversationalAgentSession> {
         Self::IConversationalAgentSessionStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSession>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSession>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn RequestActivationAsync(&self, activationkind: ConversationalAgentActivationKind) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>> {
-        let this = &::windows::runtime::Interface::cast::<IConversationalAgentSession2>(self)?;
+    pub fn RequestActivationAsync(&self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>> {
+        let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), activationkind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), activationkind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn RequestActivation(&self, activationkind: ConversationalAgentActivationKind) -> ::windows::runtime::Result<ConversationalAgentActivationResult> {
-        let this = &::windows::runtime::Interface::cast::<IConversationalAgentSession2>(self)?;
+    pub fn RequestActivation(&self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<ConversationalAgentActivationResult> {
+        let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__: ConversationalAgentActivationResult = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), activationkind, &mut result__).from_abi::<ConversationalAgentActivationResult>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), activationkind, &mut result__).from_abi::<ConversationalAgentActivationResult>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn SetSupportLockScreenActivationAsync(&self, lockscreenactivationsupported: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::runtime::Interface::cast::<IConversationalAgentSession2>(self)?;
+    pub fn SetSupportLockScreenActivationAsync(&self, lockscreenactivationsupported: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), lockscreenactivationsupported, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), lockscreenactivationsupported, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SetSupportLockScreenActivation(&self, lockscreenactivationsupported: bool) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IConversationalAgentSession2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), lockscreenactivationsupported).ok() }
+    pub fn SetSupportLockScreenActivation(&self, lockscreenactivationsupported: bool) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), lockscreenactivationsupported).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
-    pub fn GetMissingPrerequisites(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>> {
-        let this = &::windows::runtime::Interface::cast::<IConversationalAgentSession2>(self)?;
+    pub fn GetMissingPrerequisites(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>> {
+        let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetMissingPrerequisitesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>> {
-        let this = &::windows::runtime::Interface::cast::<IConversationalAgentSession2>(self)?;
+    pub fn GetMissingPrerequisitesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>> {
+        let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>>(result__)
         }
     }
-    pub fn IConversationalAgentSessionStatics<R, F: FnOnce(&IConversationalAgentSessionStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<ConversationalAgentSession, IConversationalAgentSessionStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IConversationalAgentSessionStatics<R, F: FnOnce(&IConversationalAgentSessionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<ConversationalAgentSession, IConversationalAgentSessionStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSession {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession;{daaae09a-b7ba-57e5-ad13-df520f9b6fa7})");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentSession {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession;{daaae09a-b7ba-57e5-ad13-df520f9b6fa7})");
 }
-unsafe impl ::windows::runtime::Interface for ConversationalAgentSession {
+unsafe impl ::windows::core::Interface for ConversationalAgentSession {
     type Vtable = IConversationalAgentSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
 }
-impl ::windows::runtime::RuntimeName for ConversationalAgentSession {
+impl ::windows::core::RuntimeName for ConversationalAgentSession {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession";
 }
-impl ::core::convert::From<ConversationalAgentSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConversationalAgentSession> for ::windows::core::IUnknown {
     fn from(value: ConversationalAgentSession) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ConversationalAgentSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConversationalAgentSession> for ::windows::core::IUnknown {
     fn from(value: &ConversationalAgentSession) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConversationalAgentSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ConversationalAgentSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConversationalAgentSession> for ::windows::core::IInspectable {
     fn from(value: ConversationalAgentSession) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ConversationalAgentSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConversationalAgentSession> for ::windows::core::IInspectable {
     fn from(value: &ConversationalAgentSession) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConversationalAgentSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ConversationalAgentSession> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: ConversationalAgentSession) -> ::windows::runtime::Result<Self> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ConversationalAgentSession) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&ConversationalAgentSession> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: &ConversationalAgentSession) -> ::windows::runtime::Result<Self> {
-        ::windows::runtime::Interface::cast(value)
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ConversationalAgentSession) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for ConversationalAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::runtime::IntoParam::into_param(&self)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for ConversationalAgentSession {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &ConversationalAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &ConversationalAgentSession {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 unsafe impl ::core::marker::Send for ConversationalAgentSession {}
@@ -1435,56 +1435,56 @@ unsafe impl ::core::marker::Sync for ConversationalAgentSession {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConversationalAgentSessionInterruptedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct ConversationalAgentSessionInterruptedEventArgs(pub ::windows::core::IInspectable);
 impl ConversationalAgentSessionInterruptedEventArgs {}
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs;{9766591f-f63d-5d3e-9bf2-bd0760552686})");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs;{9766591f-f63d-5d3e-9bf2-bd0760552686})");
 }
-unsafe impl ::windows::runtime::Interface for ConversationalAgentSessionInterruptedEventArgs {
+unsafe impl ::windows::core::Interface for ConversationalAgentSessionInterruptedEventArgs {
     type Vtable = IConversationalAgentSessionInterruptedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
 }
-impl ::windows::runtime::RuntimeName for ConversationalAgentSessionInterruptedEventArgs {
+impl ::windows::core::RuntimeName for ConversationalAgentSessionInterruptedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs";
 }
-impl ::core::convert::From<ConversationalAgentSessionInterruptedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConversationalAgentSessionInterruptedEventArgs> for ::windows::core::IUnknown {
     fn from(value: ConversationalAgentSessionInterruptedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ConversationalAgentSessionInterruptedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConversationalAgentSessionInterruptedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ConversationalAgentSessionInterruptedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSessionInterruptedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConversationalAgentSessionInterruptedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentSessionInterruptedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentSessionInterruptedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ConversationalAgentSessionInterruptedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConversationalAgentSessionInterruptedEventArgs> for ::windows::core::IInspectable {
     fn from(value: ConversationalAgentSessionInterruptedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ConversationalAgentSessionInterruptedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConversationalAgentSessionInterruptedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ConversationalAgentSessionInterruptedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentSessionInterruptedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConversationalAgentSessionInterruptedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentSessionInterruptedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentSessionInterruptedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ConversationalAgentSessionInterruptedEventArgs {}
@@ -1502,167 +1502,167 @@ impl ::core::convert::From<i32> for ConversationalAgentSessionUpdateResponse {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ConversationalAgentSessionUpdateResponse {
+unsafe impl ::windows::core::Abi for ConversationalAgentSessionUpdateResponse {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSessionUpdateResponse {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentSessionUpdateResponse {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
 }
-impl ::windows::runtime::DefaultType for ConversationalAgentSessionUpdateResponse {
+impl ::windows::core::DefaultType for ConversationalAgentSessionUpdateResponse {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConversationalAgentSignal(pub ::windows::runtime::IInspectable);
+pub struct ConversationalAgentSignal(pub ::windows::core::IInspectable);
 impl ConversationalAgentSignal {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn IsSignalVerificationRequired(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsSignalVerificationRequired(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SetIsSignalVerificationRequired(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetIsSignalVerificationRequired(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SignalId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn SignalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SetSignalId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetSignalId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SignalName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn SignalName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SetSignalName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetSignalName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SignalContext(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
+    pub fn SignalContext(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SetSignalContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetSignalContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn SignalStart(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
+    pub fn SignalStart(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn SetSignalStart<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetSignalStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn SignalEnd(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
+    pub fn SignalEnd(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
-    pub fn SetSignalEnd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetSignalEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn DetectorId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<IConversationalAgentSignal2>(self)?;
+    pub fn DetectorId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IConversationalAgentSignal2>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn DetectorKind(&self) -> ::windows::runtime::Result<ActivationSignalDetectorKind> {
-        let this = &::windows::runtime::Interface::cast::<IConversationalAgentSignal2>(self)?;
+    pub fn DetectorKind(&self) -> ::windows::core::Result<ActivationSignalDetectorKind> {
+        let this = &::windows::core::Interface::cast::<IConversationalAgentSignal2>(self)?;
         unsafe {
             let mut result__: ActivationSignalDetectorKind = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectorKind>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectorKind>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSignal {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal;{20ed25f7-b120-51f2-8603-265d6a47f232})");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentSignal {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal;{20ed25f7-b120-51f2-8603-265d6a47f232})");
 }
-unsafe impl ::windows::runtime::Interface for ConversationalAgentSignal {
+unsafe impl ::windows::core::Interface for ConversationalAgentSignal {
     type Vtable = IConversationalAgentSignal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
 }
-impl ::windows::runtime::RuntimeName for ConversationalAgentSignal {
+impl ::windows::core::RuntimeName for ConversationalAgentSignal {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal";
 }
-impl ::core::convert::From<ConversationalAgentSignal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConversationalAgentSignal> for ::windows::core::IUnknown {
     fn from(value: ConversationalAgentSignal) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ConversationalAgentSignal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConversationalAgentSignal> for ::windows::core::IUnknown {
     fn from(value: &ConversationalAgentSignal) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSignal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConversationalAgentSignal {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentSignal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentSignal {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ConversationalAgentSignal> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConversationalAgentSignal> for ::windows::core::IInspectable {
     fn from(value: ConversationalAgentSignal) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ConversationalAgentSignal> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConversationalAgentSignal> for ::windows::core::IInspectable {
     fn from(value: &ConversationalAgentSignal) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentSignal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConversationalAgentSignal {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentSignal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentSignal {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ConversationalAgentSignal {}
@@ -1670,56 +1670,56 @@ unsafe impl ::core::marker::Sync for ConversationalAgentSignal {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConversationalAgentSignalDetectedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct ConversationalAgentSignalDetectedEventArgs(pub ::windows::core::IInspectable);
 impl ConversationalAgentSignalDetectedEventArgs {}
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs;{4d57eb8f-f88a-599b-91d3-d604876708bc})");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs;{4d57eb8f-f88a-599b-91d3-d604876708bc})");
 }
-unsafe impl ::windows::runtime::Interface for ConversationalAgentSignalDetectedEventArgs {
+unsafe impl ::windows::core::Interface for ConversationalAgentSignalDetectedEventArgs {
     type Vtable = IConversationalAgentSignalDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
 }
-impl ::windows::runtime::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
+impl ::windows::core::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs";
 }
-impl ::core::convert::From<ConversationalAgentSignalDetectedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConversationalAgentSignalDetectedEventArgs> for ::windows::core::IUnknown {
     fn from(value: ConversationalAgentSignalDetectedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ConversationalAgentSignalDetectedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConversationalAgentSignalDetectedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ConversationalAgentSignalDetectedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSignalDetectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConversationalAgentSignalDetectedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentSignalDetectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentSignalDetectedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ConversationalAgentSignalDetectedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConversationalAgentSignalDetectedEventArgs> for ::windows::core::IInspectable {
     fn from(value: ConversationalAgentSignalDetectedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ConversationalAgentSignalDetectedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConversationalAgentSignalDetectedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ConversationalAgentSignalDetectedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentSignalDetectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConversationalAgentSignalDetectedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentSignalDetectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentSignalDetectedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ConversationalAgentSignalDetectedEventArgs {}
@@ -1741,13 +1741,13 @@ impl ::core::convert::From<i32> for ConversationalAgentState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ConversationalAgentState {
+unsafe impl ::windows::core::Abi for ConversationalAgentState {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentState {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
 }
-impl ::windows::runtime::DefaultType for ConversationalAgentState {
+impl ::windows::core::DefaultType for ConversationalAgentState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -1765,77 +1765,77 @@ impl ::core::convert::From<i32> for ConversationalAgentSystemStateChangeType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ConversationalAgentSystemStateChangeType {
+unsafe impl ::windows::core::Abi for ConversationalAgentSystemStateChangeType {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSystemStateChangeType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChangeType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
 }
-impl ::windows::runtime::DefaultType for ConversationalAgentSystemStateChangeType {
+impl ::windows::core::DefaultType for ConversationalAgentSystemStateChangeType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConversationalAgentSystemStateChangedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct ConversationalAgentSystemStateChangedEventArgs(pub ::windows::core::IInspectable);
 impl ConversationalAgentSystemStateChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn SystemStateChangeType(&self) -> ::windows::runtime::Result<ConversationalAgentSystemStateChangeType> {
+    pub fn SystemStateChangeType(&self) -> ::windows::core::Result<ConversationalAgentSystemStateChangeType> {
         let this = self;
         unsafe {
             let mut result__: ConversationalAgentSystemStateChangeType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSystemStateChangeType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSystemStateChangeType>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSystemStateChangedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs;{1c2c6e3e-2785-59a7-8e71-38adeef79928})");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs;{1c2c6e3e-2785-59a7-8e71-38adeef79928})");
 }
-unsafe impl ::windows::runtime::Interface for ConversationalAgentSystemStateChangedEventArgs {
+unsafe impl ::windows::core::Interface for ConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
 }
-impl ::windows::runtime::RuntimeName for ConversationalAgentSystemStateChangedEventArgs {
+impl ::windows::core::RuntimeName for ConversationalAgentSystemStateChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs";
 }
-impl ::core::convert::From<ConversationalAgentSystemStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConversationalAgentSystemStateChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: ConversationalAgentSystemStateChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ConversationalAgentSystemStateChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSystemStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConversationalAgentSystemStateChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentSystemStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentSystemStateChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ConversationalAgentSystemStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConversationalAgentSystemStateChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: ConversationalAgentSystemStateChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ConversationalAgentSystemStateChangedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentSystemStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConversationalAgentSystemStateChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentSystemStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentSystemStateChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ConversationalAgentSystemStateChangedEventArgs {}
@@ -1857,13 +1857,13 @@ impl ::core::convert::From<i32> for ConversationalAgentVoiceActivationPrerequisi
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ConversationalAgentVoiceActivationPrerequisiteKind {
+unsafe impl ::windows::core::Abi for ConversationalAgentVoiceActivationPrerequisiteKind {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentVoiceActivationPrerequisiteKind {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentVoiceActivationPrerequisiteKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
 }
-impl ::windows::runtime::DefaultType for ConversationalAgentVoiceActivationPrerequisiteKind {
+impl ::windows::core::DefaultType for ConversationalAgentVoiceActivationPrerequisiteKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -1880,77 +1880,77 @@ impl ::core::convert::From<i32> for DetectionConfigurationAvailabilityChangeKind
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DetectionConfigurationAvailabilityChangeKind {
+unsafe impl ::windows::core::Abi for DetectionConfigurationAvailabilityChangeKind {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DetectionConfigurationAvailabilityChangeKind {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
+unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityChangeKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
 }
-impl ::windows::runtime::DefaultType for DetectionConfigurationAvailabilityChangeKind {
+impl ::windows::core::DefaultType for DetectionConfigurationAvailabilityChangeKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DetectionConfigurationAvailabilityChangedEventArgs(pub ::windows::runtime::IInspectable);
+pub struct DetectionConfigurationAvailabilityChangedEventArgs(pub ::windows::core::IInspectable);
 impl DetectionConfigurationAvailabilityChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn Kind(&self) -> ::windows::runtime::Result<DetectionConfigurationAvailabilityChangeKind> {
+    pub fn Kind(&self) -> ::windows::core::Result<DetectionConfigurationAvailabilityChangeKind> {
         let this = self;
         unsafe {
             let mut result__: DetectionConfigurationAvailabilityChangeKind = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DetectionConfigurationAvailabilityChangeKind>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DetectionConfigurationAvailabilityChangeKind>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for DetectionConfigurationAvailabilityChangedEventArgs {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs;{5129c9fb-4be8-5f14-af2b-88d62b1b4462})");
+unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs;{5129c9fb-4be8-5f14-af2b-88d62b1b4462})");
 }
-unsafe impl ::windows::runtime::Interface for DetectionConfigurationAvailabilityChangedEventArgs {
+unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
 }
-impl ::windows::runtime::RuntimeName for DetectionConfigurationAvailabilityChangedEventArgs {
+impl ::windows::core::RuntimeName for DetectionConfigurationAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs";
 }
-impl ::core::convert::From<DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DetectionConfigurationAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DetectionConfigurationAvailabilityChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DetectionConfigurationAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DetectionConfigurationAvailabilityChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DetectionConfigurationAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DetectionConfigurationAvailabilityChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DetectionConfigurationAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DetectionConfigurationAvailabilityChangedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityChangedEventArgs {}
@@ -1958,98 +1958,98 @@ unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityChangedEv
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DetectionConfigurationAvailabilityInfo(pub ::windows::runtime::IInspectable);
+pub struct DetectionConfigurationAvailabilityInfo(pub ::windows::core::IInspectable);
 impl DetectionConfigurationAvailabilityInfo {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn HasSystemResourceAccess(&self) -> ::windows::runtime::Result<bool> {
+    pub fn HasSystemResourceAccess(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn HasPermission(&self) -> ::windows::runtime::Result<bool> {
+    pub fn HasPermission(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
-    pub fn HasLockScreenPermission(&self) -> ::windows::runtime::Result<bool> {
+    pub fn HasLockScreenPermission(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
-    pub fn UnavailableSystemResources(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>> {
-        let this = &::windows::runtime::Interface::cast::<IDetectionConfigurationAvailabilityInfo2>(self)?;
+    pub fn UnavailableSystemResources(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>> {
+        let this = &::windows::core::Interface::cast::<IDetectionConfigurationAvailabilityInfo2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for DetectionConfigurationAvailabilityInfo {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo;{b5affeb0-40f0-5398-b838-91979c2c6208})");
+unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityInfo {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo;{b5affeb0-40f0-5398-b838-91979c2c6208})");
 }
-unsafe impl ::windows::runtime::Interface for DetectionConfigurationAvailabilityInfo {
+unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
 }
-impl ::windows::runtime::RuntimeName for DetectionConfigurationAvailabilityInfo {
+impl ::windows::core::RuntimeName for DetectionConfigurationAvailabilityInfo {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo";
 }
-impl ::core::convert::From<DetectionConfigurationAvailabilityInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DetectionConfigurationAvailabilityInfo> for ::windows::core::IUnknown {
     fn from(value: DetectionConfigurationAvailabilityInfo) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&DetectionConfigurationAvailabilityInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DetectionConfigurationAvailabilityInfo> for ::windows::core::IUnknown {
     fn from(value: &DetectionConfigurationAvailabilityInfo) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DetectionConfigurationAvailabilityInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DetectionConfigurationAvailabilityInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DetectionConfigurationAvailabilityInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DetectionConfigurationAvailabilityInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<DetectionConfigurationAvailabilityInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DetectionConfigurationAvailabilityInfo> for ::windows::core::IInspectable {
     fn from(value: DetectionConfigurationAvailabilityInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&DetectionConfigurationAvailabilityInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DetectionConfigurationAvailabilityInfo> for ::windows::core::IInspectable {
     fn from(value: &DetectionConfigurationAvailabilityInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DetectionConfigurationAvailabilityInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DetectionConfigurationAvailabilityInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DetectionConfigurationAvailabilityInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DetectionConfigurationAvailabilityInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityInfo {}
@@ -2075,522 +2075,522 @@ impl ::core::convert::From<i32> for DetectionConfigurationTrainingStatus {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DetectionConfigurationTrainingStatus {
+unsafe impl ::windows::core::Abi for DetectionConfigurationTrainingStatus {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DetectionConfigurationTrainingStatus {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
+unsafe impl ::windows::core::RuntimeType for DetectionConfigurationTrainingStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
 }
-impl ::windows::runtime::DefaultType for DetectionConfigurationTrainingStatus {
+impl ::windows::core::DefaultType for DetectionConfigurationTrainingStatus {
     type DefaultType = Self;
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivationSignalDetectionConfiguration(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfiguration {
+pub struct IActivationSignalDetectionConfiguration(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfiguration {
     type Vtable = IActivationSignalDetectionConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfiguration_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, datatype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, datatype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ActivationSignalDetectionTrainingDataFormat) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: ::windows::runtime::RawPtr, result__: *mut DetectionConfigurationTrainingStatus) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ActivationSignalDetectionTrainingDataFormat) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: ::windows::core::RawPtr, result__: *mut DetectionConfigurationTrainingStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivationSignalDetectionConfiguration2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfiguration2 {
+pub struct IActivationSignalDetectionConfiguration2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfiguration2 {
     type Vtable = IActivationSignalDetectionConfiguration2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfiguration2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, datatype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr, result__: *mut ActivationSignalDetectionConfigurationSetModelDataResult) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, result__: *mut ActivationSignalDetectionConfigurationSetModelDataResult) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, datatype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool, result__: *mut ActivationSignalDetectionConfigurationStateChangeResult) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool, result__: *mut ActivationSignalDetectionConfigurationStateChangeResult) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivationSignalDetectionConfigurationCreationResult(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfigurationCreationResult {
+pub struct IActivationSignalDetectionConfigurationCreationResult(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfigurationCreationResult {
     type Vtable = IActivationSignalDetectionConfigurationCreationResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfigurationCreationResult_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ActivationSignalDetectionConfigurationCreationStatus) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ActivationSignalDetectionConfigurationCreationStatus) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivationSignalDetector(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IActivationSignalDetector {
+pub struct IActivationSignalDetector(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IActivationSignalDetector {
     type Vtable = IActivationSignalDetector_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetector_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ActivationSignalDetectorKind) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ActivationSignalDetectorKind) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivationSignalDetector2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IActivationSignalDetector2 {
+pub struct IActivationSignalDetector2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IActivationSignalDetector2 {
     type Vtable = IActivationSignalDetector2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetector2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ActivationSignalDetectionConfigurationRemovalResult) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ActivationSignalDetectionConfigurationRemovalResult) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentDetectorManager(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManager {
+pub struct IConversationalAgentDetectorManager(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManager_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: ActivationSignalDetectorKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, kind: ActivationSignalDetectorKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: ActivationSignalDetectorKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, kind: ActivationSignalDetectorKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentDetectorManager2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManager2 {
+pub struct IConversationalAgentDetectorManager2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManager2 {
     type Vtable = IConversationalAgentDetectorManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManager2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, detectorid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, detectorid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, detectorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, detectorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentDetectorManagerStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManagerStatics {
+pub struct IConversationalAgentDetectorManagerStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManagerStatics {
     type Vtable = IConversationalAgentDetectorManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManagerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSession(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConversationalAgentSession {
+pub struct IConversationalAgentSession(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConversationalAgentSession {
     type Vtable = IConversationalAgentSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSession_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ConversationalAgentState) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interruptible: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ConversationalAgentState) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, interruptible: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interruptible: bool, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, state: ConversationalAgentState, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, interruptible: bool, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, state: ConversationalAgentState, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, state: ConversationalAgentState, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, state: ConversationalAgentState, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Media_Audio"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, graph: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Media_Audio"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, graph: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Media_Audio")))] usize,
-    #[cfg(feature = "Media_Audio")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, graph: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Media_Audio")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, graph: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Audio"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalmodelid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalmodelid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalmodelid: u32, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signalmodelid: u32, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSession2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConversationalAgentSession2 {
+pub struct IConversationalAgentSession2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConversationalAgentSession2 {
     type Vtable = IConversationalAgentSession2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSession2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, activationkind: ConversationalAgentActivationKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, activationkind: ConversationalAgentActivationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, activationkind: ConversationalAgentActivationKind, result__: *mut ConversationalAgentActivationResult) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lockscreenactivationsupported: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, activationkind: ConversationalAgentActivationKind, result__: *mut ConversationalAgentActivationResult) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lockscreenactivationsupported: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lockscreenactivationsupported: bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lockscreenactivationsupported: bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSessionInterruptedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConversationalAgentSessionInterruptedEventArgs {
+pub struct IConversationalAgentSessionInterruptedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConversationalAgentSessionInterruptedEventArgs {
     type Vtable = IConversationalAgentSessionInterruptedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSessionInterruptedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSessionStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConversationalAgentSessionStatics {
+pub struct IConversationalAgentSessionStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConversationalAgentSessionStatics {
     type Vtable = IConversationalAgentSessionStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa005166e_e954_576e_be04_11b8ed10f37b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa005166e_e954_576e_be04_11b8ed10f37b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSessionStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSignal(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConversationalAgentSignal {
+pub struct IConversationalAgentSignal(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConversationalAgentSignal {
     type Vtable = IConversationalAgentSignal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignal_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSignal2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConversationalAgentSignal2 {
+pub struct IConversationalAgentSignal2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConversationalAgentSignal2 {
     type Vtable = IConversationalAgentSignal2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignal2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ActivationSignalDetectorKind) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ActivationSignalDetectorKind) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSignalDetectedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConversationalAgentSignalDetectedEventArgs {
+pub struct IConversationalAgentSignalDetectedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConversationalAgentSignalDetectedEventArgs {
     type Vtable = IConversationalAgentSignalDetectedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignalDetectedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSystemStateChangedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConversationalAgentSystemStateChangedEventArgs {
+pub struct IConversationalAgentSystemStateChangedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSystemStateChangedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ConversationalAgentSystemStateChangeType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ConversationalAgentSystemStateChangeType) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDetectionConfigurationAvailabilityChangedEventArgs(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityChangedEventArgs {
+pub struct IDetectionConfigurationAvailabilityChangedEventArgs(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityChangedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DetectionConfigurationAvailabilityChangeKind) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut DetectionConfigurationAvailabilityChangeKind) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDetectionConfigurationAvailabilityInfo(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityInfo {
+pub struct IDetectionConfigurationAvailabilityInfo(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDetectionConfigurationAvailabilityInfo2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityInfo2 {
+pub struct IDetectionConfigurationAvailabilityInfo2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityInfo2 {
     type Vtable = IDetectionConfigurationAvailabilityInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityInfo2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -2618,12 +2618,12 @@ impl ::core::convert::From<i32> for SignalDetectorResourceKind {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SignalDetectorResourceKind {
+unsafe impl ::windows::core::Abi for SignalDetectorResourceKind {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for SignalDetectorResourceKind {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind;i4)");
+unsafe impl ::windows::core::RuntimeType for SignalDetectorResourceKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind;i4)");
 }
-impl ::windows::runtime::DefaultType for SignalDetectorResourceKind {
+impl ::windows::core::DefaultType for SignalDetectorResourceKind {
     type DefaultType = Self;
 }

@@ -193,7 +193,7 @@ impl ::core::cmp::PartialEq for MapiFileDesc {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiFileDesc {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MapiFileDesc {
+unsafe impl ::windows::core::Abi for MapiFileDesc {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -231,7 +231,7 @@ impl ::core::cmp::PartialEq for MapiFileDescW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiFileDescW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MapiFileDescW {
+unsafe impl ::windows::core::Abi for MapiFileDescW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -261,7 +261,7 @@ impl ::core::cmp::PartialEq for MapiFileTagExt {
     }
 }
 impl ::core::cmp::Eq for MapiFileTagExt {}
-unsafe impl ::windows::runtime::Abi for MapiFileTagExt {
+unsafe impl ::windows::core::Abi for MapiFileTagExt {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -329,7 +329,7 @@ impl ::core::cmp::PartialEq for MapiMessage {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiMessage {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MapiMessage {
+unsafe impl ::windows::core::Abi for MapiMessage {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -397,7 +397,7 @@ impl ::core::cmp::PartialEq for MapiMessageW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiMessageW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MapiMessageW {
+unsafe impl ::windows::core::Abi for MapiMessageW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -435,7 +435,7 @@ impl ::core::cmp::PartialEq for MapiRecipDesc {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiRecipDesc {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MapiRecipDesc {
+unsafe impl ::windows::core::Abi for MapiRecipDesc {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -473,7 +473,7 @@ impl ::core::cmp::PartialEq for MapiRecipDescW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiRecipDescW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MapiRecipDescW {
+unsafe impl ::windows::core::Abi for MapiRecipDescW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Mapi`*"]

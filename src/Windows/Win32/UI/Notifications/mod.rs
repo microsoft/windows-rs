@@ -2,45 +2,45 @@
 #[doc = "*Required features: `Win32_UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INotificationActivationCallback(pub ::windows::runtime::IUnknown);
+pub struct INotificationActivationCallback(pub ::windows::core::IUnknown);
 impl INotificationActivationCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Notifications`, `Win32_Foundation`*"]
-    pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, appusermodelid: Param0, invokedargs: Param1, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(count)).ok()
+    pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, appusermodelid: Param0, invokedargs: Param1, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(count)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INotificationActivationCallback {
+unsafe impl ::windows::core::Interface for INotificationActivationCallback {
     type Vtable = INotificationActivationCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53e31837_6600_4a81_9395_75cffe746f94);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e31837_6600_4a81_9395_75cffe746f94);
 }
-impl ::core::convert::From<INotificationActivationCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INotificationActivationCallback> for ::windows::core::IUnknown {
     fn from(value: INotificationActivationCallback) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INotificationActivationCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INotificationActivationCallback> for ::windows::core::IUnknown {
     fn from(value: &INotificationActivationCallback) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INotificationActivationCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INotificationActivationCallback {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INotificationActivationCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INotificationActivationCallback {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotificationActivationCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appusermodelid: super::super::Foundation::PWSTR, invokedargs: super::super::Foundation::PWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, appusermodelid: super::super::Foundation::PWSTR, invokedargs: super::super::Foundation::PWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -74,6 +74,6 @@ impl ::core::cmp::PartialEq for NOTIFICATION_USER_INPUT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NOTIFICATION_USER_INPUT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NOTIFICATION_USER_INPUT_DATA {
+unsafe impl ::windows::core::Abi for NOTIFICATION_USER_INPUT_DATA {
     type Abi = Self;
 }

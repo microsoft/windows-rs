@@ -2,14 +2,14 @@
 #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckGamingPrivilegeSilently<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(privilegeid: u32, scope: Param1, policy: Param2) -> ::windows::runtime::Result<super::Foundation::BOOL> {
+pub unsafe fn CheckGamingPrivilegeSilently<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(privilegeid: u32, scope: Param1, policy: Param2) -> ::windows::core::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CheckGamingPrivilegeSilently(privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, hasprivilege: *mut super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn CheckGamingPrivilegeSilently(privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hasprivilege: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CheckGamingPrivilegeSilently(::core::mem::transmute(privilegeid), scope.into_param().abi(), policy.into_param().abi(), &mut result__).from_abi::<super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
@@ -18,14 +18,14 @@ pub unsafe fn CheckGamingPrivilegeSilently<'a, Param1: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckGamingPrivilegeSilentlyForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(user: Param0, privilegeid: u32, scope: Param2, policy: Param3) -> ::windows::runtime::Result<super::Foundation::BOOL> {
+pub unsafe fn CheckGamingPrivilegeSilentlyForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, privilegeid: u32, scope: Param2, policy: Param3) -> ::windows::core::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CheckGamingPrivilegeSilentlyForUser(user: ::windows::runtime::RawPtr, privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, hasprivilege: *mut super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn CheckGamingPrivilegeSilentlyForUser(user: ::windows::core::RawPtr, privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hasprivilege: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CheckGamingPrivilegeSilentlyForUser(user.into_param().abi(), ::core::mem::transmute(privilegeid), scope.into_param().abi(), policy.into_param().abi(), &mut result__).from_abi::<super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
@@ -33,12 +33,12 @@ pub unsafe fn CheckGamingPrivilegeSilentlyForUser<'a, Param0: ::windows::runtime
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn CheckGamingPrivilegeWithUI<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(privilegeid: u32, scope: Param1, policy: Param2, friendlymessage: Param3, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn CheckGamingPrivilegeWithUI<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(privilegeid: u32, scope: Param1, policy: Param2, friendlymessage: Param3, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CheckGamingPrivilegeWithUI(privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, friendlymessage: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn CheckGamingPrivilegeWithUI(privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, friendlymessage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         CheckGamingPrivilegeWithUI(::core::mem::transmute(privilegeid), scope.into_param().abi(), policy.into_param().abi(), friendlymessage.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -47,7 +47,7 @@ pub unsafe fn CheckGamingPrivilegeWithUI<'a, Param1: ::windows::runtime::IntoPar
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn CheckGamingPrivilegeWithUIForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
+pub unsafe fn CheckGamingPrivilegeWithUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     user: Param0,
     privilegeid: u32,
     scope: Param2,
@@ -55,12 +55,12 @@ pub unsafe fn CheckGamingPrivilegeWithUIForUser<'a, Param0: ::windows::runtime::
     friendlymessage: Param4,
     completionroutine: ::core::option::Option<GameUICompletionRoutine>,
     context: *const ::core::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CheckGamingPrivilegeWithUIForUser(user: ::windows::runtime::RawPtr, privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, friendlymessage: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn CheckGamingPrivilegeWithUIForUser(user: ::windows::core::RawPtr, privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, friendlymessage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         CheckGamingPrivilegeWithUIForUser(user.into_param().abi(), ::core::mem::transmute(privilegeid), scope.into_param().abi(), policy.into_param().abi(), friendlymessage.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -78,7 +78,7 @@ impl ::core::convert::From<i32> for GAMESTATS_OPEN_RESULT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GAMESTATS_OPEN_RESULT {
+unsafe impl ::windows::core::Abi for GAMESTATS_OPEN_RESULT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
@@ -92,7 +92,7 @@ impl ::core::convert::From<i32> for GAMESTATS_OPEN_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GAMESTATS_OPEN_TYPE {
+unsafe impl ::windows::core::Abi for GAMESTATS_OPEN_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
@@ -107,7 +107,7 @@ impl ::core::convert::From<i32> for GAME_INSTALL_SCOPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GAME_INSTALL_SCOPE {
+unsafe impl ::windows::core::Abi for GAME_INSTALL_SCOPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
@@ -124,7 +124,7 @@ impl ::core::convert::From<i32> for GAMING_DEVICE_DEVICE_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GAMING_DEVICE_DEVICE_ID {
+unsafe impl ::windows::core::Abi for GAMING_DEVICE_DEVICE_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -151,7 +151,7 @@ impl ::core::cmp::PartialEq for GAMING_DEVICE_MODEL_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for GAMING_DEVICE_MODEL_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for GAMING_DEVICE_MODEL_INFORMATION {
+unsafe impl ::windows::core::Abi for GAMING_DEVICE_MODEL_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
@@ -165,23 +165,23 @@ impl ::core::convert::From<i32> for GAMING_DEVICE_VENDOR_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GAMING_DEVICE_VENDOR_ID {
+unsafe impl ::windows::core::Abi for GAMING_DEVICE_VENDOR_ID {
     type Abi = Self;
 }
-pub const GameExplorer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
-pub const GameStatistics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
+pub const GameExplorer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
+pub const GameStatistics: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
 #[doc = "*Required features: `Win32_Gaming`*"]
-pub type GameUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::runtime::HRESULT, context: *const ::core::ffi::c_void);
+pub type GameUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::core::HRESULT, context: *const ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows::runtime::Result<u32> {
+pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetExpandedResourceExclusiveCpuCount(exclusivecpucount: *mut u32) -> ::windows::runtime::HRESULT;
+            fn GetExpandedResourceExclusiveCpuCount(exclusivecpucount: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetExpandedResourceExclusiveCpuCount(&mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
@@ -189,14 +189,14 @@ pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows::runtime::Resu
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn GetGamingDeviceModelInformation() -> ::windows::runtime::Result<GAMING_DEVICE_MODEL_INFORMATION> {
+pub unsafe fn GetGamingDeviceModelInformation() -> ::windows::core::Result<GAMING_DEVICE_MODEL_INFORMATION> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetGamingDeviceModelInformation(information: *mut GAMING_DEVICE_MODEL_INFORMATION) -> ::windows::runtime::HRESULT;
+            fn GetGamingDeviceModelInformation(information: *mut GAMING_DEVICE_MODEL_INFORMATION) -> ::windows::core::HRESULT;
         }
-        let mut result__: <GAMING_DEVICE_MODEL_INFORMATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <GAMING_DEVICE_MODEL_INFORMATION as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetGamingDeviceModelInformation(&mut result__).from_abi::<GAMING_DEVICE_MODEL_INFORMATION>(result__)
     }
     #[cfg(not(windows))]
@@ -205,14 +205,14 @@ pub unsafe fn GetGamingDeviceModelInformation() -> ::windows::runtime::Result<GA
 #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HasExpandedResources() -> ::windows::runtime::Result<super::Foundation::BOOL> {
+pub unsafe fn HasExpandedResources() -> ::windows::core::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HasExpandedResources(hasexpandedresources: *mut super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn HasExpandedResources(hasexpandedresources: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HasExpandedResources(&mut result__).from_abi::<super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
@@ -221,333 +221,333 @@ pub unsafe fn HasExpandedResources() -> ::windows::runtime::Result<super::Founda
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IGameExplorer(pub ::windows::runtime::IUnknown);
+pub struct IGameExplorer(pub ::windows::core::IUnknown);
 impl IGameExplorer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn AddGame<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::BSTR>>(&self, bstrgdfbinarypath: Param0, bstrgameinstalldirectory: Param1, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrgdfbinarypath.into_param().abi(), bstrgameinstalldirectory.into_param().abi(), ::core::mem::transmute(installscope), ::core::mem::transmute(pguidinstanceid)).ok()
+    pub unsafe fn AddGame<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::BSTR>>(&self, bstrgdfbinarypath: Param0, bstrgameinstalldirectory: Param1, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrgdfbinarypath.into_param().abi(), bstrgameinstalldirectory.into_param().abi(), ::core::mem::transmute(installscope), ::core::mem::transmute(pguidinstanceid)).ok()
     }
     #[doc = "*Required features: `Win32_Gaming`*"]
-    pub unsafe fn RemoveGame<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidinstanceid: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), guidinstanceid.into_param().abi()).ok()
+    pub unsafe fn RemoveGame<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guidinstanceid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), guidinstanceid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Gaming`*"]
-    pub unsafe fn UpdateGame<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidinstanceid: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), guidinstanceid.into_param().abi()).ok()
+    pub unsafe fn UpdateGame<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guidinstanceid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), guidinstanceid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn VerifyAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::BSTR>>(&self, bstrgdfbinarypath: Param0) -> ::windows::runtime::Result<super::Foundation::BOOL> {
-        let mut result__: <super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), bstrgdfbinarypath.into_param().abi(), &mut result__).from_abi::<super::Foundation::BOOL>(result__)
+    pub unsafe fn VerifyAccess<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::BSTR>>(&self, bstrgdfbinarypath: Param0) -> ::windows::core::Result<super::Foundation::BOOL> {
+        let mut result__: <super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), bstrgdfbinarypath.into_param().abi(), &mut result__).from_abi::<super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IGameExplorer {
+unsafe impl ::windows::core::Interface for IGameExplorer {
     type Vtable = IGameExplorer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7b2fb72_d728_49b3_a5f2_18ebf5f1349e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7b2fb72_d728_49b3_a5f2_18ebf5f1349e);
 }
-impl ::core::convert::From<IGameExplorer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IGameExplorer> for ::windows::core::IUnknown {
     fn from(value: IGameExplorer) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IGameExplorer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IGameExplorer> for ::windows::core::IUnknown {
     fn from(value: &IGameExplorer) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameExplorer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGameExplorer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGameExplorer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGameExplorer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameExplorer_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, bstrgameinstalldirectory: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, bstrgameinstalldirectory: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidinstanceid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidinstanceid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, guidinstanceid: ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, guidinstanceid: ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IGameExplorer2(pub ::windows::runtime::IUnknown);
+pub struct IGameExplorer2(pub ::windows::core::IUnknown);
 impl IGameExplorer2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn InstallGame<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>>(&self, binarygdfpath: Param0, installdirectory: Param1, installscope: GAME_INSTALL_SCOPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), binarygdfpath.into_param().abi(), installdirectory.into_param().abi(), ::core::mem::transmute(installscope)).ok()
+    pub unsafe fn InstallGame<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, binarygdfpath: Param0, installdirectory: Param1, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), binarygdfpath.into_param().abi(), installdirectory.into_param().abi(), ::core::mem::transmute(installscope)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn UninstallGame<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>>(&self, binarygdfpath: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), binarygdfpath.into_param().abi()).ok()
+    pub unsafe fn UninstallGame<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, binarygdfpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), binarygdfpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn CheckAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>>(&self, binarygdfpath: Param0) -> ::windows::runtime::Result<super::Foundation::BOOL> {
-        let mut result__: <super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), binarygdfpath.into_param().abi(), &mut result__).from_abi::<super::Foundation::BOOL>(result__)
+    pub unsafe fn CheckAccess<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, binarygdfpath: Param0) -> ::windows::core::Result<super::Foundation::BOOL> {
+        let mut result__: <super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), binarygdfpath.into_param().abi(), &mut result__).from_abi::<super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IGameExplorer2 {
+unsafe impl ::windows::core::Interface for IGameExplorer2 {
     type Vtable = IGameExplorer2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
 }
-impl ::core::convert::From<IGameExplorer2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IGameExplorer2> for ::windows::core::IUnknown {
     fn from(value: IGameExplorer2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IGameExplorer2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IGameExplorer2> for ::windows::core::IUnknown {
     fn from(value: &IGameExplorer2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameExplorer2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGameExplorer2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGameExplorer2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGameExplorer2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameExplorer2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, binarygdfpath: super::Foundation::PWSTR, installdirectory: super::Foundation::PWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, binarygdfpath: super::Foundation::PWSTR, installdirectory: super::Foundation::PWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, binarygdfpath: super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, binarygdfpath: super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, binarygdfpath: super::Foundation::PWSTR, phasaccess: *mut super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, binarygdfpath: super::Foundation::PWSTR, phasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IGameStatistics(pub ::windows::runtime::IUnknown);
+pub struct IGameStatistics(pub ::windows::core::IUnknown);
 impl IGameStatistics {
     #[doc = "*Required features: `Win32_Gaming`*"]
-    pub unsafe fn GetMaxCategoryLength(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetMaxCategoryLength(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Gaming`*"]
-    pub unsafe fn GetMaxNameLength(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetMaxNameLength(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Gaming`*"]
-    pub unsafe fn GetMaxValueLength(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetMaxValueLength(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Gaming`*"]
-    pub unsafe fn GetMaxCategories(&self) -> ::windows::runtime::Result<u16> {
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
+    pub unsafe fn GetMaxCategories(&self) -> ::windows::core::Result<u16> {
+        let mut result__: <u16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[doc = "*Required features: `Win32_Gaming`*"]
-    pub unsafe fn GetMaxStatsPerCategory(&self) -> ::windows::runtime::Result<u16> {
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
+    pub unsafe fn GetMaxStatsPerCategory(&self) -> ::windows::core::Result<u16> {
+        let mut result__: <u16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn SetCategoryTitle<'a, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>>(&self, categoryindex: u16, title: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), title.into_param().abi()).ok()
+    pub unsafe fn SetCategoryTitle<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, categoryindex: u16, title: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), title.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetCategoryTitle(&self, categoryindex: u16) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetCategoryTitle(&self, categoryindex: u16) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: *mut super::Foundation::PWSTR, pvalue: *mut super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), ::core::mem::transmute(statindex), ::core::mem::transmute(pname), ::core::mem::transmute(pvalue)).ok()
+    pub unsafe fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: *mut super::Foundation::PWSTR, pvalue: *mut super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), ::core::mem::transmute(statindex), ::core::mem::transmute(pname), ::core::mem::transmute(pvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn SetStatistic<'a, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>>(&self, categoryindex: u16, statindex: u16, name: Param2, value: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), ::core::mem::transmute(statindex), name.into_param().abi(), value.into_param().abi()).ok()
+    pub unsafe fn SetStatistic<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, categoryindex: u16, statindex: u16, name: Param2, value: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), ::core::mem::transmute(statindex), name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(&self, trackchanges: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), trackchanges.into_param().abi()).ok()
+    pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(&self, trackchanges: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), trackchanges.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Gaming`*"]
-    pub unsafe fn SetLastPlayedCategory(&self, categoryindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex)).ok()
+    pub unsafe fn SetLastPlayedCategory(&self, categoryindex: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex)).ok()
     }
     #[doc = "*Required features: `Win32_Gaming`*"]
-    pub unsafe fn GetLastPlayedCategory(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetLastPlayedCategory(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IGameStatistics {
+unsafe impl ::windows::core::Interface for IGameStatistics {
     type Vtable = IGameStatistics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
 }
-impl ::core::convert::From<IGameStatistics> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IGameStatistics> for ::windows::core::IUnknown {
     fn from(value: IGameStatistics) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IGameStatistics> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IGameStatistics> for ::windows::core::IUnknown {
     fn from(value: &IGameStatistics) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameStatistics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGameStatistics {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGameStatistics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGameStatistics {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameStatistics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cch: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cch: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cch: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmax: *mut u16) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmax: *mut u16) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, categoryindex: u16, title: super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cch: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cch: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cch: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pmax: *mut u16) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pmax: *mut u16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, categoryindex: u16, title: super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, categoryindex: u16, ptitle: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, categoryindex: u16, ptitle: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, categoryindex: u16, statindex: u16, pname: *mut super::Foundation::PWSTR, pvalue: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, categoryindex: u16, statindex: u16, pname: *mut super::Foundation::PWSTR, pvalue: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, categoryindex: u16, statindex: u16, name: super::Foundation::PWSTR, value: super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, categoryindex: u16, statindex: u16, name: super::Foundation::PWSTR, value: super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, trackchanges: super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, trackchanges: super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, categoryindex: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcategoryindex: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, categoryindex: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcategoryindex: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IGameStatisticsMgr(pub ::windows::runtime::IUnknown);
+pub struct IGameStatisticsMgr(pub ::windows::core::IUnknown);
 impl IGameStatisticsMgr {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetGameStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>>(&self, gdfbinarypath: Param0, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), gdfbinarypath.into_param().abi(), ::core::mem::transmute(opentype), ::core::mem::transmute(popenresult), ::core::mem::transmute(ppistats)).ok()
+    pub unsafe fn GetGameStatistics<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, gdfbinarypath: Param0, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), gdfbinarypath.into_param().abi(), ::core::mem::transmute(opentype), ::core::mem::transmute(popenresult), ::core::mem::transmute(ppistats)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn RemoveGameStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>>(&self, gdfbinarypath: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), gdfbinarypath.into_param().abi()).ok()
+    pub unsafe fn RemoveGameStatistics<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, gdfbinarypath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), gdfbinarypath.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IGameStatisticsMgr {
+unsafe impl ::windows::core::Interface for IGameStatisticsMgr {
     type Vtable = IGameStatisticsMgr_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
 }
-impl ::core::convert::From<IGameStatisticsMgr> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IGameStatisticsMgr> for ::windows::core::IUnknown {
     fn from(value: IGameStatisticsMgr) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IGameStatisticsMgr> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IGameStatisticsMgr> for ::windows::core::IUnknown {
     fn from(value: &IGameStatisticsMgr) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameStatisticsMgr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGameStatisticsMgr {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGameStatisticsMgr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGameStatisticsMgr {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameStatisticsMgr_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gdfbinarypath: super::Foundation::PWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, gdfbinarypath: super::Foundation::PWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gdfbinarypath: super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, gdfbinarypath: super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IXblIdpAuthManager(pub ::windows::runtime::IUnknown);
+pub struct IXblIdpAuthManager(pub ::windows::core::IUnknown);
 impl IXblIdpAuthManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn SetGamerAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>>(&self, msaaccountid: Param0, xuid: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), msaaccountid.into_param().abi(), xuid.into_param().abi()).ok()
+    pub unsafe fn SetGamerAccount<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, msaaccountid: Param0, xuid: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), msaaccountid.into_param().abi(), xuid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetGamerAccount(&self, msaaccountid: *mut super::Foundation::PWSTR, xuid: *mut super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(msaaccountid), ::core::mem::transmute(xuid)).ok()
+    pub unsafe fn GetGamerAccount(&self, msaaccountid: *mut super::Foundation::PWSTR, xuid: *mut super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(msaaccountid), ::core::mem::transmute(xuid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn SetAppViewInitialized<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>>(&self, appsid: Param0, msaaccountid: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), appsid.into_param().abi(), msaaccountid.into_param().abi()).ok()
+    pub unsafe fn SetAppViewInitialized<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, appsid: Param0, msaaccountid: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), appsid.into_param().abi(), msaaccountid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetEnvironment(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetEnvironment(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetSandbox(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetSandbox(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetTokenAndSignatureWithTokenResult<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
-        Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
-        Param4: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
-        Param5: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
-        Param6: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
-        Param9: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>,
+        Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
+        Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
+        Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
+        Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
+        Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
+        Param5: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
+        Param6: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
+        Param9: ::windows::core::IntoParam<'a, super::Foundation::BOOL>,
     >(
         &self,
         msaaccountid: Param0,
@@ -560,9 +560,9 @@ impl IXblIdpAuthManager {
         body: *const u8,
         bodysize: u32,
         forcerefresh: Param9,
-    ) -> ::windows::runtime::Result<IXblIdpAuthTokenResult> {
-        let mut result__: <IXblIdpAuthTokenResult as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
+    ) -> ::windows::core::Result<IXblIdpAuthTokenResult> {
+        let mut result__: <IXblIdpAuthTokenResult as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(
             ::core::mem::transmute_copy(self),
             msaaccountid.into_param().abi(),
             appsid.into_param().abi(),
@@ -579,301 +579,301 @@ impl IXblIdpAuthManager {
         .from_abi::<IXblIdpAuthTokenResult>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IXblIdpAuthManager {
+unsafe impl ::windows::core::Interface for IXblIdpAuthManager {
     type Vtable = IXblIdpAuthManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
 }
-impl ::core::convert::From<IXblIdpAuthManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IXblIdpAuthManager> for ::windows::core::IUnknown {
     fn from(value: IXblIdpAuthManager) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IXblIdpAuthManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IXblIdpAuthManager> for ::windows::core::IUnknown {
     fn from(value: &IXblIdpAuthManager) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXblIdpAuthManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXblIdpAuthManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXblIdpAuthManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXblIdpAuthManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXblIdpAuthManager_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, msaaccountid: super::Foundation::PWSTR, xuid: super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, msaaccountid: super::Foundation::PWSTR, xuid: super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, msaaccountid: *mut super::Foundation::PWSTR, xuid: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, msaaccountid: *mut super::Foundation::PWSTR, xuid: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appsid: super::Foundation::PWSTR, msaaccountid: super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, appsid: super::Foundation::PWSTR, msaaccountid: super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, environment: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, environment: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sandbox: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sandbox: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, msaaccountid: super::Foundation::PWSTR, appsid: super::Foundation::PWSTR, msatarget: super::Foundation::PWSTR, msapolicy: super::Foundation::PWSTR, httpmethod: super::Foundation::PWSTR, uri: super::Foundation::PWSTR, headers: super::Foundation::PWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, msaaccountid: super::Foundation::PWSTR, appsid: super::Foundation::PWSTR, msatarget: super::Foundation::PWSTR, msapolicy: super::Foundation::PWSTR, httpmethod: super::Foundation::PWSTR, uri: super::Foundation::PWSTR, headers: super::Foundation::PWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IXblIdpAuthTokenResult(pub ::windows::runtime::IUnknown);
+pub struct IXblIdpAuthTokenResult(pub ::windows::core::IUnknown);
 impl IXblIdpAuthTokenResult {
     #[doc = "*Required features: `Win32_Gaming`*"]
-    pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<XBL_IDP_AUTH_TOKEN_STATUS> {
-        let mut result__: <XBL_IDP_AUTH_TOKEN_STATUS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<XBL_IDP_AUTH_TOKEN_STATUS>(result__)
+    pub unsafe fn GetStatus(&self) -> ::windows::core::Result<XBL_IDP_AUTH_TOKEN_STATUS> {
+        let mut result__: <XBL_IDP_AUTH_TOKEN_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<XBL_IDP_AUTH_TOKEN_STATUS>(result__)
     }
     #[doc = "*Required features: `Win32_Gaming`*"]
-    pub unsafe fn GetErrorCode(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
-        let mut result__: <::windows::runtime::HRESULT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+    pub unsafe fn GetErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
+        let mut result__: <::windows::core::HRESULT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetToken(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetToken(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetSignature(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetSignature(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetSandbox(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetSandbox(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetEnvironment(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetEnvironment(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetMsaAccountId(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetMsaAccountId(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetXuid(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetXuid(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetGamertag(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetAgeGroup(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetAgeGroup(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetPrivileges(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPrivileges(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetMsaTarget(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetMsaTarget(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetMsaPolicy(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetMsaPolicy(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetMsaAppId(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetMsaAppId(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetRedirect(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetRedirect(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetMessage(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetMessage(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetHelpId(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetHelpId(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetEnforcementBans(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetEnforcementBans(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetRestrictions(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetRestrictions(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetTitleRestrictions(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetTitleRestrictions(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IXblIdpAuthTokenResult {
+unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult {
     type Vtable = IXblIdpAuthTokenResult_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x46ce0225_f267_4d68_b299_b2762552dec1);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46ce0225_f267_4d68_b299_b2762552dec1);
 }
-impl ::core::convert::From<IXblIdpAuthTokenResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IXblIdpAuthTokenResult> for ::windows::core::IUnknown {
     fn from(value: IXblIdpAuthTokenResult) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IXblIdpAuthTokenResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IXblIdpAuthTokenResult> for ::windows::core::IUnknown {
     fn from(value: &IXblIdpAuthTokenResult) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXblIdpAuthTokenResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXblIdpAuthTokenResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXblIdpAuthTokenResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXblIdpAuthTokenResult {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXblIdpAuthTokenResult_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, status: *mut XBL_IDP_AUTH_TOKEN_STATUS) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errorcode: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, status: *mut XBL_IDP_AUTH_TOKEN_STATUS) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, errorcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signature: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signature: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sandbox: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sandbox: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, environment: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, environment: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, msaaccountid: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, msaaccountid: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xuid: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, xuid: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gamertag: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, gamertag: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, agegroup: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, agegroup: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, privileges: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, privileges: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, msatarget: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, msatarget: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, msapolicy: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, msapolicy: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, msaappid: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, msaappid: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, redirect: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, redirect: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, message: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, message: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, helpid: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, helpid: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enforcementbans: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, enforcementbans: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, restrictions: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, restrictions: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, titlerestrictions: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, titlerestrictions: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IXblIdpAuthTokenResult2(pub ::windows::runtime::IUnknown);
+pub struct IXblIdpAuthTokenResult2(pub ::windows::core::IUnknown);
 impl IXblIdpAuthTokenResult2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetModernGamertag(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetModernGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetModernGamertagSuffix(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetModernGamertagSuffix(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
-    pub unsafe fn GetUniqueModernGamertag(&self) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
-        let mut result__: <super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetUniqueModernGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
+        let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IXblIdpAuthTokenResult2 {
+unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult2 {
     type Vtable = IXblIdpAuthTokenResult2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75d760b0_60b9_412d_994f_26b2cd5f7812);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d760b0_60b9_412d_994f_26b2cd5f7812);
 }
-impl ::core::convert::From<IXblIdpAuthTokenResult2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IXblIdpAuthTokenResult2> for ::windows::core::IUnknown {
     fn from(value: IXblIdpAuthTokenResult2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IXblIdpAuthTokenResult2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IXblIdpAuthTokenResult2> for ::windows::core::IUnknown {
     fn from(value: &IXblIdpAuthTokenResult2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXblIdpAuthTokenResult2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXblIdpAuthTokenResult2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXblIdpAuthTokenResult2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXblIdpAuthTokenResult2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXblIdpAuthTokenResult2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Gaming`*"]
@@ -907,20 +907,20 @@ impl ::core::convert::From<i32> for KnownGamingPrivileges {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for KnownGamingPrivileges {
+unsafe impl ::windows::core::Abi for KnownGamingPrivileges {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
-pub type PlayerPickerUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::runtime::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, selectedxuidscount: usize);
+pub type PlayerPickerUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, selectedxuidscount: usize);
 #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ProcessPendingGameUI<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(waitforcompletion: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn ProcessPendingGameUI<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(waitforcompletion: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ProcessPendingGameUI(waitforcompletion: super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn ProcessPendingGameUI(waitforcompletion: super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         ProcessPendingGameUI(waitforcompletion.into_param().abi()).ok()
     }
@@ -929,12 +929,12 @@ pub unsafe fn ProcessPendingGameUI<'a, Param0: ::windows::runtime::IntoParam<'a,
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ReleaseExclusiveCpuSets() -> ::windows::runtime::Result<()> {
+pub unsafe fn ReleaseExclusiveCpuSets() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReleaseExclusiveCpuSets() -> ::windows::runtime::HRESULT;
+            fn ReleaseExclusiveCpuSets() -> ::windows::core::HRESULT;
         }
         ReleaseExclusiveCpuSets().ok()
     }
@@ -943,12 +943,12 @@ pub unsafe fn ReleaseExclusiveCpuSets() -> ::windows::runtime::Result<()> {
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowChangeFriendRelationshipUI<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(targetuserxuid: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowChangeFriendRelationshipUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(targetuserxuid: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowChangeFriendRelationshipUI(targetuserxuid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowChangeFriendRelationshipUI(targetuserxuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowChangeFriendRelationshipUI(targetuserxuid.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -957,12 +957,12 @@ pub unsafe fn ShowChangeFriendRelationshipUI<'a, Param0: ::windows::runtime::Int
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowChangeFriendRelationshipUIForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(user: Param0, targetuserxuid: Param1, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowChangeFriendRelationshipUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, targetuserxuid: Param1, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowChangeFriendRelationshipUIForUser(user: ::windows::runtime::RawPtr, targetuserxuid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowChangeFriendRelationshipUIForUser(user: ::windows::core::RawPtr, targetuserxuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowChangeFriendRelationshipUIForUser(user.into_param().abi(), targetuserxuid.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -971,12 +971,12 @@ pub unsafe fn ShowChangeFriendRelationshipUIForUser<'a, Param0: ::windows::runti
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowCustomizeUserProfileUI(completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowCustomizeUserProfileUI(completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowCustomizeUserProfileUI(completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowCustomizeUserProfileUI(completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowCustomizeUserProfileUI(::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -985,12 +985,12 @@ pub unsafe fn ShowCustomizeUserProfileUI(completionroutine: ::core::option::Opti
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowCustomizeUserProfileUIForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(user: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowCustomizeUserProfileUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowCustomizeUserProfileUIForUser(user: ::windows::runtime::RawPtr, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowCustomizeUserProfileUIForUser(user: ::windows::core::RawPtr, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowCustomizeUserProfileUIForUser(user.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -999,12 +999,12 @@ pub unsafe fn ShowCustomizeUserProfileUIForUser<'a, Param0: ::windows::runtime::
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowFindFriendsUI(completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowFindFriendsUI(completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowFindFriendsUI(completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowFindFriendsUI(completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowFindFriendsUI(::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1013,12 +1013,12 @@ pub unsafe fn ShowFindFriendsUI(completionroutine: ::core::option::Option<GameUI
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowFindFriendsUIForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(user: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowFindFriendsUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowFindFriendsUIForUser(user: ::windows::runtime::RawPtr, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowFindFriendsUIForUser(user: ::windows::core::RawPtr, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowFindFriendsUIForUser(user.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1027,12 +1027,12 @@ pub unsafe fn ShowFindFriendsUIForUser<'a, Param0: ::windows::runtime::IntoParam
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowGameInfoUI(titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowGameInfoUI(titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowGameInfoUI(titleid: u32, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowGameInfoUI(titleid: u32, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowGameInfoUI(::core::mem::transmute(titleid), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1041,12 +1041,12 @@ pub unsafe fn ShowGameInfoUI(titleid: u32, completionroutine: ::core::option::Op
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowGameInfoUIForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(user: Param0, titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowGameInfoUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowGameInfoUIForUser(user: ::windows::runtime::RawPtr, titleid: u32, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowGameInfoUIForUser(user: ::windows::core::RawPtr, titleid: u32, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowGameInfoUIForUser(user.into_param().abi(), ::core::mem::transmute(titleid), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1055,19 +1055,19 @@ pub unsafe fn ShowGameInfoUIForUser<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowGameInviteUI<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
+pub unsafe fn ShowGameInviteUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     serviceconfigurationid: Param0,
     sessiontemplatename: Param1,
     sessionid: Param2,
     invitationdisplaytext: Param3,
     completionroutine: ::core::option::Option<GameUICompletionRoutine>,
     context: *const ::core::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowGameInviteUI(serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessiontemplatename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowGameInviteUI(serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowGameInviteUI(serviceconfigurationid.into_param().abi(), sessiontemplatename.into_param().abi(), sessionid.into_param().abi(), invitationdisplaytext.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1076,7 +1076,7 @@ pub unsafe fn ShowGameInviteUI<'a, Param0: ::windows::runtime::IntoParam<'a, ::w
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowGameInviteUIForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
+pub unsafe fn ShowGameInviteUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     user: Param0,
     serviceconfigurationid: Param1,
     sessiontemplatename: Param2,
@@ -1084,12 +1084,12 @@ pub unsafe fn ShowGameInviteUIForUser<'a, Param0: ::windows::runtime::IntoParam<
     invitationdisplaytext: Param4,
     completionroutine: ::core::option::Option<GameUICompletionRoutine>,
     context: *const ::core::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowGameInviteUIForUser(user: ::windows::runtime::RawPtr, serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessiontemplatename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowGameInviteUIForUser(user: ::windows::core::RawPtr, serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowGameInviteUIForUser(user.into_param().abi(), serviceconfigurationid.into_param().abi(), sessiontemplatename.into_param().abi(), sessionid.into_param().abi(), invitationdisplaytext.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1098,7 +1098,7 @@ pub unsafe fn ShowGameInviteUIForUser<'a, Param0: ::windows::runtime::IntoParam<
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowGameInviteUIWithContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
+pub unsafe fn ShowGameInviteUIWithContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     serviceconfigurationid: Param0,
     sessiontemplatename: Param1,
     sessionid: Param2,
@@ -1106,20 +1106,20 @@ pub unsafe fn ShowGameInviteUIWithContext<'a, Param0: ::windows::runtime::IntoPa
     customactivationcontext: Param4,
     completionroutine: ::core::option::Option<GameUICompletionRoutine>,
     context: *const ::core::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ShowGameInviteUIWithContext(
-                serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                sessiontemplatename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                sessionid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                customactivationcontext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                completionroutine: ::windows::runtime::RawPtr,
+                serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
+                sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
+                sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
+                invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
+                customactivationcontext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
+                completionroutine: ::windows::core::RawPtr,
                 context: *const ::core::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            ) -> ::windows::core::HRESULT;
         }
         ShowGameInviteUIWithContext(serviceconfigurationid.into_param().abi(), sessiontemplatename.into_param().abi(), sessionid.into_param().abi(), invitationdisplaytext.into_param().abi(), customactivationcontext.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1128,7 +1128,7 @@ pub unsafe fn ShowGameInviteUIWithContext<'a, Param0: ::windows::runtime::IntoPa
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowGameInviteUIWithContextForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
+pub unsafe fn ShowGameInviteUIWithContextForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     user: Param0,
     serviceconfigurationid: Param1,
     sessiontemplatename: Param2,
@@ -1137,21 +1137,21 @@ pub unsafe fn ShowGameInviteUIWithContextForUser<'a, Param0: ::windows::runtime:
     customactivationcontext: Param5,
     completionroutine: ::core::option::Option<GameUICompletionRoutine>,
     context: *const ::core::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ShowGameInviteUIWithContextForUser(
-                user: ::windows::runtime::RawPtr,
-                serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                sessiontemplatename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                sessionid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                customactivationcontext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                completionroutine: ::windows::runtime::RawPtr,
+                user: ::windows::core::RawPtr,
+                serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
+                sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
+                sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
+                invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
+                customactivationcontext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
+                completionroutine: ::windows::core::RawPtr,
                 context: *const ::core::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            ) -> ::windows::core::HRESULT;
         }
         ShowGameInviteUIWithContextForUser(user.into_param().abi(), serviceconfigurationid.into_param().abi(), sessiontemplatename.into_param().abi(), sessionid.into_param().abi(), invitationdisplaytext.into_param().abi(), customactivationcontext.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1160,12 +1160,12 @@ pub unsafe fn ShowGameInviteUIWithContextForUser<'a, Param0: ::windows::runtime:
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowPlayerPickerUI<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(promptdisplaytext: Param0, xuids: *const ::windows::runtime::HSTRING, xuidscount: usize, preselectedxuids: *const ::windows::runtime::HSTRING, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: ::core::option::Option<PlayerPickerUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowPlayerPickerUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(promptdisplaytext: Param0, xuids: *const ::windows::core::HSTRING, xuidscount: usize, preselectedxuids: *const ::windows::core::HSTRING, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: ::core::option::Option<PlayerPickerUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowPlayerPickerUI(promptdisplaytext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, xuids: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, xuidscount: usize, preselectedxuids: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowPlayerPickerUI(promptdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuidscount: usize, preselectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowPlayerPickerUI(
             promptdisplaytext.into_param().abi(),
@@ -1185,34 +1185,23 @@ pub unsafe fn ShowPlayerPickerUI<'a, Param0: ::windows::runtime::IntoParam<'a, :
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowPlayerPickerUIForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
+pub unsafe fn ShowPlayerPickerUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     user: Param0,
     promptdisplaytext: Param1,
-    xuids: *const ::windows::runtime::HSTRING,
+    xuids: *const ::windows::core::HSTRING,
     xuidscount: usize,
-    preselectedxuids: *const ::windows::runtime::HSTRING,
+    preselectedxuids: *const ::windows::core::HSTRING,
     preselectedxuidscount: usize,
     minselectioncount: usize,
     maxselectioncount: usize,
     completionroutine: ::core::option::Option<PlayerPickerUICompletionRoutine>,
     context: *const ::core::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowPlayerPickerUIForUser(
-                user: ::windows::runtime::RawPtr,
-                promptdisplaytext: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                xuids: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                xuidscount: usize,
-                preselectedxuids: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-                preselectedxuidscount: usize,
-                minselectioncount: usize,
-                maxselectioncount: usize,
-                completionroutine: ::windows::runtime::RawPtr,
-                context: *const ::core::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn ShowPlayerPickerUIForUser(user: ::windows::core::RawPtr, promptdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuidscount: usize, preselectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowPlayerPickerUIForUser(
             user.into_param().abi(),
@@ -1233,12 +1222,12 @@ pub unsafe fn ShowPlayerPickerUIForUser<'a, Param0: ::windows::runtime::IntoPara
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowProfileCardUI<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(targetuserxuid: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowProfileCardUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(targetuserxuid: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowProfileCardUI(targetuserxuid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowProfileCardUI(targetuserxuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowProfileCardUI(targetuserxuid.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1247,12 +1236,12 @@ pub unsafe fn ShowProfileCardUI<'a, Param0: ::windows::runtime::IntoParam<'a, ::
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowProfileCardUIForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(user: Param0, targetuserxuid: Param1, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowProfileCardUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, targetuserxuid: Param1, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowProfileCardUIForUser(user: ::windows::runtime::RawPtr, targetuserxuid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowProfileCardUIForUser(user: ::windows::core::RawPtr, targetuserxuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowProfileCardUIForUser(user.into_param().abi(), targetuserxuid.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1261,12 +1250,12 @@ pub unsafe fn ShowProfileCardUIForUser<'a, Param0: ::windows::runtime::IntoParam
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowTitleAchievementsUI(titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowTitleAchievementsUI(titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowTitleAchievementsUI(titleid: u32, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowTitleAchievementsUI(titleid: u32, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowTitleAchievementsUI(::core::mem::transmute(titleid), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1275,12 +1264,12 @@ pub unsafe fn ShowTitleAchievementsUI(titleid: u32, completionroutine: ::core::o
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowTitleAchievementsUIForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(user: Param0, titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowTitleAchievementsUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowTitleAchievementsUIForUser(user: ::windows::runtime::RawPtr, titleid: u32, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowTitleAchievementsUIForUser(user: ::windows::core::RawPtr, titleid: u32, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowTitleAchievementsUIForUser(user.into_param().abi(), ::core::mem::transmute(titleid), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1289,12 +1278,12 @@ pub unsafe fn ShowTitleAchievementsUIForUser<'a, Param0: ::windows::runtime::Int
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowUserSettingsUI(completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowUserSettingsUI(completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowUserSettingsUI(completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowUserSettingsUI(completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowUserSettingsUI(::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1303,12 +1292,12 @@ pub unsafe fn ShowUserSettingsUI(completionroutine: ::core::option::Option<GameU
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
-pub unsafe fn ShowUserSettingsUIForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(user: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn ShowUserSettingsUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowUserSettingsUIForUser(user: ::windows::runtime::RawPtr, completionroutine: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn ShowUserSettingsUIForUser(user: ::windows::core::RawPtr, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowUserSettingsUIForUser(user.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1348,8 +1337,8 @@ impl ::core::convert::From<i32> for XBL_IDP_AUTH_TOKEN_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for XBL_IDP_AUTH_TOKEN_STATUS {
+unsafe impl ::windows::core::Abi for XBL_IDP_AUTH_TOKEN_STATUS {
     type Abi = Self;
 }
-pub const XblIdpAuthManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
-pub const XblIdpAuthTokenResult: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);
+pub const XblIdpAuthManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
+pub const XblIdpAuthTokenResult: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);

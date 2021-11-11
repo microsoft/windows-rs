@@ -13,5 +13,5 @@ Learn more here: <https://github.com/microsoft/windows-rs>
 
 extern crate self as windows;
 mod Windows;
-pub mod runtime;
+pub mod core;
 pub use Windows::*;

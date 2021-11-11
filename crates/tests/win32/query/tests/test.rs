@@ -1,5 +1,5 @@
 use test_win32_query::*;
-use windows::runtime::*;
+use windows::core::*;
 use Component::Win32::Query::*;
 use Windows::Win32::Foundation::E_NOINTERFACE;
 

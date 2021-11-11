@@ -1,5 +1,5 @@
 use test_winrt_simple::*;
-use windows::runtime::*;
+use windows::core::*;
 use Component::*;
 
 #[implement(Component::Simple::IInterface)]

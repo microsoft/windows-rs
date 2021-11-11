@@ -27,13 +27,13 @@ impl ::core::cmp::PartialEq for Matrix3x2 {
     }
 }
 impl ::core::cmp::Eq for Matrix3x2 {}
-unsafe impl ::windows::runtime::Abi for Matrix3x2 {
+unsafe impl ::windows::core::Abi for Matrix3x2 {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Matrix3x2 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix3x2;f4;f4;f4;f4;f4;f4)");
+unsafe impl ::windows::core::RuntimeType for Matrix3x2 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix3x2;f4;f4;f4;f4;f4;f4)");
 }
-impl ::windows::runtime::DefaultType for Matrix3x2 {
+impl ::windows::core::DefaultType for Matrix3x2 {
     type DefaultType = Self;
 }
 impl Matrix3x2 {
@@ -239,13 +239,13 @@ impl ::core::cmp::PartialEq for Matrix4x4 {
     }
 }
 impl ::core::cmp::Eq for Matrix4x4 {}
-unsafe impl ::windows::runtime::Abi for Matrix4x4 {
+unsafe impl ::windows::core::Abi for Matrix4x4 {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Matrix4x4 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)");
+unsafe impl ::windows::core::RuntimeType for Matrix4x4 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)");
 }
-impl ::windows::runtime::DefaultType for Matrix4x4 {
+impl ::windows::core::DefaultType for Matrix4x4 {
     type DefaultType = Self;
 }
 impl Matrix4x4 {
@@ -438,13 +438,13 @@ impl ::core::cmp::PartialEq for Plane {
     }
 }
 impl ::core::cmp::Eq for Plane {}
-unsafe impl ::windows::runtime::Abi for Plane {
+unsafe impl ::windows::core::Abi for Plane {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Plane {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
+unsafe impl ::windows::core::RuntimeType for Plane {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
 }
-impl ::windows::runtime::DefaultType for Plane {
+impl ::windows::core::DefaultType for Plane {
     type DefaultType = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -473,13 +473,13 @@ impl ::core::cmp::PartialEq for Quaternion {
     }
 }
 impl ::core::cmp::Eq for Quaternion {}
-unsafe impl ::windows::runtime::Abi for Quaternion {
+unsafe impl ::windows::core::Abi for Quaternion {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Quaternion {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4)");
+unsafe impl ::windows::core::RuntimeType for Quaternion {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4)");
 }
-impl ::windows::runtime::DefaultType for Quaternion {
+impl ::windows::core::DefaultType for Quaternion {
     type DefaultType = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -506,13 +506,13 @@ impl ::core::cmp::PartialEq for Rational {
     }
 }
 impl ::core::cmp::Eq for Rational {}
-unsafe impl ::windows::runtime::Abi for Rational {
+unsafe impl ::windows::core::Abi for Rational {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Rational {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Rational;u4;u4)");
+unsafe impl ::windows::core::RuntimeType for Rational {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Rational;u4;u4)");
 }
-impl ::windows::runtime::DefaultType for Rational {
+impl ::windows::core::DefaultType for Rational {
     type DefaultType = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -539,13 +539,13 @@ impl ::core::cmp::PartialEq for Vector2 {
     }
 }
 impl ::core::cmp::Eq for Vector2 {}
-unsafe impl ::windows::runtime::Abi for Vector2 {
+unsafe impl ::windows::core::Abi for Vector2 {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Vector2 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)");
+unsafe impl ::windows::core::RuntimeType for Vector2 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)");
 }
-impl ::windows::runtime::DefaultType for Vector2 {
+impl ::windows::core::DefaultType for Vector2 {
     type DefaultType = Self;
 }
 impl Vector2 {
@@ -749,13 +749,13 @@ impl ::core::cmp::PartialEq for Vector3 {
     }
 }
 impl ::core::cmp::Eq for Vector3 {}
-unsafe impl ::windows::runtime::Abi for Vector3 {
+unsafe impl ::windows::core::Abi for Vector3 {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Vector3 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4)");
+unsafe impl ::windows::core::RuntimeType for Vector3 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4)");
 }
-impl ::windows::runtime::DefaultType for Vector3 {
+impl ::windows::core::DefaultType for Vector3 {
     type DefaultType = Self;
 }
 impl Vector3 {
@@ -963,13 +963,13 @@ impl ::core::cmp::PartialEq for Vector4 {
     }
 }
 impl ::core::cmp::Eq for Vector4 {}
-unsafe impl ::windows::runtime::Abi for Vector4 {
+unsafe impl ::windows::core::Abi for Vector4 {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Vector4 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector4;f4;f4;f4;f4)");
+unsafe impl ::windows::core::RuntimeType for Vector4 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector4;f4;f4;f4;f4)");
 }
-impl ::windows::runtime::DefaultType for Vector4 {
+impl ::windows::core::DefaultType for Vector4 {
     type DefaultType = Self;
 }
 impl Vector4 {

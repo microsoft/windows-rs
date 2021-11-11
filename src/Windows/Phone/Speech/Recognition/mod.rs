@@ -15,12 +15,12 @@ impl ::core::convert::From<i32> for SpeechRecognitionUIStatus {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SpeechRecognitionUIStatus {
+unsafe impl ::windows::core::Abi for SpeechRecognitionUIStatus {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionUIStatus {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Speech.Recognition.SpeechRecognitionUIStatus;i4)");
+unsafe impl ::windows::core::RuntimeType for SpeechRecognitionUIStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Speech.Recognition.SpeechRecognitionUIStatus;i4)");
 }
-impl ::windows::runtime::DefaultType for SpeechRecognitionUIStatus {
+impl ::windows::core::DefaultType for SpeechRecognitionUIStatus {
     type DefaultType = Self;
 }

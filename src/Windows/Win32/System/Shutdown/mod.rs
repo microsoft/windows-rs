@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AbortSystemShutdownA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpmachinename: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn AbortSystemShutdownA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpmachinename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17,7 +17,7 @@ pub unsafe fn AbortSystemShutdownA<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AbortSystemShutdownW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpmachinename: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn AbortSystemShutdownW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpmachinename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -32,7 +32,7 @@ pub unsafe fn AbortSystemShutdownW<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckForHiberboot<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(phiberboot: *mut super::super::Foundation::BOOLEAN, bclearflag: Param1) -> u32 {
+pub unsafe fn CheckForHiberboot<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(phiberboot: *mut super::super::Foundation::BOOLEAN, bclearflag: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -59,7 +59,7 @@ impl ::core::convert::From<u32> for EXIT_WINDOWS_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EXIT_WINDOWS_FLAGS {
+unsafe impl ::windows::core::Abi for EXIT_WINDOWS_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for EXIT_WINDOWS_FLAGS {
@@ -108,7 +108,7 @@ pub unsafe fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: u32) -> super:
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitiateShutdownA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpmachinename: Param0, lpmessage: Param1, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32 {
+pub unsafe fn InitiateShutdownA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpmachinename: Param0, lpmessage: Param1, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -123,7 +123,7 @@ pub unsafe fn InitiateShutdownA<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitiateShutdownW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpmachinename: Param0, lpmessage: Param1, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32 {
+pub unsafe fn InitiateShutdownW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpmachinename: Param0, lpmessage: Param1, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -138,7 +138,7 @@ pub unsafe fn InitiateShutdownW<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitiateSystemShutdownA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpmachinename: Param0, lpmessage: Param1, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4) -> super::super::Foundation::BOOL {
+pub unsafe fn InitiateSystemShutdownA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpmachinename: Param0, lpmessage: Param1, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -153,7 +153,7 @@ pub unsafe fn InitiateSystemShutdownA<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitiateSystemShutdownExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
+pub unsafe fn InitiateSystemShutdownExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
     lpmachinename: Param0,
     lpmessage: Param1,
     dwtimeout: u32,
@@ -175,7 +175,7 @@ pub unsafe fn InitiateSystemShutdownExA<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitiateSystemShutdownExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
+pub unsafe fn InitiateSystemShutdownExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
     lpmachinename: Param0,
     lpmessage: Param1,
     dwtimeout: u32,
@@ -197,7 +197,7 @@ pub unsafe fn InitiateSystemShutdownExW<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitiateSystemShutdownW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpmachinename: Param0, lpmessage: Param1, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4) -> super::super::Foundation::BOOL {
+pub unsafe fn InitiateSystemShutdownW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpmachinename: Param0, lpmessage: Param1, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -268,7 +268,7 @@ impl ::core::convert::From<u32> for SHUTDOWN_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SHUTDOWN_FLAGS {
+unsafe impl ::windows::core::Abi for SHUTDOWN_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SHUTDOWN_FLAGS {
@@ -359,7 +359,7 @@ impl ::core::convert::From<u32> for SHUTDOWN_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SHUTDOWN_REASON {
+unsafe impl ::windows::core::Abi for SHUTDOWN_REASON {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SHUTDOWN_REASON {
@@ -401,7 +401,7 @@ pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ShutdownBlockReasonCreate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pwszreason: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn ShutdownBlockReasonCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pwszreason: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -416,7 +416,7 @@ pub unsafe fn ShutdownBlockReasonCreate<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ShutdownBlockReasonDestroy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn ShutdownBlockReasonDestroy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -431,7 +431,7 @@ pub unsafe fn ShutdownBlockReasonDestroy<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ShutdownBlockReasonQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pwszbuff: super::super::Foundation::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ShutdownBlockReasonQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pwszbuff: super::super::Foundation::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

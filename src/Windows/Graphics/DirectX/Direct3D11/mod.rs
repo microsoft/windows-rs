@@ -20,13 +20,13 @@ impl ::core::convert::From<u32> for Direct3DBindings {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for Direct3DBindings {
+unsafe impl ::windows::core::Abi for Direct3DBindings {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Direct3DBindings {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
+unsafe impl ::windows::core::RuntimeType for Direct3DBindings {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
 }
-impl ::windows::runtime::DefaultType for Direct3DBindings {
+impl ::windows::core::DefaultType for Direct3DBindings {
     type DefaultType = Self;
 }
 impl ::core::ops::BitOr for Direct3DBindings {
@@ -81,13 +81,13 @@ impl ::core::cmp::PartialEq for Direct3DMultisampleDescription {
     }
 }
 impl ::core::cmp::Eq for Direct3DMultisampleDescription {}
-unsafe impl ::windows::runtime::Abi for Direct3DMultisampleDescription {
+unsafe impl ::windows::core::Abi for Direct3DMultisampleDescription {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Direct3DMultisampleDescription {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4)");
+unsafe impl ::windows::core::RuntimeType for Direct3DMultisampleDescription {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4)");
 }
-impl ::windows::runtime::DefaultType for Direct3DMultisampleDescription {
+impl ::windows::core::DefaultType for Direct3DMultisampleDescription {
     type DefaultType = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -116,13 +116,13 @@ impl ::core::cmp::PartialEq for Direct3DSurfaceDescription {
     }
 }
 impl ::core::cmp::Eq for Direct3DSurfaceDescription {}
-unsafe impl ::windows::runtime::Abi for Direct3DSurfaceDescription {
+unsafe impl ::windows::core::Abi for Direct3DSurfaceDescription {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Direct3DSurfaceDescription {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription;i4;i4;enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4);struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4))");
+unsafe impl ::windows::core::RuntimeType for Direct3DSurfaceDescription {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription;i4;i4;enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4);struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4))");
 }
-impl ::windows::runtime::DefaultType for Direct3DSurfaceDescription {
+impl ::windows::core::DefaultType for Direct3DSurfaceDescription {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
@@ -140,217 +140,217 @@ impl ::core::convert::From<i32> for Direct3DUsage {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for Direct3DUsage {
+unsafe impl ::windows::core::Abi for Direct3DUsage {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Direct3DUsage {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
+unsafe impl ::windows::core::RuntimeType for Direct3DUsage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
 }
-impl ::windows::runtime::DefaultType for Direct3DUsage {
+impl ::windows::core::DefaultType for Direct3DUsage {
     type DefaultType = Self;
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
-pub struct IDirect3DDevice(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IDirect3DDevice {
+pub struct IDirect3DDevice(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IDirect3DDevice {
     type Vtable = IDirect3DDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670);
 }
 impl IDirect3DDevice {
     #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
-    pub fn Trim(&self) -> ::windows::runtime::Result<()> {
+    pub fn Trim(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_DirectX_Direct3D11`, `Foundation`*"]
-    pub fn Close(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for IDirect3DDevice {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
+unsafe impl ::windows::core::RuntimeType for IDirect3DDevice {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
 }
-impl ::core::convert::From<IDirect3DDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirect3DDevice> for ::windows::core::IUnknown {
     fn from(value: IDirect3DDevice) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&IDirect3DDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirect3DDevice> for ::windows::core::IUnknown {
     fn from(value: &IDirect3DDevice) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3DDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirect3DDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<IDirect3DDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IDirect3DDevice> for ::windows::core::IInspectable {
     fn from(value: IDirect3DDevice) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDirect3DDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IDirect3DDevice> for ::windows::core::IInspectable {
     fn from(value: &IDirect3DDevice) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IDirect3DDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDirect3DDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IDirect3DDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDirect3DDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IDirect3DDevice> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: IDirect3DDevice) -> ::windows::runtime::Result<Self> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IDirect3DDevice) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&IDirect3DDevice> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: &IDirect3DDevice) -> ::windows::runtime::Result<Self> {
-        ::windows::runtime::Interface::cast(value)
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IDirect3DDevice) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for IDirect3DDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::runtime::IntoParam::into_param(&self)
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for IDirect3DDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &IDirect3DDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &IDirect3DDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDevice_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
-pub struct IDirect3DSurface(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IDirect3DSurface {
+pub struct IDirect3DSurface(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IDirect3DSurface {
     type Vtable = IDirect3DSurface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
 }
 impl IDirect3DSurface {
     #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
-    pub fn Description(&self) -> ::windows::runtime::Result<Direct3DSurfaceDescription> {
+    pub fn Description(&self) -> ::windows::core::Result<Direct3DSurfaceDescription> {
         let this = self;
         unsafe {
             let mut result__: Direct3DSurfaceDescription = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Direct3DSurfaceDescription>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Direct3DSurfaceDescription>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_DirectX_Direct3D11`, `Foundation`*"]
-    pub fn Close(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for IDirect3DSurface {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
+unsafe impl ::windows::core::RuntimeType for IDirect3DSurface {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
 }
-impl ::core::convert::From<IDirect3DSurface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirect3DSurface> for ::windows::core::IUnknown {
     fn from(value: IDirect3DSurface) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&IDirect3DSurface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirect3DSurface> for ::windows::core::IUnknown {
     fn from(value: &IDirect3DSurface) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3DSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirect3DSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<IDirect3DSurface> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IDirect3DSurface> for ::windows::core::IInspectable {
     fn from(value: IDirect3DSurface) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDirect3DSurface> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IDirect3DSurface> for ::windows::core::IInspectable {
     fn from(value: &IDirect3DSurface) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IDirect3DSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDirect3DSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IDirect3DSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDirect3DSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IDirect3DSurface> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: IDirect3DSurface) -> ::windows::runtime::Result<Self> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IDirect3DSurface) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&IDirect3DSurface> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: &IDirect3DSurface) -> ::windows::runtime::Result<Self> {
-        ::windows::runtime::Interface::cast(value)
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IDirect3DSurface) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for IDirect3DSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::runtime::IntoParam::into_param(&self)
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for IDirect3DSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &IDirect3DSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &IDirect3DSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DSurface_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Direct3DSurfaceDescription) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut Direct3DSurfaceDescription) -> ::windows::core::HRESULT,
 );

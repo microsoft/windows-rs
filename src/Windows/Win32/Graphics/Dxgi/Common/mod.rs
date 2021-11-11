@@ -13,7 +13,7 @@ impl ::core::convert::From<u32> for DXGI_ALPHA_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DXGI_ALPHA_MODE {
+unsafe impl ::windows::core::Abi for DXGI_ALPHA_MODE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DXGI_ALPHA_MODE {
@@ -81,7 +81,7 @@ impl ::core::convert::From<i32> for DXGI_COLOR_SPACE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DXGI_COLOR_SPACE_TYPE {
+unsafe impl ::windows::core::Abi for DXGI_COLOR_SPACE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
@@ -225,7 +225,7 @@ impl ::core::convert::From<u32> for DXGI_FORMAT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DXGI_FORMAT {
+unsafe impl ::windows::core::Abi for DXGI_FORMAT {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DXGI_FORMAT {
@@ -283,7 +283,7 @@ impl ::core::cmp::PartialEq for DXGI_GAMMA_CONTROL {
     }
 }
 impl ::core::cmp::Eq for DXGI_GAMMA_CONTROL {}
-unsafe impl ::windows::runtime::Abi for DXGI_GAMMA_CONTROL {
+unsafe impl ::windows::core::Abi for DXGI_GAMMA_CONTROL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -326,7 +326,7 @@ impl ::core::cmp::PartialEq for DXGI_GAMMA_CONTROL_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXGI_GAMMA_CONTROL_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DXGI_GAMMA_CONTROL_CAPABILITIES {
+unsafe impl ::windows::core::Abi for DXGI_GAMMA_CONTROL_CAPABILITIES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -353,7 +353,7 @@ impl ::core::cmp::PartialEq for DXGI_JPEG_AC_HUFFMAN_TABLE {
     }
 }
 impl ::core::cmp::Eq for DXGI_JPEG_AC_HUFFMAN_TABLE {}
-unsafe impl ::windows::runtime::Abi for DXGI_JPEG_AC_HUFFMAN_TABLE {
+unsafe impl ::windows::core::Abi for DXGI_JPEG_AC_HUFFMAN_TABLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -380,7 +380,7 @@ impl ::core::cmp::PartialEq for DXGI_JPEG_DC_HUFFMAN_TABLE {
     }
 }
 impl ::core::cmp::Eq for DXGI_JPEG_DC_HUFFMAN_TABLE {}
-unsafe impl ::windows::runtime::Abi for DXGI_JPEG_DC_HUFFMAN_TABLE {
+unsafe impl ::windows::core::Abi for DXGI_JPEG_DC_HUFFMAN_TABLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -406,7 +406,7 @@ impl ::core::cmp::PartialEq for DXGI_JPEG_QUANTIZATION_TABLE {
     }
 }
 impl ::core::cmp::Eq for DXGI_JPEG_QUANTIZATION_TABLE {}
-unsafe impl ::windows::runtime::Abi for DXGI_JPEG_QUANTIZATION_TABLE {
+unsafe impl ::windows::core::Abi for DXGI_JPEG_QUANTIZATION_TABLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -437,7 +437,7 @@ impl ::core::cmp::PartialEq for DXGI_MODE_DESC {
     }
 }
 impl ::core::cmp::Eq for DXGI_MODE_DESC {}
-unsafe impl ::windows::runtime::Abi for DXGI_MODE_DESC {
+unsafe impl ::windows::core::Abi for DXGI_MODE_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
@@ -454,7 +454,7 @@ impl ::core::convert::From<i32> for DXGI_MODE_ROTATION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DXGI_MODE_ROTATION {
+unsafe impl ::windows::core::Abi for DXGI_MODE_ROTATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
@@ -469,7 +469,7 @@ impl ::core::convert::From<i32> for DXGI_MODE_SCALING {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DXGI_MODE_SCALING {
+unsafe impl ::windows::core::Abi for DXGI_MODE_SCALING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
@@ -485,7 +485,7 @@ impl ::core::convert::From<i32> for DXGI_MODE_SCANLINE_ORDER {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DXGI_MODE_SCANLINE_ORDER {
+unsafe impl ::windows::core::Abi for DXGI_MODE_SCANLINE_ORDER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -512,7 +512,7 @@ impl ::core::cmp::PartialEq for DXGI_RATIONAL {
     }
 }
 impl ::core::cmp::Eq for DXGI_RATIONAL {}
-unsafe impl ::windows::runtime::Abi for DXGI_RATIONAL {
+unsafe impl ::windows::core::Abi for DXGI_RATIONAL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -540,7 +540,7 @@ impl ::core::cmp::PartialEq for DXGI_RGB {
     }
 }
 impl ::core::cmp::Eq for DXGI_RGB {}
-unsafe impl ::windows::runtime::Abi for DXGI_RGB {
+unsafe impl ::windows::core::Abi for DXGI_RGB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -567,7 +567,7 @@ impl ::core::cmp::PartialEq for DXGI_SAMPLE_DESC {
     }
 }
 impl ::core::cmp::Eq for DXGI_SAMPLE_DESC {}
-unsafe impl ::windows::runtime::Abi for DXGI_SAMPLE_DESC {
+unsafe impl ::windows::core::Abi for DXGI_SAMPLE_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]

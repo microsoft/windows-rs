@@ -1,10 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const PERCEPTIONFIELD_StateStream_TimeStamps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa886119_f32f_49bf_92ca_f9ddf784d297);
+pub const PERCEPTIONFIELD_StateStream_TimeStamps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa886119_f32f_49bf_92ca_f9ddf784d297);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_MixedReality`*"]
 pub struct PERCEPTION_PAYLOAD_FIELD {
-    pub FieldId: ::windows::runtime::GUID,
+    pub FieldId: ::windows::core::GUID,
     pub OffsetInBytes: u32,
     pub SizeInBytes: u32,
 }
@@ -25,7 +25,7 @@ impl ::core::cmp::PartialEq for PERCEPTION_PAYLOAD_FIELD {
     }
 }
 impl ::core::cmp::Eq for PERCEPTION_PAYLOAD_FIELD {}
-unsafe impl ::windows::runtime::Abi for PERCEPTION_PAYLOAD_FIELD {
+unsafe impl ::windows::core::Abi for PERCEPTION_PAYLOAD_FIELD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -52,6 +52,6 @@ impl ::core::cmp::PartialEq for PERCEPTION_STATE_STREAM_TIMESTAMPS {
     }
 }
 impl ::core::cmp::Eq for PERCEPTION_STATE_STREAM_TIMESTAMPS {}
-unsafe impl ::windows::runtime::Abi for PERCEPTION_STATE_STREAM_TIMESTAMPS {
+unsafe impl ::windows::core::Abi for PERCEPTION_STATE_STREAM_TIMESTAMPS {
     type Abi = Self;
 }

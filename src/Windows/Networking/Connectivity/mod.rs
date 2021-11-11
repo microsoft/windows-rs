@@ -2,98 +2,98 @@
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct AttributedNetworkUsage(pub ::windows::runtime::IInspectable);
+pub struct AttributedNetworkUsage(pub ::windows::core::IInspectable);
 impl AttributedNetworkUsage {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn BytesSent(&self) -> ::windows::runtime::Result<u64> {
+    pub fn BytesSent(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn BytesReceived(&self) -> ::windows::runtime::Result<u64> {
+    pub fn BytesReceived(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn AttributionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn AttributionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn AttributionName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn AttributionName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_Connectivity`, `Storage_Streams`*"]
-    pub fn AttributionThumbnail(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn AttributionThumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for AttributedNetworkUsage {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.AttributedNetworkUsage;{f769b039-eca2-45eb-ade1-b0368b756c49})");
+unsafe impl ::windows::core::RuntimeType for AttributedNetworkUsage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.AttributedNetworkUsage;{f769b039-eca2-45eb-ade1-b0368b756c49})");
 }
-unsafe impl ::windows::runtime::Interface for AttributedNetworkUsage {
+unsafe impl ::windows::core::Interface for AttributedNetworkUsage {
     type Vtable = IAttributedNetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf769b039_eca2_45eb_ade1_b0368b756c49);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf769b039_eca2_45eb_ade1_b0368b756c49);
 }
-impl ::windows::runtime::RuntimeName for AttributedNetworkUsage {
+impl ::windows::core::RuntimeName for AttributedNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.AttributedNetworkUsage";
 }
-impl ::core::convert::From<AttributedNetworkUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AttributedNetworkUsage> for ::windows::core::IUnknown {
     fn from(value: AttributedNetworkUsage) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&AttributedNetworkUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AttributedNetworkUsage> for ::windows::core::IUnknown {
     fn from(value: &AttributedNetworkUsage) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AttributedNetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AttributedNetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AttributedNetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AttributedNetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<AttributedNetworkUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AttributedNetworkUsage> for ::windows::core::IInspectable {
     fn from(value: AttributedNetworkUsage) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&AttributedNetworkUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AttributedNetworkUsage> for ::windows::core::IInspectable {
     fn from(value: &AttributedNetworkUsage) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AttributedNetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AttributedNetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AttributedNetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AttributedNetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for AttributedNetworkUsage {}
@@ -113,167 +113,167 @@ impl ::core::convert::From<i32> for CellularApnAuthenticationType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CellularApnAuthenticationType {
+unsafe impl ::windows::core::Abi for CellularApnAuthenticationType {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for CellularApnAuthenticationType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
+unsafe impl ::windows::core::RuntimeType for CellularApnAuthenticationType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
 }
-impl ::windows::runtime::DefaultType for CellularApnAuthenticationType {
+impl ::windows::core::DefaultType for CellularApnAuthenticationType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct CellularApnContext(pub ::windows::runtime::IInspectable);
+pub struct CellularApnContext(pub ::windows::core::IInspectable);
 impl CellularApnContext {
-    pub fn new() -> ::windows::runtime::Result<Self> {
+    pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<CellularApnContext, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<CellularApnContext, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn ProviderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn SetProviderId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetProviderId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn AccessPointName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn AccessPointName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn SetAccessPointName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetAccessPointName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn UserName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn SetUserName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetUserName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn Password(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn Password(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn SetPassword<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetPassword<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn IsCompressionEnabled(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsCompressionEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn SetIsCompressionEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetIsCompressionEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn AuthenticationType(&self) -> ::windows::runtime::Result<CellularApnAuthenticationType> {
+    pub fn AuthenticationType(&self) -> ::windows::core::Result<CellularApnAuthenticationType> {
         let this = self;
         unsafe {
             let mut result__: CellularApnAuthenticationType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CellularApnAuthenticationType>(result__)
+            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CellularApnAuthenticationType>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn SetAuthenticationType(&self, value: CellularApnAuthenticationType) -> ::windows::runtime::Result<()> {
+    pub fn SetAuthenticationType(&self, value: CellularApnAuthenticationType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn ProfileName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<ICellularApnContext2>(self)?;
+    pub fn ProfileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<ICellularApnContext2>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn SetProfileName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ICellularApnContext2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+    pub fn SetProfileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<ICellularApnContext2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for CellularApnContext {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.CellularApnContext;{6fa529f4-effd-4542-9ab2-705bbf94943a})");
+unsafe impl ::windows::core::RuntimeType for CellularApnContext {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.CellularApnContext;{6fa529f4-effd-4542-9ab2-705bbf94943a})");
 }
-unsafe impl ::windows::runtime::Interface for CellularApnContext {
+unsafe impl ::windows::core::Interface for CellularApnContext {
     type Vtable = ICellularApnContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fa529f4_effd_4542_9ab2_705bbf94943a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fa529f4_effd_4542_9ab2_705bbf94943a);
 }
-impl ::windows::runtime::RuntimeName for CellularApnContext {
+impl ::windows::core::RuntimeName for CellularApnContext {
     const NAME: &'static str = "Windows.Networking.Connectivity.CellularApnContext";
 }
-impl ::core::convert::From<CellularApnContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CellularApnContext> for ::windows::core::IUnknown {
     fn from(value: CellularApnContext) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&CellularApnContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CellularApnContext> for ::windows::core::IUnknown {
     fn from(value: &CellularApnContext) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CellularApnContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CellularApnContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CellularApnContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CellularApnContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<CellularApnContext> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CellularApnContext> for ::windows::core::IInspectable {
     fn from(value: CellularApnContext) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&CellularApnContext> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CellularApnContext> for ::windows::core::IInspectable {
     fn from(value: &CellularApnContext) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CellularApnContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CellularApnContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CellularApnContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CellularApnContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for CellularApnContext {}
@@ -281,97 +281,97 @@ unsafe impl ::core::marker::Sync for CellularApnContext {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConnectionCost(pub ::windows::runtime::IInspectable);
+pub struct ConnectionCost(pub ::windows::core::IInspectable);
 impl ConnectionCost {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn NetworkCostType(&self) -> ::windows::runtime::Result<NetworkCostType> {
+    pub fn NetworkCostType(&self) -> ::windows::core::Result<NetworkCostType> {
         let this = self;
         unsafe {
             let mut result__: NetworkCostType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkCostType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkCostType>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn Roaming(&self) -> ::windows::runtime::Result<bool> {
+    pub fn Roaming(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn OverDataLimit(&self) -> ::windows::runtime::Result<bool> {
+    pub fn OverDataLimit(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn ApproachingDataLimit(&self) -> ::windows::runtime::Result<bool> {
+    pub fn ApproachingDataLimit(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn BackgroundDataUsageRestricted(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionCost2>(self)?;
+    pub fn BackgroundDataUsageRestricted(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IConnectionCost2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ConnectionCost {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionCost;{bad7d829-3416-4b10-a202-bac0b075bdae})");
+unsafe impl ::windows::core::RuntimeType for ConnectionCost {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionCost;{bad7d829-3416-4b10-a202-bac0b075bdae})");
 }
-unsafe impl ::windows::runtime::Interface for ConnectionCost {
+unsafe impl ::windows::core::Interface for ConnectionCost {
     type Vtable = IConnectionCost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbad7d829_3416_4b10_a202_bac0b075bdae);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad7d829_3416_4b10_a202_bac0b075bdae);
 }
-impl ::windows::runtime::RuntimeName for ConnectionCost {
+impl ::windows::core::RuntimeName for ConnectionCost {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionCost";
 }
-impl ::core::convert::From<ConnectionCost> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConnectionCost> for ::windows::core::IUnknown {
     fn from(value: ConnectionCost) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ConnectionCost> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConnectionCost> for ::windows::core::IUnknown {
     fn from(value: &ConnectionCost) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConnectionCost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConnectionCost {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConnectionCost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectionCost {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ConnectionCost> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConnectionCost> for ::windows::core::IInspectable {
     fn from(value: ConnectionCost) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ConnectionCost> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConnectionCost> for ::windows::core::IInspectable {
     fn from(value: &ConnectionCost) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConnectionCost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConnectionCost {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConnectionCost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectionCost {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ConnectionCost {}
@@ -379,245 +379,245 @@ unsafe impl ::core::marker::Sync for ConnectionCost {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConnectionProfile(pub ::windows::runtime::IInspectable);
+pub struct ConnectionProfile(pub ::windows::core::IInspectable);
 impl ConnectionProfile {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn ProfileName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn ProfileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn GetNetworkConnectivityLevel(&self) -> ::windows::runtime::Result<NetworkConnectivityLevel> {
+    pub fn GetNetworkConnectivityLevel(&self) -> ::windows::core::Result<NetworkConnectivityLevel> {
         let this = self;
         unsafe {
             let mut result__: NetworkConnectivityLevel = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkConnectivityLevel>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkConnectivityLevel>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation_Collections`*"]
-    pub fn GetNetworkNames(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
+    pub fn GetNetworkNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn GetConnectionCost(&self) -> ::windows::runtime::Result<ConnectionCost> {
+    pub fn GetConnectionCost(&self) -> ::windows::core::Result<ConnectionCost> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConnectionCost>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConnectionCost>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn GetDataPlanStatus(&self) -> ::windows::runtime::Result<DataPlanStatus> {
+    pub fn GetDataPlanStatus(&self) -> ::windows::core::Result<DataPlanStatus> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DataPlanStatus>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DataPlanStatus>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn NetworkAdapter(&self) -> ::windows::runtime::Result<NetworkAdapter> {
+    pub fn NetworkAdapter(&self) -> ::windows::core::Result<NetworkAdapter> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkAdapter>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkAdapter>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn GetLocalUsage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, starttime: Param0, endtime: Param1) -> ::windows::runtime::Result<DataUsage> {
+    pub fn GetLocalUsage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, starttime: Param0, endtime: Param1) -> ::windows::core::Result<DataUsage> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), &mut result__).from_abi::<DataUsage>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), &mut result__).from_abi::<DataUsage>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn GetLocalUsagePerRoamingStates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, starttime: Param0, endtime: Param1, states: RoamingStates) -> ::windows::runtime::Result<DataUsage> {
+    pub fn GetLocalUsagePerRoamingStates<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, starttime: Param0, endtime: Param1, states: RoamingStates) -> ::windows::core::Result<DataUsage> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), states, &mut result__).from_abi::<DataUsage>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), states, &mut result__).from_abi::<DataUsage>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn NetworkSecuritySettings(&self) -> ::windows::runtime::Result<NetworkSecuritySettings> {
+    pub fn NetworkSecuritySettings(&self) -> ::windows::core::Result<NetworkSecuritySettings> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkSecuritySettings>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkSecuritySettings>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn IsWwanConnectionProfile(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile2>(self)?;
+    pub fn IsWwanConnectionProfile(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn IsWlanConnectionProfile(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile2>(self)?;
+    pub fn IsWlanConnectionProfile(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn WwanConnectionProfileDetails(&self) -> ::windows::runtime::Result<WwanConnectionProfileDetails> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile2>(self)?;
+    pub fn WwanConnectionProfileDetails(&self) -> ::windows::core::Result<WwanConnectionProfileDetails> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WwanConnectionProfileDetails>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WwanConnectionProfileDetails>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn WlanConnectionProfileDetails(&self) -> ::windows::runtime::Result<WlanConnectionProfileDetails> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile2>(self)?;
+    pub fn WlanConnectionProfileDetails(&self) -> ::windows::core::Result<WlanConnectionProfileDetails> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WlanConnectionProfileDetails>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WlanConnectionProfileDetails>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn ServiceProviderGuid(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<::windows::runtime::GUID>> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile2>(self)?;
+    pub fn ServiceProviderGuid(&self) -> ::windows::core::Result<super::super::Foundation::IReference<::windows::core::GUID>> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<::windows::runtime::GUID>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<::windows::core::GUID>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn GetSignalBars(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<u8>> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile2>(self)?;
+    pub fn GetSignalBars(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u8>> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u8>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u8>>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn GetDomainConnectivityLevel(&self) -> ::windows::runtime::Result<DomainConnectivityLevel> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile2>(self)?;
+    pub fn GetDomainConnectivityLevel(&self) -> ::windows::core::Result<DomainConnectivityLevel> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__: DomainConnectivityLevel = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DomainConnectivityLevel>(result__)
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DomainConnectivityLevel>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetNetworkUsageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param3: ::windows::runtime::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, granularity: DataUsageGranularity, states: Param3) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile2>(self)?;
+    pub fn GetNetworkUsageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param3: ::windows::core::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, granularity: DataUsageGranularity, states: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), granularity, states.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), granularity, states.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetConnectivityIntervalsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::runtime::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, states: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile2>(self)?;
+    pub fn GetConnectivityIntervalsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::core::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, states: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), states.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), states.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetAttributedNetworkUsageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::runtime::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, states: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile3>(self)?;
+    pub fn GetAttributedNetworkUsageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::core::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, states: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), states.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), states.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`, `Foundation_Collections`*"]
-    pub fn GetProviderNetworkUsageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::runtime::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, states: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile4>(self)?;
+    pub fn GetProviderNetworkUsageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::core::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, states: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile4>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), states.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), states.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn CanDelete(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile5>(self)?;
+    pub fn CanDelete(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile5>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn TryDeleteAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ConnectionProfileDeleteStatus>> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfile5>(self)?;
+    pub fn TryDeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionProfileDeleteStatus>> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile5>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionProfileDeleteStatus>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionProfileDeleteStatus>>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ConnectionProfile {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfile;{71ba143c-598e-49d0-84eb-8febaedcc195})");
+unsafe impl ::windows::core::RuntimeType for ConnectionProfile {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfile;{71ba143c-598e-49d0-84eb-8febaedcc195})");
 }
-unsafe impl ::windows::runtime::Interface for ConnectionProfile {
+unsafe impl ::windows::core::Interface for ConnectionProfile {
     type Vtable = IConnectionProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71ba143c_598e_49d0_84eb_8febaedcc195);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ba143c_598e_49d0_84eb_8febaedcc195);
 }
-impl ::windows::runtime::RuntimeName for ConnectionProfile {
+impl ::windows::core::RuntimeName for ConnectionProfile {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfile";
 }
-impl ::core::convert::From<ConnectionProfile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConnectionProfile> for ::windows::core::IUnknown {
     fn from(value: ConnectionProfile) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ConnectionProfile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConnectionProfile> for ::windows::core::IUnknown {
     fn from(value: &ConnectionProfile) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConnectionProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConnectionProfile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConnectionProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectionProfile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ConnectionProfile> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConnectionProfile> for ::windows::core::IInspectable {
     fn from(value: ConnectionProfile) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ConnectionProfile> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConnectionProfile> for ::windows::core::IInspectable {
     fn from(value: &ConnectionProfile) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConnectionProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConnectionProfile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConnectionProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectionProfile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ConnectionProfile {}
@@ -637,212 +637,212 @@ impl ::core::convert::From<i32> for ConnectionProfileDeleteStatus {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ConnectionProfileDeleteStatus {
+unsafe impl ::windows::core::Abi for ConnectionProfileDeleteStatus {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ConnectionProfileDeleteStatus {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
+unsafe impl ::windows::core::RuntimeType for ConnectionProfileDeleteStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
 }
-impl ::windows::runtime::DefaultType for ConnectionProfileDeleteStatus {
+impl ::windows::core::DefaultType for ConnectionProfileDeleteStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConnectionProfileFilter(pub ::windows::runtime::IInspectable);
+pub struct ConnectionProfileFilter(pub ::windows::core::IInspectable);
 impl ConnectionProfileFilter {
-    pub fn new() -> ::windows::runtime::Result<Self> {
+    pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<ConnectionProfileFilter, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<ConnectionProfileFilter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn SetIsConnected(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetIsConnected(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn IsConnected(&self) -> ::windows::runtime::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn SetIsWwanConnectionProfile(&self, value: bool) -> ::windows::runtime::Result<()> {
-        let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn IsWwanConnectionProfile(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsConnected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn SetIsWlanConnectionProfile(&self, value: bool) -> ::windows::runtime::Result<()> {
+    pub fn SetIsWwanConnectionProfile(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn IsWlanConnectionProfile(&self) -> ::windows::runtime::Result<bool> {
+    pub fn IsWwanConnectionProfile(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn SetNetworkCostType(&self, value: NetworkCostType) -> ::windows::runtime::Result<()> {
+    pub fn SetIsWlanConnectionProfile(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn NetworkCostType(&self) -> ::windows::runtime::Result<NetworkCostType> {
+    pub fn IsWlanConnectionProfile(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `Networking_Connectivity`*"]
+    pub fn SetNetworkCostType(&self, value: NetworkCostType) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
+    }
+    #[doc = "*Required features: `Networking_Connectivity`*"]
+    pub fn NetworkCostType(&self) -> ::windows::core::Result<NetworkCostType> {
         let this = self;
         unsafe {
             let mut result__: NetworkCostType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkCostType>(result__)
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkCostType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn SetServiceProviderGuid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<::windows::runtime::GUID>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
+    pub fn SetServiceProviderGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<::windows::core::GUID>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn ServiceProviderGuid(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<::windows::runtime::GUID>> {
+    pub fn ServiceProviderGuid(&self) -> ::windows::core::Result<super::super::Foundation::IReference<::windows::core::GUID>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<::windows::runtime::GUID>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<::windows::core::GUID>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn SetIsRoaming<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+    pub fn SetIsRoaming<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn IsRoaming(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<bool>> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfileFilter2>(self)?;
+    pub fn IsRoaming(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<bool>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn SetIsOverDataLimit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+    pub fn SetIsOverDataLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn IsOverDataLimit(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<bool>> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfileFilter2>(self)?;
+    pub fn IsOverDataLimit(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<bool>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn SetIsBackgroundDataUsageRestricted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+    pub fn SetIsBackgroundDataUsageRestricted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn IsBackgroundDataUsageRestricted(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<bool>> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfileFilter2>(self)?;
+    pub fn IsBackgroundDataUsageRestricted(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<bool>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<bool>>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_Connectivity`, `Storage_Streams`*"]
-    pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfileFilter2>(self)?;
+    pub fn RawData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn SetPurposeGuid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<::windows::runtime::GUID>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfileFilter3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+    pub fn SetPurposeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<::windows::core::GUID>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfileFilter3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn PurposeGuid(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<::windows::runtime::GUID>> {
-        let this = &::windows::runtime::Interface::cast::<IConnectionProfileFilter3>(self)?;
+    pub fn PurposeGuid(&self) -> ::windows::core::Result<super::super::Foundation::IReference<::windows::core::GUID>> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfileFilter3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<::windows::runtime::GUID>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<::windows::core::GUID>>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ConnectionProfileFilter {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfileFilter;{204c7cc8-bd2d-4e8d-a4b3-455ec337388a})");
+unsafe impl ::windows::core::RuntimeType for ConnectionProfileFilter {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfileFilter;{204c7cc8-bd2d-4e8d-a4b3-455ec337388a})");
 }
-unsafe impl ::windows::runtime::Interface for ConnectionProfileFilter {
+unsafe impl ::windows::core::Interface for ConnectionProfileFilter {
     type Vtable = IConnectionProfileFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
 }
-impl ::windows::runtime::RuntimeName for ConnectionProfileFilter {
+impl ::windows::core::RuntimeName for ConnectionProfileFilter {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfileFilter";
 }
-impl ::core::convert::From<ConnectionProfileFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConnectionProfileFilter> for ::windows::core::IUnknown {
     fn from(value: ConnectionProfileFilter) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ConnectionProfileFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConnectionProfileFilter> for ::windows::core::IUnknown {
     fn from(value: &ConnectionProfileFilter) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConnectionProfileFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConnectionProfileFilter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConnectionProfileFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectionProfileFilter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ConnectionProfileFilter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConnectionProfileFilter> for ::windows::core::IInspectable {
     fn from(value: ConnectionProfileFilter) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ConnectionProfileFilter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConnectionProfileFilter> for ::windows::core::IInspectable {
     fn from(value: &ConnectionProfileFilter) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConnectionProfileFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConnectionProfileFilter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConnectionProfileFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectionProfileFilter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ConnectionProfileFilter {}
@@ -850,97 +850,97 @@ unsafe impl ::core::marker::Sync for ConnectionProfileFilter {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConnectionSession(pub ::windows::runtime::IInspectable);
+pub struct ConnectionSession(pub ::windows::core::IInspectable);
 impl ConnectionSession {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn ConnectionProfile(&self) -> ::windows::runtime::Result<ConnectionProfile> {
+    pub fn ConnectionProfile(&self) -> ::windows::core::Result<ConnectionProfile> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConnectionProfile>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConnectionProfile>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn Close(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ConnectionSession {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionSession;{ff905d4c-f83b-41b0-8a0c-1462d9c56b73})");
+unsafe impl ::windows::core::RuntimeType for ConnectionSession {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionSession;{ff905d4c-f83b-41b0-8a0c-1462d9c56b73})");
 }
-unsafe impl ::windows::runtime::Interface for ConnectionSession {
+unsafe impl ::windows::core::Interface for ConnectionSession {
     type Vtable = IConnectionSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff905d4c_f83b_41b0_8a0c_1462d9c56b73);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff905d4c_f83b_41b0_8a0c_1462d9c56b73);
 }
-impl ::windows::runtime::RuntimeName for ConnectionSession {
+impl ::windows::core::RuntimeName for ConnectionSession {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionSession";
 }
-impl ::core::convert::From<ConnectionSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConnectionSession> for ::windows::core::IUnknown {
     fn from(value: ConnectionSession) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ConnectionSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConnectionSession> for ::windows::core::IUnknown {
     fn from(value: &ConnectionSession) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConnectionSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConnectionSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConnectionSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectionSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ConnectionSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConnectionSession> for ::windows::core::IInspectable {
     fn from(value: ConnectionSession) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ConnectionSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConnectionSession> for ::windows::core::IInspectable {
     fn from(value: &ConnectionSession) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConnectionSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConnectionSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConnectionSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectionSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ConnectionSession> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: ConnectionSession) -> ::windows::runtime::Result<Self> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ConnectionSession) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&ConnectionSession> for super::super::Foundation::IClosable {
-    type Error = ::windows::runtime::Error;
-    fn try_from(value: &ConnectionSession) -> ::windows::runtime::Result<Self> {
-        ::windows::runtime::Interface::cast(value)
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ConnectionSession) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for ConnectionSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::runtime::IntoParam::into_param(&self)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for ConnectionSession {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &ConnectionSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &ConnectionSession {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 unsafe impl ::core::marker::Send for ConnectionSession {}
@@ -948,75 +948,75 @@ unsafe impl ::core::marker::Sync for ConnectionSession {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConnectivityInterval(pub ::windows::runtime::IInspectable);
+pub struct ConnectivityInterval(pub ::windows::core::IInspectable);
 impl ConnectivityInterval {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
+    pub fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn ConnectionDuration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
+    pub fn ConnectionDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ConnectivityInterval {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectivityInterval;{4faa3fff-6746-4824-a964-eed8e87f8709})");
+unsafe impl ::windows::core::RuntimeType for ConnectivityInterval {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectivityInterval;{4faa3fff-6746-4824-a964-eed8e87f8709})");
 }
-unsafe impl ::windows::runtime::Interface for ConnectivityInterval {
+unsafe impl ::windows::core::Interface for ConnectivityInterval {
     type Vtable = IConnectivityInterval_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4faa3fff_6746_4824_a964_eed8e87f8709);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4faa3fff_6746_4824_a964_eed8e87f8709);
 }
-impl ::windows::runtime::RuntimeName for ConnectivityInterval {
+impl ::windows::core::RuntimeName for ConnectivityInterval {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectivityInterval";
 }
-impl ::core::convert::From<ConnectivityInterval> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConnectivityInterval> for ::windows::core::IUnknown {
     fn from(value: ConnectivityInterval) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ConnectivityInterval> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConnectivityInterval> for ::windows::core::IUnknown {
     fn from(value: &ConnectivityInterval) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConnectivityInterval {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConnectivityInterval {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConnectivityInterval {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectivityInterval {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ConnectivityInterval> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConnectivityInterval> for ::windows::core::IInspectable {
     fn from(value: ConnectivityInterval) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ConnectivityInterval> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConnectivityInterval> for ::windows::core::IInspectable {
     fn from(value: &ConnectivityInterval) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConnectivityInterval {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConnectivityInterval {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConnectivityInterval {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectivityInterval {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ConnectivityInterval {}
@@ -1026,135 +1026,135 @@ pub struct ConnectivityManager {}
 impl ConnectivityManager {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn AcquireConnectionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, CellularApnContext>>(cellularapncontext: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>> {
+    pub fn AcquireConnectionAsync<'a, Param0: ::windows::core::IntoParam<'a, CellularApnContext>>(cellularapncontext: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>> {
         Self::IConnectivityManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), cellularapncontext.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionSession>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), cellularapncontext.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionSession>>(result__)
         })
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn AddHttpRoutePolicy<'a, Param0: ::windows::runtime::IntoParam<'a, RoutePolicy>>(routepolicy: Param0) -> ::windows::runtime::Result<()> {
-        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), routepolicy.into_param().abi()).ok() })
+    pub fn AddHttpRoutePolicy<'a, Param0: ::windows::core::IntoParam<'a, RoutePolicy>>(routepolicy: Param0) -> ::windows::core::Result<()> {
+        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), routepolicy.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn RemoveHttpRoutePolicy<'a, Param0: ::windows::runtime::IntoParam<'a, RoutePolicy>>(routepolicy: Param0) -> ::windows::runtime::Result<()> {
-        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), routepolicy.into_param().abi()).ok() })
+    pub fn RemoveHttpRoutePolicy<'a, Param0: ::windows::core::IntoParam<'a, RoutePolicy>>(routepolicy: Param0) -> ::windows::core::Result<()> {
+        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), routepolicy.into_param().abi()).ok() })
     }
-    pub fn IConnectivityManagerStatics<R, F: FnOnce(&IConnectivityManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<ConnectivityManager, IConnectivityManagerStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IConnectivityManagerStatics<R, F: FnOnce(&IConnectivityManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<ConnectivityManager, IConnectivityManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-impl ::windows::runtime::RuntimeName for ConnectivityManager {
+impl ::windows::core::RuntimeName for ConnectivityManager {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectivityManager";
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DataPlanStatus(pub ::windows::runtime::IInspectable);
+pub struct DataPlanStatus(pub ::windows::core::IInspectable);
 impl DataPlanStatus {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn DataPlanUsage(&self) -> ::windows::runtime::Result<DataPlanUsage> {
+    pub fn DataPlanUsage(&self) -> ::windows::core::Result<DataPlanUsage> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DataPlanUsage>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DataPlanUsage>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn DataLimitInMegabytes(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<u32>> {
+    pub fn DataLimitInMegabytes(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn InboundBitsPerSecond(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<u64>> {
+    pub fn InboundBitsPerSecond(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn OutboundBitsPerSecond(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<u64>> {
+    pub fn OutboundBitsPerSecond(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn NextBillingCycle(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn NextBillingCycle(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn MaxTransferSizeInMegabytes(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<u32>> {
+    pub fn MaxTransferSizeInMegabytes(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for DataPlanStatus {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanStatus;{977a8b8c-3885-40f3-8851-42cd2bd568bb})");
+unsafe impl ::windows::core::RuntimeType for DataPlanStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanStatus;{977a8b8c-3885-40f3-8851-42cd2bd568bb})");
 }
-unsafe impl ::windows::runtime::Interface for DataPlanStatus {
+unsafe impl ::windows::core::Interface for DataPlanStatus {
     type Vtable = IDataPlanStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x977a8b8c_3885_40f3_8851_42cd2bd568bb);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977a8b8c_3885_40f3_8851_42cd2bd568bb);
 }
-impl ::windows::runtime::RuntimeName for DataPlanStatus {
+impl ::windows::core::RuntimeName for DataPlanStatus {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanStatus";
 }
-impl ::core::convert::From<DataPlanStatus> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DataPlanStatus> for ::windows::core::IUnknown {
     fn from(value: DataPlanStatus) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&DataPlanStatus> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DataPlanStatus> for ::windows::core::IUnknown {
     fn from(value: &DataPlanStatus) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataPlanStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataPlanStatus {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataPlanStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DataPlanStatus {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<DataPlanStatus> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DataPlanStatus> for ::windows::core::IInspectable {
     fn from(value: DataPlanStatus) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&DataPlanStatus> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DataPlanStatus> for ::windows::core::IInspectable {
     fn from(value: &DataPlanStatus) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataPlanStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataPlanStatus {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataPlanStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DataPlanStatus {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for DataPlanStatus {}
@@ -1162,74 +1162,74 @@ unsafe impl ::core::marker::Sync for DataPlanStatus {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DataPlanUsage(pub ::windows::runtime::IInspectable);
+pub struct DataPlanUsage(pub ::windows::core::IInspectable);
 impl DataPlanUsage {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn MegabytesUsed(&self) -> ::windows::runtime::Result<u32> {
+    pub fn MegabytesUsed(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn LastSyncTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
+    pub fn LastSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for DataPlanUsage {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanUsage;{b921492d-3b44-47ff-b361-be59e69ed1b0})");
+unsafe impl ::windows::core::RuntimeType for DataPlanUsage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanUsage;{b921492d-3b44-47ff-b361-be59e69ed1b0})");
 }
-unsafe impl ::windows::runtime::Interface for DataPlanUsage {
+unsafe impl ::windows::core::Interface for DataPlanUsage {
     type Vtable = IDataPlanUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb921492d_3b44_47ff_b361_be59e69ed1b0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb921492d_3b44_47ff_b361_be59e69ed1b0);
 }
-impl ::windows::runtime::RuntimeName for DataPlanUsage {
+impl ::windows::core::RuntimeName for DataPlanUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanUsage";
 }
-impl ::core::convert::From<DataPlanUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DataPlanUsage> for ::windows::core::IUnknown {
     fn from(value: DataPlanUsage) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&DataPlanUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DataPlanUsage> for ::windows::core::IUnknown {
     fn from(value: &DataPlanUsage) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataPlanUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataPlanUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataPlanUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DataPlanUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<DataPlanUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DataPlanUsage> for ::windows::core::IInspectable {
     fn from(value: DataPlanUsage) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&DataPlanUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DataPlanUsage> for ::windows::core::IInspectable {
     fn from(value: &DataPlanUsage) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataPlanUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataPlanUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataPlanUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DataPlanUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for DataPlanUsage {}
@@ -1237,75 +1237,75 @@ unsafe impl ::core::marker::Sync for DataPlanUsage {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DataUsage(pub ::windows::runtime::IInspectable);
+pub struct DataUsage(pub ::windows::core::IInspectable);
 impl DataUsage {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn BytesSent(&self) -> ::windows::runtime::Result<u64> {
+    pub fn BytesSent(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn BytesReceived(&self) -> ::windows::runtime::Result<u64> {
+    pub fn BytesReceived(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for DataUsage {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataUsage;{c1431dd3-b146-4d39-b959-0c69b096c512})");
+unsafe impl ::windows::core::RuntimeType for DataUsage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataUsage;{c1431dd3-b146-4d39-b959-0c69b096c512})");
 }
-unsafe impl ::windows::runtime::Interface for DataUsage {
+unsafe impl ::windows::core::Interface for DataUsage {
     type Vtable = IDataUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
 }
-impl ::windows::runtime::RuntimeName for DataUsage {
+impl ::windows::core::RuntimeName for DataUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataUsage";
 }
-impl ::core::convert::From<DataUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DataUsage> for ::windows::core::IUnknown {
     fn from(value: DataUsage) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&DataUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DataUsage> for ::windows::core::IUnknown {
     fn from(value: &DataUsage) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DataUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<DataUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DataUsage> for ::windows::core::IInspectable {
     fn from(value: DataUsage) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&DataUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DataUsage> for ::windows::core::IInspectable {
     fn from(value: &DataUsage) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DataUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for DataUsage {}
@@ -1325,13 +1325,13 @@ impl ::core::convert::From<i32> for DataUsageGranularity {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DataUsageGranularity {
+unsafe impl ::windows::core::Abi for DataUsageGranularity {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DataUsageGranularity {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
+unsafe impl ::windows::core::RuntimeType for DataUsageGranularity {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
 }
-impl ::windows::runtime::DefaultType for DataUsageGranularity {
+impl ::windows::core::DefaultType for DataUsageGranularity {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
@@ -1348,976 +1348,976 @@ impl ::core::convert::From<i32> for DomainConnectivityLevel {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DomainConnectivityLevel {
+unsafe impl ::windows::core::Abi for DomainConnectivityLevel {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DomainConnectivityLevel {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
+unsafe impl ::windows::core::RuntimeType for DomainConnectivityLevel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
 }
-impl ::windows::runtime::DefaultType for DomainConnectivityLevel {
+impl ::windows::core::DefaultType for DomainConnectivityLevel {
     type DefaultType = Self;
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAttributedNetworkUsage(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IAttributedNetworkUsage {
+pub struct IAttributedNetworkUsage(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IAttributedNetworkUsage {
     type Vtable = IAttributedNetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf769b039_eca2_45eb_ade1_b0368b756c49);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf769b039_eca2_45eb_ade1_b0368b756c49);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAttributedNetworkUsage_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICellularApnContext(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ICellularApnContext {
+pub struct ICellularApnContext(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ICellularApnContext {
     type Vtable = ICellularApnContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fa529f4_effd_4542_9ab2_705bbf94943a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fa529f4_effd_4542_9ab2_705bbf94943a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICellularApnContext_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CellularApnAuthenticationType) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: CellularApnAuthenticationType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut CellularApnAuthenticationType) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: CellularApnAuthenticationType) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICellularApnContext2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ICellularApnContext2 {
+pub struct ICellularApnContext2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ICellularApnContext2 {
     type Vtable = ICellularApnContext2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x76b0eb1a_ac49_4350_b1e5_dc4763bc69c7);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b0eb1a_ac49_4350_b1e5_dc4763bc69c7);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICellularApnContext2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectionCost(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectionCost {
+pub struct IConnectionCost(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectionCost {
     type Vtable = IConnectionCost_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbad7d829_3416_4b10_a202_bac0b075bdae);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad7d829_3416_4b10_a202_bac0b075bdae);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionCost_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut NetworkCostType) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut NetworkCostType) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectionCost2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectionCost2 {
+pub struct IConnectionCost2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectionCost2 {
     type Vtable = IConnectionCost2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8e113a05_e209_4549_bb25_5e0db691cb05);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e113a05_e209_4549_bb25_5e0db691cb05);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionCost2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectionProfile(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectionProfile {
+pub struct IConnectionProfile(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectionProfile {
     type Vtable = IConnectionProfile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71ba143c_598e_49d0_84eb_8febaedcc195);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ba143c_598e_49d0_84eb_8febaedcc195);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionProfile_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut NetworkConnectivityLevel) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut NetworkConnectivityLevel) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: RoamingStates, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: RoamingStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectionProfile2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectionProfile2 {
+pub struct IConnectionProfile2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectionProfile2 {
     type Vtable = IConnectionProfile2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2045145_4c9f_400c_9150_7ec7d6e2888a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2045145_4c9f_400c_9150_7ec7d6e2888a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionProfile2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DomainConnectivityLevel) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut DomainConnectivityLevel) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectionProfile3(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectionProfile3 {
+pub struct IConnectionProfile3(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectionProfile3 {
     type Vtable = IConnectionProfile3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x578c2528_4cd9_4161_8045_201cfd5b115c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x578c2528_4cd9_4161_8045_201cfd5b115c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionProfile3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectionProfile4(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectionProfile4 {
+pub struct IConnectionProfile4(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectionProfile4 {
     type Vtable = IConnectionProfile4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionProfile4_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectionProfile5(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectionProfile5 {
+pub struct IConnectionProfile5(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectionProfile5 {
     type Vtable = IConnectionProfile5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x85361ec7_9c73_4be0_8f14_578eec71ee0e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85361ec7_9c73_4be0_8f14_578eec71ee0e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionProfile5_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectionProfileFilter(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectionProfileFilter {
+pub struct IConnectionProfileFilter(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectionProfileFilter {
     type Vtable = IConnectionProfileFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionProfileFilter_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: NetworkCostType) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut NetworkCostType) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: NetworkCostType) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut NetworkCostType) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectionProfileFilter2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectionProfileFilter2 {
+pub struct IConnectionProfileFilter2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectionProfileFilter2 {
     type Vtable = IConnectionProfileFilter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcd068ee1_c3fc_4fad_9ddc_593faa4b7885);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd068ee1_c3fc_4fad_9ddc_593faa4b7885);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionProfileFilter2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectionProfileFilter3(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectionProfileFilter3 {
+pub struct IConnectionProfileFilter3(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectionProfileFilter3 {
     type Vtable = IConnectionProfileFilter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0aaa09c0_5014_447c_8809_aee4cb0af94a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aaa09c0_5014_447c_8809_aee4cb0af94a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionProfileFilter3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectionSession(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectionSession {
+pub struct IConnectionSession(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectionSession {
     type Vtable = IConnectionSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff905d4c_f83b_41b0_8a0c_1462d9c56b73);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff905d4c_f83b_41b0_8a0c_1462d9c56b73);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionSession_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectivityInterval(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectivityInterval {
+pub struct IConnectivityInterval(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectivityInterval {
     type Vtable = IConnectivityInterval_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4faa3fff_6746_4824_a964_eed8e87f8709);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4faa3fff_6746_4824_a964_eed8e87f8709);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectivityInterval_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConnectivityManagerStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IConnectivityManagerStatics {
+pub struct IConnectivityManagerStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IConnectivityManagerStatics {
     type Vtable = IConnectivityManagerStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5120d4b1_4fb1_48b0_afc9_42e0092a8164);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5120d4b1_4fb1_48b0_afc9_42e0092a8164);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectivityManagerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cellularapncontext: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cellularapncontext: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, routepolicy: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, routepolicy: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, routepolicy: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, routepolicy: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPlanStatus(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IDataPlanStatus {
+pub struct IDataPlanStatus(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IDataPlanStatus {
     type Vtable = IDataPlanStatus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x977a8b8c_3885_40f3_8851_42cd2bd568bb);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977a8b8c_3885_40f3_8851_42cd2bd568bb);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPlanStatus_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPlanUsage(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IDataPlanUsage {
+pub struct IDataPlanUsage(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IDataPlanUsage {
     type Vtable = IDataPlanUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb921492d_3b44_47ff_b361_be59e69ed1b0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb921492d_3b44_47ff_b361_be59e69ed1b0);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataPlanUsage_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataUsage(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IDataUsage {
+pub struct IDataUsage(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IDataUsage {
     type Vtable = IDataUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataUsage_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIPInformation(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IIPInformation {
+pub struct IIPInformation(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IIPInformation {
     type Vtable = IIPInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd85145e0_138f_47d7_9b3a_36bb488cef33);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd85145e0_138f_47d7_9b3a_36bb488cef33);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIPInformation_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanIdentifier(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ILanIdentifier {
+pub struct ILanIdentifier(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ILanIdentifier {
     type Vtable = ILanIdentifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanIdentifier_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanIdentifierData(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for ILanIdentifierData {
+pub struct ILanIdentifierData(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for ILanIdentifierData {
     type Vtable = ILanIdentifierData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanIdentifierData_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkAdapter(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for INetworkAdapter {
+pub struct INetworkAdapter(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for INetworkAdapter {
     type Vtable = INetworkAdapter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b542e03_5388_496c_a8a3_affd39aec2e6);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b542e03_5388_496c_a8a3_affd39aec2e6);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkAdapter_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkInformationStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for INetworkInformationStatics {
+pub struct INetworkInformationStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for INetworkInformationStatics {
     type Vtable = INetworkInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5074f851_950d_4165_9c15_365619481eea);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5074f851_950d_4165_9c15_365619481eea);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkInformationStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, destinationlist: ::windows::runtime::RawPtr, sortoptions: super::HostNameSortOptions, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, destinationlist: ::windows::core::RawPtr, sortoptions: super::HostNameSortOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, networkstatushandler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, networkstatushandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkInformationStatics2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for INetworkInformationStatics2 {
+pub struct INetworkInformationStatics2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for INetworkInformationStatics2 {
     type Vtable = INetworkInformationStatics2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x459ced14_2832_49b6_ba6e_e265f04786a8);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x459ced14_2832_49b6_ba6e_e265f04786a8);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkInformationStatics2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprofilefilter: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pprofilefilter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkItem(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for INetworkItem {
+pub struct INetworkItem(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for INetworkItem {
     type Vtable = INetworkItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkItem_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut NetworkTypes) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut NetworkTypes) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkSecuritySettings(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for INetworkSecuritySettings {
+pub struct INetworkSecuritySettings(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for INetworkSecuritySettings {
     type Vtable = INetworkSecuritySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkSecuritySettings_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut NetworkAuthenticationType) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut NetworkEncryptionType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut NetworkAuthenticationType) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut NetworkEncryptionType) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkStateChangeEventDetails(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for INetworkStateChangeEventDetails {
+pub struct INetworkStateChangeEventDetails(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for INetworkStateChangeEventDetails {
     type Vtable = INetworkStateChangeEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkStateChangeEventDetails_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkStateChangeEventDetails2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for INetworkStateChangeEventDetails2 {
+pub struct INetworkStateChangeEventDetails2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for INetworkStateChangeEventDetails2 {
     type Vtable = INetworkStateChangeEventDetails2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd643c0e8_30d3_4f6a_ad47_6a1873ceb3c1);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd643c0e8_30d3_4f6a_ad47_6a1873ceb3c1);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkStateChangeEventDetails2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkUsage(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for INetworkUsage {
+pub struct INetworkUsage(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for INetworkUsage {
     type Vtable = INetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkUsage_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IPInformation(pub ::windows::runtime::IInspectable);
+pub struct IPInformation(pub ::windows::core::IInspectable);
 impl IPInformation {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn NetworkAdapter(&self) -> ::windows::runtime::Result<NetworkAdapter> {
+    pub fn NetworkAdapter(&self) -> ::windows::core::Result<NetworkAdapter> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkAdapter>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkAdapter>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn PrefixLength(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<u8>> {
+    pub fn PrefixLength(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u8>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u8>>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for IPInformation {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.IPInformation;{d85145e0-138f-47d7-9b3a-36bb488cef33})");
+unsafe impl ::windows::core::RuntimeType for IPInformation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.IPInformation;{d85145e0-138f-47d7-9b3a-36bb488cef33})");
 }
-unsafe impl ::windows::runtime::Interface for IPInformation {
+unsafe impl ::windows::core::Interface for IPInformation {
     type Vtable = IIPInformation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd85145e0_138f_47d7_9b3a_36bb488cef33);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd85145e0_138f_47d7_9b3a_36bb488cef33);
 }
-impl ::windows::runtime::RuntimeName for IPInformation {
+impl ::windows::core::RuntimeName for IPInformation {
     const NAME: &'static str = "Windows.Networking.Connectivity.IPInformation";
 }
-impl ::core::convert::From<IPInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPInformation> for ::windows::core::IUnknown {
     fn from(value: IPInformation) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&IPInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPInformation> for ::windows::core::IUnknown {
     fn from(value: &IPInformation) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPInformation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPInformation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<IPInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPInformation> for ::windows::core::IInspectable {
     fn from(value: IPInformation) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IPInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPInformation> for ::windows::core::IInspectable {
     fn from(value: &IPInformation) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IPInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPInformation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IPInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPInformation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for IPInformation {}
 unsafe impl ::core::marker::Sync for IPInformation {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProviderNetworkUsage(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IProviderNetworkUsage {
+pub struct IProviderNetworkUsage(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IProviderNetworkUsage {
     type Vtable = IProviderNetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ec69e04_7931_48c8_b8f3_46300fa42728);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec69e04_7931_48c8_b8f3_46300fa42728);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProviderNetworkUsage_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProxyConfiguration(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IProxyConfiguration {
+pub struct IProxyConfiguration(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IProxyConfiguration {
     type Vtable = IProxyConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProxyConfiguration_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRoutePolicy(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRoutePolicy {
+pub struct IRoutePolicy(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRoutePolicy {
     type Vtable = IRoutePolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRoutePolicy_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::DomainNameType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::DomainNameType) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRoutePolicyFactory(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IRoutePolicyFactory {
+pub struct IRoutePolicyFactory(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IRoutePolicyFactory {
     type Vtable = IRoutePolicyFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36027933_a18e_4db5_a697_f58fa7364e44);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36027933_a18e_4db5_a697_f58fa7364e44);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRoutePolicyFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionprofile: ::windows::runtime::RawPtr, hostname: ::windows::runtime::RawPtr, r#type: super::DomainNameType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, connectionprofile: ::windows::core::RawPtr, hostname: ::windows::core::RawPtr, r#type: super::DomainNameType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWlanConnectionProfileDetails(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IWlanConnectionProfileDetails {
+pub struct IWlanConnectionProfileDetails(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IWlanConnectionProfileDetails {
     type Vtable = IWlanConnectionProfileDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x562098cb_b35a_4bf1_a884_b7557e88ff86);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x562098cb_b35a_4bf1_a884_b7557e88ff86);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWlanConnectionProfileDetails_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWwanConnectionProfileDetails(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IWwanConnectionProfileDetails {
+pub struct IWwanConnectionProfileDetails(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IWwanConnectionProfileDetails {
     type Vtable = IWwanConnectionProfileDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWwanConnectionProfileDetails_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WwanNetworkRegistrationState) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WwanDataClass) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut WwanNetworkRegistrationState) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut WwanDataClass) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWwanConnectionProfileDetails2(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IWwanConnectionProfileDetails2 {
+pub struct IWwanConnectionProfileDetails2(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IWwanConnectionProfileDetails2 {
     type Vtable = IWwanConnectionProfileDetails2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7a754ede_a1ed_48b2_8e92_b460033d52e2);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a754ede_a1ed_48b2_8e92_b460033d52e2);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWwanConnectionProfileDetails2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WwanNetworkIPKind) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut WwanNetworkIPKind) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct LanIdentifier(pub ::windows::runtime::IInspectable);
+pub struct LanIdentifier(pub ::windows::core::IInspectable);
 impl LanIdentifier {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn InfrastructureId(&self) -> ::windows::runtime::Result<LanIdentifierData> {
+    pub fn InfrastructureId(&self) -> ::windows::core::Result<LanIdentifierData> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanIdentifierData>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanIdentifierData>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn PortId(&self) -> ::windows::runtime::Result<LanIdentifierData> {
+    pub fn PortId(&self) -> ::windows::core::Result<LanIdentifierData> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanIdentifierData>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanIdentifierData>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn NetworkAdapterId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
+    pub fn NetworkAdapterId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for LanIdentifier {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifier;{48aa53aa-1108-4546-a6cb-9a74da4b7ba0})");
+unsafe impl ::windows::core::RuntimeType for LanIdentifier {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifier;{48aa53aa-1108-4546-a6cb-9a74da4b7ba0})");
 }
-unsafe impl ::windows::runtime::Interface for LanIdentifier {
+unsafe impl ::windows::core::Interface for LanIdentifier {
     type Vtable = ILanIdentifier_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
 }
-impl ::windows::runtime::RuntimeName for LanIdentifier {
+impl ::windows::core::RuntimeName for LanIdentifier {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifier";
 }
-impl ::core::convert::From<LanIdentifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<LanIdentifier> for ::windows::core::IUnknown {
     fn from(value: LanIdentifier) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&LanIdentifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&LanIdentifier> for ::windows::core::IUnknown {
     fn from(value: &LanIdentifier) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LanIdentifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LanIdentifier {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LanIdentifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LanIdentifier {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<LanIdentifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<LanIdentifier> for ::windows::core::IInspectable {
     fn from(value: LanIdentifier) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&LanIdentifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&LanIdentifier> for ::windows::core::IInspectable {
     fn from(value: &LanIdentifier) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LanIdentifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LanIdentifier {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LanIdentifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LanIdentifier {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for LanIdentifier {}
@@ -2325,74 +2325,74 @@ unsafe impl ::core::marker::Sync for LanIdentifier {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct LanIdentifierData(pub ::windows::runtime::IInspectable);
+pub struct LanIdentifierData(pub ::windows::core::IInspectable);
 impl LanIdentifierData {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn Type(&self) -> ::windows::runtime::Result<u32> {
+    pub fn Type(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation_Collections`*"]
-    pub fn Value(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<u8>> {
+    pub fn Value(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u8>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u8>>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for LanIdentifierData {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifierData;{a74e83c3-d639-45be-a36a-c4e4aeaf6d9b})");
+unsafe impl ::windows::core::RuntimeType for LanIdentifierData {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifierData;{a74e83c3-d639-45be-a36a-c4e4aeaf6d9b})");
 }
-unsafe impl ::windows::runtime::Interface for LanIdentifierData {
+unsafe impl ::windows::core::Interface for LanIdentifierData {
     type Vtable = ILanIdentifierData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b);
 }
-impl ::windows::runtime::RuntimeName for LanIdentifierData {
+impl ::windows::core::RuntimeName for LanIdentifierData {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifierData";
 }
-impl ::core::convert::From<LanIdentifierData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<LanIdentifierData> for ::windows::core::IUnknown {
     fn from(value: LanIdentifierData) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&LanIdentifierData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&LanIdentifierData> for ::windows::core::IUnknown {
     fn from(value: &LanIdentifierData) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LanIdentifierData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LanIdentifierData {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LanIdentifierData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LanIdentifierData {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<LanIdentifierData> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<LanIdentifierData> for ::windows::core::IInspectable {
     fn from(value: LanIdentifierData) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&LanIdentifierData> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&LanIdentifierData> for ::windows::core::IInspectable {
     fn from(value: &LanIdentifierData) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LanIdentifierData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LanIdentifierData {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LanIdentifierData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LanIdentifierData {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for LanIdentifierData {}
@@ -2400,106 +2400,106 @@ unsafe impl ::core::marker::Sync for LanIdentifierData {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct NetworkAdapter(pub ::windows::runtime::IInspectable);
+pub struct NetworkAdapter(pub ::windows::core::IInspectable);
 impl NetworkAdapter {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn OutboundMaxBitsPerSecond(&self) -> ::windows::runtime::Result<u64> {
+    pub fn OutboundMaxBitsPerSecond(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn InboundMaxBitsPerSecond(&self) -> ::windows::runtime::Result<u64> {
+    pub fn InboundMaxBitsPerSecond(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn IanaInterfaceType(&self) -> ::windows::runtime::Result<u32> {
+    pub fn IanaInterfaceType(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn NetworkItem(&self) -> ::windows::runtime::Result<NetworkItem> {
+    pub fn NetworkItem(&self) -> ::windows::core::Result<NetworkItem> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkItem>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkItem>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn NetworkAdapterId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
+    pub fn NetworkAdapterId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn GetConnectedProfileAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ConnectionProfile>> {
+    pub fn GetConnectedProfileAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionProfile>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionProfile>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionProfile>>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkAdapter {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkAdapter;{3b542e03-5388-496c-a8a3-affd39aec2e6})");
+unsafe impl ::windows::core::RuntimeType for NetworkAdapter {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkAdapter;{3b542e03-5388-496c-a8a3-affd39aec2e6})");
 }
-unsafe impl ::windows::runtime::Interface for NetworkAdapter {
+unsafe impl ::windows::core::Interface for NetworkAdapter {
     type Vtable = INetworkAdapter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b542e03_5388_496c_a8a3_affd39aec2e6);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b542e03_5388_496c_a8a3_affd39aec2e6);
 }
-impl ::windows::runtime::RuntimeName for NetworkAdapter {
+impl ::windows::core::RuntimeName for NetworkAdapter {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkAdapter";
 }
-impl ::core::convert::From<NetworkAdapter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NetworkAdapter> for ::windows::core::IUnknown {
     fn from(value: NetworkAdapter) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&NetworkAdapter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NetworkAdapter> for ::windows::core::IUnknown {
     fn from(value: &NetworkAdapter) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkAdapter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkAdapter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NetworkAdapter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkAdapter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<NetworkAdapter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NetworkAdapter> for ::windows::core::IInspectable {
     fn from(value: NetworkAdapter) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&NetworkAdapter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NetworkAdapter> for ::windows::core::IInspectable {
     fn from(value: &NetworkAdapter) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkAdapter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkAdapter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkAdapter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkAdapter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for NetworkAdapter {}
@@ -2530,13 +2530,13 @@ impl ::core::convert::From<i32> for NetworkAuthenticationType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NetworkAuthenticationType {
+unsafe impl ::windows::core::Abi for NetworkAuthenticationType {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkAuthenticationType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkAuthenticationType;i4)");
+unsafe impl ::windows::core::RuntimeType for NetworkAuthenticationType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkAuthenticationType;i4)");
 }
-impl ::windows::runtime::DefaultType for NetworkAuthenticationType {
+impl ::windows::core::DefaultType for NetworkAuthenticationType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
@@ -2554,13 +2554,13 @@ impl ::core::convert::From<i32> for NetworkConnectivityLevel {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NetworkConnectivityLevel {
+unsafe impl ::windows::core::Abi for NetworkConnectivityLevel {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkConnectivityLevel {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkConnectivityLevel;i4)");
+unsafe impl ::windows::core::RuntimeType for NetworkConnectivityLevel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkConnectivityLevel;i4)");
 }
-impl ::windows::runtime::DefaultType for NetworkConnectivityLevel {
+impl ::windows::core::DefaultType for NetworkConnectivityLevel {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
@@ -2578,13 +2578,13 @@ impl ::core::convert::From<i32> for NetworkCostType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NetworkCostType {
+unsafe impl ::windows::core::Abi for NetworkCostType {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkCostType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkCostType;i4)");
+unsafe impl ::windows::core::RuntimeType for NetworkCostType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkCostType;i4)");
 }
-impl ::windows::runtime::DefaultType for NetworkCostType {
+impl ::windows::core::DefaultType for NetworkCostType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
@@ -2610,13 +2610,13 @@ impl ::core::convert::From<i32> for NetworkEncryptionType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NetworkEncryptionType {
+unsafe impl ::windows::core::Abi for NetworkEncryptionType {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkEncryptionType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkEncryptionType;i4)");
+unsafe impl ::windows::core::RuntimeType for NetworkEncryptionType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkEncryptionType;i4)");
 }
-impl ::windows::runtime::DefaultType for NetworkEncryptionType {
+impl ::windows::core::DefaultType for NetworkEncryptionType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
@@ -2624,154 +2624,154 @@ pub struct NetworkInformation {}
 impl NetworkInformation {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation_Collections`*"]
-    pub fn GetConnectionProfiles() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ConnectionProfile>> {
+    pub fn GetConnectionProfiles() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ConnectionProfile>> {
         Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>(result__)
         })
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn GetInternetConnectionProfile() -> ::windows::runtime::Result<ConnectionProfile> {
+    pub fn GetInternetConnectionProfile() -> ::windows::core::Result<ConnectionProfile> {
         Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConnectionProfile>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConnectionProfile>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation_Collections`*"]
-    pub fn GetLanIdentifiers() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<LanIdentifier>> {
+    pub fn GetLanIdentifiers() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<LanIdentifier>> {
         Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<LanIdentifier>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<LanIdentifier>>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation_Collections`*"]
-    pub fn GetHostNames() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
+    pub fn GetHostNames() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
         Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::HostName>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::HostName>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn GetProxyConfigurationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>> {
+    pub fn GetProxyConfigurationAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(uri: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>> {
         Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation_Collections`*"]
-    pub fn GetSortedEndpointPairs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::EndpointPair>>>(destinationlist: Param0, sortoptions: super::HostNameSortOptions) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>> {
+    pub fn GetSortedEndpointPairs<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::EndpointPair>>>(destinationlist: Param0, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>> {
         Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), destinationlist.into_param().abi(), sortoptions, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), destinationlist.into_param().abi(), sortoptions, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn NetworkStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, NetworkStatusChangedEventHandler>>(networkstatushandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn NetworkStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, NetworkStatusChangedEventHandler>>(networkstatushandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), networkstatushandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), networkstatushandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn RemoveNetworkStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(eventcookie: Param0) -> ::windows::runtime::Result<()> {
-        Self::INetworkInformationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() })
+    pub fn RemoveNetworkStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(eventcookie: Param0) -> ::windows::core::Result<()> {
+        Self::INetworkInformationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`, `Foundation_Collections`*"]
-    pub fn FindConnectionProfilesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ConnectionProfileFilter>>(pprofilefilter: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>> {
+    pub fn FindConnectionProfilesAsync<'a, Param0: ::windows::core::IntoParam<'a, ConnectionProfileFilter>>(pprofilefilter: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>> {
         Self::INetworkInformationStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pprofilefilter.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pprofilefilter.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>(result__)
         })
     }
-    pub fn INetworkInformationStatics<R, F: FnOnce(&INetworkInformationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<NetworkInformation, INetworkInformationStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn INetworkInformationStatics<R, F: FnOnce(&INetworkInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<NetworkInformation, INetworkInformationStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    pub fn INetworkInformationStatics2<R, F: FnOnce(&INetworkInformationStatics2) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<NetworkInformation, INetworkInformationStatics2> = ::windows::runtime::FactoryCache::new();
+    pub fn INetworkInformationStatics2<R, F: FnOnce(&INetworkInformationStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<NetworkInformation, INetworkInformationStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-impl ::windows::runtime::RuntimeName for NetworkInformation {
+impl ::windows::core::RuntimeName for NetworkInformation {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkInformation";
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct NetworkItem(pub ::windows::runtime::IInspectable);
+pub struct NetworkItem(pub ::windows::core::IInspectable);
 impl NetworkItem {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn NetworkId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
+    pub fn NetworkId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn GetNetworkTypes(&self) -> ::windows::runtime::Result<NetworkTypes> {
+    pub fn GetNetworkTypes(&self) -> ::windows::core::Result<NetworkTypes> {
         let this = self;
         unsafe {
             let mut result__: NetworkTypes = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkTypes>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkTypes>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkItem {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkItem;{01bc4d39-f5e0-4567-a28c-42080c831b2b})");
+unsafe impl ::windows::core::RuntimeType for NetworkItem {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkItem;{01bc4d39-f5e0-4567-a28c-42080c831b2b})");
 }
-unsafe impl ::windows::runtime::Interface for NetworkItem {
+unsafe impl ::windows::core::Interface for NetworkItem {
     type Vtable = INetworkItem_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
 }
-impl ::windows::runtime::RuntimeName for NetworkItem {
+impl ::windows::core::RuntimeName for NetworkItem {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkItem";
 }
-impl ::core::convert::From<NetworkItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NetworkItem> for ::windows::core::IUnknown {
     fn from(value: NetworkItem) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&NetworkItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NetworkItem> for ::windows::core::IUnknown {
     fn from(value: &NetworkItem) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NetworkItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<NetworkItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NetworkItem> for ::windows::core::IInspectable {
     fn from(value: NetworkItem) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&NetworkItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NetworkItem> for ::windows::core::IInspectable {
     fn from(value: &NetworkItem) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkItem {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for NetworkItem {}
@@ -2779,73 +2779,73 @@ unsafe impl ::core::marker::Sync for NetworkItem {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct NetworkSecuritySettings(pub ::windows::runtime::IInspectable);
+pub struct NetworkSecuritySettings(pub ::windows::core::IInspectable);
 impl NetworkSecuritySettings {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn NetworkAuthenticationType(&self) -> ::windows::runtime::Result<NetworkAuthenticationType> {
+    pub fn NetworkAuthenticationType(&self) -> ::windows::core::Result<NetworkAuthenticationType> {
         let this = self;
         unsafe {
             let mut result__: NetworkAuthenticationType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkAuthenticationType>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkAuthenticationType>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn NetworkEncryptionType(&self) -> ::windows::runtime::Result<NetworkEncryptionType> {
+    pub fn NetworkEncryptionType(&self) -> ::windows::core::Result<NetworkEncryptionType> {
         let this = self;
         unsafe {
             let mut result__: NetworkEncryptionType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkEncryptionType>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkEncryptionType>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkSecuritySettings {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkSecuritySettings;{7ca07e8d-917b-4b5f-b84d-28f7a5ac5402})");
+unsafe impl ::windows::core::RuntimeType for NetworkSecuritySettings {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkSecuritySettings;{7ca07e8d-917b-4b5f-b84d-28f7a5ac5402})");
 }
-unsafe impl ::windows::runtime::Interface for NetworkSecuritySettings {
+unsafe impl ::windows::core::Interface for NetworkSecuritySettings {
     type Vtable = INetworkSecuritySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402);
 }
-impl ::windows::runtime::RuntimeName for NetworkSecuritySettings {
+impl ::windows::core::RuntimeName for NetworkSecuritySettings {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkSecuritySettings";
 }
-impl ::core::convert::From<NetworkSecuritySettings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NetworkSecuritySettings> for ::windows::core::IUnknown {
     fn from(value: NetworkSecuritySettings) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&NetworkSecuritySettings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NetworkSecuritySettings> for ::windows::core::IUnknown {
     fn from(value: &NetworkSecuritySettings) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkSecuritySettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NetworkSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkSecuritySettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<NetworkSecuritySettings> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NetworkSecuritySettings> for ::windows::core::IInspectable {
     fn from(value: NetworkSecuritySettings) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&NetworkSecuritySettings> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NetworkSecuritySettings> for ::windows::core::IInspectable {
     fn from(value: &NetworkSecuritySettings) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkSecuritySettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkSecuritySettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for NetworkSecuritySettings {}
@@ -2853,121 +2853,121 @@ unsafe impl ::core::marker::Sync for NetworkSecuritySettings {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct NetworkStateChangeEventDetails(pub ::windows::runtime::IInspectable);
+pub struct NetworkStateChangeEventDetails(pub ::windows::core::IInspectable);
 impl NetworkStateChangeEventDetails {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn HasNewInternetConnectionProfile(&self) -> ::windows::runtime::Result<bool> {
+    pub fn HasNewInternetConnectionProfile(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn HasNewConnectionCost(&self) -> ::windows::runtime::Result<bool> {
+    pub fn HasNewConnectionCost(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn HasNewNetworkConnectivityLevel(&self) -> ::windows::runtime::Result<bool> {
+    pub fn HasNewNetworkConnectivityLevel(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn HasNewDomainConnectivityLevel(&self) -> ::windows::runtime::Result<bool> {
+    pub fn HasNewDomainConnectivityLevel(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn HasNewHostNameList(&self) -> ::windows::runtime::Result<bool> {
+    pub fn HasNewHostNameList(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn HasNewWwanRegistrationState(&self) -> ::windows::runtime::Result<bool> {
+    pub fn HasNewWwanRegistrationState(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn HasNewTetheringOperationalState(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<INetworkStateChangeEventDetails2>(self)?;
+    pub fn HasNewTetheringOperationalState(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<INetworkStateChangeEventDetails2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn HasNewTetheringClientCount(&self) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<INetworkStateChangeEventDetails2>(self)?;
+    pub fn HasNewTetheringClientCount(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<INetworkStateChangeEventDetails2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkStateChangeEventDetails {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkStateChangeEventDetails;{1f0cf333-d7a6-44dd-a4e9-687c476b903d})");
+unsafe impl ::windows::core::RuntimeType for NetworkStateChangeEventDetails {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkStateChangeEventDetails;{1f0cf333-d7a6-44dd-a4e9-687c476b903d})");
 }
-unsafe impl ::windows::runtime::Interface for NetworkStateChangeEventDetails {
+unsafe impl ::windows::core::Interface for NetworkStateChangeEventDetails {
     type Vtable = INetworkStateChangeEventDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
 }
-impl ::windows::runtime::RuntimeName for NetworkStateChangeEventDetails {
+impl ::windows::core::RuntimeName for NetworkStateChangeEventDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkStateChangeEventDetails";
 }
-impl ::core::convert::From<NetworkStateChangeEventDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NetworkStateChangeEventDetails> for ::windows::core::IUnknown {
     fn from(value: NetworkStateChangeEventDetails) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&NetworkStateChangeEventDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NetworkStateChangeEventDetails> for ::windows::core::IUnknown {
     fn from(value: &NetworkStateChangeEventDetails) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkStateChangeEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkStateChangeEventDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NetworkStateChangeEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkStateChangeEventDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<NetworkStateChangeEventDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NetworkStateChangeEventDetails> for ::windows::core::IInspectable {
     fn from(value: NetworkStateChangeEventDetails) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&NetworkStateChangeEventDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NetworkStateChangeEventDetails> for ::windows::core::IInspectable {
     fn from(value: &NetworkStateChangeEventDetails) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkStateChangeEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkStateChangeEventDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkStateChangeEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkStateChangeEventDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for NetworkStateChangeEventDetails {}
@@ -2975,74 +2975,74 @@ unsafe impl ::core::marker::Sync for NetworkStateChangeEventDetails {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct NetworkStatusChangedEventHandler(::windows::runtime::IUnknown);
+pub struct NetworkStatusChangedEventHandler(::windows::core::IUnknown);
 impl NetworkStatusChangedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
         let com = NetworkStatusChangedEventHandler_box::<F> {
             vtable: &NetworkStatusChangedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
+            count: ::windows::core::RefCount::new(1),
             invoke,
         };
-        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
+    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, sender: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi()).ok() }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkStatusChangedEventHandler {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"delegate({71ba143f-598e-49d0-84eb-8febaedcc195})");
+unsafe impl ::windows::core::RuntimeType for NetworkStatusChangedEventHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"delegate({71ba143f-598e-49d0-84eb-8febaedcc195})");
 }
-unsafe impl ::windows::runtime::Interface for NetworkStatusChangedEventHandler {
+unsafe impl ::windows::core::Interface for NetworkStatusChangedEventHandler {
     type Vtable = NetworkStatusChangedEventHandler_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71ba143f_598e_49d0_84eb_8febaedcc195);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ba143f_598e_49d0_84eb_8febaedcc195);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct NetworkStatusChangedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(C)]
-struct NetworkStatusChangedEventHandler_box<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static> {
+struct NetworkStatusChangedEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const NetworkStatusChangedEventHandler_abi,
     invoke: F,
-    count: ::windows::runtime::RefCount,
+    count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static> NetworkStatusChangedEventHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + 'static> NetworkStatusChangedEventHandler_box<F> {
     const VTABLE: NetworkStatusChangedEventHandler_abi = NetworkStatusChangedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
-    unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        *interface = if iid == &<NetworkStatusChangedEventHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
+    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+        *interface = if iid == &<NetworkStatusChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
             ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
-            ::windows::runtime::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(0x8000_4002)
         } else {
             (*this).count.add_ref();
-            ::windows::runtime::HRESULT(0)
+            ::windows::core::HRESULT(0)
         }
     }
-    unsafe extern "system" fn AddRef(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn AddRef(this: ::windows::core::RawPtr) -> u32 {
+        let this = this as *mut ::windows::core::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::core::RawPtr) -> u32 {
+        let this = this as *mut ::windows::core::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::alloc::boxed::Box::from_raw(this);
+            ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType)).into()
+    unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
@@ -3059,13 +3059,13 @@ impl ::core::convert::From<u32> for NetworkTypes {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NetworkTypes {
+unsafe impl ::windows::core::Abi for NetworkTypes {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkTypes {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkTypes;u4)");
+unsafe impl ::windows::core::RuntimeType for NetworkTypes {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkTypes;u4)");
 }
-impl ::windows::runtime::DefaultType for NetworkTypes {
+impl ::windows::core::DefaultType for NetworkTypes {
     type DefaultType = Self;
 }
 impl ::core::ops::BitOr for NetworkTypes {
@@ -3099,82 +3099,82 @@ impl ::core::ops::Not for NetworkTypes {
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct NetworkUsage(pub ::windows::runtime::IInspectable);
+pub struct NetworkUsage(pub ::windows::core::IInspectable);
 impl NetworkUsage {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn BytesSent(&self) -> ::windows::runtime::Result<u64> {
+    pub fn BytesSent(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn BytesReceived(&self) -> ::windows::runtime::Result<u64> {
+    pub fn BytesReceived(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`*"]
-    pub fn ConnectionDuration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
+    pub fn ConnectionDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkUsage {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkUsage;{49da8fce-9985-4927-bf5b-072b5c65f8d9})");
+unsafe impl ::windows::core::RuntimeType for NetworkUsage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkUsage;{49da8fce-9985-4927-bf5b-072b5c65f8d9})");
 }
-unsafe impl ::windows::runtime::Interface for NetworkUsage {
+unsafe impl ::windows::core::Interface for NetworkUsage {
     type Vtable = INetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
 }
-impl ::windows::runtime::RuntimeName for NetworkUsage {
+impl ::windows::core::RuntimeName for NetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkUsage";
 }
-impl ::core::convert::From<NetworkUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NetworkUsage> for ::windows::core::IUnknown {
     fn from(value: NetworkUsage) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&NetworkUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NetworkUsage> for ::windows::core::IUnknown {
     fn from(value: &NetworkUsage) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<NetworkUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NetworkUsage> for ::windows::core::IInspectable {
     fn from(value: NetworkUsage) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&NetworkUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NetworkUsage> for ::windows::core::IInspectable {
     fn from(value: &NetworkUsage) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for NetworkUsage {}
@@ -3203,93 +3203,93 @@ impl ::core::cmp::PartialEq for NetworkUsageStates {
     }
 }
 impl ::core::cmp::Eq for NetworkUsageStates {}
-unsafe impl ::windows::runtime::Abi for NetworkUsageStates {
+unsafe impl ::windows::core::Abi for NetworkUsageStates {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for NetworkUsageStates {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Networking.Connectivity.NetworkUsageStates;enum(Windows.Networking.Connectivity.TriStates;i4);enum(Windows.Networking.Connectivity.TriStates;i4))");
+unsafe impl ::windows::core::RuntimeType for NetworkUsageStates {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Connectivity.NetworkUsageStates;enum(Windows.Networking.Connectivity.TriStates;i4);enum(Windows.Networking.Connectivity.TriStates;i4))");
 }
-impl ::windows::runtime::DefaultType for NetworkUsageStates {
+impl ::windows::core::DefaultType for NetworkUsageStates {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ProviderNetworkUsage(pub ::windows::runtime::IInspectable);
+pub struct ProviderNetworkUsage(pub ::windows::core::IInspectable);
 impl ProviderNetworkUsage {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn BytesSent(&self) -> ::windows::runtime::Result<u64> {
+    pub fn BytesSent(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn BytesReceived(&self) -> ::windows::runtime::Result<u64> {
+    pub fn BytesReceived(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn ProviderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ProviderNetworkUsage {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProviderNetworkUsage;{5ec69e04-7931-48c8-b8f3-46300fa42728})");
+unsafe impl ::windows::core::RuntimeType for ProviderNetworkUsage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProviderNetworkUsage;{5ec69e04-7931-48c8-b8f3-46300fa42728})");
 }
-unsafe impl ::windows::runtime::Interface for ProviderNetworkUsage {
+unsafe impl ::windows::core::Interface for ProviderNetworkUsage {
     type Vtable = IProviderNetworkUsage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ec69e04_7931_48c8_b8f3_46300fa42728);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec69e04_7931_48c8_b8f3_46300fa42728);
 }
-impl ::windows::runtime::RuntimeName for ProviderNetworkUsage {
+impl ::windows::core::RuntimeName for ProviderNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProviderNetworkUsage";
 }
-impl ::core::convert::From<ProviderNetworkUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProviderNetworkUsage> for ::windows::core::IUnknown {
     fn from(value: ProviderNetworkUsage) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ProviderNetworkUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProviderNetworkUsage> for ::windows::core::IUnknown {
     fn from(value: &ProviderNetworkUsage) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProviderNetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProviderNetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProviderNetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProviderNetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ProviderNetworkUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProviderNetworkUsage> for ::windows::core::IInspectable {
     fn from(value: ProviderNetworkUsage) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ProviderNetworkUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProviderNetworkUsage> for ::windows::core::IInspectable {
     fn from(value: &ProviderNetworkUsage) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProviderNetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProviderNetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProviderNetworkUsage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProviderNetworkUsage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ProviderNetworkUsage {}
@@ -3297,74 +3297,74 @@ unsafe impl ::core::marker::Sync for ProviderNetworkUsage {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ProxyConfiguration(pub ::windows::runtime::IInspectable);
+pub struct ProxyConfiguration(pub ::windows::core::IInspectable);
 impl ProxyConfiguration {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation`, `Foundation_Collections`*"]
-    pub fn ProxyUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
+    pub fn ProxyUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn CanConnectDirectly(&self) -> ::windows::runtime::Result<bool> {
+    pub fn CanConnectDirectly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for ProxyConfiguration {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProxyConfiguration;{ef3a60b4-9004-4dd6-b7d8-b3e502f4aad0})");
+unsafe impl ::windows::core::RuntimeType for ProxyConfiguration {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProxyConfiguration;{ef3a60b4-9004-4dd6-b7d8-b3e502f4aad0})");
 }
-unsafe impl ::windows::runtime::Interface for ProxyConfiguration {
+unsafe impl ::windows::core::Interface for ProxyConfiguration {
     type Vtable = IProxyConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
 }
-impl ::windows::runtime::RuntimeName for ProxyConfiguration {
+impl ::windows::core::RuntimeName for ProxyConfiguration {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProxyConfiguration";
 }
-impl ::core::convert::From<ProxyConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProxyConfiguration> for ::windows::core::IUnknown {
     fn from(value: ProxyConfiguration) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&ProxyConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProxyConfiguration> for ::windows::core::IUnknown {
     fn from(value: &ProxyConfiguration) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProxyConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProxyConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProxyConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProxyConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<ProxyConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProxyConfiguration> for ::windows::core::IInspectable {
     fn from(value: ProxyConfiguration) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ProxyConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProxyConfiguration> for ::windows::core::IInspectable {
     fn from(value: &ProxyConfiguration) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProxyConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProxyConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProxyConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProxyConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for ProxyConfiguration {}
@@ -3383,13 +3383,13 @@ impl ::core::convert::From<u32> for RoamingStates {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RoamingStates {
+unsafe impl ::windows::core::Abi for RoamingStates {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for RoamingStates {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.RoamingStates;u4)");
+unsafe impl ::windows::core::RuntimeType for RoamingStates {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.RoamingStates;u4)");
 }
-impl ::windows::runtime::DefaultType for RoamingStates {
+impl ::windows::core::DefaultType for RoamingStates {
     type DefaultType = Self;
 }
 impl ::core::ops::BitOr for RoamingStates {
@@ -3423,92 +3423,92 @@ impl ::core::ops::Not for RoamingStates {
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RoutePolicy(pub ::windows::runtime::IInspectable);
+pub struct RoutePolicy(pub ::windows::core::IInspectable);
 impl RoutePolicy {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn ConnectionProfile(&self) -> ::windows::runtime::Result<ConnectionProfile> {
+    pub fn ConnectionProfile(&self) -> ::windows::core::Result<ConnectionProfile> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConnectionProfile>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConnectionProfile>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn HostName(&self) -> ::windows::runtime::Result<super::HostName> {
+    pub fn HostName(&self) -> ::windows::core::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn HostNameType(&self) -> ::windows::runtime::Result<super::DomainNameType> {
+    pub fn HostNameType(&self) -> ::windows::core::Result<super::DomainNameType> {
         let this = self;
         unsafe {
             let mut result__: super::DomainNameType = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DomainNameType>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DomainNameType>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn CreateRoutePolicy<'a, Param0: ::windows::runtime::IntoParam<'a, ConnectionProfile>, Param1: ::windows::runtime::IntoParam<'a, super::HostName>>(connectionprofile: Param0, hostname: Param1, r#type: super::DomainNameType) -> ::windows::runtime::Result<RoutePolicy> {
+    pub fn CreateRoutePolicy<'a, Param0: ::windows::core::IntoParam<'a, ConnectionProfile>, Param1: ::windows::core::IntoParam<'a, super::HostName>>(connectionprofile: Param0, hostname: Param1, r#type: super::DomainNameType) -> ::windows::core::Result<RoutePolicy> {
         Self::IRoutePolicyFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), connectionprofile.into_param().abi(), hostname.into_param().abi(), r#type, &mut result__).from_abi::<RoutePolicy>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), connectionprofile.into_param().abi(), hostname.into_param().abi(), r#type, &mut result__).from_abi::<RoutePolicy>(result__)
         })
     }
-    pub fn IRoutePolicyFactory<R, F: FnOnce(&IRoutePolicyFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<RoutePolicy, IRoutePolicyFactory> = ::windows::runtime::FactoryCache::new();
+    pub fn IRoutePolicyFactory<R, F: FnOnce(&IRoutePolicyFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<RoutePolicy, IRoutePolicyFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for RoutePolicy {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.RoutePolicy;{11abc4ac-0fc7-42e4-8742-569923b1ca11})");
+unsafe impl ::windows::core::RuntimeType for RoutePolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.RoutePolicy;{11abc4ac-0fc7-42e4-8742-569923b1ca11})");
 }
-unsafe impl ::windows::runtime::Interface for RoutePolicy {
+unsafe impl ::windows::core::Interface for RoutePolicy {
     type Vtable = IRoutePolicy_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
 }
-impl ::windows::runtime::RuntimeName for RoutePolicy {
+impl ::windows::core::RuntimeName for RoutePolicy {
     const NAME: &'static str = "Windows.Networking.Connectivity.RoutePolicy";
 }
-impl ::core::convert::From<RoutePolicy> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RoutePolicy> for ::windows::core::IUnknown {
     fn from(value: RoutePolicy) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&RoutePolicy> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RoutePolicy> for ::windows::core::IUnknown {
     fn from(value: &RoutePolicy) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RoutePolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RoutePolicy {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RoutePolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RoutePolicy {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<RoutePolicy> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RoutePolicy> for ::windows::core::IInspectable {
     fn from(value: RoutePolicy) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&RoutePolicy> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RoutePolicy> for ::windows::core::IInspectable {
     fn from(value: &RoutePolicy) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RoutePolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RoutePolicy {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RoutePolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RoutePolicy {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for RoutePolicy {}
@@ -3527,77 +3527,77 @@ impl ::core::convert::From<i32> for TriStates {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TriStates {
+unsafe impl ::windows::core::Abi for TriStates {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for TriStates {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.TriStates;i4)");
+unsafe impl ::windows::core::RuntimeType for TriStates {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.TriStates;i4)");
 }
-impl ::windows::runtime::DefaultType for TriStates {
+impl ::windows::core::DefaultType for TriStates {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct WlanConnectionProfileDetails(pub ::windows::runtime::IInspectable);
+pub struct WlanConnectionProfileDetails(pub ::windows::core::IInspectable);
 impl WlanConnectionProfileDetails {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn GetConnectedSsid(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn GetConnectedSsid(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for WlanConnectionProfileDetails {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WlanConnectionProfileDetails;{562098cb-b35a-4bf1-a884-b7557e88ff86})");
+unsafe impl ::windows::core::RuntimeType for WlanConnectionProfileDetails {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WlanConnectionProfileDetails;{562098cb-b35a-4bf1-a884-b7557e88ff86})");
 }
-unsafe impl ::windows::runtime::Interface for WlanConnectionProfileDetails {
+unsafe impl ::windows::core::Interface for WlanConnectionProfileDetails {
     type Vtable = IWlanConnectionProfileDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x562098cb_b35a_4bf1_a884_b7557e88ff86);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x562098cb_b35a_4bf1_a884_b7557e88ff86);
 }
-impl ::windows::runtime::RuntimeName for WlanConnectionProfileDetails {
+impl ::windows::core::RuntimeName for WlanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WlanConnectionProfileDetails";
 }
-impl ::core::convert::From<WlanConnectionProfileDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WlanConnectionProfileDetails> for ::windows::core::IUnknown {
     fn from(value: WlanConnectionProfileDetails) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&WlanConnectionProfileDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WlanConnectionProfileDetails> for ::windows::core::IUnknown {
     fn from(value: &WlanConnectionProfileDetails) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WlanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WlanConnectionProfileDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WlanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WlanConnectionProfileDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<WlanConnectionProfileDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WlanConnectionProfileDetails> for ::windows::core::IInspectable {
     fn from(value: WlanConnectionProfileDetails) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&WlanConnectionProfileDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WlanConnectionProfileDetails> for ::windows::core::IInspectable {
     fn from(value: &WlanConnectionProfileDetails) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WlanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WlanConnectionProfileDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WlanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WlanConnectionProfileDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for WlanConnectionProfileDetails {}
@@ -3605,106 +3605,106 @@ unsafe impl ::core::marker::Sync for WlanConnectionProfileDetails {}
 #[doc = "*Required features: `Networking_Connectivity`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct WwanConnectionProfileDetails(pub ::windows::runtime::IInspectable);
+pub struct WwanConnectionProfileDetails(pub ::windows::core::IInspectable);
 impl WwanConnectionProfileDetails {
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn HomeProviderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn HomeProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn AccessPointName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn AccessPointName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn GetNetworkRegistrationState(&self) -> ::windows::runtime::Result<WwanNetworkRegistrationState> {
+    pub fn GetNetworkRegistrationState(&self) -> ::windows::core::Result<WwanNetworkRegistrationState> {
         let this = self;
         unsafe {
             let mut result__: WwanNetworkRegistrationState = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WwanNetworkRegistrationState>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WwanNetworkRegistrationState>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn GetCurrentDataClass(&self) -> ::windows::runtime::Result<WwanDataClass> {
+    pub fn GetCurrentDataClass(&self) -> ::windows::core::Result<WwanDataClass> {
         let this = self;
         unsafe {
             let mut result__: WwanDataClass = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WwanDataClass>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WwanDataClass>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
-    pub fn IPKind(&self) -> ::windows::runtime::Result<WwanNetworkIPKind> {
-        let this = &::windows::runtime::Interface::cast::<IWwanConnectionProfileDetails2>(self)?;
+    pub fn IPKind(&self) -> ::windows::core::Result<WwanNetworkIPKind> {
+        let this = &::windows::core::Interface::cast::<IWwanConnectionProfileDetails2>(self)?;
         unsafe {
             let mut result__: WwanNetworkIPKind = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WwanNetworkIPKind>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WwanNetworkIPKind>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Connectivity`, `Foundation_Collections`*"]
-    pub fn PurposeGuids(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::GUID>> {
-        let this = &::windows::runtime::Interface::cast::<IWwanConnectionProfileDetails2>(self)?;
+    pub fn PurposeGuids(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>> {
+        let this = &::windows::core::Interface::cast::<IWwanConnectionProfileDetails2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::GUID>>(result__)
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>>(result__)
         }
     }
 }
-unsafe impl ::windows::runtime::RuntimeType for WwanConnectionProfileDetails {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WwanConnectionProfileDetails;{0e4da8fe-835f-4df3-82fd-df556ebc09ef})");
+unsafe impl ::windows::core::RuntimeType for WwanConnectionProfileDetails {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WwanConnectionProfileDetails;{0e4da8fe-835f-4df3-82fd-df556ebc09ef})");
 }
-unsafe impl ::windows::runtime::Interface for WwanConnectionProfileDetails {
+unsafe impl ::windows::core::Interface for WwanConnectionProfileDetails {
     type Vtable = IWwanConnectionProfileDetails_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
 }
-impl ::windows::runtime::RuntimeName for WwanConnectionProfileDetails {
+impl ::windows::core::RuntimeName for WwanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WwanConnectionProfileDetails";
 }
-impl ::core::convert::From<WwanConnectionProfileDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WwanConnectionProfileDetails> for ::windows::core::IUnknown {
     fn from(value: WwanConnectionProfileDetails) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&WwanConnectionProfileDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WwanConnectionProfileDetails> for ::windows::core::IUnknown {
     fn from(value: &WwanConnectionProfileDetails) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WwanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WwanConnectionProfileDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WwanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WwanConnectionProfileDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<WwanConnectionProfileDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WwanConnectionProfileDetails> for ::windows::core::IInspectable {
     fn from(value: WwanConnectionProfileDetails) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&WwanConnectionProfileDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WwanConnectionProfileDetails> for ::windows::core::IInspectable {
     fn from(value: &WwanConnectionProfileDetails) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WwanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WwanConnectionProfileDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WwanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WwanConnectionProfileDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::core::marker::Send for WwanConnectionProfileDetails {}
@@ -3738,13 +3738,13 @@ impl ::core::convert::From<u32> for WwanDataClass {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WwanDataClass {
+unsafe impl ::windows::core::Abi for WwanDataClass {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for WwanDataClass {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanDataClass;u4)");
+unsafe impl ::windows::core::RuntimeType for WwanDataClass {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanDataClass;u4)");
 }
-impl ::windows::runtime::DefaultType for WwanDataClass {
+impl ::windows::core::DefaultType for WwanDataClass {
     type DefaultType = Self;
 }
 impl ::core::ops::BitOr for WwanDataClass {
@@ -3791,13 +3791,13 @@ impl ::core::convert::From<i32> for WwanNetworkIPKind {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WwanNetworkIPKind {
+unsafe impl ::windows::core::Abi for WwanNetworkIPKind {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for WwanNetworkIPKind {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkIPKind;i4)");
+unsafe impl ::windows::core::RuntimeType for WwanNetworkIPKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkIPKind;i4)");
 }
-impl ::windows::runtime::DefaultType for WwanNetworkIPKind {
+impl ::windows::core::DefaultType for WwanNetworkIPKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Connectivity`*"]
@@ -3818,12 +3818,12 @@ impl ::core::convert::From<i32> for WwanNetworkRegistrationState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WwanNetworkRegistrationState {
+unsafe impl ::windows::core::Abi for WwanNetworkRegistrationState {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for WwanNetworkRegistrationState {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkRegistrationState;i4)");
+unsafe impl ::windows::core::RuntimeType for WwanNetworkRegistrationState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkRegistrationState;i4)");
 }
-impl ::windows::runtime::DefaultType for WwanNetworkRegistrationState {
+impl ::windows::core::DefaultType for WwanNetworkRegistrationState {
     type DefaultType = Self;
 }

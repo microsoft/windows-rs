@@ -34,7 +34,7 @@ impl ::core::cmp::PartialEq for CMD_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CMD_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CMD_ENTRY {
+unsafe impl ::windows::core::Abi for CMD_ENTRY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -72,7 +72,7 @@ impl ::core::cmp::PartialEq for CMD_GROUP_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CMD_GROUP_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CMD_GROUP_ENTRY {
+unsafe impl ::windows::core::Abi for CMD_GROUP_ENTRY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
@@ -124,7 +124,7 @@ pub const MAX_NAME_LEN: u32 = 48u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MatchEnumTag<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, pwcarg: Param1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32 {
+pub unsafe fn MatchEnumTag<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, pwcarg: Param1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -139,7 +139,7 @@ pub unsafe fn MatchEnumTag<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MatchToken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszusertoken: Param0, pwszcmdtoken: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn MatchToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszusertoken: Param0, pwszcmdtoken: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -177,7 +177,7 @@ impl ::core::convert::From<i32> for NS_CMD_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NS_CMD_FLAGS {
+unsafe impl ::windows::core::Abi for NS_CMD_FLAGS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -192,7 +192,7 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
 pub struct NS_CONTEXT_ATTRIBUTES {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0,
     pub pwszContext: super::super::Foundation::PWSTR,
-    pub guidHelper: ::windows::runtime::GUID,
+    pub guidHelper: ::windows::core::GUID,
     pub dwFlags: u32,
     pub ulPriority: u32,
     pub ulNumTopCmds: u32,
@@ -222,7 +222,7 @@ impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NS_CONTEXT_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -249,7 +249,7 @@ impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NS_CONTEXT_ATTRIBUTES_0 {
+unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -282,7 +282,7 @@ impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
+unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
@@ -299,7 +299,7 @@ impl ::core::convert::From<i32> for NS_EVENTS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NS_EVENTS {
+unsafe impl ::windows::core::Abi for NS_EVENTS {
     type Abi = Self;
 }
 impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
@@ -311,7 +311,7 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub struct NS_HELPER_ATTRIBUTES {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0,
-    pub guidHelper: ::windows::runtime::GUID,
+    pub guidHelper: ::windows::core::GUID,
     pub pfnStart: ::core::option::Option<PNS_HELPER_START_FN>,
     pub pfnStop: ::core::option::Option<PNS_HELPER_STOP_FN>,
 }
@@ -327,7 +327,7 @@ impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES {
     }
 }
 impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES {}
-unsafe impl ::windows::runtime::Abi for NS_HELPER_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -349,7 +349,7 @@ impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0 {
     }
 }
 impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES_0 {}
-unsafe impl ::windows::runtime::Abi for NS_HELPER_ATTRIBUTES_0 {
+unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -376,7 +376,7 @@ impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0_0 {
     }
 }
 impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES_0_0 {}
-unsafe impl ::windows::runtime::Abi for NS_HELPER_ATTRIBUTES_0_0 {
+unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
@@ -393,7 +393,7 @@ impl ::core::convert::From<i32> for NS_MODE_CHANGE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NS_MODE_CHANGE {
+unsafe impl ::windows::core::Abi for NS_MODE_CHANGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
@@ -409,7 +409,7 @@ impl ::core::convert::From<i32> for NS_REQS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NS_REQS {
+unsafe impl ::windows::core::Abi for NS_REQS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
@@ -431,7 +431,7 @@ pub type PNS_DLL_INIT_FN = unsafe extern "system" fn(dwnetshversion: u32, preser
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub type PNS_DLL_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
-pub type PNS_HELPER_START_FN = unsafe extern "system" fn(pguidparent: *const ::windows::runtime::GUID, dwversion: u32) -> u32;
+pub type PNS_HELPER_START_FN = unsafe extern "system" fn(pguidparent: *const ::windows::core::GUID, dwversion: u32) -> u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub type PNS_HELPER_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
@@ -440,7 +440,7 @@ pub type PNS_OSVERSIONCHECK = unsafe extern "system" fn(cimostype: u32, cimospro
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PreprocessCommand<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32 {
+pub unsafe fn PreprocessCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -465,7 +465,7 @@ pub unsafe fn PreprocessCommand<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrintError<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwerrid: u32) -> u32 {
+pub unsafe fn PrintError<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwerrid: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -480,7 +480,7 @@ pub unsafe fn PrintError<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrintMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszformat: Param0) -> u32 {
+pub unsafe fn PrintMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszformat: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -495,7 +495,7 @@ pub unsafe fn PrintMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrintMessageFromModule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwmsgid: u32) -> u32 {
+pub unsafe fn PrintMessageFromModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwmsgid: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -524,12 +524,12 @@ pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u3
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 #[inline]
-pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::runtime::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
+pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterHelper(pguidparentcontext: *const ::windows::runtime::GUID, pfnregistersubcontext: *const ::core::mem::ManuallyDrop<NS_HELPER_ATTRIBUTES>) -> u32;
+            fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const ::core::mem::ManuallyDrop<NS_HELPER_ATTRIBUTES>) -> u32;
         }
         ::core::mem::transmute(RegisterHelper(::core::mem::transmute(pguidparentcontext), ::core::mem::transmute(pfnregistersubcontext)))
     }
@@ -568,7 +568,7 @@ impl ::core::cmp::PartialEq for TAG_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TAG_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TAG_TYPE {
+unsafe impl ::windows::core::Abi for TAG_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -602,6 +602,6 @@ impl ::core::cmp::PartialEq for TOKEN_VALUE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TOKEN_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TOKEN_VALUE {
+unsafe impl ::windows::core::Abi for TOKEN_VALUE {
     type Abi = Self;
 }
