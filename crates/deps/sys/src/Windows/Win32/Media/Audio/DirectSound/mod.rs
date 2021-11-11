@@ -2,28 +2,28 @@
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
-    pub fn DirectSoundCaptureCreate(pcguiddevice: *const ::windows::runtime::GUID, ppdsc: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn DirectSoundCaptureCreate();
     #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
-    pub fn DirectSoundCaptureCreate8(pcguiddevice: *const ::windows::runtime::GUID, ppdsc8: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn DirectSoundCaptureCreate8();
     #[doc = "*Required features: `Win32_Media_Audio_DirectSound`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::windows::runtime::RawPtr, pcontext: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn DirectSoundCaptureEnumerateA();
     #[doc = "*Required features: `Win32_Media_Audio_DirectSound`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectSoundCaptureEnumerateW(pdsenumcallback: ::windows::runtime::RawPtr, pcontext: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn DirectSoundCaptureEnumerateW();
     #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
-    pub fn DirectSoundCreate(pcguiddevice: *const ::windows::runtime::GUID, ppds: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn DirectSoundCreate();
     #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
-    pub fn DirectSoundCreate8(pcguiddevice: *const ::windows::runtime::GUID, ppds8: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn DirectSoundCreate8();
     #[doc = "*Required features: `Win32_Media_Audio_DirectSound`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectSoundEnumerateA(pdsenumcallback: ::windows::runtime::RawPtr, pcontext: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn DirectSoundEnumerateA();
     #[doc = "*Required features: `Win32_Media_Audio_DirectSound`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectSoundEnumerateW(pdsenumcallback: ::windows::runtime::RawPtr, pcontext: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn DirectSoundEnumerateW();
     #[doc = "*Required features: `Win32_Media_Audio_DirectSound`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectSoundFullDuplexCreate(pcguidcapturedevice: *const ::windows::runtime::GUID, pcguidrenderdevice: *const ::windows::runtime::GUID, pcdscbufferdesc: *const DSCBUFFERDESC, pcdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, ppdsfd: *mut ::windows::runtime::RawPtr, ppdscbuffer8: *mut ::windows::runtime::RawPtr, ppdsbuffer8: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn DirectSoundFullDuplexCreate();
     #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
-    pub fn GetDeviceID(pguidsrc: *const ::windows::runtime::GUID, pguiddest: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
+    pub fn GetDeviceID();
 }

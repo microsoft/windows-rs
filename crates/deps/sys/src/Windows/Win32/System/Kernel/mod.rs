@@ -2,17 +2,17 @@
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Kernel`*"]
-    pub fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY;
+    pub fn RtlFirstEntrySList();
     #[doc = "*Required features: `Win32_System_Kernel`*"]
-    pub fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER);
+    pub fn RtlInitializeSListHead();
     #[doc = "*Required features: `Win32_System_Kernel`*"]
-    pub fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
+    pub fn RtlInterlockedFlushSList();
     #[doc = "*Required features: `Win32_System_Kernel`*"]
-    pub fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
+    pub fn RtlInterlockedPopEntrySList();
     #[doc = "*Required features: `Win32_System_Kernel`*"]
-    pub fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY;
+    pub fn RtlInterlockedPushEntrySList();
     #[doc = "*Required features: `Win32_System_Kernel`*"]
-    pub fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY;
+    pub fn RtlInterlockedPushListSListEx();
     #[doc = "*Required features: `Win32_System_Kernel`*"]
-    pub fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16;
+    pub fn RtlQueryDepthSList();
 }

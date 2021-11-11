@@ -2,22 +2,22 @@
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_ComponentServices`*"]
-    pub fn CoCreateActivity(piunknown: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn CoCreateActivity();
     #[doc = "*Required features: `Win32_System_ComponentServices`*"]
-    pub fn CoEnterServiceDomain(pconfigobject: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn CoEnterServiceDomain();
     #[doc = "*Required features: `Win32_System_ComponentServices`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn CoGetDefaultContext();
     #[doc = "*Required features: `Win32_System_ComponentServices`*"]
-    pub fn CoLeaveServiceDomain(punkstatus: ::windows::runtime::RawPtr);
+    pub fn CoLeaveServiceDomain();
     #[doc = "*Required features: `Win32_System_ComponentServices`*"]
-    pub fn GetDispenserManager(param0: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn GetDispenserManager();
     #[doc = "*Required features: `Win32_System_ComponentServices`*"]
-    pub fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::runtime::HRESULT;
+    pub fn GetManagedExtensions();
     #[doc = "*Required features: `Win32_System_ComponentServices`*"]
-    pub fn MTSCreateActivity(riid: *const ::windows::runtime::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn MTSCreateActivity();
     #[doc = "*Required features: `Win32_System_ComponentServices`*"]
-    pub fn RecycleSurrogate(lreasoncode: i32) -> ::windows::runtime::HRESULT;
+    pub fn RecycleSurrogate();
     #[doc = "*Required features: `Win32_System_ComponentServices`*"]
-    pub fn SafeRef(rid: *const ::windows::runtime::GUID, punk: ::windows::runtime::RawPtr) -> *mut ::core::ffi::c_void;
+    pub fn SafeRef();
 }

@@ -2,201 +2,201 @@
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpCancelMsg(session: isize, reqid: i32) -> u32;
+    pub fn SnmpCancelMsg();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpCleanup() -> u32;
+    pub fn SnmpCleanup();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpCleanupEx() -> u32;
+    pub fn SnmpCleanupEx();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpClose(session: isize) -> u32;
+    pub fn SnmpClose();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpContextToStr(context: isize, string: *mut smiOCTETS) -> u32;
+    pub fn SnmpContextToStr();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpCountVbl(vbl: isize) -> u32;
+    pub fn SnmpCountVbl();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpCreatePdu(session: isize, pdu_type: SNMP_PDU_TYPE, request_id: i32, error_status: i32, error_index: i32, varbindlist: isize) -> isize;
+    pub fn SnmpCreatePdu();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpCreateSession(hwnd: super::super::Foundation::HWND, wmsg: u32, fcallback: ::windows::runtime::RawPtr, lpclientdata: *mut ::core::ffi::c_void) -> isize;
+    pub fn SnmpCreateSession();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpCreateVbl(session: isize, name: *mut smiOID, value: *mut smiVALUE) -> isize;
+    pub fn SnmpCreateVbl();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpDecodeMsg(session: isize, srcentity: *mut isize, dstentity: *mut isize, context: *mut isize, pdu: *mut isize, msgbufdesc: *mut smiOCTETS) -> u32;
+    pub fn SnmpDecodeMsg();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpDeleteVb(vbl: isize, index: u32) -> u32;
+    pub fn SnmpDeleteVb();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpDuplicatePdu(session: isize, pdu: isize) -> isize;
+    pub fn SnmpDuplicatePdu();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpDuplicateVbl(session: isize, vbl: isize) -> isize;
+    pub fn SnmpDuplicateVbl();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpEncodeMsg(session: isize, srcentity: isize, dstentity: isize, context: isize, pdu: isize, msgbufdesc: *mut smiOCTETS) -> u32;
+    pub fn SnmpEncodeMsg();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpEntityToStr(entity: isize, size: u32, string: super::super::Foundation::PSTR) -> u32;
+    pub fn SnmpEntityToStr();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpFreeContext(context: isize) -> u32;
+    pub fn SnmpFreeContext();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpFreeDescriptor(syntax: u32, descriptor: *mut smiOCTETS) -> u32;
+    pub fn SnmpFreeDescriptor();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpFreeEntity(entity: isize) -> u32;
+    pub fn SnmpFreeEntity();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpFreePdu(pdu: isize) -> u32;
+    pub fn SnmpFreePdu();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpFreeVbl(vbl: isize) -> u32;
+    pub fn SnmpFreeVbl();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpGetLastError(session: isize) -> u32;
+    pub fn SnmpGetLastError();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpGetPduData(pdu: isize, pdu_type: *mut SNMP_PDU_TYPE, request_id: *mut i32, error_status: *mut SNMP_ERROR, error_index: *mut i32, varbindlist: *mut isize) -> u32;
+    pub fn SnmpGetPduData();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpGetRetransmitMode(nretransmitmode: *mut SNMP_STATUS) -> u32;
+    pub fn SnmpGetRetransmitMode();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpGetRetry(hentity: isize, npolicyretry: *mut u32, nactualretry: *mut u32) -> u32;
+    pub fn SnmpGetRetry();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpGetTimeout(hentity: isize, npolicytimeout: *mut u32, nactualtimeout: *mut u32) -> u32;
+    pub fn SnmpGetTimeout();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpGetTranslateMode(ntranslatemode: *mut SNMP_API_TRANSLATE_MODE) -> u32;
+    pub fn SnmpGetTranslateMode();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpGetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut smiVALUE) -> u32;
+    pub fn SnmpGetVb();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpGetVendorInfo(vendorinfo: *mut smiVENDORINFO) -> u32;
+    pub fn SnmpGetVendorInfo();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpListen(hentity: isize, lstatus: SNMP_STATUS) -> u32;
+    pub fn SnmpListen();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpListenEx(hentity: isize, lstatus: u32, nuseentityaddr: u32) -> u32;
+    pub fn SnmpListenEx();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpMgrClose(session: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn SnmpMgrClose();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpMgrCtl(session: *mut ::core::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn SnmpMgrCtl();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpMgrGetTrap(enterprise: *mut AsnObjectIdentifier, ipaddress: *mut AsnOctetString, generictrap: *mut SNMP_GENERICTRAP, specifictrap: *mut i32, timestamp: *mut u32, variablebindings: *mut SnmpVarBindList) -> super::super::Foundation::BOOL;
+    pub fn SnmpMgrGetTrap();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpMgrGetTrapEx(enterprise: *mut AsnObjectIdentifier, agentaddress: *mut AsnOctetString, sourceaddress: *mut AsnOctetString, generictrap: *mut SNMP_GENERICTRAP, specifictrap: *mut i32, community: *mut AsnOctetString, timestamp: *mut u32, variablebindings: *mut SnmpVarBindList) -> super::super::Foundation::BOOL;
+    pub fn SnmpMgrGetTrapEx();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn SnmpMgrOidToStr();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpMgrOpen(lpagentaddress: super::super::Foundation::PSTR, lpagentcommunity: super::super::Foundation::PSTR, ntimeout: i32, nretries: i32) -> *mut ::core::ffi::c_void;
+    pub fn SnmpMgrOpen();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpMgrRequest(session: *mut ::core::ffi::c_void, requesttype: u8, variablebindings: *mut SnmpVarBindList, errorstatus: *mut SNMP_ERROR_STATUS, errorindex: *mut i32) -> i32;
+    pub fn SnmpMgrRequest();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpMgrStrToOid(string: super::super::Foundation::PSTR, oid: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL;
+    pub fn SnmpMgrStrToOid();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn SnmpMgrTrapListen();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpOidCompare(xoid: *mut smiOID, yoid: *mut smiOID, maxlen: u32, result: *mut i32) -> u32;
+    pub fn SnmpOidCompare();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpOidCopy(srcoid: *mut smiOID, dstoid: *mut smiOID) -> u32;
+    pub fn SnmpOidCopy();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpOidToStr(srcoid: *const smiOID, size: u32, string: super::super::Foundation::PSTR) -> u32;
+    pub fn SnmpOidToStr();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpOpen(hwnd: super::super::Foundation::HWND, wmsg: u32) -> isize;
+    pub fn SnmpOpen();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpRecvMsg(session: isize, srcentity: *mut isize, dstentity: *mut isize, context: *mut isize, pdu: *mut isize) -> u32;
+    pub fn SnmpRecvMsg();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpRegister(session: isize, srcentity: isize, dstentity: isize, context: isize, notification: *mut smiOID, state: SNMP_STATUS) -> u32;
+    pub fn SnmpRegister();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpSendMsg(session: isize, srcentity: isize, dstentity: isize, context: isize, pdu: isize) -> u32;
+    pub fn SnmpSendMsg();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpSetPduData(pdu: isize, pdu_type: *const i32, request_id: *const i32, non_repeaters: *const i32, max_repetitions: *const i32, varbindlist: *const isize) -> u32;
+    pub fn SnmpSetPduData();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpSetPort(hentity: isize, nport: u32) -> u32;
+    pub fn SnmpSetPort();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpSetRetransmitMode(nretransmitmode: SNMP_STATUS) -> u32;
+    pub fn SnmpSetRetransmitMode();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpSetRetry(hentity: isize, npolicyretry: u32) -> u32;
+    pub fn SnmpSetRetry();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpSetTimeout(hentity: isize, npolicytimeout: u32) -> u32;
+    pub fn SnmpSetTimeout();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpSetTranslateMode(ntranslatemode: SNMP_API_TRANSLATE_MODE) -> u32;
+    pub fn SnmpSetTranslateMode();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpSetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut smiVALUE) -> u32;
+    pub fn SnmpSetVb();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpStartup(nmajorversion: *mut u32, nminorversion: *mut u32, nlevel: *mut u32, ntranslatemode: *mut SNMP_API_TRANSLATE_MODE, nretransmitmode: *mut SNMP_STATUS) -> u32;
+    pub fn SnmpStartup();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpStartupEx(nmajorversion: *mut u32, nminorversion: *mut u32, nlevel: *mut u32, ntranslatemode: *mut SNMP_API_TRANSLATE_MODE, nretransmitmode: *mut SNMP_STATUS) -> u32;
+    pub fn SnmpStartupEx();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpStrToContext(session: isize, string: *mut smiOCTETS) -> isize;
+    pub fn SnmpStrToContext();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpStrToEntity(session: isize, string: super::super::Foundation::PSTR) -> isize;
+    pub fn SnmpStrToEntity();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpStrToOid(string: super::super::Foundation::PSTR, dstoid: *mut smiOID) -> u32;
+    pub fn SnmpStrToOid();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpSvcGetUptime() -> u32;
+    pub fn SnmpSvcGetUptime();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpSvcSetLogLevel(nloglevel: SNMP_LOG);
+    pub fn SnmpSvcSetLogLevel();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpSvcSetLogType(nlogtype: SNMP_OUTPUT_LOG_TYPE);
+    pub fn SnmpSvcSetLogType();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilAsnAnyCpy(panydst: *mut AsnAny, panysrc: *mut AsnAny) -> i32;
+    pub fn SnmpUtilAsnAnyCpy();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilAsnAnyFree(pany: *mut AsnAny);
+    pub fn SnmpUtilAsnAnyFree();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilDbgPrint(nloglevel: SNMP_LOG, szformat: super::super::Foundation::PSTR);
+    pub fn SnmpUtilDbgPrint();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilIdsToA(ids: *mut u32, idlength: u32) -> super::super::Foundation::PSTR;
+    pub fn SnmpUtilIdsToA();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpUtilMemAlloc(nbytes: u32) -> *mut ::core::ffi::c_void;
+    pub fn SnmpUtilMemAlloc();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpUtilMemFree(pmem: *mut ::core::ffi::c_void);
+    pub fn SnmpUtilMemFree();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpUtilMemReAlloc(pmem: *mut ::core::ffi::c_void, nbytes: u32) -> *mut ::core::ffi::c_void;
+    pub fn SnmpUtilMemReAlloc();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilOctetsCmp(poctets1: *mut AsnOctetString, poctets2: *mut AsnOctetString) -> i32;
+    pub fn SnmpUtilOctetsCmp();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilOctetsCpy(poctetsdst: *mut AsnOctetString, poctetssrc: *mut AsnOctetString) -> i32;
+    pub fn SnmpUtilOctetsCpy();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilOctetsFree(poctets: *mut AsnOctetString);
+    pub fn SnmpUtilOctetsFree();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilOctetsNCmp(poctets1: *mut AsnOctetString, poctets2: *mut AsnOctetString, nchars: u32) -> i32;
+    pub fn SnmpUtilOctetsNCmp();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpUtilOidAppend(poiddst: *mut AsnObjectIdentifier, poidsrc: *mut AsnObjectIdentifier) -> i32;
+    pub fn SnmpUtilOidAppend();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpUtilOidCmp(poid1: *mut AsnObjectIdentifier, poid2: *mut AsnObjectIdentifier) -> i32;
+    pub fn SnmpUtilOidCmp();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpUtilOidCpy(poiddst: *mut AsnObjectIdentifier, poidsrc: *mut AsnObjectIdentifier) -> i32;
+    pub fn SnmpUtilOidCpy();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpUtilOidFree(poid: *mut AsnObjectIdentifier);
+    pub fn SnmpUtilOidFree();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpUtilOidNCmp(poid1: *mut AsnObjectIdentifier, poid2: *mut AsnObjectIdentifier, nsubids: u32) -> i32;
+    pub fn SnmpUtilOidNCmp();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilOidToA(oid: *mut AsnObjectIdentifier) -> super::super::Foundation::PSTR;
+    pub fn SnmpUtilOidToA();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilPrintAsnAny(pany: *mut AsnAny);
+    pub fn SnmpUtilPrintAsnAny();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-    pub fn SnmpUtilPrintOid(oid: *mut AsnObjectIdentifier);
+    pub fn SnmpUtilPrintOid();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilVarBindCpy(pvbdst: *mut SnmpVarBind, pvbsrc: *mut SnmpVarBind) -> i32;
+    pub fn SnmpUtilVarBindCpy();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilVarBindFree(pvb: *mut SnmpVarBind);
+    pub fn SnmpUtilVarBindFree();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilVarBindListCpy(pvbldst: *mut SnmpVarBindList, pvblsrc: *mut SnmpVarBindList) -> i32;
+    pub fn SnmpUtilVarBindListCpy();
     #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpUtilVarBindListFree(pvbl: *mut SnmpVarBindList);
+    pub fn SnmpUtilVarBindListFree();
 }

@@ -3,53 +3,53 @@
 extern "system" {
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ApplyLocalManagementSyncML(syncmlrequest: super::super::Foundation::PWSTR, syncmlresult: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn ApplyLocalManagementSyncML();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DiscoverManagementService(pszupn: super::super::Foundation::PWSTR, ppmgmtinfo: *mut *mut MANAGEMENT_SERVICE_INFO) -> ::windows::runtime::HRESULT;
+    pub fn DiscoverManagementService();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DiscoverManagementServiceEx(pszupn: super::super::Foundation::PWSTR, pszdiscoveryservicecandidate: super::super::Foundation::PWSTR, ppmgmtinfo: *mut *mut MANAGEMENT_SERVICE_INFO) -> ::windows::runtime::HRESULT;
+    pub fn DiscoverManagementServiceEx();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDeviceManagementConfigInfo(providerid: super::super::Foundation::PWSTR, configstringbufferlength: *mut u32, configstring: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn GetDeviceManagementConfigInfo();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
-    pub fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn GetDeviceRegistrationInfo();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetManagementAppHyperlink(cchhyperlink: u32, pszhyperlink: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn GetManagementAppHyperlink();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL, cchupn: u32, pszupn: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn IsDeviceRegisteredWithManagement();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+    pub fn IsManagementRegistrationAllowed();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsMdmUxWithoutAadAllowed(isenrollmentallowed: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+    pub fn IsMdmUxWithoutAadAllowed();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterDeviceWithLocalManagement(alreadyregistered: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+    pub fn RegisterDeviceWithLocalManagement();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterDeviceWithManagement(pszupn: super::super::Foundation::PWSTR, ppszmdmserviceuri: super::super::Foundation::PWSTR, ppzsaccesstoken: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn RegisterDeviceWithManagement();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterDeviceWithManagementUsingAADCredentials(usertoken: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+    pub fn RegisterDeviceWithManagementUsingAADCredentials();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
-    pub fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> ::windows::runtime::HRESULT;
+    pub fn RegisterDeviceWithManagementUsingAADDeviceCredentials();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn RegisterDeviceWithManagementUsingAADDeviceCredentials2();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDeviceManagementConfigInfo(providerid: super::super::Foundation::PWSTR, configstring: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn SetDeviceManagementConfigInfo();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetManagedExternally(ismanagedexternally: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+    pub fn SetManagedExternally();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
-    pub fn UnregisterDeviceWithLocalManagement() -> ::windows::runtime::HRESULT;
+    pub fn UnregisterDeviceWithLocalManagement();
     #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UnregisterDeviceWithManagement(enrollmentid: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn UnregisterDeviceWithManagement();
 }

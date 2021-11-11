@@ -3,5 +3,5 @@
 extern "system" {
     #[doc = "*Required features: `Win32_NetworkManagement_NetBios`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn Netbios(pncb: *mut NCB) -> u8;
+    pub fn Netbios();
 }

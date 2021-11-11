@@ -4,13 +4,13 @@ pub mod Common;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub fn CreateDXGIFactory(riid: *const ::windows::runtime::GUID, ppfactory: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn CreateDXGIFactory();
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub fn CreateDXGIFactory1(riid: *const ::windows::runtime::GUID, ppfactory: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn CreateDXGIFactory1();
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub fn CreateDXGIFactory2(flags: u32, riid: *const ::windows::runtime::GUID, ppfactory: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn CreateDXGIFactory2();
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub fn DXGIDeclareAdapterRemovalSupport() -> ::windows::runtime::HRESULT;
+    pub fn DXGIDeclareAdapterRemovalSupport();
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub fn DXGIGetDebugInterface1(flags: u32, riid: *const ::windows::runtime::GUID, pdebug: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn DXGIGetDebugInterface1();
 }

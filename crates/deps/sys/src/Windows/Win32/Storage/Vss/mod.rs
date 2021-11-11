@@ -2,5 +2,5 @@
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
-    pub fn CreateVssExpressWriterInternal(ppwriter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn CreateVssExpressWriterInternal();
 }

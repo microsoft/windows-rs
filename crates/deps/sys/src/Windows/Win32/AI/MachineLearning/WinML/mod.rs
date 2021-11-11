@@ -2,7 +2,7 @@
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
-    pub fn MLCreateOperatorRegistry(registry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn MLCreateOperatorRegistry();
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
-    pub fn WinMLCreateRuntime(runtime: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn WinMLCreateRuntime();
 }

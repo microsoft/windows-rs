@@ -28,17 +28,17 @@ pub mod WindowsMediaFormat;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeBeginPeriod(uperiod: u32) -> u32;
+    pub fn timeBeginPeriod();
     #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeEndPeriod(uperiod: u32) -> u32;
+    pub fn timeEndPeriod();
     #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
+    pub fn timeGetDevCaps();
     #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
+    pub fn timeGetSystemTime();
     #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeGetTime() -> u32;
+    pub fn timeGetTime();
     #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeKillEvent(utimerid: u32) -> u32;
+    pub fn timeKillEvent();
     #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: ::windows::runtime::RawPtr, dwuser: usize, fuevent: u32) -> u32;
+    pub fn timeSetEvent();
 }

@@ -3,215 +3,215 @@
 extern "system" {
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
+    pub fn AddAtomA();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
+    pub fn AddAtomW();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    pub fn AddClipboardFormatListener();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ChangeClipboardChain(hwndremove: super::super::Foundation::HWND, hwndnewnext: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    pub fn ChangeClipboardChain();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CloseClipboard() -> super::super::Foundation::BOOL;
+    pub fn CloseClipboard();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn CountClipboardFormats() -> i32;
+    pub fn CountClipboardFormats();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeAbandonTransaction(idinst: u32, hconv: HCONV, idtransaction: u32) -> super::super::Foundation::BOOL;
+    pub fn DdeAbandonTransaction();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeAccessData(hdata: HDDEDATA, pcbdatasize: *mut u32) -> *mut u8;
+    pub fn DdeAccessData();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeAddData(hdata: HDDEDATA, psrc: *const u8, cb: u32, cboff: u32) -> HDDEDATA;
+    pub fn DdeAddData();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeClientTransaction(pdata: *const u8, cbdata: u32, hconv: HCONV, hszitem: HSZ, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA;
+    pub fn DdeClientTransaction();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ) -> i32;
+    pub fn DdeCmpStringHandles();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn DdeConnect(idinst: u32, hszservice: HSZ, hsztopic: HSZ, pcc: *const CONVCONTEXT) -> HCONV;
+    pub fn DdeConnect();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: *const CONVCONTEXT) -> HCONVLIST;
+    pub fn DdeConnectList();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeCreateDataHandle(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: HSZ, wfmt: u32, afcmd: u32) -> HDDEDATA;
+    pub fn DdeCreateDataHandle();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeCreateStringHandleA(idinst: u32, psz: super::super::Foundation::PSTR, icodepage: i32) -> HSZ;
+    pub fn DdeCreateStringHandleA();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeCreateStringHandleW(idinst: u32, psz: super::super::Foundation::PWSTR, icodepage: i32) -> HSZ;
+    pub fn DdeCreateStringHandleW();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeDisconnect(hconv: HCONV) -> super::super::Foundation::BOOL;
+    pub fn DdeDisconnect();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeDisconnectList(hconvlist: HCONVLIST) -> super::super::Foundation::BOOL;
+    pub fn DdeDisconnectList();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeEnableCallback(idinst: u32, hconv: HCONV, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL;
+    pub fn DdeEnableCallback();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeFreeDataHandle(hdata: HDDEDATA) -> super::super::Foundation::BOOL;
+    pub fn DdeFreeDataHandle();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeFreeStringHandle(idinst: u32, hsz: HSZ) -> super::super::Foundation::BOOL;
+    pub fn DdeFreeStringHandle();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeGetData(hdata: HDDEDATA, pdst: *mut u8, cbmax: u32, cboff: u32) -> u32;
+    pub fn DdeGetData();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeGetLastError(idinst: u32) -> u32;
+    pub fn DdeGetLastError();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeImpersonateClient(hconv: HCONV) -> super::super::Foundation::BOOL;
+    pub fn DdeImpersonateClient();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::windows::runtime::RawPtr, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
+    pub fn DdeInitializeA();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeInitializeW(pidinst: *mut u32, pfncallback: ::windows::runtime::RawPtr, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
+    pub fn DdeInitializeW();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeKeepStringHandle(idinst: u32, hsz: HSZ) -> super::super::Foundation::BOOL;
+    pub fn DdeKeepStringHandle();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeNameService(idinst: u32, hsz1: HSZ, hsz2: HSZ, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA;
+    pub fn DdeNameService();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdePostAdvise(idinst: u32, hsztopic: HSZ, hszitem: HSZ) -> super::super::Foundation::BOOL;
+    pub fn DdePostAdvise();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn DdeQueryConvInfo(hconv: HCONV, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32;
+    pub fn DdeQueryConvInfo();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeQueryNextServer(hconvlist: HCONVLIST, hconvprev: HCONV) -> HCONV;
+    pub fn DdeQueryNextServer();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeQueryStringA(idinst: u32, hsz: HSZ, psz: super::super::Foundation::PSTR, cchmax: u32, icodepage: i32) -> u32;
+    pub fn DdeQueryStringA();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeQueryStringW(idinst: u32, hsz: HSZ, psz: super::super::Foundation::PWSTR, cchmax: u32, icodepage: i32) -> u32;
+    pub fn DdeQueryStringW();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DdeReconnect(hconv: HCONV) -> HCONV;
+    pub fn DdeReconnect();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn DdeSetQualityOfService(hwndclient: super::super::Foundation::HWND, pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation::BOOL;
+    pub fn DdeSetQualityOfService();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeSetUserHandle(hconv: HCONV, id: u32, huser: usize) -> super::super::Foundation::BOOL;
+    pub fn DdeSetUserHandle();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeUnaccessData(hdata: HDDEDATA) -> super::super::Foundation::BOOL;
+    pub fn DdeUnaccessData();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL;
+    pub fn DdeUninitialize();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn DeleteAtom(natom: u16) -> u16;
+    pub fn DeleteAtom();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EmptyClipboard() -> super::super::Foundation::BOOL;
+    pub fn EmptyClipboard();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn EnumClipboardFormats(format: u32) -> u32;
+    pub fn EnumClipboardFormats();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
+    pub fn FindAtomA();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
+    pub fn FindAtomW();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn FreeDDElParam();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
+    pub fn GetAtomNameA();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
+    pub fn GetAtomNameW();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE;
+    pub fn GetClipboardData();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClipboardFormatNameA(format: u32, lpszformatname: super::super::Foundation::PSTR, cchmaxcount: i32) -> i32;
+    pub fn GetClipboardFormatNameA();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClipboardFormatNameW(format: u32, lpszformatname: super::super::Foundation::PWSTR, cchmaxcount: i32) -> i32;
+    pub fn GetClipboardFormatNameW();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClipboardOwner() -> super::super::Foundation::HWND;
+    pub fn GetClipboardOwner();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn GetClipboardSequenceNumber() -> u32;
+    pub fn GetClipboardSequenceNumber();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClipboardViewer() -> super::super::Foundation::HWND;
+    pub fn GetClipboardViewer();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetOpenClipboardWindow() -> super::super::Foundation::HWND;
+    pub fn GetOpenClipboardWindow();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cformats: i32) -> i32;
+    pub fn GetPriorityClipboardFormat();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn GetUpdatedClipboardFormats();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
+    pub fn GlobalAddAtomA();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomExA(lpstring: super::super::Foundation::PSTR, flags: u32) -> u16;
+    pub fn GlobalAddAtomExA();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomExW(lpstring: super::super::Foundation::PWSTR, flags: u32) -> u16;
+    pub fn GlobalAddAtomExW();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
+    pub fn GlobalAddAtomW();
     #[doc = "*Required features: `Win32_System_DataExchange`*"]
-    pub fn GlobalDeleteAtom(natom: u16) -> u16;
+    pub fn GlobalDeleteAtom();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalFindAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
+    pub fn GlobalFindAtomA();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalFindAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
+    pub fn GlobalFindAtomW();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalGetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
+    pub fn GlobalGetAtomNameA();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalGetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
+    pub fn GlobalGetAtomNameW();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ImpersonateDdeClientWindow(hwndclient: super::super::Foundation::HWND, hwndserver: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    pub fn ImpersonateDdeClientWindow();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL;
+    pub fn InitAtomTable();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL;
+    pub fn IsClipboardFormatAvailable();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenClipboard(hwndnewowner: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    pub fn OpenClipboard();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
+    pub fn PackDDElParam();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterClipboardFormatA(lpszformat: super::super::Foundation::PSTR) -> u32;
+    pub fn RegisterClipboardFormatA();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterClipboardFormatW(lpszformat: super::super::Foundation::PWSTR) -> u32;
+    pub fn RegisterClipboardFormatW();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    pub fn RemoveClipboardFormatListener();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReuseDDElParam(lparam: super::super::Foundation::LPARAM, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
+    pub fn ReuseDDElParam();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetClipboardData(uformat: u32, hmem: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
+    pub fn SetClipboardData();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetClipboardViewer(hwndnewviewer: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
+    pub fn SetClipboardViewer();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Graphics_Gdi`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
+    pub fn SetWinMetaFileBits();
     #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UnpackDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL;
+    pub fn UnpackDDElParam();
 }

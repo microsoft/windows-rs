@@ -3,11 +3,11 @@
 extern "system" {
     #[doc = "*Required features: `Win32_System_DeveloperLicensing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AcquireDeveloperLicense(hwndparent: super::super::Foundation::HWND, pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::HRESULT;
+    pub fn AcquireDeveloperLicense();
     #[doc = "*Required features: `Win32_System_DeveloperLicensing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CheckDeveloperLicense(pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::HRESULT;
+    pub fn CheckDeveloperLicense();
     #[doc = "*Required features: `Win32_System_DeveloperLicensing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveDeveloperLicense(hwndparent: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
+    pub fn RemoveDeveloperLicense();
 }

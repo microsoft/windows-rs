@@ -3,47 +3,47 @@
 extern "system" {
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDynamicTimeZoneInformation(dwindex: u32, lptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32;
+    pub fn EnumDynamicTimeZoneInformation();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FileTimeToSystemTime(lpfiletime: *const super::super::Foundation::FILETIME, lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
+    pub fn FileTimeToSystemTime();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDynamicTimeZoneInformation(ptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32;
+    pub fn GetDynamicTimeZoneInformation();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, firstyear: *mut u32, lastyear: *mut u32) -> u32;
+    pub fn GetDynamicTimeZoneInformationEffectiveYears();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTimeZoneInformation(lptimezoneinformation: *mut TIME_ZONE_INFORMATION) -> u32;
+    pub fn GetTimeZoneInformation();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTimeZoneInformationForYear(wyear: u16, pdtzi: *const DYNAMIC_TIME_ZONE_INFORMATION, ptzi: *mut TIME_ZONE_INFORMATION) -> super::super::Foundation::BOOL;
+    pub fn GetTimeZoneInformationForYear();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LocalFileTimeToLocalSystemTime(timezoneinformation: *const TIME_ZONE_INFORMATION, localfiletime: *const super::super::Foundation::FILETIME, localsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
+    pub fn LocalFileTimeToLocalSystemTime();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LocalSystemTimeToLocalFileTime(timezoneinformation: *const TIME_ZONE_INFORMATION, localsystemtime: *const super::super::Foundation::SYSTEMTIME, localfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
+    pub fn LocalSystemTimeToLocalFileTime();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDynamicTimeZoneInformation(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION) -> super::super::Foundation::BOOL;
+    pub fn SetDynamicTimeZoneInformation();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetTimeZoneInformation(lptimezoneinformation: *const TIME_ZONE_INFORMATION) -> super::super::Foundation::BOOL;
+    pub fn SetTimeZoneInformation();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SystemTimeToFileTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
+    pub fn SystemTimeToFileTime();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SystemTimeToTzSpecificLocalTime(lptimezoneinformation: *const TIME_ZONE_INFORMATION, lpuniversaltime: *const super::super::Foundation::SYSTEMTIME, lplocaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
+    pub fn SystemTimeToTzSpecificLocalTime();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lpuniversaltime: *const super::super::Foundation::SYSTEMTIME, lplocaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
+    pub fn SystemTimeToTzSpecificLocalTimeEx();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation: *const TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
+    pub fn TzSpecificLocalTimeToSystemTime();
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
+    pub fn TzSpecificLocalTimeToSystemTimeEx();
 }

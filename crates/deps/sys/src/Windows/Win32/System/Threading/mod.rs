@@ -2,857 +2,799 @@
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
+    pub fn AcquireSRWLockExclusive();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK);
+    pub fn AcquireSRWLockShared();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: *mut super::super::Foundation::HANDLE, integritylabel: super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
+    pub fn AddIntegrityLabelToBoundaryDescriptor();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddSIDToBoundaryDescriptor(boundarydescriptor: *mut super::super::Foundation::HANDLE, requiredsid: super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
+    pub fn AddSIDToBoundaryDescriptor();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AttachThreadInput(idattach: u32, idattachto: u32, fattach: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn AttachThreadInput();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CallbackMayRunLong(pci: *mut TP_CALLBACK_INSTANCE) -> super::super::Foundation::BOOL;
+    pub fn CallbackMayRunLong();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CancelThreadpoolIo(pio: *mut TP_IO);
+    pub fn CancelThreadpoolIo();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CancelWaitableTimer(htimer: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn CancelWaitableTimer();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ChangeTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, timer: super::super::Foundation::HANDLE, duetime: u32, period: u32) -> super::super::Foundation::BOOL;
+    pub fn ChangeTimerQueueTimer();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ClosePrivateNamespace(handle: NamespaceHandle, flags: u32) -> super::super::Foundation::BOOLEAN;
+    pub fn ClosePrivateNamespace();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CloseThreadpool(ptpp: PTP_POOL);
+    pub fn CloseThreadpool();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CloseThreadpoolCleanupGroup(ptpcg: isize);
+    pub fn CloseThreadpoolCleanupGroup();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CloseThreadpoolCleanupGroupMembers(ptpcg: isize, fcancelpendingcallbacks: super::super::Foundation::BOOL, pvcleanupcontext: *mut ::core::ffi::c_void);
+    pub fn CloseThreadpoolCleanupGroupMembers();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CloseThreadpoolIo(pio: *mut TP_IO);
+    pub fn CloseThreadpoolIo();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CloseThreadpoolTimer(pti: *mut TP_TIMER);
+    pub fn CloseThreadpoolTimer();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CloseThreadpoolWait(pwa: *mut TP_WAIT);
+    pub fn CloseThreadpoolWait();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CloseThreadpoolWork(pwk: *mut TP_WORK);
+    pub fn CloseThreadpoolWork();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ConvertFiberToThread() -> super::super::Foundation::BOOL;
+    pub fn ConvertFiberToThread();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn ConvertThreadToFiber(lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+    pub fn ConvertThreadToFiber();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn ConvertThreadToFiberEx(lpparameter: *const ::core::ffi::c_void, dwflags: u32) -> *mut ::core::ffi::c_void;
+    pub fn ConvertThreadToFiberEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateBoundaryDescriptorA(name: super::super::Foundation::PSTR, flags: u32) -> BoundaryDescriptorHandle;
+    pub fn CreateBoundaryDescriptorA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateBoundaryDescriptorW(name: super::super::Foundation::PWSTR, flags: u32) -> BoundaryDescriptorHandle;
+    pub fn CreateBoundaryDescriptorW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateEventA(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, binitialstate: super::super::Foundation::BOOL, lpname: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
+    pub fn CreateEventA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateEventExA(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: super::super::Foundation::PSTR, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
+    pub fn CreateEventExA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateEventExW(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: super::super::Foundation::PWSTR, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
+    pub fn CreateEventExW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateEventW(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, binitialstate: super::super::Foundation::BOOL, lpname: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+    pub fn CreateEventW();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CreateFiber(dwstacksize: usize, lpstartaddress: ::windows::runtime::RawPtr, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+    pub fn CreateFiber();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CreateFiberEx(dwstackcommitsize: usize, dwstackreservesize: usize, dwflags: u32, lpstartaddress: ::windows::runtime::RawPtr, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+    pub fn CreateFiberEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateMutexA(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: super::super::Foundation::BOOL, lpname: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
+    pub fn CreateMutexA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateMutexExA(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: super::super::Foundation::PSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
+    pub fn CreateMutexExA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateMutexExW(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: super::super::Foundation::PWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
+    pub fn CreateMutexExW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateMutexW(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: super::super::Foundation::BOOL, lpname: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+    pub fn CreateMutexW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreatePrivateNamespaceA(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: super::super::Foundation::PSTR) -> NamespaceHandle;
+    pub fn CreatePrivateNamespaceA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreatePrivateNamespaceW(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: super::super::Foundation::PWSTR) -> NamespaceHandle;
+    pub fn CreatePrivateNamespaceW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateProcessA(
-        lpapplicationname: super::super::Foundation::PSTR,
-        lpcommandline: super::super::Foundation::PSTR,
-        lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        binherithandles: super::super::Foundation::BOOL,
-        dwcreationflags: PROCESS_CREATION_FLAGS,
-        lpenvironment: *const ::core::ffi::c_void,
-        lpcurrentdirectory: super::super::Foundation::PSTR,
-        lpstartupinfo: *const STARTUPINFOA,
-        lpprocessinformation: *mut PROCESS_INFORMATION,
-    ) -> super::super::Foundation::BOOL;
+    pub fn CreateProcessA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateProcessAsUserA(
-        htoken: super::super::Foundation::HANDLE,
-        lpapplicationname: super::super::Foundation::PSTR,
-        lpcommandline: super::super::Foundation::PSTR,
-        lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        binherithandles: super::super::Foundation::BOOL,
-        dwcreationflags: u32,
-        lpenvironment: *const ::core::ffi::c_void,
-        lpcurrentdirectory: super::super::Foundation::PSTR,
-        lpstartupinfo: *const STARTUPINFOA,
-        lpprocessinformation: *mut PROCESS_INFORMATION,
-    ) -> super::super::Foundation::BOOL;
+    pub fn CreateProcessAsUserA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateProcessAsUserW(
-        htoken: super::super::Foundation::HANDLE,
-        lpapplicationname: super::super::Foundation::PWSTR,
-        lpcommandline: super::super::Foundation::PWSTR,
-        lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        binherithandles: super::super::Foundation::BOOL,
-        dwcreationflags: u32,
-        lpenvironment: *const ::core::ffi::c_void,
-        lpcurrentdirectory: super::super::Foundation::PWSTR,
-        lpstartupinfo: *const STARTUPINFOW,
-        lpprocessinformation: *mut PROCESS_INFORMATION,
-    ) -> super::super::Foundation::BOOL;
+    pub fn CreateProcessAsUserW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateProcessW(
-        lpapplicationname: super::super::Foundation::PWSTR,
-        lpcommandline: super::super::Foundation::PWSTR,
-        lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        binherithandles: super::super::Foundation::BOOL,
-        dwcreationflags: PROCESS_CREATION_FLAGS,
-        lpenvironment: *const ::core::ffi::c_void,
-        lpcurrentdirectory: super::super::Foundation::PWSTR,
-        lpstartupinfo: *const STARTUPINFOW,
-        lpprocessinformation: *mut PROCESS_INFORMATION,
-    ) -> super::super::Foundation::BOOL;
+    pub fn CreateProcessW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateProcessWithLogonW(
-        lpusername: super::super::Foundation::PWSTR,
-        lpdomain: super::super::Foundation::PWSTR,
-        lppassword: super::super::Foundation::PWSTR,
-        dwlogonflags: CREATE_PROCESS_LOGON_FLAGS,
-        lpapplicationname: super::super::Foundation::PWSTR,
-        lpcommandline: super::super::Foundation::PWSTR,
-        dwcreationflags: u32,
-        lpenvironment: *const ::core::ffi::c_void,
-        lpcurrentdirectory: super::super::Foundation::PWSTR,
-        lpstartupinfo: *const STARTUPINFOW,
-        lpprocessinformation: *mut PROCESS_INFORMATION,
-    ) -> super::super::Foundation::BOOL;
+    pub fn CreateProcessWithLogonW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateProcessWithTokenW(htoken: super::super::Foundation::HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
+    pub fn CreateProcessWithTokenW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateRemoteThread(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: ::windows::runtime::RawPtr, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
+    pub fn CreateRemoteThread();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateRemoteThreadEx(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: ::windows::runtime::RawPtr, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
+    pub fn CreateRemoteThreadEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateSemaphoreA(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
+    pub fn CreateSemaphoreA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateSemaphoreExA(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: super::super::Foundation::PSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
+    pub fn CreateSemaphoreExA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateSemaphoreExW(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: super::super::Foundation::PWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
+    pub fn CreateSemaphoreExW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateSemaphoreW(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+    pub fn CreateSemaphoreW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateThread(lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: ::windows::runtime::RawPtr, lpparameter: *const ::core::ffi::c_void, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
+    pub fn CreateThread();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CreateThreadpool(reserved: *mut ::core::ffi::c_void) -> PTP_POOL;
+    pub fn CreateThreadpool();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CreateThreadpoolCleanupGroup() -> isize;
+    pub fn CreateThreadpoolCleanupGroup();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateThreadpoolIo(fl: super::super::Foundation::HANDLE, pfnio: ::windows::runtime::RawPtr, pv: *mut ::core::ffi::c_void, pcbe: *const ::core::mem::ManuallyDrop<TP_CALLBACK_ENVIRON_V3>) -> *mut TP_IO;
+    pub fn CreateThreadpoolIo();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CreateThreadpoolTimer(pfnti: ::windows::runtime::RawPtr, pv: *mut ::core::ffi::c_void, pcbe: *const ::core::mem::ManuallyDrop<TP_CALLBACK_ENVIRON_V3>) -> *mut TP_TIMER;
+    pub fn CreateThreadpoolTimer();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CreateThreadpoolWait(pfnwa: ::windows::runtime::RawPtr, pv: *mut ::core::ffi::c_void, pcbe: *const ::core::mem::ManuallyDrop<TP_CALLBACK_ENVIRON_V3>) -> *mut TP_WAIT;
+    pub fn CreateThreadpoolWait();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn CreateThreadpoolWork(pfnwk: ::windows::runtime::RawPtr, pv: *mut ::core::ffi::c_void, pcbe: *const ::core::mem::ManuallyDrop<TP_CALLBACK_ENVIRON_V3>) -> *mut TP_WORK;
+    pub fn CreateThreadpoolWork();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateTimerQueue() -> super::super::Foundation::HANDLE;
+    pub fn CreateTimerQueue();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateTimerQueueTimer(phnewtimer: *mut super::super::Foundation::HANDLE, timerqueue: super::super::Foundation::HANDLE, callback: ::windows::runtime::RawPtr, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
+    pub fn CreateTimerQueueTimer();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateUmsCompletionList(umscompletionlist: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn CreateUmsCompletionList();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateUmsThreadContext(lpumsthread: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn CreateUmsThreadContext();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateWaitableTimerExW(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lptimername: super::super::Foundation::PWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
+    pub fn CreateWaitableTimerExW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateWaitableTimerW(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, lptimername: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+    pub fn CreateWaitableTimerW();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn DeleteBoundaryDescriptor(boundarydescriptor: BoundaryDescriptorHandle);
+    pub fn DeleteBoundaryDescriptor();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn DeleteCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
+    pub fn DeleteCriticalSection();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn DeleteFiber(lpfiber: *const ::core::ffi::c_void);
+    pub fn DeleteFiber();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST);
+    pub fn DeleteProcThreadAttributeList();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER) -> super::super::Foundation::BOOL;
+    pub fn DeleteSynchronizationBarrier();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteTimerQueue(timerqueue: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn DeleteTimerQueue();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteTimerQueueEx(timerqueue: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn DeleteTimerQueueEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, timer: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn DeleteTimerQueueTimer();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteUmsCompletionList(umscompletionlist: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn DeleteUmsCompletionList();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteUmsThreadContext(umsthread: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn DeleteUmsThreadContext();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DequeueUmsCompletionListItems(umscompletionlist: *const ::core::ffi::c_void, waittimeout: u32, umsthreadlist: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn DequeueUmsCompletionListItems();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn DisassociateCurrentThreadFromCallback(pci: *mut TP_CALLBACK_INSTANCE);
+    pub fn DisassociateCurrentThreadFromCallback();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn EnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
+    pub fn EnterCriticalSection();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnterSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, dwflags: u32) -> super::super::Foundation::BOOL;
+    pub fn EnterSynchronizationBarrier();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-    pub fn EnterUmsSchedulingMode(schedulerstartupinfo: *const ::core::mem::ManuallyDrop<UMS_SCHEDULER_STARTUP_INFO>) -> super::super::Foundation::BOOL;
+    pub fn EnterUmsSchedulingMode();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ExecuteUmsThread(umsthread: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn ExecuteUmsThread();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn ExitProcess(uexitcode: u32);
+    pub fn ExitProcess();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn ExitThread(dwexitcode: u32);
+    pub fn ExitThread();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn FlsAlloc(lpcallback: ::windows::runtime::RawPtr) -> u32;
+    pub fn FlsAlloc();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL;
+    pub fn FlsFree();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn FlsGetValue(dwflsindex: u32) -> *mut ::core::ffi::c_void;
+    pub fn FlsGetValue();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FlsSetValue(dwflsindex: u32, lpflsdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn FlsSetValue();
     #[doc = "*Required features: `Win32_System_Threading`*"]
     pub fn FlushProcessWriteBuffers();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeLibraryWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, r#mod: super::super::Foundation::HINSTANCE);
+    pub fn FreeLibraryWhenCallbackReturns();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetActiveProcessorCount(groupnumber: u16) -> u32;
+    pub fn GetActiveProcessorCount();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetActiveProcessorGroupCount() -> u16;
+    pub fn GetActiveProcessorGroupCount();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrentProcess() -> super::super::Foundation::HANDLE;
+    pub fn GetCurrentProcess();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetCurrentProcessId() -> u32;
+    pub fn GetCurrentProcessId();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetCurrentProcessorNumber() -> u32;
+    pub fn GetCurrentProcessorNumber();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_System_Kernel`*"]
     #[cfg(feature = "Win32_System_Kernel")]
-    pub fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCESSOR_NUMBER);
+    pub fn GetCurrentProcessorNumberEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrentThread() -> super::super::Foundation::HANDLE;
+    pub fn GetCurrentThread();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetCurrentThreadId() -> u32;
+    pub fn GetCurrentThreadId();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize);
+    pub fn GetCurrentThreadStackLimits();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetCurrentUmsThread() -> *mut ::core::ffi::c_void;
+    pub fn GetCurrentUmsThread();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetExitCodeProcess(hprocess: super::super::Foundation::HANDLE, lpexitcode: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn GetExitCodeProcess();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetExitCodeThread(hthread: super::super::Foundation::HANDLE, lpexitcode: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn GetExitCodeThread();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetGuiResources(hprocess: super::super::Foundation::HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS) -> u32;
+    pub fn GetGuiResources();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetMachineTypeAttributes(machine: u16, machinetypeattributes: *mut MACHINE_ATTRIBUTES) -> ::windows::runtime::HRESULT;
+    pub fn GetMachineTypeAttributes();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetMaximumProcessorCount(groupnumber: u16) -> u32;
+    pub fn GetMaximumProcessorCount();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetMaximumProcessorGroupCount() -> u16;
+    pub fn GetMaximumProcessorGroupCount();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetNextUmsListItem(umscontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+    pub fn GetNextUmsListItem();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumaAvailableMemoryNode(node: u8, availablebytes: *mut u64) -> super::super::Foundation::BOOL;
+    pub fn GetNumaAvailableMemoryNode();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumaAvailableMemoryNodeEx(node: u16, availablebytes: *mut u64) -> super::super::Foundation::BOOL;
+    pub fn GetNumaAvailableMemoryNodeEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumaHighestNodeNumber(highestnodenumber: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn GetNumaHighestNodeNumber();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumaNodeNumberFromHandle(hfile: super::super::Foundation::HANDLE, nodenumber: *mut u16) -> super::super::Foundation::BOOL;
+    pub fn GetNumaNodeNumberFromHandle();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumaNodeProcessorMask(node: u8, processormask: *mut u64) -> super::super::Foundation::BOOL;
+    pub fn GetNumaNodeProcessorMask();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_SystemInformation`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-    pub fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: *mut super::SystemInformation::GROUP_AFFINITY, processormaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
+    pub fn GetNumaNodeProcessorMask2();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_SystemInformation`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-    pub fn GetNumaNodeProcessorMaskEx(node: u16, processormask: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL;
+    pub fn GetNumaNodeProcessorMaskEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumaProcessorNode(processor: u8, nodenumber: *mut u8) -> super::super::Foundation::BOOL;
+    pub fn GetNumaProcessorNode();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn GetNumaProcessorNodeEx(processor: *const super::Kernel::PROCESSOR_NUMBER, nodenumber: *mut u16) -> super::super::Foundation::BOOL;
+    pub fn GetNumaProcessorNodeEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumaProximityNode(proximityid: u32, nodenumber: *mut u8) -> super::super::Foundation::BOOL;
+    pub fn GetNumaProximityNode();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumaProximityNodeEx(proximityid: u32, nodenumber: *mut u16) -> super::super::Foundation::BOOL;
+    pub fn GetNumaProximityNodeEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPriorityClass(hprocess: super::super::Foundation::HANDLE) -> u32;
+    pub fn GetPriorityClass();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessAffinityMask(hprocess: super::super::Foundation::HANDLE, lpprocessaffinitymask: *mut usize, lpsystemaffinitymask: *mut usize) -> super::super::Foundation::BOOL;
+    pub fn GetProcessAffinityMask();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessDEPPolicy(hprocess: super::super::Foundation::HANDLE, lpflags: *mut u32, lppermanent: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn GetProcessDEPPolicy();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_SystemInformation`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-    pub fn GetProcessDefaultCpuSetMasks(process: super::super::Foundation::HANDLE, cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
+    pub fn GetProcessDefaultCpuSetMasks();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessDefaultCpuSets(process: super::super::Foundation::HANDLE, cpusetids: *mut u32, cpusetidcount: u32, requiredidcount: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn GetProcessDefaultCpuSets();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessGroupAffinity(hprocess: super::super::Foundation::HANDLE, groupcount: *mut u16, grouparray: *mut u16) -> super::super::Foundation::BOOL;
+    pub fn GetProcessGroupAffinity();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessHandleCount(hprocess: super::super::Foundation::HANDLE, pdwhandlecount: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn GetProcessHandleCount();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessId(process: super::super::Foundation::HANDLE) -> u32;
+    pub fn GetProcessId();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessIdOfThread(thread: super::super::Foundation::HANDLE) -> u32;
+    pub fn GetProcessIdOfThread();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessInformation(hprocess: super::super::Foundation::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *mut ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL;
+    pub fn GetProcessInformation();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessIoCounters(hprocess: super::super::Foundation::HANDLE, lpiocounters: *mut IO_COUNTERS) -> super::super::Foundation::BOOL;
+    pub fn GetProcessIoCounters();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessMitigationPolicy(hprocess: super::super::Foundation::HANDLE, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *mut ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL;
+    pub fn GetProcessMitigationPolicy();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessPriorityBoost(hprocess: super::super::Foundation::HANDLE, pdisablepriorityboost: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn GetProcessPriorityBoost();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessShutdownParameters(lpdwlevel: *mut u32, lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn GetProcessShutdownParameters();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessTimes(hprocess: super::super::Foundation::HANDLE, lpcreationtime: *mut super::super::Foundation::FILETIME, lpexittime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
+    pub fn GetProcessTimes();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn GetProcessVersion(processid: u32) -> u32;
+    pub fn GetProcessVersion();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessWorkingSetSize(hprocess: super::super::Foundation::HANDLE, lpminimumworkingsetsize: *mut usize, lpmaximumworkingsetsize: *mut usize) -> super::super::Foundation::BOOL;
+    pub fn GetProcessWorkingSetSize();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA);
+    pub fn GetStartupInfoA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW);
+    pub fn GetStartupInfoW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemTimes(lpidletime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
+    pub fn GetSystemTimes();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetThreadDescription(hthread: super::super::Foundation::HANDLE, ppszthreaddescription: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn GetThreadDescription();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_SystemInformation`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-    pub fn GetThreadGroupAffinity(hthread: super::super::Foundation::HANDLE, groupaffinity: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL;
+    pub fn GetThreadGroupAffinity();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetThreadIOPendingFlag(hthread: super::super::Foundation::HANDLE, lpioispending: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn GetThreadIOPendingFlag();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetThreadId(thread: super::super::Foundation::HANDLE) -> u32;
+    pub fn GetThreadId();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn GetThreadIdealProcessorEx(hthread: super::super::Foundation::HANDLE, lpidealprocessor: *mut super::Kernel::PROCESSOR_NUMBER) -> super::super::Foundation::BOOL;
+    pub fn GetThreadIdealProcessorEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetThreadInformation(hthread: super::super::Foundation::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL;
+    pub fn GetThreadInformation();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetThreadPriority(hthread: super::super::Foundation::HANDLE) -> i32;
+    pub fn GetThreadPriority();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetThreadPriorityBoost(hthread: super::super::Foundation::HANDLE, pdisablepriorityboost: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn GetThreadPriorityBoost();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_SystemInformation`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-    pub fn GetThreadSelectedCpuSetMasks(thread: super::super::Foundation::HANDLE, cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
+    pub fn GetThreadSelectedCpuSetMasks();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetThreadSelectedCpuSets(thread: super::super::Foundation::HANDLE, cpusetids: *mut u32, cpusetidcount: u32, requiredidcount: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn GetThreadSelectedCpuSets();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetThreadTimes(hthread: super::super::Foundation::HANDLE, lpcreationtime: *mut super::super::Foundation::FILETIME, lpexittime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
+    pub fn GetThreadTimes();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetUmsCompletionListEvent(umscompletionlist: *const ::core::ffi::c_void, umscompletionevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn GetUmsCompletionListEvent();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetUmsSystemThreadInformation(threadhandle: super::super::Foundation::HANDLE, systemthreadinfo: *mut UMS_SYSTEM_THREAD_INFORMATION) -> super::super::Foundation::BOOL;
+    pub fn GetUmsSystemThreadInformation();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InitOnceBeginInitialize(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, fpending: *mut super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn InitOnceBeginInitialize();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InitOnceComplete(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, lpcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn InitOnceComplete();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InitOnceExecuteOnce(initonce: *mut RTL_RUN_ONCE, initfn: ::windows::runtime::RawPtr, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn InitOnceExecuteOnce();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn InitOnceInitialize(initonce: *mut RTL_RUN_ONCE);
+    pub fn InitOnceInitialize();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn InitializeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
+    pub fn InitializeConditionVariable();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn InitializeCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
+    pub fn InitializeCriticalSection();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> super::super::Foundation::BOOL;
+    pub fn InitializeCriticalSectionAndSpinCount();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn InitializeCriticalSectionEx(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32, flags: u32) -> super::super::Foundation::BOOL;
+    pub fn InitializeCriticalSectionEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: u32, dwflags: u32, lpsize: *mut usize) -> super::super::Foundation::BOOL;
+    pub fn InitializeProcThreadAttributeList();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_System_Kernel`*"]
     #[cfg(feature = "Win32_System_Kernel")]
-    pub fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER);
+    pub fn InitializeSListHead();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn InitializeSRWLock(srwlock: *mut RTL_SRWLOCK);
+    pub fn InitializeSRWLock();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InitializeSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, ltotalthreads: i32, lspincount: i32) -> super::super::Foundation::BOOL;
+    pub fn InitializeSynchronizationBarrier();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_System_Kernel`*"]
     #[cfg(feature = "Win32_System_Kernel")]
-    pub fn InterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY;
+    pub fn InterlockedFlushSList();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_System_Kernel`*"]
     #[cfg(feature = "Win32_System_Kernel")]
-    pub fn InterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY;
+    pub fn InterlockedPopEntrySList();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_System_Kernel`*"]
     #[cfg(feature = "Win32_System_Kernel")]
-    pub fn InterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_HEADER, listentry: *mut super::Kernel::SLIST_ENTRY) -> *mut super::Kernel::SLIST_ENTRY;
+    pub fn InterlockedPushEntrySList();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_System_Kernel`*"]
     #[cfg(feature = "Win32_System_Kernel")]
-    pub fn InterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY;
+    pub fn InterlockedPushListSListEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsImmersiveProcess(hprocess: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn IsImmersiveProcess();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsProcessCritical(hprocess: super::super::Foundation::HANDLE, critical: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn IsProcessCritical();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID) -> super::super::Foundation::BOOL;
+    pub fn IsProcessorFeaturePresent();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsThreadAFiber() -> super::super::Foundation::BOOL;
+    pub fn IsThreadAFiber();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsThreadpoolTimerSet(pti: *mut TP_TIMER) -> super::super::Foundation::BOOL;
+    pub fn IsThreadpoolTimerSet();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsWow64Process(hprocess: super::super::Foundation::HANDLE, wow64process: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn IsWow64Process();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsWow64Process2(hprocess: super::super::Foundation::HANDLE, pprocessmachine: *mut u16, pnativemachine: *mut u16) -> super::super::Foundation::BOOL;
+    pub fn IsWow64Process2();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
+    pub fn LeaveCriticalSection();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, pcs: *mut RTL_CRITICAL_SECTION);
+    pub fn LeaveCriticalSectionWhenCallbackReturns();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NtQueryInformationProcess(processhandle: super::super::Foundation::HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: *mut ::core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
+    pub fn NtQueryInformationProcess();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NtQueryInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
+    pub fn NtQueryInformationThread();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NtSetInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> super::super::Foundation::NTSTATUS;
+    pub fn NtSetInformationThread();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenEventA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
+    pub fn OpenEventA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenEventW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+    pub fn OpenEventW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenMutexW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+    pub fn OpenMutexW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenPrivateNamespaceA(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: super::super::Foundation::PSTR) -> NamespaceHandle;
+    pub fn OpenPrivateNamespaceA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenPrivateNamespaceW(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: super::super::Foundation::PWSTR) -> NamespaceHandle;
+    pub fn OpenPrivateNamespaceW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwprocessid: u32) -> super::super::Foundation::HANDLE;
+    pub fn OpenProcess();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn OpenProcessToken(processhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn OpenProcessToken();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenSemaphoreW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+    pub fn OpenSemaphoreW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwthreadid: u32) -> super::super::Foundation::HANDLE;
+    pub fn OpenThread();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn OpenThreadToken(threadhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, openasself: super::super::Foundation::BOOL, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn OpenThreadToken();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenWaitableTimerW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lptimername: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+    pub fn OpenWaitableTimerW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PulseEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn PulseEvent();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_System_Kernel`*"]
     #[cfg(feature = "Win32_System_Kernel")]
-    pub fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16;
+    pub fn QueryDepthSList();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryFullProcessImageNameA(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: super::super::Foundation::PSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn QueryFullProcessImageNameA();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryFullProcessImageNameW(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: super::super::Foundation::PWSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn QueryFullProcessImageNameW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryProcessAffinityUpdateMode(hprocess: super::super::Foundation::HANDLE, lpdwflags: *mut PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
+    pub fn QueryProcessAffinityUpdateMode();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryProtectedPolicy(policyguid: *const ::windows::runtime::GUID, policyvalue: *mut usize) -> super::super::Foundation::BOOL;
+    pub fn QueryProtectedPolicy();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: *mut TP_POOL_STACK_INFORMATION) -> super::super::Foundation::BOOL;
+    pub fn QueryThreadpoolStackInformation();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *mut ::core::ffi::c_void, umsthreadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn QueryUmsThreadInformation();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueueUserAPC(pfnapc: ::windows::runtime::RawPtr, hthread: super::super::Foundation::HANDLE, dwdata: usize) -> u32;
+    pub fn QueueUserAPC();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueueUserAPC2(apcroutine: ::windows::runtime::RawPtr, thread: super::super::Foundation::HANDLE, data: usize, flags: QUEUE_USER_APC_FLAGS) -> super::super::Foundation::BOOL;
+    pub fn QueueUserAPC2();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueueUserWorkItem(function: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
+    pub fn QueueUserWorkItem();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterWaitForSingleObject(phnewwaitobject: *mut super::super::Foundation::HANDLE, hobject: super::super::Foundation::HANDLE, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, dwmilliseconds: u32, dwflags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
+    pub fn RegisterWaitForSingleObject();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReleaseMutex(hmutex: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn ReleaseMutex();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReleaseMutexWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, r#mut: super::super::Foundation::HANDLE);
+    pub fn ReleaseMutexWhenCallbackReturns();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn ReleaseSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
+    pub fn ReleaseSRWLockExclusive();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn ReleaseSRWLockShared(srwlock: *mut RTL_SRWLOCK);
+    pub fn ReleaseSRWLockShared();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReleaseSemaphore(hsemaphore: super::super::Foundation::HANDLE, lreleasecount: i32, lppreviouscount: *mut i32) -> super::super::Foundation::BOOL;
+    pub fn ReleaseSemaphore();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReleaseSemaphoreWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, sem: super::super::Foundation::HANDLE, crel: u32);
+    pub fn ReleaseSemaphoreWhenCallbackReturns();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ResetEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn ResetEvent();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ResumeThread(hthread: super::super::Foundation::HANDLE) -> u32;
+    pub fn ResumeThread();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn SetCriticalSectionSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> u32;
+    pub fn SetCriticalSectionSpinCount();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn SetEvent();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetEventWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, evt: super::super::Foundation::HANDLE);
+    pub fn SetEventWhenCallbackReturns();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetPriorityClass(hprocess: super::super::Foundation::HANDLE, dwpriorityclass: PROCESS_CREATION_FLAGS) -> super::super::Foundation::BOOL;
+    pub fn SetPriorityClass();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessAffinityMask(hprocess: super::super::Foundation::HANDLE, dwprocessaffinitymask: usize) -> super::super::Foundation::BOOL;
+    pub fn SetProcessAffinityMask();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessAffinityUpdateMode(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
+    pub fn SetProcessAffinityUpdateMode();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::Foundation::BOOL;
+    pub fn SetProcessDEPPolicy();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_SystemInformation`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-    pub fn SetProcessDefaultCpuSetMasks(process: super::super::Foundation::HANDLE, cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16) -> super::super::Foundation::BOOL;
+    pub fn SetProcessDefaultCpuSetMasks();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessDefaultCpuSets(process: super::super::Foundation::HANDLE, cpusetids: *const u32, cpusetidcount: u32) -> super::super::Foundation::BOOL;
+    pub fn SetProcessDefaultCpuSets();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessDynamicEHContinuationTargets(process: super::super::Foundation::HANDLE, numberoftargets: u16, targets: *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> super::super::Foundation::BOOL;
+    pub fn SetProcessDynamicEHContinuationTargets();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessDynamicEnforcedCetCompatibleRanges(process: super::super::Foundation::HANDLE, numberofranges: u16, ranges: *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> super::super::Foundation::BOOL;
+    pub fn SetProcessDynamicEnforcedCetCompatibleRanges();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessInformation(hprocess: super::super::Foundation::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *const ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL;
+    pub fn SetProcessInformation();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *const ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL;
+    pub fn SetProcessMitigationPolicy();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessPriorityBoost(hprocess: super::super::Foundation::HANDLE, bdisablepriorityboost: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn SetProcessPriorityBoost();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessRestrictionExemption(fenableexemption: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn SetProcessRestrictionExemption();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessShutdownParameters(dwlevel: u32, dwflags: u32) -> super::super::Foundation::BOOL;
+    pub fn SetProcessShutdownParameters();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessWorkingSetSize(hprocess: super::super::Foundation::HANDLE, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize) -> super::super::Foundation::BOOL;
+    pub fn SetProcessWorkingSetSize();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProtectedPolicy(policyguid: *const ::windows::runtime::GUID, policyvalue: usize, oldpolicyvalue: *mut usize) -> super::super::Foundation::BOOL;
+    pub fn SetProtectedPolicy();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadAffinityMask(hthread: super::super::Foundation::HANDLE, dwthreadaffinitymask: usize) -> usize;
+    pub fn SetThreadAffinityMask();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadDescription(hthread: super::super::Foundation::HANDLE, lpthreaddescription: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn SetThreadDescription();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_SystemInformation`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-    pub fn SetThreadGroupAffinity(hthread: super::super::Foundation::HANDLE, groupaffinity: *const super::SystemInformation::GROUP_AFFINITY, previousgroupaffinity: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL;
+    pub fn SetThreadGroupAffinity();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadIdealProcessor(hthread: super::super::Foundation::HANDLE, dwidealprocessor: u32) -> u32;
+    pub fn SetThreadIdealProcessor();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn SetThreadIdealProcessorEx(hthread: super::super::Foundation::HANDLE, lpidealprocessor: *const super::Kernel::PROCESSOR_NUMBER, lppreviousidealprocessor: *mut super::Kernel::PROCESSOR_NUMBER) -> super::super::Foundation::BOOL;
+    pub fn SetThreadIdealProcessorEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadInformation(hthread: super::super::Foundation::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *const ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL;
+    pub fn SetThreadInformation();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadPriority(hthread: super::super::Foundation::HANDLE, npriority: THREAD_PRIORITY) -> super::super::Foundation::BOOL;
+    pub fn SetThreadPriority();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadPriorityBoost(hthread: super::super::Foundation::HANDLE, bdisablepriorityboost: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn SetThreadPriorityBoost();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_SystemInformation`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
-    pub fn SetThreadSelectedCpuSetMasks(thread: super::super::Foundation::HANDLE, cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16) -> super::super::Foundation::BOOL;
+    pub fn SetThreadSelectedCpuSetMasks();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadSelectedCpuSets(thread: super::super::Foundation::HANDLE, cpusetids: *const u32, cpusetidcount: u32) -> super::super::Foundation::BOOL;
+    pub fn SetThreadSelectedCpuSets();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadStackGuarantee(stacksizeinbytes: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn SetThreadStackGuarantee();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadToken(thread: *const super::super::Foundation::HANDLE, token: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn SetThreadToken();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: *const TP_POOL_STACK_INFORMATION) -> super::super::Foundation::BOOL;
+    pub fn SetThreadpoolStackInformation();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn SetThreadpoolThreadMaximum(ptpp: PTP_POOL, cthrdmost: u32);
+    pub fn SetThreadpoolThreadMaximum();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadpoolThreadMinimum(ptpp: PTP_POOL, cthrdmic: u32) -> super::super::Foundation::BOOL;
+    pub fn SetThreadpoolThreadMinimum();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32);
+    pub fn SetThreadpoolTimer();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadpoolTimerEx(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32) -> super::super::Foundation::BOOL;
+    pub fn SetThreadpoolTimerEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadpoolWait(pwa: *mut TP_WAIT, h: super::super::Foundation::HANDLE, pfttimeout: *const super::super::Foundation::FILETIME);
+    pub fn SetThreadpoolWait();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadpoolWaitEx(pwa: *mut TP_WAIT, h: super::super::Foundation::HANDLE, pfttimeout: *const super::super::Foundation::FILETIME, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn SetThreadpoolWaitEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, callback: ::windows::runtime::RawPtr, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, preferio: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
+    pub fn SetTimerQueueTimer();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *const ::core::ffi::c_void, umsthreadinformationlength: u32) -> super::super::Foundation::BOOL;
+    pub fn SetUmsThreadInformation();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWaitableTimer(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: ::windows::runtime::RawPtr, lpargtocompletionroutine: *const ::core::ffi::c_void, fresume: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn SetWaitableTimer();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWaitableTimerEx(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: ::windows::runtime::RawPtr, lpargtocompletionroutine: *const ::core::ffi::c_void, wakecontext: *const REASON_CONTEXT, tolerabledelay: u32) -> super::super::Foundation::BOOL;
+    pub fn SetWaitableTimerEx();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn Sleep(dwmilliseconds: u32);
+    pub fn Sleep();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn SleepConditionVariableCS(conditionvariable: *mut RTL_CONDITION_VARIABLE, criticalsection: *mut RTL_CRITICAL_SECTION, dwmilliseconds: u32) -> super::super::Foundation::BOOL;
+    pub fn SleepConditionVariableCS();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SleepConditionVariableSRW(conditionvariable: *mut RTL_CONDITION_VARIABLE, srwlock: *mut RTL_SRWLOCK, dwmilliseconds: u32, flags: u32) -> super::super::Foundation::BOOL;
+    pub fn SleepConditionVariableSRW();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SleepEx(dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
+    pub fn SleepEx();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn StartThreadpoolIo(pio: *mut TP_IO);
+    pub fn StartThreadpoolIo();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn SubmitThreadpoolWork(pwk: *mut TP_WORK);
+    pub fn SubmitThreadpoolWork();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
+    pub fn SuspendThread();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn SwitchToFiber(lpfiber: *const ::core::ffi::c_void);
+    pub fn SwitchToFiber();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SwitchToThread() -> super::super::Foundation::BOOL;
+    pub fn SwitchToThread();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TerminateProcess(hprocess: super::super::Foundation::HANDLE, uexitcode: u32) -> super::super::Foundation::BOOL;
+    pub fn TerminateProcess();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TerminateThread(hthread: super::super::Foundation::HANDLE, dwexitcode: u32) -> super::super::Foundation::BOOL;
+    pub fn TerminateThread();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn TlsAlloc() -> u32;
+    pub fn TlsAlloc();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL;
+    pub fn TlsFree();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn TlsGetValue(dwtlsindex: u32) -> *mut ::core::ffi::c_void;
+    pub fn TlsGetValue();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TlsSetValue(dwtlsindex: u32, lptlsvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn TlsSetValue();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TryAcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN;
+    pub fn TryAcquireSRWLockExclusive();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TryAcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN;
+    pub fn TryAcquireSRWLockShared();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn TryEnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) -> super::super::Foundation::BOOL;
+    pub fn TryEnterCriticalSection();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TrySubmitThreadpoolCallback(pfns: ::windows::runtime::RawPtr, pv: *mut ::core::ffi::c_void, pcbe: *const ::core::mem::ManuallyDrop<TP_CALLBACK_ENVIRON_V3>) -> super::super::Foundation::BOOL;
+    pub fn TrySubmitThreadpoolCallback();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UmsThreadYield(schedulerparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn UmsThreadYield();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UnregisterWait(waithandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn UnregisterWait();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UnregisterWaitEx(waithandle: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn UnregisterWaitEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: u32, attribute: usize, lpvalue: *const ::core::ffi::c_void, cbsize: usize, lppreviousvalue: *mut ::core::ffi::c_void, lpreturnsize: *const usize) -> super::super::Foundation::BOOL;
+    pub fn UpdateProcThreadAttribute();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitForInputIdle(hprocess: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
+    pub fn WaitForInputIdle();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitForMultipleObjects(ncount: u32, lphandles: *const super::super::Foundation::HANDLE, bwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32) -> u32;
+    pub fn WaitForMultipleObjects();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitForMultipleObjectsEx(ncount: u32, lphandles: *const super::super::Foundation::HANDLE, bwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
+    pub fn WaitForMultipleObjectsEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitForSingleObject(hhandle: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
+    pub fn WaitForSingleObject();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitForSingleObjectEx(hhandle: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
+    pub fn WaitForSingleObjectEx();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitForThreadpoolIoCallbacks(pio: *mut TP_IO, fcancelpendingcallbacks: super::super::Foundation::BOOL);
+    pub fn WaitForThreadpoolIoCallbacks();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitForThreadpoolTimerCallbacks(pti: *mut TP_TIMER, fcancelpendingcallbacks: super::super::Foundation::BOOL);
+    pub fn WaitForThreadpoolTimerCallbacks();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitForThreadpoolWaitCallbacks(pwa: *mut TP_WAIT, fcancelpendingcallbacks: super::super::Foundation::BOOL);
+    pub fn WaitForThreadpoolWaitCallbacks();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitForThreadpoolWorkCallbacks(pwk: *mut TP_WORK, fcancelpendingcallbacks: super::super::Foundation::BOOL);
+    pub fn WaitForThreadpoolWorkCallbacks();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress: *const ::core::ffi::c_void, addresssize: usize, dwmilliseconds: u32) -> super::super::Foundation::BOOL;
+    pub fn WaitOnAddress();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
+    pub fn WakeAllConditionVariable();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn WakeByAddressAll(address: *const ::core::ffi::c_void);
+    pub fn WakeByAddressAll();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn WakeByAddressSingle(address: *const ::core::ffi::c_void);
+    pub fn WakeByAddressSingle();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
+    pub fn WakeConditionVariable();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WinExec(lpcmdline: super::super::Foundation::PSTR, ucmdshow: u32) -> u32;
+    pub fn WinExec();
     #[doc = "*Required features: `Win32_System_Threading`*"]
-    pub fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16;
+    pub fn Wow64SetThreadDefaultGuestMachine();
     #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn Wow64SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
+    pub fn Wow64SuspendThread();
 }

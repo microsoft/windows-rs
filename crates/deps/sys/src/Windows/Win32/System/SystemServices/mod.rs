@@ -3,5 +3,5 @@
 extern "system" {
     #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UnregisterDeviceNotification(handle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn UnregisterDeviceNotification();
 }

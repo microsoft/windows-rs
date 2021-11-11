@@ -2,26 +2,26 @@
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateBackupRestorer(pcallback: ::windows::runtime::RawPtr, ppbackup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn WMCreateBackupRestorer();
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateEditor(ppeditor: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn WMCreateEditor();
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateIndexer(ppindexer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn WMCreateIndexer();
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateProfileManager(ppprofilemanager: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn WMCreateProfileManager();
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateReader(punkcert: ::windows::runtime::RawPtr, dwrights: u32, ppreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn WMCreateReader();
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateSyncReader(punkcert: ::windows::runtime::RawPtr, dwrights: u32, ppsyncreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn WMCreateSyncReader();
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateWriter(punkcert: ::windows::runtime::RawPtr, ppwriter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn WMCreateWriter();
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateWriterFileSink(ppsink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn WMCreateWriterFileSink();
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateWriterNetworkSink(ppsink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn WMCreateWriterNetworkSink();
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateWriterPushSink(ppsink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+    pub fn WMCreateWriterPushSink();
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WMIsContentProtected(pwszfilename: super::super::Foundation::PWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+    pub fn WMIsContentProtected();
 }

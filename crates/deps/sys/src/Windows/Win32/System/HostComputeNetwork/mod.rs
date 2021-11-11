@@ -2,117 +2,117 @@
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
-    pub fn HcnCloseEndpoint(endpoint: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn HcnCloseEndpoint();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
-    pub fn HcnCloseGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn HcnCloseGuestNetworkService();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
-    pub fn HcnCloseLoadBalancer(loadbalancer: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn HcnCloseLoadBalancer();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
-    pub fn HcnCloseNamespace(namespace: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn HcnCloseNamespace();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
-    pub fn HcnCloseNetwork(network: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn HcnCloseNetwork();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnCreateEndpoint(network: *const ::core::ffi::c_void, id: *const ::windows::runtime::GUID, settings: super::super::Foundation::PWSTR, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnCreateEndpoint();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnCreateGuestNetworkService(id: *const ::windows::runtime::GUID, settings: super::super::Foundation::PWSTR, guestnetworkservice: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnCreateGuestNetworkService();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnCreateLoadBalancer(id: *const ::windows::runtime::GUID, settings: super::super::Foundation::PWSTR, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnCreateLoadBalancer();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnCreateNamespace(id: *const ::windows::runtime::GUID, settings: super::super::Foundation::PWSTR, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnCreateNamespace();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnCreateNetwork(id: *const ::windows::runtime::GUID, settings: super::super::Foundation::PWSTR, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnCreateNetwork();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnDeleteEndpoint(id: *const ::windows::runtime::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnDeleteEndpoint();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnDeleteGuestNetworkService(id: *const ::windows::runtime::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnDeleteGuestNetworkService();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnDeleteLoadBalancer(id: *const ::windows::runtime::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnDeleteLoadBalancer();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnDeleteNamespace(id: *const ::windows::runtime::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnDeleteNamespace();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnDeleteNetwork(id: *const ::windows::runtime::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnDeleteNetwork();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnEnumerateEndpoints(query: super::super::Foundation::PWSTR, endpoints: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnEnumerateEndpoints();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
-    pub fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, portentries: *mut *mut HCN_PORT_RANGE_ENTRY) -> ::windows::runtime::HRESULT;
+    pub fn HcnEnumerateGuestNetworkPortReservations();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnEnumerateLoadBalancers(query: super::super::Foundation::PWSTR, loadbalancer: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnEnumerateLoadBalancers();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnEnumerateNamespaces(query: super::super::Foundation::PWSTR, namespaces: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnEnumerateNamespaces();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnEnumerateNetworks(query: super::super::Foundation::PWSTR, networks: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnEnumerateNetworks();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
-    pub fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RANGE_ENTRY);
+    pub fn HcnFreeGuestNetworkPortReservations();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnModifyEndpoint(endpoint: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnModifyEndpoint();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnModifyGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnModifyGuestNetworkService();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnModifyLoadBalancer(loadbalancer: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnModifyLoadBalancer();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnModifyNamespace(namespace: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnModifyNamespace();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnModifyNetwork(network: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnModifyNetwork();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnOpenEndpoint(id: *const ::windows::runtime::GUID, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnOpenEndpoint();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnOpenLoadBalancer(id: *const ::windows::runtime::GUID, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnOpenLoadBalancer();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnOpenNamespace(id: *const ::windows::runtime::GUID, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnOpenNamespace();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnOpenNetwork(id: *const ::windows::runtime::GUID, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnOpenNetwork();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnQueryEndpointProperties(endpoint: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnQueryEndpointProperties();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnQueryLoadBalancerProperties(loadbalancer: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnQueryLoadBalancerProperties();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnQueryNamespaceProperties(namespace: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnQueryNamespaceProperties();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnQueryNetworkProperties(network: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+    pub fn HcnQueryNetworkProperties();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const ::core::ffi::c_void, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn HcnRegisterGuestNetworkServiceCallback();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnRegisterServiceCallback(callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn HcnRegisterServiceCallback();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+    pub fn HcnReleaseGuestNetworkServicePortReservationHandle();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::core::ffi::c_void, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: u16, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+    pub fn HcnReserveGuestNetworkServicePort();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice: *const ::core::ffi::c_void, portcount: u16, portrangereservation: *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+    pub fn HcnReserveGuestNetworkServicePortRange();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
-    pub fn HcnUnregisterGuestNetworkServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn HcnUnregisterGuestNetworkServiceCallback();
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
-    pub fn HcnUnregisterServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn HcnUnregisterServiceCallback();
 }

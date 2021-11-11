@@ -2,1145 +2,1145 @@
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS;
+    pub fn DceErrorInqTextA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RPC_STATUS;
+    pub fn DceErrorInqTextW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn IUnknown_AddRef_Proxy(this: ::windows::runtime::RawPtr) -> u32;
+    pub fn IUnknown_AddRef_Proxy();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn IUnknown_QueryInterface_Proxy(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+    pub fn IUnknown_QueryInterface_Proxy();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn IUnknown_Release_Proxy(this: ::windows::runtime::RawPtr) -> u32;
+    pub fn IUnknown_Release_Proxy();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcAllocate(size: u32) -> *mut ::core::ffi::c_void;
+    pub fn I_RpcAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn I_RpcAsyncAbortCall(pasync: *const ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, exceptioncode: u32) -> RPC_STATUS;
+    pub fn I_RpcAsyncAbortCall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn I_RpcAsyncSetHandle(message: *const RPC_MESSAGE, pasync: *const ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>) -> RPC_STATUS;
+    pub fn I_RpcAsyncSetHandle();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingCopy(sourcebinding: *mut ::core::ffi::c_void, destinationbinding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcBindingCopy();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingCreateNP(servername: *const u16, servicename: *const u16, networkoptions: *const u16, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcBindingCreateNP();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingHandleToAsyncHandle(binding: *mut ::core::ffi::c_void, asynchandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcBindingHandleToAsyncHandle();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn I_RpcBindingInqClientTokenAttributes(binding: *const ::core::ffi::c_void, tokenid: *mut super::super::Foundation::LUID, authenticationid: *mut super::super::Foundation::LUID, modifiedid: *mut super::super::Foundation::LUID) -> RPC_STATUS;
+    pub fn I_RpcBindingInqClientTokenAttributes();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingInqDynamicEndpointA(binding: *const ::core::ffi::c_void, dynamicendpoint: *mut *mut u8) -> RPC_STATUS;
+    pub fn I_RpcBindingInqDynamicEndpointA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingInqDynamicEndpointW(binding: *const ::core::ffi::c_void, dynamicendpoint: *mut *mut u16) -> RPC_STATUS;
+    pub fn I_RpcBindingInqDynamicEndpointW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingInqLocalClientPID(binding: *mut ::core::ffi::c_void, pid: *mut u32) -> RPC_STATUS;
+    pub fn I_RpcBindingInqLocalClientPID();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingInqMarshalledTargetInfo(binding: *const ::core::ffi::c_void, marshalledtargetinfosize: *mut u32, marshalledtargetinfo: *mut *mut u8) -> RPC_STATUS;
+    pub fn I_RpcBindingInqMarshalledTargetInfo();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingInqSecurityContext(binding: *mut ::core::ffi::c_void, securitycontexthandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcBindingInqSecurityContext();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingInqSecurityContextKeyInfo(binding: *const ::core::ffi::c_void, keyinfo: *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcBindingInqSecurityContextKeyInfo();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingInqTransportType(binding: *mut ::core::ffi::c_void, r#type: *mut u32) -> RPC_STATUS;
+    pub fn I_RpcBindingInqTransportType();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingInqWireIdForSnego(binding: *const ::core::ffi::c_void, wireid: *mut u8) -> RPC_STATUS;
+    pub fn I_RpcBindingInqWireIdForSnego();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingIsClientLocal(bindinghandle: *mut ::core::ffi::c_void, clientlocalflag: *mut u32) -> RPC_STATUS;
+    pub fn I_RpcBindingIsClientLocal();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingIsServerLocal(binding: *const ::core::ffi::c_void, serverlocalflag: *mut u32) -> RPC_STATUS;
+    pub fn I_RpcBindingIsServerLocal();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingSetPrivateOption(hbinding: *const ::core::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS;
+    pub fn I_RpcBindingSetPrivateOption();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcBindingToStaticStringBindingW(binding: *mut ::core::ffi::c_void, stringbinding: *mut *mut u16) -> RPC_STATUS;
+    pub fn I_RpcBindingToStaticStringBindingW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcClearMutex(mutex: *mut ::core::ffi::c_void);
+    pub fn I_RpcClearMutex();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcDeleteMutex(mutex: *mut ::core::ffi::c_void);
+    pub fn I_RpcDeleteMutex();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcExceptionFilter(exceptioncode: u32) -> i32;
+    pub fn I_RpcExceptionFilter();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcFree(object: *mut ::core::ffi::c_void);
+    pub fn I_RpcFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcFreeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+    pub fn I_RpcFreeBuffer();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcFreePipeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+    pub fn I_RpcFreePipeBuffer();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+    pub fn I_RpcGetBuffer();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcGetBufferWithObject(message: *mut RPC_MESSAGE, objectuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn I_RpcGetBufferWithObject();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcGetCurrentCallHandle() -> *mut ::core::ffi::c_void;
+    pub fn I_RpcGetCurrentCallHandle();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcGetDefaultSD(ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcGetDefaultSD();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcGetExtendedError() -> RPC_STATUS;
+    pub fn I_RpcGetExtendedError();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcIfInqTransferSyntaxes(rpcifhandle: *mut ::core::ffi::c_void, transfersyntaxes: *mut RPC_TRANSFER_SYNTAX, transfersyntaxsize: u32, transfersyntaxcount: *mut u32) -> RPC_STATUS;
+    pub fn I_RpcIfInqTransferSyntaxes();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcMapWin32Status(status: RPC_STATUS) -> i32;
+    pub fn I_RpcMapWin32Status();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcMgmtEnableDedicatedThreadPool() -> RPC_STATUS;
+    pub fn I_RpcMgmtEnableDedicatedThreadPool();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcNegotiateTransferSyntax(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+    pub fn I_RpcNegotiateTransferSyntax();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcNsBindingSetEntryNameA(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
+    pub fn I_RpcNsBindingSetEntryNameA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcNsBindingSetEntryNameW(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
+    pub fn I_RpcNsBindingSetEntryNameW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcNsGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+    pub fn I_RpcNsGetBuffer();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcNsInterfaceExported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
+    pub fn I_RpcNsInterfaceExported();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcNsInterfaceUnexported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
+    pub fn I_RpcNsInterfaceUnexported();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATUS);
+    pub fn I_RpcNsRaiseException();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcNsSendReceive(message: *mut RPC_MESSAGE, handle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcNsSendReceive();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcOpenClientProcess(binding: *const ::core::ffi::c_void, desiredaccess: u32, clientprocess: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcOpenClientProcess();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcPauseExecution(milliseconds: u32);
+    pub fn I_RpcPauseExecution();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcReBindBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+    pub fn I_RpcReBindBuffer();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) -> RPC_STATUS;
+    pub fn I_RpcReallocPipeBuffer();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcReceive(message: *mut RPC_MESSAGE, size: u32) -> RPC_STATUS;
+    pub fn I_RpcReceive();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcRecordCalloutFailure(rpcstatus: RPC_STATUS, calloutstate: *mut RDR_CALLOUT_STATE, dllname: *mut u16);
+    pub fn I_RpcRecordCalloutFailure();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcRequestMutex(mutex: *mut *mut ::core::ffi::c_void);
+    pub fn I_RpcRequestMutex();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcSend(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+    pub fn I_RpcSend();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcSendReceive(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+    pub fn I_RpcSendReceive();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerCheckClientRestriction(context: *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcServerCheckClientRestriction();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerDisableExceptionFilter() -> i32;
+    pub fn I_RpcServerDisableExceptionFilter();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerGetAssociationID(binding: *const ::core::ffi::c_void, associationid: *mut u32) -> RPC_STATUS;
+    pub fn I_RpcServerGetAssociationID();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerInqAddressChangeFn() -> *mut ::core::option::Option<RPC_ADDRESS_CHANGE_FN>;
+    pub fn I_RpcServerInqAddressChangeFn();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerInqLocalConnAddress(binding: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS;
+    pub fn I_RpcServerInqLocalConnAddress();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerInqRemoteConnAddress(binding: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS;
+    pub fn I_RpcServerInqRemoteConnAddress();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerInqTransportType(r#type: *mut u32) -> RPC_STATUS;
+    pub fn I_RpcServerInqTransportType();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut ::windows::runtime::RawPtr) -> RPC_STATUS;
+    pub fn I_RpcServerRegisterForwardFunction();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut ::windows::runtime::RawPtr) -> RPC_STATUS;
+    pub fn I_RpcServerSetAddressChangeFn();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerStartService(protseq: *const u16, endpoint: *const u16, ifspec: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcServerStartService();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerSubscribeForDisconnectNotification(binding: *const ::core::ffi::c_void, hevent: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcServerSubscribeForDisconnectNotification();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerSubscribeForDisconnectNotification2(binding: *const ::core::ffi::c_void, hevent: *const ::core::ffi::c_void, subscriptionid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn I_RpcServerSubscribeForDisconnectNotification2();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerUnsubscribeForDisconnectNotification(binding: *const ::core::ffi::c_void, subscriptionid: ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn I_RpcServerUnsubscribeForDisconnectNotification();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerUseProtseq2A(networkaddress: *const u8, protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void, policy: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcServerUseProtseq2A();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerUseProtseq2W(networkaddress: *const u16, protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void, policy: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcServerUseProtseq2W();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerUseProtseqEp2A(networkaddress: *const u8, protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::core::ffi::c_void, policy: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcServerUseProtseqEp2A();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcServerUseProtseqEp2W(networkaddress: *const u16, protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::core::ffi::c_void, policy: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn I_RpcServerUseProtseqEp2W();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
     pub fn I_RpcSessionStrictContextHandle();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
     pub fn I_RpcSsDontSerializeContext();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcSystemHandleTypeSpecificWork(handle: *mut ::core::ffi::c_void, actualtype: u8, idltype: u8, marshaldirection: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION) -> RPC_STATUS;
+    pub fn I_RpcSystemHandleTypeSpecificWork();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_RpcTurnOnEEInfoPropagation() -> RPC_STATUS;
+    pub fn I_RpcTurnOnEEInfoPropagation();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn I_UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn I_UuidCreate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn MesBufferHandleReset(handle: *const ::core::ffi::c_void, handlestyle: u32, operation: MIDL_ES_CODE, pbuffer: *const *const i8, buffersize: u32, pencodedsize: *mut u32) -> RPC_STATUS;
+    pub fn MesBufferHandleReset();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MesDecodeBufferHandleCreate(buffer: super::super::Foundation::PSTR, buffersize: u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn MesDecodeBufferHandleCreate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn MesDecodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, readfn: ::windows::runtime::RawPtr, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn MesDecodeIncrementalHandleCreate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn MesEncodeDynBufferHandleCreate(pbuffer: *mut *mut i8, pencodedsize: *mut u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn MesEncodeDynBufferHandleCreate();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MesEncodeFixedBufferHandleCreate(pbuffer: super::super::Foundation::PSTR, buffersize: u32, pencodedsize: *mut u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn MesEncodeFixedBufferHandleCreate();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, allocfn: ::windows::runtime::RawPtr, writefn: ::windows::runtime::RawPtr, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn MesEncodeIncrementalHandleCreate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn MesHandleFree(handle: *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn MesHandleFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: ::windows::runtime::RawPtr, writefn: ::windows::runtime::RawPtr, readfn: ::windows::runtime::RawPtr, operation: MIDL_ES_CODE) -> RPC_STATUS;
+    pub fn MesIncrementalHandleReset();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn MesInqProcEncodingId(handle: *mut ::core::ffi::c_void, pinterfaceid: *mut RPC_SYNTAX_IDENTIFIER, pprocnum: *mut u32) -> RPC_STATUS;
+    pub fn MesInqProcEncodingId();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NDRCContextBinding(ccontext: isize) -> *mut ::core::ffi::c_void;
+    pub fn NDRCContextBinding();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::core::ffi::c_void);
+    pub fn NDRCContextMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NDRCContextUnmarshall(pccontext: *mut isize, hbinding: *const ::core::ffi::c_void, pbuff: *const ::core::ffi::c_void, datarepresentation: u32);
+    pub fn NDRCContextUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::runtime::RawPtr);
+    pub fn NDRSContextMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::runtime::RawPtr, ctxguard: *const ::core::ffi::c_void, flags: u32);
+    pub fn NDRSContextMarshall2();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::runtime::RawPtr);
+    pub fn NDRSContextMarshallEx();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NDRSContextUnmarshall(pbuff: *const ::core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT_1;
+    pub fn NDRSContextUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NDRSContextUnmarshall2(bindinghandle: *const ::core::ffi::c_void, pbuff: *const ::core::ffi::c_void, datarepresentation: u32, ctxguard: *const ::core::ffi::c_void, flags: u32) -> *mut NDR_SCONTEXT_1;
+    pub fn NDRSContextUnmarshall2();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NDRSContextUnmarshallEx(bindinghandle: *const ::core::ffi::c_void, pbuff: *const ::core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT_1;
+    pub fn NDRSContextUnmarshallEx();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn Ndr64AsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
+    pub fn Ndr64AsyncClientCall();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn Ndr64AsyncServerCall64(prpcmsg: *mut RPC_MESSAGE);
+    pub fn Ndr64AsyncServerCall64();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn Ndr64AsyncServerCallAll(prpcmsg: *mut RPC_MESSAGE);
+    pub fn Ndr64AsyncServerCallAll();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
+    pub fn Ndr64DcomAsyncClientCall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn Ndr64DcomAsyncStubCall(pthis: ::windows::runtime::RawPtr, pchannel: ::windows::runtime::RawPtr, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
+    pub fn Ndr64DcomAsyncStubCall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrAllocate(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, len: usize) -> *mut ::core::ffi::c_void;
+    pub fn NdrAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN;
+    pub fn NdrAsyncClientCall();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrAsyncServerCall(prpcmsg: *mut RPC_MESSAGE);
+    pub fn NdrAsyncServerCall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrByteCountPointerBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrByteCountPointerBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrByteCountPointerFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrByteCountPointerFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrByteCountPointerMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrByteCountPointerMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrByteCountPointerUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrByteCountPointerUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrClearOutParameters(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8, argaddr: *mut ::core::ffi::c_void);
+    pub fn NdrClearOutParameters();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrClientCall2(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN;
+    pub fn NdrClientCall2();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrClientCall3(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
+    pub fn NdrClientCall3();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrClientContextMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: isize, fcheck: i32);
+    pub fn NdrClientContextMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrClientContextUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pcontexthandle: *mut isize, bindhandle: *mut ::core::ffi::c_void);
+    pub fn NdrClientContextUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
+    pub fn NdrClientInitialize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
+    pub fn NdrClientInitializeNew();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrComplexArrayBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrComplexArrayBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrComplexArrayFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrComplexArrayFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrComplexArrayMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrComplexArrayMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrComplexArrayMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrComplexArrayMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrComplexArrayUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrComplexArrayUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrComplexStructBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrComplexStructBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrComplexStructFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrComplexStructFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrComplexStructMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrComplexStructMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrComplexStructMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrComplexStructMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrComplexStructUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrComplexStructUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantArrayBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrConformantArrayBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantArrayFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrConformantArrayFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantArrayMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrConformantArrayMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantArrayMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrConformantArrayMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantArrayUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrConformantArrayUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantStringBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrConformantStringBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantStringMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrConformantStringMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantStringMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrConformantStringMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantStringUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrConformantStringUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantStructBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrConformantStructBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantStructFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrConformantStructFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantStructMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrConformantStructMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantStructMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrConformantStructMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantStructUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrConformantStructUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantVaryingArrayBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrConformantVaryingArrayBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantVaryingArrayFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrConformantVaryingArrayFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantVaryingArrayMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrConformantVaryingArrayMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantVaryingArrayMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrConformantVaryingArrayMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantVaryingArrayUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrConformantVaryingArrayUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantVaryingStructBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrConformantVaryingStructBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantVaryingStructFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrConformantVaryingStructFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantVaryingStructMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrConformantVaryingStructMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantVaryingStructMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrConformantVaryingStructMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConformantVaryingStructUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrConformantVaryingStructUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrContextHandleInitialize(pstubmsg: *const ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *const u8) -> *mut NDR_SCONTEXT_1;
+    pub fn NdrContextHandleInitialize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrContextHandleSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrContextHandleSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConvert(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8);
+    pub fn NdrConvert();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrConvert2(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8, numberparams: i32);
+    pub fn NdrConvert2();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrCorrelationFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+    pub fn NdrCorrelationFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrCorrelationInitialize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut ::core::ffi::c_void, cachesize: u32, flags: u32);
+    pub fn NdrCorrelationInitialize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrCorrelationPass(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+    pub fn NdrCorrelationPass();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrCreateServerInterfaceFromStub(pstub: ::windows::runtime::RawPtr, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
+    pub fn NdrCreateServerInterfaceFromStub();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrDcomAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN;
+    pub fn NdrDcomAsyncClientCall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrDcomAsyncStubCall(pthis: ::windows::runtime::RawPtr, pchannel: ::windows::runtime::RawPtr, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
+    pub fn NdrDcomAsyncStubCall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrEncapsulatedUnionBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrEncapsulatedUnionBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrEncapsulatedUnionFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrEncapsulatedUnionFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrEncapsulatedUnionMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrEncapsulatedUnionMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrEncapsulatedUnionMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrEncapsulatedUnionMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrEncapsulatedUnionUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrEncapsulatedUnionUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrFixedArrayBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrFixedArrayBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrFixedArrayFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrFixedArrayFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrFixedArrayMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrFixedArrayMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrFixedArrayMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrFixedArrayMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrFixedArrayUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrFixedArrayUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrFreeBuffer(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+    pub fn NdrFreeBuffer();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrFullPointerXlatFree(pxlattables: *mut FULL_PTR_XLAT_TABLES);
+    pub fn NdrFullPointerXlatFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrFullPointerXlatInit(numberofpointers: u32, xlatside: XLAT_SIDE) -> *mut FULL_PTR_XLAT_TABLES;
+    pub fn NdrFullPointerXlatInit();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrGetBuffer(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8;
+    pub fn NdrGetBuffer();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrGetDcomProtocolVersion(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pversion: *mut RPC_VERSION) -> ::windows::runtime::HRESULT;
+    pub fn NdrGetDcomProtocolVersion();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrGetUserMarshalInfo(pflags: *const u32, informationlevel: u32, pmarshalinfo: *mut ::core::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO>) -> RPC_STATUS;
+    pub fn NdrGetUserMarshalInfo();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrInterfacePointerBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrInterfacePointerBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrInterfacePointerFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrInterfacePointerFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrInterfacePointerMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrInterfacePointerMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrInterfacePointerMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrInterfacePointerMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrInterfacePointerUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrInterfacePointerUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMapCommAndFaultStatus(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: RPC_STATUS) -> RPC_STATUS;
+    pub fn NdrMapCommAndFaultStatus();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesProcEncodeDecode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8);
+    pub fn NdrMesProcEncodeDecode();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesProcEncodeDecode2(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8) -> CLIENT_CALL_RETURN;
+    pub fn NdrMesProcEncodeDecode2();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesProcEncodeDecode3(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
+    pub fn NdrMesProcEncodeDecode3();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrMesSimpleTypeAlignSize(param0: *mut ::core::ffi::c_void) -> usize;
+    pub fn NdrMesSimpleTypeAlignSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesSimpleTypeAlignSizeAll(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO) -> usize;
+    pub fn NdrMesSimpleTypeAlignSizeAll();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrMesSimpleTypeDecode(handle: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, size: i16);
+    pub fn NdrMesSimpleTypeDecode();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesSimpleTypeDecodeAll(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *mut ::core::ffi::c_void, size: i16);
+    pub fn NdrMesSimpleTypeDecodeAll();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesSimpleTypeEncode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pobject: *const ::core::ffi::c_void, size: i16);
+    pub fn NdrMesSimpleTypeEncode();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesSimpleTypeEncodeAll(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *const ::core::ffi::c_void, size: i16);
+    pub fn NdrMesSimpleTypeEncodeAll();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesTypeAlignSize(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::core::ffi::c_void) -> usize;
+    pub fn NdrMesTypeAlignSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesTypeAlignSize2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::core::ffi::c_void) -> usize;
+    pub fn NdrMesTypeAlignSize2();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesTypeAlignSize3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const ::core::ffi::c_void) -> usize;
+    pub fn NdrMesTypeAlignSize3();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesTypeDecode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::core::ffi::c_void);
+    pub fn NdrMesTypeDecode();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesTypeDecode2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::core::ffi::c_void);
+    pub fn NdrMesTypeDecode2();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesTypeDecode3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::core::ffi::c_void);
+    pub fn NdrMesTypeDecode3();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesTypeEncode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::core::ffi::c_void);
+    pub fn NdrMesTypeEncode();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesTypeEncode2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::core::ffi::c_void);
+    pub fn NdrMesTypeEncode2();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesTypeEncode3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const ::core::ffi::c_void);
+    pub fn NdrMesTypeEncode3();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesTypeFree2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::core::ffi::c_void);
+    pub fn NdrMesTypeFree2();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrMesTypeFree3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::core::ffi::c_void);
+    pub fn NdrMesTypeFree3();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrNonConformantStringBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrNonConformantStringBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrNonConformantStringMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrNonConformantStringMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrNonConformantStringMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrNonConformantStringMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrNonConformantStringUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrNonConformantStringUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrNonEncapsulatedUnionBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrNonEncapsulatedUnionBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrNonEncapsulatedUnionFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrNonEncapsulatedUnionFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrNonEncapsulatedUnionMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrNonEncapsulatedUnionMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrNonEncapsulatedUnionMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrNonEncapsulatedUnionMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrNonEncapsulatedUnionUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrNsGetBuffer(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8;
+    pub fn NdrNsGetBuffer();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrNsSendReceive(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pbufferend: *mut u8, pautohandle: *mut *mut ::core::ffi::c_void) -> *mut u8;
+    pub fn NdrNsSendReceive();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrOleAllocate(size: usize) -> *mut ::core::ffi::c_void;
+    pub fn NdrOleAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrOleFree(nodetofree: *const ::core::ffi::c_void);
+    pub fn NdrOleFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut ::core::ffi::c_void);
+    pub fn NdrPartialIgnoreClientBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut ::core::ffi::c_void);
+    pub fn NdrPartialIgnoreClientMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut ::core::ffi::c_void, pformat: *mut u8);
+    pub fn NdrPartialIgnoreServerInitialize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut ::core::ffi::c_void);
+    pub fn NdrPartialIgnoreServerUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrPointerBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrPointerBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrPointerFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrPointerFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrPointerMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrPointerMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrPointerMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrPointerMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrPointerUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrPointerUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrRangeUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrRangeUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrRpcSmClientAllocate(size: usize) -> *mut ::core::ffi::c_void;
+    pub fn NdrRpcSmClientAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrRpcSmClientFree(nodetofree: *const ::core::ffi::c_void);
+    pub fn NdrRpcSmClientFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrRpcSmSetClientToOsf(pmessage: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+    pub fn NdrRpcSmSetClientToOsf();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrRpcSsDefaultAllocate(size: usize) -> *mut ::core::ffi::c_void;
+    pub fn NdrRpcSsDefaultAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrRpcSsDefaultFree(nodetofree: *const ::core::ffi::c_void);
+    pub fn NdrRpcSsDefaultFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrRpcSsDisableAllocate(pmessage: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+    pub fn NdrRpcSsDisableAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrRpcSsEnableAllocate(pmessage: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+    pub fn NdrRpcSsEnableAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrSendReceive(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pbufferend: *mut u8) -> *mut u8;
+    pub fn NdrSendReceive();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrServerCall2(prpcmsg: *mut RPC_MESSAGE);
+    pub fn NdrServerCall2();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrServerCallAll(prpcmsg: *mut RPC_MESSAGE);
+    pub fn NdrServerCallAll();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE);
+    pub fn NdrServerCallNdr64();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrServerContextMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::runtime::RawPtr);
+    pub fn NdrServerContextMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrServerContextNewMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::runtime::RawPtr, pformat: *mut u8);
+    pub fn NdrServerContextNewMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrServerContextNewUnmarshall(pstubmsg: *const ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *const u8) -> *mut NDR_SCONTEXT_1;
+    pub fn NdrServerContextNewUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrServerContextUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>) -> *mut NDR_SCONTEXT_1;
+    pub fn NdrServerContextUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrServerInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8;
+    pub fn NdrServerInitialize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrServerInitializeMarshall(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+    pub fn NdrServerInitializeMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrServerInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8;
+    pub fn NdrServerInitializeNew();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, requestedbuffersize: u32);
+    pub fn NdrServerInitializePartial();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrServerInitializeUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, prpcmsg: *mut RPC_MESSAGE) -> *mut u8;
+    pub fn NdrServerInitializeUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrSimpleStructBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrSimpleStructBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrSimpleStructFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrSimpleStructFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrSimpleStructMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrSimpleStructMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrSimpleStructMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrSimpleStructMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrSimpleStructUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrSimpleStructUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrSimpleTypeMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, formatchar: u8);
+    pub fn NdrSimpleTypeMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrSimpleTypeUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, formatchar: u8);
+    pub fn NdrSimpleTypeUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrStubCall2(pthis: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
+    pub fn NdrStubCall2();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrStubCall3(pthis: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
+    pub fn NdrStubCall3();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrUserMarshalBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrUserMarshalBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrUserMarshalFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrUserMarshalFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrUserMarshalMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrUserMarshalMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrUserMarshalMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrUserMarshalMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn NdrUserMarshalSimpleTypeConvert(pflags: *mut u32, pbuffer: *mut u8, formatchar: u8) -> *mut u8;
+    pub fn NdrUserMarshalSimpleTypeConvert();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrUserMarshalUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrUserMarshalUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrVaryingArrayBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrVaryingArrayBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrVaryingArrayFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrVaryingArrayFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrVaryingArrayMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrVaryingArrayMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrVaryingArrayMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrVaryingArrayMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrVaryingArrayUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrVaryingArrayUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrXmitOrRepAsBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrXmitOrRepAsBufferSize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrXmitOrRepAsFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
+    pub fn NdrXmitOrRepAsFree();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrXmitOrRepAsMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+    pub fn NdrXmitOrRepAsMarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrXmitOrRepAsMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
+    pub fn NdrXmitOrRepAsMemorySize();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+    pub fn NdrXmitOrRepAsUnmarshall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn RpcAsyncAbortCall(pasync: *mut ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, exceptioncode: u32) -> RPC_STATUS;
+    pub fn RpcAsyncAbortCall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn RpcAsyncCancelCall(pasync: *mut ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, fabort: super::super::Foundation::BOOL) -> RPC_STATUS;
+    pub fn RpcAsyncCancelCall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn RpcAsyncCompleteCall(pasync: *mut ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, reply: *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcAsyncCompleteCall();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn RpcAsyncGetCallStatus(pasync: *const ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>) -> RPC_STATUS;
+    pub fn RpcAsyncGetCallStatus();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn RpcAsyncInitializeHandle(pasync: *mut ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, size: u32) -> RPC_STATUS;
+    pub fn RpcAsyncInitializeHandle();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn RpcAsyncRegisterInfo(pasync: *const ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>) -> RPC_STATUS;
+    pub fn RpcAsyncRegisterInfo();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn RpcBindingBind(pasync: *const ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, binding: *const ::core::ffi::c_void, ifspec: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcBindingBind();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingCopy(sourcebinding: *const ::core::ffi::c_void, destinationbinding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcBindingCopy();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn RpcBindingCreateA(template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_A, security: *const RPC_BINDING_HANDLE_SECURITY_V1_A, options: *const RPC_BINDING_HANDLE_OPTIONS_V1, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcBindingCreateA();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn RpcBindingCreateW(template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_W, security: *const RPC_BINDING_HANDLE_SECURITY_V1_W, options: *const RPC_BINDING_HANDLE_OPTIONS_V1, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcBindingCreateW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingFree(binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcBindingFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingFromStringBindingA(stringbinding: *const u8, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcBindingFromStringBindingA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingFromStringBindingW(stringbinding: *const u16, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcBindingFromStringBindingW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingInqAuthClientA(clientbinding: *const ::core::ffi::c_void, privs: *mut *mut ::core::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32) -> RPC_STATUS;
+    pub fn RpcBindingInqAuthClientA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingInqAuthClientExA(clientbinding: *const ::core::ffi::c_void, privs: *mut *mut ::core::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32, flags: u32) -> RPC_STATUS;
+    pub fn RpcBindingInqAuthClientExA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingInqAuthClientExW(clientbinding: *const ::core::ffi::c_void, privs: *mut *mut ::core::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32, flags: u32) -> RPC_STATUS;
+    pub fn RpcBindingInqAuthClientExW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingInqAuthClientW(clientbinding: *const ::core::ffi::c_void, privs: *mut *mut ::core::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32) -> RPC_STATUS;
+    pub fn RpcBindingInqAuthClientW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingInqAuthInfoA(binding: *const ::core::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::core::ffi::c_void, authzsvc: *mut u32) -> RPC_STATUS;
+    pub fn RpcBindingInqAuthInfoA();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn RpcBindingInqAuthInfoExA(binding: *const ::core::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::core::ffi::c_void, authzsvc: *mut u32, rpcqosversion: u32, securityqos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+    pub fn RpcBindingInqAuthInfoExA();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn RpcBindingInqAuthInfoExW(binding: *const ::core::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::core::ffi::c_void, authzsvc: *mut u32, rpcqosversion: u32, securityqos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
+    pub fn RpcBindingInqAuthInfoExW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingInqAuthInfoW(binding: *const ::core::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::core::ffi::c_void, authzsvc: *mut u32) -> RPC_STATUS;
+    pub fn RpcBindingInqAuthInfoW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingInqMaxCalls(binding: *const ::core::ffi::c_void, maxcalls: *mut u32) -> RPC_STATUS;
+    pub fn RpcBindingInqMaxCalls();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingInqObject(binding: *const ::core::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn RpcBindingInqObject();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingInqOption(hbinding: *const ::core::ffi::c_void, option: u32, poptionvalue: *mut usize) -> RPC_STATUS;
+    pub fn RpcBindingInqOption();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingReset(binding: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcBindingReset();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingServerFromClient(clientbinding: *const ::core::ffi::c_void, serverbinding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcBindingServerFromClient();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingSetAuthInfoA(binding: *const ::core::ffi::c_void, serverprincname: *const u8, authnlevel: u32, authnsvc: u32, authidentity: *const ::core::ffi::c_void, authzsvc: u32) -> RPC_STATUS;
+    pub fn RpcBindingSetAuthInfoA();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn RpcBindingSetAuthInfoExA(binding: *const ::core::ffi::c_void, serverprincname: *const u8, authnlevel: u32, authnsvc: u32, authidentity: *const ::core::ffi::c_void, authzsvc: u32, securityqos: *const RPC_SECURITY_QOS) -> RPC_STATUS;
+    pub fn RpcBindingSetAuthInfoExA();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn RpcBindingSetAuthInfoExW(binding: *const ::core::ffi::c_void, serverprincname: *const u16, authnlevel: u32, authnsvc: u32, authidentity: *const ::core::ffi::c_void, authzsvc: u32, securityqos: *const RPC_SECURITY_QOS) -> RPC_STATUS;
+    pub fn RpcBindingSetAuthInfoExW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingSetAuthInfoW(binding: *const ::core::ffi::c_void, serverprincname: *const u16, authnlevel: u32, authnsvc: u32, authidentity: *const ::core::ffi::c_void, authzsvc: u32) -> RPC_STATUS;
+    pub fn RpcBindingSetAuthInfoW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingSetObject(binding: *const ::core::ffi::c_void, objectuuid: *const ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn RpcBindingSetObject();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingSetOption(hbinding: *const ::core::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS;
+    pub fn RpcBindingSetOption();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingToStringBindingA(binding: *const ::core::ffi::c_void, stringbinding: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcBindingToStringBindingA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingToStringBindingW(binding: *const ::core::ffi::c_void, stringbinding: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcBindingToStringBindingW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingUnbind(binding: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcBindingUnbind();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcBindingVectorFree(bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+    pub fn RpcBindingVectorFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcCancelThread(thread: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcCancelThread();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcCancelThreadEx(thread: *const ::core::ffi::c_void, timeout: i32) -> RPC_STATUS;
+    pub fn RpcCancelThreadEx();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub fn RpcCertGeneratePrincipalNameA(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcCertGeneratePrincipalNameA();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub fn RpcCertGeneratePrincipalNameW(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcCertGeneratePrincipalNameW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcEpRegisterA(ifspec: *const ::core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u8) -> RPC_STATUS;
+    pub fn RpcEpRegisterA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcEpRegisterNoReplaceA(ifspec: *const ::core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u8) -> RPC_STATUS;
+    pub fn RpcEpRegisterNoReplaceA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcEpRegisterNoReplaceW(ifspec: *const ::core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u16) -> RPC_STATUS;
+    pub fn RpcEpRegisterNoReplaceW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcEpRegisterW(ifspec: *const ::core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u16) -> RPC_STATUS;
+    pub fn RpcEpRegisterW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcEpResolveBinding(binding: *const ::core::ffi::c_void, ifspec: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcEpResolveBinding();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcEpUnregister(ifspec: *const ::core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR) -> RPC_STATUS;
+    pub fn RpcEpUnregister();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RpcErrorAddRecord(errorinfo: *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
+    pub fn RpcErrorAddRecord();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
     pub fn RpcErrorClearInformation();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+    pub fn RpcErrorEndEnumeration();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RpcErrorGetNextRecord(enumhandle: *const RPC_ERROR_ENUM_HANDLE, copystrings: super::super::Foundation::BOOL, errorinfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
+    pub fn RpcErrorGetNextRecord();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcErrorGetNumberOfRecords(enumhandle: *const RPC_ERROR_ENUM_HANDLE, records: *mut i32) -> RPC_STATUS;
+    pub fn RpcErrorGetNumberOfRecords();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcErrorLoadErrorInfo(errorblob: *const ::core::ffi::c_void, blobsize: usize, enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+    pub fn RpcErrorLoadErrorInfo();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcErrorResetEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+    pub fn RpcErrorResetEnumeration();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcErrorSaveErrorInfo(enumhandle: *const RPC_ERROR_ENUM_HANDLE, errorblob: *mut *mut ::core::ffi::c_void, blobsize: *mut usize) -> RPC_STATUS;
+    pub fn RpcErrorSaveErrorInfo();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcErrorStartEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+    pub fn RpcErrorStartEnumeration();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcExceptionFilter(exceptioncode: u32) -> i32;
+    pub fn RpcExceptionFilter();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcFreeAuthorizationContext(pauthzclientcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcFreeAuthorizationContext();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RpcGetAuthorizationContextForClient(clientbinding: *const ::core::ffi::c_void, impersonateonreturn: super::super::Foundation::BOOL, reserved1: *const ::core::ffi::c_void, pexpirationtime: *const i64, reserved2: super::super::Foundation::LUID, reserved3: u32, reserved4: *const ::core::ffi::c_void, pauthzclientcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcGetAuthorizationContextForClient();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcIfIdVectorFree(ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
+    pub fn RpcIfIdVectorFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcIfInqId(rpcifhandle: *const ::core::ffi::c_void, rpcifid: *mut RPC_IF_ID) -> RPC_STATUS;
+    pub fn RpcIfInqId();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcImpersonateClient(bindinghandle: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcImpersonateClient();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcImpersonateClient2(bindinghandle: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcImpersonateClient2();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcImpersonateClientContainer(bindinghandle: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcImpersonateClientContainer();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS;
+    pub fn RpcMgmtEnableIdleCleanup();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtEpEltInqBegin(epbinding: *const ::core::ffi::c_void, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, objectuuid: *const ::windows::runtime::GUID, inquirycontext: *mut *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcMgmtEpEltInqBegin();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcMgmtEpEltInqDone();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtEpEltInqNextA(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::core::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID, annotation: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcMgmtEpEltInqNextA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtEpEltInqNextW(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::core::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID, annotation: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcMgmtEpEltInqNextW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtEpUnregister(epbinding: *const ::core::ffi::c_void, ifid: *const RPC_IF_ID, binding: *const ::core::ffi::c_void, objectuuid: *const ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn RpcMgmtEpUnregister();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtInqComTimeout(binding: *const ::core::ffi::c_void, timeout: *mut u32) -> RPC_STATUS;
+    pub fn RpcMgmtInqComTimeout();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtInqDefaultProtectLevel(authnsvc: u32, authnlevel: *mut u32) -> RPC_STATUS;
+    pub fn RpcMgmtInqDefaultProtectLevel();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtInqIfIds(binding: *const ::core::ffi::c_void, ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
+    pub fn RpcMgmtInqIfIds();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtInqServerPrincNameA(binding: *const ::core::ffi::c_void, authnsvc: u32, serverprincname: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcMgmtInqServerPrincNameA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtInqServerPrincNameW(binding: *const ::core::ffi::c_void, authnsvc: u32, serverprincname: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcMgmtInqServerPrincNameW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtInqStats(binding: *const ::core::ffi::c_void, statistics: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS;
+    pub fn RpcMgmtInqStats();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtIsServerListening(binding: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcMgmtIsServerListening();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtSetAuthorizationFn(authorizationfn: ::windows::runtime::RawPtr) -> RPC_STATUS;
+    pub fn RpcMgmtSetAuthorizationFn();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtSetCancelTimeout(timeout: i32) -> RPC_STATUS;
+    pub fn RpcMgmtSetCancelTimeout();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtSetComTimeout(binding: *const ::core::ffi::c_void, timeout: u32) -> RPC_STATUS;
+    pub fn RpcMgmtSetComTimeout();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtSetServerStackSize(threadstacksize: u32) -> RPC_STATUS;
+    pub fn RpcMgmtSetServerStackSize();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtStatsVectorFree(statsvector: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS;
+    pub fn RpcMgmtStatsVectorFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtStopServerListening(binding: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcMgmtStopServerListening();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcMgmtWaitServerListen() -> RPC_STATUS;
+    pub fn RpcMgmtWaitServerListen();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNetworkInqProtseqsA(protseqvector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS;
+    pub fn RpcNetworkInqProtseqsA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNetworkInqProtseqsW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS;
+    pub fn RpcNetworkInqProtseqsW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNetworkIsProtseqValidA(protseq: *const u8) -> RPC_STATUS;
+    pub fn RpcNetworkIsProtseqValidA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNetworkIsProtseqValidW(protseq: *const u16) -> RPC_STATUS;
+    pub fn RpcNetworkIsProtseqValidW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingExportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsBindingExportA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingExportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsBindingExportPnPA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingExportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsBindingExportPnPW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingExportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsBindingExportW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsBindingImportBeginA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsBindingImportBeginW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingImportDone(importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsBindingImportDone();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingImportNext(importcontext: *mut ::core::ffi::c_void, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsBindingImportNext();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingInqEntryNameA(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcNsBindingInqEntryNameA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingInqEntryNameW(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcNsBindingInqEntryNameW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsBindingLookupBeginA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsBindingLookupBeginW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingLookupDone(lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsBindingLookupDone();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingLookupNext(lookupcontext: *mut ::core::ffi::c_void, bindingvec: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsBindingLookupNext();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingSelect(bindingvec: *mut RPC_BINDING_VECTOR, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsBindingSelect();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsBindingUnexportA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingUnexportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsBindingUnexportPnPA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingUnexportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsBindingUnexportPnPW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsBindingUnexportW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsEntryExpandNameA(entrynamesyntax: u32, entryname: *const u8, expandedname: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcNsEntryExpandNameA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsEntryExpandNameW(entrynamesyntax: u32, entryname: *const u16, expandedname: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcNsEntryExpandNameW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsEntryObjectInqBeginA(entrynamesyntax: u32, entryname: *const u8, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsEntryObjectInqBeginA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsEntryObjectInqBeginW(entrynamesyntax: u32, entryname: *const u16, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsEntryObjectInqBeginW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsEntryObjectInqDone();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsEntryObjectInqNext(inquirycontext: *mut ::core::ffi::c_void, objuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn RpcNsEntryObjectInqNext();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsGroupDeleteA(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u8) -> RPC_STATUS;
+    pub fn RpcNsGroupDeleteA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsGroupDeleteW(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u16) -> RPC_STATUS;
+    pub fn RpcNsGroupDeleteW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsGroupMbrAddA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
+    pub fn RpcNsGroupMbrAddA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsGroupMbrAddW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
+    pub fn RpcNsGroupMbrAddW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsGroupMbrInqBeginA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsGroupMbrInqBeginA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsGroupMbrInqBeginW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsGroupMbrInqBeginW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsGroupMbrInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsGroupMbrInqDone();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsGroupMbrInqNextA(inquirycontext: *mut ::core::ffi::c_void, membername: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcNsGroupMbrInqNextA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsGroupMbrInqNextW(inquirycontext: *mut ::core::ffi::c_void, membername: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcNsGroupMbrInqNextW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsGroupMbrRemoveA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
+    pub fn RpcNsGroupMbrRemoveA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsGroupMbrRemoveW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
+    pub fn RpcNsGroupMbrRemoveW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsMgmtBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsMgmtBindingUnexportA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsMgmtBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsMgmtBindingUnexportW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
+    pub fn RpcNsMgmtEntryCreateA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
+    pub fn RpcNsMgmtEntryCreateW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
+    pub fn RpcNsMgmtEntryDeleteA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsMgmtEntryDeleteW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
+    pub fn RpcNsMgmtEntryDeleteW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsMgmtEntryInqIfIdsA(entrynamesyntax: u32, entryname: *const u8, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsMgmtEntryInqIfIdsA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax: u32, entryname: *const u16, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
+    pub fn RpcNsMgmtEntryInqIfIdsW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsMgmtHandleSetExpAge(nshandle: *mut ::core::ffi::c_void, expirationage: u32) -> RPC_STATUS;
+    pub fn RpcNsMgmtHandleSetExpAge();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsMgmtInqExpAge(expirationage: *mut u32) -> RPC_STATUS;
+    pub fn RpcNsMgmtInqExpAge();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsMgmtSetExpAge(expirationage: u32) -> RPC_STATUS;
+    pub fn RpcNsMgmtSetExpAge();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8) -> RPC_STATUS;
+    pub fn RpcNsProfileDeleteA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsProfileDeleteW(profilenamesyntax: u32, profilename: *const u16) -> RPC_STATUS;
+    pub fn RpcNsProfileDeleteW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsProfileEltAddA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8, priority: u32, annotation: *const u8) -> RPC_STATUS;
+    pub fn RpcNsProfileEltAddA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsProfileEltAddW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16, priority: u32, annotation: *const u16) -> RPC_STATUS;
+    pub fn RpcNsProfileEltAddW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsProfileEltInqBeginA(profilenamesyntax: u32, profilename: *const u8, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u8, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsProfileEltInqBeginA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsProfileEltInqBeginW(profilenamesyntax: u32, profilename: *const u16, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u16, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsProfileEltInqBeginW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsProfileEltInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcNsProfileEltInqDone();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsProfileEltInqNextA(inquirycontext: *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, membername: *mut *mut u8, priority: *mut u32, annotation: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcNsProfileEltInqNextA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsProfileEltInqNextW(inquirycontext: *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, membername: *mut *mut u16, priority: *mut u32, annotation: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcNsProfileEltInqNextW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsProfileEltRemoveA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
+    pub fn RpcNsProfileEltRemoveA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcNsProfileEltRemoveW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
+    pub fn RpcNsProfileEltRemoveW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcObjectInqType(objuuid: *const ::windows::runtime::GUID, typeuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn RpcObjectInqType();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcObjectSetInqFn(inquiryfn: ::windows::runtime::RawPtr) -> RPC_STATUS;
+    pub fn RpcObjectSetInqFn();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcObjectSetType(objuuid: *const ::windows::runtime::GUID, typeuuid: *const ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn RpcObjectSetType();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcProtseqVectorFreeA(protseqvector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS;
+    pub fn RpcProtseqVectorFreeA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcProtseqVectorFreeW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS;
+    pub fn RpcProtseqVectorFreeW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcRaiseException(exception: RPC_STATUS);
+    pub fn RpcRaiseException();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcRevertContainerImpersonation() -> RPC_STATUS;
+    pub fn RpcRevertContainerImpersonation();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcRevertToSelf() -> RPC_STATUS;
+    pub fn RpcRevertToSelf();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcRevertToSelfEx(bindinghandle: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcRevertToSelfEx();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerCompleteSecurityCallback(bindinghandle: *const ::core::ffi::c_void, status: RPC_STATUS) -> RPC_STATUS;
+    pub fn RpcServerCompleteSecurityCallback();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInqBindingHandle(binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerInqBindingHandle();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInqBindings(bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+    pub fn RpcServerInqBindings();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInqBindingsEx(securitydescriptor: *const ::core::ffi::c_void, bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+    pub fn RpcServerInqBindingsEx();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInqCallAttributesA(clientbinding: *const ::core::ffi::c_void, rpccallattributes: *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerInqCallAttributesA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInqCallAttributesW(clientbinding: *const ::core::ffi::c_void, rpccallattributes: *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerInqCallAttributesW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcServerInqDefaultPrincNameA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcServerInqDefaultPrincNameW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInqIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerInqIf();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInterfaceGroupActivate(ifgroup: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerInterfaceGroupActivate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInterfaceGroupClose(ifgroup: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerInterfaceGroupClose();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInterfaceGroupCreateA(interfaces: *const ::core::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEA>, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::runtime::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerInterfaceGroupCreateA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInterfaceGroupCreateW(interfaces: *const ::core::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEW>, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::runtime::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerInterfaceGroupCreateW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInterfaceGroupDeactivate(ifgroup: *const ::core::ffi::c_void, forcedeactivation: u32) -> RPC_STATUS;
+    pub fn RpcServerInterfaceGroupDeactivate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerInterfaceGroupInqBindings(ifgroup: *const ::core::ffi::c_void, bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+    pub fn RpcServerInterfaceGroupInqBindings();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: u32) -> RPC_STATUS;
+    pub fn RpcServerListen();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u32, getkeyfn: ::windows::runtime::RawPtr, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerRegisterAuthInfoA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: u32, getkeyfn: ::windows::runtime::RawPtr, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerRegisterAuthInfoW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerRegisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerRegisterIf();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: ::windows::runtime::RawPtr) -> RPC_STATUS;
+    pub fn RpcServerRegisterIf2();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: ::windows::runtime::RawPtr, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerRegisterIf3();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: ::windows::runtime::RawPtr) -> RPC_STATUS;
+    pub fn RpcServerRegisterIfEx();
     #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn RpcServerSubscribeForNotification(binding: *const ::core::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const ::core::mem::ManuallyDrop<RPC_ASYNC_NOTIFICATION_INFO>) -> RPC_STATUS;
+    pub fn RpcServerSubscribeForNotification();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerTestCancel(bindinghandle: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerTestCancel();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUnregisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, waitforcallstocomplete: u32) -> RPC_STATUS;
+    pub fn RpcServerUnregisterIf();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUnregisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, rundowncontexthandles: i32) -> RPC_STATUS;
+    pub fn RpcServerUnregisterIfEx();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUnsubscribeForNotification(binding: *const ::core::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationsqueued: *mut u32) -> RPC_STATUS;
+    pub fn RpcServerUnsubscribeForNotification();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseAllProtseqs(maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerUseAllProtseqs();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseAllProtseqsEx(maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
+    pub fn RpcServerUseAllProtseqsEx();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseAllProtseqsIf(maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerUseAllProtseqsIf();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseAllProtseqsIfEx(maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
+    pub fn RpcServerUseAllProtseqsIfEx();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqA(protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqEpA(protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqEpA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqEpExA(protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqEpExA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqEpExW(protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqEpExW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqEpW(protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqEpW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqExA(protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqExA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqExW(protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqExW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqIfA(protseq: *const u8, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqIfA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqIfExA(protseq: *const u8, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqIfExA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqIfExW(protseq: *const u16, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqIfExW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqIfW(protseq: *const u16, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqIfW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcServerUseProtseqW(protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcServerUseProtseqW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
     pub fn RpcServerYield();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut ::core::ffi::c_void;
+    pub fn RpcSmAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSmClientFree(pnodetofree: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcSmClientFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSmDestroyClientContext(contexthandle: *const *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcSmDestroyClientContext();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSmDisableAllocate() -> RPC_STATUS;
+    pub fn RpcSmDisableAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSmEnableAllocate() -> RPC_STATUS;
+    pub fn RpcSmEnableAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSmFree(nodetofree: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcSmFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSmGetThreadHandle(pstatus: *mut RPC_STATUS) -> *mut ::core::ffi::c_void;
+    pub fn RpcSmGetThreadHandle();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSmSetClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr) -> RPC_STATUS;
+    pub fn RpcSmSetClientAllocFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSmSetThreadHandle(id: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcSmSetThreadHandle();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSmSwapClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr, oldclientalloc: *mut ::windows::runtime::RawPtr, oldclientfree: *mut ::windows::runtime::RawPtr) -> RPC_STATUS;
+    pub fn RpcSmSwapClientAllocFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSsAllocate(size: usize) -> *mut ::core::ffi::c_void;
+    pub fn RpcSsAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSsContextLockExclusive(serverbindinghandle: *const ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcSsContextLockExclusive();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSsContextLockShared(serverbindinghandle: *const ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcSsContextLockShared();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSsDestroyClientContext(contexthandle: *const *const ::core::ffi::c_void);
+    pub fn RpcSsDestroyClientContext();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
     pub fn RpcSsDisableAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -1148,53 +1148,53 @@ extern "system" {
     #[doc = "*Required features: `Win32_System_Rpc`*"]
     pub fn RpcSsEnableAllocate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSsFree(nodetofree: *const ::core::ffi::c_void);
+    pub fn RpcSsFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSsGetContextBinding(contexthandle: *const ::core::ffi::c_void, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    pub fn RpcSsGetContextBinding();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSsGetThreadHandle() -> *mut ::core::ffi::c_void;
+    pub fn RpcSsGetThreadHandle();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSsSetClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr);
+    pub fn RpcSsSetClientAllocFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSsSetThreadHandle(id: *const ::core::ffi::c_void);
+    pub fn RpcSsSetThreadHandle();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcSsSwapClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr, oldclientalloc: *mut ::windows::runtime::RawPtr, oldclientfree: *mut ::windows::runtime::RawPtr);
+    pub fn RpcSsSwapClientAllocFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcStringBindingComposeA(objuuid: *const u8, protseq: *const u8, networkaddr: *const u8, endpoint: *const u8, options: *const u8, stringbinding: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcStringBindingComposeA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcStringBindingComposeW(objuuid: *const u16, protseq: *const u16, networkaddr: *const u16, endpoint: *const u16, options: *const u16, stringbinding: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcStringBindingComposeW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcStringBindingParseA(stringbinding: *const u8, objuuid: *mut *mut u8, protseq: *mut *mut u8, networkaddr: *mut *mut u8, endpoint: *mut *mut u8, networkoptions: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcStringBindingParseA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcStringBindingParseW(stringbinding: *const u16, objuuid: *mut *mut u16, protseq: *mut *mut u16, networkaddr: *mut *mut u16, endpoint: *mut *mut u16, networkoptions: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcStringBindingParseW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcStringFreeA(string: *mut *mut u8) -> RPC_STATUS;
+    pub fn RpcStringFreeA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcStringFreeW(string: *mut *mut u16) -> RPC_STATUS;
+    pub fn RpcStringFreeW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcTestCancel() -> RPC_STATUS;
+    pub fn RpcTestCancel();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn RpcUserFree(asynchandle: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void);
+    pub fn RpcUserFree();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn UuidCompare(uuid1: *const ::windows::runtime::GUID, uuid2: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32;
+    pub fn UuidCompare();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn UuidCreate();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn UuidCreateNil(niluuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn UuidCreateNil();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn UuidCreateSequential(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn UuidCreateSequential();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn UuidEqual(uuid1: *const ::windows::runtime::GUID, uuid2: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32;
+    pub fn UuidEqual();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn UuidFromStringA(stringuuid: *const u8, uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn UuidFromStringA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn UuidFromStringW(stringuuid: *const u16, uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+    pub fn UuidFromStringW();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn UuidHash(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> u16;
+    pub fn UuidHash();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn UuidIsNil(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32;
+    pub fn UuidIsNil();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn UuidToStringA(uuid: *const ::windows::runtime::GUID, stringuuid: *mut *mut u8) -> RPC_STATUS;
+    pub fn UuidToStringA();
     #[doc = "*Required features: `Win32_System_Rpc`*"]
-    pub fn UuidToStringW(uuid: *const ::windows::runtime::GUID, stringuuid: *mut *mut u16) -> RPC_STATUS;
+    pub fn UuidToStringW();
 }
