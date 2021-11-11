@@ -77,3 +77,30 @@ fn hstring_to_string_lossy() {
     let s = h.to_string_lossy();
     assert_eq!(s, "𝄞mu�ic");
 }
+
+#[test]
+fn hstring_equality_combinations() {
+    let h = StringType::from("test");
+    let s = String::from("test");
+    let ss: &str = "test";
+
+    assert_eq!(h, s);
+    assert_eq!(&h, s);
+    assert_eq!(h, &s);
+    assert_eq!(&h, &s);
+
+    assert_eq!(s, h);
+    assert_eq!(s, &h);
+    assert_eq!(&s, h);
+    assert_eq!(&s, &h);
+
+    assert_eq!(h, *ss);
+    assert_eq!(&h, *ss);
+    assert_eq!(h, ss);
+    assert_eq!(&h, ss);
+
+    assert_eq!(*ss, h);
+    assert_eq!(*ss, &h);
+    assert_eq!(ss, h);
+    assert_eq!(ss, &h);
+}

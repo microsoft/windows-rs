@@ -171,38 +171,91 @@ impl From<&String> for HSTRING {
 
 impl PartialEq for HSTRING {
     fn eq(&self, other: &Self) -> bool {
-        self.as_wide() == other.as_wide()
+        *self.as_wide() == *other.as_wide()
     }
 }
 
 #[cfg(feature = "std")]
 impl PartialEq<String> for HSTRING {
     fn eq(&self, other: &String) -> bool {
-        self == other.as_str()
+        *self == **other
+    }
+}
+
+#[cfg(feature = "std")]
+impl PartialEq<String> for &HSTRING {
+    fn eq(&self, other: &String) -> bool {
+        **self == **other
+    }
+}
+
+#[cfg(feature = "std")]
+impl PartialEq<&String> for HSTRING {
+    fn eq(&self, other: &&String) -> bool {
+        *self == ***other
     }
 }
 
 impl PartialEq<str> for HSTRING {
     fn eq(&self, other: &str) -> bool {
-        self == other
+        self.as_wide().iter().copied().eq(other.encode_utf16())
+    }
+}
+
+impl PartialEq<str> for &HSTRING {
+    fn eq(&self, other: &str) -> bool {
+        **self == *other
     }
 }
 
 impl PartialEq<&str> for HSTRING {
     fn eq(&self, other: &&str) -> bool {
-        self.as_wide().iter().copied().eq(other.encode_utf16())
+        *self == **other
+    }
+}
+
+impl PartialEq<HSTRING> for str {
+    fn eq(&self, other: &HSTRING) -> bool {
+        *other == *self
     }
 }
 
 impl PartialEq<HSTRING> for &str {
     fn eq(&self, other: &HSTRING) -> bool {
-        other == self
+        *other == **self
+    }
+}
+
+impl PartialEq<&HSTRING> for str {
+    fn eq(&self, other: &&HSTRING) -> bool {
+        **other == *self
+    }
+}
+
+#[cfg(feature = "std")]
+impl PartialEq<HSTRING> for String {
+    fn eq(&self, other: &HSTRING) -> bool {
+        *other == **self
+    }
+}
+
+#[cfg(feature = "std")]
+impl PartialEq<HSTRING> for &String {
+    fn eq(&self, other: &HSTRING) -> bool {
+        *other == ***self
+    }
+}
+
+#[cfg(feature = "std")]
+impl PartialEq<&HSTRING> for String {
+    fn eq(&self, other: &&HSTRING) -> bool {
+        **other == **self
     }
 }
 
 #[cfg(feature = "std")]
 impl<'a> core::convert::TryFrom<&'a HSTRING> for String {
-    type Error = std::string::FromUtf16Error;
+    type Error = alloc::string::FromUtf16Error;
 
     fn try_from(hstring: &HSTRING) -> core::result::Result<Self, Self::Error> {
         String::from_utf16(hstring.as_wide())
@@ -211,7 +264,7 @@ impl<'a> core::convert::TryFrom<&'a HSTRING> for String {
 
 #[cfg(feature = "std")]
 impl core::convert::TryFrom<HSTRING> for String {
-    type Error = std::string::FromUtf16Error;
+    type Error = alloc::string::FromUtf16Error;
 
     fn try_from(hstring: HSTRING) -> core::result::Result<Self, Self::Error> {
         String::try_from(&hstring)
