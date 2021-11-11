@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types)]
 #[cfg(feature = "Services_Maps_Guidance")]
 pub mod Guidance;
 #[cfg(feature = "Services_Maps_LocalSearch")]
