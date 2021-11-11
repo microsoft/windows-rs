@@ -161,3 +161,5 @@ pub mod WindowsProgramming;
 pub mod WindowsSync;
 #[cfg(feature = "Win32_System_Wmi")]
 pub mod Wmi;
+#[link(name = "windows")]
+extern "system" {}

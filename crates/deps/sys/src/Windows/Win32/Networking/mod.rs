@@ -23,3 +23,5 @@ pub mod WinInet;
 pub mod WinSock;
 #[cfg(feature = "Win32_Networking_WindowsWebServices")]
 pub mod WindowsWebServices;
+#[link(name = "windows")]
+extern "system" {}

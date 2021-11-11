@@ -7,3 +7,5 @@ pub mod Maps;
 pub mod Store;
 #[cfg(feature = "Services_TargetedContent")]
 pub mod TargetedContent;
+#[link(name = "windows")]
+extern "system" {}

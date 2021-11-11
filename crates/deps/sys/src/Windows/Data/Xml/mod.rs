@@ -3,3 +3,5 @@
 pub mod Dom;
 #[cfg(feature = "Data_Xml_Xsl")]
 pub mod Xsl;
+#[link(name = "windows")]
+extern "system" {}

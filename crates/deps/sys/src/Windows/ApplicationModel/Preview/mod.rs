@@ -5,3 +5,5 @@ pub mod Holographic;
 pub mod InkWorkspace;
 #[cfg(feature = "ApplicationModel_Preview_Notes")]
 pub mod Notes;
+#[link(name = "windows")]
+extern "system" {}

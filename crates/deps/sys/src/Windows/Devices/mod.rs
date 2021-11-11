@@ -61,3 +61,13 @@ pub mod Usb;
 pub mod WiFi;
 #[cfg(feature = "Devices_WiFiDirect")]
 pub mod WiFiDirect;
+#[link(name = "windows")]
+extern "system" {
+    fn DevicesLowLevelContract();
+    fn ILowLevelDevicesAggregateProvider();
+    fn ILowLevelDevicesAggregateProviderFactory();
+    fn ILowLevelDevicesController();
+    fn ILowLevelDevicesControllerStatics();
+    fn LowLevelDevicesAggregateProvider();
+    fn LowLevelDevicesController();
+}

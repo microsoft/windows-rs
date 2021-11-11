@@ -31,3 +31,5 @@ pub mod System;
 pub mod UI;
 #[cfg(feature = "Win32_Web")]
 pub mod Web;
+#[link(name = "windows")]
+extern "system" {}

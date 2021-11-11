@@ -5,3 +5,12 @@ pub mod Automation;
 pub mod People;
 #[cfg(feature = "Perception_Spatial")]
 pub mod Spatial;
+#[link(name = "windows")]
+extern "system" {
+    fn IPerceptionTimestamp();
+    fn IPerceptionTimestamp2();
+    fn IPerceptionTimestampHelperStatics();
+    fn IPerceptionTimestampHelperStatics2();
+    fn PerceptionTimestamp();
+    fn PerceptionTimestampHelper();
+}

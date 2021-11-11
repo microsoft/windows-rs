@@ -1,1 +1,28 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    fn DXGI_ALPHA_MODE();
+    fn DXGI_CENTER_MULTISAMPLE_QUALITY_PATTERN();
+    fn DXGI_COLOR_SPACE_TYPE();
+    fn DXGI_CPU_ACCESS_DYNAMIC();
+    fn DXGI_CPU_ACCESS_FIELD();
+    fn DXGI_CPU_ACCESS_NONE();
+    fn DXGI_CPU_ACCESS_READ_WRITE();
+    fn DXGI_CPU_ACCESS_SCRATCH();
+    fn DXGI_FORMAT();
+    fn DXGI_FORMAT_DEFINED();
+    fn DXGI_GAMMA_CONTROL();
+    fn DXGI_GAMMA_CONTROL_CAPABILITIES();
+    fn DXGI_JPEG_AC_HUFFMAN_TABLE();
+    fn DXGI_JPEG_DC_HUFFMAN_TABLE();
+    fn DXGI_JPEG_QUANTIZATION_TABLE();
+    fn DXGI_MODE_DESC();
+    fn DXGI_MODE_ROTATION();
+    fn DXGI_MODE_SCALING();
+    fn DXGI_MODE_SCANLINE_ORDER();
+    fn DXGI_RATIONAL();
+    fn DXGI_RGB();
+    fn DXGI_SAMPLE_DESC();
+    fn DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN();
+    fn _FACDXGI();
+}

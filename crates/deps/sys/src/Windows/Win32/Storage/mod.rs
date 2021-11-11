@@ -45,3 +45,5 @@ pub mod VirtualDiskService;
 pub mod Vss;
 #[cfg(feature = "Win32_Storage_Xps")]
 pub mod Xps;
+#[link(name = "windows")]
+extern "system" {}

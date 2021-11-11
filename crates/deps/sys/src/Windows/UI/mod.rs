@@ -29,3 +29,19 @@ pub mod WebUI;
 pub mod WindowManagement;
 #[cfg(feature = "UI_Xaml")]
 pub mod Xaml;
+#[link(name = "windows")]
+extern "system" {
+    fn Color();
+    fn ColorHelper();
+    fn Colors();
+    fn IColorHelper();
+    fn IColorHelperStatics();
+    fn IColorHelperStatics2();
+    fn IColors();
+    fn IColorsStatics();
+    fn IUIContentRoot();
+    fn IUIContext();
+    fn UIContentRoot();
+    fn UIContext();
+    fn WindowId();
+}

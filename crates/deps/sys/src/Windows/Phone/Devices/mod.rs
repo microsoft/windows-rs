@@ -3,3 +3,5 @@
 pub mod Notification;
 #[cfg(feature = "Phone_Devices_Power")]
 pub mod Power;
+#[link(name = "windows")]
+extern "system" {}

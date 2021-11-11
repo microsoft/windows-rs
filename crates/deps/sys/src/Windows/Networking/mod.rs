@@ -17,3 +17,16 @@ pub mod Sockets;
 pub mod Vpn;
 #[cfg(feature = "Networking_XboxLive")]
 pub mod XboxLive;
+#[link(name = "windows")]
+extern "system" {
+    fn DomainNameType();
+    fn EndpointPair();
+    fn HostName();
+    fn HostNameSortOptions();
+    fn HostNameType();
+    fn IEndpointPair();
+    fn IEndpointPairFactory();
+    fn IHostName();
+    fn IHostNameFactory();
+    fn IHostNameStatics();
+}

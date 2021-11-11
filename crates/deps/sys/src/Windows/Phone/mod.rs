@@ -19,3 +19,7 @@ pub mod StartScreen;
 pub mod System;
 #[cfg(feature = "Phone_UI")]
 pub mod UI;
+#[link(name = "windows")]
+extern "system" {
+    fn PhoneContract();
+}

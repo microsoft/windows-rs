@@ -5,3 +5,5 @@ pub mod Identity;
 pub mod OnlineId;
 #[cfg(feature = "Security_Authentication_Web")]
 pub mod Web;
+#[link(name = "windows")]
+extern "system" {}
