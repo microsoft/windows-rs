@@ -1,0 +1,25 @@
+#![allow(non_snake_case, non_camel_case_types)]
+#[cfg(feature = "System_Diagnostics")]
+pub mod Diagnostics;
+#[cfg(feature = "System_Display")]
+pub mod Display;
+#[cfg(feature = "System_Implementation")]
+pub mod Implementation;
+#[cfg(feature = "System_Inventory")]
+pub mod Inventory;
+#[cfg(feature = "System_Power")]
+pub mod Power;
+#[cfg(feature = "System_Preview")]
+pub mod Preview;
+#[cfg(feature = "System_Profile")]
+pub mod Profile;
+#[cfg(feature = "System_RemoteDesktop")]
+pub mod RemoteDesktop;
+#[cfg(feature = "System_RemoteSystems")]
+pub mod RemoteSystems;
+#[cfg(feature = "System_Threading")]
+pub mod Threading;
+#[cfg(feature = "System_Update")]
+pub mod Update;
+#[cfg(feature = "System_UserProfile")]
+pub mod UserProfile;
