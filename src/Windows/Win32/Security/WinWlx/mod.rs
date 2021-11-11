@@ -19,16 +19,16 @@ pub type PWLX_CLOSE_USER_DESKTOP = unsafe extern "system" fn(hwlx: super::super:
 pub type PWLX_CREATE_USER_DESKTOP = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, flags: u32, pszdesktopname: super::super::Foundation::PWSTR, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type PWLX_DIALOG_BOX = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: super::super::Foundation::PWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::runtime::RawPtr) -> i32;
+pub type PWLX_DIALOG_BOX = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: super::super::Foundation::PWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::core::RawPtr) -> i32;
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type PWLX_DIALOG_BOX_INDIRECT = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::runtime::RawPtr) -> i32;
+pub type PWLX_DIALOG_BOX_INDIRECT = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::core::RawPtr) -> i32;
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type PWLX_DIALOG_BOX_INDIRECT_PARAM = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> i32;
+pub type PWLX_DIALOG_BOX_INDIRECT_PARAM = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::core::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> i32;
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type PWLX_DIALOG_BOX_PARAM = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: super::super::Foundation::PWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> i32;
+pub type PWLX_DIALOG_BOX_PARAM = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: super::super::Foundation::PWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::core::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> i32;
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_DISCONNECT = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
@@ -121,7 +121,7 @@ impl ::core::cmp::PartialEq for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
+unsafe impl ::windows::core::Abi for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -166,7 +166,7 @@ impl ::core::cmp::PartialEq for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
+unsafe impl ::windows::core::Abi for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
@@ -281,7 +281,7 @@ impl ::core::cmp::PartialEq for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
+unsafe impl ::windows::core::Abi for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
@@ -327,7 +327,7 @@ impl ::core::cmp::PartialEq for WLX_DESKTOP {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 impl ::core::cmp::Eq for WLX_DESKTOP {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-unsafe impl ::windows::runtime::Abi for WLX_DESKTOP {
+unsafe impl ::windows::core::Abi for WLX_DESKTOP {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
@@ -390,7 +390,7 @@ impl ::core::cmp::PartialEq for WLX_DISPATCH_VERSION_1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for WLX_DISPATCH_VERSION_1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_0 {
+unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -455,7 +455,7 @@ impl ::core::cmp::PartialEq for WLX_DISPATCH_VERSION_1_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for WLX_DISPATCH_VERSION_1_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_1 {
+unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -522,7 +522,7 @@ impl ::core::cmp::PartialEq for WLX_DISPATCH_VERSION_1_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for WLX_DISPATCH_VERSION_1_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_2 {
+unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_2 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -603,7 +603,7 @@ impl ::core::cmp::PartialEq for WLX_DISPATCH_VERSION_1_3 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for WLX_DISPATCH_VERSION_1_3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_3 {
+unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_3 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -688,7 +688,7 @@ impl ::core::cmp::PartialEq for WLX_DISPATCH_VERSION_1_4 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for WLX_DISPATCH_VERSION_1_4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_4 {
+unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_4 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
@@ -734,7 +734,7 @@ impl ::core::cmp::PartialEq for WLX_MPR_NOTIFY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLX_MPR_NOTIFY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLX_MPR_NOTIFY_INFO {
+unsafe impl ::windows::core::Abi for WLX_MPR_NOTIFY_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -774,7 +774,7 @@ impl ::core::cmp::PartialEq for WLX_NOTIFICATION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 impl ::core::cmp::Eq for WLX_NOTIFICATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-unsafe impl ::windows::runtime::Abi for WLX_NOTIFICATION_INFO {
+unsafe impl ::windows::core::Abi for WLX_NOTIFICATION_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
@@ -830,7 +830,7 @@ impl ::core::cmp::PartialEq for WLX_PROFILE_V1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLX_PROFILE_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLX_PROFILE_V1_0 {
+unsafe impl ::windows::core::Abi for WLX_PROFILE_V1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -875,7 +875,7 @@ impl ::core::cmp::PartialEq for WLX_PROFILE_V2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLX_PROFILE_V2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLX_PROFILE_V2_0 {
+unsafe impl ::windows::core::Abi for WLX_PROFILE_V2_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
@@ -963,7 +963,7 @@ impl ::core::cmp::PartialEq for WLX_SC_NOTIFICATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLX_SC_NOTIFICATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLX_SC_NOTIFICATION_INFO {
+unsafe impl ::windows::core::Abi for WLX_SC_NOTIFICATION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
@@ -978,7 +978,7 @@ impl ::core::convert::From<u32> for WLX_SHUTDOWN_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLX_SHUTDOWN_TYPE {
+unsafe impl ::windows::core::Abi for WLX_SHUTDOWN_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for WLX_SHUTDOWN_TYPE {
@@ -1034,7 +1034,7 @@ impl ::core::cmp::PartialEq for WLX_TERMINAL_SERVICES_DATA {
     }
 }
 impl ::core::cmp::Eq for WLX_TERMINAL_SERVICES_DATA {}
-unsafe impl ::windows::runtime::Abi for WLX_TERMINAL_SERVICES_DATA {
+unsafe impl ::windows::core::Abi for WLX_TERMINAL_SERVICES_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]

@@ -9,3 +9,5 @@ pub mod Fonts;
 pub mod NumberFormatting;
 #[cfg(feature = "Globalization_PhoneNumberFormatting")]
 pub mod PhoneNumberFormatting;
+#[link(name = "windows")]
+extern "system" {}

@@ -43,7 +43,7 @@ impl ::core::cmp::PartialEq for PRJ_CALLBACKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_CALLBACKS {
+unsafe impl ::windows::core::Abi for PRJ_CALLBACKS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -55,8 +55,8 @@ pub struct PRJ_CALLBACK_DATA {
     pub Flags: PRJ_CALLBACK_DATA_FLAGS,
     pub NamespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
     pub CommandId: i32,
-    pub FileId: ::windows::runtime::GUID,
-    pub DataStreamId: ::windows::runtime::GUID,
+    pub FileId: ::windows::core::GUID,
+    pub DataStreamId: ::windows::core::GUID,
     pub FilePathName: super::super::Foundation::PWSTR,
     pub VersionInfo: *mut PRJ_PLACEHOLDER_VERSION_INFO,
     pub TriggeringProcessId: u32,
@@ -108,7 +108,7 @@ impl ::core::cmp::PartialEq for PRJ_CALLBACK_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_CALLBACK_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_CALLBACK_DATA {
+unsafe impl ::windows::core::Abi for PRJ_CALLBACK_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
@@ -122,7 +122,7 @@ impl ::core::convert::From<i32> for PRJ_CALLBACK_DATA_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRJ_CALLBACK_DATA_FLAGS {
+unsafe impl ::windows::core::Abi for PRJ_CALLBACK_DATA_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
@@ -147,7 +147,7 @@ impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
+unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -169,7 +169,7 @@ impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     }
 }
 impl ::core::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {}
-unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -195,7 +195,7 @@ impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     }
 }
 impl ::core::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {}
-unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -221,7 +221,7 @@ impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     }
 }
 impl ::core::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {}
-unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
@@ -235,7 +235,7 @@ impl ::core::convert::From<i32> for PRJ_COMPLETE_COMMAND_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_TYPE {
+unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -246,13 +246,13 @@ impl ::core::default::Default for PRJ_DIR_ENTRY_BUFFER_HANDLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for PRJ_DIR_ENTRY_BUFFER_HANDLE {}
-unsafe impl ::windows::runtime::Abi for PRJ_DIR_ENTRY_BUFFER_HANDLE {
+unsafe impl ::windows::core::Handle for PRJ_DIR_ENTRY_BUFFER_HANDLE {}
+unsafe impl ::windows::core::Abi for PRJ_DIR_ENTRY_BUFFER_HANDLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_END_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
+pub type PRJ_END_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -279,7 +279,7 @@ impl ::core::cmp::PartialEq for PRJ_EXTENDED_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_EXTENDED_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_EXTENDED_INFO {
+unsafe impl ::windows::core::Abi for PRJ_EXTENDED_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -305,7 +305,7 @@ impl ::core::cmp::PartialEq for PRJ_EXTENDED_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_EXTENDED_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_EXTENDED_INFO_0 {
+unsafe impl ::windows::core::Abi for PRJ_EXTENDED_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -337,7 +337,7 @@ impl ::core::cmp::PartialEq for PRJ_EXTENDED_INFO_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_EXTENDED_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_EXTENDED_INFO_0_0 {
+unsafe impl ::windows::core::Abi for PRJ_EXTENDED_INFO_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
@@ -350,7 +350,7 @@ impl ::core::convert::From<i32> for PRJ_EXT_INFO_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRJ_EXT_INFO_TYPE {
+unsafe impl ::windows::core::Abi for PRJ_EXT_INFO_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -397,7 +397,7 @@ impl ::core::cmp::PartialEq for PRJ_FILE_BASIC_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_FILE_BASIC_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_FILE_BASIC_INFO {
+unsafe impl ::windows::core::Abi for PRJ_FILE_BASIC_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
@@ -414,7 +414,7 @@ impl ::core::convert::From<u32> for PRJ_FILE_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRJ_FILE_STATE {
+unsafe impl ::windows::core::Abi for PRJ_FILE_STATE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PRJ_FILE_STATE {
@@ -447,13 +447,13 @@ impl ::core::ops::Not for PRJ_FILE_STATE {
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::runtime::GUID, searchexpression: super::super::Foundation::PWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows::runtime::HRESULT;
+pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID, searchexpression: super::super::Foundation::PWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows::core::HRESULT;
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_GET_FILE_DATA_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows::runtime::HRESULT;
+pub type PRJ_GET_FILE_DATA_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows::core::HRESULT;
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_GET_PLACEHOLDER_INFO_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::runtime::HRESULT;
+pub type PRJ_GET_PLACEHOLDER_INFO_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub isize);
@@ -462,8 +462,8 @@ impl ::core::default::Default for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {}
-unsafe impl ::windows::runtime::Abi for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+unsafe impl ::windows::core::Handle for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {}
+unsafe impl ::windows::core::Abi for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
@@ -487,12 +487,12 @@ impl ::core::convert::From<i32> for PRJ_NOTIFICATION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION {
+unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_NOTIFICATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: super::super::Foundation::PWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> ::windows::runtime::HRESULT;
+pub type PRJ_NOTIFICATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: super::super::Foundation::PWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -524,7 +524,7 @@ impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_MAPPING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_NOTIFICATION_MAPPING {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_MAPPING {
+unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_MAPPING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -553,7 +553,7 @@ impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS {
+unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -585,7 +585,7 @@ impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -617,7 +617,7 @@ impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_1 {
+unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -649,7 +649,7 @@ impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_2 {
+unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS_2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
@@ -676,7 +676,7 @@ impl ::core::convert::From<u32> for PRJ_NOTIFY_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRJ_NOTIFY_TYPES {
+unsafe impl ::windows::core::Abi for PRJ_NOTIFY_TYPES {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PRJ_NOTIFY_TYPES {
@@ -717,7 +717,7 @@ impl ::core::convert::From<i32> for PRJ_PLACEHOLDER_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_ID {
+unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -762,7 +762,7 @@ impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_PLACEHOLDER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO {
+unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -795,7 +795,7 @@ impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_PLACEHOLDER_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_0 {
+unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -828,7 +828,7 @@ impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_PLACEHOLDER_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_1 {
+unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -861,7 +861,7 @@ impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_PLACEHOLDER_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_2 {
+unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -888,12 +888,12 @@ impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_VERSION_INFO {
     }
 }
 impl ::core::cmp::Eq for PRJ_PLACEHOLDER_VERSION_INFO {}
-unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_VERSION_INFO {
+unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_VERSION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_QUERY_FILE_NAME_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::runtime::HRESULT;
+pub type PRJ_QUERY_FILE_NAME_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::core::HRESULT;
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -905,7 +905,7 @@ impl ::core::convert::From<u32> for PRJ_STARTVIRTUALIZING_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRJ_STARTVIRTUALIZING_FLAGS {
+unsafe impl ::windows::core::Abi for PRJ_STARTVIRTUALIZING_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PRJ_STARTVIRTUALIZING_FLAGS {
@@ -976,12 +976,12 @@ impl ::core::cmp::PartialEq for PRJ_STARTVIRTUALIZING_OPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PRJ_STARTVIRTUALIZING_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PRJ_STARTVIRTUALIZING_OPTIONS {
+unsafe impl ::windows::core::Abi for PRJ_STARTVIRTUALIZING_OPTIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_START_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
+pub type PRJ_START_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -996,7 +996,7 @@ impl ::core::convert::From<u32> for PRJ_UPDATE_FAILURE_CAUSES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRJ_UPDATE_FAILURE_CAUSES {
+unsafe impl ::windows::core::Abi for PRJ_UPDATE_FAILURE_CAUSES {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PRJ_UPDATE_FAILURE_CAUSES {
@@ -1044,7 +1044,7 @@ impl ::core::convert::From<u32> for PRJ_UPDATE_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRJ_UPDATE_TYPES {
+unsafe impl ::windows::core::Abi for PRJ_UPDATE_TYPES {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for PRJ_UPDATE_TYPES {
@@ -1079,7 +1079,7 @@ impl ::core::ops::Not for PRJ_UPDATE_TYPES {
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub struct PRJ_VIRTUALIZATION_INSTANCE_INFO {
-    pub InstanceID: ::windows::runtime::GUID,
+    pub InstanceID: ::windows::core::GUID,
     pub WriteAlignment: u32,
 }
 impl PRJ_VIRTUALIZATION_INSTANCE_INFO {}
@@ -1099,12 +1099,12 @@ impl ::core::cmp::PartialEq for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     }
 }
 impl ::core::cmp::Eq for PRJ_VIRTUALIZATION_INSTANCE_INFO {}
-unsafe impl ::windows::runtime::Abi for PRJ_VIRTUALIZATION_INSTANCE_INFO {
+unsafe impl ::windows::core::Abi for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
-pub unsafe fn PrjAllocateAlignedBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, size: usize) -> *mut ::core::ffi::c_void {
+pub unsafe fn PrjAllocateAlignedBuffer<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, size: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1118,14 +1118,14 @@ pub unsafe fn PrjAllocateAlignedBuffer<'a, Param0: ::windows::runtime::IntoParam
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
-pub unsafe fn PrjClearNegativePathCache<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) -> ::windows::runtime::Result<u32> {
+pub unsafe fn PrjClearNegativePathCache<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjClearNegativePathCache(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber: *mut u32) -> ::windows::runtime::HRESULT;
+            fn PrjClearNegativePathCache(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         PrjClearNegativePathCache(namespacevirtualizationcontext.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
@@ -1133,12 +1133,12 @@ pub unsafe fn PrjClearNegativePathCache<'a, Param0: ::windows::runtime::IntoPara
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
-pub unsafe fn PrjCompleteCommand<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, commandid: i32, completionresult: ::windows::runtime::HRESULT, extendedparameters: *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> ::windows::runtime::Result<()> {
+pub unsafe fn PrjCompleteCommand<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, commandid: i32, completionresult: ::windows::core::HRESULT, extendedparameters: *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjCompleteCommand(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid: i32, completionresult: ::windows::runtime::HRESULT, extendedparameters: *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> ::windows::runtime::HRESULT;
+            fn PrjCompleteCommand(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid: i32, completionresult: ::windows::core::HRESULT, extendedparameters: *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> ::windows::core::HRESULT;
         }
         PrjCompleteCommand(namespacevirtualizationcontext.into_param().abi(), ::core::mem::transmute(commandid), ::core::mem::transmute(completionresult), ::core::mem::transmute(extendedparameters)).ok()
     }
@@ -1148,14 +1148,14 @@ pub unsafe fn PrjCompleteCommand<'a, Param0: ::windows::runtime::IntoParam<'a, P
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjDeleteFile<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, updateflags: PRJ_UPDATE_TYPES) -> ::windows::runtime::Result<PRJ_UPDATE_FAILURE_CAUSES> {
+pub unsafe fn PrjDeleteFile<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, updateflags: PRJ_UPDATE_TYPES) -> ::windows::core::Result<PRJ_UPDATE_FAILURE_CAUSES> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjDeleteFile(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows::runtime::HRESULT;
+            fn PrjDeleteFile(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows::core::HRESULT;
         }
-        let mut result__: <PRJ_UPDATE_FAILURE_CAUSES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <PRJ_UPDATE_FAILURE_CAUSES as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         PrjDeleteFile(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), ::core::mem::transmute(updateflags), &mut result__).from_abi::<PRJ_UPDATE_FAILURE_CAUSES>(result__)
     }
     #[cfg(not(windows))]
@@ -1164,7 +1164,7 @@ pub unsafe fn PrjDeleteFile<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NA
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjDoesNameContainWildCards<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn PrjDoesNameContainWildCards<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1179,7 +1179,7 @@ pub unsafe fn PrjDoesNameContainWildCards<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjFileNameCompare<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filename1: Param0, filename2: Param1) -> i32 {
+pub unsafe fn PrjFileNameCompare<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename1: Param0, filename2: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1194,7 +1194,7 @@ pub unsafe fn PrjFileNameCompare<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjFileNameMatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filenametocheck: Param0, pattern: Param1) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn PrjFileNameMatch<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filenametocheck: Param0, pattern: Param1) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1209,12 +1209,12 @@ pub unsafe fn PrjFileNameMatch<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjFillDirEntryBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, PRJ_DIR_ENTRY_BUFFER_HANDLE>>(filename: Param0, filebasicinfo: *const PRJ_FILE_BASIC_INFO, direntrybufferhandle: Param2) -> ::windows::runtime::Result<()> {
+pub unsafe fn PrjFillDirEntryBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, PRJ_DIR_ENTRY_BUFFER_HANDLE>>(filename: Param0, filebasicinfo: *const PRJ_FILE_BASIC_INFO, direntrybufferhandle: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjFillDirEntryBuffer(filename: super::super::Foundation::PWSTR, filebasicinfo: *const PRJ_FILE_BASIC_INFO, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows::runtime::HRESULT;
+            fn PrjFillDirEntryBuffer(filename: super::super::Foundation::PWSTR, filebasicinfo: *const PRJ_FILE_BASIC_INFO, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows::core::HRESULT;
         }
         PrjFillDirEntryBuffer(filename.into_param().abi(), ::core::mem::transmute(filebasicinfo), direntrybufferhandle.into_param().abi()).ok()
     }
@@ -1224,12 +1224,12 @@ pub unsafe fn PrjFillDirEntryBuffer<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjFillDirEntryBuffer2<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_DIR_ENTRY_BUFFER_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(direntrybufferhandle: Param0, filename: Param1, filebasicinfo: *const PRJ_FILE_BASIC_INFO, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::runtime::Result<()> {
+pub unsafe fn PrjFillDirEntryBuffer2<'a, Param0: ::windows::core::IntoParam<'a, PRJ_DIR_ENTRY_BUFFER_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(direntrybufferhandle: Param0, filename: Param1, filebasicinfo: *const PRJ_FILE_BASIC_INFO, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjFillDirEntryBuffer2(direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE, filename: super::super::Foundation::PWSTR, filebasicinfo: *const PRJ_FILE_BASIC_INFO, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::runtime::HRESULT;
+            fn PrjFillDirEntryBuffer2(direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE, filename: super::super::Foundation::PWSTR, filebasicinfo: *const PRJ_FILE_BASIC_INFO, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::core::HRESULT;
         }
         PrjFillDirEntryBuffer2(direntrybufferhandle.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(filebasicinfo), ::core::mem::transmute(extendedinfo)).ok()
     }
@@ -1253,14 +1253,14 @@ pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::core::ffi::c_void) {
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjGetOnDiskFileState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationfilename: Param0) -> ::windows::runtime::Result<PRJ_FILE_STATE> {
+pub unsafe fn PrjGetOnDiskFileState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationfilename: Param0) -> ::windows::core::Result<PRJ_FILE_STATE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjGetOnDiskFileState(destinationfilename: super::super::Foundation::PWSTR, filestate: *mut PRJ_FILE_STATE) -> ::windows::runtime::HRESULT;
+            fn PrjGetOnDiskFileState(destinationfilename: super::super::Foundation::PWSTR, filestate: *mut PRJ_FILE_STATE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <PRJ_FILE_STATE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <PRJ_FILE_STATE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         PrjGetOnDiskFileState(destinationfilename.into_param().abi(), &mut result__).from_abi::<PRJ_FILE_STATE>(result__)
     }
     #[cfg(not(windows))]
@@ -1268,14 +1268,14 @@ pub unsafe fn PrjGetOnDiskFileState<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
-pub unsafe fn PrjGetVirtualizationInstanceInfo<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) -> ::windows::runtime::Result<PRJ_VIRTUALIZATION_INSTANCE_INFO> {
+pub unsafe fn PrjGetVirtualizationInstanceInfo<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) -> ::windows::core::Result<PRJ_VIRTUALIZATION_INSTANCE_INFO> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows::runtime::HRESULT;
+            fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows::core::HRESULT;
         }
-        let mut result__: <PRJ_VIRTUALIZATION_INSTANCE_INFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <PRJ_VIRTUALIZATION_INSTANCE_INFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext.into_param().abi(), &mut result__).from_abi::<PRJ_VIRTUALIZATION_INSTANCE_INFO>(result__)
     }
     #[cfg(not(windows))]
@@ -1284,12 +1284,12 @@ pub unsafe fn PrjGetVirtualizationInstanceInfo<'a, Param0: ::windows::runtime::I
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjMarkDirectoryAsPlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(rootpathname: Param0, targetpathname: Param1, versioninfo: *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+pub unsafe fn PrjMarkDirectoryAsPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(rootpathname: Param0, targetpathname: Param1, versioninfo: *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjMarkDirectoryAsPlaceholder(rootpathname: super::super::Foundation::PWSTR, targetpathname: super::super::Foundation::PWSTR, versioninfo: *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
+            fn PrjMarkDirectoryAsPlaceholder(rootpathname: super::super::Foundation::PWSTR, targetpathname: super::super::Foundation::PWSTR, versioninfo: *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         PrjMarkDirectoryAsPlaceholder(rootpathname.into_param().abi(), targetpathname.into_param().abi(), ::core::mem::transmute(versioninfo), ::core::mem::transmute(virtualizationinstanceid)).ok()
     }
@@ -1299,14 +1299,14 @@ pub unsafe fn PrjMarkDirectoryAsPlaceholder<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjStartVirtualizing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualizationrootpath: Param0, callbacks: *const PRJ_CALLBACKS, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS) -> ::windows::runtime::Result<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT> {
+pub unsafe fn PrjStartVirtualizing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualizationrootpath: Param0, callbacks: *const PRJ_CALLBACKS, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS) -> ::windows::core::Result<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjStartVirtualizing(virtualizationrootpath: super::super::Foundation::PWSTR, callbacks: *const ::core::mem::ManuallyDrop<PRJ_CALLBACKS>, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext: *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows::runtime::HRESULT;
+            fn PrjStartVirtualizing(virtualizationrootpath: super::super::Foundation::PWSTR, callbacks: *const ::core::mem::ManuallyDrop<PRJ_CALLBACKS>, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext: *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows::core::HRESULT;
         }
-        let mut result__: <PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         PrjStartVirtualizing(virtualizationrootpath.into_param().abi(), ::core::mem::transmute(callbacks), ::core::mem::transmute(instancecontext), ::core::mem::transmute(options), &mut result__).from_abi::<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>(result__)
     }
     #[cfg(not(windows))]
@@ -1314,7 +1314,7 @@ pub unsafe fn PrjStartVirtualizing<'a, Param0: ::windows::runtime::IntoParam<'a,
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
-pub unsafe fn PrjStopVirtualizing<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) {
+pub unsafe fn PrjStopVirtualizing<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1329,14 +1329,14 @@ pub unsafe fn PrjStopVirtualizing<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjUpdateFileIfNeeded<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES) -> ::windows::runtime::Result<PRJ_UPDATE_FAILURE_CAUSES> {
+pub unsafe fn PrjUpdateFileIfNeeded<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES) -> ::windows::core::Result<PRJ_UPDATE_FAILURE_CAUSES> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows::runtime::HRESULT;
+            fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows::core::HRESULT;
         }
-        let mut result__: <PRJ_UPDATE_FAILURE_CAUSES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <PRJ_UPDATE_FAILURE_CAUSES as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         PrjUpdateFileIfNeeded(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), ::core::mem::transmute(placeholderinfo), ::core::mem::transmute(placeholderinfosize), ::core::mem::transmute(updateflags), &mut result__).from_abi::<PRJ_UPDATE_FAILURE_CAUSES>(result__)
     }
     #[cfg(not(windows))]
@@ -1344,12 +1344,12 @@ pub unsafe fn PrjUpdateFileIfNeeded<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
-pub unsafe fn PrjWriteFileData<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, datastreamid: *const ::windows::runtime::GUID, buffer: *const ::core::ffi::c_void, byteoffset: u64, length: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn PrjWriteFileData<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, datastreamid: *const ::windows::core::GUID, buffer: *const ::core::ffi::c_void, byteoffset: u64, length: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjWriteFileData(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid: *const ::windows::runtime::GUID, buffer: *const ::core::ffi::c_void, byteoffset: u64, length: u32) -> ::windows::runtime::HRESULT;
+            fn PrjWriteFileData(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid: *const ::windows::core::GUID, buffer: *const ::core::ffi::c_void, byteoffset: u64, length: u32) -> ::windows::core::HRESULT;
         }
         PrjWriteFileData(namespacevirtualizationcontext.into_param().abi(), ::core::mem::transmute(datastreamid), ::core::mem::transmute(buffer), ::core::mem::transmute(byteoffset), ::core::mem::transmute(length)).ok()
     }
@@ -1359,12 +1359,12 @@ pub unsafe fn PrjWriteFileData<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjWritePlaceholderInfo<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn PrjWritePlaceholderInfo<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjWritePlaceholderInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows::runtime::HRESULT;
+            fn PrjWritePlaceholderInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows::core::HRESULT;
         }
         PrjWritePlaceholderInfo(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), ::core::mem::transmute(placeholderinfo), ::core::mem::transmute(placeholderinfosize)).ok()
     }
@@ -1374,12 +1374,12 @@ pub unsafe fn PrjWritePlaceholderInfo<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjWritePlaceholderInfo2<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::runtime::Result<()> {
+pub unsafe fn PrjWritePlaceholderInfo2<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::runtime::HRESULT;
+            fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::core::HRESULT;
         }
         PrjWritePlaceholderInfo2(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), ::core::mem::transmute(placeholderinfo), ::core::mem::transmute(placeholderinfosize), ::core::mem::transmute(extendedinfo)).ok()
     }

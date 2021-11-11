@@ -32,7 +32,7 @@ impl ::core::cmp::PartialEq for ADDRESS_LIST_DESCRIPTOR {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for ADDRESS_LIST_DESCRIPTOR {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for ADDRESS_LIST_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for ADDRESS_LIST_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -61,7 +61,7 @@ impl ::core::cmp::PartialEq for ADSPEC {
     }
 }
 impl ::core::cmp::Eq for ADSPEC {}
-unsafe impl ::windows::runtime::Abi for ADSPEC {
+unsafe impl ::windows::core::Abi for ADSPEC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -93,7 +93,7 @@ impl ::core::cmp::PartialEq for AD_GENERAL_PARAMS {
     }
 }
 impl ::core::cmp::Eq for AD_GENERAL_PARAMS {}
-unsafe impl ::windows::runtime::Abi for AD_GENERAL_PARAMS {
+unsafe impl ::windows::core::Abi for AD_GENERAL_PARAMS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -122,7 +122,7 @@ impl ::core::cmp::PartialEq for AD_GUARANTEED {
     }
 }
 impl ::core::cmp::Eq for AD_GUARANTEED {}
-unsafe impl ::windows::runtime::Abi for AD_GUARANTEED {
+unsafe impl ::windows::core::Abi for AD_GUARANTEED {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -158,7 +158,7 @@ impl ::core::cmp::PartialEq for CONTROL_SERVICE {
     }
 }
 impl ::core::cmp::Eq for CONTROL_SERVICE {}
-unsafe impl ::windows::runtime::Abi for CONTROL_SERVICE {
+unsafe impl ::windows::core::Abi for CONTROL_SERVICE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -180,7 +180,7 @@ impl ::core::cmp::PartialEq for CONTROL_SERVICE_0 {
     }
 }
 impl ::core::cmp::Eq for CONTROL_SERVICE_0 {}
-unsafe impl ::windows::runtime::Abi for CONTROL_SERVICE_0 {
+unsafe impl ::windows::core::Abi for CONTROL_SERVICE_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -220,7 +220,7 @@ impl ::core::cmp::PartialEq for CtrlLoadFlowspec {
     }
 }
 impl ::core::cmp::Eq for CtrlLoadFlowspec {}
-unsafe impl ::windows::runtime::Abi for CtrlLoadFlowspec {
+unsafe impl ::windows::core::Abi for CtrlLoadFlowspec {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -264,7 +264,7 @@ impl ::core::cmp::PartialEq for ENUMERATION_BUFFER {
     }
 }
 impl ::core::cmp::Eq for ENUMERATION_BUFFER {}
-unsafe impl ::windows::runtime::Abi for ENUMERATION_BUFFER {
+unsafe impl ::windows::core::Abi for ENUMERATION_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -328,7 +328,7 @@ impl ::core::cmp::PartialEq for ERROR_SPEC {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for ERROR_SPEC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for ERROR_SPEC {
+unsafe impl ::windows::core::Abi for ERROR_SPEC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -354,7 +354,7 @@ impl ::core::cmp::PartialEq for ERROR_SPEC_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for ERROR_SPEC_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for ERROR_SPEC_0 {
+unsafe impl ::windows::core::Abi for ERROR_SPEC_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -408,7 +408,7 @@ impl ::core::cmp::PartialEq for Error_Spec_IPv4 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for Error_Spec_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for Error_Spec_IPv4 {
+unsafe impl ::windows::core::Abi for Error_Spec_IPv4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -436,7 +436,7 @@ impl ::core::cmp::PartialEq for FILTER_SPEC {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for FILTER_SPEC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for FILTER_SPEC {
+unsafe impl ::windows::core::Abi for FILTER_SPEC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -463,7 +463,7 @@ impl ::core::cmp::PartialEq for FILTER_SPEC_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for FILTER_SPEC_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for FILTER_SPEC_0 {
+unsafe impl ::windows::core::Abi for FILTER_SPEC_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -491,7 +491,7 @@ impl ::core::cmp::PartialEq for FLOWDESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for FLOWDESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for FLOWDESCRIPTOR {
+unsafe impl ::windows::core::Abi for FLOWDESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -533,7 +533,7 @@ impl ::core::cmp::PartialEq for FLOWSPEC {
     }
 }
 impl ::core::cmp::Eq for FLOWSPEC {}
-unsafe impl ::windows::runtime::Abi for FLOWSPEC {
+unsafe impl ::windows::core::Abi for FLOWSPEC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -577,7 +577,7 @@ impl ::core::convert::From<i32> for FilterType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FilterType {
+unsafe impl ::windows::core::Abi for FilterType {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -606,7 +606,7 @@ impl ::core::cmp::PartialEq for Filter_Spec_IPv4 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for Filter_Spec_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for Filter_Spec_IPv4 {
+unsafe impl ::windows::core::Abi for Filter_Spec_IPv4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -634,7 +634,7 @@ impl ::core::cmp::PartialEq for Filter_Spec_IPv4GPI {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for Filter_Spec_IPv4GPI {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for Filter_Spec_IPv4GPI {
+unsafe impl ::windows::core::Abi for Filter_Spec_IPv4GPI {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -675,22 +675,22 @@ pub const GUAR_ADSPARM_D: i32 = 132i32;
 pub const GUAR_ADSPARM_Dsum: i32 = 136i32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GUAR_ADSPARM_Dtot: i32 = 134i32;
-pub const GUID_QOS_BESTEFFORT_BANDWIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xed885290_40ec_11d1_2c91_00aa00574915);
-pub const GUID_QOS_ENABLE_AVG_STATS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbafb6d11_27c4_4801_a46f_ef8080c188c8);
-pub const GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaa966725_d3e9_4c55_b335_2a00279a1e64);
-pub const GUID_QOS_FLOW_8021P_CONFORMING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x08c1e013_fcd2_11d2_be1e_00a0c99ee63b);
-pub const GUID_QOS_FLOW_8021P_NONCONFORMING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09023f91_fcd2_11d2_be1e_00a0c99ee63b);
-pub const GUID_QOS_FLOW_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1147f880_40ed_11d1_2c91_00aa00574915);
-pub const GUID_QOS_FLOW_IP_CONFORMING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07f99a8b_fcd2_11d2_be1e_00a0c99ee63b);
-pub const GUID_QOS_FLOW_IP_NONCONFORMING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x087a5987_fcd2_11d2_be1e_00a0c99ee63b);
-pub const GUID_QOS_FLOW_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c82290a_515a_11d2_8e58_00c04fc9bfcb);
-pub const GUID_QOS_ISSLOW_FLOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabf273a4_ee07_11d2_be1b_00a0c99ee63b);
-pub const GUID_QOS_LATENCY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc408ef0_40ec_11d1_2c91_00aa00574915);
-pub const GUID_QOS_MAX_OUTSTANDING_SENDS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x161ffa86_6120_11d1_2c91_00aa00574915);
-pub const GUID_QOS_NON_BESTEFFORT_LIMIT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x185c44e0_40ed_11d1_2c91_00aa00574915);
-pub const GUID_QOS_REMAINING_BANDWIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4c51720_40ec_11d1_2c91_00aa00574915);
-pub const GUID_QOS_STATISTICS_BUFFER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbb2c0980_e900_11d1_b07e_0080c71382bf);
-pub const GUID_QOS_TIMER_RESOLUTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba10cc88_f13e_11d2_be1b_00a0c99ee63b);
+pub const GUID_QOS_BESTEFFORT_BANDWIDTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed885290_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_ENABLE_AVG_STATS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafb6d11_27c4_4801_a46f_ef8080c188c8);
+pub const GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa966725_d3e9_4c55_b335_2a00279a1e64);
+pub const GUID_QOS_FLOW_8021P_CONFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c1e013_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_8021P_NONCONFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09023f91_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_COUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1147f880_40ed_11d1_2c91_00aa00574915);
+pub const GUID_QOS_FLOW_IP_CONFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07f99a8b_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_IP_NONCONFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x087a5987_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c82290a_515a_11d2_8e58_00c04fc9bfcb);
+pub const GUID_QOS_ISSLOW_FLOW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf273a4_ee07_11d2_be1b_00a0c99ee63b);
+pub const GUID_QOS_LATENCY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc408ef0_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_MAX_OUTSTANDING_SENDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x161ffa86_6120_11d1_2c91_00aa00574915);
+pub const GUID_QOS_NON_BESTEFFORT_LIMIT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185c44e0_40ed_11d1_2c91_00aa00574915);
+pub const GUID_QOS_REMAINING_BANDWIDTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4c51720_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_STATISTICS_BUFFER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2c0980_e900_11d1_b07e_0080c71382bf);
+pub const GUID_QOS_TIMER_RESOLUTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba10cc88_f13e_11d2_be1b_00a0c99ee63b);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -732,7 +732,7 @@ impl ::core::cmp::PartialEq for Gads_parms_t {
     }
 }
 impl ::core::cmp::Eq for Gads_parms_t {}
-unsafe impl ::windows::runtime::Abi for Gads_parms_t {
+unsafe impl ::windows::core::Abi for Gads_parms_t {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -776,7 +776,7 @@ impl ::core::cmp::PartialEq for GenAdspecParams {
     }
 }
 impl ::core::cmp::Eq for GenAdspecParams {}
-unsafe impl ::windows::runtime::Abi for GenAdspecParams {
+unsafe impl ::windows::core::Abi for GenAdspecParams {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -804,7 +804,7 @@ impl ::core::cmp::PartialEq for GenTspec {
     }
 }
 impl ::core::cmp::Eq for GenTspec {}
-unsafe impl ::windows::runtime::Abi for GenTspec {
+unsafe impl ::windows::core::Abi for GenTspec {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -834,7 +834,7 @@ impl ::core::cmp::PartialEq for GenTspecParms {
     }
 }
 impl ::core::cmp::Eq for GenTspecParms {}
-unsafe impl ::windows::runtime::Abi for GenTspecParms {
+unsafe impl ::windows::core::Abi for GenTspecParms {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -864,7 +864,7 @@ impl ::core::cmp::PartialEq for GuarFlowSpec {
     }
 }
 impl ::core::cmp::Eq for GuarFlowSpec {}
-unsafe impl ::windows::runtime::Abi for GuarFlowSpec {
+unsafe impl ::windows::core::Abi for GuarFlowSpec {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -891,7 +891,7 @@ impl ::core::cmp::PartialEq for GuarRspec {
     }
 }
 impl ::core::cmp::Eq for GuarRspec {}
-unsafe impl ::windows::runtime::Abi for GuarRspec {
+unsafe impl ::windows::core::Abi for GuarRspec {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -924,7 +924,7 @@ impl ::core::cmp::PartialEq for IDPE_ATTR {
     }
 }
 impl ::core::cmp::Eq for IDPE_ATTR {}
-unsafe impl ::windows::runtime::Abi for IDPE_ATTR {
+unsafe impl ::windows::core::Abi for IDPE_ATTR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -955,7 +955,7 @@ impl ::core::cmp::PartialEq for ID_ERROR_OBJECT {
     }
 }
 impl ::core::cmp::Eq for ID_ERROR_OBJECT {}
-unsafe impl ::windows::runtime::Abi for ID_ERROR_OBJECT {
+unsafe impl ::windows::core::Abi for ID_ERROR_OBJECT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -993,7 +993,7 @@ impl ::core::cmp::PartialEq for IN_ADDR_IPV4 {
     }
 }
 impl ::core::cmp::Eq for IN_ADDR_IPV4 {}
-unsafe impl ::windows::runtime::Abi for IN_ADDR_IPV4 {
+unsafe impl ::windows::core::Abi for IN_ADDR_IPV4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1019,7 +1019,7 @@ impl ::core::cmp::PartialEq for IN_ADDR_IPV6 {
     }
 }
 impl ::core::cmp::Eq for IN_ADDR_IPV6 {}
-unsafe impl ::windows::runtime::Abi for IN_ADDR_IPV6 {
+unsafe impl ::windows::core::Abi for IN_ADDR_IPV6 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1046,7 +1046,7 @@ impl ::core::cmp::PartialEq for IPX_PATTERN {
     }
 }
 impl ::core::cmp::Eq for IPX_PATTERN {}
-unsafe impl ::windows::runtime::Abi for IPX_PATTERN {
+unsafe impl ::windows::core::Abi for IPX_PATTERN {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1074,7 +1074,7 @@ impl ::core::cmp::PartialEq for IPX_PATTERN_0 {
     }
 }
 impl ::core::cmp::Eq for IPX_PATTERN_0 {}
-unsafe impl ::windows::runtime::Abi for IPX_PATTERN_0 {
+unsafe impl ::windows::core::Abi for IPX_PATTERN_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -1107,7 +1107,7 @@ impl ::core::cmp::PartialEq for IP_PATTERN {
     }
 }
 impl ::core::cmp::Eq for IP_PATTERN {}
-unsafe impl ::windows::runtime::Abi for IP_PATTERN {
+unsafe impl ::windows::core::Abi for IP_PATTERN {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1130,7 +1130,7 @@ impl ::core::cmp::PartialEq for IP_PATTERN_0 {
     }
 }
 impl ::core::cmp::Eq for IP_PATTERN_0 {}
-unsafe impl ::windows::runtime::Abi for IP_PATTERN_0 {
+unsafe impl ::windows::core::Abi for IP_PATTERN_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1158,7 +1158,7 @@ impl ::core::cmp::PartialEq for IP_PATTERN_0_0 {
     }
 }
 impl ::core::cmp::Eq for IP_PATTERN_0_0 {}
-unsafe impl ::windows::runtime::Abi for IP_PATTERN_0_0 {
+unsafe impl ::windows::core::Abi for IP_PATTERN_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1185,7 +1185,7 @@ impl ::core::cmp::PartialEq for IP_PATTERN_0_1 {
     }
 }
 impl ::core::cmp::Eq for IP_PATTERN_0_1 {}
-unsafe impl ::windows::runtime::Abi for IP_PATTERN_0_1 {
+unsafe impl ::windows::core::Abi for IP_PATTERN_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -1216,7 +1216,7 @@ impl ::core::cmp::PartialEq for IS_ADSPEC_BODY {
     }
 }
 impl ::core::cmp::Eq for IS_ADSPEC_BODY {}
-unsafe impl ::windows::runtime::Abi for IS_ADSPEC_BODY {
+unsafe impl ::windows::core::Abi for IS_ADSPEC_BODY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1238,7 +1238,7 @@ impl ::core::cmp::PartialEq for IS_FLOWSPEC {
     }
 }
 impl ::core::cmp::Eq for IS_FLOWSPEC {}
-unsafe impl ::windows::runtime::Abi for IS_FLOWSPEC {
+unsafe impl ::windows::core::Abi for IS_FLOWSPEC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -1262,7 +1262,7 @@ impl ::core::cmp::PartialEq for IntServFlowSpec {
     }
 }
 impl ::core::cmp::Eq for IntServFlowSpec {}
-unsafe impl ::windows::runtime::Abi for IntServFlowSpec {
+unsafe impl ::windows::core::Abi for IntServFlowSpec {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1285,7 +1285,7 @@ impl ::core::cmp::PartialEq for IntServFlowSpec_0 {
     }
 }
 impl ::core::cmp::Eq for IntServFlowSpec_0 {}
-unsafe impl ::windows::runtime::Abi for IntServFlowSpec_0 {
+unsafe impl ::windows::core::Abi for IntServFlowSpec_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1313,7 +1313,7 @@ impl ::core::cmp::PartialEq for IntServMainHdr {
     }
 }
 impl ::core::cmp::Eq for IntServMainHdr {}
-unsafe impl ::windows::runtime::Abi for IntServMainHdr {
+unsafe impl ::windows::core::Abi for IntServMainHdr {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1341,7 +1341,7 @@ impl ::core::cmp::PartialEq for IntServParmHdr {
     }
 }
 impl ::core::cmp::Eq for IntServParmHdr {}
-unsafe impl ::windows::runtime::Abi for IntServParmHdr {
+unsafe impl ::windows::core::Abi for IntServParmHdr {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1369,7 +1369,7 @@ impl ::core::cmp::PartialEq for IntServServiceHdr {
     }
 }
 impl ::core::cmp::Eq for IntServServiceHdr {}
-unsafe impl ::windows::runtime::Abi for IntServServiceHdr {
+unsafe impl ::windows::core::Abi for IntServServiceHdr {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1391,7 +1391,7 @@ impl ::core::cmp::PartialEq for IntServTspecBody {
     }
 }
 impl ::core::cmp::Eq for IntServTspecBody {}
-unsafe impl ::windows::runtime::Abi for IntServTspecBody {
+unsafe impl ::windows::core::Abi for IntServTspecBody {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1413,7 +1413,7 @@ impl ::core::cmp::PartialEq for IntServTspecBody_0 {
     }
 }
 impl ::core::cmp::Eq for IntServTspecBody_0 {}
-unsafe impl ::windows::runtime::Abi for IntServTspecBody_0 {
+unsafe impl ::windows::core::Abi for IntServTspecBody_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -1432,8 +1432,8 @@ impl ::core::default::Default for LPM_HANDLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for LPM_HANDLE {}
-unsafe impl ::windows::runtime::Abi for LPM_HANDLE {
+unsafe impl ::windows::core::Handle for LPM_HANDLE {}
+unsafe impl ::windows::core::Abi for LPM_HANDLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -1471,7 +1471,7 @@ impl ::core::cmp::PartialEq for LPM_INIT_INFO {
     }
 }
 impl ::core::cmp::Eq for LPM_INIT_INFO {}
-unsafe impl ::windows::runtime::Abi for LPM_INIT_INFO {
+unsafe impl ::windows::core::Abi for LPM_INIT_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -1569,7 +1569,7 @@ impl ::core::cmp::PartialEq for PARAM_BUFFER {
     }
 }
 impl ::core::cmp::Eq for PARAM_BUFFER {}
-unsafe impl ::windows::runtime::Abi for PARAM_BUFFER {
+unsafe impl ::windows::core::Abi for PARAM_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -1607,7 +1607,7 @@ impl ::core::cmp::PartialEq for POLICY_DATA {
     }
 }
 impl ::core::cmp::Eq for POLICY_DATA {}
-unsafe impl ::windows::runtime::Abi for POLICY_DATA {
+unsafe impl ::windows::core::Abi for POLICY_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1635,7 +1635,7 @@ impl ::core::cmp::PartialEq for POLICY_ELEMENT {
     }
 }
 impl ::core::cmp::Eq for POLICY_ELEMENT {}
-unsafe impl ::windows::runtime::Abi for POLICY_ELEMENT {
+unsafe impl ::windows::core::Abi for POLICY_ELEMENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -1808,13 +1808,13 @@ impl ::core::cmp::PartialEq for QOS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for QOS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for QOS {
+unsafe impl ::windows::core::Abi for QOS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn QOSAddSocketToFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Networking::WinSock::SOCKET>>(qoshandle: Param0, socket: Param1, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSAddSocketToFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Networking::WinSock::SOCKET>>(qoshandle: Param0, socket: Param1, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1829,7 +1829,7 @@ pub unsafe fn QOSAddSocketToFlow<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn QOSCancel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSCancel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1844,7 +1844,7 @@ pub unsafe fn QOSCancel<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QOSCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1874,7 +1874,7 @@ pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, size: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, size: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1889,7 +1889,7 @@ pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1904,7 +1904,7 @@ pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn QOSQueryFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSQueryFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1919,7 +1919,7 @@ pub unsafe fn QOSQueryFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn QOSRemoveSocketFromFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Networking::WinSock::SOCKET>>(qoshandle: Param0, socket: Param1, flowid: u32, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSRemoveSocketFromFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Networking::WinSock::SOCKET>>(qoshandle: Param0, socket: Param1, flowid: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1938,7 +1938,7 @@ pub const QOSSP_ERR_BASE: u32 = 56000u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn QOSSetFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSSetFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1953,7 +1953,7 @@ pub unsafe fn QOSSetFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn QOSStartTrackingClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSStartTrackingClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1968,7 +1968,7 @@ pub unsafe fn QOSStartTrackingClient<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn QOSStopTrackingClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSStopTrackingClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2012,7 +2012,7 @@ impl ::core::cmp::PartialEq for QOS_DESTADDR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for QOS_DESTADDR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for QOS_DESTADDR {
+unsafe impl ::windows::core::Abi for QOS_DESTADDR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2040,7 +2040,7 @@ impl ::core::cmp::PartialEq for QOS_DIFFSERV {
     }
 }
 impl ::core::cmp::Eq for QOS_DIFFSERV {}
-unsafe impl ::windows::runtime::Abi for QOS_DIFFSERV {
+unsafe impl ::windows::core::Abi for QOS_DIFFSERV {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2076,7 +2076,7 @@ impl ::core::cmp::PartialEq for QOS_DIFFSERV_RULE {
     }
 }
 impl ::core::cmp::Eq for QOS_DIFFSERV_RULE {}
-unsafe impl ::windows::runtime::Abi for QOS_DIFFSERV_RULE {
+unsafe impl ::windows::core::Abi for QOS_DIFFSERV_RULE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2103,7 +2103,7 @@ impl ::core::cmp::PartialEq for QOS_DS_CLASS {
     }
 }
 impl ::core::cmp::Eq for QOS_DS_CLASS {}
-unsafe impl ::windows::runtime::Abi for QOS_DS_CLASS {
+unsafe impl ::windows::core::Abi for QOS_DS_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2131,7 +2131,7 @@ impl ::core::cmp::PartialEq for QOS_FLOWRATE_OUTGOING {
     }
 }
 impl ::core::cmp::Eq for QOS_FLOWRATE_OUTGOING {}
-unsafe impl ::windows::runtime::Abi for QOS_FLOWRATE_OUTGOING {
+unsafe impl ::windows::core::Abi for QOS_FLOWRATE_OUTGOING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2148,7 +2148,7 @@ impl ::core::convert::From<i32> for QOS_FLOWRATE_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for QOS_FLOWRATE_REASON {
+unsafe impl ::windows::core::Abi for QOS_FLOWRATE_REASON {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2193,7 +2193,7 @@ impl ::core::cmp::PartialEq for QOS_FLOW_FUNDAMENTALS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for QOS_FLOW_FUNDAMENTALS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for QOS_FLOW_FUNDAMENTALS {
+unsafe impl ::windows::core::Abi for QOS_FLOW_FUNDAMENTALS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2220,7 +2220,7 @@ impl ::core::cmp::PartialEq for QOS_FRIENDLY_NAME {
     }
 }
 impl ::core::cmp::Eq for QOS_FRIENDLY_NAME {}
-unsafe impl ::windows::runtime::Abi for QOS_FRIENDLY_NAME {
+unsafe impl ::windows::core::Abi for QOS_FRIENDLY_NAME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2241,7 +2241,7 @@ impl ::core::convert::From<i32> for QOS_NOTIFY_FLOW {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for QOS_NOTIFY_FLOW {
+unsafe impl ::windows::core::Abi for QOS_NOTIFY_FLOW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2270,7 +2270,7 @@ impl ::core::cmp::PartialEq for QOS_OBJECT_HDR {
     }
 }
 impl ::core::cmp::Eq for QOS_OBJECT_HDR {}
-unsafe impl ::windows::runtime::Abi for QOS_OBJECT_HDR {
+unsafe impl ::windows::core::Abi for QOS_OBJECT_HDR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2301,7 +2301,7 @@ impl ::core::cmp::PartialEq for QOS_PACKET_PRIORITY {
     }
 }
 impl ::core::cmp::Eq for QOS_PACKET_PRIORITY {}
-unsafe impl ::windows::runtime::Abi for QOS_PACKET_PRIORITY {
+unsafe impl ::windows::core::Abi for QOS_PACKET_PRIORITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2318,7 +2318,7 @@ impl ::core::convert::From<i32> for QOS_QUERY_FLOW {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for QOS_QUERY_FLOW {
+unsafe impl ::windows::core::Abi for QOS_QUERY_FLOW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2345,7 +2345,7 @@ impl ::core::cmp::PartialEq for QOS_SD_MODE {
     }
 }
 impl ::core::cmp::Eq for QOS_SD_MODE {}
-unsafe impl ::windows::runtime::Abi for QOS_SD_MODE {
+unsafe impl ::windows::core::Abi for QOS_SD_MODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2360,7 +2360,7 @@ impl ::core::convert::From<i32> for QOS_SET_FLOW {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for QOS_SET_FLOW {
+unsafe impl ::windows::core::Abi for QOS_SET_FLOW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2375,7 +2375,7 @@ impl ::core::convert::From<i32> for QOS_SHAPING {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for QOS_SHAPING {
+unsafe impl ::windows::core::Abi for QOS_SHAPING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2402,7 +2402,7 @@ impl ::core::cmp::PartialEq for QOS_SHAPING_RATE {
     }
 }
 impl ::core::cmp::Eq for QOS_SHAPING_RATE {}
-unsafe impl ::windows::runtime::Abi for QOS_SHAPING_RATE {
+unsafe impl ::windows::core::Abi for QOS_SHAPING_RATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2428,7 +2428,7 @@ impl ::core::cmp::PartialEq for QOS_TCP_TRAFFIC {
     }
 }
 impl ::core::cmp::Eq for QOS_TCP_TRAFFIC {}
-unsafe impl ::windows::runtime::Abi for QOS_TCP_TRAFFIC {
+unsafe impl ::windows::core::Abi for QOS_TCP_TRAFFIC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2455,7 +2455,7 @@ impl ::core::cmp::PartialEq for QOS_TRAFFIC_CLASS {
     }
 }
 impl ::core::cmp::Eq for QOS_TRAFFIC_CLASS {}
-unsafe impl ::windows::runtime::Abi for QOS_TRAFFIC_CLASS {
+unsafe impl ::windows::core::Abi for QOS_TRAFFIC_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2475,7 +2475,7 @@ impl ::core::convert::From<i32> for QOS_TRAFFIC_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for QOS_TRAFFIC_TYPE {
+unsafe impl ::windows::core::Abi for QOS_TRAFFIC_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2502,7 +2502,7 @@ impl ::core::cmp::PartialEq for QOS_VERSION {
     }
 }
 impl ::core::cmp::Eq for QOS_VERSION {}
-unsafe impl ::windows::runtime::Abi for QOS_VERSION {
+unsafe impl ::windows::core::Abi for QOS_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2532,7 +2532,7 @@ impl ::core::cmp::PartialEq for QualAppFlowSpec {
     }
 }
 impl ::core::cmp::Eq for QualAppFlowSpec {}
-unsafe impl ::windows::runtime::Abi for QualAppFlowSpec {
+unsafe impl ::windows::core::Abi for QualAppFlowSpec {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2560,7 +2560,7 @@ impl ::core::cmp::PartialEq for QualTspec {
     }
 }
 impl ::core::cmp::Eq for QualTspec {}
-unsafe impl ::windows::runtime::Abi for QualTspec {
+unsafe impl ::windows::core::Abi for QualTspec {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2586,7 +2586,7 @@ impl ::core::cmp::PartialEq for QualTspecParms {
     }
 }
 impl ::core::cmp::Eq for QualTspecParms {}
-unsafe impl ::windows::runtime::Abi for QualTspecParms {
+unsafe impl ::windows::core::Abi for QualTspecParms {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2621,7 +2621,7 @@ impl ::core::cmp::PartialEq for RESV_STYLE {
     }
 }
 impl ::core::cmp::Eq for RESV_STYLE {}
-unsafe impl ::windows::runtime::Abi for RESV_STYLE {
+unsafe impl ::windows::core::Abi for RESV_STYLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2632,8 +2632,8 @@ impl ::core::default::Default for RHANDLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for RHANDLE {}
-unsafe impl ::windows::runtime::Abi for RHANDLE {
+unsafe impl ::windows::core::Handle for RHANDLE {}
+unsafe impl ::windows::core::Abi for RHANDLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2657,7 +2657,7 @@ impl ::core::cmp::PartialEq for RSVP_ADSPEC {
     }
 }
 impl ::core::cmp::Eq for RSVP_ADSPEC {}
-unsafe impl ::windows::runtime::Abi for RSVP_ADSPEC {
+unsafe impl ::windows::core::Abi for RSVP_ADSPEC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2745,7 +2745,7 @@ impl ::core::cmp::PartialEq for RSVP_FILTERSPEC {
     }
 }
 impl ::core::cmp::Eq for RSVP_FILTERSPEC {}
-unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC {
+unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2770,7 +2770,7 @@ impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_0 {
     }
 }
 impl ::core::cmp::Eq for RSVP_FILTERSPEC_0 {}
-unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_0 {
+unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2793,7 +2793,7 @@ impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V4 {
     }
 }
 impl ::core::cmp::Eq for RSVP_FILTERSPEC_V4 {}
-unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V4 {
+unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2815,7 +2815,7 @@ impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V4_GPI {
     }
 }
 impl ::core::cmp::Eq for RSVP_FILTERSPEC_V4_GPI {}
-unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V4_GPI {
+unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V4_GPI {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2843,7 +2843,7 @@ impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6 {
     }
 }
 impl ::core::cmp::Eq for RSVP_FILTERSPEC_V6 {}
-unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V6 {
+unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V6 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2871,7 +2871,7 @@ impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6_FLOW {
     }
 }
 impl ::core::cmp::Eq for RSVP_FILTERSPEC_V6_FLOW {}
-unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V6_FLOW {
+unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V6_FLOW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2898,7 +2898,7 @@ impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6_GPI {
     }
 }
 impl ::core::cmp::Eq for RSVP_FILTERSPEC_V6_GPI {}
-unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V6_GPI {
+unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V6_GPI {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -2928,7 +2928,7 @@ impl ::core::cmp::PartialEq for RSVP_HOP {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for RSVP_HOP {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for RSVP_HOP {
+unsafe impl ::windows::core::Abi for RSVP_HOP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2954,7 +2954,7 @@ impl ::core::cmp::PartialEq for RSVP_HOP_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for RSVP_HOP_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for RSVP_HOP_0 {
+unsafe impl ::windows::core::Abi for RSVP_HOP_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3011,7 +3011,7 @@ impl ::core::cmp::PartialEq for RSVP_MSG_OBJS {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for RSVP_MSG_OBJS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for RSVP_MSG_OBJS {
+unsafe impl ::windows::core::Abi for RSVP_MSG_OBJS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -3047,7 +3047,7 @@ impl ::core::cmp::PartialEq for RSVP_POLICY {
     }
 }
 impl ::core::cmp::Eq for RSVP_POLICY {}
-unsafe impl ::windows::runtime::Abi for RSVP_POLICY {
+unsafe impl ::windows::core::Abi for RSVP_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3075,7 +3075,7 @@ impl ::core::cmp::PartialEq for RSVP_POLICY_INFO {
     }
 }
 impl ::core::cmp::Eq for RSVP_POLICY_INFO {}
-unsafe impl ::windows::runtime::Abi for RSVP_POLICY_INFO {
+unsafe impl ::windows::core::Abi for RSVP_POLICY_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3106,7 +3106,7 @@ impl ::core::cmp::PartialEq for RSVP_RESERVE_INFO {
     }
 }
 impl ::core::cmp::Eq for RSVP_RESERVE_INFO {}
-unsafe impl ::windows::runtime::Abi for RSVP_RESERVE_INFO {
+unsafe impl ::windows::core::Abi for RSVP_RESERVE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -3140,7 +3140,7 @@ impl ::core::cmp::PartialEq for RSVP_SCOPE {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for RSVP_SCOPE {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for RSVP_SCOPE {
+unsafe impl ::windows::core::Abi for RSVP_SCOPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3166,7 +3166,7 @@ impl ::core::cmp::PartialEq for RSVP_SCOPE_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for RSVP_SCOPE_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for RSVP_SCOPE_0 {
+unsafe impl ::windows::core::Abi for RSVP_SCOPE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3194,7 +3194,7 @@ impl ::core::cmp::PartialEq for RSVP_SESSION {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for RSVP_SESSION {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for RSVP_SESSION {
+unsafe impl ::windows::core::Abi for RSVP_SESSION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3220,7 +3220,7 @@ impl ::core::cmp::PartialEq for RSVP_SESSION_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for RSVP_SESSION_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for RSVP_SESSION_0 {
+unsafe impl ::windows::core::Abi for RSVP_SESSION_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -3251,7 +3251,7 @@ impl ::core::cmp::PartialEq for RSVP_STATUS_INFO {
     }
 }
 impl ::core::cmp::Eq for RSVP_STATUS_INFO {}
-unsafe impl ::windows::runtime::Abi for RSVP_STATUS_INFO {
+unsafe impl ::windows::core::Abi for RSVP_STATUS_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -3281,7 +3281,7 @@ impl ::core::cmp::PartialEq for RsvpObjHdr {
     }
 }
 impl ::core::cmp::Eq for RsvpObjHdr {}
-unsafe impl ::windows::runtime::Abi for RsvpObjHdr {
+unsafe impl ::windows::core::Abi for RsvpObjHdr {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3309,7 +3309,7 @@ impl ::core::cmp::PartialEq for Rsvp_Hop_IPv4 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for Rsvp_Hop_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for Rsvp_Hop_IPv4 {
+unsafe impl ::windows::core::Abi for Rsvp_Hop_IPv4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3331,7 +3331,7 @@ impl ::core::cmp::PartialEq for SENDER_TSPEC {
     }
 }
 impl ::core::cmp::Eq for SENDER_TSPEC {}
-unsafe impl ::windows::runtime::Abi for SENDER_TSPEC {
+unsafe impl ::windows::core::Abi for SENDER_TSPEC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -3718,7 +3718,7 @@ impl ::core::cmp::PartialEq for Scope_list_ipv4 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for Scope_list_ipv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for Scope_list_ipv4 {
+unsafe impl ::windows::core::Abi for Scope_list_ipv4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3748,7 +3748,7 @@ impl ::core::cmp::PartialEq for Session_IPv4 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for Session_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for Session_IPv4 {
+unsafe impl ::windows::core::Abi for Session_IPv4 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -3775,7 +3775,7 @@ impl ::core::cmp::PartialEq for TCG_PCClientPCREventStruct {
     }
 }
 impl ::core::cmp::Eq for TCG_PCClientPCREventStruct {}
-unsafe impl ::windows::runtime::Abi for TCG_PCClientPCREventStruct {
+unsafe impl ::windows::core::Abi for TCG_PCClientPCREventStruct {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3798,7 +3798,7 @@ impl ::core::cmp::PartialEq for TCG_PCClientTaggedEventStruct {
     }
 }
 impl ::core::cmp::Eq for TCG_PCClientTaggedEventStruct {}
-unsafe impl ::windows::runtime::Abi for TCG_PCClientTaggedEventStruct {
+unsafe impl ::windows::core::Abi for TCG_PCClientTaggedEventStruct {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
@@ -3837,7 +3837,7 @@ impl ::core::cmp::PartialEq for TCI_CLIENT_FUNC_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TCI_CLIENT_FUNC_LIST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TCI_CLIENT_FUNC_LIST {
+unsafe impl ::windows::core::Abi for TCI_CLIENT_FUNC_LIST {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
@@ -3875,7 +3875,7 @@ impl ::core::cmp::PartialEq for TC_GEN_FILTER {
     }
 }
 impl ::core::cmp::Eq for TC_GEN_FILTER {}
-unsafe impl ::windows::runtime::Abi for TC_GEN_FILTER {
+unsafe impl ::windows::core::Abi for TC_GEN_FILTER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3904,7 +3904,7 @@ impl ::core::cmp::PartialEq for TC_GEN_FLOW {
     }
 }
 impl ::core::cmp::Eq for TC_GEN_FLOW {}
-unsafe impl ::windows::runtime::Abi for TC_GEN_FLOW {
+unsafe impl ::windows::core::Abi for TC_GEN_FLOW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3940,7 +3940,7 @@ impl ::core::cmp::PartialEq for TC_IFC_DESCRIPTOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for TC_IFC_DESCRIPTOR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for TC_IFC_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for TC_IFC_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -3994,13 +3994,13 @@ impl ::core::cmp::PartialEq for TC_SUPPORTED_INFO_BUFFER {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for TC_SUPPORTED_INFO_BUFFER {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for TC_SUPPORTED_INFO_BUFFER {
+unsafe impl ::windows::core::Abi for TC_SUPPORTED_INFO_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcAddFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn TcAddFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4015,7 +4015,7 @@ pub unsafe fn TcAddFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcAddFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, clflowctx: Param1, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn TcAddFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, clflowctx: Param1, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4030,7 +4030,7 @@ pub unsafe fn TcAddFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcCloseInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0) -> u32 {
+pub unsafe fn TcCloseInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4045,7 +4045,7 @@ pub unsafe fn TcCloseInterface<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcDeleteFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filterhandle: Param0) -> u32 {
+pub unsafe fn TcDeleteFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filterhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4060,7 +4060,7 @@ pub unsafe fn TcDeleteFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcDeleteFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0) -> u32 {
+pub unsafe fn TcDeleteFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4075,7 +4075,7 @@ pub unsafe fn TcDeleteFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcDeregisterClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(clienthandle: Param0) -> u32 {
+pub unsafe fn TcDeregisterClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(clienthandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4090,7 +4090,7 @@ pub unsafe fn TcDeregisterClient<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32 {
+pub unsafe fn TcEnumerateFlows<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4105,7 +4105,7 @@ pub unsafe fn TcEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_NetworkManagement_Ndis`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
-pub unsafe fn TcEnumerateInterfaces<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(clienthandle: Param0, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32 {
+pub unsafe fn TcEnumerateInterfaces<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(clienthandle: Param0, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4120,7 +4120,7 @@ pub unsafe fn TcEnumerateInterfaces<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcGetFlowNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, strsize: u32, pflowname: super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn TcGetFlowNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, strsize: u32, pflowname: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4135,7 +4135,7 @@ pub unsafe fn TcGetFlowNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, strsize: u32, pflowname: super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, strsize: u32, pflowname: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4150,7 +4150,7 @@ pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcModifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, pgenericflow: *const TC_GEN_FLOW) -> u32 {
+pub unsafe fn TcModifyFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, pgenericflow: *const TC_GEN_FLOW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4165,7 +4165,7 @@ pub unsafe fn TcModifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcOpenInterfaceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(pinterfacename: Param0, clienthandle: Param1, clifcctx: Param2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn TcOpenInterfaceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pinterfacename: Param0, clienthandle: Param1, clifcctx: Param2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4180,7 +4180,7 @@ pub unsafe fn TcOpenInterfaceA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(pinterfacename: Param0, clienthandle: Param1, clifcctx: Param2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pinterfacename: Param0, clienthandle: Param1, clifcctx: Param2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4195,12 +4195,12 @@ pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcQueryFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+            fn TcQueryFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcQueryFlowA(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer)))
     }
@@ -4210,12 +4210,12 @@ pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcQueryFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+            fn TcQueryFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcQueryFlowW(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer)))
     }
@@ -4225,12 +4225,12 @@ pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcQueryInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(ifchandle: Param0, pguidparam: *const ::windows::runtime::GUID, notifychange: Param2, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcQueryInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(ifchandle: Param0, pguidparam: *const ::windows::core::GUID, notifychange: Param2, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::runtime::GUID, notifychange: super::super::Foundation::BOOLEAN, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+            fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::core::GUID, notifychange: super::super::Foundation::BOOLEAN, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcQueryInterface(ifchandle.into_param().abi(), ::core::mem::transmute(pguidparam), notifychange.into_param().abi(), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer)))
     }
@@ -4240,7 +4240,7 @@ pub unsafe fn TcQueryInterface<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcRegisterClient<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(tciversion: u32, clregctx: Param1, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn TcRegisterClient<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(tciversion: u32, clregctx: Param1, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4255,12 +4255,12 @@ pub unsafe fn TcRegisterClient<'a, Param1: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcSetFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcSetFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcSetFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
+            fn TcSetFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcSetFlowA(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
     }
@@ -4270,12 +4270,12 @@ pub unsafe fn TcSetFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcSetFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcSetFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcSetFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
+            fn TcSetFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcSetFlowW(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
     }
@@ -4285,12 +4285,12 @@ pub unsafe fn TcSetFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcSetInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn TcSetInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
+            fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(TcSetInterface(ifchandle.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
     }
@@ -4360,7 +4360,7 @@ impl ::core::cmp::PartialEq for WBCL_Iterator {
     }
 }
 impl ::core::cmp::Eq for WBCL_Iterator {}
-unsafe impl ::windows::runtime::Abi for WBCL_Iterator {
+unsafe impl ::windows::core::Abi for WBCL_Iterator {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4384,7 +4384,7 @@ impl ::core::cmp::PartialEq for WBCL_LogHdr {
     }
 }
 impl ::core::cmp::Eq for WBCL_LogHdr {}
-unsafe impl ::windows::runtime::Abi for WBCL_LogHdr {
+unsafe impl ::windows::core::Abi for WBCL_LogHdr {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4412,7 +4412,7 @@ impl ::core::cmp::PartialEq for flow_desc {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for flow_desc {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for flow_desc {
+unsafe impl ::windows::core::Abi for flow_desc {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4439,7 +4439,7 @@ impl ::core::cmp::PartialEq for flow_desc_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for flow_desc_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for flow_desc_0 {
+unsafe impl ::windows::core::Abi for flow_desc_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4466,7 +4466,7 @@ impl ::core::cmp::PartialEq for flow_desc_1 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for flow_desc_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for flow_desc_1 {
+unsafe impl ::windows::core::Abi for flow_desc_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -4484,7 +4484,7 @@ impl ::core::convert::From<i32> for int_serv_wkp {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for int_serv_wkp {
+unsafe impl ::windows::core::Abi for int_serv_wkp {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4514,7 +4514,7 @@ impl ::core::cmp::PartialEq for lpmiptable {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for lpmiptable {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::runtime::Abi for lpmiptable {
+unsafe impl ::windows::core::Abi for lpmiptable {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4542,7 +4542,7 @@ impl ::core::cmp::PartialEq for policy_decision {
     }
 }
 impl ::core::cmp::Eq for policy_decision {}
-unsafe impl ::windows::runtime::Abi for policy_decision {
+unsafe impl ::windows::core::Abi for policy_decision {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4565,7 +4565,7 @@ impl ::core::cmp::PartialEq for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     }
 }
 impl ::core::cmp::Eq for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
-unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+unsafe impl ::windows::core::Abi for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4589,7 +4589,7 @@ impl ::core::cmp::PartialEq for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     }
 }
 impl ::core::cmp::Eq for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
-unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+unsafe impl ::windows::core::Abi for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4616,7 +4616,7 @@ impl ::core::cmp::PartialEq for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     }
 }
 impl ::core::cmp::Eq for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
-unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+unsafe impl ::windows::core::Abi for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4641,7 +4641,7 @@ impl ::core::cmp::PartialEq for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
     }
 }
 impl ::core::cmp::Eq for tag_SIPAEVENT_SI_POLICY_PAYLOAD {}
-unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
+unsafe impl ::windows::core::Abi for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4663,7 +4663,7 @@ impl ::core::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     }
 }
 impl ::core::cmp::Eq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
-unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+unsafe impl ::windows::core::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4684,7 +4684,7 @@ impl ::core::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     }
 }
 impl ::core::cmp::Eq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
-unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+unsafe impl ::windows::core::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4708,6 +4708,6 @@ impl ::core::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
     }
 }
 impl ::core::cmp::Eq for tag_SIPAEVENT_VSM_IDK_RSA_INFO {}
-unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
+unsafe impl ::windows::core::Abi for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
     type Abi = Self;
 }

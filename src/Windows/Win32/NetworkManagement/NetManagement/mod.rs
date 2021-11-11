@@ -87,7 +87,7 @@ impl ::core::cmp::PartialEq for ACCESS_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ACCESS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ACCESS_INFO_0 {
+unsafe impl ::windows::core::Abi for ACCESS_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -122,7 +122,7 @@ impl ::core::cmp::PartialEq for ACCESS_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ACCESS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ACCESS_INFO_1 {
+unsafe impl ::windows::core::Abi for ACCESS_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -148,7 +148,7 @@ impl ::core::cmp::PartialEq for ACCESS_INFO_1002 {
     }
 }
 impl ::core::cmp::Eq for ACCESS_INFO_1002 {}
-unsafe impl ::windows::runtime::Abi for ACCESS_INFO_1002 {
+unsafe impl ::windows::core::Abi for ACCESS_INFO_1002 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -182,7 +182,7 @@ impl ::core::cmp::PartialEq for ACCESS_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ACCESS_LIST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ACCESS_LIST {
+unsafe impl ::windows::core::Abi for ACCESS_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -227,7 +227,7 @@ impl ::core::cmp::PartialEq for ADMIN_OTHER_INFO {
     }
 }
 impl ::core::cmp::Eq for ADMIN_OTHER_INFO {}
-unsafe impl ::windows::runtime::Abi for ADMIN_OTHER_INFO {
+unsafe impl ::windows::core::Abi for ADMIN_OTHER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -256,7 +256,7 @@ impl ::core::cmp::PartialEq for AE_ACCLIM {
     }
 }
 impl ::core::cmp::Eq for AE_ACCLIM {}
-unsafe impl ::windows::runtime::Abi for AE_ACCLIM {
+unsafe impl ::windows::core::Abi for AE_ACCLIM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -292,7 +292,7 @@ impl ::core::cmp::PartialEq for AE_ACLMOD {
     }
 }
 impl ::core::cmp::Eq for AE_ACLMOD {}
-unsafe impl ::windows::runtime::Abi for AE_ACLMOD {
+unsafe impl ::windows::core::Abi for AE_ACLMOD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -348,7 +348,7 @@ impl ::core::cmp::PartialEq for AE_CLOSEFILE {
     }
 }
 impl ::core::cmp::Eq for AE_CLOSEFILE {}
-unsafe impl ::windows::runtime::Abi for AE_CLOSEFILE {
+unsafe impl ::windows::core::Abi for AE_CLOSEFILE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -379,7 +379,7 @@ impl ::core::cmp::PartialEq for AE_CONNREJ {
     }
 }
 impl ::core::cmp::Eq for AE_CONNREJ {}
-unsafe impl ::windows::runtime::Abi for AE_CONNREJ {
+unsafe impl ::windows::core::Abi for AE_CONNREJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -410,7 +410,7 @@ impl ::core::cmp::PartialEq for AE_CONNSTART {
     }
 }
 impl ::core::cmp::Eq for AE_CONNSTART {}
-unsafe impl ::windows::runtime::Abi for AE_CONNSTART {
+unsafe impl ::windows::core::Abi for AE_CONNSTART {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -442,7 +442,7 @@ impl ::core::cmp::PartialEq for AE_CONNSTOP {
     }
 }
 impl ::core::cmp::Eq for AE_CONNSTOP {}
-unsafe impl ::windows::runtime::Abi for AE_CONNSTOP {
+unsafe impl ::windows::core::Abi for AE_CONNSTOP {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -509,7 +509,7 @@ impl ::core::cmp::PartialEq for AE_GENERIC {
     }
 }
 impl ::core::cmp::Eq for AE_GENERIC {}
-unsafe impl ::windows::runtime::Abi for AE_GENERIC {
+unsafe impl ::windows::core::Abi for AE_GENERIC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -556,7 +556,7 @@ impl ::core::cmp::PartialEq for AE_LOCKOUT {
     }
 }
 impl ::core::cmp::Eq for AE_LOCKOUT {}
-unsafe impl ::windows::runtime::Abi for AE_LOCKOUT {
+unsafe impl ::windows::core::Abi for AE_LOCKOUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -591,7 +591,7 @@ impl ::core::cmp::PartialEq for AE_NETLOGOFF {
     }
 }
 impl ::core::cmp::Eq for AE_NETLOGOFF {}
-unsafe impl ::windows::runtime::Abi for AE_NETLOGOFF {
+unsafe impl ::windows::core::Abi for AE_NETLOGOFF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -622,7 +622,7 @@ impl ::core::cmp::PartialEq for AE_NETLOGON {
     }
 }
 impl ::core::cmp::Eq for AE_NETLOGON {}
-unsafe impl ::windows::runtime::Abi for AE_NETLOGON {
+unsafe impl ::windows::core::Abi for AE_NETLOGON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -670,7 +670,7 @@ impl ::core::cmp::PartialEq for AE_RESACCESS {
     }
 }
 impl ::core::cmp::Eq for AE_RESACCESS {}
-unsafe impl ::windows::runtime::Abi for AE_RESACCESS {
+unsafe impl ::windows::core::Abi for AE_RESACCESS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -703,7 +703,7 @@ impl ::core::cmp::PartialEq for AE_RESACCESSREJ {
     }
 }
 impl ::core::cmp::Eq for AE_RESACCESSREJ {}
-unsafe impl ::windows::runtime::Abi for AE_RESACCESSREJ {
+unsafe impl ::windows::core::Abi for AE_RESACCESSREJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -745,7 +745,7 @@ impl ::core::cmp::PartialEq for AE_SERVICESTAT {
     }
 }
 impl ::core::cmp::Eq for AE_SERVICESTAT {}
-unsafe impl ::windows::runtime::Abi for AE_SERVICESTAT {
+unsafe impl ::windows::core::Abi for AE_SERVICESTAT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -777,7 +777,7 @@ impl ::core::cmp::PartialEq for AE_SESSLOGOFF {
     }
 }
 impl ::core::cmp::Eq for AE_SESSLOGOFF {}
-unsafe impl ::windows::runtime::Abi for AE_SESSLOGOFF {
+unsafe impl ::windows::core::Abi for AE_SESSLOGOFF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -807,7 +807,7 @@ impl ::core::cmp::PartialEq for AE_SESSLOGON {
     }
 }
 impl ::core::cmp::Eq for AE_SESSLOGON {}
-unsafe impl ::windows::runtime::Abi for AE_SESSLOGON {
+unsafe impl ::windows::core::Abi for AE_SESSLOGON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -836,7 +836,7 @@ impl ::core::cmp::PartialEq for AE_SESSPWERR {
     }
 }
 impl ::core::cmp::Eq for AE_SESSPWERR {}
-unsafe impl ::windows::runtime::Abi for AE_SESSPWERR {
+unsafe impl ::windows::core::Abi for AE_SESSPWERR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -872,7 +872,7 @@ impl ::core::cmp::PartialEq for AE_SRVSTATUS {
     }
 }
 impl ::core::cmp::Eq for AE_SRVSTATUS {}
-unsafe impl ::windows::runtime::Abi for AE_SRVSTATUS {
+unsafe impl ::windows::core::Abi for AE_SRVSTATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -914,7 +914,7 @@ impl ::core::cmp::PartialEq for AE_UASMOD {
     }
 }
 impl ::core::cmp::Eq for AE_UASMOD {}
-unsafe impl ::windows::runtime::Abi for AE_UASMOD {
+unsafe impl ::windows::core::Abi for AE_UASMOD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -942,7 +942,7 @@ impl ::core::convert::From<u32> for AF_OP {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AF_OP {
+unsafe impl ::windows::core::Abi for AF_OP {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for AF_OP {
@@ -1014,7 +1014,7 @@ impl ::core::cmp::PartialEq for AT_ENUM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for AT_ENUM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for AT_ENUM {
+unsafe impl ::windows::core::Abi for AT_ENUM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1051,7 +1051,7 @@ impl ::core::cmp::PartialEq for AT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for AT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for AT_INFO {
+unsafe impl ::windows::core::Abi for AT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1082,7 +1082,7 @@ impl ::core::cmp::PartialEq for AUDIT_ENTRY {
     }
 }
 impl ::core::cmp::Eq for AUDIT_ENTRY {}
-unsafe impl ::windows::runtime::Abi for AUDIT_ENTRY {
+unsafe impl ::windows::core::Abi for AUDIT_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -1105,7 +1105,7 @@ impl ::core::convert::From<i32> for BIND_FLAGS1 {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BIND_FLAGS1 {
+unsafe impl ::windows::core::Abi for BIND_FLAGS1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -1136,7 +1136,7 @@ impl ::core::convert::From<i32> for COMPONENT_CHARACTERISTICS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COMPONENT_CHARACTERISTICS {
+unsafe impl ::windows::core::Abi for COMPONENT_CHARACTERISTICS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1170,7 +1170,7 @@ impl ::core::cmp::PartialEq for CONFIG_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CONFIG_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CONFIG_INFO_0 {
+unsafe impl ::windows::core::Abi for CONFIG_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -1205,7 +1205,7 @@ impl ::core::convert::From<i32> for DEFAULT_PAGES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DEFAULT_PAGES {
+unsafe impl ::windows::core::Abi for DEFAULT_PAGES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -1393,7 +1393,7 @@ impl ::core::cmp::PartialEq for DSREG_JOIN_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::Eq for DSREG_JOIN_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::runtime::Abi for DSREG_JOIN_INFO {
+unsafe impl ::windows::core::Abi for DSREG_JOIN_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -1408,7 +1408,7 @@ impl ::core::convert::From<i32> for DSREG_JOIN_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DSREG_JOIN_TYPE {
+unsafe impl ::windows::core::Abi for DSREG_JOIN_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1443,7 +1443,7 @@ impl ::core::cmp::PartialEq for DSREG_USER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DSREG_USER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DSREG_USER_INFO {
+unsafe impl ::windows::core::Abi for DSREG_USER_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -1459,7 +1459,7 @@ impl ::core::convert::From<i32> for ENUM_BINDING_PATHS_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ENUM_BINDING_PATHS_FLAGS {
+unsafe impl ::windows::core::Abi for ENUM_BINDING_PATHS_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -1490,7 +1490,7 @@ impl ::core::cmp::PartialEq for ERRLOG_OTHER_INFO {
     }
 }
 impl ::core::cmp::Eq for ERRLOG_OTHER_INFO {}
-unsafe impl ::windows::runtime::Abi for ERRLOG_OTHER_INFO {
+unsafe impl ::windows::core::Abi for ERRLOG_OTHER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1541,7 +1541,7 @@ impl ::core::cmp::PartialEq for ERROR_LOG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ERROR_LOG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ERROR_LOG {
+unsafe impl ::windows::core::Abi for ERROR_LOG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -2562,7 +2562,7 @@ impl ::core::cmp::PartialEq for FLAT_STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FLAT_STRING {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FLAT_STRING {
+unsafe impl ::windows::core::Abi for FLAT_STRING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -2577,7 +2577,7 @@ impl ::core::convert::From<u32> for FORCE_LEVEL_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FORCE_LEVEL_FLAGS {
+unsafe impl ::windows::core::Abi for FORCE_LEVEL_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FORCE_LEVEL_FLAGS {
@@ -2648,7 +2648,7 @@ impl ::core::cmp::PartialEq for GROUP_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GROUP_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GROUP_INFO_0 {
+unsafe impl ::windows::core::Abi for GROUP_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2682,7 +2682,7 @@ impl ::core::cmp::PartialEq for GROUP_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GROUP_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GROUP_INFO_1 {
+unsafe impl ::windows::core::Abi for GROUP_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2715,7 +2715,7 @@ impl ::core::cmp::PartialEq for GROUP_INFO_1002 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GROUP_INFO_1002 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GROUP_INFO_1002 {
+unsafe impl ::windows::core::Abi for GROUP_INFO_1002 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2741,7 +2741,7 @@ impl ::core::cmp::PartialEq for GROUP_INFO_1005 {
     }
 }
 impl ::core::cmp::Eq for GROUP_INFO_1005 {}
-unsafe impl ::windows::runtime::Abi for GROUP_INFO_1005 {
+unsafe impl ::windows::core::Abi for GROUP_INFO_1005 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2777,7 +2777,7 @@ impl ::core::cmp::PartialEq for GROUP_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GROUP_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GROUP_INFO_2 {
+unsafe impl ::windows::core::Abi for GROUP_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2813,7 +2813,7 @@ impl ::core::cmp::PartialEq for GROUP_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GROUP_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GROUP_INFO_3 {
+unsafe impl ::windows::core::Abi for GROUP_INFO_3 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -2848,7 +2848,7 @@ impl ::core::cmp::PartialEq for GROUP_USERS_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GROUP_USERS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GROUP_USERS_INFO_0 {
+unsafe impl ::windows::core::Abi for GROUP_USERS_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2882,18 +2882,18 @@ impl ::core::cmp::PartialEq for GROUP_USERS_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GROUP_USERS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GROUP_USERS_INFO_1 {
+unsafe impl ::windows::core::Abi for GROUP_USERS_INFO_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNetScheduleAccountInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszservername: Param0, ccaccount: u32, wszaccount: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetNetScheduleAccountInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszservername: Param0, ccaccount: u32, wszaccount: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNetScheduleAccountInformation(pwszservername: super::super::Foundation::PWSTR, ccaccount: u32, wszaccount: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn GetNetScheduleAccountInformation(pwszservername: super::super::Foundation::PWSTR, ccaccount: u32, wszaccount: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         GetNetScheduleAccountInformation(pwszservername.into_param().abi(), ::core::mem::transmute(ccaccount), ::core::mem::transmute(wszaccount)).ok()
     }
@@ -2923,7 +2923,7 @@ impl ::core::cmp::PartialEq for HARDWARE_ADDRESS {
     }
 }
 impl ::core::cmp::Eq for HARDWARE_ADDRESS {}
-unsafe impl ::windows::runtime::Abi for HARDWARE_ADDRESS {
+unsafe impl ::windows::core::Abi for HARDWARE_ADDRESS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -2954,182 +2954,182 @@ impl ::core::cmp::PartialEq for HLOG {
     }
 }
 impl ::core::cmp::Eq for HLOG {}
-unsafe impl ::windows::runtime::Abi for HLOG {
+unsafe impl ::windows::core::Abi for HLOG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IEnumNetCfgBindingInterface(pub ::windows::runtime::IUnknown);
+pub struct IEnumNetCfgBindingInterface(pub ::windows::core::IUnknown);
 impl IEnumNetCfgBindingInterface {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumNetCfgBindingInterface> {
-        let mut result__: <IEnumNetCfgBindingInterface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingInterface>(result__)
+    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgBindingInterface> {
+        let mut result__: <IEnumNetCfgBindingInterface as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingInterface>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IEnumNetCfgBindingInterface {
+unsafe impl ::windows::core::Interface for IEnumNetCfgBindingInterface {
     type Vtable = IEnumNetCfgBindingInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae90_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae90_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<IEnumNetCfgBindingInterface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumNetCfgBindingInterface> for ::windows::core::IUnknown {
     fn from(value: IEnumNetCfgBindingInterface) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IEnumNetCfgBindingInterface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumNetCfgBindingInterface> for ::windows::core::IUnknown {
     fn from(value: &IEnumNetCfgBindingInterface) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetCfgBindingInterface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumNetCfgBindingInterface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumNetCfgBindingInterface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumNetCfgBindingInterface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgBindingInterface_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, rgelt: *mut ::windows::runtime::RawPtr, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IEnumNetCfgBindingPath(pub ::windows::runtime::IUnknown);
+pub struct IEnumNetCfgBindingPath(pub ::windows::core::IUnknown);
 impl IEnumNetCfgBindingPath {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumNetCfgBindingPath> {
-        let mut result__: <IEnumNetCfgBindingPath as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingPath>(result__)
+    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgBindingPath> {
+        let mut result__: <IEnumNetCfgBindingPath as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingPath>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IEnumNetCfgBindingPath {
+unsafe impl ::windows::core::Interface for IEnumNetCfgBindingPath {
     type Vtable = IEnumNetCfgBindingPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae91_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae91_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<IEnumNetCfgBindingPath> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumNetCfgBindingPath> for ::windows::core::IUnknown {
     fn from(value: IEnumNetCfgBindingPath) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IEnumNetCfgBindingPath> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumNetCfgBindingPath> for ::windows::core::IUnknown {
     fn from(value: &IEnumNetCfgBindingPath) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetCfgBindingPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumNetCfgBindingPath {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumNetCfgBindingPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumNetCfgBindingPath {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgBindingPath_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, rgelt: *mut ::windows::runtime::RawPtr, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IEnumNetCfgComponent(pub ::windows::runtime::IUnknown);
+pub struct IEnumNetCfgComponent(pub ::windows::core::IUnknown);
 impl IEnumNetCfgComponent {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgComponent>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgComponent>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumNetCfgComponent> {
-        let mut result__: <IEnumNetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
+    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgComponent> {
+        let mut result__: <IEnumNetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IEnumNetCfgComponent {
+unsafe impl ::windows::core::Interface for IEnumNetCfgComponent {
     type Vtable = IEnumNetCfgComponent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae92_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae92_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<IEnumNetCfgComponent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumNetCfgComponent> for ::windows::core::IUnknown {
     fn from(value: IEnumNetCfgComponent) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IEnumNetCfgComponent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumNetCfgComponent> for ::windows::core::IUnknown {
     fn from(value: &IEnumNetCfgComponent) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetCfgComponent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumNetCfgComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumNetCfgComponent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumNetCfgComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgComponent_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, rgelt: *mut ::windows::runtime::RawPtr, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const INTERFACE_INFO_REVISION_1: u32 = 1u32;
@@ -3138,381 +3138,381 @@ pub const INVALID_TRACEID: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfg(pub ::windows::runtime::IUnknown);
+pub struct INetCfg(pub ::windows::core::IUnknown);
 impl INetCfg {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Initialize(&self, pvreserved: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvreserved)).ok()
+    pub unsafe fn Initialize(&self, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvreserved)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Uninitialize(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Uninitialize(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Apply(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Apply(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn EnumComponents(&self, pguidclass: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IEnumNetCfgComponent> {
-        let mut result__: <IEnumNetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidclass), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
+    pub unsafe fn EnumComponents(&self, pguidclass: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumNetCfgComponent> {
+        let mut result__: <IEnumNetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidclass), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn FindComponent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
+    pub unsafe fn FindComponent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0) -> ::windows::core::Result<INetCfgComponent> {
+        let mut result__: <INetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn QueryNetCfgClass(&self, pguidclass: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidclass), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    pub unsafe fn QueryNetCfgClass(&self, pguidclass: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidclass), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfg {
+unsafe impl ::windows::core::Interface for INetCfg {
     type Vtable = INetCfg_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae93_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae93_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<INetCfg> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfg> for ::windows::core::IUnknown {
     fn from(value: INetCfg) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfg> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfg> for ::windows::core::IUnknown {
     fn from(value: &INetCfg) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfg {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfg {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfg {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfg {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfg_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvreserved: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidclass: *const ::windows::runtime::GUID, ppenumcomponent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwinfid: super::super::Foundation::PWSTR, pcomponent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguidclass: *const ::windows::core::GUID, ppenumcomponent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszwinfid: super::super::Foundation::PWSTR, pcomponent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidclass: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguidclass: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgBindingInterface(pub ::windows::runtime::IUnknown);
+pub struct INetCfgBindingInterface(pub ::windows::core::IUnknown);
 impl INetCfgBindingInterface {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn GetUpperComponent(&self) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
+    pub unsafe fn GetUpperComponent(&self) -> ::windows::core::Result<INetCfgComponent> {
+        let mut result__: <INetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn GetLowerComponent(&self) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
+    pub unsafe fn GetLowerComponent(&self) -> ::windows::core::Result<INetCfgComponent> {
+        let mut result__: <INetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgBindingInterface {
+unsafe impl ::windows::core::Interface for INetCfgBindingInterface {
     type Vtable = INetCfgBindingInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae94_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae94_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<INetCfgBindingInterface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgBindingInterface> for ::windows::core::IUnknown {
     fn from(value: INetCfgBindingInterface) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgBindingInterface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgBindingInterface> for ::windows::core::IUnknown {
     fn from(value: &INetCfgBindingInterface) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgBindingInterface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgBindingInterface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgBindingInterface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgBindingInterface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgBindingInterface_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszwinterfacename: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszwinterfacename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppnccitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppnccitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgBindingPath(pub ::windows::runtime::IUnknown);
+pub struct INetCfgBindingPath(pub ::windows::core::IUnknown);
 impl INetCfgBindingPath {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn IsSamePathAs<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, ppath: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ppath.into_param().abi()).ok()
+    pub unsafe fn IsSamePathAs<'a, Param0: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, ppath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ppath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn IsSubPathOf<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, ppath: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ppath.into_param().abi()).ok()
+    pub unsafe fn IsSubPathOf<'a, Param0: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, ppath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ppath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn IsEnabled(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn IsEnabled(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn Enable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
+    pub unsafe fn Enable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn GetPathToken(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPathToken(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<INetCfgComponent> {
+        let mut result__: <INetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn GetDepth(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetDepth(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn EnumBindingInterfaces(&self) -> ::windows::runtime::Result<IEnumNetCfgBindingInterface> {
-        let mut result__: <IEnumNetCfgBindingInterface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingInterface>(result__)
+    pub unsafe fn EnumBindingInterfaces(&self) -> ::windows::core::Result<IEnumNetCfgBindingInterface> {
+        let mut result__: <IEnumNetCfgBindingInterface as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingInterface>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgBindingPath {
+unsafe impl ::windows::core::Interface for INetCfgBindingPath {
     type Vtable = INetCfgBindingPath_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae96_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae96_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<INetCfgBindingPath> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgBindingPath> for ::windows::core::IUnknown {
     fn from(value: INetCfgBindingPath) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgBindingPath> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgBindingPath> for ::windows::core::IUnknown {
     fn from(value: &INetCfgBindingPath) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgBindingPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgBindingPath {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgBindingPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgBindingPath {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgBindingPath_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppath: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppath: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fenable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppath: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppath: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fenable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszwpathtoken: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszwpathtoken: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcomponent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcinterfaces: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenuminterface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcomponent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcinterfaces: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenuminterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgClass(pub ::windows::runtime::IUnknown);
+pub struct INetCfgClass(pub ::windows::core::IUnknown);
 impl INetCfgClass {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn FindComponent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
+    pub unsafe fn FindComponent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0) -> ::windows::core::Result<INetCfgComponent> {
+        let mut result__: <INetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn EnumComponents(&self) -> ::windows::runtime::Result<IEnumNetCfgComponent> {
-        let mut result__: <IEnumNetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
+    pub unsafe fn EnumComponents(&self) -> ::windows::core::Result<IEnumNetCfgComponent> {
+        let mut result__: <IEnumNetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgClass {
+unsafe impl ::windows::core::Interface for INetCfgClass {
     type Vtable = INetCfgClass_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae97_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae97_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<INetCfgClass> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgClass> for ::windows::core::IUnknown {
     fn from(value: INetCfgClass) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgClass> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgClass> for ::windows::core::IUnknown {
     fn from(value: &INetCfgClass) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgClass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgClass {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgClass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgClass {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgClass_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwinfid: super::super::Foundation::PWSTR, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszwinfid: super::super::Foundation::PWSTR, ppnccitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumcomponent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenumcomponent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgClassSetup(pub ::windows::runtime::IUnknown);
+pub struct INetCfgClassSetup(pub ::windows::core::IUnknown);
 impl INetCfgClassSetup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn SelectAndInstall<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, pobotoken: *const OBO_TOKEN) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken), &mut result__).from_abi::<INetCfgComponent>(result__)
+    pub unsafe fn SelectAndInstall<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, pobotoken: *const OBO_TOKEN) -> ::windows::core::Result<INetCfgComponent> {
+        let mut result__: <INetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn Install<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: Param4, pszwanswersections: Param5) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
+    pub unsafe fn Install<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: Param4, pszwanswersections: Param5) -> ::windows::core::Result<INetCfgComponent> {
+        let mut result__: <INetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn DeInstall<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pcomponent: Param0, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pcomponent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(pmszwrefs)).ok()
+    pub unsafe fn DeInstall<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pcomponent: Param0, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pcomponent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(pmszwrefs)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgClassSetup {
+unsafe impl ::windows::core::Interface for INetCfgClassSetup {
     type Vtable = INetCfgClassSetup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae9d_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9d_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<INetCfgClassSetup> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgClassSetup> for ::windows::core::IUnknown {
     fn from(value: INetCfgClassSetup) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgClassSetup> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgClassSetup> for ::windows::core::IUnknown {
     fn from(value: &INetCfgClassSetup) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgClassSetup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgClassSetup {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgClassSetup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgClassSetup {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgClassSetup_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwndparent: super::super::Foundation::HWND, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, ppnccitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwinfid: super::super::Foundation::PWSTR, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszwinfid: super::super::Foundation::PWSTR, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR, ppnccitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcomponent: ::windows::runtime::RawPtr, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcomponent: ::windows::core::RawPtr, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgClassSetup2(pub ::windows::runtime::IUnknown);
+pub struct INetCfgClassSetup2(pub ::windows::core::IUnknown);
 impl INetCfgClassSetup2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn SelectAndInstall<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, pobotoken: *const OBO_TOKEN) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken), &mut result__).from_abi::<INetCfgComponent>(result__)
+    pub unsafe fn SelectAndInstall<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, pobotoken: *const OBO_TOKEN) -> ::windows::core::Result<INetCfgComponent> {
+        let mut result__: <INetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn Install<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: Param4, pszwanswersections: Param5) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
+    pub unsafe fn Install<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: Param4, pszwanswersections: Param5) -> ::windows::core::Result<INetCfgComponent> {
+        let mut result__: <INetCfgComponent as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn DeInstall<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pcomponent: Param0, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pcomponent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(pmszwrefs)).ok()
+    pub unsafe fn DeInstall<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pcomponent: Param0, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pcomponent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(pmszwrefs)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn UpdateNonEnumeratedComponent<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, picomp: Param0, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), picomp.into_param().abi(), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno)).ok()
+    pub unsafe fn UpdateNonEnumeratedComponent<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, picomp: Param0, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), picomp.into_param().abi(), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgClassSetup2 {
+unsafe impl ::windows::core::Interface for INetCfgClassSetup2 {
     type Vtable = INetCfgClassSetup2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8aea0_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8aea0_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<INetCfgClassSetup2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgClassSetup2> for ::windows::core::IUnknown {
     fn from(value: INetCfgClassSetup2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgClassSetup2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgClassSetup2> for ::windows::core::IUnknown {
     fn from(value: &INetCfgClassSetup2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgClassSetup2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgClassSetup2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgClassSetup2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgClassSetup2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<INetCfgClassSetup2> for INetCfgClassSetup {
@@ -3525,883 +3525,883 @@ impl ::core::convert::From<&INetCfgClassSetup2> for INetCfgClassSetup {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, INetCfgClassSetup> for INetCfgClassSetup2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, INetCfgClassSetup> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, INetCfgClassSetup> for INetCfgClassSetup2 {
+    fn into_param(self) -> ::windows::core::Param<'a, INetCfgClassSetup> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, INetCfgClassSetup> for &INetCfgClassSetup2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, INetCfgClassSetup> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, INetCfgClassSetup> for &INetCfgClassSetup2 {
+    fn into_param(self) -> ::windows::core::Param<'a, INetCfgClassSetup> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgClassSetup2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwndparent: super::super::Foundation::HWND, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, ppnccitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwinfid: super::super::Foundation::PWSTR, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszwinfid: super::super::Foundation::PWSTR, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR, ppnccitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcomponent: ::windows::runtime::RawPtr, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcomponent: ::windows::core::RawPtr, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, picomp: ::windows::runtime::RawPtr, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, picomp: ::windows::core::RawPtr, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgComponent(pub ::windows::runtime::IUnknown);
+pub struct INetCfgComponent(pub ::windows::core::IUnknown);
 impl INetCfgComponent {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwdisplayname: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwdisplayname.into_param().abi()).ok()
+    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwdisplayname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwdisplayname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn GetHelpText(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetHelpText(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn GetId(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn GetCharacteristics(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetCharacteristics(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn GetInstanceGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+    pub unsafe fn GetInstanceGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn GetPnpDevNodeId(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPnpDevNodeId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn GetClassGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+    pub unsafe fn GetClassGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn GetBindName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetBindName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn GetDeviceStatus(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetDeviceStatus(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Registry")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_System_Registry`*"]
-    pub unsafe fn OpenParamKey(&self) -> ::windows::runtime::Result<super::super::System::Registry::HKEY> {
-        let mut result__: <super::super::System::Registry::HKEY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Registry::HKEY>(result__)
+    pub unsafe fn OpenParamKey(&self) -> ::windows::core::Result<super::super::System::Registry::HKEY> {
+        let mut result__: <super::super::System::Registry::HKEY as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Registry::HKEY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn RaisePropertyUi<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, hwndparent: Param0, dwflags: u32, punkcontext: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), punkcontext.into_param().abi()).ok()
+    pub unsafe fn RaisePropertyUi<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, hwndparent: Param0, dwflags: u32, punkcontext: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), punkcontext.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgComponent {
+unsafe impl ::windows::core::Interface for INetCfgComponent {
     type Vtable = INetCfgComponent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae99_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae99_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<INetCfgComponent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponent> for ::windows::core::IUnknown {
     fn from(value: INetCfgComponent) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgComponent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponent> for ::windows::core::IUnknown {
     fn from(value: &INetCfgComponent) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponent_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszwdisplayname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszwdisplayname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwdisplayname: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszwdisplayname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwhelptext: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszwhelptext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszwid: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszwid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcharacteristics: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszwdevnodeid: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszwdevnodeid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszwbindname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszwbindname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pulstatus: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Registry")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phkey: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pulstatus: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Registry")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, phkey: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND, dwflags: u32, punkcontext: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwndparent: super::super::Foundation::HWND, dwflags: u32, punkcontext: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgComponentBindings(pub ::windows::runtime::IUnknown);
+pub struct INetCfgComponentBindings(pub ::windows::core::IUnknown);
 impl INetCfgComponentBindings {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn BindTo<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+    pub unsafe fn BindTo<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn UnbindFrom<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+    pub unsafe fn UnbindFrom<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn SupportsBindingInterface<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, pszwinterfacename: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszwinterfacename.into_param().abi()).ok()
+    pub unsafe fn SupportsBindingInterface<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, pszwinterfacename: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszwinterfacename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn IsBoundTo<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+    pub unsafe fn IsBoundTo<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn IsBindableTo<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+    pub unsafe fn IsBindableTo<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn EnumBindingPaths(&self, dwflags: u32) -> ::windows::runtime::Result<IEnumNetCfgBindingPath> {
-        let mut result__: <IEnumNetCfgBindingPath as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), &mut result__).from_abi::<IEnumNetCfgBindingPath>(result__)
+    pub unsafe fn EnumBindingPaths(&self, dwflags: u32) -> ::windows::core::Result<IEnumNetCfgBindingPath> {
+        let mut result__: <IEnumNetCfgBindingPath as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), &mut result__).from_abi::<IEnumNetCfgBindingPath>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn MoveBefore<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, pncbitemsrc: Param0, pncbitemdest: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
+    pub unsafe fn MoveBefore<'a, Param0: ::windows::core::IntoParam<'a, INetCfgBindingPath>, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, pncbitemsrc: Param0, pncbitemdest: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn MoveAfter<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, pncbitemsrc: Param0, pncbitemdest: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
+    pub unsafe fn MoveAfter<'a, Param0: ::windows::core::IntoParam<'a, INetCfgBindingPath>, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, pncbitemsrc: Param0, pncbitemdest: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgComponentBindings {
+unsafe impl ::windows::core::Interface for INetCfgComponentBindings {
     type Vtable = INetCfgComponentBindings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae9e_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9e_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<INetCfgComponentBindings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentBindings> for ::windows::core::IUnknown {
     fn from(value: INetCfgComponentBindings) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgComponentBindings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentBindings> for ::windows::core::IUnknown {
     fn from(value: &INetCfgComponentBindings) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentBindings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgComponentBindings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentBindings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgComponentBindings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentBindings_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnccitem: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnccitem: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, pszwinterfacename: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pnccitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pnccitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, pszwinterfacename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnccitem: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnccitem: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, ppienum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pncbitemsrc: ::windows::runtime::RawPtr, pncbitemdest: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pncbitemsrc: ::windows::runtime::RawPtr, pncbitemdest: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pnccitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pnccitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, ppienum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pncbitemsrc: ::windows::core::RawPtr, pncbitemdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pncbitemsrc: ::windows::core::RawPtr, pncbitemdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgComponentControl(pub ::windows::runtime::IUnknown);
+pub struct INetCfgComponentControl(pub ::windows::core::IUnknown);
 impl INetCfgComponentControl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>, Param1: ::windows::runtime::IntoParam<'a, INetCfg>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, picomp: Param0, pinetcfg: Param1, finstalling: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), picomp.into_param().abi(), pinetcfg.into_param().abi(), finstalling.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>, Param1: ::windows::core::IntoParam<'a, INetCfg>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, picomp: Param0, pinetcfg: Param1, finstalling: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), picomp.into_param().abi(), pinetcfg.into_param().abi(), finstalling.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn ApplyRegistryChanges(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn ApplyRegistryChanges(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn ApplyPnpChanges<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgPnpReconfigCallback>>(&self, picallback: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), picallback.into_param().abi()).ok()
+    pub unsafe fn ApplyPnpChanges<'a, Param0: ::windows::core::IntoParam<'a, INetCfgPnpReconfigCallback>>(&self, picallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), picallback.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn CancelChanges(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn CancelChanges(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgComponentControl {
+unsafe impl ::windows::core::Interface for INetCfgComponentControl {
     type Vtable = INetCfgComponentControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238df_bea1_11d0_9298_00c04fc99dcf);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238df_bea1_11d0_9298_00c04fc99dcf);
 }
-impl ::core::convert::From<INetCfgComponentControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentControl> for ::windows::core::IUnknown {
     fn from(value: INetCfgComponentControl) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgComponentControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentControl> for ::windows::core::IUnknown {
     fn from(value: &INetCfgComponentControl) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgComponentControl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgComponentControl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentControl_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, picomp: ::windows::runtime::RawPtr, pinetcfg: ::windows::runtime::RawPtr, finstalling: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, picomp: ::windows::core::RawPtr, pinetcfg: ::windows::core::RawPtr, finstalling: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, picallback: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, picallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgComponentNotifyBinding(pub ::windows::runtime::IUnknown);
+pub struct INetCfgComponentNotifyBinding(pub ::windows::core::IUnknown);
 impl INetCfgComponentNotifyBinding {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn QueryBindingPath<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+    pub unsafe fn QueryBindingPath<'a, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn NotifyBindingPath<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+    pub unsafe fn NotifyBindingPath<'a, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgComponentNotifyBinding {
+unsafe impl ::windows::core::Interface for INetCfgComponentNotifyBinding {
     type Vtable = INetCfgComponentNotifyBinding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238e1_bea1_11d0_9298_00c04fc99dcf);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e1_bea1_11d0_9298_00c04fc99dcf);
 }
-impl ::core::convert::From<INetCfgComponentNotifyBinding> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentNotifyBinding> for ::windows::core::IUnknown {
     fn from(value: INetCfgComponentNotifyBinding) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgComponentNotifyBinding> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentNotifyBinding> for ::windows::core::IUnknown {
     fn from(value: &INetCfgComponentNotifyBinding) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentNotifyBinding {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgComponentNotifyBinding {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentNotifyBinding {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgComponentNotifyBinding {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentNotifyBinding_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchangeflag: u32, pipath: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchangeflag: u32, pipath: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwchangeflag: u32, pipath: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwchangeflag: u32, pipath: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgComponentNotifyGlobal(pub ::windows::runtime::IUnknown);
+pub struct INetCfgComponentNotifyGlobal(pub ::windows::core::IUnknown);
 impl INetCfgComponentNotifyGlobal {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn GetSupportedNotifications(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetSupportedNotifications(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn SysQueryBindingPath<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+    pub unsafe fn SysQueryBindingPath<'a, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn SysNotifyBindingPath<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+    pub unsafe fn SysNotifyBindingPath<'a, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn SysNotifyComponent<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, dwchangeflag: u32, picomp: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), picomp.into_param().abi()).ok()
+    pub unsafe fn SysNotifyComponent<'a, Param1: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, dwchangeflag: u32, picomp: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), picomp.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgComponentNotifyGlobal {
+unsafe impl ::windows::core::Interface for INetCfgComponentNotifyGlobal {
     type Vtable = INetCfgComponentNotifyGlobal_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238e2_bea1_11d0_9298_00c04fc99dcf);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e2_bea1_11d0_9298_00c04fc99dcf);
 }
-impl ::core::convert::From<INetCfgComponentNotifyGlobal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentNotifyGlobal> for ::windows::core::IUnknown {
     fn from(value: INetCfgComponentNotifyGlobal) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgComponentNotifyGlobal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentNotifyGlobal> for ::windows::core::IUnknown {
     fn from(value: &INetCfgComponentNotifyGlobal) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentNotifyGlobal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgComponentNotifyGlobal {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentNotifyGlobal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgComponentNotifyGlobal {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentNotifyGlobal_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwnotifications: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchangeflag: u32, pipath: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchangeflag: u32, pipath: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchangeflag: u32, picomp: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwnotifications: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwchangeflag: u32, pipath: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwchangeflag: u32, pipath: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwchangeflag: u32, picomp: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgComponentPropertyUi(pub ::windows::runtime::IUnknown);
+pub struct INetCfgComponentPropertyUi(pub ::windows::core::IUnknown);
 impl INetCfgComponentPropertyUi {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn QueryPropertyUi<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkreserved: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), punkreserved.into_param().abi()).ok()
+    pub unsafe fn QueryPropertyUi<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkreserved: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), punkreserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn SetContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkreserved: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), punkreserved.into_param().abi()).ok()
+    pub unsafe fn SetContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkreserved: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), punkreserved.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn MergePropPages<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: Param3, pszstartpage: *const super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwdefpages), ::core::mem::transmute(pahpspprivate), ::core::mem::transmute(pcpages), hwndparent.into_param().abi(), ::core::mem::transmute(pszstartpage)).ok()
+    pub unsafe fn MergePropPages<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: Param3, pszstartpage: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwdefpages), ::core::mem::transmute(pahpspprivate), ::core::mem::transmute(pcpages), hwndparent.into_param().abi(), ::core::mem::transmute(pszstartpage)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn ValidateProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndsheet: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), hwndsheet.into_param().abi()).ok()
+    pub unsafe fn ValidateProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndsheet: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), hwndsheet.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn ApplyProperties(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn ApplyProperties(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn CancelProperties(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn CancelProperties(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgComponentPropertyUi {
+unsafe impl ::windows::core::Interface for INetCfgComponentPropertyUi {
     type Vtable = INetCfgComponentPropertyUi_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238e0_bea1_11d0_9298_00c04fc99dcf);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e0_bea1_11d0_9298_00c04fc99dcf);
 }
-impl ::core::convert::From<INetCfgComponentPropertyUi> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentPropertyUi> for ::windows::core::IUnknown {
     fn from(value: INetCfgComponentPropertyUi) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgComponentPropertyUi> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentPropertyUi> for ::windows::core::IUnknown {
     fn from(value: &INetCfgComponentPropertyUi) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentPropertyUi {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgComponentPropertyUi {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentPropertyUi {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgComponentPropertyUi {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentPropertyUi_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punkreserved: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punkreserved: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: super::super::Foundation::HWND, pszstartpage: *const super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, punkreserved: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, punkreserved: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: super::super::Foundation::HWND, pszstartpage: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndsheet: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwndsheet: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgComponentSetup(pub ::windows::runtime::IUnknown);
+pub struct INetCfgComponentSetup(pub ::windows::core::IUnknown);
 impl INetCfgComponentSetup {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Install(&self, dwsetupflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsetupflags)).ok()
+    pub unsafe fn Install(&self, dwsetupflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsetupflags)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Upgrade(&self, dwsetupflags: u32, dwupgradefombuildno: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefombuildno)).ok()
+    pub unsafe fn Upgrade(&self, dwsetupflags: u32, dwupgradefombuildno: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefombuildno)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn ReadAnswerFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwanswerfile: Param0, pszwanswersections: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi()).ok()
+    pub unsafe fn ReadAnswerFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwanswerfile: Param0, pszwanswersections: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Removing(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Removing(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgComponentSetup {
+unsafe impl ::windows::core::Interface for INetCfgComponentSetup {
     type Vtable = INetCfgComponentSetup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238e3_bea1_11d0_9298_00c04fc99dcf);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e3_bea1_11d0_9298_00c04fc99dcf);
 }
-impl ::core::convert::From<INetCfgComponentSetup> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentSetup> for ::windows::core::IUnknown {
     fn from(value: INetCfgComponentSetup) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgComponentSetup> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentSetup> for ::windows::core::IUnknown {
     fn from(value: &INetCfgComponentSetup) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentSetup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgComponentSetup {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentSetup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgComponentSetup {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentSetup_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwsetupflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwsetupflags: u32, dwupgradefombuildno: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwsetupflags: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwsetupflags: u32, dwupgradefombuildno: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgComponentSysPrep(pub ::windows::runtime::IUnknown);
+pub struct INetCfgComponentSysPrep(pub ::windows::core::IUnknown);
 impl INetCfgComponentSysPrep {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn SaveAdapterParameters<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgSysPrep>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pncsp: Param0, pszwanswersections: Param1, padapterinstanceguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pncsp.into_param().abi(), pszwanswersections.into_param().abi(), ::core::mem::transmute(padapterinstanceguid)).ok()
+    pub unsafe fn SaveAdapterParameters<'a, Param0: ::windows::core::IntoParam<'a, INetCfgSysPrep>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pncsp: Param0, pszwanswersections: Param1, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pncsp.into_param().abi(), pszwanswersections.into_param().abi(), ::core::mem::transmute(padapterinstanceguid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn RestoreAdapterParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwanswerfile: Param0, pszwanswersection: Param1, padapterinstanceguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwanswerfile.into_param().abi(), pszwanswersection.into_param().abi(), ::core::mem::transmute(padapterinstanceguid)).ok()
+    pub unsafe fn RestoreAdapterParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwanswerfile: Param0, pszwanswersection: Param1, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwanswerfile.into_param().abi(), pszwanswersection.into_param().abi(), ::core::mem::transmute(padapterinstanceguid)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgComponentSysPrep {
+unsafe impl ::windows::core::Interface for INetCfgComponentSysPrep {
     type Vtable = INetCfgComponentSysPrep_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae9a_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9a_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<INetCfgComponentSysPrep> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentSysPrep> for ::windows::core::IUnknown {
     fn from(value: INetCfgComponentSysPrep) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgComponentSysPrep> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentSysPrep> for ::windows::core::IUnknown {
     fn from(value: &INetCfgComponentSysPrep) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentSysPrep {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgComponentSysPrep {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentSysPrep {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgComponentSysPrep {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentSysPrep_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pncsp: ::windows::runtime::RawPtr, pszwanswersections: super::super::Foundation::PWSTR, padapterinstanceguid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pncsp: ::windows::core::RawPtr, pszwanswersections: super::super::Foundation::PWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersection: super::super::Foundation::PWSTR, padapterinstanceguid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersection: super::super::Foundation::PWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgComponentUpperEdge(pub ::windows::runtime::IUnknown);
+pub struct INetCfgComponentUpperEdge(pub ::windows::core::IUnknown);
 impl INetCfgComponentUpperEdge {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn GetInterfaceIdsForAdapter<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(pdwnuminterfaces), ::core::mem::transmute(ppguidinterfaceids)).ok()
+    pub unsafe fn GetInterfaceIdsForAdapter<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(pdwnuminterfaces), ::core::mem::transmute(ppguidinterfaceids)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn AddInterfacesToAdapter<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, dwnuminterfaces: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(dwnuminterfaces)).ok()
+    pub unsafe fn AddInterfacesToAdapter<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, dwnuminterfaces: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(dwnuminterfaces)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn RemoveInterfacesFromAdapter<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(dwnuminterfaces), ::core::mem::transmute(pguidinterfaceids)).ok()
+    pub unsafe fn RemoveInterfacesFromAdapter<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(dwnuminterfaces), ::core::mem::transmute(pguidinterfaceids)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgComponentUpperEdge {
+unsafe impl ::windows::core::Interface for INetCfgComponentUpperEdge {
     type Vtable = INetCfgComponentUpperEdge_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x932238e4_bea1_11d0_9298_00c04fc99dcf);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e4_bea1_11d0_9298_00c04fc99dcf);
 }
-impl ::core::convert::From<INetCfgComponentUpperEdge> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentUpperEdge> for ::windows::core::IUnknown {
     fn from(value: INetCfgComponentUpperEdge) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgComponentUpperEdge> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentUpperEdge> for ::windows::core::IUnknown {
     fn from(value: &INetCfgComponentUpperEdge) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentUpperEdge {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgComponentUpperEdge {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentUpperEdge {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgComponentUpperEdge {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentUpperEdge_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, padapter: ::windows::runtime::RawPtr, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, padapter: ::windows::runtime::RawPtr, dwnuminterfaces: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, padapter: ::windows::runtime::RawPtr, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, padapter: ::windows::core::RawPtr, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, padapter: ::windows::core::RawPtr, dwnuminterfaces: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, padapter: ::windows::core::RawPtr, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgLock(pub ::windows::runtime::IUnknown);
+pub struct INetCfgLock(pub ::windows::core::IUnknown);
 impl INetCfgLock {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn AcquireWriteLock<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cmstimeout: u32, pszwclientdescription: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cmstimeout), pszwclientdescription.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn AcquireWriteLock<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cmstimeout: u32, pszwclientdescription: Param1) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cmstimeout), pszwclientdescription.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn ReleaseWriteLock(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn ReleaseWriteLock(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn IsWriteLocked(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn IsWriteLocked(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgLock {
+unsafe impl ::windows::core::Interface for INetCfgLock {
     type Vtable = INetCfgLock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae9f_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9f_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<INetCfgLock> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgLock> for ::windows::core::IUnknown {
     fn from(value: INetCfgLock) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgLock> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgLock> for ::windows::core::IUnknown {
     fn from(value: &INetCfgLock) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgLock {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgLock {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgLock {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgLock {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgLock_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cmstimeout: u32, pszwclientdescription: super::super::Foundation::PWSTR, ppszwclientdescription: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cmstimeout: u32, pszwclientdescription: super::super::Foundation::PWSTR, ppszwclientdescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszwclientdescription: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszwclientdescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgPnpReconfigCallback(pub ::windows::runtime::IUnknown);
+pub struct INetCfgPnpReconfigCallback(pub ::windows::core::IUnknown);
 impl INetCfgPnpReconfigCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn SendPnpReconfig<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: Param1, pszwlower: Param2, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(layer), pszwupper.into_param().abi(), pszwlower.into_param().abi(), ::core::mem::transmute(pvdata), ::core::mem::transmute(dwsizeofdata)).ok()
+    pub unsafe fn SendPnpReconfig<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: Param1, pszwlower: Param2, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(layer), pszwupper.into_param().abi(), pszwlower.into_param().abi(), ::core::mem::transmute(pvdata), ::core::mem::transmute(dwsizeofdata)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgPnpReconfigCallback {
+unsafe impl ::windows::core::Interface for INetCfgPnpReconfigCallback {
     type Vtable = INetCfgPnpReconfigCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d84bd35_e227_11d2_b700_00a0c98a6a85);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d84bd35_e227_11d2_b700_00a0c98a6a85);
 }
-impl ::core::convert::From<INetCfgPnpReconfigCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgPnpReconfigCallback> for ::windows::core::IUnknown {
     fn from(value: INetCfgPnpReconfigCallback) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgPnpReconfigCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgPnpReconfigCallback> for ::windows::core::IUnknown {
     fn from(value: &INetCfgPnpReconfigCallback) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgPnpReconfigCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgPnpReconfigCallback {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgPnpReconfigCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgPnpReconfigCallback {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgPnpReconfigCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layer: NCPNP_RECONFIG_LAYER, pszwupper: super::super::Foundation::PWSTR, pszwlower: super::super::Foundation::PWSTR, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, layer: NCPNP_RECONFIG_LAYER, pszwupper: super::super::Foundation::PWSTR, pszwlower: super::super::Foundation::PWSTR, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetCfgSysPrep(pub ::windows::runtime::IUnknown);
+pub struct INetCfgSysPrep(pub ::windows::core::IUnknown);
 impl INetCfgSysPrep {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn HrSetupSetFirstDword<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, dwvalue: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), ::core::mem::transmute(dwvalue)).ok()
+    pub unsafe fn HrSetupSetFirstDword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, dwvalue: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), ::core::mem::transmute(dwvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn HrSetupSetFirstString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, pwszvalue: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pwszvalue.into_param().abi()).ok()
+    pub unsafe fn HrSetupSetFirstString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, pwszvalue: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn HrSetupSetFirstStringAsBool<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pwszsection: Param0, pwszkey: Param1, fvalue: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), fvalue.into_param().abi()).ok()
+    pub unsafe fn HrSetupSetFirstStringAsBool<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pwszsection: Param0, pwszkey: Param1, fvalue: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), fvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn HrSetupSetFirstMultiSzField<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, pmszvalue: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pmszvalue.into_param().abi()).ok()
+    pub unsafe fn HrSetupSetFirstMultiSzField<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, pmszvalue: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pmszvalue.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for INetCfgSysPrep {
+unsafe impl ::windows::core::Interface for INetCfgSysPrep {
     type Vtable = INetCfgSysPrep_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc0e8ae98_306e_11d1_aacf_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae98_306e_11d1_aacf_00805fc1270e);
 }
-impl ::core::convert::From<INetCfgSysPrep> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgSysPrep> for ::windows::core::IUnknown {
     fn from(value: INetCfgSysPrep) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetCfgSysPrep> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgSysPrep> for ::windows::core::IUnknown {
     fn from(value: &INetCfgSysPrep) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgSysPrep {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgSysPrep {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgSysPrep {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgSysPrep {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgSysPrep_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, dwvalue: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, dwvalue: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, pwszvalue: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, pwszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, fvalue: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, fvalue: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, pmszvalue: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, pmszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetLanConnectionUiInfo(pub ::windows::runtime::IUnknown);
+pub struct INetLanConnectionUiInfo(pub ::windows::core::IUnknown);
 impl INetLanConnectionUiInfo {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn GetDeviceGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+    pub unsafe fn GetDeviceGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for INetLanConnectionUiInfo {
+unsafe impl ::windows::core::Interface for INetLanConnectionUiInfo {
     type Vtable = INetLanConnectionUiInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc08956a6_1cd3_11d1_b1c5_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a6_1cd3_11d1_b1c5_00805fc1270e);
 }
-impl ::core::convert::From<INetLanConnectionUiInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetLanConnectionUiInfo> for ::windows::core::IUnknown {
     fn from(value: INetLanConnectionUiInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetLanConnectionUiInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetLanConnectionUiInfo> for ::windows::core::IUnknown {
     fn from(value: &INetLanConnectionUiInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetLanConnectionUiInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetLanConnectionUiInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetLanConnectionUiInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetLanConnectionUiInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetLanConnectionUiInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct INetRasConnectionIpUiInfo(pub ::windows::runtime::IUnknown);
+pub struct INetRasConnectionIpUiInfo(pub ::windows::core::IUnknown);
 impl INetRasConnectionIpUiInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn GetUiInfo(&self) -> ::windows::runtime::Result<RASCON_IPUI> {
-        let mut result__: <RASCON_IPUI as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<RASCON_IPUI>(result__)
+    pub unsafe fn GetUiInfo(&self) -> ::windows::core::Result<RASCON_IPUI> {
+        let mut result__: <RASCON_IPUI as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<RASCON_IPUI>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for INetRasConnectionIpUiInfo {
+unsafe impl ::windows::core::Interface for INetRasConnectionIpUiInfo {
     type Vtable = INetRasConnectionIpUiInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfaedcf58_31fe_11d1_aad2_00805fc1270e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaedcf58_31fe_11d1_aad2_00805fc1270e);
 }
-impl ::core::convert::From<INetRasConnectionIpUiInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetRasConnectionIpUiInfo> for ::windows::core::IUnknown {
     fn from(value: INetRasConnectionIpUiInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&INetRasConnectionIpUiInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetRasConnectionIpUiInfo> for ::windows::core::IUnknown {
     fn from(value: &INetRasConnectionIpUiInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetRasConnectionIpUiInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetRasConnectionIpUiInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetRasConnectionIpUiInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetRasConnectionIpUiInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetRasConnectionIpUiInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinfo: *mut RASCON_IPUI) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pinfo: *mut RASCON_IPUI) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -4411,98 +4411,98 @@ pub const IPX_PROTOCOL_RIP: u32 = 131072u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IProvisioningDomain(pub ::windows::runtime::IUnknown);
+pub struct IProvisioningDomain(pub ::windows::core::IUnknown);
 impl IProvisioningDomain {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwpathtofolder: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszwpathtofolder.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwpathtofolder: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszwpathtofolder.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
-    pub unsafe fn Query<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwdomain: Param0, pszwlanguage: Param1, pszwxpathquery: Param2) -> ::windows::runtime::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
-        let mut result__: <super::super::Data::Xml::MsXml::IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwdomain.into_param().abi(), pszwlanguage.into_param().abi(), pszwxpathquery.into_param().abi(), &mut result__).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMNodeList>(result__)
+    pub unsafe fn Query<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwdomain: Param0, pszwlanguage: Param1, pszwxpathquery: Param2) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
+        let mut result__: <super::super::Data::Xml::MsXml::IXMLDOMNodeList as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwdomain.into_param().abi(), pszwlanguage.into_param().abi(), pszwxpathquery.into_param().abi(), &mut result__).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMNodeList>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IProvisioningDomain {
+unsafe impl ::windows::core::Interface for IProvisioningDomain {
     type Vtable = IProvisioningDomain_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc96fbd50_24dd_11d8_89fb_00904b2ea9c6);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96fbd50_24dd_11d8_89fb_00904b2ea9c6);
 }
-impl ::core::convert::From<IProvisioningDomain> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IProvisioningDomain> for ::windows::core::IUnknown {
     fn from(value: IProvisioningDomain) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IProvisioningDomain> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IProvisioningDomain> for ::windows::core::IUnknown {
     fn from(value: &IProvisioningDomain) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProvisioningDomain {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProvisioningDomain {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProvisioningDomain {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IProvisioningDomain {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvisioningDomain_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwpathtofolder: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszwpathtofolder: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwdomain: super::super::Foundation::PWSTR, pszwlanguage: super::super::Foundation::PWSTR, pszwxpathquery: super::super::Foundation::PWSTR, nodes: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszwdomain: super::super::Foundation::PWSTR, pszwlanguage: super::super::Foundation::PWSTR, pszwxpathquery: super::super::Foundation::PWSTR, nodes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation")))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IProvisioningProfileWireless(pub ::windows::runtime::IUnknown);
+pub struct IProvisioningProfileWireless(pub ::windows::core::IUnknown);
 impl IProvisioningProfileWireless {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn CreateProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrxmlwirelessconfigprofile: Param0, bstrxmlconnectionconfigprofile: Param1, padapterinstanceguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrxmlwirelessconfigprofile.into_param().abi(), bstrxmlconnectionconfigprofile.into_param().abi(), ::core::mem::transmute(padapterinstanceguid), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn CreateProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrxmlwirelessconfigprofile: Param0, bstrxmlconnectionconfigprofile: Param1, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrxmlwirelessconfigprofile.into_param().abi(), bstrxmlconnectionconfigprofile.into_param().abi(), ::core::mem::transmute(padapterinstanceguid), &mut result__).from_abi::<u32>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IProvisioningProfileWireless {
+unsafe impl ::windows::core::Interface for IProvisioningProfileWireless {
     type Vtable = IProvisioningProfileWireless_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc96fbd51_24dd_11d8_89fb_00904b2ea9c6);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96fbd51_24dd_11d8_89fb_00904b2ea9c6);
 }
-impl ::core::convert::From<IProvisioningProfileWireless> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IProvisioningProfileWireless> for ::windows::core::IUnknown {
     fn from(value: IProvisioningProfileWireless) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IProvisioningProfileWireless> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IProvisioningProfileWireless> for ::windows::core::IUnknown {
     fn from(value: &IProvisioningProfileWireless) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProvisioningProfileWireless {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProvisioningProfileWireless {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProvisioningProfileWireless {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IProvisioningProfileWireless {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvisioningProfileWireless_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrxmlwirelessconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrxmlconnectionconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, padapterinstanceguid: *const ::windows::runtime::GUID, pulstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrxmlwirelessconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrxmlconnectionconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, padapterinstanceguid: *const ::windows::core::GUID, pulstatus: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -4512,7 +4512,7 @@ pub const IR_PROMISCUOUS_MULTICAST: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn I_NetLogonControl2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32 {
+pub unsafe fn I_NetLogonControl2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4606,7 +4606,7 @@ impl ::core::cmp::PartialEq for LOCALGROUP_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LOCALGROUP_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for LOCALGROUP_INFO_0 {
+unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4640,7 +4640,7 @@ impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LOCALGROUP_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for LOCALGROUP_INFO_1 {
+unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4673,7 +4673,7 @@ impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1002 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LOCALGROUP_INFO_1002 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for LOCALGROUP_INFO_1002 {
+unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_1002 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4706,7 +4706,7 @@ impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for LOCALGROUP_MEMBERS_INFO_0 {
+unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4741,7 +4741,7 @@ impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for LOCALGROUP_MEMBERS_INFO_1 {
+unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4776,7 +4776,7 @@ impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for LOCALGROUP_MEMBERS_INFO_2 {
+unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4809,7 +4809,7 @@ impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for LOCALGROUP_MEMBERS_INFO_3 {
+unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_3 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -4844,7 +4844,7 @@ impl ::core::cmp::PartialEq for LOCALGROUP_USERS_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LOCALGROUP_USERS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for LOCALGROUP_USERS_INFO_0 {
+unsafe impl ::windows::core::Abi for LOCALGROUP_USERS_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -5028,7 +5028,7 @@ impl ::core::cmp::PartialEq for MPR_PROTOCOL_0 {
     }
 }
 impl ::core::cmp::Eq for MPR_PROTOCOL_0 {}
-unsafe impl ::windows::runtime::Abi for MPR_PROTOCOL_0 {
+unsafe impl ::windows::core::Abi for MPR_PROTOCOL_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -5066,7 +5066,7 @@ impl ::core::cmp::PartialEq for MSA_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for MSA_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for MSA_INFO_0 {
+unsafe impl ::windows::core::Abi for MSA_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -5080,7 +5080,7 @@ impl ::core::convert::From<i32> for MSA_INFO_LEVEL {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MSA_INFO_LEVEL {
+unsafe impl ::windows::core::Abi for MSA_INFO_LEVEL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -5097,7 +5097,7 @@ impl ::core::convert::From<i32> for MSA_INFO_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MSA_INFO_STATE {
+unsafe impl ::windows::core::Abi for MSA_INFO_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -5136,7 +5136,7 @@ impl ::core::cmp::PartialEq for MSG_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MSG_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MSG_INFO_0 {
+unsafe impl ::windows::core::Abi for MSG_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5171,7 +5171,7 @@ impl ::core::cmp::PartialEq for MSG_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MSG_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MSG_INFO_1 {
+unsafe impl ::windows::core::Abi for MSG_INFO_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -5215,7 +5215,7 @@ impl ::core::convert::From<i32> for NCPNP_RECONFIG_LAYER {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NCPNP_RECONFIG_LAYER {
+unsafe impl ::windows::core::Abi for NCPNP_RECONFIG_LAYER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -5229,7 +5229,7 @@ impl ::core::convert::From<i32> for NCRP_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NCRP_FLAGS {
+unsafe impl ::windows::core::Abi for NCRP_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -6373,37 +6373,37 @@ pub const NERR_WriteFault: u32 = 2295u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const NETBIOS_NAME_LEN: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_E_ACTIVE_RAS_CONNECTIONS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147180506i32 as _);
+pub const NETCFG_E_ACTIVE_RAS_CONNECTIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180506i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_E_ADAPTER_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147180505i32 as _);
+pub const NETCFG_E_ADAPTER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180505i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_E_ALREADY_INITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147180512i32 as _);
+pub const NETCFG_E_ALREADY_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180512i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_E_COMPONENT_REMOVED_PENDING_REBOOT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147180504i32 as _);
+pub const NETCFG_E_COMPONENT_REMOVED_PENDING_REBOOT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180504i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_E_DUPLICATE_INSTANCEID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147180501i32 as _);
+pub const NETCFG_E_DUPLICATE_INSTANCEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180501i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_E_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147180510i32 as _);
+pub const NETCFG_E_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180510i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_E_MAX_FILTER_LIMIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147180503i32 as _);
+pub const NETCFG_E_MAX_FILTER_LIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180503i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_E_NEED_REBOOT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147180507i32 as _);
+pub const NETCFG_E_NEED_REBOOT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180507i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_E_NOT_INITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147180511i32 as _);
+pub const NETCFG_E_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180511i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_E_NO_WRITE_LOCK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147180508i32 as _);
+pub const NETCFG_E_NO_WRITE_LOCK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180508i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_E_VMSWITCH_ACTIVE_OVER_ADAPTER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147180502i32 as _);
+pub const NETCFG_E_VMSWITCH_ACTIVE_OVER_ADAPTER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180502i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_S_CAUSED_SETUP_CHANGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(303140i32 as _);
+pub const NETCFG_S_CAUSED_SETUP_CHANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(303140i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_S_COMMIT_NOW: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(303141i32 as _);
+pub const NETCFG_S_COMMIT_NOW: ::windows::core::HRESULT = ::windows::core::HRESULT(303141i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_S_DISABLE_QUERY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(303138i32 as _);
+pub const NETCFG_S_DISABLE_QUERY: ::windows::core::HRESULT = ::windows::core::HRESULT(303138i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_S_REBOOT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(303136i32 as _);
+pub const NETCFG_S_REBOOT: ::windows::core::HRESULT = ::windows::core::HRESULT(303136i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub const NETCFG_S_STILL_REFERENCED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(303139i32 as _);
+pub const NETCFG_S_STILL_REFERENCED: ::windows::core::HRESULT = ::windows::core::HRESULT(303139i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const NETLOGON_CONTROL_BACKUP_CHANGE_LOG: u32 = 65532u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -6472,7 +6472,7 @@ impl ::core::cmp::PartialEq for NETLOGON_INFO_1 {
     }
 }
 impl ::core::cmp::Eq for NETLOGON_INFO_1 {}
-unsafe impl ::windows::runtime::Abi for NETLOGON_INFO_1 {
+unsafe impl ::windows::core::Abi for NETLOGON_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6513,7 +6513,7 @@ impl ::core::cmp::PartialEq for NETLOGON_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NETLOGON_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NETLOGON_INFO_2 {
+unsafe impl ::windows::core::Abi for NETLOGON_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6553,7 +6553,7 @@ impl ::core::cmp::PartialEq for NETLOGON_INFO_3 {
     }
 }
 impl ::core::cmp::Eq for NETLOGON_INFO_3 {}
-unsafe impl ::windows::runtime::Abi for NETLOGON_INFO_3 {
+unsafe impl ::windows::core::Abi for NETLOGON_INFO_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6587,7 +6587,7 @@ impl ::core::cmp::PartialEq for NETLOGON_INFO_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NETLOGON_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NETLOGON_INFO_4 {
+unsafe impl ::windows::core::Abi for NETLOGON_INFO_4 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -6637,7 +6637,7 @@ impl ::core::convert::From<i32> for NETSETUP_JOIN_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NETSETUP_JOIN_STATUS {
+unsafe impl ::windows::core::Abi for NETSETUP_JOIN_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -6655,7 +6655,7 @@ impl ::core::convert::From<i32> for NETSETUP_NAME_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NETSETUP_NAME_TYPE {
+unsafe impl ::windows::core::Abi for NETSETUP_NAME_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -6672,7 +6672,7 @@ impl ::core::convert::From<u32> for NETSETUP_PROVISION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NETSETUP_PROVISION {
+unsafe impl ::windows::core::Abi for NETSETUP_PROVISION {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for NETSETUP_PROVISION {
@@ -6777,7 +6777,7 @@ impl ::core::cmp::PartialEq for NETSETUP_PROVISIONING_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NETSETUP_PROVISIONING_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NETSETUP_PROVISIONING_PARAMS {
+unsafe impl ::windows::core::Abi for NETSETUP_PROVISIONING_PARAMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -6799,7 +6799,7 @@ impl ::core::convert::From<i32> for NETWORK_INSTALL_TIME {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NETWORK_INSTALL_TIME {
+unsafe impl ::windows::core::Abi for NETWORK_INSTALL_TIME {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6832,7 +6832,7 @@ impl ::core::cmp::PartialEq for NETWORK_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NETWORK_NAME {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NETWORK_NAME {
+unsafe impl ::windows::core::Abi for NETWORK_NAME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -6850,7 +6850,7 @@ impl ::core::convert::From<i32> for NETWORK_UPGRADE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NETWORK_UPGRADE_TYPE {
+unsafe impl ::windows::core::Abi for NETWORK_UPGRADE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -6866,7 +6866,7 @@ impl ::core::convert::From<i32> for NET_COMPUTER_NAME_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NET_COMPUTER_NAME_TYPE {
+unsafe impl ::windows::core::Abi for NET_COMPUTER_NAME_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -6907,7 +6907,7 @@ impl ::core::cmp::PartialEq for NET_DISPLAY_GROUP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NET_DISPLAY_GROUP {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NET_DISPLAY_GROUP {
+unsafe impl ::windows::core::Abi for NET_DISPLAY_GROUP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6944,7 +6944,7 @@ impl ::core::cmp::PartialEq for NET_DISPLAY_MACHINE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NET_DISPLAY_MACHINE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NET_DISPLAY_MACHINE {
+unsafe impl ::windows::core::Abi for NET_DISPLAY_MACHINE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6989,7 +6989,7 @@ impl ::core::cmp::PartialEq for NET_DISPLAY_USER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NET_DISPLAY_USER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NET_DISPLAY_USER {
+unsafe impl ::windows::core::Abi for NET_DISPLAY_USER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -7020,7 +7020,7 @@ impl ::core::convert::From<u32> for NET_JOIN_DOMAIN_JOIN_OPTIONS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NET_JOIN_DOMAIN_JOIN_OPTIONS {
+unsafe impl ::windows::core::Abi for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for NET_JOIN_DOMAIN_JOIN_OPTIONS {
@@ -7065,7 +7065,7 @@ impl ::core::convert::From<i32> for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
+unsafe impl ::windows::core::Abi for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -7078,7 +7078,7 @@ impl ::core::convert::From<u32> for NET_REQUEST_PROVISION_OPTIONS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NET_REQUEST_PROVISION_OPTIONS {
+unsafe impl ::windows::core::Abi for NET_REQUEST_PROVISION_OPTIONS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for NET_REQUEST_PROVISION_OPTIONS {
@@ -7151,7 +7151,7 @@ impl ::core::convert::From<u32> for NET_SERVER_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NET_SERVER_TYPE {
+unsafe impl ::windows::core::Abi for NET_SERVER_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for NET_SERVER_TYPE {
@@ -7196,7 +7196,7 @@ impl ::core::convert::From<u32> for NET_USER_ENUM_FILTER_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NET_USER_ENUM_FILTER_FLAGS {
+unsafe impl ::windows::core::Abi for NET_USER_ENUM_FILTER_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for NET_USER_ENUM_FILTER_FLAGS {
@@ -7258,7 +7258,7 @@ impl ::core::cmp::PartialEq for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
+unsafe impl ::windows::core::Abi for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -7298,7 +7298,7 @@ impl ::core::cmp::PartialEq for NET_VALIDATE_OUTPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NET_VALIDATE_OUTPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NET_VALIDATE_OUTPUT_ARG {
+unsafe impl ::windows::core::Abi for NET_VALIDATE_OUTPUT_ARG {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7341,7 +7341,7 @@ impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
+unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7368,7 +7368,7 @@ impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_HASH {
     }
 }
 impl ::core::cmp::Eq for NET_VALIDATE_PASSWORD_HASH {}
-unsafe impl ::windows::runtime::Abi for NET_VALIDATE_PASSWORD_HASH {
+unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_HASH {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -7419,7 +7419,7 @@ impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
+unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -7434,7 +7434,7 @@ impl ::core::convert::From<i32> for NET_VALIDATE_PASSWORD_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NET_VALIDATE_PASSWORD_TYPE {
+unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7481,7 +7481,7 @@ impl ::core::cmp::PartialEq for NET_VALIDATE_PERSISTED_FIELDS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NET_VALIDATE_PERSISTED_FIELDS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NET_VALIDATE_PERSISTED_FIELDS {
+unsafe impl ::windows::core::Abi for NET_VALIDATE_PERSISTED_FIELDS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -7585,7 +7585,7 @@ pub const NWSAP_EVENT_WSASTARTUP_FAILED: i32 = -1073733323i32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAccessAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetAccessAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7600,7 +7600,7 @@ pub unsafe fn NetAccessAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAccessDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1) -> u32 {
+pub unsafe fn NetAccessDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7615,7 +7615,7 @@ pub unsafe fn NetAccessDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAccessEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, basepath: Param1, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
+pub unsafe fn NetAccessEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, basepath: Param1, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7640,7 +7640,7 @@ pub unsafe fn NetAccessEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAccessGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetAccessGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7655,7 +7655,7 @@ pub unsafe fn NetAccessGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAccessGetUserPerms<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, ugname: Param1, resource: Param2, perms: *mut u32) -> u32 {
+pub unsafe fn NetAccessGetUserPerms<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, ugname: Param1, resource: Param2, perms: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7670,7 +7670,7 @@ pub unsafe fn NetAccessGetUserPerms<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAccessSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetAccessSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7685,7 +7685,7 @@ pub unsafe fn NetAccessSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAddAlternateComputerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, alternatename: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
+pub unsafe fn NetAddAlternateComputerName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, alternatename: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7700,7 +7700,7 @@ pub unsafe fn NetAddAlternateComputerName<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAddServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, password: Param2, flags: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn NetAddServiceAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, password: Param2, flags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7715,7 +7715,7 @@ pub unsafe fn NetAddServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAlertRaise<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32 {
+pub unsafe fn NetAlertRaise<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7730,7 +7730,7 @@ pub unsafe fn NetAlertRaise<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAlertRaiseEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: Param3) -> u32 {
+pub unsafe fn NetAlertRaiseEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7801,7 +7801,7 @@ pub unsafe fn NetApiBufferSize(buffer: *const ::core::ffi::c_void, bytecount: *m
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAuditClear<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, backupfile: Param1, service: Param2) -> u32 {
+pub unsafe fn NetAuditClear<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, backupfile: Param1, service: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7816,7 +7816,7 @@ pub unsafe fn NetAuditClear<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAuditRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, service: Param1, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32 {
+pub unsafe fn NetAuditRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, service: Param1, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7843,7 +7843,7 @@ pub unsafe fn NetAuditRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAuditWrite<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(r#type: u32, buf: *mut u8, numbytes: u32, service: Param3, reserved: *mut u8) -> u32 {
+pub unsafe fn NetAuditWrite<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(r#type: u32, buf: *mut u8, numbytes: u32, service: Param3, reserved: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7858,7 +7858,7 @@ pub unsafe fn NetAuditWrite<'a, Param3: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetConfigGet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, component: Param1, parameter: Param2, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetConfigGet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, component: Param1, parameter: Param2, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7873,7 +7873,7 @@ pub unsafe fn NetConfigGet<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetConfigGetAll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, component: Param1, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetConfigGetAll<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, component: Param1, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7888,7 +7888,7 @@ pub unsafe fn NetConfigGetAll<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetConfigSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, reserved1: Param1, component: Param2, level: u32, reserved2: u32, buf: *mut u8, reserved3: u32) -> u32 {
+pub unsafe fn NetConfigSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, reserved1: Param1, component: Param2, level: u32, reserved2: u32, buf: *mut u8, reserved3: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7918,7 +7918,7 @@ pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetEnumerateComputerNames<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn NetEnumerateComputerNames<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7933,7 +7933,7 @@ pub unsafe fn NetEnumerateComputerNames<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetEnumerateServiceAccounts<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> ::windows::runtime::Result<()> {
+pub unsafe fn NetEnumerateServiceAccounts<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7948,7 +7948,7 @@ pub unsafe fn NetEnumerateServiceAccounts<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetErrorLogClear<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, backupfile: Param1, reserved: *const u8) -> u32 {
+pub unsafe fn NetErrorLogClear<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, backupfile: Param1, reserved: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7963,7 +7963,7 @@ pub unsafe fn NetErrorLogClear<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetErrorLogRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, reserved1: Param1, errorloghandle: *const HLOG, offset: u32, reserved2: *const u32, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32 {
+pub unsafe fn NetErrorLogRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, reserved1: Param1, errorloghandle: *const HLOG, offset: u32, reserved2: *const u32, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7990,7 +7990,7 @@ pub unsafe fn NetErrorLogRead<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetErrorLogWrite<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved1: *const u8, code: u32, component: Param2, buffer: *const u8, numbytes: u32, msgbuf: *const u8, strcount: u32, reserved2: *const u8) -> u32 {
+pub unsafe fn NetErrorLogWrite<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved1: *const u8, code: u32, component: Param2, buffer: *const u8, numbytes: u32, msgbuf: *const u8, strcount: u32, reserved2: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8020,14 +8020,14 @@ pub unsafe fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO) {
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn NetGetAadJoinInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcsztenantid: Param0) -> ::windows::runtime::Result<*mut DSREG_JOIN_INFO> {
+pub unsafe fn NetGetAadJoinInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pcsztenantid: Param0) -> ::windows::core::Result<*mut DSREG_JOIN_INFO> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetGetAadJoinInformation(pcsztenantid: super::super::Foundation::PWSTR, ppjoininfo: *mut *mut DSREG_JOIN_INFO) -> ::windows::runtime::HRESULT;
+            fn NetGetAadJoinInformation(pcsztenantid: super::super::Foundation::PWSTR, ppjoininfo: *mut *mut DSREG_JOIN_INFO) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut DSREG_JOIN_INFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <*mut DSREG_JOIN_INFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         NetGetAadJoinInformation(pcsztenantid.into_param().abi(), &mut result__).from_abi::<*mut DSREG_JOIN_INFO>(result__)
     }
     #[cfg(not(windows))]
@@ -8036,7 +8036,7 @@ pub unsafe fn NetGetAadJoinInformation<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGetAnyDCName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, domainname: Param1, buffer: *mut *mut u8) -> u32 {
+pub unsafe fn NetGetAnyDCName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, domainname: Param1, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8051,7 +8051,7 @@ pub unsafe fn NetGetAnyDCName<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGetDCName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, domainname: Param1, buffer: *mut *mut u8) -> u32 {
+pub unsafe fn NetGetDCName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, domainname: Param1, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8066,7 +8066,7 @@ pub unsafe fn NetGetDCName<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGetDisplayInformationIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, prefix: Param2, index: *mut u32) -> u32 {
+pub unsafe fn NetGetDisplayInformationIndex<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, prefix: Param2, index: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8081,7 +8081,7 @@ pub unsafe fn NetGetDisplayInformationIndex<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGetJoinInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpnamebuffer: *mut super::super::Foundation::PWSTR, buffertype: *mut NETSETUP_JOIN_STATUS) -> u32 {
+pub unsafe fn NetGetJoinInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpnamebuffer: *mut super::super::Foundation::PWSTR, buffertype: *mut NETSETUP_JOIN_STATUS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8096,7 +8096,7 @@ pub unsafe fn NetGetJoinInformation<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGetJoinableOUs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpdomain: Param1, lpaccount: Param2, lppassword: Param3, oucount: *mut u32, ous: *mut *mut super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn NetGetJoinableOUs<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpdomain: Param1, lpaccount: Param2, lppassword: Param3, oucount: *mut u32, ous: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8111,7 +8111,7 @@ pub unsafe fn NetGetJoinableOUs<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetGroupAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8126,7 +8126,7 @@ pub unsafe fn NetGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGroupAddUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, username: Param2) -> u32 {
+pub unsafe fn NetGroupAddUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, username: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8141,7 +8141,7 @@ pub unsafe fn NetGroupAddUser<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1) -> u32 {
+pub unsafe fn NetGroupDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8156,7 +8156,7 @@ pub unsafe fn NetGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGroupDelUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, username: Param2) -> u32 {
+pub unsafe fn NetGroupDelUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, username: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8171,7 +8171,7 @@ pub unsafe fn NetGroupDelUser<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32 {
+pub unsafe fn NetGroupEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8186,7 +8186,7 @@ pub unsafe fn NetGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetGroupGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8201,7 +8201,7 @@ pub unsafe fn NetGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGroupGetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
+pub unsafe fn NetGroupGetUsers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8216,7 +8216,7 @@ pub unsafe fn NetGroupGetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetGroupSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8231,7 +8231,7 @@ pub unsafe fn NetGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetGroupSetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
+pub unsafe fn NetGroupSetUsers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8246,7 +8246,7 @@ pub unsafe fn NetGroupSetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetIsServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, isservice: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
+pub unsafe fn NetIsServiceAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, isservice: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8261,7 +8261,7 @@ pub unsafe fn NetIsServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetJoinDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
+pub unsafe fn NetJoinDomain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     lpserver: Param0,
     lpdomain: Param1,
     lpmachineaccountou: Param2,
@@ -8283,7 +8283,7 @@ pub unsafe fn NetJoinDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetLocalGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetLocalGroupAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8298,7 +8298,7 @@ pub unsafe fn NetLocalGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetLocalGroupAddMember<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(servername: Param0, groupname: Param1, membersid: Param2) -> u32 {
+pub unsafe fn NetLocalGroupAddMember<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(servername: Param0, groupname: Param1, membersid: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8313,7 +8313,7 @@ pub unsafe fn NetLocalGroupAddMember<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetLocalGroupAddMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
+pub unsafe fn NetLocalGroupAddMembers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8328,7 +8328,7 @@ pub unsafe fn NetLocalGroupAddMembers<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetLocalGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1) -> u32 {
+pub unsafe fn NetLocalGroupDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8343,7 +8343,7 @@ pub unsafe fn NetLocalGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetLocalGroupDelMember<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(servername: Param0, groupname: Param1, membersid: Param2) -> u32 {
+pub unsafe fn NetLocalGroupDelMember<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(servername: Param0, groupname: Param1, membersid: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8358,7 +8358,7 @@ pub unsafe fn NetLocalGroupDelMember<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetLocalGroupDelMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
+pub unsafe fn NetLocalGroupDelMembers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8373,7 +8373,7 @@ pub unsafe fn NetLocalGroupDelMembers<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetLocalGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
+pub unsafe fn NetLocalGroupEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8388,7 +8388,7 @@ pub unsafe fn NetLocalGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetLocalGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetLocalGroupGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8403,7 +8403,7 @@ pub unsafe fn NetLocalGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetLocalGroupGetMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, localgroupname: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
+pub unsafe fn NetLocalGroupGetMembers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, localgroupname: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8427,7 +8427,7 @@ pub unsafe fn NetLocalGroupGetMembers<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetLocalGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetLocalGroupSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8442,7 +8442,7 @@ pub unsafe fn NetLocalGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetLocalGroupSetMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
+pub unsafe fn NetLocalGroupSetMembers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8457,7 +8457,7 @@ pub unsafe fn NetLocalGroupSetMembers<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetMessageBufferSend<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1, fromname: Param2, buf: *const u8, buflen: u32) -> u32 {
+pub unsafe fn NetMessageBufferSend<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1, fromname: Param2, buf: *const u8, buflen: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8472,7 +8472,7 @@ pub unsafe fn NetMessageBufferSend<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetMessageNameAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1) -> u32 {
+pub unsafe fn NetMessageNameAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8487,7 +8487,7 @@ pub unsafe fn NetMessageNameAdd<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetMessageNameDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1) -> u32 {
+pub unsafe fn NetMessageNameDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8502,7 +8502,7 @@ pub unsafe fn NetMessageNameDel<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetMessageNameEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const *const u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
+pub unsafe fn NetMessageNameEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const *const u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8517,7 +8517,7 @@ pub unsafe fn NetMessageNameEnum<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetMessageNameGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1, level: u32, bufptr: *const *const u8) -> u32 {
+pub unsafe fn NetMessageNameGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1, level: u32, bufptr: *const *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8532,7 +8532,7 @@ pub unsafe fn NetMessageNameGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetProvisionComputerAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
+pub unsafe fn NetProvisionComputerAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     lpdomain: Param0,
     lpmachinename: Param1,
     lpmachineaccountou: Param2,
@@ -8562,11 +8562,11 @@ pub unsafe fn NetProvisionComputerAccount<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const NetProvisioning: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
+pub const NetProvisioning: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetQueryDisplayInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn NetQueryDisplayInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8581,7 +8581,7 @@ pub unsafe fn NetQueryDisplayInformation<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetQueryServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, infolevel: u32, buffer: *mut *mut u8) -> ::windows::runtime::Result<()> {
+pub unsafe fn NetQueryServiceAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, infolevel: u32, buffer: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8596,7 +8596,7 @@ pub unsafe fn NetQueryServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetRemoteComputerSupports<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32 {
+pub unsafe fn NetRemoteComputerSupports<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8611,7 +8611,7 @@ pub unsafe fn NetRemoteComputerSupports<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetRemoteTOD<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, bufferptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetRemoteTOD<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, bufferptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8626,7 +8626,7 @@ pub unsafe fn NetRemoteTOD<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetRemoveAlternateComputerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, alternatename: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
+pub unsafe fn NetRemoveAlternateComputerName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, alternatename: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8641,7 +8641,7 @@ pub unsafe fn NetRemoveAlternateComputerName<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetRemoveServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, flags: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn NetRemoveServiceAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, flags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8656,7 +8656,7 @@ pub unsafe fn NetRemoveServiceAccount<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetRenameMachineInDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpnewmachinename: Param1, lpaccount: Param2, lppassword: Param3, frenameoptions: u32) -> u32 {
+pub unsafe fn NetRenameMachineInDomain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpnewmachinename: Param1, lpaccount: Param2, lppassword: Param3, frenameoptions: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8671,7 +8671,7 @@ pub unsafe fn NetRenameMachineInDomain<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplExportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetReplExportDirAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8686,7 +8686,7 @@ pub unsafe fn NetReplExportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplExportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
+pub unsafe fn NetReplExportDirDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8701,7 +8701,7 @@ pub unsafe fn NetReplExportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplExportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
+pub unsafe fn NetReplExportDirEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8716,7 +8716,7 @@ pub unsafe fn NetReplExportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplExportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetReplExportDirGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8731,7 +8731,7 @@ pub unsafe fn NetReplExportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplExportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
+pub unsafe fn NetReplExportDirLock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8746,7 +8746,7 @@ pub unsafe fn NetReplExportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplExportDirSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetReplExportDirSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8761,7 +8761,7 @@ pub unsafe fn NetReplExportDirSetInfo<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplExportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, unlockforce: u32) -> u32 {
+pub unsafe fn NetReplExportDirUnlock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, unlockforce: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8776,7 +8776,7 @@ pub unsafe fn NetReplExportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetReplGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8791,7 +8791,7 @@ pub unsafe fn NetReplGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplImportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetReplImportDirAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8806,7 +8806,7 @@ pub unsafe fn NetReplImportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplImportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
+pub unsafe fn NetReplImportDirDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8821,7 +8821,7 @@ pub unsafe fn NetReplImportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplImportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
+pub unsafe fn NetReplImportDirEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8836,7 +8836,7 @@ pub unsafe fn NetReplImportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplImportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetReplImportDirGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8851,7 +8851,7 @@ pub unsafe fn NetReplImportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplImportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
+pub unsafe fn NetReplImportDirLock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8866,7 +8866,7 @@ pub unsafe fn NetReplImportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplImportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, unlockforce: u32) -> u32 {
+pub unsafe fn NetReplImportDirUnlock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, unlockforce: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8881,7 +8881,7 @@ pub unsafe fn NetReplImportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetReplSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetReplSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8896,7 +8896,7 @@ pub unsafe fn NetReplSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetRequestOfflineDomainJoin<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: Param3) -> u32 {
+pub unsafe fn NetRequestOfflineDomainJoin<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8911,7 +8911,7 @@ pub unsafe fn NetRequestOfflineDomainJoin<'a, Param3: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetRequestProvisioningPackageInstall<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: Param3, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn NetRequestProvisioningPackageInstall<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: Param3, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8926,7 +8926,7 @@ pub unsafe fn NetRequestProvisioningPackageInstall<'a, Param3: ::windows::runtim
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetScheduleJobAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, buffer: *mut u8, jobid: *mut u32) -> u32 {
+pub unsafe fn NetScheduleJobAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, buffer: *mut u8, jobid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8941,7 +8941,7 @@ pub unsafe fn NetScheduleJobAdd<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetScheduleJobDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, minjobid: u32, maxjobid: u32) -> u32 {
+pub unsafe fn NetScheduleJobDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, minjobid: u32, maxjobid: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8956,7 +8956,7 @@ pub unsafe fn NetScheduleJobDel<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetScheduleJobEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, pointertobuffer: *mut *mut u8, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
+pub unsafe fn NetScheduleJobEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, pointertobuffer: *mut *mut u8, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8971,7 +8971,7 @@ pub unsafe fn NetScheduleJobEnum<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetScheduleJobGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, jobid: u32, pointertobuffer: *mut *mut u8) -> u32 {
+pub unsafe fn NetScheduleJobGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, jobid: u32, pointertobuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8986,7 +8986,7 @@ pub unsafe fn NetScheduleJobGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerComputerNameAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, emulateddomainname: Param1, emulatedservername: Param2) -> u32 {
+pub unsafe fn NetServerComputerNameAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, emulateddomainname: Param1, emulatedservername: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9001,7 +9001,7 @@ pub unsafe fn NetServerComputerNameAdd<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerComputerNameDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, emulatedservername: Param1) -> u32 {
+pub unsafe fn NetServerComputerNameDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, emulatedservername: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9016,7 +9016,7 @@ pub unsafe fn NetServerComputerNameDel<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerDiskEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
+pub unsafe fn NetServerDiskEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9031,7 +9031,7 @@ pub unsafe fn NetServerDiskEnum<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: Param7, resume_handle: *mut u32) -> u32 {
+pub unsafe fn NetServerEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: Param7, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9056,7 +9056,7 @@ pub unsafe fn NetServerEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetServerGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9071,7 +9071,7 @@ pub unsafe fn NetServerGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parmerror: *mut u32) -> u32 {
+pub unsafe fn NetServerSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parmerror: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9086,7 +9086,7 @@ pub unsafe fn NetServerSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerTransportAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
+pub unsafe fn NetServerTransportAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9101,7 +9101,7 @@ pub unsafe fn NetServerTransportAdd<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerTransportAddEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
+pub unsafe fn NetServerTransportAddEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9116,7 +9116,7 @@ pub unsafe fn NetServerTransportAddEx<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerTransportDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
+pub unsafe fn NetServerTransportDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9131,7 +9131,7 @@ pub unsafe fn NetServerTransportDel<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerTransportEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
+pub unsafe fn NetServerTransportEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9146,7 +9146,7 @@ pub unsafe fn NetServerTransportEnum<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServiceControl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, opcode: u32, arg: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetServiceControl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, opcode: u32, arg: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9161,7 +9161,7 @@ pub unsafe fn NetServiceControl<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServiceEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
+pub unsafe fn NetServiceEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9176,7 +9176,7 @@ pub unsafe fn NetServiceEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServiceGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetServiceGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9191,7 +9191,7 @@ pub unsafe fn NetServiceGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServiceInstall<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, argc: u32, argv: *const super::super::Foundation::PWSTR, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetServiceInstall<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, argc: u32, argv: *const super::super::Foundation::PWSTR, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9206,7 +9206,7 @@ pub unsafe fn NetServiceInstall<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetSetPrimaryComputerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, primaryname: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
+pub unsafe fn NetSetPrimaryComputerName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, primaryname: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9221,7 +9221,7 @@ pub unsafe fn NetSetPrimaryComputerName<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUnjoinDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpaccount: Param1, lppassword: Param2, funjoinoptions: u32) -> u32 {
+pub unsafe fn NetUnjoinDomain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpaccount: Param1, lppassword: Param2, funjoinoptions: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9250,7 +9250,7 @@ pub unsafe fn NetUseAdd(servername: *const i8, levelflags: u32, buf: *const u8, 
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUseDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, usename: Param1, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32 {
+pub unsafe fn NetUseDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, usename: Param1, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9265,7 +9265,7 @@ pub unsafe fn NetUseDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUseEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, levelflags: u32, bufptr: *mut *mut u8, preferedmaximumsize: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
+pub unsafe fn NetUseEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, levelflags: u32, bufptr: *mut *mut u8, preferedmaximumsize: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9280,7 +9280,7 @@ pub unsafe fn NetUseEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUseGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, usename: Param1, levelflags: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetUseGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, usename: Param1, levelflags: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9295,7 +9295,7 @@ pub unsafe fn NetUseGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUserAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetUserAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9310,7 +9310,7 @@ pub unsafe fn NetUserAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUserChangePassword<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, username: Param1, oldpassword: Param2, newpassword: Param3) -> u32 {
+pub unsafe fn NetUserChangePassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, username: Param1, oldpassword: Param2, newpassword: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9325,7 +9325,7 @@ pub unsafe fn NetUserChangePassword<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUserDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1) -> u32 {
+pub unsafe fn NetUserDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9340,7 +9340,7 @@ pub unsafe fn NetUserDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
+pub unsafe fn NetUserEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9355,7 +9355,7 @@ pub unsafe fn NetUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUserGetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32 {
+pub unsafe fn NetUserGetGroups<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9370,7 +9370,7 @@ pub unsafe fn NetUserGetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetUserGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9385,7 +9385,7 @@ pub unsafe fn NetUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUserGetLocalGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, flags: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32 {
+pub unsafe fn NetUserGetLocalGroups<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, flags: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9400,7 +9400,7 @@ pub unsafe fn NetUserGetLocalGroups<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUserModalsGet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetUserModalsGet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9415,7 +9415,7 @@ pub unsafe fn NetUserModalsGet<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUserModalsSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetUserModalsSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9430,7 +9430,7 @@ pub unsafe fn NetUserModalsSet<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUserSetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, buf: *const u8, num_entries: u32) -> u32 {
+pub unsafe fn NetUserSetGroups<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, buf: *const u8, num_entries: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9445,7 +9445,7 @@ pub unsafe fn NetUserSetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetUserSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9460,7 +9460,7 @@ pub unsafe fn NetUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetValidateName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpname: Param1, lpaccount: Param2, lppassword: Param3, nametype: NETSETUP_NAME_TYPE) -> u32 {
+pub unsafe fn NetValidateName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpname: Param1, lpaccount: Param2, lppassword: Param3, nametype: NETSETUP_NAME_TYPE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9475,7 +9475,7 @@ pub unsafe fn NetValidateName<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetValidatePasswordPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn NetValidatePasswordPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9504,7 +9504,7 @@ pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::core::ffi::c_
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetWkstaGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetWkstaGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9519,7 +9519,7 @@ pub unsafe fn NetWkstaGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetWkstaSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buffer: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetWkstaSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buffer: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9548,7 +9548,7 @@ pub unsafe fn NetWkstaTransportAdd(servername: *const i8, level: u32, buf: *cons
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetWkstaTransportDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, transportname: Param1, ucond: FORCE_LEVEL_FLAGS) -> u32 {
+pub unsafe fn NetWkstaTransportDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, transportname: Param1, ucond: FORCE_LEVEL_FLAGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9577,7 +9577,7 @@ pub unsafe fn NetWkstaTransportEnum(servername: *const i8, level: u32, bufptr: *
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetWkstaUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
+pub unsafe fn NetWkstaUserEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9592,7 +9592,7 @@ pub unsafe fn NetWkstaUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetWkstaUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetWkstaUserGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9607,7 +9607,7 @@ pub unsafe fn NetWkstaUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetWkstaUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetWkstaUserSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9654,7 +9654,7 @@ impl ::core::cmp::PartialEq for OBO_TOKEN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OBO_TOKEN {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OBO_TOKEN {
+unsafe impl ::windows::core::Abi for OBO_TOKEN {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -9669,7 +9669,7 @@ impl ::core::convert::From<i32> for OBO_TOKEN_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OBO_TOKEN_TYPE {
+unsafe impl ::windows::core::Abi for OBO_TOKEN_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -9726,7 +9726,7 @@ impl ::core::cmp::PartialEq for PRINT_OTHER_INFO {
     }
 }
 impl ::core::cmp::Eq for PRINT_OTHER_INFO {}
-unsafe impl ::windows::runtime::Abi for PRINT_OTHER_INFO {
+unsafe impl ::windows::core::Abi for PRINT_OTHER_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -9810,7 +9810,7 @@ pub const QNLEN: u32 = 80u32;
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 pub struct RASCON_IPUI {
-    pub guidConnection: ::windows::runtime::GUID,
+    pub guidConnection: ::windows::core::GUID,
     pub fIPv6Cfg: super::super::Foundation::BOOL,
     pub dwFlags: u32,
     pub pszwIpAddr: [u16; 16],
@@ -9879,7 +9879,7 @@ impl ::core::cmp::PartialEq for RASCON_IPUI {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RASCON_IPUI {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RASCON_IPUI {
+unsafe impl ::windows::core::Abi for RASCON_IPUI {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9912,7 +9912,7 @@ impl ::core::cmp::PartialEq for REPL_EDIR_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for REPL_EDIR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for REPL_EDIR_INFO_0 {
+unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9947,7 +9947,7 @@ impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for REPL_EDIR_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for REPL_EDIR_INFO_1 {
+unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9973,7 +9973,7 @@ impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1000 {
     }
 }
 impl ::core::cmp::Eq for REPL_EDIR_INFO_1000 {}
-unsafe impl ::windows::runtime::Abi for REPL_EDIR_INFO_1000 {
+unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_1000 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9999,7 +9999,7 @@ impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1001 {
     }
 }
 impl ::core::cmp::Eq for REPL_EDIR_INFO_1001 {}
-unsafe impl ::windows::runtime::Abi for REPL_EDIR_INFO_1001 {
+unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_1001 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10036,7 +10036,7 @@ impl ::core::cmp::PartialEq for REPL_EDIR_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for REPL_EDIR_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for REPL_EDIR_INFO_2 {
+unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -10079,7 +10079,7 @@ impl ::core::cmp::PartialEq for REPL_IDIR_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for REPL_IDIR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for REPL_IDIR_INFO_0 {
+unsafe impl ::windows::core::Abi for REPL_IDIR_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10124,7 +10124,7 @@ impl ::core::cmp::PartialEq for REPL_IDIR_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for REPL_IDIR_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for REPL_IDIR_INFO_1 {
+unsafe impl ::windows::core::Abi for REPL_IDIR_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10177,7 +10177,7 @@ impl ::core::cmp::PartialEq for REPL_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for REPL_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for REPL_INFO_0 {
+unsafe impl ::windows::core::Abi for REPL_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10203,7 +10203,7 @@ impl ::core::cmp::PartialEq for REPL_INFO_1000 {
     }
 }
 impl ::core::cmp::Eq for REPL_INFO_1000 {}
-unsafe impl ::windows::runtime::Abi for REPL_INFO_1000 {
+unsafe impl ::windows::core::Abi for REPL_INFO_1000 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10229,7 +10229,7 @@ impl ::core::cmp::PartialEq for REPL_INFO_1001 {
     }
 }
 impl ::core::cmp::Eq for REPL_INFO_1001 {}
-unsafe impl ::windows::runtime::Abi for REPL_INFO_1001 {
+unsafe impl ::windows::core::Abi for REPL_INFO_1001 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10255,7 +10255,7 @@ impl ::core::cmp::PartialEq for REPL_INFO_1002 {
     }
 }
 impl ::core::cmp::Eq for REPL_INFO_1002 {}
-unsafe impl ::windows::runtime::Abi for REPL_INFO_1002 {
+unsafe impl ::windows::core::Abi for REPL_INFO_1002 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10281,7 +10281,7 @@ impl ::core::cmp::PartialEq for REPL_INFO_1003 {
     }
 }
 impl ::core::cmp::Eq for REPL_INFO_1003 {}
-unsafe impl ::windows::runtime::Abi for REPL_INFO_1003 {
+unsafe impl ::windows::core::Abi for REPL_INFO_1003 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -10362,7 +10362,7 @@ impl ::core::cmp::PartialEq for RTR_INFO_BLOCK_HEADER {
     }
 }
 impl ::core::cmp::Eq for RTR_INFO_BLOCK_HEADER {}
-unsafe impl ::windows::runtime::Abi for RTR_INFO_BLOCK_HEADER {
+unsafe impl ::windows::core::Abi for RTR_INFO_BLOCK_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -10393,7 +10393,7 @@ impl ::core::cmp::PartialEq for RTR_TOC_ENTRY {
     }
 }
 impl ::core::cmp::Eq for RTR_TOC_ENTRY {}
-unsafe impl ::windows::runtime::Abi for RTR_TOC_ENTRY {
+unsafe impl ::windows::core::Abi for RTR_TOC_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -10403,7 +10403,7 @@ pub const RTUTILS_MAX_PROTOCOL_NAME_LEN: u32 = 40u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterAssert<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfailedassertion: Param0, pszfilename: Param1, dwlinenumber: u32, pszmessage: Param3) {
+pub unsafe fn RouterAssert<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszfailedassertion: Param0, pszfilename: Param1, dwlinenumber: u32, pszmessage: Param3) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10448,7 +10448,7 @@ pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut s
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogDeregisterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0) {
+pub unsafe fn RouterLogDeregisterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10463,7 +10463,7 @@ pub unsafe fn RouterLogDeregisterA<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogDeregisterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0) {
+pub unsafe fn RouterLogDeregisterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10478,7 +10478,7 @@ pub unsafe fn RouterLogDeregisterW<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32) {
+pub unsafe fn RouterLogEventA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10493,7 +10493,7 @@ pub unsafe fn RouterLogEventA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventDataA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8) {
+pub unsafe fn RouterLogEventDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10508,7 +10508,7 @@ pub unsafe fn RouterLogEventDataA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8) {
+pub unsafe fn RouterLogEventDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10523,7 +10523,7 @@ pub unsafe fn RouterLogEventDataW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4) {
+pub unsafe fn RouterLogEventExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10538,7 +10538,7 @@ pub unsafe fn RouterLogEventExA<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4) {
+pub unsafe fn RouterLogEventExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10553,7 +10553,7 @@ pub unsafe fn RouterLogEventExW<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32, dwerrorindex: u32) {
+pub unsafe fn RouterLogEventStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32, dwerrorindex: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10568,7 +10568,7 @@ pub unsafe fn RouterLogEventStringA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32, dwerrorindex: u32) {
+pub unsafe fn RouterLogEventStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32, dwerrorindex: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10583,7 +10583,7 @@ pub unsafe fn RouterLogEventStringW<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventValistExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4, arglist: *mut i8) {
+pub unsafe fn RouterLogEventValistExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4, arglist: *mut i8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10598,7 +10598,7 @@ pub unsafe fn RouterLogEventValistExA<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventValistExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4, arglist: *mut i8) {
+pub unsafe fn RouterLogEventValistExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4, arglist: *mut i8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10613,7 +10613,7 @@ pub unsafe fn RouterLogEventValistExW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32) {
+pub unsafe fn RouterLogEventW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10628,7 +10628,7 @@ pub unsafe fn RouterLogEventW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogRegisterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszsource: Param0) -> super::super::Foundation::HANDLE {
+pub unsafe fn RouterLogRegisterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszsource: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10643,7 +10643,7 @@ pub unsafe fn RouterLogRegisterA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogRegisterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszsource: Param0) -> super::super::Foundation::HANDLE {
+pub unsafe fn RouterLogRegisterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszsource: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10686,7 +10686,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_100 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_100 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_100 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_100 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10719,7 +10719,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1005 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1005 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1005 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1005 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10764,7 +10764,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_101 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_101 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_101 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_101 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10790,7 +10790,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1010 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1010 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1010 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1010 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10816,7 +10816,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1016 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1016 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1016 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1016 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10842,7 +10842,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1017 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1017 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1017 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1017 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10868,7 +10868,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1018 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1018 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1018 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1018 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10939,7 +10939,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_102 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_102 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_102 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_102 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11013,7 +11013,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_103 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_103 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_103 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_103 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11039,7 +11039,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1107 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1107 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1107 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1107 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11065,7 +11065,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1501 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1501 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1501 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1501 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11091,7 +11091,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1502 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1502 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1502 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1502 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11117,7 +11117,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1503 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1503 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1503 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1503 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11143,7 +11143,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1506 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1506 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1506 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1506 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11169,7 +11169,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1509 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1509 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1509 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1509 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11195,7 +11195,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1510 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1510 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1510 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1510 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11221,7 +11221,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1511 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1511 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1511 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1511 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11247,7 +11247,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1512 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1512 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1512 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1512 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11273,7 +11273,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1513 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1513 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1513 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1513 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11306,7 +11306,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1514 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1514 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1514 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1514 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11339,7 +11339,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1515 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1515 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1515 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1515 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11372,7 +11372,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1516 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1516 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1516 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1516 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11405,7 +11405,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1518 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1518 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1518 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1518 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11431,7 +11431,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1520 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1520 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1520 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1520 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11457,7 +11457,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1521 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1521 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1521 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1521 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11483,7 +11483,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1522 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1522 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1522 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1522 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11509,7 +11509,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1523 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1523 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1523 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1523 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11535,7 +11535,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1524 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1524 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1524 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1524 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11561,7 +11561,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1525 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1525 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1525 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1525 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11587,7 +11587,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1528 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1528 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1528 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1528 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11613,7 +11613,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1529 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1529 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1529 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1529 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11639,7 +11639,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1530 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1530 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1530 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1530 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11665,7 +11665,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1533 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1533 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1533 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1533 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11691,7 +11691,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1534 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1534 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1534 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1534 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11717,7 +11717,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1535 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1535 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1535 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1535 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11750,7 +11750,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1536 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1536 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1536 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1536 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11783,7 +11783,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1537 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1537 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1537 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1537 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11816,7 +11816,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1538 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1538 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1538 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1538 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11849,7 +11849,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1539 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1539 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1539 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1539 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11882,7 +11882,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1540 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1540 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1540 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1540 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11915,7 +11915,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1541 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1541 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1541 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1541 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11948,7 +11948,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1542 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1542 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1542 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1542 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11974,7 +11974,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1543 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1543 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1543 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1543 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12000,7 +12000,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1544 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1544 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1544 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1544 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12026,7 +12026,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1545 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1545 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1545 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1545 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12052,7 +12052,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1546 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1546 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1546 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1546 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12078,7 +12078,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1547 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1547 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1547 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1547 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12104,7 +12104,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1548 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1548 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1548 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1548 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12130,7 +12130,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1549 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1549 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1549 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1549 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12156,7 +12156,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1550 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1550 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1550 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1550 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12182,7 +12182,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1552 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1552 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1552 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1552 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12208,7 +12208,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1553 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1553 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1553 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1553 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12234,7 +12234,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1554 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1554 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1554 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1554 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12260,7 +12260,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1555 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1555 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1555 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1555 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12286,7 +12286,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1556 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1556 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1556 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1556 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12312,7 +12312,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1557 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1557 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1557 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1557 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12338,7 +12338,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1560 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1560 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1560 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1560 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12364,7 +12364,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1561 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1561 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1561 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1561 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12390,7 +12390,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1562 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1562 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1562 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1562 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12416,7 +12416,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1563 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1563 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1563 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1563 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12442,7 +12442,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1564 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1564 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1564 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1564 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12468,7 +12468,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1565 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1565 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1565 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1565 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12501,7 +12501,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1566 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1566 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1566 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1566 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12527,7 +12527,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1567 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1567 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1567 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1567 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12553,7 +12553,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1568 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1568 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1568 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1568 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12579,7 +12579,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1569 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1569 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1569 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1569 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12605,7 +12605,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1570 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1570 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1570 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1570 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12631,7 +12631,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1571 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1571 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1571 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1571 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12657,7 +12657,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1572 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1572 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1572 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1572 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12683,7 +12683,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1573 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1573 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1573 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1573 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12709,7 +12709,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1574 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1574 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1574 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1574 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12735,7 +12735,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1575 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1575 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1575 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1575 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12761,7 +12761,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1576 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1576 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1576 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1576 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12787,7 +12787,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1577 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1577 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1577 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1577 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12813,7 +12813,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1578 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1578 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1578 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1578 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12839,7 +12839,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1579 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1579 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1579 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1579 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12865,7 +12865,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1580 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1580 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1580 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1580 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12891,7 +12891,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1581 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1581 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1581 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1581 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12917,7 +12917,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1582 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1582 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1582 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1582 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12943,7 +12943,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1583 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1583 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1583 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1583 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12969,7 +12969,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1584 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1584 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1584 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1584 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13002,7 +13002,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1585 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1585 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1585 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1585 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13028,7 +13028,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1586 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1586 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1586 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1586 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13054,7 +13054,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1587 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1587 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1587 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1587 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13080,7 +13080,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1588 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1588 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1588 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1588 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13106,7 +13106,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1590 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1590 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1590 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1590 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13132,7 +13132,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1591 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1591 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1591 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1591 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13158,7 +13158,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1592 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1592 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1592 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1592 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13184,7 +13184,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1593 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1593 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1593 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1593 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13210,7 +13210,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1594 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1594 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1594 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1594 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13236,7 +13236,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1595 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1595 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1595 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1595 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13262,7 +13262,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1596 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1596 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1596 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1596 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13288,7 +13288,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1597 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1597 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1597 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1597 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13314,7 +13314,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1598 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1598 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1598 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1598 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13347,7 +13347,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1599 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1599 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1599 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1599 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13380,7 +13380,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1600 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1600 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1600 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1600 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13406,7 +13406,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1601 {
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1601 {}
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1601 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1601 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13439,7 +13439,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_1602 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_1602 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_1602 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_1602 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13564,7 +13564,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_402 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_402 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_402 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_402 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13698,7 +13698,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_403 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_403 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_403 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_403 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13784,7 +13784,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_502 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_502 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_502 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_502 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13942,7 +13942,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_503 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_503 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_503 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_503 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13984,7 +13984,7 @@ pub struct SERVER_INFO_598 {
     pub sv598_enablesecuritysignature: super::super::Foundation::BOOL,
     pub sv598_requiresecuritysignature: super::super::Foundation::BOOL,
     pub sv598_minclientbuffersize: u32,
-    pub sv598_serverguid: ::windows::runtime::GUID,
+    pub sv598_serverguid: ::windows::core::GUID,
     pub sv598_ConnectionNoSessionsTimeout: u32,
     pub sv598_IdleThreadTimeOut: u32,
     pub sv598_enableW9xsecuritysignature: super::super::Foundation::BOOL,
@@ -14103,7 +14103,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_598 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_598 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_598 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_598 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14303,7 +14303,7 @@ impl ::core::cmp::PartialEq for SERVER_INFO_599 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_INFO_599 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_599 {
+unsafe impl ::windows::core::Abi for SERVER_INFO_599 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -14317,7 +14317,7 @@ impl ::core::convert::From<u32> for SERVER_INFO_HIDDEN {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_HIDDEN {
+unsafe impl ::windows::core::Abi for SERVER_INFO_HIDDEN {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SERVER_INFO_HIDDEN {
@@ -14359,7 +14359,7 @@ impl ::core::convert::From<u32> for SERVER_INFO_SECURITY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVER_INFO_SECURITY {
+unsafe impl ::windows::core::Abi for SERVER_INFO_SECURITY {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SERVER_INFO_SECURITY {
@@ -14430,7 +14430,7 @@ impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_TRANSPORT_INFO_0 {
+unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14475,7 +14475,7 @@ impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_TRANSPORT_INFO_1 {
+unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14522,7 +14522,7 @@ impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_TRANSPORT_INFO_2 {
+unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14581,7 +14581,7 @@ impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_TRANSPORT_INFO_3 {
+unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_3 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -14648,7 +14648,7 @@ impl ::core::cmp::PartialEq for SERVICE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_INFO_0 {
+unsafe impl ::windows::core::Abi for SERVICE_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14684,7 +14684,7 @@ impl ::core::cmp::PartialEq for SERVICE_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_INFO_1 {
+unsafe impl ::windows::core::Abi for SERVICE_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14731,7 +14731,7 @@ impl ::core::cmp::PartialEq for SERVICE_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_INFO_2 {
+unsafe impl ::windows::core::Abi for SERVICE_INFO_2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -14915,7 +14915,7 @@ impl ::core::cmp::PartialEq for SMB_COMPRESSION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SMB_COMPRESSION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SMB_COMPRESSION_INFO {
+unsafe impl ::windows::core::Abi for SMB_COMPRESSION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14944,7 +14944,7 @@ impl ::core::cmp::PartialEq for SMB_TREE_CONNECT_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for SMB_TREE_CONNECT_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for SMB_TREE_CONNECT_PARAMETERS {
+unsafe impl ::windows::core::Abi for SMB_TREE_CONNECT_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14972,7 +14972,7 @@ impl ::core::cmp::PartialEq for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for SMB_USE_OPTION_COMPRESSION_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
+unsafe impl ::windows::core::Abi for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -15006,7 +15006,7 @@ impl ::core::cmp::PartialEq for STD_ALERT {
     }
 }
 impl ::core::cmp::Eq for STD_ALERT {}
-unsafe impl ::windows::runtime::Abi for STD_ALERT {
+unsafe impl ::windows::core::Abi for STD_ALERT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -15024,7 +15024,7 @@ impl ::core::convert::From<i32> for SUPPORTS_BINDING_INTERFACE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SUPPORTS_BINDING_INTERFACE_FLAGS {
+unsafe impl ::windows::core::Abi for SUPPORTS_BINDING_INTERFACE_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -15361,16 +15361,16 @@ pub const SV_XACTMEMSIZE_PARMNUM: u32 = 531u32;
 pub const SW_AUTOPROF_LOAD_MASK: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const SW_AUTOPROF_SAVE_MASK: u32 = 2u32;
-pub const ServiceAccountPasswordGUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x262e99c9_6160_4871_acec_4e61736b6f21);
+pub const ServiceAccountPasswordGUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x262e99c9_6160_4871_acec_4e61736b6f21);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetNetScheduleAccountInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszservername: Param0, pwszaccount: Param1, pwszpassword: Param2) -> ::windows::runtime::Result<()> {
+pub unsafe fn SetNetScheduleAccountInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszservername: Param0, pwszaccount: Param1, pwszpassword: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetNetScheduleAccountInformation(pwszservername: super::super::Foundation::PWSTR, pwszaccount: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn SetNetScheduleAccountInformation(pwszservername: super::super::Foundation::PWSTR, pwszaccount: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         SetNetScheduleAccountInformation(pwszservername.into_param().abi(), pwszaccount.into_param().abi(), pwszpassword.into_param().abi()).ok()
     }
@@ -15424,7 +15424,7 @@ impl ::core::cmp::PartialEq for TIME_OF_DAY_INFO {
     }
 }
 impl ::core::cmp::Eq for TIME_OF_DAY_INFO {}
-unsafe impl ::windows::runtime::Abi for TIME_OF_DAY_INFO {
+unsafe impl ::windows::core::Abi for TIME_OF_DAY_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -15474,7 +15474,7 @@ impl ::core::cmp::PartialEq for TRANSPORT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TRANSPORT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TRANSPORT_INFO {
+unsafe impl ::windows::core::Abi for TRANSPORT_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -15493,7 +15493,7 @@ impl ::core::convert::From<i32> for TRANSPORT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TRANSPORT_TYPE {
+unsafe impl ::windows::core::Abi for TRANSPORT_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -15555,7 +15555,7 @@ pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TraceDumpExA<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: Param5, lpszprefix: Param6) -> u32 {
+pub unsafe fn TraceDumpExA<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: Param5, lpszprefix: Param6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15570,7 +15570,7 @@ pub unsafe fn TraceDumpExA<'a, Param5: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TraceDumpExW<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: Param5, lpszprefix: Param6) -> u32 {
+pub unsafe fn TraceDumpExW<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: Param5, lpszprefix: Param6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15615,7 +15615,7 @@ pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Fo
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TracePrintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, lpszformat: Param1) -> u32 {
+pub unsafe fn TracePrintfA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, lpszformat: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15630,7 +15630,7 @@ pub unsafe fn TracePrintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TracePrintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2) -> u32 {
+pub unsafe fn TracePrintfExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15645,7 +15645,7 @@ pub unsafe fn TracePrintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TracePrintfExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2) -> u32 {
+pub unsafe fn TracePrintfExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15660,7 +15660,7 @@ pub unsafe fn TracePrintfExW<'a, Param2: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TracePrintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, lpszformat: Param1) -> u32 {
+pub unsafe fn TracePrintfW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, lpszformat: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15675,7 +15675,7 @@ pub unsafe fn TracePrintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TracePutsExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszstring: Param2) -> u32 {
+pub unsafe fn TracePutsExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszstring: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15690,7 +15690,7 @@ pub unsafe fn TracePutsExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TracePutsExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszstring: Param2) -> u32 {
+pub unsafe fn TracePutsExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszstring: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15705,7 +15705,7 @@ pub unsafe fn TracePutsExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TraceRegisterExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszcallername: Param0, dwflags: u32) -> u32 {
+pub unsafe fn TraceRegisterExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszcallername: Param0, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15720,7 +15720,7 @@ pub unsafe fn TraceRegisterExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TraceRegisterExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszcallername: Param0, dwflags: u32) -> u32 {
+pub unsafe fn TraceRegisterExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszcallername: Param0, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15735,7 +15735,7 @@ pub unsafe fn TraceRegisterExW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TraceVprintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2, arglist: *mut i8) -> u32 {
+pub unsafe fn TraceVprintfExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2, arglist: *mut i8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15750,7 +15750,7 @@ pub unsafe fn TraceVprintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TraceVprintfExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2, arglist: *mut i8) -> u32 {
+pub unsafe fn TraceVprintfExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2, arglist: *mut i8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15814,7 +15814,7 @@ impl ::core::convert::From<u32> for USER_ACCOUNT_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USER_ACCOUNT_FLAGS {
+unsafe impl ::windows::core::Abi for USER_ACCOUNT_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for USER_ACCOUNT_FLAGS {
@@ -15893,7 +15893,7 @@ impl ::core::cmp::PartialEq for USER_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_0 {
+unsafe impl ::windows::core::Abi for USER_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15942,7 +15942,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1 {
+unsafe impl ::windows::core::Abi for USER_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15978,7 +15978,7 @@ impl ::core::cmp::PartialEq for USER_INFO_10 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_10 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_10 {
+unsafe impl ::windows::core::Abi for USER_INFO_10 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16011,7 +16011,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1003 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1003 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1003 {
+unsafe impl ::windows::core::Abi for USER_INFO_1003 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16037,7 +16037,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1005 {
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1005 {}
-unsafe impl ::windows::runtime::Abi for USER_INFO_1005 {
+unsafe impl ::windows::core::Abi for USER_INFO_1005 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16070,7 +16070,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1006 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1006 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1006 {
+unsafe impl ::windows::core::Abi for USER_INFO_1006 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16103,7 +16103,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1007 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1007 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1007 {
+unsafe impl ::windows::core::Abi for USER_INFO_1007 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16129,7 +16129,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1008 {
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1008 {}
-unsafe impl ::windows::runtime::Abi for USER_INFO_1008 {
+unsafe impl ::windows::core::Abi for USER_INFO_1008 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16162,7 +16162,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1009 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1009 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1009 {
+unsafe impl ::windows::core::Abi for USER_INFO_1009 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16188,7 +16188,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1010 {
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1010 {}
-unsafe impl ::windows::runtime::Abi for USER_INFO_1010 {
+unsafe impl ::windows::core::Abi for USER_INFO_1010 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16221,7 +16221,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1011 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1011 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1011 {
+unsafe impl ::windows::core::Abi for USER_INFO_1011 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16254,7 +16254,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1012 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1012 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1012 {
+unsafe impl ::windows::core::Abi for USER_INFO_1012 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16287,7 +16287,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1013 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1013 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1013 {
+unsafe impl ::windows::core::Abi for USER_INFO_1013 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16320,7 +16320,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1014 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1014 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1014 {
+unsafe impl ::windows::core::Abi for USER_INFO_1014 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16346,7 +16346,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1017 {
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1017 {}
-unsafe impl ::windows::runtime::Abi for USER_INFO_1017 {
+unsafe impl ::windows::core::Abi for USER_INFO_1017 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16372,7 +16372,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1018 {
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1018 {}
-unsafe impl ::windows::runtime::Abi for USER_INFO_1018 {
+unsafe impl ::windows::core::Abi for USER_INFO_1018 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16399,7 +16399,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1020 {
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1020 {}
-unsafe impl ::windows::runtime::Abi for USER_INFO_1020 {
+unsafe impl ::windows::core::Abi for USER_INFO_1020 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16432,7 +16432,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1023 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1023 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1023 {
+unsafe impl ::windows::core::Abi for USER_INFO_1023 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16458,7 +16458,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1024 {
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1024 {}
-unsafe impl ::windows::runtime::Abi for USER_INFO_1024 {
+unsafe impl ::windows::core::Abi for USER_INFO_1024 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16484,7 +16484,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1025 {
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1025 {}
-unsafe impl ::windows::runtime::Abi for USER_INFO_1025 {
+unsafe impl ::windows::core::Abi for USER_INFO_1025 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16510,7 +16510,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1051 {
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1051 {}
-unsafe impl ::windows::runtime::Abi for USER_INFO_1051 {
+unsafe impl ::windows::core::Abi for USER_INFO_1051 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16543,7 +16543,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1052 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1052 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1052 {
+unsafe impl ::windows::core::Abi for USER_INFO_1052 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16576,7 +16576,7 @@ impl ::core::cmp::PartialEq for USER_INFO_1053 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_1053 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_1053 {
+unsafe impl ::windows::core::Abi for USER_INFO_1053 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16668,7 +16668,7 @@ impl ::core::cmp::PartialEq for USER_INFO_11 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_11 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_11 {
+unsafe impl ::windows::core::Abi for USER_INFO_11 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16772,7 +16772,7 @@ impl ::core::cmp::PartialEq for USER_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_2 {
+unsafe impl ::windows::core::Abi for USER_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16809,7 +16809,7 @@ impl ::core::cmp::PartialEq for USER_INFO_20 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_20 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_20 {
+unsafe impl ::windows::core::Abi for USER_INFO_20 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16835,7 +16835,7 @@ impl ::core::cmp::PartialEq for USER_INFO_21 {
     }
 }
 impl ::core::cmp::Eq for USER_INFO_21 {}
-unsafe impl ::windows::runtime::Abi for USER_INFO_21 {
+unsafe impl ::windows::core::Abi for USER_INFO_21 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16939,7 +16939,7 @@ impl ::core::cmp::PartialEq for USER_INFO_22 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_22 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_22 {
+unsafe impl ::windows::core::Abi for USER_INFO_22 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16976,7 +16976,7 @@ impl ::core::cmp::PartialEq for USER_INFO_23 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_23 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_23 {
+unsafe impl ::windows::core::Abi for USER_INFO_23 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17019,7 +17019,7 @@ impl ::core::cmp::PartialEq for USER_INFO_24 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_24 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_24 {
+unsafe impl ::windows::core::Abi for USER_INFO_24 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17138,7 +17138,7 @@ impl ::core::cmp::PartialEq for USER_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_3 {
+unsafe impl ::windows::core::Abi for USER_INFO_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17257,7 +17257,7 @@ impl ::core::cmp::PartialEq for USER_INFO_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_INFO_4 {
+unsafe impl ::windows::core::Abi for USER_INFO_4 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -17303,7 +17303,7 @@ impl ::core::cmp::PartialEq for USER_MODALS_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_0 {
+unsafe impl ::windows::core::Abi for USER_MODALS_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17337,7 +17337,7 @@ impl ::core::cmp::PartialEq for USER_MODALS_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_MODALS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1 {
+unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17363,7 +17363,7 @@ impl ::core::cmp::PartialEq for USER_MODALS_INFO_1001 {
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1001 {}
-unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1001 {
+unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1001 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17389,7 +17389,7 @@ impl ::core::cmp::PartialEq for USER_MODALS_INFO_1002 {
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1002 {}
-unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1002 {
+unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1002 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17415,7 +17415,7 @@ impl ::core::cmp::PartialEq for USER_MODALS_INFO_1003 {
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1003 {}
-unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1003 {
+unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1003 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17441,7 +17441,7 @@ impl ::core::cmp::PartialEq for USER_MODALS_INFO_1004 {
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1004 {}
-unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1004 {
+unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1004 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17467,7 +17467,7 @@ impl ::core::cmp::PartialEq for USER_MODALS_INFO_1005 {
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1005 {}
-unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1005 {
+unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1005 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17493,7 +17493,7 @@ impl ::core::cmp::PartialEq for USER_MODALS_INFO_1006 {
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1006 {}
-unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1006 {
+unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1006 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17526,7 +17526,7 @@ impl ::core::cmp::PartialEq for USER_MODALS_INFO_1007 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_MODALS_INFO_1007 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1007 {
+unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1007 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17560,7 +17560,7 @@ impl ::core::cmp::PartialEq for USER_MODALS_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_MODALS_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_2 {
+unsafe impl ::windows::core::Abi for USER_MODALS_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17588,7 +17588,7 @@ impl ::core::cmp::PartialEq for USER_MODALS_INFO_3 {
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_3 {}
-unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_3 {
+unsafe impl ::windows::core::Abi for USER_MODALS_INFO_3 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -17604,7 +17604,7 @@ impl ::core::convert::From<u32> for USER_MODALS_ROLES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USER_MODALS_ROLES {
+unsafe impl ::windows::core::Abi for USER_MODALS_ROLES {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for USER_MODALS_ROLES {
@@ -17663,7 +17663,7 @@ impl ::core::cmp::PartialEq for USER_OTHER_INFO {
     }
 }
 impl ::core::cmp::Eq for USER_OTHER_INFO {}
-unsafe impl ::windows::runtime::Abi for USER_OTHER_INFO {
+unsafe impl ::windows::core::Abi for USER_OTHER_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -17688,7 +17688,7 @@ impl ::core::convert::From<u32> for USER_PRIV {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USER_PRIV {
+unsafe impl ::windows::core::Abi for USER_PRIV {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for USER_PRIV {
@@ -17784,7 +17784,7 @@ impl ::core::cmp::PartialEq for USE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USE_INFO_0 {
+unsafe impl ::windows::core::Abi for USE_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17831,7 +17831,7 @@ impl ::core::cmp::PartialEq for USE_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USE_INFO_1 {
+unsafe impl ::windows::core::Abi for USE_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17882,7 +17882,7 @@ impl ::core::cmp::PartialEq for USE_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USE_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USE_INFO_2 {
+unsafe impl ::windows::core::Abi for USE_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17916,7 +17916,7 @@ impl ::core::cmp::PartialEq for USE_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USE_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USE_INFO_3 {
+unsafe impl ::windows::core::Abi for USE_INFO_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17951,7 +17951,7 @@ impl ::core::cmp::PartialEq for USE_INFO_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USE_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USE_INFO_4 {
+unsafe impl ::windows::core::Abi for USE_INFO_4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17998,7 +17998,7 @@ impl ::core::cmp::PartialEq for USE_INFO_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USE_INFO_5 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USE_INFO_5 {
+unsafe impl ::windows::core::Abi for USE_INFO_5 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -18014,7 +18014,7 @@ impl ::core::convert::From<u32> for USE_INFO_ASG_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USE_INFO_ASG_TYPE {
+unsafe impl ::windows::core::Abi for USE_INFO_ASG_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for USE_INFO_ASG_TYPE {
@@ -18078,7 +18078,7 @@ impl ::core::cmp::PartialEq for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
+unsafe impl ::windows::core::Abi for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18106,7 +18106,7 @@ impl ::core::cmp::PartialEq for USE_OPTION_GENERIC {
     }
 }
 impl ::core::cmp::Eq for USE_OPTION_GENERIC {}
-unsafe impl ::windows::runtime::Abi for USE_OPTION_GENERIC {
+unsafe impl ::windows::core::Abi for USE_OPTION_GENERIC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18134,7 +18134,7 @@ impl ::core::cmp::PartialEq for USE_OPTION_PROPERTIES {
     }
 }
 impl ::core::cmp::Eq for USE_OPTION_PROPERTIES {}
-unsafe impl ::windows::runtime::Abi for USE_OPTION_PROPERTIES {
+unsafe impl ::windows::core::Abi for USE_OPTION_PROPERTIES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18162,7 +18162,7 @@ impl ::core::cmp::PartialEq for USE_OPTION_TRANSPORT_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for USE_OPTION_TRANSPORT_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for USE_OPTION_TRANSPORT_PARAMETERS {
+unsafe impl ::windows::core::Abi for USE_OPTION_TRANSPORT_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -18247,7 +18247,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_100 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_100 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_100 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_100 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18292,7 +18292,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_101 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_101 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_101 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_101 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18318,7 +18318,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1010 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1010 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1010 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1010 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18344,7 +18344,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1011 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1011 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1011 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1011 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18370,7 +18370,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1012 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1012 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1012 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1012 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18396,7 +18396,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1013 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1013 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1013 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1013 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18422,7 +18422,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1018 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1018 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1018 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1018 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18469,7 +18469,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_102 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_102 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_102 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_102 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18495,7 +18495,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1023 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1023 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1023 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1023 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18521,7 +18521,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1027 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1027 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1027 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1027 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18547,7 +18547,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1028 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1028 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1028 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1028 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18573,7 +18573,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1032 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1032 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1032 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1032 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18599,7 +18599,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1033 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1033 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1033 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1033 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18625,7 +18625,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1041 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1041 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1041 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1041 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18651,7 +18651,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1042 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1042 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1042 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1042 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18677,7 +18677,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1043 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1043 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1043 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1043 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18703,7 +18703,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1044 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1044 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1044 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1044 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18729,7 +18729,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1045 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1045 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1045 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1045 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18755,7 +18755,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1046 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1046 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1046 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1046 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18781,7 +18781,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1047 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1047 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1047 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1047 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18814,7 +18814,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1048 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1048 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1048 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1048 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18847,7 +18847,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1049 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1049 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1049 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1049 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18880,7 +18880,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1050 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1050 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1050 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1050 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18913,7 +18913,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1051 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1051 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1051 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1051 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18946,7 +18946,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1052 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1052 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1052 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1052 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18979,7 +18979,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1053 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1053 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1053 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1053 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19012,7 +19012,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1054 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1054 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1054 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1054 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19045,7 +19045,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1055 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1055 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1055 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1055 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19078,7 +19078,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1056 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1056 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1056 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1056 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19111,7 +19111,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1057 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1057 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1057 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1057 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19144,7 +19144,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1058 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1058 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1058 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1058 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19177,7 +19177,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1059 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1059 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1059 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1059 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19210,7 +19210,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1060 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1060 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1060 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1060 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19243,7 +19243,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1061 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_1061 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1061 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1061 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19269,7 +19269,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_1062 {
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1062 {}
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1062 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_1062 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19361,7 +19361,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_302 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_302 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_302 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_302 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19456,7 +19456,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_402 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_402 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_402 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_402 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19593,7 +19593,7 @@ impl ::core::cmp::PartialEq for WKSTA_INFO_502 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_INFO_502 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_INFO_502 {
+unsafe impl ::windows::core::Abi for WKSTA_INFO_502 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -19694,7 +19694,7 @@ impl ::core::cmp::PartialEq for WKSTA_TRANSPORT_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_TRANSPORT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_TRANSPORT_INFO_0 {
+unsafe impl ::windows::core::Abi for WKSTA_TRANSPORT_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -19741,7 +19741,7 @@ impl ::core::cmp::PartialEq for WKSTA_USER_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_USER_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_USER_INFO_0 {
+unsafe impl ::windows::core::Abi for WKSTA_USER_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19777,7 +19777,7 @@ impl ::core::cmp::PartialEq for WKSTA_USER_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_USER_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_USER_INFO_1 {
+unsafe impl ::windows::core::Abi for WKSTA_USER_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19810,7 +19810,7 @@ impl ::core::cmp::PartialEq for WKSTA_USER_INFO_1101 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WKSTA_USER_INFO_1101 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WKSTA_USER_INFO_1101 {
+unsafe impl ::windows::core::Abi for WKSTA_USER_INFO_1101 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -19926,6 +19926,6 @@ impl ::core::convert::From<i32> for tagRASCON_IPUI_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for tagRASCON_IPUI_FLAGS {
+unsafe impl ::windows::core::Abi for tagRASCON_IPUI_FLAGS {
     type Abi = Self;
 }

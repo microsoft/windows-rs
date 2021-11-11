@@ -23,3 +23,5 @@ pub mod Threading;
 pub mod Update;
 #[cfg(feature = "System_UserProfile")]
 pub mod UserProfile;
+#[link(name = "windows")]
+extern "system" {}

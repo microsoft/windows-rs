@@ -1,6 +1,6 @@
 use test_ntstatus::{Windows::Win32::Foundation::*, Windows::Win32::Security::Cryptography::*};
 
-use windows::runtime::{Result, GUID, HRESULT};
+use windows::core::{Result, GUID, HRESULT};
 
 #[test]
 fn test() -> Result<()> {

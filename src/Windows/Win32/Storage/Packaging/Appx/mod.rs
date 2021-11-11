@@ -13,7 +13,7 @@ impl ::core::convert::From<i32> for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
+unsafe impl ::windows::core::Abi for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -27,7 +27,7 @@ impl ::core::convert::From<i32> for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
+unsafe impl ::windows::core::Abi for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -51,7 +51,7 @@ impl ::core::convert::From<u32> for APPX_CAPABILITIES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_CAPABILITIES {
+unsafe impl ::windows::core::Abi for APPX_CAPABILITIES {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for APPX_CAPABILITIES {
@@ -97,7 +97,7 @@ impl ::core::convert::From<i32> for APPX_CAPABILITY_CLASS_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_CAPABILITY_CLASS_TYPE {
+unsafe impl ::windows::core::Abi for APPX_CAPABILITY_CLASS_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -114,7 +114,7 @@ impl ::core::convert::From<i32> for APPX_COMPRESSION_OPTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_COMPRESSION_OPTION {
+unsafe impl ::windows::core::Abi for APPX_COMPRESSION_OPTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -148,7 +148,7 @@ impl ::core::cmp::PartialEq for APPX_ENCRYPTED_EXEMPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for APPX_ENCRYPTED_EXEMPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for APPX_ENCRYPTED_EXEMPTIONS {
+unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_EXEMPTIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -163,7 +163,7 @@ impl ::core::convert::From<u32> for APPX_ENCRYPTED_PACKAGE_OPTIONS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_ENCRYPTED_PACKAGE_OPTIONS {
+unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for APPX_ENCRYPTED_PACKAGE_OPTIONS {
@@ -227,7 +227,7 @@ impl ::core::cmp::PartialEq for APPX_ENCRYPTED_PACKAGE_SETTINGS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for APPX_ENCRYPTED_PACKAGE_SETTINGS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::runtime::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS {
+unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -263,7 +263,7 @@ impl ::core::cmp::PartialEq for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::runtime::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
+unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -280,7 +280,7 @@ impl ::core::convert::From<i32> for APPX_FOOTPRINT_FILE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_FOOTPRINT_FILE_TYPE {
+unsafe impl ::windows::core::Abi for APPX_FOOTPRINT_FILE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -309,7 +309,7 @@ impl ::core::cmp::PartialEq for APPX_KEY_INFO {
     }
 }
 impl ::core::cmp::Eq for APPX_KEY_INFO {}
-unsafe impl ::windows::runtime::Abi for APPX_KEY_INFO {
+unsafe impl ::windows::core::Abi for APPX_KEY_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -326,7 +326,7 @@ impl ::core::convert::From<i32> for APPX_PACKAGE_ARCHITECTURE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_ARCHITECTURE {
+unsafe impl ::windows::core::Abi for APPX_PACKAGE_ARCHITECTURE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -345,7 +345,7 @@ impl ::core::convert::From<i32> for APPX_PACKAGE_ARCHITECTURE2 {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_ARCHITECTURE2 {
+unsafe impl ::windows::core::Abi for APPX_PACKAGE_ARCHITECTURE2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -360,7 +360,7 @@ impl ::core::convert::From<u32> for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
+unsafe impl ::windows::core::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
@@ -401,7 +401,7 @@ impl ::core::convert::From<i32> for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
+unsafe impl ::windows::core::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -435,7 +435,7 @@ impl ::core::cmp::PartialEq for APPX_PACKAGE_SETTINGS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for APPX_PACKAGE_SETTINGS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_SETTINGS {
+unsafe impl ::windows::core::Abi for APPX_PACKAGE_SETTINGS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -471,7 +471,7 @@ impl ::core::cmp::PartialEq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
+unsafe impl ::windows::core::Abi for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -487,19 +487,19 @@ impl ::core::convert::From<i32> for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
+unsafe impl ::windows::core::Abi for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[inline]
-pub unsafe fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::runtime::Result<usize> {
+pub unsafe fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::Result<usize> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, cookie: *mut usize) -> ::windows::runtime::HRESULT;
+            fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, cookie: *mut usize) -> ::windows::core::HRESULT;
         }
-        let mut result__: <usize as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <usize as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         ActivatePackageVirtualizationContext(::core::mem::transmute(context), &mut result__).from_abi::<usize>(result__)
     }
     #[cfg(not(windows))]
@@ -508,12 +508,12 @@ pub unsafe fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTU
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPackageDependency<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagedependencyid: Param0, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn AddPackageDependency<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagedependencyid: Param0, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddPackageDependency(packagedependencyid: super::super::super::Foundation::PWSTR, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn AddPackageDependency(packagedependencyid: super::super::super::Foundation::PWSTR, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         AddPackageDependency(packagedependencyid.into_param().abi(), ::core::mem::transmute(rank), ::core::mem::transmute(options), ::core::mem::transmute(packagedependencycontext), ::core::mem::transmute(packagefullname)).ok()
     }
@@ -531,7 +531,7 @@ impl ::core::convert::From<i32> for AddPackageDependencyOptions {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AddPackageDependencyOptions {
+unsafe impl ::windows::core::Abi for AddPackageDependencyOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -547,7 +547,7 @@ impl ::core::convert::From<i32> for AppPolicyClrCompat {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AppPolicyClrCompat {
+unsafe impl ::windows::core::Abi for AppPolicyClrCompat {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -561,13 +561,13 @@ impl ::core::convert::From<i32> for AppPolicyCreateFileAccess {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AppPolicyCreateFileAccess {
+unsafe impl ::windows::core::Abi for AppPolicyCreateFileAccess {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetClrCompat<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyClrCompat) -> i32 {
+pub unsafe fn AppPolicyGetClrCompat<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyClrCompat) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -582,7 +582,7 @@ pub unsafe fn AppPolicyGetClrCompat<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetCreateFileAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyCreateFileAccess) -> i32 {
+pub unsafe fn AppPolicyGetCreateFileAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyCreateFileAccess) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -597,7 +597,7 @@ pub unsafe fn AppPolicyGetCreateFileAccess<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetLifecycleManagement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyLifecycleManagement) -> i32 {
+pub unsafe fn AppPolicyGetLifecycleManagement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyLifecycleManagement) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -612,7 +612,7 @@ pub unsafe fn AppPolicyGetLifecycleManagement<'a, Param0: ::windows::runtime::In
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyMediaFoundationCodecLoading) -> i32 {
+pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyMediaFoundationCodecLoading) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -627,7 +627,7 @@ pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<'a, Param0: ::windows::run
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetProcessTerminationMethod<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyProcessTerminationMethod) -> i32 {
+pub unsafe fn AppPolicyGetProcessTerminationMethod<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyProcessTerminationMethod) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -642,7 +642,7 @@ pub unsafe fn AppPolicyGetProcessTerminationMethod<'a, Param0: ::windows::runtim
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyShowDeveloperDiagnostic) -> i32 {
+pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyShowDeveloperDiagnostic) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -657,7 +657,7 @@ pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<'a, Param0: ::windows::runtime
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetThreadInitializationType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyThreadInitializationType) -> i32 {
+pub unsafe fn AppPolicyGetThreadInitializationType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyThreadInitializationType) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -672,7 +672,7 @@ pub unsafe fn AppPolicyGetThreadInitializationType<'a, Param0: ::windows::runtim
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppPolicyGetWindowingModel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyWindowingModel) -> i32 {
+pub unsafe fn AppPolicyGetWindowingModel<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyWindowingModel) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -695,7 +695,7 @@ impl ::core::convert::From<i32> for AppPolicyLifecycleManagement {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AppPolicyLifecycleManagement {
+unsafe impl ::windows::core::Abi for AppPolicyLifecycleManagement {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -709,7 +709,7 @@ impl ::core::convert::From<i32> for AppPolicyMediaFoundationCodecLoading {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AppPolicyMediaFoundationCodecLoading {
+unsafe impl ::windows::core::Abi for AppPolicyMediaFoundationCodecLoading {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -723,7 +723,7 @@ impl ::core::convert::From<i32> for AppPolicyProcessTerminationMethod {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AppPolicyProcessTerminationMethod {
+unsafe impl ::windows::core::Abi for AppPolicyProcessTerminationMethod {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -737,7 +737,7 @@ impl ::core::convert::From<i32> for AppPolicyShowDeveloperDiagnostic {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AppPolicyShowDeveloperDiagnostic {
+unsafe impl ::windows::core::Abi for AppPolicyShowDeveloperDiagnostic {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -751,7 +751,7 @@ impl ::core::convert::From<i32> for AppPolicyThreadInitializationType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AppPolicyThreadInitializationType {
+unsafe impl ::windows::core::Abi for AppPolicyThreadInitializationType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -767,25 +767,25 @@ impl ::core::convert::From<i32> for AppPolicyWindowingModel {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AppPolicyWindowingModel {
+unsafe impl ::windows::core::Abi for AppPolicyWindowingModel {
     type Abi = Self;
 }
-pub const AppxBundleFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x378e0446_5384_43b7_8877_e7dbdd883446);
-pub const AppxEncryptionFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdc664fdd_d868_46ee_8780_8d196cb739f7);
-pub const AppxFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5842a140_ff9f_4166_8f5c_62f5b7b0c781);
-pub const AppxPackageEditor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf004f2ca_aebc_4b0d_bf58_e516d5bcc0ab);
-pub const AppxPackagingDiagnosticEventSinkManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50ca0a46_1588_4161_8ed2_ef9e469ced5d);
+pub const AppxBundleFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x378e0446_5384_43b7_8877_e7dbdd883446);
+pub const AppxEncryptionFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc664fdd_d868_46ee_8780_8d196cb739f7);
+pub const AppxFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5842a140_ff9f_4166_8f5c_62f5b7b0c781);
+pub const AppxPackageEditor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf004f2ca_aebc_4b0d_bf58_e516d5bcc0ab);
+pub const AppxPackagingDiagnosticEventSinkManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ca0a46_1588_4161_8ed2_ef9e469ced5d);
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckIsMSIXPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
+pub unsafe fn CheckIsMSIXPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CheckIsMSIXPackage(packagefullname: super::super::super::Foundation::PWSTR, ismsixpackage: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn CheckIsMSIXPackage(packagefullname: super::super::super::Foundation::PWSTR, ismsixpackage: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CheckIsMSIXPackage(packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
@@ -817,20 +817,20 @@ impl ::core::convert::From<i32> for CreatePackageDependencyOptions {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CreatePackageDependencyOptions {
+unsafe impl ::windows::core::Abi for CreatePackageDependencyOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePackageVirtualizationContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0) -> ::windows::runtime::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
+pub unsafe fn CreatePackageVirtualizationContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0) -> ::windows::core::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePackageVirtualizationContext(packagefamilyname: super::super::super::Foundation::PWSTR, context: *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::runtime::HRESULT;
+            fn CreatePackageVirtualizationContext(packagefamilyname: super::super::super::Foundation::PWSTR, context: *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CreatePackageVirtualizationContext(packagefamilyname.into_param().abi(), &mut result__).from_abi::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>(result__)
     }
     #[cfg(not(windows))]
@@ -849,7 +849,7 @@ impl ::core::convert::From<i32> for DX_FEATURE_LEVEL {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DX_FEATURE_LEVEL {
+unsafe impl ::windows::core::Abi for DX_FEATURE_LEVEL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -869,12 +869,12 @@ pub unsafe fn DeactivatePackageVirtualizationContext(cookie: usize) {
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePackageDependency<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagedependencyid: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn DeletePackageDependency<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagedependencyid: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeletePackageDependency(packagedependencyid: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn DeletePackageDependency(packagedependencyid: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         DeletePackageDependency(packagedependencyid.into_param().abi()).ok()
     }
@@ -883,14 +883,14 @@ pub unsafe fn DeletePackageDependency<'a, Param0: ::windows::runtime::IntoParam<
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[inline]
-pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::runtime::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
+pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, destcontext: *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::runtime::HRESULT;
+            fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, destcontext: *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         DuplicatePackageVirtualizationContext(::core::mem::transmute(sourcecontext), &mut result__).from_abi::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>(result__)
     }
     #[cfg(not(windows))]
@@ -899,7 +899,7 @@ pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAG
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindPackagesByPackageFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, packagefilters: u32, count: *mut u32, packagefullnames: *mut super::super::super::Foundation::PWSTR, bufferlength: *mut u32, buffer: super::super::super::Foundation::PWSTR, packageproperties: *mut u32) -> i32 {
+pub unsafe fn FindPackagesByPackageFamily<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, packagefilters: u32, count: *mut u32, packagefullnames: *mut super::super::super::Foundation::PWSTR, bufferlength: *mut u32, buffer: super::super::super::Foundation::PWSTR, packageproperties: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -914,7 +914,7 @@ pub unsafe fn FindPackagesByPackageFamily<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FormatApplicationUserModelId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, packagerelativeapplicationid: Param1, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn FormatApplicationUserModelId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, packagerelativeapplicationid: Param1, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -929,7 +929,7 @@ pub unsafe fn FormatApplicationUserModelId<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetApplicationUserModelId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetApplicationUserModelId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -944,7 +944,7 @@ pub unsafe fn GetApplicationUserModelId<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetApplicationUserModelIdFromToken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetApplicationUserModelIdFromToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1090,14 +1090,14 @@ pub unsafe fn GetCurrentPackageVirtualizationContext() -> *mut PACKAGE_VIRTUALIZ
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
+pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__, packagedependencyid: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__, packagedependencyid: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetIdForPackageDependencyContext(::core::mem::transmute(packagedependencycontext), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -1120,7 +1120,7 @@ pub unsafe fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INF
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1135,7 +1135,7 @@ pub unsafe fn GetPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageFamilyNameFromToken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetPackageFamilyNameFromToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1150,7 +1150,7 @@ pub unsafe fn GetPackageFamilyNameFromToken<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetPackageFullName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1165,7 +1165,7 @@ pub unsafe fn GetPackageFullName<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageFullNameFromToken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetPackageFullNameFromToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1180,7 +1180,7 @@ pub unsafe fn GetPackageFullNameFromToken<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackageId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, bufferlength: *mut u32, buffer: *mut u8) -> i32 {
+pub unsafe fn GetPackageId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, bufferlength: *mut u32, buffer: *mut u8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1238,7 +1238,7 @@ pub unsafe fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathle
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackagePathByFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetPackagePathByFullName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1253,7 +1253,7 @@ pub unsafe fn GetPackagePathByFullName<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackagePathByFullName2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, packagepathtype: PackagePathType, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetPackagePathByFullName2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, packagepathtype: PackagePathType, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1268,7 +1268,7 @@ pub unsafe fn GetPackagePathByFullName2<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPackagesByPackageFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, count: *mut u32, packagefullnames: *mut super::super::super::Foundation::PWSTR, bufferlength: *mut u32, buffer: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetPackagesByPackageFamily<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, count: *mut u32, packagefullnames: *mut super::super::super::Foundation::PWSTR, bufferlength: *mut u32, buffer: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1283,12 +1283,12 @@ pub unsafe fn GetPackagesByPackageFamily<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetProcessesInVirtualizationContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetProcessesInVirtualizationContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetProcessesInVirtualizationContext(packagefamilyname: super::super::super::Foundation::PWSTR, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+            fn GetProcessesInVirtualizationContext(packagefamilyname: super::super::super::Foundation::PWSTR, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
         GetProcessesInVirtualizationContext(packagefamilyname.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(processes)).ok()
     }
@@ -1298,14 +1298,14 @@ pub unsafe fn GetProcessesInVirtualizationContext<'a, Param0: ::windows::runtime
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetResolvedPackageFullNameForPackageDependency<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagedependencyid: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
+pub unsafe fn GetResolvedPackageFullNameForPackageDependency<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagedependencyid: Param0) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetResolvedPackageFullNameForPackageDependency(packagedependencyid: super::super::super::Foundation::PWSTR, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn GetResolvedPackageFullNameForPackageDependency(packagedependencyid: super::super::super::Foundation::PWSTR, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetResolvedPackageFullNameForPackageDependency(packagedependencyid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -1314,7 +1314,7 @@ pub unsafe fn GetResolvedPackageFullNameForPackageDependency<'a, Param0: ::windo
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStagedPackageOrigin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, origin: *mut PackageOrigin) -> i32 {
+pub unsafe fn GetStagedPackageOrigin<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, origin: *mut PackageOrigin) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1329,7 +1329,7 @@ pub unsafe fn GetStagedPackageOrigin<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStagedPackagePathByFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetStagedPackagePathByFullName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1344,7 +1344,7 @@ pub unsafe fn GetStagedPackagePathByFullName<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStagedPackagePathByFullName2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, packagepathtype: PackagePathType, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetStagedPackagePathByFullName2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, packagepathtype: PackagePathType, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1359,1756 +1359,1756 @@ pub unsafe fn GetStagedPackagePathByFullName2<'a, Param0: ::windows::runtime::In
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBlockMapBlock(pub ::windows::runtime::IUnknown);
+pub struct IAppxBlockMapBlock(pub ::windows::core::IUnknown);
 impl IAppxBlockMapBlock {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetHash(&self, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)).ok()
+    pub unsafe fn GetHash(&self, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCompressedSize(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetCompressedSize(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBlockMapBlock {
+unsafe impl ::windows::core::Interface for IAppxBlockMapBlock {
     type Vtable = IAppxBlockMapBlock_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75cf3930_3244_4fe0_a8c8_e0bcb270b889);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75cf3930_3244_4fe0_a8c8_e0bcb270b889);
 }
-impl ::core::convert::From<IAppxBlockMapBlock> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBlockMapBlock> for ::windows::core::IUnknown {
     fn from(value: IAppxBlockMapBlock) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBlockMapBlock> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBlockMapBlock> for ::windows::core::IUnknown {
     fn from(value: &IAppxBlockMapBlock) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBlockMapBlock {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBlockMapBlock {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBlockMapBlock {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBlockMapBlock {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBlockMapBlock_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, size: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBlockMapBlocksEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxBlockMapBlocksEnumerator(pub ::windows::core::IUnknown);
 impl IAppxBlockMapBlocksEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxBlockMapBlock> {
-        let mut result__: <IAppxBlockMapBlock as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapBlock>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxBlockMapBlock> {
+        let mut result__: <IAppxBlockMapBlock as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapBlock>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBlockMapBlocksEnumerator {
+unsafe impl ::windows::core::Interface for IAppxBlockMapBlocksEnumerator {
     type Vtable = IAppxBlockMapBlocksEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6b429b5b_36ef_479e_b9eb_0c1482b49e16);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b429b5b_36ef_479e_b9eb_0c1482b49e16);
 }
-impl ::core::convert::From<IAppxBlockMapBlocksEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBlockMapBlocksEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxBlockMapBlocksEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBlockMapBlocksEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBlockMapBlocksEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxBlockMapBlocksEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBlockMapBlocksEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBlockMapBlocksEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBlockMapBlocksEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBlockMapBlocksEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBlockMapBlocksEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, block: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, block: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBlockMapFile(pub ::windows::runtime::IUnknown);
+pub struct IAppxBlockMapFile(pub ::windows::core::IUnknown);
 impl IAppxBlockMapFile {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetBlocks(&self) -> ::windows::runtime::Result<IAppxBlockMapBlocksEnumerator> {
-        let mut result__: <IAppxBlockMapBlocksEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapBlocksEnumerator>(result__)
+    pub unsafe fn GetBlocks(&self) -> ::windows::core::Result<IAppxBlockMapBlocksEnumerator> {
+        let mut result__: <IAppxBlockMapBlocksEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapBlocksEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetLocalFileHeaderSize(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetLocalFileHeaderSize(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetUncompressedSize(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetUncompressedSize(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn ValidateFileHash<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filestream: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), filestream.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn ValidateFileHash<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filestream: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), filestream.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBlockMapFile {
+unsafe impl ::windows::core::Interface for IAppxBlockMapFile {
     type Vtable = IAppxBlockMapFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x277672ac_4f63_42c1_8abc_beae3600eb59);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x277672ac_4f63_42c1_8abc_beae3600eb59);
 }
-impl ::core::convert::From<IAppxBlockMapFile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBlockMapFile> for ::windows::core::IUnknown {
     fn from(value: IAppxBlockMapFile) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBlockMapFile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBlockMapFile> for ::windows::core::IUnknown {
     fn from(value: &IAppxBlockMapFile) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBlockMapFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBlockMapFile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBlockMapFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBlockMapFile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBlockMapFile_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blocks: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lfhsize: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, blocks: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lfhsize: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *mut u64) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filestream: ::windows::runtime::RawPtr, isvalid: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, size: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filestream: ::windows::core::RawPtr, isvalid: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBlockMapFilesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxBlockMapFilesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxBlockMapFilesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxBlockMapFile> {
-        let mut result__: <IAppxBlockMapFile as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapFile>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxBlockMapFile> {
+        let mut result__: <IAppxBlockMapFile as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapFile>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBlockMapFilesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxBlockMapFilesEnumerator {
     type Vtable = IAppxBlockMapFilesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02b856a2_4262_4070_bacb_1a8cbbc42305);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b856a2_4262_4070_bacb_1a8cbbc42305);
 }
-impl ::core::convert::From<IAppxBlockMapFilesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBlockMapFilesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxBlockMapFilesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBlockMapFilesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBlockMapFilesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxBlockMapFilesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBlockMapFilesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBlockMapFilesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBlockMapFilesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBlockMapFilesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBlockMapFilesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, file: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, file: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBlockMapReader(pub ::windows::runtime::IUnknown);
+pub struct IAppxBlockMapReader(pub ::windows::core::IUnknown);
 impl IAppxBlockMapReader {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, filename: Param0) -> ::windows::runtime::Result<IAppxBlockMapFile> {
-        let mut result__: <IAppxBlockMapFile as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), &mut result__).from_abi::<IAppxBlockMapFile>(result__)
+    pub unsafe fn GetFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, filename: Param0) -> ::windows::core::Result<IAppxBlockMapFile> {
+        let mut result__: <IAppxBlockMapFile as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), &mut result__).from_abi::<IAppxBlockMapFile>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetFiles(&self) -> ::windows::runtime::Result<IAppxBlockMapFilesEnumerator> {
-        let mut result__: <IAppxBlockMapFilesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapFilesEnumerator>(result__)
+    pub unsafe fn GetFiles(&self) -> ::windows::core::Result<IAppxBlockMapFilesEnumerator> {
+        let mut result__: <IAppxBlockMapFilesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapFilesEnumerator>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn GetHashMethod(&self) -> ::windows::runtime::Result<super::super::super::System::Com::IUri> {
-        let mut result__: <super::super::super::System::Com::IUri as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IUri>(result__)
+    pub unsafe fn GetHashMethod(&self) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
+        let mut result__: <super::super::super::System::Com::IUri as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IUri>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn GetStream(&self) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
-        let mut result__: <super::super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
+        let mut result__: <super::super::super::System::Com::IStream as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBlockMapReader {
+unsafe impl ::windows::core::Interface for IAppxBlockMapReader {
     type Vtable = IAppxBlockMapReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5efec991_bca3_42d1_9ec2_e92d609ec22a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5efec991_bca3_42d1_9ec2_e92d609ec22a);
 }
-impl ::core::convert::From<IAppxBlockMapReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBlockMapReader> for ::windows::core::IUnknown {
     fn from(value: IAppxBlockMapReader) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBlockMapReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBlockMapReader> for ::windows::core::IUnknown {
     fn from(value: &IAppxBlockMapReader) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBlockMapReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBlockMapReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBlockMapReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBlockMapReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBlockMapReader_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, file: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, file: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hashmethod: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, enumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hashmethod: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blockmapstream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, blockmapstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleFactory(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleFactory(pub ::windows::core::IUnknown);
 impl IAppxBundleFactory {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreateBundleWriter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, outputstream: Param0, bundleversion: u64) -> ::windows::runtime::Result<IAppxBundleWriter> {
-        let mut result__: <IAppxBundleWriter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), ::core::mem::transmute(bundleversion), &mut result__).from_abi::<IAppxBundleWriter>(result__)
+    pub unsafe fn CreateBundleWriter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, outputstream: Param0, bundleversion: u64) -> ::windows::core::Result<IAppxBundleWriter> {
+        let mut result__: <IAppxBundleWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), ::core::mem::transmute(bundleversion), &mut result__).from_abi::<IAppxBundleWriter>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreateBundleReader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::runtime::Result<IAppxBundleReader> {
-        let mut result__: <IAppxBundleReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxBundleReader>(result__)
+    pub unsafe fn CreateBundleReader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::core::Result<IAppxBundleReader> {
+        let mut result__: <IAppxBundleReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxBundleReader>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreateBundleManifestReader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::runtime::Result<IAppxBundleManifestReader> {
-        let mut result__: <IAppxBundleManifestReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxBundleManifestReader>(result__)
+    pub unsafe fn CreateBundleManifestReader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::core::Result<IAppxBundleManifestReader> {
+        let mut result__: <IAppxBundleManifestReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxBundleManifestReader>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleFactory {
+unsafe impl ::windows::core::Interface for IAppxBundleFactory {
     type Vtable = IAppxBundleFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbba65864_965f_4a5f_855f_f074bdbf3a7b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbba65864_965f_4a5f_855f_f074bdbf3a7b);
 }
-impl ::core::convert::From<IAppxBundleFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleFactory> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleFactory) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleFactory> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleFactory) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, bundleversion: u64, bundlewriter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, bundleversion: u64, bundlewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, bundlereader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, bundlereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, manifestreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, manifestreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleManifestOptionalBundleInfo(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestOptionalBundleInfo(pub ::windows::core::IUnknown);
 impl IAppxBundleManifestOptionalBundleInfo {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
-        let mut result__: <IAppxManifestPackageId as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
+    pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
+        let mut result__: <IAppxManifestPackageId as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetFileName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageInfoItems(&self) -> ::windows::runtime::Result<IAppxBundleManifestPackageInfoEnumerator> {
-        let mut result__: <IAppxBundleManifestPackageInfoEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestPackageInfoEnumerator>(result__)
+    pub unsafe fn GetPackageInfoItems(&self) -> ::windows::core::Result<IAppxBundleManifestPackageInfoEnumerator> {
+        let mut result__: <IAppxBundleManifestPackageInfoEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestPackageInfoEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleManifestOptionalBundleInfo {
+unsafe impl ::windows::core::Interface for IAppxBundleManifestOptionalBundleInfo {
     type Vtable = IAppxBundleManifestOptionalBundleInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x515bf2e8_bcb0_4d69_8c48_e383147b6e12);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x515bf2e8_bcb0_4d69_8c48_e383147b6e12);
 }
-impl ::core::convert::From<IAppxBundleManifestOptionalBundleInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleManifestOptionalBundleInfo> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleManifestOptionalBundleInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleManifestOptionalBundleInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleManifestOptionalBundleInfo> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleManifestOptionalBundleInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestOptionalBundleInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleManifestOptionalBundleInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestOptionalBundleInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleManifestOptionalBundleInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleManifestOptionalBundleInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageid: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageinfoitems: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageinfoitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleManifestOptionalBundleInfoEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestOptionalBundleInfoEnumerator(pub ::windows::core::IUnknown);
 impl IAppxBundleManifestOptionalBundleInfoEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxBundleManifestOptionalBundleInfo> {
-        let mut result__: <IAppxBundleManifestOptionalBundleInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestOptionalBundleInfo>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxBundleManifestOptionalBundleInfo> {
+        let mut result__: <IAppxBundleManifestOptionalBundleInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestOptionalBundleInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleManifestOptionalBundleInfoEnumerator {
+unsafe impl ::windows::core::Interface for IAppxBundleManifestOptionalBundleInfoEnumerator {
     type Vtable = IAppxBundleManifestOptionalBundleInfoEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a178793_f97e_46ac_aaca_dd5ba4c177c8);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a178793_f97e_46ac_aaca_dd5ba4c177c8);
 }
-impl ::core::convert::From<IAppxBundleManifestOptionalBundleInfoEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleManifestOptionalBundleInfoEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleManifestOptionalBundleInfoEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleManifestOptionalBundleInfoEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleManifestOptionalBundleInfoEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleManifestOptionalBundleInfoEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestOptionalBundleInfoEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleManifestOptionalBundleInfoEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestOptionalBundleInfoEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleManifestOptionalBundleInfoEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleManifestOptionalBundleInfoEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, optionalbundle: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, optionalbundle: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleManifestPackageInfo(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestPackageInfo(pub ::windows::core::IUnknown);
 impl IAppxBundleManifestPackageInfo {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageType(&self) -> ::windows::runtime::Result<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE> {
-        let mut result__: <APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE>(result__)
+    pub unsafe fn GetPackageType(&self) -> ::windows::core::Result<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE> {
+        let mut result__: <APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
-        let mut result__: <IAppxManifestPackageId as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
+    pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
+        let mut result__: <IAppxManifestPackageId as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetFileName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetOffset(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetOffset(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetSize(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetSize(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetResources(&self) -> ::windows::runtime::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__: <IAppxManifestQualifiedResourcesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
+    pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
+        let mut result__: <IAppxManifestQualifiedResourcesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo {
+unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo {
     type Vtable = IAppxBundleManifestPackageInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54cd06c1_268f_40bb_8ed2_757a9ebaec8d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54cd06c1_268f_40bb_8ed2_757a9ebaec8d);
 }
-impl ::core::convert::From<IAppxBundleManifestPackageInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleManifestPackageInfo> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleManifestPackageInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleManifestPackageInfo> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleManifestPackageInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestPackageInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleManifestPackageInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestPackageInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleManifestPackageInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleManifestPackageInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagetype: *mut APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageid: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packagetype: *mut APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offset: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resources: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, offset: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, size: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleManifestPackageInfo2(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestPackageInfo2(pub ::windows::core::IUnknown);
 impl IAppxBundleManifestPackageInfo2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetIsPackageReference(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetIsPackageReference(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetIsDefaultApplicablePackage(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetIsDefaultApplicablePackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo2 {
+unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo2 {
     type Vtable = IAppxBundleManifestPackageInfo2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x44c2acbc_b2cf_4ccb_bbdb_9c6da8c3bc9e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44c2acbc_b2cf_4ccb_bbdb_9c6da8c3bc9e);
 }
-impl ::core::convert::From<IAppxBundleManifestPackageInfo2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleManifestPackageInfo2> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleManifestPackageInfo2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleManifestPackageInfo2> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleManifestPackageInfo2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestPackageInfo2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleManifestPackageInfo2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestPackageInfo2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleManifestPackageInfo2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleManifestPackageInfo2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ispackagereference: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ispackagereference: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, isdefaultapplicablepackage: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, isdefaultapplicablepackage: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleManifestPackageInfo3(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestPackageInfo3(pub ::windows::core::IUnknown);
 impl IAppxBundleManifestPackageInfo3 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::runtime::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
-        let mut result__: <IAppxManifestTargetDeviceFamiliesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestTargetDeviceFamiliesEnumerator>(result__)
+    pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
+        let mut result__: <IAppxManifestTargetDeviceFamiliesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestTargetDeviceFamiliesEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo3 {
+unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo3 {
     type Vtable = IAppxBundleManifestPackageInfo3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ba74b98_bb74_4296_80d0_5f4256a99675);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba74b98_bb74_4296_80d0_5f4256a99675);
 }
-impl ::core::convert::From<IAppxBundleManifestPackageInfo3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleManifestPackageInfo3> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo3) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleManifestPackageInfo3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleManifestPackageInfo3> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleManifestPackageInfo3) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestPackageInfo3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleManifestPackageInfo3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestPackageInfo3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleManifestPackageInfo3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleManifestPackageInfo3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, targetdevicefamilies: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, targetdevicefamilies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleManifestPackageInfo4(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestPackageInfo4(pub ::windows::core::IUnknown);
 impl IAppxBundleManifestPackageInfo4 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetIsStub(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetIsStub(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo4 {
+unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo4 {
     type Vtable = IAppxBundleManifestPackageInfo4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5da6f13d_a8a7_4532_857c_1393d659371d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5da6f13d_a8a7_4532_857c_1393d659371d);
 }
-impl ::core::convert::From<IAppxBundleManifestPackageInfo4> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleManifestPackageInfo4> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo4) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleManifestPackageInfo4> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleManifestPackageInfo4> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleManifestPackageInfo4) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestPackageInfo4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleManifestPackageInfo4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestPackageInfo4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleManifestPackageInfo4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleManifestPackageInfo4_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, isstub: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, isstub: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleManifestPackageInfoEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestPackageInfoEnumerator(pub ::windows::core::IUnknown);
 impl IAppxBundleManifestPackageInfoEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxBundleManifestPackageInfo> {
-        let mut result__: <IAppxBundleManifestPackageInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestPackageInfo>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxBundleManifestPackageInfo> {
+        let mut result__: <IAppxBundleManifestPackageInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestPackageInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfoEnumerator {
+unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfoEnumerator {
     type Vtable = IAppxBundleManifestPackageInfoEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf9b856ee_49a6_4e19_b2b0_6a2406d63a32);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9b856ee_49a6_4e19_b2b0_6a2406d63a32);
 }
-impl ::core::convert::From<IAppxBundleManifestPackageInfoEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleManifestPackageInfoEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfoEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleManifestPackageInfoEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleManifestPackageInfoEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleManifestPackageInfoEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestPackageInfoEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleManifestPackageInfoEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestPackageInfoEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleManifestPackageInfoEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleManifestPackageInfoEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleManifestReader(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestReader(pub ::windows::core::IUnknown);
 impl IAppxBundleManifestReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
-        let mut result__: <IAppxManifestPackageId as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
+    pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
+        let mut result__: <IAppxManifestPackageId as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageInfoItems(&self) -> ::windows::runtime::Result<IAppxBundleManifestPackageInfoEnumerator> {
-        let mut result__: <IAppxBundleManifestPackageInfoEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestPackageInfoEnumerator>(result__)
+    pub unsafe fn GetPackageInfoItems(&self) -> ::windows::core::Result<IAppxBundleManifestPackageInfoEnumerator> {
+        let mut result__: <IAppxBundleManifestPackageInfoEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestPackageInfoEnumerator>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn GetStream(&self) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
-        let mut result__: <super::super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
+        let mut result__: <super::super::super::System::Com::IStream as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleManifestReader {
+unsafe impl ::windows::core::Interface for IAppxBundleManifestReader {
     type Vtable = IAppxBundleManifestReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf0ebbc1_cc99_4106_91eb_e67462e04fb0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf0ebbc1_cc99_4106_91eb_e67462e04fb0);
 }
-impl ::core::convert::From<IAppxBundleManifestReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleManifestReader> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleManifestReader) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleManifestReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleManifestReader> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleManifestReader) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleManifestReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleManifestReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleManifestReader_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageid: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageinfoitems: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, manifeststream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageinfoitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, manifeststream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleManifestReader2(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestReader2(pub ::windows::core::IUnknown);
 impl IAppxBundleManifestReader2 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetOptionalBundles(&self) -> ::windows::runtime::Result<IAppxBundleManifestOptionalBundleInfoEnumerator> {
-        let mut result__: <IAppxBundleManifestOptionalBundleInfoEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestOptionalBundleInfoEnumerator>(result__)
+    pub unsafe fn GetOptionalBundles(&self) -> ::windows::core::Result<IAppxBundleManifestOptionalBundleInfoEnumerator> {
+        let mut result__: <IAppxBundleManifestOptionalBundleInfoEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestOptionalBundleInfoEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleManifestReader2 {
+unsafe impl ::windows::core::Interface for IAppxBundleManifestReader2 {
     type Vtable = IAppxBundleManifestReader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5517df70_033f_4af2_8213_87d766805c02);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5517df70_033f_4af2_8213_87d766805c02);
 }
-impl ::core::convert::From<IAppxBundleManifestReader2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleManifestReader2> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleManifestReader2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleManifestReader2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleManifestReader2> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleManifestReader2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestReader2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleManifestReader2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestReader2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleManifestReader2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleManifestReader2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, optionalbundles: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, optionalbundles: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleReader(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleReader(pub ::windows::core::IUnknown);
 impl IAppxBundleReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetFootprintFile(&self, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE) -> ::windows::runtime::Result<IAppxFile> {
-        let mut result__: <IAppxFile as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(filetype), &mut result__).from_abi::<IAppxFile>(result__)
+    pub unsafe fn GetFootprintFile(&self, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE) -> ::windows::core::Result<IAppxFile> {
+        let mut result__: <IAppxFile as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(filetype), &mut result__).from_abi::<IAppxFile>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetBlockMap(&self) -> ::windows::runtime::Result<IAppxBlockMapReader> {
-        let mut result__: <IAppxBlockMapReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapReader>(result__)
+    pub unsafe fn GetBlockMap(&self) -> ::windows::core::Result<IAppxBlockMapReader> {
+        let mut result__: <IAppxBlockMapReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapReader>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetManifest(&self) -> ::windows::runtime::Result<IAppxBundleManifestReader> {
-        let mut result__: <IAppxBundleManifestReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestReader>(result__)
+    pub unsafe fn GetManifest(&self) -> ::windows::core::Result<IAppxBundleManifestReader> {
+        let mut result__: <IAppxBundleManifestReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBundleManifestReader>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPayloadPackages(&self) -> ::windows::runtime::Result<IAppxFilesEnumerator> {
-        let mut result__: <IAppxFilesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxFilesEnumerator>(result__)
+    pub unsafe fn GetPayloadPackages(&self) -> ::windows::core::Result<IAppxFilesEnumerator> {
+        let mut result__: <IAppxFilesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxFilesEnumerator>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPayloadPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, filename: Param0) -> ::windows::runtime::Result<IAppxFile> {
-        let mut result__: <IAppxFile as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), filename.into_param().abi(), &mut result__).from_abi::<IAppxFile>(result__)
+    pub unsafe fn GetPayloadPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, filename: Param0) -> ::windows::core::Result<IAppxFile> {
+        let mut result__: <IAppxFile as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), filename.into_param().abi(), &mut result__).from_abi::<IAppxFile>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleReader {
+unsafe impl ::windows::core::Interface for IAppxBundleReader {
     type Vtable = IAppxBundleReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd75b8c0_ba76_43b0_ae0f_68656a1dc5c8);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd75b8c0_ba76_43b0_ae0f_68656a1dc5c8);
 }
-impl ::core::convert::From<IAppxBundleReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleReader> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleReader) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleReader> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleReader) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleReader_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE, footprintfile: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blockmapreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, manifestreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, payloadpackages: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, payloadpackage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE, footprintfile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, blockmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, manifestreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, payloadpackages: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, payloadpackage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleWriter(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleWriter(pub ::windows::core::IUnknown);
 impl IAppxBundleWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddPayloadPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, packagestream: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), packagestream.into_param().abi()).ok()
+    pub unsafe fn AddPayloadPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, packagestream: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), packagestream.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleWriter {
+unsafe impl ::windows::core::Interface for IAppxBundleWriter {
     type Vtable = IAppxBundleWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec446fe8_bfec_4c64_ab4f_49f038f0c6d2);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec446fe8_bfec_4c64_ab4f_49f038f0c6d2);
 }
-impl ::core::convert::From<IAppxBundleWriter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleWriter> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleWriter) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleWriter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleWriter> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleWriter) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleWriter_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleWriter2(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleWriter2(pub ::windows::core::IUnknown);
 impl IAppxBundleWriter2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddExternalPackageReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, inputstream: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi()).ok()
+    pub unsafe fn AddExternalPackageReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, inputstream: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleWriter2 {
+unsafe impl ::windows::core::Interface for IAppxBundleWriter2 {
     type Vtable = IAppxBundleWriter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d8fe971_01cc_49a0_b685_233851279962);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d8fe971_01cc_49a0_b685_233851279962);
 }
-impl ::core::convert::From<IAppxBundleWriter2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleWriter2> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleWriter2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleWriter2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleWriter2> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleWriter2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleWriter2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleWriter2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleWriter2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleWriter2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleWriter2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleWriter3(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleWriter3(pub ::windows::core::IUnknown);
 impl IAppxBundleWriter3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddPackageReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, inputstream: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi()).ok()
+    pub unsafe fn AddPackageReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, inputstream: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn Close<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hashmethodstring: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hashmethodstring.into_param().abi()).ok()
+    pub unsafe fn Close<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, hashmethodstring: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hashmethodstring.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleWriter3 {
+unsafe impl ::windows::core::Interface for IAppxBundleWriter3 {
     type Vtable = IAppxBundleWriter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xad711152_f969_4193_82d5_9ddf2786d21a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad711152_f969_4193_82d5_9ddf2786d21a);
 }
-impl ::core::convert::From<IAppxBundleWriter3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleWriter3> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleWriter3) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleWriter3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleWriter3> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleWriter3) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleWriter3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleWriter3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleWriter3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleWriter3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleWriter3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hashmethodstring: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hashmethodstring: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxBundleWriter4(pub ::windows::runtime::IUnknown);
+pub struct IAppxBundleWriter4(pub ::windows::core::IUnknown);
 impl IAppxBundleWriter4 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddPayloadPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, filename: Param0, packagestream: Param1, isdefaultapplicablepackage: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), packagestream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
+    pub unsafe fn AddPayloadPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, filename: Param0, packagestream: Param1, isdefaultapplicablepackage: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), packagestream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddPackageReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, filename: Param0, inputstream: Param1, isdefaultapplicablepackage: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
+    pub unsafe fn AddPackageReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, filename: Param0, inputstream: Param1, isdefaultapplicablepackage: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddExternalPackageReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, filename: Param0, inputstream: Param1, isdefaultapplicablepackage: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
+    pub unsafe fn AddExternalPackageReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, filename: Param0, inputstream: Param1, isdefaultapplicablepackage: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxBundleWriter4 {
+unsafe impl ::windows::core::Interface for IAppxBundleWriter4 {
     type Vtable = IAppxBundleWriter4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9cd9d523_5009_4c01_9882_dc029fbd47a3);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cd9d523_5009_4c01_9882_dc029fbd47a3);
 }
-impl ::core::convert::From<IAppxBundleWriter4> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxBundleWriter4> for ::windows::core::IUnknown {
     fn from(value: IAppxBundleWriter4) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxBundleWriter4> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxBundleWriter4> for ::windows::core::IUnknown {
     fn from(value: &IAppxBundleWriter4) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleWriter4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxBundleWriter4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleWriter4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxBundleWriter4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxBundleWriter4_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::runtime::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::runtime::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::runtime::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxContentGroup(pub ::windows::runtime::IUnknown);
+pub struct IAppxContentGroup(pub ::windows::core::IUnknown);
 impl IAppxContentGroup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetFiles(&self) -> ::windows::runtime::Result<IAppxContentGroupFilesEnumerator> {
-        let mut result__: <IAppxContentGroupFilesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroupFilesEnumerator>(result__)
+    pub unsafe fn GetFiles(&self) -> ::windows::core::Result<IAppxContentGroupFilesEnumerator> {
+        let mut result__: <IAppxContentGroupFilesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroupFilesEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxContentGroup {
+unsafe impl ::windows::core::Interface for IAppxContentGroup {
     type Vtable = IAppxContentGroup_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x328f6468_c04f_4e3c_b6fa_6b8d27f3003a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x328f6468_c04f_4e3c_b6fa_6b8d27f3003a);
 }
-impl ::core::convert::From<IAppxContentGroup> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxContentGroup> for ::windows::core::IUnknown {
     fn from(value: IAppxContentGroup) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxContentGroup> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxContentGroup> for ::windows::core::IUnknown {
     fn from(value: &IAppxContentGroup) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxContentGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxContentGroup {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxContentGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxContentGroup {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxContentGroup_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, groupname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, groupname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, enumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxContentGroupFilesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxContentGroupFilesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxContentGroupFilesEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxContentGroupFilesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxContentGroupFilesEnumerator {
     type Vtable = IAppxContentGroupFilesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a09a2fd_7440_44eb_8c84_848205a6a1cc);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a09a2fd_7440_44eb_8c84_848205a6a1cc);
 }
-impl ::core::convert::From<IAppxContentGroupFilesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxContentGroupFilesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxContentGroupFilesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxContentGroupFilesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxContentGroupFilesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxContentGroupFilesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxContentGroupFilesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxContentGroupFilesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxContentGroupFilesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxContentGroupFilesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxContentGroupFilesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, file: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, file: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxContentGroupMapReader(pub ::windows::runtime::IUnknown);
+pub struct IAppxContentGroupMapReader(pub ::windows::core::IUnknown);
 impl IAppxContentGroupMapReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetRequiredGroup(&self) -> ::windows::runtime::Result<IAppxContentGroup> {
-        let mut result__: <IAppxContentGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroup>(result__)
+    pub unsafe fn GetRequiredGroup(&self) -> ::windows::core::Result<IAppxContentGroup> {
+        let mut result__: <IAppxContentGroup as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroup>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetAutomaticGroups(&self) -> ::windows::runtime::Result<IAppxContentGroupsEnumerator> {
-        let mut result__: <IAppxContentGroupsEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroupsEnumerator>(result__)
+    pub unsafe fn GetAutomaticGroups(&self) -> ::windows::core::Result<IAppxContentGroupsEnumerator> {
+        let mut result__: <IAppxContentGroupsEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroupsEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxContentGroupMapReader {
+unsafe impl ::windows::core::Interface for IAppxContentGroupMapReader {
     type Vtable = IAppxContentGroupMapReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x418726d8_dd99_4f5d_9886_157add20de01);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x418726d8_dd99_4f5d_9886_157add20de01);
 }
-impl ::core::convert::From<IAppxContentGroupMapReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxContentGroupMapReader> for ::windows::core::IUnknown {
     fn from(value: IAppxContentGroupMapReader) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxContentGroupMapReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxContentGroupMapReader> for ::windows::core::IUnknown {
     fn from(value: &IAppxContentGroupMapReader) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxContentGroupMapReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxContentGroupMapReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxContentGroupMapReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxContentGroupMapReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxContentGroupMapReader_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, requiredgroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, automaticgroupsenumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, requiredgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, automaticgroupsenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxContentGroupMapWriter(pub ::windows::runtime::IUnknown);
+pub struct IAppxContentGroupMapWriter(pub ::windows::core::IUnknown);
 impl IAppxContentGroupMapWriter {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn AddAutomaticGroup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, groupname: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), groupname.into_param().abi()).ok()
+    pub unsafe fn AddAutomaticGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, groupname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), groupname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn AddAutomaticFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, filename: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), filename.into_param().abi()).ok()
+    pub unsafe fn AddAutomaticFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, filename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), filename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxContentGroupMapWriter {
+unsafe impl ::windows::core::Interface for IAppxContentGroupMapWriter {
     type Vtable = IAppxContentGroupMapWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd07ab776_a9de_4798_8c14_3db31e687c78);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07ab776_a9de_4798_8c14_3db31e687c78);
 }
-impl ::core::convert::From<IAppxContentGroupMapWriter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxContentGroupMapWriter> for ::windows::core::IUnknown {
     fn from(value: IAppxContentGroupMapWriter) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxContentGroupMapWriter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxContentGroupMapWriter> for ::windows::core::IUnknown {
     fn from(value: &IAppxContentGroupMapWriter) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxContentGroupMapWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxContentGroupMapWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxContentGroupMapWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxContentGroupMapWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxContentGroupMapWriter_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, groupname: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, groupname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxContentGroupsEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxContentGroupsEnumerator(pub ::windows::core::IUnknown);
 impl IAppxContentGroupsEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxContentGroup> {
-        let mut result__: <IAppxContentGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroup>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxContentGroup> {
+        let mut result__: <IAppxContentGroup as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroup>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxContentGroupsEnumerator {
+unsafe impl ::windows::core::Interface for IAppxContentGroupsEnumerator {
     type Vtable = IAppxContentGroupsEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3264e477_16d1_4d63_823e_7d2984696634);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3264e477_16d1_4d63_823e_7d2984696634);
 }
-impl ::core::convert::From<IAppxContentGroupsEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxContentGroupsEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxContentGroupsEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxContentGroupsEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxContentGroupsEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxContentGroupsEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxContentGroupsEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxContentGroupsEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxContentGroupsEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxContentGroupsEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxContentGroupsEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxEncryptedBundleWriter(pub ::windows::runtime::IUnknown);
+pub struct IAppxEncryptedBundleWriter(pub ::windows::core::IUnknown);
 impl IAppxEncryptedBundleWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddPayloadPackageEncrypted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, packagestream: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), packagestream.into_param().abi()).ok()
+    pub unsafe fn AddPayloadPackageEncrypted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, packagestream: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), packagestream.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxEncryptedBundleWriter {
+unsafe impl ::windows::core::Interface for IAppxEncryptedBundleWriter {
     type Vtable = IAppxEncryptedBundleWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80b0902f_7bf0_4117_b8c6_4279ef81ee77);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80b0902f_7bf0_4117_b8c6_4279ef81ee77);
 }
-impl ::core::convert::From<IAppxEncryptedBundleWriter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxEncryptedBundleWriter> for ::windows::core::IUnknown {
     fn from(value: IAppxEncryptedBundleWriter) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxEncryptedBundleWriter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxEncryptedBundleWriter> for ::windows::core::IUnknown {
     fn from(value: &IAppxEncryptedBundleWriter) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptedBundleWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxEncryptedBundleWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptedBundleWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxEncryptedBundleWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxEncryptedBundleWriter_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxEncryptedBundleWriter2(pub ::windows::runtime::IUnknown);
+pub struct IAppxEncryptedBundleWriter2(pub ::windows::core::IUnknown);
 impl IAppxEncryptedBundleWriter2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddExternalPackageReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, inputstream: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi()).ok()
+    pub unsafe fn AddExternalPackageReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, inputstream: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxEncryptedBundleWriter2 {
+unsafe impl ::windows::core::Interface for IAppxEncryptedBundleWriter2 {
     type Vtable = IAppxEncryptedBundleWriter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe644be82_f0fa_42b8_a956_8d1cb48ee379);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe644be82_f0fa_42b8_a956_8d1cb48ee379);
 }
-impl ::core::convert::From<IAppxEncryptedBundleWriter2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxEncryptedBundleWriter2> for ::windows::core::IUnknown {
     fn from(value: IAppxEncryptedBundleWriter2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxEncryptedBundleWriter2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxEncryptedBundleWriter2> for ::windows::core::IUnknown {
     fn from(value: &IAppxEncryptedBundleWriter2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptedBundleWriter2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxEncryptedBundleWriter2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptedBundleWriter2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxEncryptedBundleWriter2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxEncryptedBundleWriter2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxEncryptedBundleWriter3(pub ::windows::runtime::IUnknown);
+pub struct IAppxEncryptedBundleWriter3(pub ::windows::core::IUnknown);
 impl IAppxEncryptedBundleWriter3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddPayloadPackageEncrypted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, filename: Param0, packagestream: Param1, isdefaultapplicablepackage: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), packagestream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
+    pub unsafe fn AddPayloadPackageEncrypted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, filename: Param0, packagestream: Param1, isdefaultapplicablepackage: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), packagestream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddExternalPackageReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, filename: Param0, inputstream: Param1, isdefaultapplicablepackage: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
+    pub unsafe fn AddExternalPackageReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, filename: Param0, inputstream: Param1, isdefaultapplicablepackage: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), filename.into_param().abi(), inputstream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxEncryptedBundleWriter3 {
+unsafe impl ::windows::core::Interface for IAppxEncryptedBundleWriter3 {
     type Vtable = IAppxEncryptedBundleWriter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d34deb3_5cae_4dd3_977c_504932a51d31);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d34deb3_5cae_4dd3_977c_504932a51d31);
 }
-impl ::core::convert::From<IAppxEncryptedBundleWriter3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxEncryptedBundleWriter3> for ::windows::core::IUnknown {
     fn from(value: IAppxEncryptedBundleWriter3) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxEncryptedBundleWriter3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxEncryptedBundleWriter3> for ::windows::core::IUnknown {
     fn from(value: &IAppxEncryptedBundleWriter3) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptedBundleWriter3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxEncryptedBundleWriter3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptedBundleWriter3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxEncryptedBundleWriter3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxEncryptedBundleWriter3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::runtime::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::runtime::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxEncryptedPackageWriter(pub ::windows::runtime::IUnknown);
+pub struct IAppxEncryptedPackageWriter(pub ::windows::core::IUnknown);
 impl IAppxEncryptedPackageWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddPayloadFileEncrypted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, compressionoption: APPX_COMPRESSION_OPTION, inputstream: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(compressionoption), inputstream.into_param().abi()).ok()
+    pub unsafe fn AddPayloadFileEncrypted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, compressionoption: APPX_COMPRESSION_OPTION, inputstream: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(compressionoption), inputstream.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxEncryptedPackageWriter {
+unsafe impl ::windows::core::Interface for IAppxEncryptedPackageWriter {
     type Vtable = IAppxEncryptedPackageWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf43d0b0b_1379_40e2_9b29_682ea2bf42af);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf43d0b0b_1379_40e2_9b29_682ea2bf42af);
 }
-impl ::core::convert::From<IAppxEncryptedPackageWriter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxEncryptedPackageWriter> for ::windows::core::IUnknown {
     fn from(value: IAppxEncryptedPackageWriter) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxEncryptedPackageWriter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxEncryptedPackageWriter> for ::windows::core::IUnknown {
     fn from(value: &IAppxEncryptedPackageWriter) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptedPackageWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxEncryptedPackageWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptedPackageWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxEncryptedPackageWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxEncryptedPackageWriter_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxEncryptedPackageWriter2(pub ::windows::runtime::IUnknown);
+pub struct IAppxEncryptedPackageWriter2(pub ::windows::core::IUnknown);
 impl IAppxEncryptedPackageWriter2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddPayloadFilesEncrypted(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(filecount), ::core::mem::transmute(payloadfiles), ::core::mem::transmute(memorylimit)).ok()
+    pub unsafe fn AddPayloadFilesEncrypted(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(filecount), ::core::mem::transmute(payloadfiles), ::core::mem::transmute(memorylimit)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxEncryptedPackageWriter2 {
+unsafe impl ::windows::core::Interface for IAppxEncryptedPackageWriter2 {
     type Vtable = IAppxEncryptedPackageWriter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3e475447_3a25_40b5_8ad2_f953ae50c92d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e475447_3a25_40b5_8ad2_f953ae50c92d);
 }
-impl ::core::convert::From<IAppxEncryptedPackageWriter2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxEncryptedPackageWriter2> for ::windows::core::IUnknown {
     fn from(value: IAppxEncryptedPackageWriter2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxEncryptedPackageWriter2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxEncryptedPackageWriter2> for ::windows::core::IUnknown {
     fn from(value: &IAppxEncryptedPackageWriter2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptedPackageWriter2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxEncryptedPackageWriter2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptedPackageWriter2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxEncryptedPackageWriter2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxEncryptedPackageWriter2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filecount: u32, payloadfiles: *const ::core::mem::ManuallyDrop<APPX_PACKAGE_WRITER_PAYLOAD_STREAM>, memorylimit: u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filecount: u32, payloadfiles: *const ::core::mem::ManuallyDrop<APPX_PACKAGE_WRITER_PAYLOAD_STREAM>, memorylimit: u64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxEncryptionFactory(pub ::windows::runtime::IUnknown);
+pub struct IAppxEncryptionFactory(pub ::windows::core::IUnknown);
 impl IAppxEncryptionFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn EncryptPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles)).ok()
+    pub unsafe fn EncryptPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn DecryptPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, keyinfo: *const APPX_KEY_INFO) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(keyinfo)).ok()
+    pub unsafe fn DecryptPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(keyinfo)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn CreateEncryptedPackageWriter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, outputstream: Param0, manifeststream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::runtime::Result<IAppxEncryptedPackageWriter> {
-        let mut result__: <IAppxEncryptedPackageWriter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), manifeststream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), &mut result__).from_abi::<IAppxEncryptedPackageWriter>(result__)
+    pub unsafe fn CreateEncryptedPackageWriter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, outputstream: Param0, manifeststream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter> {
+        let mut result__: <IAppxEncryptedPackageWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), manifeststream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), &mut result__).from_abi::<IAppxEncryptedPackageWriter>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreateEncryptedPackageReader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, keyinfo: *const APPX_KEY_INFO) -> ::windows::runtime::Result<IAppxPackageReader> {
-        let mut result__: <IAppxPackageReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), ::core::mem::transmute(keyinfo), &mut result__).from_abi::<IAppxPackageReader>(result__)
+    pub unsafe fn CreateEncryptedPackageReader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxPackageReader> {
+        let mut result__: <IAppxPackageReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), ::core::mem::transmute(keyinfo), &mut result__).from_abi::<IAppxPackageReader>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn EncryptBundle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles)).ok()
+    pub unsafe fn EncryptBundle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn DecryptBundle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, keyinfo: *const APPX_KEY_INFO) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(keyinfo)).ok()
+    pub unsafe fn DecryptBundle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(keyinfo)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn CreateEncryptedBundleWriter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, outputstream: Param0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::runtime::Result<IAppxEncryptedBundleWriter> {
-        let mut result__: <IAppxEncryptedBundleWriter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), ::core::mem::transmute(bundleversion), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), &mut result__).from_abi::<IAppxEncryptedBundleWriter>(result__)
+    pub unsafe fn CreateEncryptedBundleWriter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, outputstream: Param0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter> {
+        let mut result__: <IAppxEncryptedBundleWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), ::core::mem::transmute(bundleversion), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), &mut result__).from_abi::<IAppxEncryptedBundleWriter>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreateEncryptedBundleReader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, keyinfo: *const APPX_KEY_INFO) -> ::windows::runtime::Result<IAppxBundleReader> {
-        let mut result__: <IAppxBundleReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), ::core::mem::transmute(keyinfo), &mut result__).from_abi::<IAppxBundleReader>(result__)
+    pub unsafe fn CreateEncryptedBundleReader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxBundleReader> {
+        let mut result__: <IAppxBundleReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), ::core::mem::transmute(keyinfo), &mut result__).from_abi::<IAppxBundleReader>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory {
+unsafe impl ::windows::core::Interface for IAppxEncryptionFactory {
     type Vtable = IAppxEncryptionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80e8e04d_8c88_44ae_a011_7cadf6fb2e72);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e8e04d_8c88_44ae_a011_7cadf6fb2e72);
 }
-impl ::core::convert::From<IAppxEncryptionFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxEncryptionFactory> for ::windows::core::IUnknown {
     fn from(value: IAppxEncryptionFactory) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxEncryptionFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxEncryptionFactory> for ::windows::core::IUnknown {
     fn from(value: &IAppxEncryptionFactory) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptionFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxEncryptionFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptionFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxEncryptionFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, keyinfo: *const APPX_KEY_INFO) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, manifeststream: ::windows::runtime::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, manifeststream: ::windows::core::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, keyinfo: *const APPX_KEY_INFO, packagereader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO, packagereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, keyinfo: *const APPX_KEY_INFO) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, bundleversion: u64, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, bundleversion: u64, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, keyinfo: *const APPX_KEY_INFO, bundlereader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO, bundlereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxEncryptionFactory2(pub ::windows::runtime::IUnknown);
+pub struct IAppxEncryptionFactory2(pub ::windows::core::IUnknown);
 impl IAppxEncryptionFactory2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn CreateEncryptedPackageWriter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(
+    pub unsafe fn CreateEncryptedPackageWriter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(
         &self,
         outputstream: Param0,
         manifeststream: Param1,
@@ -3116,58 +3116,57 @@ impl IAppxEncryptionFactory2 {
         settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS,
         keyinfo: *const APPX_KEY_INFO,
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
-    ) -> ::windows::runtime::Result<IAppxEncryptedPackageWriter> {
-        let mut result__: <IAppxEncryptedPackageWriter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), manifeststream.into_param().abi(), contentgroupmapstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), &mut result__).from_abi::<IAppxEncryptedPackageWriter>(result__)
+    ) -> ::windows::core::Result<IAppxEncryptedPackageWriter> {
+        let mut result__: <IAppxEncryptedPackageWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), manifeststream.into_param().abi(), contentgroupmapstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), &mut result__).from_abi::<IAppxEncryptedPackageWriter>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory2 {
+unsafe impl ::windows::core::Interface for IAppxEncryptionFactory2 {
     type Vtable = IAppxEncryptionFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc1b11eee_c4ba_4ab2_a55d_d015fe8ff64f);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b11eee_c4ba_4ab2_a55d_d015fe8ff64f);
 }
-impl ::core::convert::From<IAppxEncryptionFactory2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxEncryptionFactory2> for ::windows::core::IUnknown {
     fn from(value: IAppxEncryptionFactory2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxEncryptionFactory2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxEncryptionFactory2> for ::windows::core::IUnknown {
     fn from(value: &IAppxEncryptionFactory2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptionFactory2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxEncryptionFactory2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptionFactory2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxEncryptionFactory2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, manifeststream: ::windows::runtime::RawPtr, contentgroupmapstream: ::windows::runtime::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, manifeststream: ::windows::core::RawPtr, contentgroupmapstream: ::windows::core::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxEncryptionFactory3(pub ::windows::runtime::IUnknown);
+pub struct IAppxEncryptionFactory3(pub ::windows::core::IUnknown);
 impl IAppxEncryptionFactory3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn EncryptPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles)).ok()
+    pub unsafe fn EncryptPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn CreateEncryptedPackageWriter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(
+    pub unsafe fn CreateEncryptedPackageWriter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(
         &self,
         outputstream: Param0,
         manifeststream: Param1,
@@ -3175,1444 +3174,1443 @@ impl IAppxEncryptionFactory3 {
         settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2,
         keyinfo: *const APPX_KEY_INFO,
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
-    ) -> ::windows::runtime::Result<IAppxEncryptedPackageWriter> {
-        let mut result__: <IAppxEncryptedPackageWriter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), manifeststream.into_param().abi(), contentgroupmapstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), &mut result__).from_abi::<IAppxEncryptedPackageWriter>(result__)
+    ) -> ::windows::core::Result<IAppxEncryptedPackageWriter> {
+        let mut result__: <IAppxEncryptedPackageWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), manifeststream.into_param().abi(), contentgroupmapstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), &mut result__).from_abi::<IAppxEncryptedPackageWriter>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn EncryptBundle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles)).ok()
+    pub unsafe fn EncryptBundle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn CreateEncryptedBundleWriter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, outputstream: Param0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::runtime::Result<IAppxEncryptedBundleWriter> {
-        let mut result__: <IAppxEncryptedBundleWriter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), ::core::mem::transmute(bundleversion), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), &mut result__).from_abi::<IAppxEncryptedBundleWriter>(result__)
+    pub unsafe fn CreateEncryptedBundleWriter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, outputstream: Param0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter> {
+        let mut result__: <IAppxEncryptedBundleWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), ::core::mem::transmute(bundleversion), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), &mut result__).from_abi::<IAppxEncryptedBundleWriter>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory3 {
+unsafe impl ::windows::core::Interface for IAppxEncryptionFactory3 {
     type Vtable = IAppxEncryptionFactory3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x09edca37_cd64_47d6_b7e8_1cb11d4f7e05);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09edca37_cd64_47d6_b7e8_1cb11d4f7e05);
 }
-impl ::core::convert::From<IAppxEncryptionFactory3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxEncryptionFactory3> for ::windows::core::IUnknown {
     fn from(value: IAppxEncryptionFactory3) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxEncryptionFactory3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxEncryptionFactory3> for ::windows::core::IUnknown {
     fn from(value: &IAppxEncryptionFactory3) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptionFactory3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxEncryptionFactory3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptionFactory3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxEncryptionFactory3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, manifeststream: ::windows::runtime::RawPtr, contentgroupmapstream: ::windows::runtime::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, manifeststream: ::windows::core::RawPtr, contentgroupmapstream: ::windows::core::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, bundleversion: u64, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, bundleversion: u64, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxEncryptionFactory4(pub ::windows::runtime::IUnknown);
+pub struct IAppxEncryptionFactory4(pub ::windows::core::IUnknown);
 impl IAppxEncryptionFactory4 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn EncryptPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), ::core::mem::transmute(memorylimit)).ok()
+    pub unsafe fn EncryptPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0, outputstream: Param1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), outputstream.into_param().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), ::core::mem::transmute(memorylimit)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory4 {
+unsafe impl ::windows::core::Interface for IAppxEncryptionFactory4 {
     type Vtable = IAppxEncryptionFactory4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa879611f_12fd_41fe_85d5_06ae779bbaf5);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa879611f_12fd_41fe_85d5_06ae779bbaf5);
 }
-impl ::core::convert::From<IAppxEncryptionFactory4> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxEncryptionFactory4> for ::windows::core::IUnknown {
     fn from(value: IAppxEncryptionFactory4) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxEncryptionFactory4> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxEncryptionFactory4> for ::windows::core::IUnknown {
     fn from(value: &IAppxEncryptionFactory4) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptionFactory4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxEncryptionFactory4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptionFactory4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxEncryptionFactory4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory4_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxFactory(pub ::windows::runtime::IUnknown);
+pub struct IAppxFactory(pub ::windows::core::IUnknown);
 impl IAppxFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn CreatePackageWriter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, outputstream: Param0, settings: *const APPX_PACKAGE_SETTINGS) -> ::windows::runtime::Result<IAppxPackageWriter> {
-        let mut result__: <IAppxPackageWriter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), ::core::mem::transmute(settings), &mut result__).from_abi::<IAppxPackageWriter>(result__)
+    pub unsafe fn CreatePackageWriter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, outputstream: Param0, settings: *const APPX_PACKAGE_SETTINGS) -> ::windows::core::Result<IAppxPackageWriter> {
+        let mut result__: <IAppxPackageWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), ::core::mem::transmute(settings), &mut result__).from_abi::<IAppxPackageWriter>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreatePackageReader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::runtime::Result<IAppxPackageReader> {
-        let mut result__: <IAppxPackageReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxPackageReader>(result__)
+    pub unsafe fn CreatePackageReader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::core::Result<IAppxPackageReader> {
+        let mut result__: <IAppxPackageReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxPackageReader>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreateManifestReader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::runtime::Result<IAppxManifestReader> {
-        let mut result__: <IAppxManifestReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxManifestReader>(result__)
+    pub unsafe fn CreateManifestReader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::core::Result<IAppxManifestReader> {
+        let mut result__: <IAppxManifestReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxManifestReader>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreateBlockMapReader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::runtime::Result<IAppxBlockMapReader> {
-        let mut result__: <IAppxBlockMapReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxBlockMapReader>(result__)
+    pub unsafe fn CreateBlockMapReader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::core::Result<IAppxBlockMapReader> {
+        let mut result__: <IAppxBlockMapReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxBlockMapReader>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn CreateValidatedBlockMapReader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, blockmapstream: Param0, signaturefilename: Param1) -> ::windows::runtime::Result<IAppxBlockMapReader> {
-        let mut result__: <IAppxBlockMapReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), blockmapstream.into_param().abi(), signaturefilename.into_param().abi(), &mut result__).from_abi::<IAppxBlockMapReader>(result__)
+    pub unsafe fn CreateValidatedBlockMapReader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, blockmapstream: Param0, signaturefilename: Param1) -> ::windows::core::Result<IAppxBlockMapReader> {
+        let mut result__: <IAppxBlockMapReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), blockmapstream.into_param().abi(), signaturefilename.into_param().abi(), &mut result__).from_abi::<IAppxBlockMapReader>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxFactory {
+unsafe impl ::windows::core::Interface for IAppxFactory {
     type Vtable = IAppxFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbeb94909_e451_438b_b5a7_d79e767b75d8);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeb94909_e451_438b_b5a7_d79e767b75d8);
 }
-impl ::core::convert::From<IAppxFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxFactory> for ::windows::core::IUnknown {
     fn from(value: IAppxFactory) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxFactory> for ::windows::core::IUnknown {
     fn from(value: &IAppxFactory) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_PACKAGE_SETTINGS>, packagewriter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const ::core::mem::ManuallyDrop<APPX_PACKAGE_SETTINGS>, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, packagereader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, packagereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, manifestreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, manifestreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, blockmapreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, blockmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blockmapstream: ::windows::runtime::RawPtr, signaturefilename: super::super::super::Foundation::PWSTR, blockmapreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, blockmapstream: ::windows::core::RawPtr, signaturefilename: super::super::super::Foundation::PWSTR, blockmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxFactory2(pub ::windows::runtime::IUnknown);
+pub struct IAppxFactory2(pub ::windows::core::IUnknown);
 impl IAppxFactory2 {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreateContentGroupMapReader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::runtime::Result<IAppxContentGroupMapReader> {
-        let mut result__: <IAppxContentGroupMapReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxContentGroupMapReader>(result__)
+    pub unsafe fn CreateContentGroupMapReader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::core::Result<IAppxContentGroupMapReader> {
+        let mut result__: <IAppxContentGroupMapReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxContentGroupMapReader>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreateSourceContentGroupMapReader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::runtime::Result<IAppxSourceContentGroupMapReader> {
-        let mut result__: <IAppxSourceContentGroupMapReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxSourceContentGroupMapReader>(result__)
+    pub unsafe fn CreateSourceContentGroupMapReader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, inputstream: Param0) -> ::windows::core::Result<IAppxSourceContentGroupMapReader> {
+        let mut result__: <IAppxSourceContentGroupMapReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), inputstream.into_param().abi(), &mut result__).from_abi::<IAppxSourceContentGroupMapReader>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreateContentGroupMapWriter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, stream: Param0) -> ::windows::runtime::Result<IAppxContentGroupMapWriter> {
-        let mut result__: <IAppxContentGroupMapWriter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), stream.into_param().abi(), &mut result__).from_abi::<IAppxContentGroupMapWriter>(result__)
+    pub unsafe fn CreateContentGroupMapWriter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, stream: Param0) -> ::windows::core::Result<IAppxContentGroupMapWriter> {
+        let mut result__: <IAppxContentGroupMapWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), stream.into_param().abi(), &mut result__).from_abi::<IAppxContentGroupMapWriter>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxFactory2 {
+unsafe impl ::windows::core::Interface for IAppxFactory2 {
     type Vtable = IAppxFactory2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1346df2_c282_4e22_b918_743a929a8d55);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1346df2_c282_4e22_b918_743a929a8d55);
 }
-impl ::core::convert::From<IAppxFactory2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxFactory2> for ::windows::core::IUnknown {
     fn from(value: IAppxFactory2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxFactory2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxFactory2> for ::windows::core::IUnknown {
     fn from(value: &IAppxFactory2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxFactory2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxFactory2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxFactory2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxFactory2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxFactory2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, contentgroupmapreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, contentgroupmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, reader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, reader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, contentgroupmapwriter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, stream: ::windows::core::RawPtr, contentgroupmapwriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxFile(pub ::windows::runtime::IUnknown);
+pub struct IAppxFile(pub ::windows::core::IUnknown);
 impl IAppxFile {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCompressionOption(&self) -> ::windows::runtime::Result<APPX_COMPRESSION_OPTION> {
-        let mut result__: <APPX_COMPRESSION_OPTION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_COMPRESSION_OPTION>(result__)
+    pub unsafe fn GetCompressionOption(&self) -> ::windows::core::Result<APPX_COMPRESSION_OPTION> {
+        let mut result__: <APPX_COMPRESSION_OPTION as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_COMPRESSION_OPTION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetContentType(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetContentType(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetSize(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetSize(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn GetStream(&self) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
-        let mut result__: <super::super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
+        let mut result__: <super::super::super::System::Com::IStream as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxFile {
+unsafe impl ::windows::core::Interface for IAppxFile {
     type Vtable = IAppxFile_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x91df827b_94fd_468f_827b_57f41b2f6f2e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91df827b_94fd_468f_827b_57f41b2f6f2e);
 }
-impl ::core::convert::From<IAppxFile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxFile> for ::windows::core::IUnknown {
     fn from(value: IAppxFile) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxFile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxFile> for ::windows::core::IUnknown {
     fn from(value: &IAppxFile) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxFile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxFile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxFile_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compressionoption: *mut APPX_COMPRESSION_OPTION) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contenttype: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, compressionoption: *mut APPX_COMPRESSION_OPTION) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, contenttype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *mut u64) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, size: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxFilesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxFilesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxFilesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxFile> {
-        let mut result__: <IAppxFile as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxFile>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxFile> {
+        let mut result__: <IAppxFile as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxFile>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxFilesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxFilesEnumerator {
     type Vtable = IAppxFilesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf007eeaf_9831_411c_9847_917cdc62d1fe);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf007eeaf_9831_411c_9847_917cdc62d1fe);
 }
-impl ::core::convert::From<IAppxFilesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxFilesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxFilesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxFilesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxFilesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxFilesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxFilesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxFilesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxFilesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxFilesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxFilesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, file: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, file: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestApplication(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestApplication(pub ::windows::core::IUnknown);
 impl IAppxManifestApplication {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetStringValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetStringValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetAppUserModelId(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetAppUserModelId(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestApplication {
+unsafe impl ::windows::core::Interface for IAppxManifestApplication {
     type Vtable = IAppxManifestApplication_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5da89bf4_3773_46be_b650_7e744863b7e8);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5da89bf4_3773_46be_b650_7e744863b7e8);
 }
-impl ::core::convert::From<IAppxManifestApplication> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestApplication> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestApplication) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestApplication> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestApplication> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestApplication) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestApplication {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestApplication {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestApplication {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestApplication {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestApplication_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appusermodelid: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, appusermodelid: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestApplicationsEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestApplicationsEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestApplicationsEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestApplication> {
-        let mut result__: <IAppxManifestApplication as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestApplication>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestApplication> {
+        let mut result__: <IAppxManifestApplication as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestApplication>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestApplicationsEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestApplicationsEnumerator {
     type Vtable = IAppxManifestApplicationsEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9eb8a55a_f04b_4d0d_808d_686185d4847a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eb8a55a_f04b_4d0d_808d_686185d4847a);
 }
-impl ::core::convert::From<IAppxManifestApplicationsEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestApplicationsEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestApplicationsEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestApplicationsEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestApplicationsEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestApplicationsEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestApplicationsEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestApplicationsEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestApplicationsEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestApplicationsEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestApplicationsEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, application: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, application: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestCapabilitiesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestCapabilitiesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestCapabilitiesEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestCapabilitiesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestCapabilitiesEnumerator {
     type Vtable = IAppxManifestCapabilitiesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11d22258_f470_42c1_b291_8361c5437e41);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d22258_f470_42c1_b291_8361c5437e41);
 }
-impl ::core::convert::From<IAppxManifestCapabilitiesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestCapabilitiesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestCapabilitiesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestCapabilitiesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestCapabilitiesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestCapabilitiesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestCapabilitiesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestCapabilitiesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestCapabilitiesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestCapabilitiesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestCapabilitiesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, capability: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, capability: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestDeviceCapabilitiesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestDeviceCapabilitiesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestDeviceCapabilitiesEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestDeviceCapabilitiesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestDeviceCapabilitiesEnumerator {
     type Vtable = IAppxManifestDeviceCapabilitiesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x30204541_427b_4a1c_bacf_655bf463a540);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30204541_427b_4a1c_bacf_655bf463a540);
 }
-impl ::core::convert::From<IAppxManifestDeviceCapabilitiesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestDeviceCapabilitiesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestDeviceCapabilitiesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestDeviceCapabilitiesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestDeviceCapabilitiesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestDeviceCapabilitiesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestDeviceCapabilitiesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestDeviceCapabilitiesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestDeviceCapabilitiesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestDeviceCapabilitiesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestDeviceCapabilitiesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, devicecapability: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, devicecapability: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestDriverConstraint(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestDriverConstraint(pub ::windows::core::IUnknown);
 impl IAppxManifestDriverConstraint {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetMinVersion(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetMinDate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetMinDate(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestDriverConstraint {
+unsafe impl ::windows::core::Interface for IAppxManifestDriverConstraint {
     type Vtable = IAppxManifestDriverConstraint_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc031bee4_bbcc_48ea_a237_c34045c80a07);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc031bee4_bbcc_48ea_a237_c34045c80a07);
 }
-impl ::core::convert::From<IAppxManifestDriverConstraint> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestDriverConstraint> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestDriverConstraint) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestDriverConstraint> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestDriverConstraint> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestDriverConstraint) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestDriverConstraint {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestDriverConstraint {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestDriverConstraint {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestDriverConstraint {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestDriverConstraint_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, minversion: *mut u64) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mindate: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, minversion: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, mindate: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestDriverConstraintsEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestDriverConstraintsEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestDriverConstraintsEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestDriverConstraint> {
-        let mut result__: <IAppxManifestDriverConstraint as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDriverConstraint>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestDriverConstraint> {
+        let mut result__: <IAppxManifestDriverConstraint as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDriverConstraint>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestDriverConstraintsEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestDriverConstraintsEnumerator {
     type Vtable = IAppxManifestDriverConstraintsEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd402b2d1_f600_49e0_95e6_975d8da13d89);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd402b2d1_f600_49e0_95e6_975d8da13d89);
 }
-impl ::core::convert::From<IAppxManifestDriverConstraintsEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestDriverConstraintsEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestDriverConstraintsEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestDriverConstraintsEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestDriverConstraintsEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestDriverConstraintsEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestDriverConstraintsEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestDriverConstraintsEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestDriverConstraintsEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestDriverConstraintsEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestDriverConstraintsEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, driverconstraint: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, driverconstraint: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestDriverDependenciesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestDriverDependenciesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestDriverDependenciesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestDriverDependency> {
-        let mut result__: <IAppxManifestDriverDependency as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDriverDependency>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestDriverDependency> {
+        let mut result__: <IAppxManifestDriverDependency as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDriverDependency>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestDriverDependenciesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestDriverDependenciesEnumerator {
     type Vtable = IAppxManifestDriverDependenciesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfe039db2_467f_4755_8404_8f5eb6865b33);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe039db2_467f_4755_8404_8f5eb6865b33);
 }
-impl ::core::convert::From<IAppxManifestDriverDependenciesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestDriverDependenciesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestDriverDependenciesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestDriverDependenciesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestDriverDependenciesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestDriverDependenciesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestDriverDependenciesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestDriverDependenciesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestDriverDependenciesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestDriverDependenciesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestDriverDependenciesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, driverdependency: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, driverdependency: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestDriverDependency(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestDriverDependency(pub ::windows::core::IUnknown);
 impl IAppxManifestDriverDependency {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetDriverConstraints(&self) -> ::windows::runtime::Result<IAppxManifestDriverConstraintsEnumerator> {
-        let mut result__: <IAppxManifestDriverConstraintsEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDriverConstraintsEnumerator>(result__)
+    pub unsafe fn GetDriverConstraints(&self) -> ::windows::core::Result<IAppxManifestDriverConstraintsEnumerator> {
+        let mut result__: <IAppxManifestDriverConstraintsEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDriverConstraintsEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestDriverDependency {
+unsafe impl ::windows::core::Interface for IAppxManifestDriverDependency {
     type Vtable = IAppxManifestDriverDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1210cb94_5a92_4602_be24_79f318af4af9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1210cb94_5a92_4602_be24_79f318af4af9);
 }
-impl ::core::convert::From<IAppxManifestDriverDependency> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestDriverDependency> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestDriverDependency) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestDriverDependency> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestDriverDependency> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestDriverDependency) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestDriverDependency {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestDriverDependency {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestDriverDependency {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestDriverDependency {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestDriverDependency_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, driverconstraints: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, driverconstraints: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestHostRuntimeDependenciesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestHostRuntimeDependenciesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestHostRuntimeDependenciesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestHostRuntimeDependency> {
-        let mut result__: <IAppxManifestHostRuntimeDependency as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestHostRuntimeDependency>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestHostRuntimeDependency> {
+        let mut result__: <IAppxManifestHostRuntimeDependency as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestHostRuntimeDependency>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestHostRuntimeDependenciesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestHostRuntimeDependenciesEnumerator {
     type Vtable = IAppxManifestHostRuntimeDependenciesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6427a646_7f49_433e_b1a6_0da309f6885a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6427a646_7f49_433e_b1a6_0da309f6885a);
 }
-impl ::core::convert::From<IAppxManifestHostRuntimeDependenciesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestHostRuntimeDependenciesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestHostRuntimeDependenciesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestHostRuntimeDependenciesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestHostRuntimeDependenciesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestHostRuntimeDependenciesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestHostRuntimeDependenciesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestHostRuntimeDependenciesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestHostRuntimeDependenciesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestHostRuntimeDependenciesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestHostRuntimeDependenciesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hostruntimedependency: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hostruntimedependency: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestHostRuntimeDependency(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestHostRuntimeDependency(pub ::windows::core::IUnknown);
 impl IAppxManifestHostRuntimeDependency {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPublisher(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetMinVersion(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestHostRuntimeDependency {
+unsafe impl ::windows::core::Interface for IAppxManifestHostRuntimeDependency {
     type Vtable = IAppxManifestHostRuntimeDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3455d234_8414_410d_95c7_7b35255b8391);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3455d234_8414_410d_95c7_7b35255b8391);
 }
-impl ::core::convert::From<IAppxManifestHostRuntimeDependency> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestHostRuntimeDependency> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestHostRuntimeDependency) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestHostRuntimeDependency> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestHostRuntimeDependency> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestHostRuntimeDependency) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestHostRuntimeDependency {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestHostRuntimeDependency {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestHostRuntimeDependency {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestHostRuntimeDependency {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestHostRuntimeDependency_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, minversion: *mut u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, minversion: *mut u64) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestHostRuntimeDependency2(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestHostRuntimeDependency2(pub ::windows::core::IUnknown);
 impl IAppxManifestHostRuntimeDependency2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPackageFamilyName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPackageFamilyName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestHostRuntimeDependency2 {
+unsafe impl ::windows::core::Interface for IAppxManifestHostRuntimeDependency2 {
     type Vtable = IAppxManifestHostRuntimeDependency2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc26f23a8_ee10_4ad6_b898_2b4d7aebfe6a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc26f23a8_ee10_4ad6_b898_2b4d7aebfe6a);
 }
-impl ::core::convert::From<IAppxManifestHostRuntimeDependency2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestHostRuntimeDependency2> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestHostRuntimeDependency2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestHostRuntimeDependency2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestHostRuntimeDependency2> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestHostRuntimeDependency2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestHostRuntimeDependency2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestHostRuntimeDependency2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestHostRuntimeDependency2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestHostRuntimeDependency2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestHostRuntimeDependency2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestMainPackageDependenciesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestMainPackageDependenciesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestMainPackageDependenciesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestMainPackageDependency> {
-        let mut result__: <IAppxManifestMainPackageDependency as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestMainPackageDependency>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestMainPackageDependency> {
+        let mut result__: <IAppxManifestMainPackageDependency as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestMainPackageDependency>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestMainPackageDependenciesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestMainPackageDependenciesEnumerator {
     type Vtable = IAppxManifestMainPackageDependenciesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa99c4f00_51d2_4f0f_ba46_7ed5255ebdff);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa99c4f00_51d2_4f0f_ba46_7ed5255ebdff);
 }
-impl ::core::convert::From<IAppxManifestMainPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestMainPackageDependenciesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestMainPackageDependenciesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestMainPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestMainPackageDependenciesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestMainPackageDependenciesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestMainPackageDependenciesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestMainPackageDependenciesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestMainPackageDependenciesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestMainPackageDependenciesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestMainPackageDependenciesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mainpackagedependency: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, mainpackagedependency: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestMainPackageDependency(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestMainPackageDependency(pub ::windows::core::IUnknown);
 impl IAppxManifestMainPackageDependency {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPublisher(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPackageFamilyName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPackageFamilyName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestMainPackageDependency {
+unsafe impl ::windows::core::Interface for IAppxManifestMainPackageDependency {
     type Vtable = IAppxManifestMainPackageDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x05d0611c_bc29_46d5_97e2_84b9c79bd8ae);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05d0611c_bc29_46d5_97e2_84b9c79bd8ae);
 }
-impl ::core::convert::From<IAppxManifestMainPackageDependency> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestMainPackageDependency> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestMainPackageDependency) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestMainPackageDependency> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestMainPackageDependency> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestMainPackageDependency) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestMainPackageDependency {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestMainPackageDependency {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestMainPackageDependency {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestMainPackageDependency {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestMainPackageDependency_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestOSPackageDependenciesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestOSPackageDependenciesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestOSPackageDependenciesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestOSPackageDependency> {
-        let mut result__: <IAppxManifestOSPackageDependency as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestOSPackageDependency>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestOSPackageDependency> {
+        let mut result__: <IAppxManifestOSPackageDependency as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestOSPackageDependency>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestOSPackageDependenciesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestOSPackageDependenciesEnumerator {
     type Vtable = IAppxManifestOSPackageDependenciesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb84e2fc3_f8ec_4bc1_8ae2_156346f5ffea);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb84e2fc3_f8ec_4bc1_8ae2_156346f5ffea);
 }
-impl ::core::convert::From<IAppxManifestOSPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestOSPackageDependenciesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestOSPackageDependenciesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestOSPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestOSPackageDependenciesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestOSPackageDependenciesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestOSPackageDependenciesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestOSPackageDependenciesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestOSPackageDependenciesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestOSPackageDependenciesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestOSPackageDependenciesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ospackagedependency: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ospackagedependency: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestOSPackageDependency(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestOSPackageDependency(pub ::windows::core::IUnknown);
 impl IAppxManifestOSPackageDependency {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestOSPackageDependency {
+unsafe impl ::windows::core::Interface for IAppxManifestOSPackageDependency {
     type Vtable = IAppxManifestOSPackageDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x154995ee_54a6_4f14_ac97_d8cf0519644b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x154995ee_54a6_4f14_ac97_d8cf0519644b);
 }
-impl ::core::convert::From<IAppxManifestOSPackageDependency> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestOSPackageDependency> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestOSPackageDependency) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestOSPackageDependency> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestOSPackageDependency> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestOSPackageDependency) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestOSPackageDependency {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestOSPackageDependency {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestOSPackageDependency {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestOSPackageDependency {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestOSPackageDependency_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, version: *mut u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, version: *mut u64) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestOptionalPackageInfo(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestOptionalPackageInfo(pub ::windows::core::IUnknown);
 impl IAppxManifestOptionalPackageInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetIsOptionalPackage(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetIsOptionalPackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetMainPackageName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetMainPackageName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestOptionalPackageInfo {
+unsafe impl ::windows::core::Interface for IAppxManifestOptionalPackageInfo {
     type Vtable = IAppxManifestOptionalPackageInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2634847d_5b5d_4fe5_a243_002ff95edc7e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2634847d_5b5d_4fe5_a243_002ff95edc7e);
 }
-impl ::core::convert::From<IAppxManifestOptionalPackageInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestOptionalPackageInfo> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestOptionalPackageInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestOptionalPackageInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestOptionalPackageInfo> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestOptionalPackageInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestOptionalPackageInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestOptionalPackageInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestOptionalPackageInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestOptionalPackageInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestOptionalPackageInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, isoptionalpackage: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, isoptionalpackage: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mainpackagename: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, mainpackagename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestPackageDependenciesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageDependenciesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestPackageDependenciesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestPackageDependency> {
-        let mut result__: <IAppxManifestPackageDependency as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageDependency>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestPackageDependency> {
+        let mut result__: <IAppxManifestPackageDependency as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageDependency>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependenciesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestPackageDependenciesEnumerator {
     type Vtable = IAppxManifestPackageDependenciesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb43bbcf9_65a6_42dd_bac0_8c6741e7f5a4);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb43bbcf9_65a6_42dd_bac0_8c6741e7f5a4);
 }
-impl ::core::convert::From<IAppxManifestPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestPackageDependenciesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestPackageDependenciesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestPackageDependenciesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestPackageDependenciesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageDependenciesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestPackageDependenciesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageDependenciesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestPackageDependenciesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestPackageDependenciesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dependency: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dependency: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestPackageDependency(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageDependency(pub ::windows::core::IUnknown);
 impl IAppxManifestPackageDependency {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPublisher(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetMinVersion(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependency {
+unsafe impl ::windows::core::Interface for IAppxManifestPackageDependency {
     type Vtable = IAppxManifestPackageDependency_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe4946b59_733e_43f0_a724_3bde4c1285a0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4946b59_733e_43f0_a724_3bde4c1285a0);
 }
-impl ::core::convert::From<IAppxManifestPackageDependency> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestPackageDependency> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestPackageDependency) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestPackageDependency> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestPackageDependency> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestPackageDependency) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageDependency {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestPackageDependency {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageDependency {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestPackageDependency {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestPackageDependency_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, minversion: *mut u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, minversion: *mut u64) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestPackageDependency2(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageDependency2(pub ::windows::core::IUnknown);
 impl IAppxManifestPackageDependency2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPublisher(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetMinVersion(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetMaxMajorVersionTested(&self) -> ::windows::runtime::Result<u16> {
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
+    pub unsafe fn GetMaxMajorVersionTested(&self) -> ::windows::core::Result<u16> {
+        let mut result__: <u16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependency2 {
+unsafe impl ::windows::core::Interface for IAppxManifestPackageDependency2 {
     type Vtable = IAppxManifestPackageDependency2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdda0b713_f3ff_49d3_898a_2786780c5d98);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdda0b713_f3ff_49d3_898a_2786780c5d98);
 }
-impl ::core::convert::From<IAppxManifestPackageDependency2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestPackageDependency2> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestPackageDependency2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestPackageDependency2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestPackageDependency2> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestPackageDependency2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageDependency2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestPackageDependency2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageDependency2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestPackageDependency2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IAppxManifestPackageDependency2> for IAppxManifestPackageDependency {
@@ -4625,250 +4623,250 @@ impl ::core::convert::From<&IAppxManifestPackageDependency2> for IAppxManifestPa
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestPackageDependency> for IAppxManifestPackageDependency2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestPackageDependency> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestPackageDependency> for IAppxManifestPackageDependency2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestPackageDependency> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestPackageDependency> for &IAppxManifestPackageDependency2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestPackageDependency> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestPackageDependency> for &IAppxManifestPackageDependency2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestPackageDependency> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestPackageDependency2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, minversion: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, maxmajorversiontested: *mut u16) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, minversion: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, maxmajorversiontested: *mut u16) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestPackageDependency3(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageDependency3(pub ::windows::core::IUnknown);
 impl IAppxManifestPackageDependency3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetIsOptional(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetIsOptional(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependency3 {
+unsafe impl ::windows::core::Interface for IAppxManifestPackageDependency3 {
     type Vtable = IAppxManifestPackageDependency3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ac56374_6198_4d6b_92e4_749d5ab8a895);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ac56374_6198_4d6b_92e4_749d5ab8a895);
 }
-impl ::core::convert::From<IAppxManifestPackageDependency3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestPackageDependency3> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestPackageDependency3) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestPackageDependency3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestPackageDependency3> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestPackageDependency3) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageDependency3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestPackageDependency3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageDependency3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestPackageDependency3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestPackageDependency3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, isoptional: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, isoptional: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestPackageId(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageId(pub ::windows::core::IUnknown);
 impl IAppxManifestPackageId {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetArchitecture(&self) -> ::windows::runtime::Result<APPX_PACKAGE_ARCHITECTURE> {
-        let mut result__: <APPX_PACKAGE_ARCHITECTURE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_PACKAGE_ARCHITECTURE>(result__)
+    pub unsafe fn GetArchitecture(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE> {
+        let mut result__: <APPX_PACKAGE_ARCHITECTURE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_PACKAGE_ARCHITECTURE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPublisher(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetResourceId(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetResourceId(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn ComparePublisher<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, other: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), other.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn ComparePublisher<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, other: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), other.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPackageFullName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPackageFullName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPackageFamilyName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPackageFamilyName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestPackageId {
+unsafe impl ::windows::core::Interface for IAppxManifestPackageId {
     type Vtable = IAppxManifestPackageId_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x283ce2d7_7153_4a91_9649_7a0f7240945f);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x283ce2d7_7153_4a91_9649_7a0f7240945f);
 }
-impl ::core::convert::From<IAppxManifestPackageId> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestPackageId> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestPackageId) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestPackageId> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestPackageId> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestPackageId) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestPackageId {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestPackageId {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestPackageId_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, architecture: *mut APPX_PACKAGE_ARCHITECTURE) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, architecture: *mut APPX_PACKAGE_ARCHITECTURE) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageversion: *mut u64) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceid: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageversion: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resourceid: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, other: super::super::super::Foundation::PWSTR, issame: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, other: super::super::super::Foundation::PWSTR, issame: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestPackageId2(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageId2(pub ::windows::core::IUnknown);
 impl IAppxManifestPackageId2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetArchitecture(&self) -> ::windows::runtime::Result<APPX_PACKAGE_ARCHITECTURE> {
-        let mut result__: <APPX_PACKAGE_ARCHITECTURE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_PACKAGE_ARCHITECTURE>(result__)
+    pub unsafe fn GetArchitecture(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE> {
+        let mut result__: <APPX_PACKAGE_ARCHITECTURE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_PACKAGE_ARCHITECTURE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPublisher(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetResourceId(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetResourceId(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn ComparePublisher<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, other: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), other.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn ComparePublisher<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, other: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), other.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPackageFullName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPackageFullName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPackageFamilyName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetPackageFamilyName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetArchitecture2(&self) -> ::windows::runtime::Result<APPX_PACKAGE_ARCHITECTURE2> {
-        let mut result__: <APPX_PACKAGE_ARCHITECTURE2 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_PACKAGE_ARCHITECTURE2>(result__)
+    pub unsafe fn GetArchitecture2(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE2> {
+        let mut result__: <APPX_PACKAGE_ARCHITECTURE2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_PACKAGE_ARCHITECTURE2>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestPackageId2 {
+unsafe impl ::windows::core::Interface for IAppxManifestPackageId2 {
     type Vtable = IAppxManifestPackageId2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2256999d_d617_42f1_880e_0ba4542319d5);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2256999d_d617_42f1_880e_0ba4542319d5);
 }
-impl ::core::convert::From<IAppxManifestPackageId2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestPackageId2> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestPackageId2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestPackageId2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestPackageId2> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestPackageId2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageId2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestPackageId2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageId2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestPackageId2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IAppxManifestPackageId2> for IAppxManifestPackageId {
@@ -4881,382 +4879,382 @@ impl ::core::convert::From<&IAppxManifestPackageId2> for IAppxManifestPackageId 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestPackageId> for IAppxManifestPackageId2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestPackageId> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestPackageId> for IAppxManifestPackageId2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestPackageId> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestPackageId> for &IAppxManifestPackageId2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestPackageId> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestPackageId> for &IAppxManifestPackageId2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestPackageId> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestPackageId2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, architecture: *mut APPX_PACKAGE_ARCHITECTURE) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, architecture: *mut APPX_PACKAGE_ARCHITECTURE) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageversion: *mut u64) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceid: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageversion: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resourceid: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, other: super::super::super::Foundation::PWSTR, issame: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, other: super::super::super::Foundation::PWSTR, issame: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, architecture: *mut APPX_PACKAGE_ARCHITECTURE2) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, architecture: *mut APPX_PACKAGE_ARCHITECTURE2) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestProperties(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestProperties(pub ::windows::core::IUnknown);
 impl IAppxManifestProperties {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetBoolValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetBoolValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetStringValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetStringValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestProperties {
+unsafe impl ::windows::core::Interface for IAppxManifestProperties {
     type Vtable = IAppxManifestProperties_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x03faf64d_f26f_4b2c_aaf7_8fe7789b8bca);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03faf64d_f26f_4b2c_aaf7_8fe7789b8bca);
 }
-impl ::core::convert::From<IAppxManifestProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestProperties> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestProperties) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestProperties> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestProperties) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestProperties {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestProperties {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestProperties_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestQualifiedResource(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestQualifiedResource(pub ::windows::core::IUnknown);
 impl IAppxManifestQualifiedResource {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetLanguage(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetScale(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn GetScale(&self) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetDXFeatureLevel(&self) -> ::windows::runtime::Result<DX_FEATURE_LEVEL> {
-        let mut result__: <DX_FEATURE_LEVEL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DX_FEATURE_LEVEL>(result__)
+    pub unsafe fn GetDXFeatureLevel(&self) -> ::windows::core::Result<DX_FEATURE_LEVEL> {
+        let mut result__: <DX_FEATURE_LEVEL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DX_FEATURE_LEVEL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestQualifiedResource {
+unsafe impl ::windows::core::Interface for IAppxManifestQualifiedResource {
     type Vtable = IAppxManifestQualifiedResource_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b53a497_3c5c_48d1_9ea3_bb7eac8cd7d4);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b53a497_3c5c_48d1_9ea3_bb7eac8cd7d4);
 }
-impl ::core::convert::From<IAppxManifestQualifiedResource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestQualifiedResource> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestQualifiedResource) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestQualifiedResource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestQualifiedResource> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestQualifiedResource) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestQualifiedResource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestQualifiedResource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestQualifiedResource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestQualifiedResource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestQualifiedResource_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, language: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, language: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scale: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dxfeaturelevel: *mut DX_FEATURE_LEVEL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, scale: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dxfeaturelevel: *mut DX_FEATURE_LEVEL) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestQualifiedResourcesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestQualifiedResourcesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestQualifiedResourcesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestQualifiedResource> {
-        let mut result__: <IAppxManifestQualifiedResource as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestQualifiedResource>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestQualifiedResource> {
+        let mut result__: <IAppxManifestQualifiedResource as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestQualifiedResource>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestQualifiedResourcesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestQualifiedResourcesEnumerator {
     type Vtable = IAppxManifestQualifiedResourcesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ef6adfe_3762_4a8f_9373_2fc5d444c8d2);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ef6adfe_3762_4a8f_9373_2fc5d444c8d2);
 }
-impl ::core::convert::From<IAppxManifestQualifiedResourcesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestQualifiedResourcesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestQualifiedResourcesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestQualifiedResourcesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestQualifiedResourcesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestQualifiedResourcesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestQualifiedResourcesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestQualifiedResourcesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestQualifiedResourcesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestQualifiedResourcesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestQualifiedResourcesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resource: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestReader(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestReader(pub ::windows::core::IUnknown);
 impl IAppxManifestReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
-        let mut result__: <IAppxManifestPackageId as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
+    pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
+        let mut result__: <IAppxManifestPackageId as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetProperties(&self) -> ::windows::runtime::Result<IAppxManifestProperties> {
-        let mut result__: <IAppxManifestProperties as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestProperties>(result__)
+    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
+        let mut result__: <IAppxManifestProperties as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestProperties>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageDependencies(&self) -> ::windows::runtime::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__: <IAppxManifestPackageDependenciesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
+    pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
+        let mut result__: <IAppxManifestPackageDependenciesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCapabilities(&self) -> ::windows::runtime::Result<APPX_CAPABILITIES> {
-        let mut result__: <APPX_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_CAPABILITIES>(result__)
+    pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
+        let mut result__: <APPX_CAPABILITIES as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_CAPABILITIES>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetResources(&self) -> ::windows::runtime::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__: <IAppxManifestResourcesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestResourcesEnumerator>(result__)
+    pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
+        let mut result__: <IAppxManifestResourcesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestResourcesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::runtime::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__: <IAppxManifestDeviceCapabilitiesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
+    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
+        let mut result__: <IAppxManifestDeviceCapabilitiesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPrerequisite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetApplications(&self) -> ::windows::runtime::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__: <IAppxManifestApplicationsEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
+    pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
+        let mut result__: <IAppxManifestApplicationsEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn GetStream(&self) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
-        let mut result__: <super::super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
+        let mut result__: <super::super::super::System::Com::IStream as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestReader {
+unsafe impl ::windows::core::Interface for IAppxManifestReader {
     type Vtable = IAppxManifestReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e1bd148_55a0_4480_a3d1_15544710637c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e1bd148_55a0_4480_a3d1_15544710637c);
 }
-impl ::core::convert::From<IAppxManifestReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestReader> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestReader) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestReader> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestReader) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestReader_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageid: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageproperties: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dependencies: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, capabilities: *mut APPX_CAPABILITIES) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resources: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, devicecapabilities: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, capabilities: *mut APPX_CAPABILITIES) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, devicecapabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, applications: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, manifeststream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, applications: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, manifeststream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestReader2(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestReader2(pub ::windows::core::IUnknown);
 impl IAppxManifestReader2 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
-        let mut result__: <IAppxManifestPackageId as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
+    pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
+        let mut result__: <IAppxManifestPackageId as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetProperties(&self) -> ::windows::runtime::Result<IAppxManifestProperties> {
-        let mut result__: <IAppxManifestProperties as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestProperties>(result__)
+    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
+        let mut result__: <IAppxManifestProperties as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestProperties>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageDependencies(&self) -> ::windows::runtime::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__: <IAppxManifestPackageDependenciesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
+    pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
+        let mut result__: <IAppxManifestPackageDependenciesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCapabilities(&self) -> ::windows::runtime::Result<APPX_CAPABILITIES> {
-        let mut result__: <APPX_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_CAPABILITIES>(result__)
+    pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
+        let mut result__: <APPX_CAPABILITIES as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_CAPABILITIES>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetResources(&self) -> ::windows::runtime::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__: <IAppxManifestResourcesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestResourcesEnumerator>(result__)
+    pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
+        let mut result__: <IAppxManifestResourcesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestResourcesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::runtime::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__: <IAppxManifestDeviceCapabilitiesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
+    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
+        let mut result__: <IAppxManifestDeviceCapabilitiesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPrerequisite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetApplications(&self) -> ::windows::runtime::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__: <IAppxManifestApplicationsEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
+    pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
+        let mut result__: <IAppxManifestApplicationsEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn GetStream(&self) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
-        let mut result__: <super::super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
+        let mut result__: <super::super::super::System::Com::IStream as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetQualifiedResources(&self) -> ::windows::runtime::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__: <IAppxManifestQualifiedResourcesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
+    pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
+        let mut result__: <IAppxManifestQualifiedResourcesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestReader2 {
+unsafe impl ::windows::core::Interface for IAppxManifestReader2 {
     type Vtable = IAppxManifestReader2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd06f67bc_b31d_4eba_a8af_638e73e77b4d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd06f67bc_b31d_4eba_a8af_638e73e77b4d);
 }
-impl ::core::convert::From<IAppxManifestReader2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestReader2> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestReader2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestReader2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestReader2> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestReader2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestReader2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestReader2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IAppxManifestReader2> for IAppxManifestReader {
@@ -5269,125 +5267,125 @@ impl ::core::convert::From<&IAppxManifestReader2> for IAppxManifestReader {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for IAppxManifestReader2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader> for IAppxManifestReader2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for &IAppxManifestReader2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader> for &IAppxManifestReader2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestReader2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageid: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageproperties: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dependencies: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, capabilities: *mut APPX_CAPABILITIES) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resources: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, devicecapabilities: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, capabilities: *mut APPX_CAPABILITIES) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, devicecapabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, applications: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, manifeststream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, applications: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, manifeststream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resources: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestReader3(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestReader3(pub ::windows::core::IUnknown);
 impl IAppxManifestReader3 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
-        let mut result__: <IAppxManifestPackageId as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
+    pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
+        let mut result__: <IAppxManifestPackageId as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetProperties(&self) -> ::windows::runtime::Result<IAppxManifestProperties> {
-        let mut result__: <IAppxManifestProperties as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestProperties>(result__)
+    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
+        let mut result__: <IAppxManifestProperties as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestProperties>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageDependencies(&self) -> ::windows::runtime::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__: <IAppxManifestPackageDependenciesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
+    pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
+        let mut result__: <IAppxManifestPackageDependenciesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCapabilities(&self) -> ::windows::runtime::Result<APPX_CAPABILITIES> {
-        let mut result__: <APPX_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_CAPABILITIES>(result__)
+    pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
+        let mut result__: <APPX_CAPABILITIES as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_CAPABILITIES>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetResources(&self) -> ::windows::runtime::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__: <IAppxManifestResourcesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestResourcesEnumerator>(result__)
+    pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
+        let mut result__: <IAppxManifestResourcesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestResourcesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::runtime::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__: <IAppxManifestDeviceCapabilitiesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
+    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
+        let mut result__: <IAppxManifestDeviceCapabilitiesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPrerequisite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetApplications(&self) -> ::windows::runtime::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__: <IAppxManifestApplicationsEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
+    pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
+        let mut result__: <IAppxManifestApplicationsEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn GetStream(&self) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
-        let mut result__: <super::super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
+        let mut result__: <super::super::super::System::Com::IStream as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetQualifiedResources(&self) -> ::windows::runtime::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__: <IAppxManifestQualifiedResourcesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
+    pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
+        let mut result__: <IAppxManifestQualifiedResourcesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::runtime::Result<IAppxManifestCapabilitiesEnumerator> {
-        let mut result__: <IAppxManifestCapabilitiesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(capabilityclass), &mut result__).from_abi::<IAppxManifestCapabilitiesEnumerator>(result__)
+    pub unsafe fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator> {
+        let mut result__: <IAppxManifestCapabilitiesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(capabilityclass), &mut result__).from_abi::<IAppxManifestCapabilitiesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::runtime::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
-        let mut result__: <IAppxManifestTargetDeviceFamiliesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestTargetDeviceFamiliesEnumerator>(result__)
+    pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
+        let mut result__: <IAppxManifestTargetDeviceFamiliesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestTargetDeviceFamiliesEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestReader3 {
+unsafe impl ::windows::core::Interface for IAppxManifestReader3 {
     type Vtable = IAppxManifestReader3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc43825ab_69b7_400a_9709_cc37f5a72d24);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc43825ab_69b7_400a_9709_cc37f5a72d24);
 }
-impl ::core::convert::From<IAppxManifestReader3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestReader3> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestReader3) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestReader3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestReader3> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestReader3) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestReader3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestReader3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IAppxManifestReader3> for IAppxManifestReader2 {
@@ -5400,14 +5398,14 @@ impl ::core::convert::From<&IAppxManifestReader3> for IAppxManifestReader2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader2> for IAppxManifestReader3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader2> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader2> for IAppxManifestReader3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader2> for &IAppxManifestReader3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader2> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader2> for &IAppxManifestReader3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAppxManifestReader3> for IAppxManifestReader {
@@ -5420,132 +5418,132 @@ impl ::core::convert::From<&IAppxManifestReader3> for IAppxManifestReader {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for IAppxManifestReader3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader> for IAppxManifestReader3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for &IAppxManifestReader3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader> for &IAppxManifestReader3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestReader3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageid: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageproperties: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dependencies: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, capabilities: *mut APPX_CAPABILITIES) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resources: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, devicecapabilities: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, capabilities: *mut APPX_CAPABILITIES) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, devicecapabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, applications: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, manifeststream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, applications: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, manifeststream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resources: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, capabilityclass: APPX_CAPABILITY_CLASS_TYPE, capabilities: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, targetdevicefamilies: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, capabilityclass: APPX_CAPABILITY_CLASS_TYPE, capabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, targetdevicefamilies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestReader4(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestReader4(pub ::windows::core::IUnknown);
 impl IAppxManifestReader4 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
-        let mut result__: <IAppxManifestPackageId as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
+    pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
+        let mut result__: <IAppxManifestPackageId as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageId>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetProperties(&self) -> ::windows::runtime::Result<IAppxManifestProperties> {
-        let mut result__: <IAppxManifestProperties as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestProperties>(result__)
+    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
+        let mut result__: <IAppxManifestProperties as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestProperties>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPackageDependencies(&self) -> ::windows::runtime::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__: <IAppxManifestPackageDependenciesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
+    pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
+        let mut result__: <IAppxManifestPackageDependenciesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestPackageDependenciesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCapabilities(&self) -> ::windows::runtime::Result<APPX_CAPABILITIES> {
-        let mut result__: <APPX_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_CAPABILITIES>(result__)
+    pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
+        let mut result__: <APPX_CAPABILITIES as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<APPX_CAPABILITIES>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetResources(&self) -> ::windows::runtime::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__: <IAppxManifestResourcesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestResourcesEnumerator>(result__)
+    pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
+        let mut result__: <IAppxManifestResourcesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestResourcesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::runtime::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__: <IAppxManifestDeviceCapabilitiesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
+    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
+        let mut result__: <IAppxManifestDeviceCapabilitiesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDeviceCapabilitiesEnumerator>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPrerequisite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetApplications(&self) -> ::windows::runtime::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__: <IAppxManifestApplicationsEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
+    pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
+        let mut result__: <IAppxManifestApplicationsEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestApplicationsEnumerator>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn GetStream(&self) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
-        let mut result__: <super::super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
+        let mut result__: <super::super::super::System::Com::IStream as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetQualifiedResources(&self) -> ::windows::runtime::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__: <IAppxManifestQualifiedResourcesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
+    pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
+        let mut result__: <IAppxManifestQualifiedResourcesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::runtime::Result<IAppxManifestCapabilitiesEnumerator> {
-        let mut result__: <IAppxManifestCapabilitiesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(capabilityclass), &mut result__).from_abi::<IAppxManifestCapabilitiesEnumerator>(result__)
+    pub unsafe fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator> {
+        let mut result__: <IAppxManifestCapabilitiesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(capabilityclass), &mut result__).from_abi::<IAppxManifestCapabilitiesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::runtime::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
-        let mut result__: <IAppxManifestTargetDeviceFamiliesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestTargetDeviceFamiliesEnumerator>(result__)
+    pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
+        let mut result__: <IAppxManifestTargetDeviceFamiliesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestTargetDeviceFamiliesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetOptionalPackageInfo(&self) -> ::windows::runtime::Result<IAppxManifestOptionalPackageInfo> {
-        let mut result__: <IAppxManifestOptionalPackageInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestOptionalPackageInfo>(result__)
+    pub unsafe fn GetOptionalPackageInfo(&self) -> ::windows::core::Result<IAppxManifestOptionalPackageInfo> {
+        let mut result__: <IAppxManifestOptionalPackageInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestOptionalPackageInfo>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestReader4 {
+unsafe impl ::windows::core::Interface for IAppxManifestReader4 {
     type Vtable = IAppxManifestReader4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4579bb7c_741d_4161_b5a1_47bd3b78ad9b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4579bb7c_741d_4161_b5a1_47bd3b78ad9b);
 }
-impl ::core::convert::From<IAppxManifestReader4> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestReader4> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestReader4) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestReader4> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestReader4> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestReader4) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestReader4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestReader4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IAppxManifestReader4> for IAppxManifestReader3 {
@@ -5558,14 +5556,14 @@ impl ::core::convert::From<&IAppxManifestReader4> for IAppxManifestReader3 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader3> for IAppxManifestReader4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader3> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader3> for IAppxManifestReader4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader3> for &IAppxManifestReader4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader3> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader3> for &IAppxManifestReader4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader3> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAppxManifestReader4> for IAppxManifestReader2 {
@@ -5578,14 +5576,14 @@ impl ::core::convert::From<&IAppxManifestReader4> for IAppxManifestReader2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader2> for IAppxManifestReader4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader2> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader2> for IAppxManifestReader4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader2> for &IAppxManifestReader4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader2> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader2> for &IAppxManifestReader4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAppxManifestReader4> for IAppxManifestReader {
@@ -5598,797 +5596,797 @@ impl ::core::convert::From<&IAppxManifestReader4> for IAppxManifestReader {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for IAppxManifestReader4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader> for IAppxManifestReader4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for &IAppxManifestReader4 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, IAppxManifestReader> for &IAppxManifestReader4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAppxManifestReader> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestReader4_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageid: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packageproperties: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dependencies: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, capabilities: *mut APPX_CAPABILITIES) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resources: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, devicecapabilities: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packageproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, capabilities: *mut APPX_CAPABILITIES) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, devicecapabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, applications: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, manifeststream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, applications: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, manifeststream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resources: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, capabilityclass: APPX_CAPABILITY_CLASS_TYPE, capabilities: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, targetdevicefamilies: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, optionalpackageinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, capabilityclass: APPX_CAPABILITY_CLASS_TYPE, capabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, targetdevicefamilies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, optionalpackageinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestReader5(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestReader5(pub ::windows::core::IUnknown);
 impl IAppxManifestReader5 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetMainPackageDependencies(&self) -> ::windows::runtime::Result<IAppxManifestMainPackageDependenciesEnumerator> {
-        let mut result__: <IAppxManifestMainPackageDependenciesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestMainPackageDependenciesEnumerator>(result__)
+    pub unsafe fn GetMainPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestMainPackageDependenciesEnumerator> {
+        let mut result__: <IAppxManifestMainPackageDependenciesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestMainPackageDependenciesEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestReader5 {
+unsafe impl ::windows::core::Interface for IAppxManifestReader5 {
     type Vtable = IAppxManifestReader5_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8d7ae132_a690_4c00_b75a_6aae1feaac80);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d7ae132_a690_4c00_b75a_6aae1feaac80);
 }
-impl ::core::convert::From<IAppxManifestReader5> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestReader5> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestReader5) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestReader5> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestReader5> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestReader5) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader5 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestReader5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader5 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestReader5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestReader5_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mainpackagedependencies: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, mainpackagedependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestReader6(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestReader6(pub ::windows::core::IUnknown);
 impl IAppxManifestReader6 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestReader6 {
+unsafe impl ::windows::core::Interface for IAppxManifestReader6 {
     type Vtable = IAppxManifestReader6_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x34deaca4_d3c0_4e3e_b312_e42625e3807e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34deaca4_d3c0_4e3e_b312_e42625e3807e);
 }
-impl ::core::convert::From<IAppxManifestReader6> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestReader6> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestReader6) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestReader6> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestReader6> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestReader6) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader6 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestReader6 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader6 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestReader6 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestReader6_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestReader7(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestReader7(pub ::windows::core::IUnknown);
 impl IAppxManifestReader7 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetDriverDependencies(&self) -> ::windows::runtime::Result<IAppxManifestDriverDependenciesEnumerator> {
-        let mut result__: <IAppxManifestDriverDependenciesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDriverDependenciesEnumerator>(result__)
+    pub unsafe fn GetDriverDependencies(&self) -> ::windows::core::Result<IAppxManifestDriverDependenciesEnumerator> {
+        let mut result__: <IAppxManifestDriverDependenciesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestDriverDependenciesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetOSPackageDependencies(&self) -> ::windows::runtime::Result<IAppxManifestOSPackageDependenciesEnumerator> {
-        let mut result__: <IAppxManifestOSPackageDependenciesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestOSPackageDependenciesEnumerator>(result__)
+    pub unsafe fn GetOSPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestOSPackageDependenciesEnumerator> {
+        let mut result__: <IAppxManifestOSPackageDependenciesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestOSPackageDependenciesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetHostRuntimeDependencies(&self) -> ::windows::runtime::Result<IAppxManifestHostRuntimeDependenciesEnumerator> {
-        let mut result__: <IAppxManifestHostRuntimeDependenciesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestHostRuntimeDependenciesEnumerator>(result__)
+    pub unsafe fn GetHostRuntimeDependencies(&self) -> ::windows::core::Result<IAppxManifestHostRuntimeDependenciesEnumerator> {
+        let mut result__: <IAppxManifestHostRuntimeDependenciesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestHostRuntimeDependenciesEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestReader7 {
+unsafe impl ::windows::core::Interface for IAppxManifestReader7 {
     type Vtable = IAppxManifestReader7_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8efe6f27_0ce0_4988_b32d_738eb63db3b7);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efe6f27_0ce0_4988_b32d_738eb63db3b7);
 }
-impl ::core::convert::From<IAppxManifestReader7> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestReader7> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestReader7) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestReader7> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestReader7> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestReader7) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader7 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestReader7 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader7 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestReader7 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestReader7_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, driverdependencies: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ospackagedependencies: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hostruntimedependencies: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, driverdependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ospackagedependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hostruntimedependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestResourcesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestResourcesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestResourcesEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestResourcesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestResourcesEnumerator {
     type Vtable = IAppxManifestResourcesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde4dfbbd_881a_48bb_858c_d6f2baeae6ed);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde4dfbbd_881a_48bb_858c_d6f2baeae6ed);
 }
-impl ::core::convert::From<IAppxManifestResourcesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestResourcesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestResourcesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestResourcesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestResourcesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestResourcesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestResourcesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestResourcesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestResourcesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestResourcesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestResourcesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resource: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, resource: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestTargetDeviceFamiliesEnumerator(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestTargetDeviceFamiliesEnumerator(pub ::windows::core::IUnknown);
 impl IAppxManifestTargetDeviceFamiliesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestTargetDeviceFamily> {
-        let mut result__: <IAppxManifestTargetDeviceFamily as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestTargetDeviceFamily>(result__)
+    pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamily> {
+        let mut result__: <IAppxManifestTargetDeviceFamily as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestTargetDeviceFamily>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetHasCurrent(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn MoveNext(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestTargetDeviceFamiliesEnumerator {
+unsafe impl ::windows::core::Interface for IAppxManifestTargetDeviceFamiliesEnumerator {
     type Vtable = IAppxManifestTargetDeviceFamiliesEnumerator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36537f36_27a4_4788_88c0_733819575017);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36537f36_27a4_4788_88c0_733819575017);
 }
-impl ::core::convert::From<IAppxManifestTargetDeviceFamiliesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestTargetDeviceFamiliesEnumerator> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestTargetDeviceFamiliesEnumerator) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestTargetDeviceFamiliesEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestTargetDeviceFamiliesEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestTargetDeviceFamiliesEnumerator) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestTargetDeviceFamiliesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestTargetDeviceFamiliesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestTargetDeviceFamiliesEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestTargetDeviceFamiliesEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestTargetDeviceFamiliesEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, targetdevicefamily: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, targetdevicefamily: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxManifestTargetDeviceFamily(pub ::windows::runtime::IUnknown);
+pub struct IAppxManifestTargetDeviceFamily(pub ::windows::core::IUnknown);
 impl IAppxManifestTargetDeviceFamily {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetMinVersion(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetMaxVersionTested(&self) -> ::windows::runtime::Result<u64> {
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
+    pub unsafe fn GetMaxVersionTested(&self) -> ::windows::core::Result<u64> {
+        let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxManifestTargetDeviceFamily {
+unsafe impl ::windows::core::Interface for IAppxManifestTargetDeviceFamily {
     type Vtable = IAppxManifestTargetDeviceFamily_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9091b09b_c8d5_4f31_8687_a338259faefb);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9091b09b_c8d5_4f31_8687_a338259faefb);
 }
-impl ::core::convert::From<IAppxManifestTargetDeviceFamily> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxManifestTargetDeviceFamily> for ::windows::core::IUnknown {
     fn from(value: IAppxManifestTargetDeviceFamily) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxManifestTargetDeviceFamily> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxManifestTargetDeviceFamily> for ::windows::core::IUnknown {
     fn from(value: &IAppxManifestTargetDeviceFamily) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestTargetDeviceFamily {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxManifestTargetDeviceFamily {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestTargetDeviceFamily {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxManifestTargetDeviceFamily {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxManifestTargetDeviceFamily_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, minversion: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, maxversiontested: *mut u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, minversion: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, maxversiontested: *mut u64) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxPackageEditor(pub ::windows::runtime::IUnknown);
+pub struct IAppxPackageEditor(pub ::windows::core::IUnknown);
 impl IAppxPackageEditor {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn SetWorkingDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, workingdirectory: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), workingdirectory.into_param().abi()).ok()
+    pub unsafe fn SetWorkingDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, workingdirectory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), workingdirectory.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn CreateDeltaPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, updatedpackagestream: Param0, baselinepackagestream: Param1, deltapackagestream: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), updatedpackagestream.into_param().abi(), baselinepackagestream.into_param().abi(), deltapackagestream.into_param().abi()).ok()
+    pub unsafe fn CreateDeltaPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, updatedpackagestream: Param0, baselinepackagestream: Param1, deltapackagestream: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), updatedpackagestream.into_param().abi(), baselinepackagestream.into_param().abi(), deltapackagestream.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn CreateDeltaPackageUsingBaselineBlockMap<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(
+    pub unsafe fn CreateDeltaPackageUsingBaselineBlockMap<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(
         &self,
         updatedpackagestream: Param0,
         baselineblockmapstream: Param1,
         baselinepackagefullname: Param2,
         deltapackagestream: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), updatedpackagestream.into_param().abi(), baselineblockmapstream.into_param().abi(), baselinepackagefullname.into_param().abi(), deltapackagestream.into_param().abi()).ok()
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), updatedpackagestream.into_param().abi(), baselineblockmapstream.into_param().abi(), baselinepackagefullname.into_param().abi(), deltapackagestream.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn UpdatePackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, baselinepackagestream: Param0, deltapackagestream: Param1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), baselinepackagestream.into_param().abi(), deltapackagestream.into_param().abi(), ::core::mem::transmute(updateoption)).ok()
+    pub unsafe fn UpdatePackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, baselinepackagestream: Param0, deltapackagestream: Param1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), baselinepackagestream.into_param().abi(), deltapackagestream.into_param().abi(), ::core::mem::transmute(updateoption)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn UpdateEncryptedPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, baselineencryptedpackagestream: Param0, deltapackagestream: Param1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), baselineencryptedpackagestream.into_param().abi(), deltapackagestream.into_param().abi(), ::core::mem::transmute(updateoption), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo)).ok()
+    pub unsafe fn UpdateEncryptedPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, baselineencryptedpackagestream: Param0, deltapackagestream: Param1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), baselineencryptedpackagestream.into_param().abi(), deltapackagestream.into_param().abi(), ::core::mem::transmute(updateoption), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn UpdatePackageManifest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, packagestream: Param0, updatedmanifeststream: Param1, ispackageencrypted: Param2, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), packagestream.into_param().abi(), updatedmanifeststream.into_param().abi(), ispackageencrypted.into_param().abi(), ::core::mem::transmute(options)).ok()
+    pub unsafe fn UpdatePackageManifest<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, packagestream: Param0, updatedmanifeststream: Param1, ispackageencrypted: Param2, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), packagestream.into_param().abi(), updatedmanifeststream.into_param().abi(), ispackageencrypted.into_param().abi(), ::core::mem::transmute(options)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxPackageEditor {
+unsafe impl ::windows::core::Interface for IAppxPackageEditor {
     type Vtable = IAppxPackageEditor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2adb6dc_5e71_4416_86b6_86e5f5291a6b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2adb6dc_5e71_4416_86b6_86e5f5291a6b);
 }
-impl ::core::convert::From<IAppxPackageEditor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxPackageEditor> for ::windows::core::IUnknown {
     fn from(value: IAppxPackageEditor) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxPackageEditor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxPackageEditor> for ::windows::core::IUnknown {
     fn from(value: &IAppxPackageEditor) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackageEditor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxPackageEditor {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackageEditor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxPackageEditor {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxPackageEditor_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, workingdirectory: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, workingdirectory: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, updatedpackagestream: ::windows::runtime::RawPtr, baselinepackagestream: ::windows::runtime::RawPtr, deltapackagestream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, updatedpackagestream: ::windows::core::RawPtr, baselinepackagestream: ::windows::core::RawPtr, deltapackagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, updatedpackagestream: ::windows::runtime::RawPtr, baselineblockmapstream: ::windows::runtime::RawPtr, baselinepackagefullname: super::super::super::Foundation::PWSTR, deltapackagestream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, updatedpackagestream: ::windows::core::RawPtr, baselineblockmapstream: ::windows::core::RawPtr, baselinepackagefullname: super::super::super::Foundation::PWSTR, deltapackagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselinepackagestream: ::windows::runtime::RawPtr, deltapackagestream: ::windows::runtime::RawPtr, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, baselinepackagestream: ::windows::core::RawPtr, deltapackagestream: ::windows::core::RawPtr, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baselineencryptedpackagestream: ::windows::runtime::RawPtr, deltapackagestream: ::windows::runtime::RawPtr, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, baselineencryptedpackagestream: ::windows::core::RawPtr, deltapackagestream: ::windows::core::RawPtr, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const ::core::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagestream: ::windows::runtime::RawPtr, updatedmanifeststream: ::windows::runtime::RawPtr, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, packagestream: ::windows::core::RawPtr, updatedmanifeststream: ::windows::core::RawPtr, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxPackageReader(pub ::windows::runtime::IUnknown);
+pub struct IAppxPackageReader(pub ::windows::core::IUnknown);
 impl IAppxPackageReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetBlockMap(&self) -> ::windows::runtime::Result<IAppxBlockMapReader> {
-        let mut result__: <IAppxBlockMapReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapReader>(result__)
+    pub unsafe fn GetBlockMap(&self) -> ::windows::core::Result<IAppxBlockMapReader> {
+        let mut result__: <IAppxBlockMapReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxBlockMapReader>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetFootprintFile(&self, r#type: APPX_FOOTPRINT_FILE_TYPE) -> ::windows::runtime::Result<IAppxFile> {
-        let mut result__: <IAppxFile as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &mut result__).from_abi::<IAppxFile>(result__)
+    pub unsafe fn GetFootprintFile(&self, r#type: APPX_FOOTPRINT_FILE_TYPE) -> ::windows::core::Result<IAppxFile> {
+        let mut result__: <IAppxFile as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &mut result__).from_abi::<IAppxFile>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn GetPayloadFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, filename: Param0) -> ::windows::runtime::Result<IAppxFile> {
-        let mut result__: <IAppxFile as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), filename.into_param().abi(), &mut result__).from_abi::<IAppxFile>(result__)
+    pub unsafe fn GetPayloadFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, filename: Param0) -> ::windows::core::Result<IAppxFile> {
+        let mut result__: <IAppxFile as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), filename.into_param().abi(), &mut result__).from_abi::<IAppxFile>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetPayloadFiles(&self) -> ::windows::runtime::Result<IAppxFilesEnumerator> {
-        let mut result__: <IAppxFilesEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxFilesEnumerator>(result__)
+    pub unsafe fn GetPayloadFiles(&self) -> ::windows::core::Result<IAppxFilesEnumerator> {
+        let mut result__: <IAppxFilesEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxFilesEnumerator>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetManifest(&self) -> ::windows::runtime::Result<IAppxManifestReader> {
-        let mut result__: <IAppxManifestReader as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestReader>(result__)
+    pub unsafe fn GetManifest(&self) -> ::windows::core::Result<IAppxManifestReader> {
+        let mut result__: <IAppxManifestReader as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxManifestReader>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxPackageReader {
+unsafe impl ::windows::core::Interface for IAppxPackageReader {
     type Vtable = IAppxPackageReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5c49650_99bc_481c_9a34_3d53a4106708);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5c49650_99bc_481c_9a34_3d53a4106708);
 }
-impl ::core::convert::From<IAppxPackageReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxPackageReader> for ::windows::core::IUnknown {
     fn from(value: IAppxPackageReader) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxPackageReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxPackageReader> for ::windows::core::IUnknown {
     fn from(value: &IAppxPackageReader) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackageReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxPackageReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackageReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxPackageReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxPackageReader_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blockmapreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: APPX_FOOTPRINT_FILE_TYPE, file: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, file: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, blockmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, r#type: APPX_FOOTPRINT_FILE_TYPE, file: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, file: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filesenumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, manifestreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filesenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, manifestreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxPackageWriter(pub ::windows::runtime::IUnknown);
+pub struct IAppxPackageWriter(pub ::windows::core::IUnknown);
 impl IAppxPackageWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddPayloadFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, contenttype: Param1, compressionoption: APPX_COMPRESSION_OPTION, inputstream: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), contenttype.into_param().abi(), ::core::mem::transmute(compressionoption), inputstream.into_param().abi()).ok()
+    pub unsafe fn AddPayloadFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, filename: Param0, contenttype: Param1, compressionoption: APPX_COMPRESSION_OPTION, inputstream: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), filename.into_param().abi(), contenttype.into_param().abi(), ::core::mem::transmute(compressionoption), inputstream.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn Close<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, manifest: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), manifest.into_param().abi()).ok()
+    pub unsafe fn Close<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, manifest: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), manifest.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxPackageWriter {
+unsafe impl ::windows::core::Interface for IAppxPackageWriter {
     type Vtable = IAppxPackageWriter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9099e33b_246f_41e4_881a_008eb613f858);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9099e33b_246f_41e4_881a_008eb613f858);
 }
-impl ::core::convert::From<IAppxPackageWriter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxPackageWriter> for ::windows::core::IUnknown {
     fn from(value: IAppxPackageWriter) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxPackageWriter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxPackageWriter> for ::windows::core::IUnknown {
     fn from(value: &IAppxPackageWriter) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackageWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxPackageWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackageWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxPackageWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxPackageWriter_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::super::Foundation::PWSTR, contenttype: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::super::Foundation::PWSTR, contenttype: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, manifest: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, manifest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxPackageWriter2(pub ::windows::runtime::IUnknown);
+pub struct IAppxPackageWriter2(pub ::windows::core::IUnknown);
 impl IAppxPackageWriter2 {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
-    pub unsafe fn Close<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, manifest: Param0, contentgroupmap: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), manifest.into_param().abi(), contentgroupmap.into_param().abi()).ok()
+    pub unsafe fn Close<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, manifest: Param0, contentgroupmap: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), manifest.into_param().abi(), contentgroupmap.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxPackageWriter2 {
+unsafe impl ::windows::core::Interface for IAppxPackageWriter2 {
     type Vtable = IAppxPackageWriter2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2cf5c4fd_e54c_4ea5_ba4e_f8c4b105a8c8);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cf5c4fd_e54c_4ea5_ba4e_f8c4b105a8c8);
 }
-impl ::core::convert::From<IAppxPackageWriter2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxPackageWriter2> for ::windows::core::IUnknown {
     fn from(value: IAppxPackageWriter2) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxPackageWriter2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxPackageWriter2> for ::windows::core::IUnknown {
     fn from(value: &IAppxPackageWriter2) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackageWriter2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxPackageWriter2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackageWriter2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxPackageWriter2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxPackageWriter2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, manifest: ::windows::runtime::RawPtr, contentgroupmap: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, manifest: ::windows::core::RawPtr, contentgroupmap: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxPackageWriter3(pub ::windows::runtime::IUnknown);
+pub struct IAppxPackageWriter3(pub ::windows::core::IUnknown);
 impl IAppxPackageWriter3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn AddPayloadFiles(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(filecount), ::core::mem::transmute(payloadfiles), ::core::mem::transmute(memorylimit)).ok()
+    pub unsafe fn AddPayloadFiles(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(filecount), ::core::mem::transmute(payloadfiles), ::core::mem::transmute(memorylimit)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxPackageWriter3 {
+unsafe impl ::windows::core::Interface for IAppxPackageWriter3 {
     type Vtable = IAppxPackageWriter3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa83aacd3_41c0_4501_b8a3_74164f50b2fd);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa83aacd3_41c0_4501_b8a3_74164f50b2fd);
 }
-impl ::core::convert::From<IAppxPackageWriter3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxPackageWriter3> for ::windows::core::IUnknown {
     fn from(value: IAppxPackageWriter3) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxPackageWriter3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxPackageWriter3> for ::windows::core::IUnknown {
     fn from(value: &IAppxPackageWriter3) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackageWriter3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxPackageWriter3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackageWriter3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxPackageWriter3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxPackageWriter3_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filecount: u32, payloadfiles: *const ::core::mem::ManuallyDrop<APPX_PACKAGE_WRITER_PAYLOAD_STREAM>, memorylimit: u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filecount: u32, payloadfiles: *const ::core::mem::ManuallyDrop<APPX_PACKAGE_WRITER_PAYLOAD_STREAM>, memorylimit: u64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxPackagingDiagnosticEventSink(pub ::windows::runtime::IUnknown);
+pub struct IAppxPackagingDiagnosticEventSink(pub ::windows::core::IUnknown);
 impl IAppxPackagingDiagnosticEventSink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn ReportContextChange<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: Param2, contextmessage: Param3, detailsmessage: Param4) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(changetype), ::core::mem::transmute(contextid), contextname.into_param().abi(), contextmessage.into_param().abi(), detailsmessage.into_param().abi()).ok()
+    pub unsafe fn ReportContextChange<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: Param2, contextmessage: Param3, detailsmessage: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(changetype), ::core::mem::transmute(contextid), contextname.into_param().abi(), contextmessage.into_param().abi(), detailsmessage.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
-    pub unsafe fn ReportError<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, errormessage: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), errormessage.into_param().abi()).ok()
+    pub unsafe fn ReportError<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, errormessage: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), errormessage.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxPackagingDiagnosticEventSink {
+unsafe impl ::windows::core::Interface for IAppxPackagingDiagnosticEventSink {
     type Vtable = IAppxPackagingDiagnosticEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17239d47_6adb_45d2_80f6_f9cbc3bf059d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17239d47_6adb_45d2_80f6_f9cbc3bf059d);
 }
-impl ::core::convert::From<IAppxPackagingDiagnosticEventSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxPackagingDiagnosticEventSink> for ::windows::core::IUnknown {
     fn from(value: IAppxPackagingDiagnosticEventSink) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxPackagingDiagnosticEventSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxPackagingDiagnosticEventSink> for ::windows::core::IUnknown {
     fn from(value: &IAppxPackagingDiagnosticEventSink) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackagingDiagnosticEventSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxPackagingDiagnosticEventSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackagingDiagnosticEventSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxPackagingDiagnosticEventSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxPackagingDiagnosticEventSink_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: super::super::super::Foundation::PSTR, contextmessage: super::super::super::Foundation::PWSTR, detailsmessage: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: super::super::super::Foundation::PSTR, contextmessage: super::super::super::Foundation::PWSTR, detailsmessage: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errormessage: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, errormessage: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxPackagingDiagnosticEventSinkManager(pub ::windows::runtime::IUnknown);
+pub struct IAppxPackagingDiagnosticEventSinkManager(pub ::windows::core::IUnknown);
 impl IAppxPackagingDiagnosticEventSinkManager {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn SetSinkForProcess<'a, Param0: ::windows::runtime::IntoParam<'a, IAppxPackagingDiagnosticEventSink>>(&self, sink: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), sink.into_param().abi()).ok()
+    pub unsafe fn SetSinkForProcess<'a, Param0: ::windows::core::IntoParam<'a, IAppxPackagingDiagnosticEventSink>>(&self, sink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), sink.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxPackagingDiagnosticEventSinkManager {
+unsafe impl ::windows::core::Interface for IAppxPackagingDiagnosticEventSinkManager {
     type Vtable = IAppxPackagingDiagnosticEventSinkManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x369648fa_a7eb_4909_a15d_6954a078f18a);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x369648fa_a7eb_4909_a15d_6954a078f18a);
 }
-impl ::core::convert::From<IAppxPackagingDiagnosticEventSinkManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxPackagingDiagnosticEventSinkManager> for ::windows::core::IUnknown {
     fn from(value: IAppxPackagingDiagnosticEventSinkManager) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxPackagingDiagnosticEventSinkManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxPackagingDiagnosticEventSinkManager> for ::windows::core::IUnknown {
     fn from(value: &IAppxPackagingDiagnosticEventSinkManager) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackagingDiagnosticEventSinkManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxPackagingDiagnosticEventSinkManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackagingDiagnosticEventSinkManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxPackagingDiagnosticEventSinkManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxPackagingDiagnosticEventSinkManager_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IAppxSourceContentGroupMapReader(pub ::windows::runtime::IUnknown);
+pub struct IAppxSourceContentGroupMapReader(pub ::windows::core::IUnknown);
 impl IAppxSourceContentGroupMapReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetRequiredGroup(&self) -> ::windows::runtime::Result<IAppxContentGroup> {
-        let mut result__: <IAppxContentGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroup>(result__)
+    pub unsafe fn GetRequiredGroup(&self) -> ::windows::core::Result<IAppxContentGroup> {
+        let mut result__: <IAppxContentGroup as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroup>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub unsafe fn GetAutomaticGroups(&self) -> ::windows::runtime::Result<IAppxContentGroupsEnumerator> {
-        let mut result__: <IAppxContentGroupsEnumerator as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroupsEnumerator>(result__)
+    pub unsafe fn GetAutomaticGroups(&self) -> ::windows::core::Result<IAppxContentGroupsEnumerator> {
+        let mut result__: <IAppxContentGroupsEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAppxContentGroupsEnumerator>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IAppxSourceContentGroupMapReader {
+unsafe impl ::windows::core::Interface for IAppxSourceContentGroupMapReader {
     type Vtable = IAppxSourceContentGroupMapReader_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf329791d_540b_4a9f_bc75_3282b7d73193);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf329791d_540b_4a9f_bc75_3282b7d73193);
 }
-impl ::core::convert::From<IAppxSourceContentGroupMapReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAppxSourceContentGroupMapReader> for ::windows::core::IUnknown {
     fn from(value: IAppxSourceContentGroupMapReader) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IAppxSourceContentGroupMapReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAppxSourceContentGroupMapReader> for ::windows::core::IUnknown {
     fn from(value: &IAppxSourceContentGroupMapReader) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxSourceContentGroupMapReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppxSourceContentGroupMapReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxSourceContentGroupMapReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppxSourceContentGroupMapReader {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxSourceContentGroupMapReader_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, requiredgroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, automaticgroupsenumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, requiredgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, automaticgroupsenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenPackageInfoByFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> i32 {
+pub unsafe fn OpenPackageInfoByFullName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6403,7 +6401,7 @@ pub unsafe fn OpenPackageInfoByFullName<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenPackageInfoByFullNameForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(usersid: Param0, packagefullname: Param1, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> i32 {
+pub unsafe fn OpenPackageInfoByFullNameForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(usersid: Param0, packagefullname: Param1, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6438,7 +6436,7 @@ impl ::core::cmp::PartialEq for PACKAGEDEPENDENCY_CONTEXT__ {
     }
 }
 impl ::core::cmp::Eq for PACKAGEDEPENDENCY_CONTEXT__ {}
-unsafe impl ::windows::runtime::Abi for PACKAGEDEPENDENCY_CONTEXT__ {
+unsafe impl ::windows::core::Abi for PACKAGEDEPENDENCY_CONTEXT__ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -6493,7 +6491,7 @@ impl ::core::cmp::PartialEq for PACKAGE_ID {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PACKAGE_ID {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PACKAGE_ID {
+unsafe impl ::windows::core::Abi for PACKAGE_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6525,7 +6523,7 @@ impl ::core::cmp::PartialEq for PACKAGE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PACKAGE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PACKAGE_INFO {
+unsafe impl ::windows::core::Abi for PACKAGE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -6568,7 +6566,7 @@ impl ::core::cmp::PartialEq for PACKAGE_VERSION {
     }
 }
 impl ::core::cmp::Eq for PACKAGE_VERSION {}
-unsafe impl ::windows::runtime::Abi for PACKAGE_VERSION {
+unsafe impl ::windows::core::Abi for PACKAGE_VERSION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6590,7 +6588,7 @@ impl ::core::cmp::PartialEq for PACKAGE_VERSION_0 {
     }
 }
 impl ::core::cmp::Eq for PACKAGE_VERSION_0 {}
-unsafe impl ::windows::runtime::Abi for PACKAGE_VERSION_0 {
+unsafe impl ::windows::core::Abi for PACKAGE_VERSION_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6619,7 +6617,7 @@ impl ::core::cmp::PartialEq for PACKAGE_VERSION_0_0 {
     }
 }
 impl ::core::cmp::Eq for PACKAGE_VERSION_0_0 {}
-unsafe impl ::windows::runtime::Abi for PACKAGE_VERSION_0_0 {
+unsafe impl ::windows::core::Abi for PACKAGE_VERSION_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6645,7 +6643,7 @@ impl ::core::cmp::PartialEq for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
     }
 }
 impl ::core::cmp::Eq for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {}
-unsafe impl ::windows::runtime::Abi for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
+unsafe impl ::windows::core::Abi for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -6660,7 +6658,7 @@ impl ::core::convert::From<i32> for PackageDependencyLifetimeKind {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PackageDependencyLifetimeKind {
+unsafe impl ::windows::core::Abi for PackageDependencyLifetimeKind {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -6679,13 +6677,13 @@ impl ::core::convert::From<i32> for PackageDependencyProcessorArchitectures {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PackageDependencyProcessorArchitectures {
+unsafe impl ::windows::core::Abi for PackageDependencyProcessorArchitectures {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PackageFamilyNameFromFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn PackageFamilyNameFromFullName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6730,7 +6728,7 @@ pub unsafe fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnam
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PackageIdFromFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, flags: u32, bufferlength: *mut u32, buffer: *mut u8) -> i32 {
+pub unsafe fn PackageIdFromFullName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, flags: u32, bufferlength: *mut u32, buffer: *mut u8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6745,7 +6743,7 @@ pub unsafe fn PackageIdFromFullName<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PackageNameAndPublisherIdFromFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, packagenamelength: *mut u32, packagename: super::super::super::Foundation::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn PackageNameAndPublisherIdFromFamilyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, packagenamelength: *mut u32, packagename: super::super::super::Foundation::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6773,7 +6771,7 @@ impl ::core::convert::From<i32> for PackageOrigin {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PackageOrigin {
+unsafe impl ::windows::core::Abi for PackageOrigin {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -6791,13 +6789,13 @@ impl ::core::convert::From<i32> for PackagePathType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PackagePathType {
+unsafe impl ::windows::core::Abi for PackagePathType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ParseApplicationUserModelId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(applicationusermodelid: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: super::super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn ParseApplicationUserModelId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(applicationusermodelid: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6825,12 +6823,12 @@ pub unsafe fn ReleasePackageVirtualizationContext(context: *const PACKAGE_VIRTUA
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[inline]
-pub unsafe fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::runtime::Result<()> {
+pub unsafe fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::runtime::HRESULT;
+            fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::HRESULT;
         }
         RemovePackageDependency(::core::mem::transmute(packagedependencycontext)).ok()
     }
@@ -6840,7 +6838,7 @@ pub unsafe fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDE
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TryCreatePackageDependency<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, PACKAGE_VERSION>, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
+pub unsafe fn TryCreatePackageDependency<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, PACKAGE_VERSION>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
     user: Param0,
     packagefamilyname: Param1,
     minversion: Param2,
@@ -6848,14 +6846,14 @@ pub unsafe fn TryCreatePackageDependency<'a, Param0: ::windows::runtime::IntoPar
     lifetimekind: PackageDependencyLifetimeKind,
     lifetimeartifact: Param5,
     options: CreatePackageDependencyOptions,
-) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
+) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TryCreatePackageDependency(user: super::super::super::Foundation::PSID, packagefamilyname: super::super::super::Foundation::PWSTR, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: super::super::super::Foundation::PWSTR, options: CreatePackageDependencyOptions, packagedependencyid: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn TryCreatePackageDependency(user: super::super::super::Foundation::PSID, packagefamilyname: super::super::super::Foundation::PWSTR, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: super::super::super::Foundation::PWSTR, options: CreatePackageDependencyOptions, packagedependencyid: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         TryCreatePackageDependency(user.into_param().abi(), packagefamilyname.into_param().abi(), minversion.into_param().abi(), ::core::mem::transmute(packagedependencyprocessorarchitectures), ::core::mem::transmute(lifetimekind), lifetimeartifact.into_param().abi(), ::core::mem::transmute(options), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -6864,7 +6862,7 @@ pub unsafe fn TryCreatePackageDependency<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifyApplicationUserModelId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(applicationusermodelid: Param0) -> i32 {
+pub unsafe fn VerifyApplicationUserModelId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(applicationusermodelid: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6879,7 +6877,7 @@ pub unsafe fn VerifyApplicationUserModelId<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifyPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0) -> i32 {
+pub unsafe fn VerifyPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6894,7 +6892,7 @@ pub unsafe fn VerifyPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifyPackageFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0) -> i32 {
+pub unsafe fn VerifyPackageFullName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6924,7 +6922,7 @@ pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> i32 {
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifyPackageRelativeApplicationId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagerelativeapplicationid: Param0) -> i32 {
+pub unsafe fn VerifyPackageRelativeApplicationId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagerelativeapplicationid: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6959,6 +6957,6 @@ impl ::core::cmp::PartialEq for _PACKAGE_INFO_REFERENCE {
     }
 }
 impl ::core::cmp::Eq for _PACKAGE_INFO_REFERENCE {}
-unsafe impl ::windows::runtime::Abi for _PACKAGE_INFO_REFERENCE {
+unsafe impl ::windows::core::Abi for _PACKAGE_INFO_REFERENCE {
     type Abi = Self;
 }

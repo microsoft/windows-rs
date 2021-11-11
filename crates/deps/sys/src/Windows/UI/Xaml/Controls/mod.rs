@@ -3,3 +3,5 @@
 pub mod Maps;
 #[cfg(feature = "UI_Xaml_Controls_Primitives")]
 pub mod Primitives;
+#[link(name = "windows")]
+extern "system" {}

@@ -24,7 +24,7 @@ impl ::core::cmp::PartialEq for ACTION_HEADER {
     }
 }
 impl ::core::cmp::Eq for ACTION_HEADER {}
-unsafe impl ::windows::runtime::Abi for ACTION_HEADER {
+unsafe impl ::windows::core::Abi for ACTION_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -130,7 +130,7 @@ impl ::core::cmp::PartialEq for ADAPTER_STATUS {
     }
 }
 impl ::core::cmp::Eq for ADAPTER_STATUS {}
-unsafe impl ::windows::runtime::Abi for ADAPTER_STATUS {
+unsafe impl ::windows::core::Abi for ADAPTER_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
@@ -171,7 +171,7 @@ impl ::core::cmp::PartialEq for FIND_NAME_BUFFER {
     }
 }
 impl ::core::cmp::Eq for FIND_NAME_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FIND_NAME_BUFFER {
+unsafe impl ::windows::core::Abi for FIND_NAME_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -199,7 +199,7 @@ impl ::core::cmp::PartialEq for FIND_NAME_HEADER {
     }
 }
 impl ::core::cmp::Eq for FIND_NAME_HEADER {}
-unsafe impl ::windows::runtime::Abi for FIND_NAME_HEADER {
+unsafe impl ::windows::core::Abi for FIND_NAME_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
@@ -232,7 +232,7 @@ impl ::core::cmp::PartialEq for LANA_ENUM {
     }
 }
 impl ::core::cmp::Eq for LANA_ENUM {}
-unsafe impl ::windows::runtime::Abi for LANA_ENUM {
+unsafe impl ::windows::core::Abi for LANA_ENUM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
@@ -264,7 +264,7 @@ impl ::core::cmp::PartialEq for NAME_BUFFER {
     }
 }
 impl ::core::cmp::Eq for NAME_BUFFER {}
-unsafe impl ::windows::runtime::Abi for NAME_BUFFER {
+unsafe impl ::windows::core::Abi for NAME_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
@@ -350,7 +350,7 @@ impl ::core::cmp::PartialEq for NCB {
 impl ::core::cmp::Eq for NCB {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NCB {
+unsafe impl ::windows::core::Abi for NCB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -434,7 +434,7 @@ impl ::core::cmp::PartialEq for NCB {
 impl ::core::cmp::Eq for NCB {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NCB {
+unsafe impl ::windows::core::Abi for NCB {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
@@ -618,7 +618,7 @@ impl ::core::cmp::PartialEq for SESSION_BUFFER {
     }
 }
 impl ::core::cmp::Eq for SESSION_BUFFER {}
-unsafe impl ::windows::runtime::Abi for SESSION_BUFFER {
+unsafe impl ::windows::core::Abi for SESSION_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
@@ -649,7 +649,7 @@ impl ::core::cmp::PartialEq for SESSION_HEADER {
     }
 }
 impl ::core::cmp::Eq for SESSION_HEADER {}
-unsafe impl ::windows::runtime::Abi for SESSION_HEADER {
+unsafe impl ::windows::core::Abi for SESSION_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]

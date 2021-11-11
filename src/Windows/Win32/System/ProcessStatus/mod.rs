@@ -26,7 +26,7 @@ impl ::core::cmp::PartialEq for ENUM_PAGE_FILE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for ENUM_PAGE_FILE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for ENUM_PAGE_FILE_INFORMATION {
+unsafe impl ::windows::core::Abi for ENUM_PAGE_FILE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_ProcessStatus`*"]
@@ -42,7 +42,7 @@ impl ::core::convert::From<u32> for ENUM_PROCESS_MODULES_EX_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ENUM_PROCESS_MODULES_EX_FLAGS {
+unsafe impl ::windows::core::Abi for ENUM_PROCESS_MODULES_EX_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for ENUM_PROCESS_MODULES_EX_FLAGS {
@@ -76,7 +76,7 @@ impl ::core::ops::Not for ENUM_PROCESS_MODULES_EX_FLAGS {
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EmptyWorkingSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EmptyWorkingSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -111,7 +111,7 @@ pub unsafe fn K32EnumPageFilesA(pcallbackroutine: ::core::option::Option<PENUM_P
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32EnumPageFilesA(pcallbackroutine: ::windows::runtime::RawPtr, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn K32EnumPageFilesA(pcallbackroutine: ::windows::core::RawPtr, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(K32EnumPageFilesA(::core::mem::transmute(pcallbackroutine), ::core::mem::transmute(pcontext)))
     }
@@ -126,7 +126,7 @@ pub unsafe fn K32EnumPageFilesW(pcallbackroutine: ::core::option::Option<PENUM_P
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32EnumPageFilesW(pcallbackroutine: ::windows::runtime::RawPtr, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn K32EnumPageFilesW(pcallbackroutine: ::windows::core::RawPtr, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(K32EnumPageFilesW(::core::mem::transmute(pcallbackroutine), ::core::mem::transmute(pcontext)))
     }
@@ -136,7 +136,7 @@ pub unsafe fn K32EnumPageFilesW(pcallbackroutine: ::core::option::Option<PENUM_P
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcessModules<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumProcessModules<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -151,7 +151,7 @@ pub unsafe fn K32EnumProcessModules<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcessModulesEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumProcessModulesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -241,7 +241,7 @@ pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const ::core::ffi::c_void,
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetMappedFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpv: *const ::core::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
+pub unsafe fn K32GetMappedFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpv: *const ::core::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -256,7 +256,7 @@ pub unsafe fn K32GetMappedFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetMappedFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpv: *const ::core::ffi::c_void, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
+pub unsafe fn K32GetMappedFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpv: *const ::core::ffi::c_void, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -271,7 +271,7 @@ pub unsafe fn K32GetMappedFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetModuleBaseNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpbasename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
+pub unsafe fn K32GetModuleBaseNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpbasename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -286,7 +286,7 @@ pub unsafe fn K32GetModuleBaseNameA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetModuleBaseNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpbasename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
+pub unsafe fn K32GetModuleBaseNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpbasename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -301,7 +301,7 @@ pub unsafe fn K32GetModuleBaseNameW<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetModuleFileNameExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
+pub unsafe fn K32GetModuleFileNameExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -316,7 +316,7 @@ pub unsafe fn K32GetModuleFileNameExA<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetModuleFileNameExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
+pub unsafe fn K32GetModuleFileNameExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -331,7 +331,7 @@ pub unsafe fn K32GetModuleFileNameExW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetModuleInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpmodinfo: *mut MODULEINFO, cb: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn K32GetModuleInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpmodinfo: *mut MODULEINFO, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -361,7 +361,7 @@ pub unsafe fn K32GetPerformanceInfo(pperformanceinformation: *mut PERFORMANCE_IN
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetProcessImageFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpimagefilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
+pub unsafe fn K32GetProcessImageFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpimagefilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -376,7 +376,7 @@ pub unsafe fn K32GetProcessImageFileNameA<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetProcessImageFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpimagefilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
+pub unsafe fn K32GetProcessImageFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpimagefilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -391,7 +391,7 @@ pub unsafe fn K32GetProcessImageFileNameW<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetProcessMemoryInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS, cb: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn K32GetProcessMemoryInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -406,7 +406,7 @@ pub unsafe fn K32GetProcessMemoryInfo<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetWsChanges<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn K32GetWsChanges<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -421,7 +421,7 @@ pub unsafe fn K32GetWsChanges<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetWsChangesEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX, cb: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn K32GetWsChangesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX, cb: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -436,7 +436,7 @@ pub unsafe fn K32GetWsChangesEx<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32InitializeProcessForWsWatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn K32InitializeProcessForWsWatch<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -451,7 +451,7 @@ pub unsafe fn K32InitializeProcessForWsWatch<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32QueryWorkingSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn K32QueryWorkingSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -466,7 +466,7 @@ pub unsafe fn K32QueryWorkingSet<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32QueryWorkingSetEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn K32QueryWorkingSetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -503,7 +503,7 @@ impl ::core::cmp::PartialEq for MODULEINFO {
     }
 }
 impl ::core::cmp::Eq for MODULEINFO {}
-unsafe impl ::windows::runtime::Abi for MODULEINFO {
+unsafe impl ::windows::core::Abi for MODULEINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
@@ -576,7 +576,7 @@ impl ::core::cmp::PartialEq for PERFORMANCE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for PERFORMANCE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for PERFORMANCE_INFORMATION {
+unsafe impl ::windows::core::Abi for PERFORMANCE_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -631,7 +631,7 @@ impl ::core::cmp::PartialEq for PROCESS_MEMORY_COUNTERS {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MEMORY_COUNTERS {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MEMORY_COUNTERS {
+unsafe impl ::windows::core::Abi for PROCESS_MEMORY_COUNTERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -689,7 +689,7 @@ impl ::core::cmp::PartialEq for PROCESS_MEMORY_COUNTERS_EX {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MEMORY_COUNTERS_EX {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MEMORY_COUNTERS_EX {
+unsafe impl ::windows::core::Abi for PROCESS_MEMORY_COUNTERS_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_ProcessStatus`*"]
@@ -713,7 +713,7 @@ impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_BLOCK {
     }
 }
 impl ::core::cmp::Eq for PSAPI_WORKING_SET_BLOCK {}
-unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_BLOCK {
+unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_BLOCK {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -739,7 +739,7 @@ impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_BLOCK_0 {
     }
 }
 impl ::core::cmp::Eq for PSAPI_WORKING_SET_BLOCK_0 {}
-unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_BLOCK_0 {
+unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_BLOCK_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -761,7 +761,7 @@ impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK {
     }
 }
 impl ::core::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK {}
-unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK {
+unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -783,7 +783,7 @@ impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0 {
     }
 }
 impl ::core::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK_0 {}
-unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK_0 {
+unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -809,7 +809,7 @@ impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     }
 }
 impl ::core::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK_0_0 {}
-unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
+unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -835,7 +835,7 @@ impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     }
 }
 impl ::core::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK_0_1 {}
-unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
+unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -857,7 +857,7 @@ impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for PSAPI_WORKING_SET_EX_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_INFORMATION {
+unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -879,7 +879,7 @@ impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for PSAPI_WORKING_SET_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_INFORMATION {
+unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -906,7 +906,7 @@ impl ::core::cmp::PartialEq for PSAPI_WS_WATCH_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for PSAPI_WS_WATCH_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for PSAPI_WS_WATCH_INFORMATION {
+unsafe impl ::windows::core::Abi for PSAPI_WS_WATCH_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -934,6 +934,6 @@ impl ::core::cmp::PartialEq for PSAPI_WS_WATCH_INFORMATION_EX {
     }
 }
 impl ::core::cmp::Eq for PSAPI_WS_WATCH_INFORMATION_EX {}
-unsafe impl ::windows::runtime::Abi for PSAPI_WS_WATCH_INFORMATION_EX {
+unsafe impl ::windows::core::Abi for PSAPI_WS_WATCH_INFORMATION_EX {
     type Abi = Self;
 }

@@ -53,3 +53,5 @@ pub mod UserDataTasks;
 pub mod VoiceCommands;
 #[cfg(feature = "ApplicationModel_Wallet")]
 pub mod Wallet;
+#[link(name = "windows")]
+extern "system" {}

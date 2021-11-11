@@ -1,6 +1,6 @@
 use std::convert::TryInto;
 use test_win32::*;
-use windows::runtime::HRESULT;
+use windows::core::HRESULT;
 use Windows::Win32::Foundation::*;
 
 #[test]

@@ -23,7 +23,7 @@ impl ::core::cmp::PartialEq for HTTP2_SETTINGS_LIMITS_PARAM {
     }
 }
 impl ::core::cmp::Eq for HTTP2_SETTINGS_LIMITS_PARAM {}
-unsafe impl ::windows::runtime::Abi for HTTP2_SETTINGS_LIMITS_PARAM {
+unsafe impl ::windows::core::Abi for HTTP2_SETTINGS_LIMITS_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -49,7 +49,7 @@ impl ::core::cmp::PartialEq for HTTP2_WINDOW_SIZE_PARAM {
     }
 }
 impl ::core::cmp::Eq for HTTP2_WINDOW_SIZE_PARAM {}
-unsafe impl ::windows::runtime::Abi for HTTP2_WINDOW_SIZE_PARAM {
+unsafe impl ::windows::core::Abi for HTTP2_WINDOW_SIZE_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -76,7 +76,7 @@ impl ::core::cmp::PartialEq for HTTPAPI_VERSION {
     }
 }
 impl ::core::cmp::Eq for HTTPAPI_VERSION {}
-unsafe impl ::windows::runtime::Abi for HTTPAPI_VERSION {
+unsafe impl ::windows::core::Abi for HTTPAPI_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -91,7 +91,7 @@ impl ::core::convert::From<i32> for HTTP_503_RESPONSE_VERBOSITY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_503_RESPONSE_VERBOSITY {
+unsafe impl ::windows::core::Abi for HTTP_503_RESPONSE_VERBOSITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -106,7 +106,7 @@ impl ::core::convert::From<i32> for HTTP_AUTHENTICATION_HARDENING_LEVELS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_AUTHENTICATION_HARDENING_LEVELS {
+unsafe impl ::windows::core::Abi for HTTP_AUTHENTICATION_HARDENING_LEVELS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -135,7 +135,7 @@ impl ::core::convert::From<i32> for HTTP_AUTH_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_AUTH_STATUS {
+unsafe impl ::windows::core::Abi for HTTP_AUTH_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -162,7 +162,7 @@ impl ::core::cmp::PartialEq for HTTP_BANDWIDTH_LIMIT_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_BANDWIDTH_LIMIT_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_BANDWIDTH_LIMIT_INFO {
+unsafe impl ::windows::core::Abi for HTTP_BANDWIDTH_LIMIT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -196,7 +196,7 @@ impl ::core::cmp::PartialEq for HTTP_BINDING_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_BINDING_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_BINDING_INFO {
+unsafe impl ::windows::core::Abi for HTTP_BINDING_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -223,7 +223,7 @@ impl ::core::cmp::PartialEq for HTTP_BYTE_RANGE {
     }
 }
 impl ::core::cmp::Eq for HTTP_BYTE_RANGE {}
-unsafe impl ::windows::runtime::Abi for HTTP_BYTE_RANGE {
+unsafe impl ::windows::core::Abi for HTTP_BYTE_RANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -250,7 +250,7 @@ impl ::core::cmp::PartialEq for HTTP_CACHE_POLICY {
     }
 }
 impl ::core::cmp::Eq for HTTP_CACHE_POLICY {}
-unsafe impl ::windows::runtime::Abi for HTTP_CACHE_POLICY {
+unsafe impl ::windows::core::Abi for HTTP_CACHE_POLICY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -266,7 +266,7 @@ impl ::core::convert::From<i32> for HTTP_CACHE_POLICY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_CACHE_POLICY_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_CACHE_POLICY_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -299,7 +299,7 @@ impl ::core::cmp::PartialEq for HTTP_CHANNEL_BIND_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_CHANNEL_BIND_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_CHANNEL_BIND_INFO {
+unsafe impl ::windows::core::Abi for HTTP_CHANNEL_BIND_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -334,7 +334,7 @@ impl ::core::cmp::PartialEq for HTTP_CONNECTION_LIMIT_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_CONNECTION_LIMIT_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_CONNECTION_LIMIT_INFO {
+unsafe impl ::windows::core::Abi for HTTP_CONNECTION_LIMIT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -383,7 +383,7 @@ impl ::core::cmp::PartialEq for HTTP_COOKED_URL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_COOKED_URL {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_COOKED_URL {
+unsafe impl ::windows::core::Abi for HTTP_COOKED_URL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -403,7 +403,7 @@ impl ::core::convert::From<i32> for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
+unsafe impl ::windows::core::Abi for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -431,7 +431,7 @@ impl ::core::cmp::PartialEq for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
+unsafe impl ::windows::core::Abi for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -459,7 +459,7 @@ impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_DATA_CHUNK {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK {
+unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -489,7 +489,7 @@ impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_DATA_CHUNK_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0 {
+unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -522,7 +522,7 @@ impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_DATA_CHUNK_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_0 {
+unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -555,7 +555,7 @@ impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_DATA_CHUNK_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_1 {
+unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -588,7 +588,7 @@ impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_DATA_CHUNK_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_2 {
+unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -621,7 +621,7 @@ impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_DATA_CHUNK_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_3 {
+unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -654,7 +654,7 @@ impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_DATA_CHUNK_0_4 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_4 {
+unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_4 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -672,7 +672,7 @@ impl ::core::convert::From<i32> for HTTP_DATA_CHUNK_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -686,7 +686,7 @@ impl ::core::convert::From<i32> for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
+unsafe impl ::windows::core::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -714,7 +714,7 @@ impl ::core::cmp::PartialEq for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
+unsafe impl ::windows::core::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -730,7 +730,7 @@ impl ::core::convert::From<i32> for HTTP_ENABLED_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_ENABLED_STATE {
+unsafe impl ::windows::core::Abi for HTTP_ENABLED_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -765,7 +765,7 @@ impl ::core::cmp::PartialEq for HTTP_ERROR_HEADERS_PARAM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_ERROR_HEADERS_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_ERROR_HEADERS_PARAM {
+unsafe impl ::windows::core::Abi for HTTP_ERROR_HEADERS_PARAM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -783,7 +783,7 @@ impl ::core::convert::From<i32> for HTTP_FEATURE_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_FEATURE_ID {
+unsafe impl ::windows::core::Abi for HTTP_FEATURE_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -812,7 +812,7 @@ impl ::core::cmp::PartialEq for HTTP_FLOWRATE_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_FLOWRATE_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_FLOWRATE_INFO {
+unsafe impl ::windows::core::Abi for HTTP_FLOWRATE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -880,7 +880,7 @@ impl ::core::convert::From<i32> for HTTP_HEADER_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_HEADER_ID {
+unsafe impl ::windows::core::Abi for HTTP_HEADER_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -894,7 +894,7 @@ impl ::core::convert::From<u32> for HTTP_INITIALIZE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_INITIALIZE {
+unsafe impl ::windows::core::Abi for HTTP_INITIALIZE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for HTTP_INITIALIZE {
@@ -956,7 +956,7 @@ impl ::core::cmp::PartialEq for HTTP_KNOWN_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_KNOWN_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_KNOWN_HEADER {
+unsafe impl ::windows::core::Abi for HTTP_KNOWN_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -990,7 +990,7 @@ impl ::core::cmp::PartialEq for HTTP_LISTEN_ENDPOINT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_LISTEN_ENDPOINT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_LISTEN_ENDPOINT_INFO {
+unsafe impl ::windows::core::Abi for HTTP_LISTEN_ENDPOINT_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -1072,7 +1072,7 @@ impl ::core::cmp::PartialEq for HTTP_LOGGING_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for HTTP_LOGGING_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for HTTP_LOGGING_INFO {
+unsafe impl ::windows::core::Abi for HTTP_LOGGING_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -1089,7 +1089,7 @@ impl ::core::convert::From<i32> for HTTP_LOGGING_ROLLOVER_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_LOGGING_ROLLOVER_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_LOGGING_ROLLOVER_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -1105,7 +1105,7 @@ impl ::core::convert::From<i32> for HTTP_LOGGING_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_LOGGING_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_LOGGING_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1131,7 +1131,7 @@ impl ::core::cmp::PartialEq for HTTP_LOG_DATA {
     }
 }
 impl ::core::cmp::Eq for HTTP_LOG_DATA {}
-unsafe impl ::windows::runtime::Abi for HTTP_LOG_DATA {
+unsafe impl ::windows::core::Abi for HTTP_LOG_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -1144,7 +1144,7 @@ impl ::core::convert::From<i32> for HTTP_LOG_DATA_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_LOG_DATA_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_LOG_DATA_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1266,7 +1266,7 @@ impl ::core::cmp::PartialEq for HTTP_LOG_FIELDS_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_LOG_FIELDS_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_LOG_FIELDS_DATA {
+unsafe impl ::windows::core::Abi for HTTP_LOG_FIELDS_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -1368,7 +1368,7 @@ impl ::core::cmp::PartialEq for HTTP_MULTIPLE_KNOWN_HEADERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_MULTIPLE_KNOWN_HEADERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_MULTIPLE_KNOWN_HEADERS {
+unsafe impl ::windows::core::Abi for HTTP_MULTIPLE_KNOWN_HEADERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1396,7 +1396,7 @@ impl ::core::cmp::PartialEq for HTTP_PERFORMANCE_PARAM {
     }
 }
 impl ::core::cmp::Eq for HTTP_PERFORMANCE_PARAM {}
-unsafe impl ::windows::runtime::Abi for HTTP_PERFORMANCE_PARAM {
+unsafe impl ::windows::core::Abi for HTTP_PERFORMANCE_PARAM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -1415,7 +1415,7 @@ impl ::core::convert::From<i32> for HTTP_PERFORMANCE_PARAM_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_PERFORMANCE_PARAM_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_PERFORMANCE_PARAM_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1441,7 +1441,7 @@ impl ::core::cmp::PartialEq for HTTP_PROPERTY_FLAGS {
     }
 }
 impl ::core::cmp::Eq for HTTP_PROPERTY_FLAGS {}
-unsafe impl ::windows::runtime::Abi for HTTP_PROPERTY_FLAGS {
+unsafe impl ::windows::core::Abi for HTTP_PROPERTY_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1468,7 +1468,7 @@ impl ::core::cmp::PartialEq for HTTP_PROTECTION_LEVEL_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_PROTECTION_LEVEL_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_PROTECTION_LEVEL_INFO {
+unsafe impl ::windows::core::Abi for HTTP_PROTECTION_LEVEL_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -1483,7 +1483,7 @@ impl ::core::convert::From<i32> for HTTP_PROTECTION_LEVEL_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_PROTECTION_LEVEL_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_PROTECTION_LEVEL_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1510,7 +1510,7 @@ impl ::core::cmp::PartialEq for HTTP_QOS_SETTING_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_QOS_SETTING_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_QOS_SETTING_INFO {
+unsafe impl ::windows::core::Abi for HTTP_QOS_SETTING_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -1525,7 +1525,7 @@ impl ::core::convert::From<i32> for HTTP_QOS_SETTING_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_QOS_SETTING_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_QOS_SETTING_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1551,7 +1551,7 @@ impl ::core::cmp::PartialEq for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     }
 }
 impl ::core::cmp::Eq for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {}
-unsafe impl ::windows::runtime::Abi for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
+unsafe impl ::windows::core::Abi for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1577,7 +1577,7 @@ impl ::core::cmp::PartialEq for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
     }
 }
 impl ::core::cmp::Eq for HTTP_QUERY_REQUEST_QUALIFIER_TCP {}
-unsafe impl ::windows::runtime::Abi for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
+unsafe impl ::windows::core::Abi for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1604,7 +1604,7 @@ impl ::core::cmp::PartialEq for HTTP_QUIC_API_TIMINGS {
     }
 }
 impl ::core::cmp::Eq for HTTP_QUIC_API_TIMINGS {}
-unsafe impl ::windows::runtime::Abi for HTTP_QUIC_API_TIMINGS {
+unsafe impl ::windows::core::Abi for HTTP_QUIC_API_TIMINGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1668,7 +1668,7 @@ impl ::core::cmp::PartialEq for HTTP_QUIC_CONNECTION_API_TIMINGS {
     }
 }
 impl ::core::cmp::Eq for HTTP_QUIC_CONNECTION_API_TIMINGS {}
-unsafe impl ::windows::runtime::Abi for HTTP_QUIC_CONNECTION_API_TIMINGS {
+unsafe impl ::windows::core::Abi for HTTP_QUIC_CONNECTION_API_TIMINGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1747,7 +1747,7 @@ impl ::core::cmp::PartialEq for HTTP_QUIC_STREAM_API_TIMINGS {
     }
 }
 impl ::core::cmp::Eq for HTTP_QUIC_STREAM_API_TIMINGS {}
-unsafe impl ::windows::runtime::Abi for HTTP_QUIC_STREAM_API_TIMINGS {
+unsafe impl ::windows::core::Abi for HTTP_QUIC_STREAM_API_TIMINGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -1763,7 +1763,7 @@ impl ::core::convert::From<u32> for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
+unsafe impl ::windows::core::Abi for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
@@ -1868,7 +1868,7 @@ impl ::core::cmp::PartialEq for HTTP_REQUEST_AUTH_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_REQUEST_AUTH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_AUTH_INFO {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_AUTH_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -1886,7 +1886,7 @@ impl ::core::convert::From<i32> for HTTP_REQUEST_AUTH_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_AUTH_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_AUTH_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1915,7 +1915,7 @@ impl ::core::cmp::PartialEq for HTTP_REQUEST_CHANNEL_BIND_STATUS {
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_CHANNEL_BIND_STATUS {}
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_CHANNEL_BIND_STATUS {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_CHANNEL_BIND_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -1960,7 +1960,7 @@ impl ::core::cmp::PartialEq for HTTP_REQUEST_HEADERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_REQUEST_HEADERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_HEADERS {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_HEADERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1988,7 +1988,7 @@ impl ::core::cmp::PartialEq for HTTP_REQUEST_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_INFO {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2010,7 +2010,7 @@ impl ::core::convert::From<i32> for HTTP_REQUEST_INFO_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_INFO_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_INFO_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2030,7 +2030,7 @@ impl ::core::convert::From<i32> for HTTP_REQUEST_PROPERTY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_PROPERTY {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_PROPERTY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2057,7 +2057,7 @@ impl ::core::cmp::PartialEq for HTTP_REQUEST_PROPERTY_SNI {
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_PROPERTY_SNI {}
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_PROPERTY_SNI {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_PROPERTY_SNI {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2089,7 +2089,7 @@ impl ::core::cmp::PartialEq for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_PROPERTY_STREAM_ERROR {}
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2118,7 +2118,7 @@ impl ::core::cmp::PartialEq for HTTP_REQUEST_SIZING_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_SIZING_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_SIZING_INFO {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_SIZING_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2144,7 +2144,7 @@ impl ::core::convert::From<i32> for HTTP_REQUEST_SIZING_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_SIZING_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_SIZING_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2171,7 +2171,7 @@ impl ::core::cmp::PartialEq for HTTP_REQUEST_TIMING_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_TIMING_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_TIMING_INFO {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_TIMING_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2214,7 +2214,7 @@ impl ::core::convert::From<i32> for HTTP_REQUEST_TIMING_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_TIMING_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_TIMING_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2244,7 +2244,7 @@ impl ::core::cmp::PartialEq for HTTP_REQUEST_TOKEN_BINDING_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_TOKEN_BINDING_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_TOKEN_BINDING_INFO {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_TOKEN_BINDING_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2330,7 +2330,7 @@ impl ::core::cmp::PartialEq for HTTP_REQUEST_V1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_REQUEST_V1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_V1 {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_V1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2365,7 +2365,7 @@ impl ::core::cmp::PartialEq for HTTP_REQUEST_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_REQUEST_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_V2 {
+unsafe impl ::windows::core::Abi for HTTP_REQUEST_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2406,7 +2406,7 @@ impl ::core::cmp::PartialEq for HTTP_RESPONSE_HEADERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_RESPONSE_HEADERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_HEADERS {
+unsafe impl ::windows::core::Abi for HTTP_RESPONSE_HEADERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2434,7 +2434,7 @@ impl ::core::cmp::PartialEq for HTTP_RESPONSE_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_RESPONSE_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_INFO {
+unsafe impl ::windows::core::Abi for HTTP_RESPONSE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2452,7 +2452,7 @@ impl ::core::convert::From<i32> for HTTP_RESPONSE_INFO_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_INFO_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_RESPONSE_INFO_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2501,7 +2501,7 @@ impl ::core::cmp::PartialEq for HTTP_RESPONSE_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_RESPONSE_V1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_V1 {
+unsafe impl ::windows::core::Abi for HTTP_RESPONSE_V1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2536,7 +2536,7 @@ impl ::core::cmp::PartialEq for HTTP_RESPONSE_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_RESPONSE_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_V2 {
+unsafe impl ::windows::core::Abi for HTTP_RESPONSE_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2551,7 +2551,7 @@ impl ::core::convert::From<i32> for HTTP_SCHEME {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_SCHEME {
+unsafe impl ::windows::core::Abi for HTTP_SCHEME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2599,7 +2599,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
+unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2635,7 +2635,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
+unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2684,7 +2684,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVER_AUTHENTICATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVER_AUTHENTICATION_INFO {
+unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2709,7 +2709,7 @@ impl ::core::convert::From<i32> for HTTP_SERVER_PROPERTY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_SERVER_PROPERTY {
+unsafe impl ::windows::core::Abi for HTTP_SERVER_PROPERTY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2744,7 +2744,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_BINDING_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_BINDING_A {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_BINDING_A {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2770,7 +2770,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_BINDING_BASE {
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_BINDING_BASE {}
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_BINDING_BASE {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_BASE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2785,7 +2785,7 @@ impl ::core::convert::From<i32> for HTTP_SERVICE_BINDING_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_BINDING_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2820,7 +2820,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_BINDING_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_BINDING_W {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_BINDING_W {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_W {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2834,7 +2834,7 @@ impl ::core::convert::From<i32> for HTTP_SERVICE_CONFIG_CACHE_KEY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_CACHE_KEY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_CACHE_KEY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2861,7 +2861,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_CACHE_SET {
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_CACHE_SET {}
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_CACHE_SET {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_CACHE_SET {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2887,7 +2887,7 @@ impl ::core::convert::From<i32> for HTTP_SERVICE_CONFIG_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_ID {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2921,7 +2921,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2955,7 +2955,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2970,7 +2970,7 @@ impl ::core::convert::From<i32> for HTTP_SERVICE_CONFIG_QUERY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_QUERY_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_QUERY_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -2984,7 +2984,7 @@ impl ::core::convert::From<i32> for HTTP_SERVICE_CONFIG_SETTING_KEY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SETTING_KEY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SETTING_KEY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3011,7 +3011,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SETTING_SET {
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SETTING_SET {}
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SETTING_SET {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SETTING_SET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3044,7 +3044,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3079,7 +3079,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3115,7 +3115,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3149,7 +3149,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_SET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3177,7 +3177,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -3238,7 +3238,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_KEY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_KEY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_KEY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_KEY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3271,7 +3271,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_KEY_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3281,7 +3281,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
     pub SslHashLength: u32,
     pub pSslHash: *mut ::core::ffi::c_void,
-    pub AppId: ::windows::runtime::GUID,
+    pub AppId: ::windows::core::GUID,
     pub pSslCertStoreName: super::super::Foundation::PWSTR,
     pub DefaultCertCheckMode: u32,
     pub DefaultRevocationFreshnessTime: u32,
@@ -3333,7 +3333,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3362,7 +3362,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3393,7 +3393,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3428,7 +3428,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_QUERY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3464,7 +3464,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3498,7 +3498,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SET {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SET {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3526,7 +3526,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SET_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SET_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SET_EX {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3560,7 +3560,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3595,7 +3595,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3631,7 +3631,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3665,7 +3665,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_SET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3693,7 +3693,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -3707,7 +3707,7 @@ impl ::core::convert::From<i32> for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3734,7 +3734,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_TIMEOUT_SET {}
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3767,7 +3767,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_KEY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_KEY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_URLACL_KEY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_KEY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3800,7 +3800,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_PARAM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_URLACL_PARAM {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3835,7 +3835,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_QUERY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_QUERY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_URLACL_QUERY {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3869,7 +3869,7 @@ impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_SET {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_SET {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_URLACL_SET {
+unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_SET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3906,7 +3906,7 @@ impl ::core::cmp::PartialEq for HTTP_SSL_CLIENT_CERT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SSL_CLIENT_CERT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SSL_CLIENT_CERT_INFO {
+unsafe impl ::windows::core::Abi for HTTP_SSL_CLIENT_CERT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3955,7 +3955,7 @@ impl ::core::cmp::PartialEq for HTTP_SSL_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SSL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_SSL_INFO {
+unsafe impl ::windows::core::Abi for HTTP_SSL_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3995,7 +3995,7 @@ impl ::core::cmp::PartialEq for HTTP_SSL_PROTOCOL_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_SSL_PROTOCOL_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_SSL_PROTOCOL_INFO {
+unsafe impl ::windows::core::Abi for HTTP_SSL_PROTOCOL_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -4014,7 +4014,7 @@ impl ::core::convert::From<i32> for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
+unsafe impl ::windows::core::Abi for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4041,7 +4041,7 @@ impl ::core::cmp::PartialEq for HTTP_STATE_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_STATE_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_STATE_INFO {
+unsafe impl ::windows::core::Abi for HTTP_STATE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4081,7 +4081,7 @@ impl ::core::cmp::PartialEq for HTTP_TIMEOUT_LIMIT_INFO {
     }
 }
 impl ::core::cmp::Eq for HTTP_TIMEOUT_LIMIT_INFO {}
-unsafe impl ::windows::runtime::Abi for HTTP_TIMEOUT_LIMIT_INFO {
+unsafe impl ::windows::core::Abi for HTTP_TIMEOUT_LIMIT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4108,7 +4108,7 @@ impl ::core::cmp::PartialEq for HTTP_TLS_RESTRICTIONS_PARAM {
     }
 }
 impl ::core::cmp::Eq for HTTP_TLS_RESTRICTIONS_PARAM {}
-unsafe impl ::windows::runtime::Abi for HTTP_TLS_RESTRICTIONS_PARAM {
+unsafe impl ::windows::core::Abi for HTTP_TLS_RESTRICTIONS_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4135,7 +4135,7 @@ impl ::core::cmp::PartialEq for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     }
 }
 impl ::core::cmp::Eq for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {}
-unsafe impl ::windows::runtime::Abi for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
+unsafe impl ::windows::core::Abi for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4169,7 +4169,7 @@ impl ::core::cmp::PartialEq for HTTP_TRANSPORT_ADDRESS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for HTTP_TRANSPORT_ADDRESS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::runtime::Abi for HTTP_TRANSPORT_ADDRESS {
+unsafe impl ::windows::core::Abi for HTTP_TRANSPORT_ADDRESS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4205,7 +4205,7 @@ impl ::core::cmp::PartialEq for HTTP_UNKNOWN_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_UNKNOWN_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HTTP_UNKNOWN_HEADER {
+unsafe impl ::windows::core::Abi for HTTP_UNKNOWN_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -4240,7 +4240,7 @@ impl ::core::convert::From<i32> for HTTP_VERB {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HTTP_VERB {
+unsafe impl ::windows::core::Abi for HTTP_VERB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4267,7 +4267,7 @@ impl ::core::cmp::PartialEq for HTTP_VERSION {
     }
 }
 impl ::core::cmp::Eq for HTTP_VERSION {}
-unsafe impl ::windows::runtime::Abi for HTTP_VERSION {
+unsafe impl ::windows::core::Abi for HTTP_VERSION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4328,13 +4328,13 @@ impl ::core::cmp::PartialEq for HTTP_WSK_API_TIMINGS {
     }
 }
 impl ::core::cmp::Eq for HTTP_WSK_API_TIMINGS {}
-unsafe impl ::windows::runtime::Abi for HTTP_WSK_API_TIMINGS {
+unsafe impl ::windows::core::Abi for HTTP_WSK_API_TIMINGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpAddFragmentToCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpAddFragmentToCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4349,7 +4349,7 @@ pub unsafe fn HttpAddFragmentToCache<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpAddUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1, reserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn HttpAddUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1, reserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4364,7 +4364,7 @@ pub unsafe fn HttpAddUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpAddUrlToUrlGroup<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, urlcontext: u64, reserved: u32) -> u32 {
+pub unsafe fn HttpAddUrlToUrlGroup<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, urlcontext: u64, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4379,7 +4379,7 @@ pub unsafe fn HttpAddUrlToUrlGroup<'a, Param1: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpCancelHttpRequest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpCancelHttpRequest<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4394,7 +4394,7 @@ pub unsafe fn HttpCancelHttpRequest<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpCloseRequestQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0) -> u32 {
+pub unsafe fn HttpCloseRequestQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4452,7 +4452,7 @@ pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Founda
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn HttpCreateRequestQueue<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(version: Param0, name: Param1, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn HttpCreateRequestQueue<'a, Param0: ::windows::core::IntoParam<'a, HTTPAPI_VERSION>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(version: Param0, name: Param1, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4466,7 +4466,7 @@ pub unsafe fn HttpCreateRequestQueue<'a, Param0: ::windows::runtime::IntoParam<'
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[inline]
-pub unsafe fn HttpCreateServerSession<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>>(version: Param0, serversessionid: *mut u64, reserved: u32) -> u32 {
+pub unsafe fn HttpCreateServerSession<'a, Param0: ::windows::core::IntoParam<'a, HTTPAPI_VERSION>>(version: Param0, serversessionid: *mut u64, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4495,7 +4495,7 @@ pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, re
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpDeclarePush<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(requestqueuehandle: Param0, requestid: u64, verb: HTTP_VERB, path: Param3, query: Param4, headers: *const HTTP_REQUEST_HEADERS) -> u32 {
+pub unsafe fn HttpDeclarePush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(requestqueuehandle: Param0, requestid: u64, verb: HTTP_VERB, path: Param3, query: Param4, headers: *const HTTP_REQUEST_HEADERS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4510,7 +4510,7 @@ pub unsafe fn HttpDeclarePush<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpDelegateRequestEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, delegatequeuehandle: Param1, requestid: u64, delegateurlgroupid: u64, propertyinfosetsize: u32, propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32 {
+pub unsafe fn HttpDelegateRequestEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, delegatequeuehandle: Param1, requestid: u64, delegateurlgroupid: u64, propertyinfosetsize: u32, propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4525,7 +4525,7 @@ pub unsafe fn HttpDelegateRequestEx<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpDeleteServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpDeleteServiceConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4540,7 +4540,7 @@ pub unsafe fn HttpDeleteServiceConfiguration<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpFindUrlGroupId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(fullyqualifiedurl: Param0, requestqueuehandle: Param1, urlgroupid: *mut u64) -> u32 {
+pub unsafe fn HttpFindUrlGroupId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(fullyqualifiedurl: Param0, requestqueuehandle: Param1, urlgroupid: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4555,7 +4555,7 @@ pub unsafe fn HttpFindUrlGroupId<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpFlushResponseCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpFlushResponseCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4569,7 +4569,7 @@ pub unsafe fn HttpFlushResponseCache<'a, Param0: ::windows::runtime::IntoParam<'
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[inline]
-pub unsafe fn HttpGetExtension<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>>(version: Param0, extension: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32 {
+pub unsafe fn HttpGetExtension<'a, Param0: ::windows::core::IntoParam<'a, HTTPAPI_VERSION>>(version: Param0, extension: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4583,7 +4583,7 @@ pub unsafe fn HttpGetExtension<'a, Param0: ::windows::runtime::IntoParam<'a, HTT
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[inline]
-pub unsafe fn HttpInitialize<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>>(version: Param0, flags: HTTP_INITIALIZE, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn HttpInitialize<'a, Param0: ::windows::core::IntoParam<'a, HTTPAPI_VERSION>>(version: Param0, flags: HTTP_INITIALIZE, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4613,7 +4613,7 @@ pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpPrepareUrl<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: *mut ::core::ffi::c_void, flags: u32, url: Param2, preparedurl: *mut super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn HttpPrepareUrl<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: *mut ::core::ffi::c_void, flags: u32, url: Param2, preparedurl: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4628,7 +4628,7 @@ pub unsafe fn HttpPrepareUrl<'a, Param2: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpQueryRequestQueueProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, returnlength: *mut u32, reserved2: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn HttpQueryRequestQueueProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, returnlength: *mut u32, reserved2: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4665,7 +4665,7 @@ pub unsafe fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTT
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpQueryServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pinput: *const ::core::ffi::c_void, inputlength: u32, poutput: *mut ::core::ffi::c_void, outputlength: u32, preturnlength: *mut u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpQueryServiceConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pinput: *const ::core::ffi::c_void, inputlength: u32, poutput: *mut ::core::ffi::c_void, outputlength: u32, preturnlength: *mut u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4703,7 +4703,7 @@ pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_P
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReadFragmentFromCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpReadFragmentFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4718,7 +4718,7 @@ pub unsafe fn HttpReadFragmentFromCache<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReceiveClientCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, flags: u32, sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpReceiveClientCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, flags: u32, sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4741,7 +4741,7 @@ pub unsafe fn HttpReceiveClientCertificate<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReceiveHttpRequest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer: *mut HTTP_REQUEST_V2, requestbufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpReceiveHttpRequest<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer: *mut HTTP_REQUEST_V2, requestbufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4756,7 +4756,7 @@ pub unsafe fn HttpReceiveHttpRequest<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReceiveRequestEntityBody<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, entitybuffer: *mut ::core::ffi::c_void, entitybufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpReceiveRequestEntityBody<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, entitybuffer: *mut ::core::ffi::c_void, entitybufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4771,7 +4771,7 @@ pub unsafe fn HttpReceiveRequestEntityBody<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpRemoveUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1) -> u32 {
+pub unsafe fn HttpRemoveUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4786,7 +4786,7 @@ pub unsafe fn HttpRemoveUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpRemoveUrlFromUrlGroup<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, flags: u32) -> u32 {
+pub unsafe fn HttpRemoveUrlFromUrlGroup<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4801,7 +4801,7 @@ pub unsafe fn HttpRemoveUrlFromUrlGroup<'a, Param1: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpSendHttpResponse<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, httpresponse: *mut HTTP_RESPONSE_V2, cachepolicy: *mut HTTP_CACHE_POLICY, bytessent: *mut u32, reserved1: *mut ::core::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32 {
+pub unsafe fn HttpSendHttpResponse<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, httpresponse: *mut HTTP_RESPONSE_V2, cachepolicy: *mut HTTP_CACHE_POLICY, bytessent: *mut u32, reserved1: *mut ::core::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4827,7 +4827,7 @@ pub unsafe fn HttpSendHttpResponse<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpSendResponseEntityBody<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, entitychunkcount: u16, entitychunks: *const HTTP_DATA_CHUNK, bytessent: *mut u32, reserved1: *mut ::core::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32 {
+pub unsafe fn HttpSendResponseEntityBody<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, entitychunkcount: u16, entitychunks: *const HTTP_DATA_CHUNK, bytessent: *mut u32, reserved1: *mut ::core::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4853,7 +4853,7 @@ pub unsafe fn HttpSendResponseEntityBody<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpSetRequestProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, id: u64, propertyid: HTTP_REQUEST_PROPERTY, input: *const ::core::ffi::c_void, inputpropertysize: u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpSetRequestProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, id: u64, propertyid: HTTP_REQUEST_PROPERTY, input: *const ::core::ffi::c_void, inputpropertysize: u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4868,7 +4868,7 @@ pub unsafe fn HttpSetRequestProperty<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpSetRequestQueueProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn HttpSetRequestQueueProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4897,7 +4897,7 @@ pub unsafe fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpSetServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpSetServiceConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4926,7 +4926,7 @@ pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PRO
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpShutdownRequestQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0) -> u32 {
+pub unsafe fn HttpShutdownRequestQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4955,7 +4955,7 @@ pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::core::ffi:
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpUpdateServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const ::core::ffi::c_void, configinfolength: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpUpdateServiceConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const ::core::ffi::c_void, configinfolength: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4970,7 +4970,7 @@ pub unsafe fn HttpUpdateServiceConfiguration<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpWaitForDemandStart<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpWaitForDemandStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4985,7 +4985,7 @@ pub unsafe fn HttpWaitForDemandStart<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpWaitForDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpWaitForDisconnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5000,7 +5000,7 @@ pub unsafe fn HttpWaitForDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpWaitForDisconnectEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, reserved: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpWaitForDisconnectEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, reserved: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

@@ -1,5 +1,5 @@
 use std::convert::TryFrom;
-use windows::runtime::*;
+use windows::core::*;
 type StringType = HSTRING;
 
 #[test]

@@ -50,7 +50,7 @@ members = [
     "crates/tests/metadata/*",
     "crates/tests/winrt/*",
     "crates/tests/win32/*",
-    "crates/tests/runtime",
+    "crates/tests/core",
 ]
 exclude = ["crates/tests/component"]
 

@@ -5,3 +5,5 @@ pub mod Guidance;
 pub mod LocalSearch;
 #[cfg(feature = "Services_Maps_OfflineMaps")]
 pub mod OfflineMaps;
+#[link(name = "windows")]
+extern "system" {}

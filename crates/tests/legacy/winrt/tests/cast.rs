@@ -1,5 +1,5 @@
 use test_winrt::Windows::Foundation::{IClosable, IStringable, Uri};
-use windows::runtime::{Interface, Result};
+use windows::core::{Interface, Result};
 
 #[test]
 fn try_into() -> Result<()> {

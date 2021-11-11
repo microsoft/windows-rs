@@ -9,3 +9,5 @@ pub mod Policies;
 pub mod Update;
 #[cfg(feature = "Management_Workplace")]
 pub mod Workplace;
+#[link(name = "windows")]
+extern "system" {}

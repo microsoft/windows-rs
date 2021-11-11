@@ -1,6 +1,6 @@
 // TODO: implement ID3D12FunctionReflection - requires #453
 
-// use windows::runtime::*;
+// use windows::core::*;
 // use test_return_com_interface::*;
 // use Windows::Win32::Graphics::Direct3D12::*;
 

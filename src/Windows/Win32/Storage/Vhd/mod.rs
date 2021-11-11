@@ -10,7 +10,7 @@ impl ::core::convert::From<u32> for APPLY_SNAPSHOT_VHDSET_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_FLAG {
+unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for APPLY_SNAPSHOT_VHDSET_FLAG {
@@ -60,7 +60,7 @@ impl ::core::cmp::PartialEq for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for APPLY_SNAPSHOT_VHDSET_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
+unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -81,15 +81,15 @@ impl ::core::cmp::PartialEq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     }
 }
 impl ::core::cmp::Eq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {}
-unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    pub SnapshotId: ::windows::runtime::GUID,
-    pub LeafSnapshotId: ::windows::runtime::GUID,
+    pub SnapshotId: ::windows::core::GUID,
+    pub LeafSnapshotId: ::windows::core::GUID,
 }
 impl APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
 impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
@@ -108,7 +108,7 @@ impl ::core::cmp::PartialEq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     }
 }
 impl ::core::cmp::Eq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -122,7 +122,7 @@ impl ::core::convert::From<i32> for APPLY_SNAPSHOT_VHDSET_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_VERSION {
+unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -145,7 +145,7 @@ impl ::core::convert::From<u32> for ATTACH_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for ATTACH_VIRTUAL_DISK_FLAG {
@@ -195,7 +195,7 @@ impl ::core::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for ATTACH_VIRTUAL_DISK_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS {
+unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -217,7 +217,7 @@ impl ::core::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 impl ::core::cmp::Eq for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {}
-unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -243,7 +243,7 @@ impl ::core::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 impl ::core::cmp::Eq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {}
-unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -270,7 +270,7 @@ impl ::core::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     }
 }
 impl ::core::cmp::Eq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {}
-unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
+unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -285,13 +285,13 @@ impl ::core::convert::From<i32> for ATTACH_VIRTUAL_DISK_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_VERSION {
+unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddVirtualDiskParent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualdiskhandle: Param0, parentpath: Param1) -> u32 {
+pub unsafe fn AddVirtualDiskParent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualdiskhandle: Param0, parentpath: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -306,7 +306,7 @@ pub unsafe fn AddVirtualDiskParent<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplySnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> u32 {
+pub unsafe fn ApplySnapshotVhdSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -321,7 +321,7 @@ pub unsafe fn ApplySnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_Security`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn AttachVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn AttachVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -336,7 +336,7 @@ pub unsafe fn AttachVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BreakMirrorVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0) -> u32 {
+pub unsafe fn BreakMirrorVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -360,7 +360,7 @@ impl ::core::convert::From<u32> for COMPACT_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for COMPACT_VIRTUAL_DISK_FLAG {
@@ -410,7 +410,7 @@ impl ::core::cmp::PartialEq for COMPACT_VIRTUAL_DISK_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for COMPACT_VIRTUAL_DISK_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS {
+unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -431,7 +431,7 @@ impl ::core::cmp::PartialEq for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 impl ::core::cmp::Eq for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {}
-unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -457,7 +457,7 @@ impl ::core::cmp::PartialEq for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 impl ::core::cmp::Eq for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {}
-unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -471,7 +471,7 @@ impl ::core::convert::From<i32> for COMPACT_VIRTUAL_DISK_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_VERSION {
+unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -495,7 +495,7 @@ impl ::core::convert::From<u32> for CREATE_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CREATE_VIRTUAL_DISK_FLAG {
@@ -551,7 +551,7 @@ impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS {
+unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -580,14 +580,14 @@ impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    pub UniqueId: ::windows::runtime::GUID,
+    pub UniqueId: ::windows::core::GUID,
     pub MaximumSize: u64,
     pub BlockSizeInBytes: u32,
     pub SectorSizeInBytes: u32,
@@ -617,14 +617,14 @@ impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    pub UniqueId: ::windows::runtime::GUID,
+    pub UniqueId: ::windows::core::GUID,
     pub MaximumSize: u64,
     pub BlockSizeInBytes: u32,
     pub SectorSizeInBytes: u32,
@@ -634,7 +634,7 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
     pub ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
     pub SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
-    pub ResiliencyGuid: ::windows::runtime::GUID,
+    pub ResiliencyGuid: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {}
@@ -681,14 +681,14 @@ impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
+unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
-    pub UniqueId: ::windows::runtime::GUID,
+    pub UniqueId: ::windows::core::GUID,
     pub MaximumSize: u64,
     pub BlockSizeInBytes: u32,
     pub SectorSizeInBytes: u32,
@@ -698,7 +698,7 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
     pub ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
     pub SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
-    pub ResiliencyGuid: ::windows::runtime::GUID,
+    pub ResiliencyGuid: ::windows::core::GUID,
     pub SourceLimitPath: super::super::Foundation::PWSTR,
     pub BackingStorageType: VIRTUAL_STORAGE_TYPE,
 }
@@ -751,14 +751,14 @@ impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
+unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
-    pub UniqueId: ::windows::runtime::GUID,
+    pub UniqueId: ::windows::core::GUID,
     pub MaximumSize: u64,
     pub BlockSizeInBytes: u32,
     pub SectorSizeInBytes: u32,
@@ -768,10 +768,10 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     pub OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
     pub ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
     pub SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
-    pub ResiliencyGuid: ::windows::runtime::GUID,
+    pub ResiliencyGuid: ::windows::core::GUID,
     pub SourceLimitPath: super::super::Foundation::PWSTR,
     pub BackingStorageType: VIRTUAL_STORAGE_TYPE,
-    pub PmemAddressAbstractionType: ::windows::runtime::GUID,
+    pub PmemAddressAbstractionType: ::windows::core::GUID,
     pub DataAlignment: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -827,7 +827,7 @@ impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
+unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -848,13 +848,13 @@ impl ::core::convert::From<i32> for CREATE_VIRTUAL_DISK_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_VERSION {
+unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CompactVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn CompactVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -869,7 +869,7 @@ pub unsafe fn CompactVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CompleteForkVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0) -> u32 {
+pub unsafe fn CompleteForkVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -884,7 +884,7 @@ pub unsafe fn CompleteForkVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_Security`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CreateVirtualDisk<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
+pub unsafe fn CreateVirtualDisk<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     virtualstoragetype: *const VIRTUAL_STORAGE_TYPE,
     path: Param1,
     virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK,
@@ -927,7 +927,7 @@ impl ::core::convert::From<u32> for DELETE_SNAPSHOT_VHDSET_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_FLAG {
+unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DELETE_SNAPSHOT_VHDSET_FLAG {
@@ -977,7 +977,7 @@ impl ::core::cmp::PartialEq for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for DELETE_SNAPSHOT_VHDSET_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
+unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -998,14 +998,14 @@ impl ::core::cmp::PartialEq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     }
 }
 impl ::core::cmp::Eq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {}
-unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    pub SnapshotId: ::windows::runtime::GUID,
+    pub SnapshotId: ::windows::core::GUID,
 }
 impl DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
 impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
@@ -1024,7 +1024,7 @@ impl ::core::cmp::PartialEq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     }
 }
 impl ::core::cmp::Eq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -1038,7 +1038,7 @@ impl ::core::convert::From<i32> for DELETE_SNAPSHOT_VHDSET_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_VERSION {
+unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -1065,7 +1065,7 @@ impl ::core::convert::From<u32> for DEPENDENT_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DEPENDENT_DISK_FLAG {
+unsafe impl ::windows::core::Abi for DEPENDENT_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DEPENDENT_DISK_FLAG {
@@ -1106,7 +1106,7 @@ impl ::core::convert::From<u32> for DETACH_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DETACH_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for DETACH_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DETACH_VIRTUAL_DISK_FLAG {
@@ -1140,7 +1140,7 @@ impl ::core::ops::Not for DETACH_VIRTUAL_DISK_FLAG {
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteSnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> u32 {
+pub unsafe fn DeleteSnapshotVhdSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1155,12 +1155,12 @@ pub unsafe fn DeleteSnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::runtime::GUID) -> u32 {
+pub unsafe fn DeleteVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::runtime::GUID) -> u32;
+            fn DeleteVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID) -> u32;
         }
         ::core::mem::transmute(DeleteVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item)))
     }
@@ -1170,7 +1170,7 @@ pub unsafe fn DeleteVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DetachVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> u32 {
+pub unsafe fn DetachVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1193,7 +1193,7 @@ impl ::core::convert::From<u32> for EXPAND_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for EXPAND_VIRTUAL_DISK_FLAG {
@@ -1243,7 +1243,7 @@ impl ::core::cmp::PartialEq for EXPAND_VIRTUAL_DISK_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for EXPAND_VIRTUAL_DISK_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS {
+unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1264,7 +1264,7 @@ impl ::core::cmp::PartialEq for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 impl ::core::cmp::Eq for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {}
-unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1290,7 +1290,7 @@ impl ::core::cmp::PartialEq for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 impl ::core::cmp::Eq for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {}
-unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -1304,18 +1304,18 @@ impl ::core::convert::From<i32> for EXPAND_VIRTUAL_DISK_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_VERSION {
+unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, numberofitems: *mut u32, items: *mut ::windows::runtime::GUID) -> u32 {
+pub unsafe fn EnumerateVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, numberofitems: *mut u32, items: *mut ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumerateVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, numberofitems: *mut u32, items: *mut ::windows::runtime::GUID) -> u32;
+            fn EnumerateVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, numberofitems: *mut u32, items: *mut ::windows::core::GUID) -> u32;
         }
         ::core::mem::transmute(EnumerateVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(numberofitems), ::core::mem::transmute(items)))
     }
@@ -1325,7 +1325,7 @@ pub unsafe fn EnumerateVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ExpandVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn ExpandVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1348,7 +1348,7 @@ impl ::core::convert::From<u32> for FORK_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FORK_VIRTUAL_DISK_FLAG {
@@ -1404,7 +1404,7 @@ impl ::core::cmp::PartialEq for FORK_VIRTUAL_DISK_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FORK_VIRTUAL_DISK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_PARAMETERS {
+unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1430,7 +1430,7 @@ impl ::core::cmp::PartialEq for FORK_VIRTUAL_DISK_PARAMETERS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FORK_VIRTUAL_DISK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1462,7 +1462,7 @@ impl ::core::cmp::PartialEq for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -1476,13 +1476,13 @@ impl ::core::convert::From<i32> for FORK_VIRTUAL_DISK_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_VERSION {
+unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ForkVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: FORK_VIRTUAL_DISK_FLAG, parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn ForkVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: FORK_VIRTUAL_DISK_FLAG, parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1506,7 +1506,7 @@ impl ::core::convert::From<u32> for GET_STORAGE_DEPENDENCY_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GET_STORAGE_DEPENDENCY_FLAG {
+unsafe impl ::windows::core::Abi for GET_STORAGE_DEPENDENCY_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for GET_STORAGE_DEPENDENCY_FLAG {
@@ -1562,7 +1562,7 @@ impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO {
+unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1570,9 +1570,9 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO {
 #[cfg(feature = "Win32_Foundation")]
 pub union GET_VIRTUAL_DISK_INFO_0 {
     pub Size: GET_VIRTUAL_DISK_INFO_0_3,
-    pub Identifier: ::windows::runtime::GUID,
+    pub Identifier: ::windows::core::GUID,
     pub ParentLocation: GET_VIRTUAL_DISK_INFO_0_1,
-    pub ParentIdentifier: ::windows::runtime::GUID,
+    pub ParentIdentifier: ::windows::core::GUID,
     pub ParentTimestamp: u32,
     pub VirtualStorageType: VIRTUAL_STORAGE_TYPE,
     pub ProviderSubtype: u32,
@@ -1582,7 +1582,7 @@ pub union GET_VIRTUAL_DISK_INFO_0 {
     pub VhdPhysicalSectorSize: u32,
     pub SmallestSafeVirtualSize: u64,
     pub FragmentationPercentage: u32,
-    pub VirtualDiskId: ::windows::runtime::GUID,
+    pub VirtualDiskId: ::windows::core::GUID,
     pub ChangeTrackingState: GET_VIRTUAL_DISK_INFO_0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1602,7 +1602,7 @@ impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0 {
+unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1636,7 +1636,7 @@ impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_0 {
+unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1669,7 +1669,7 @@ impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_1 {
+unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1703,7 +1703,7 @@ impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_2 {
+unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1738,7 +1738,7 @@ impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_3 {
+unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_3 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -1766,7 +1766,7 @@ impl ::core::convert::From<i32> for GET_VIRTUAL_DISK_INFO_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_VERSION {
+unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
@@ -1787,7 +1787,7 @@ pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mu
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStorageDependencyInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(objecthandle: Param0, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: *mut u32) -> u32 {
+pub unsafe fn GetStorageDependencyInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(objecthandle: Param0, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1802,7 +1802,7 @@ pub unsafe fn GetStorageDependencyInformation<'a, Param0: ::windows::runtime::In
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: *mut u32) -> u32 {
+pub unsafe fn GetVirtualDiskInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1817,12 +1817,12 @@ pub unsafe fn GetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::runtime::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn GetVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::core::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::runtime::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> u32;
+            fn GetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(GetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item), ::core::mem::transmute(metadatasize), ::core::mem::transmute(metadata)))
     }
@@ -1832,7 +1832,7 @@ pub unsafe fn GetVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn GetVirtualDiskOperationProgress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, overlapped: *const super::super::System::IO::OVERLAPPED, progress: *mut VIRTUAL_DISK_PROGRESS) -> u32 {
+pub unsafe fn GetVirtualDiskOperationProgress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, overlapped: *const super::super::System::IO::OVERLAPPED, progress: *mut VIRTUAL_DISK_PROGRESS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1847,7 +1847,7 @@ pub unsafe fn GetVirtualDiskOperationProgress<'a, Param0: ::windows::runtime::In
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVirtualDiskPhysicalPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, diskpathsizeinbytes: *mut u32, diskpath: super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn GetVirtualDiskPhysicalPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, diskpathsizeinbytes: *mut u32, diskpath: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1871,7 +1871,7 @@ impl ::core::convert::From<u32> for MERGE_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for MERGE_VIRTUAL_DISK_FLAG {
@@ -1921,7 +1921,7 @@ impl ::core::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for MERGE_VIRTUAL_DISK_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS {
+unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1943,7 +1943,7 @@ impl ::core::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 impl ::core::cmp::Eq for MERGE_VIRTUAL_DISK_PARAMETERS_0 {}
-unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1969,7 +1969,7 @@ impl ::core::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 impl ::core::cmp::Eq for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {}
-unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1996,7 +1996,7 @@ impl ::core::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     }
 }
 impl ::core::cmp::Eq for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {}
-unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
+unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -2011,7 +2011,7 @@ impl ::core::convert::From<i32> for MERGE_VIRTUAL_DISK_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_VERSION {
+unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -2028,7 +2028,7 @@ impl ::core::convert::From<u32> for MIRROR_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for MIRROR_VIRTUAL_DISK_FLAG {
@@ -2084,7 +2084,7 @@ impl ::core::cmp::PartialEq for MIRROR_VIRTUAL_DISK_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MIRROR_VIRTUAL_DISK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS {
+unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2110,7 +2110,7 @@ impl ::core::cmp::PartialEq for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2142,7 +2142,7 @@ impl ::core::cmp::PartialEq for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -2156,7 +2156,7 @@ impl ::core::convert::From<i32> for MIRROR_VIRTUAL_DISK_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_VERSION {
+unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -2170,7 +2170,7 @@ impl ::core::convert::From<u32> for MODIFY_VHDSET_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_FLAG {
+unsafe impl ::windows::core::Abi for MODIFY_VHDSET_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for MODIFY_VHDSET_FLAG {
@@ -2226,7 +2226,7 @@ impl ::core::cmp::PartialEq for MODIFY_VHDSET_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MODIFY_VHDSET_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS {
+unsafe impl ::windows::core::Abi for MODIFY_VHDSET_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2234,7 +2234,7 @@ unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 pub union MODIFY_VHDSET_PARAMETERS_0 {
     pub SnapshotPath: MODIFY_VHDSET_PARAMETERS_0_0,
-    pub SnapshotId: ::windows::runtime::GUID,
+    pub SnapshotId: ::windows::core::GUID,
     pub DefaultFilePath: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2254,14 +2254,14 @@ impl ::core::cmp::PartialEq for MODIFY_VHDSET_PARAMETERS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MODIFY_VHDSET_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for MODIFY_VHDSET_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MODIFY_VHDSET_PARAMETERS_0_0 {
-    pub SnapshotId: ::windows::runtime::GUID,
+    pub SnapshotId: ::windows::core::GUID,
     pub SnapshotFilePath: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2287,7 +2287,7 @@ impl ::core::cmp::PartialEq for MODIFY_VHDSET_PARAMETERS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MODIFY_VHDSET_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for MODIFY_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -2303,13 +2303,13 @@ impl ::core::convert::From<i32> for MODIFY_VHDSET_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_VERSION {
+unsafe impl ::windows::core::Abi for MODIFY_VHDSET_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn MergeVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn MergeVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2324,7 +2324,7 @@ pub unsafe fn MergeVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn MirrorVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: MIRROR_VIRTUAL_DISK_FLAG, parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn MirrorVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: MIRROR_VIRTUAL_DISK_FLAG, parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2339,7 +2339,7 @@ pub unsafe fn MirrorVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ModifyVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const MODIFY_VHDSET_PARAMETERS, flags: MODIFY_VHDSET_FLAG) -> u32 {
+pub unsafe fn ModifyVhdSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const MODIFY_VHDSET_PARAMETERS, flags: MODIFY_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2373,7 +2373,7 @@ impl ::core::convert::From<u32> for OPEN_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for OPEN_VIRTUAL_DISK_FLAG {
@@ -2429,7 +2429,7 @@ impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS {
+unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2457,7 +2457,7 @@ impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2489,7 +2489,7 @@ impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2498,7 +2498,7 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
-    pub ResiliencyGuid: ::windows::runtime::GUID,
+    pub ResiliencyGuid: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {}
@@ -2523,7 +2523,7 @@ impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
+unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2532,8 +2532,8 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
-    pub ResiliencyGuid: ::windows::runtime::GUID,
-    pub SnapshotId: ::windows::runtime::GUID,
+    pub ResiliencyGuid: ::windows::core::GUID,
+    pub SnapshotId: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {}
@@ -2558,7 +2558,7 @@ impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
+unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -2576,13 +2576,13 @@ impl ::core::convert::From<i32> for OPEN_VIRTUAL_DISK_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_VERSION {
+unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenVirtualDisk<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: Param1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn OpenVirtualDisk<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: Param1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2604,7 +2604,7 @@ impl ::core::convert::From<u32> for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
@@ -2660,13 +2660,13 @@ impl ::core::cmp::PartialEq for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     }
 }
 impl ::core::cmp::Eq for QUERY_CHANGES_VIRTUAL_DISK_RANGE {}
-unsafe impl ::windows::runtime::Abi for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
+unsafe impl ::windows::core::Abi for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryChangesVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualdiskhandle: Param0, changetrackingid: Param1, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> u32 {
+pub unsafe fn QueryChangesVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualdiskhandle: Param0, changetrackingid: Param1, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2697,7 +2697,7 @@ impl ::core::convert::From<u32> for RAW_SCSI_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RAW_SCSI_VIRTUAL_DISK_FLAG {
@@ -2753,7 +2753,7 @@ impl ::core::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
+unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2779,7 +2779,7 @@ impl ::core::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2829,7 +2829,7 @@ impl ::core::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2851,7 +2851,7 @@ impl ::core::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     }
 }
 impl ::core::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_RESPONSE {}
-unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
+unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2872,7 +2872,7 @@ impl ::core::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     }
 }
 impl ::core::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {}
-unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
+unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2900,7 +2900,7 @@ impl ::core::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     }
 }
 impl ::core::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {}
-unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
+unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -2914,7 +2914,7 @@ impl ::core::convert::From<i32> for RAW_SCSI_VIRTUAL_DISK_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_VERSION {
+unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -2929,7 +2929,7 @@ impl ::core::convert::From<u32> for RESIZE_VIRTUAL_DISK_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_FLAG {
+unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RESIZE_VIRTUAL_DISK_FLAG {
@@ -2979,7 +2979,7 @@ impl ::core::cmp::PartialEq for RESIZE_VIRTUAL_DISK_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for RESIZE_VIRTUAL_DISK_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS {
+unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3000,7 +3000,7 @@ impl ::core::cmp::PartialEq for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 impl ::core::cmp::Eq for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {}
-unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3026,7 +3026,7 @@ impl ::core::cmp::PartialEq for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 impl ::core::cmp::Eq for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {}
-unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -3040,13 +3040,13 @@ impl ::core::convert::From<i32> for RESIZE_VIRTUAL_DISK_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_VERSION {
+unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RawSCSIVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags: RAW_SCSI_VIRTUAL_DISK_FLAG, response: *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> u32 {
+pub unsafe fn RawSCSIVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags: RAW_SCSI_VIRTUAL_DISK_FLAG, response: *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3061,7 +3061,7 @@ pub unsafe fn RawSCSIVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ResizeVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn ResizeVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3098,7 +3098,7 @@ impl ::core::cmp::PartialEq for SET_VIRTUAL_DISK_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SET_VIRTUAL_DISK_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO {
+unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3106,10 +3106,10 @@ unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO {
 #[cfg(feature = "Win32_Foundation")]
 pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ParentFilePath: super::super::Foundation::PWSTR,
-    pub UniqueIdentifier: ::windows::runtime::GUID,
+    pub UniqueIdentifier: ::windows::core::GUID,
     pub ParentPathWithDepthInfo: SET_VIRTUAL_DISK_INFO_0_1,
     pub VhdPhysicalSectorSize: u32,
-    pub VirtualDiskId: ::windows::runtime::GUID,
+    pub VirtualDiskId: ::windows::core::GUID,
     pub ChangeTrackingEnabled: super::super::Foundation::BOOL,
     pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_0,
 }
@@ -3130,14 +3130,14 @@ impl ::core::cmp::PartialEq for SET_VIRTUAL_DISK_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SET_VIRTUAL_DISK_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_0 {
+unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SET_VIRTUAL_DISK_INFO_0_0 {
-    pub LinkageId: ::windows::runtime::GUID,
+    pub LinkageId: ::windows::core::GUID,
     pub ParentFilePath: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3163,7 +3163,7 @@ impl ::core::cmp::PartialEq for SET_VIRTUAL_DISK_INFO_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SET_VIRTUAL_DISK_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_0_0 {
+unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3196,7 +3196,7 @@ impl ::core::cmp::PartialEq for SET_VIRTUAL_DISK_INFO_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SET_VIRTUAL_DISK_INFO_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_0_1 {
+unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -3216,7 +3216,7 @@ impl ::core::convert::From<i32> for SET_VIRTUAL_DISK_INFO_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_VERSION {
+unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_VERSION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3245,7 +3245,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEPENDENCY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_DEPENDENCY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO {
+unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3272,7 +3272,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEPENDENCY_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_DEPENDENCY_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_0 {
+unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3300,7 +3300,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEPENDENCY_INFO_TYPE_1 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEPENDENCY_INFO_TYPE_1 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_TYPE_1 {
+unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_TYPE_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3349,7 +3349,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEPENDENCY_INFO_TYPE_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_DEPENDENCY_INFO_TYPE_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_TYPE_2 {
+unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_TYPE_2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -3364,13 +3364,13 @@ impl ::core::convert::From<i32> for STORAGE_DEPENDENCY_INFO_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_VERSION {
+unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, virtualdiskinfo: *const SET_VIRTUAL_DISK_INFO) -> u32 {
+pub unsafe fn SetVirtualDiskInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, virtualdiskinfo: *const SET_VIRTUAL_DISK_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3385,12 +3385,12 @@ pub unsafe fn SetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::runtime::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn SetVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::runtime::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> u32;
+            fn SetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(SetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item), ::core::mem::transmute(metadatasize), ::core::mem::transmute(metadata)))
     }
@@ -3408,7 +3408,7 @@ impl ::core::convert::From<u32> for TAKE_SNAPSHOT_VHDSET_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_FLAG {
+unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for TAKE_SNAPSHOT_VHDSET_FLAG {
@@ -3458,7 +3458,7 @@ impl ::core::cmp::PartialEq for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for TAKE_SNAPSHOT_VHDSET_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
+unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3479,14 +3479,14 @@ impl ::core::cmp::PartialEq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     }
 }
 impl ::core::cmp::Eq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {}
-unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    pub SnapshotId: ::windows::runtime::GUID,
+    pub SnapshotId: ::windows::core::GUID,
 }
 impl TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
 impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
@@ -3505,7 +3505,7 @@ impl ::core::cmp::PartialEq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     }
 }
 impl ::core::cmp::Eq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -3519,13 +3519,13 @@ impl ::core::convert::From<i32> for TAKE_SNAPSHOT_VHDSET_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_VERSION {
+unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TakeSnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> u32 {
+pub unsafe fn TakeSnapshotVhdSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3556,7 +3556,7 @@ impl ::core::convert::From<u32> for VIRTUAL_DISK_ACCESS_MASK {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VIRTUAL_DISK_ACCESS_MASK {
+unsafe impl ::windows::core::Abi for VIRTUAL_DISK_ACCESS_MASK {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for VIRTUAL_DISK_ACCESS_MASK {
@@ -3614,7 +3614,7 @@ impl ::core::cmp::PartialEq for VIRTUAL_DISK_PROGRESS {
     }
 }
 impl ::core::cmp::Eq for VIRTUAL_DISK_PROGRESS {}
-unsafe impl ::windows::runtime::Abi for VIRTUAL_DISK_PROGRESS {
+unsafe impl ::windows::core::Abi for VIRTUAL_DISK_PROGRESS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3622,7 +3622,7 @@ unsafe impl ::windows::runtime::Abi for VIRTUAL_DISK_PROGRESS {
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct VIRTUAL_STORAGE_TYPE {
     pub DeviceId: u32,
-    pub VendorId: ::windows::runtime::GUID,
+    pub VendorId: ::windows::core::GUID,
 }
 impl VIRTUAL_STORAGE_TYPE {}
 impl ::core::default::Default for VIRTUAL_STORAGE_TYPE {
@@ -3641,7 +3641,7 @@ impl ::core::cmp::PartialEq for VIRTUAL_STORAGE_TYPE {
     }
 }
 impl ::core::cmp::Eq for VIRTUAL_STORAGE_TYPE {}
-unsafe impl ::windows::runtime::Abi for VIRTUAL_STORAGE_TYPE {
+unsafe impl ::windows::core::Abi for VIRTUAL_STORAGE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -3654,5 +3654,5 @@ pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: u32 = 2u32;
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: u32 = 4u32;
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3u32;
-pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xec984aec_a0f9_47e9_901f_71415a66345b);
-pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec984aec_a0f9_47e9_901f_71415a66345b);
+pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);

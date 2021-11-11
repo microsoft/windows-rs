@@ -30,7 +30,7 @@ impl ::core::cmp::PartialEq for DFS_GET_PKT_ENTRY_STATE_ARG {
     }
 }
 impl ::core::cmp::Eq for DFS_GET_PKT_ENTRY_STATE_ARG {}
-unsafe impl ::windows::runtime::Abi for DFS_GET_PKT_ENTRY_STATE_ARG {
+unsafe impl ::windows::core::Abi for DFS_GET_PKT_ENTRY_STATE_ARG {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -63,7 +63,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_1 {
+unsafe impl ::windows::core::Abi for DFS_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -96,7 +96,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_100 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_INFO_100 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_100 {
+unsafe impl ::windows::core::Abi for DFS_INFO_100 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -122,7 +122,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_101 {
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_101 {}
-unsafe impl ::windows::runtime::Abi for DFS_INFO_101 {
+unsafe impl ::windows::core::Abi for DFS_INFO_101 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -148,7 +148,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_102 {
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_102 {}
-unsafe impl ::windows::runtime::Abi for DFS_INFO_102 {
+unsafe impl ::windows::core::Abi for DFS_INFO_102 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -175,7 +175,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_103 {
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_103 {}
-unsafe impl ::windows::runtime::Abi for DFS_INFO_103 {
+unsafe impl ::windows::core::Abi for DFS_INFO_103 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -201,7 +201,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_104 {
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_104 {}
-unsafe impl ::windows::runtime::Abi for DFS_INFO_104 {
+unsafe impl ::windows::core::Abi for DFS_INFO_104 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -238,7 +238,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_105 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_INFO_105 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_105 {
+unsafe impl ::windows::core::Abi for DFS_INFO_105 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -265,7 +265,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_106 {
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_106 {}
-unsafe impl ::windows::runtime::Abi for DFS_INFO_106 {
+unsafe impl ::windows::core::Abi for DFS_INFO_106 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -312,7 +312,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_107 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for DFS_INFO_107 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_107 {
+unsafe impl ::windows::core::Abi for DFS_INFO_107 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -346,7 +346,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_150 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for DFS_INFO_150 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_150 {
+unsafe impl ::windows::core::Abi for DFS_INFO_150 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -379,7 +379,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_1_32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for DFS_INFO_1_32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_1_32 {
+unsafe impl ::windows::core::Abi for DFS_INFO_1_32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -415,7 +415,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_2 {
+unsafe impl ::windows::core::Abi for DFS_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -448,7 +448,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_200 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_INFO_200 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_200 {
+unsafe impl ::windows::core::Abi for DFS_INFO_200 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -484,7 +484,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_2_32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for DFS_INFO_2_32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_2_32 {
+unsafe impl ::windows::core::Abi for DFS_INFO_2_32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -521,7 +521,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_3 {
+unsafe impl ::windows::core::Abi for DFS_INFO_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -555,7 +555,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_300 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_INFO_300 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_300 {
+unsafe impl ::windows::core::Abi for DFS_INFO_300 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -592,7 +592,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_3_32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for DFS_INFO_3_32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_3_32 {
+unsafe impl ::windows::core::Abi for DFS_INFO_3_32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -604,7 +604,7 @@ pub struct DFS_INFO_4 {
     pub Comment: super::super::Foundation::PWSTR,
     pub State: u32,
     pub Timeout: u32,
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
     pub NumberOfStorages: u32,
     pub Storage: *mut DFS_STORAGE_INFO,
 }
@@ -631,7 +631,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_4 {
+unsafe impl ::windows::core::Abi for DFS_INFO_4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -643,7 +643,7 @@ pub struct DFS_INFO_4_32 {
     pub Comment: u32,
     pub State: u32,
     pub Timeout: u32,
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
     pub NumberOfStorages: u32,
     pub Storage: u32,
 }
@@ -670,7 +670,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_4_32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for DFS_INFO_4_32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_4_32 {
+unsafe impl ::windows::core::Abi for DFS_INFO_4_32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -682,7 +682,7 @@ pub struct DFS_INFO_5 {
     pub Comment: super::super::Foundation::PWSTR,
     pub State: u32,
     pub Timeout: u32,
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
     pub PropertyFlags: u32,
     pub MetadataSize: u32,
     pub NumberOfStorages: u32,
@@ -719,7 +719,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_INFO_5 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_5 {
+unsafe impl ::windows::core::Abi for DFS_INFO_5 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -747,7 +747,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_50 {
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_50 {}
-unsafe impl ::windows::runtime::Abi for DFS_INFO_50 {
+unsafe impl ::windows::core::Abi for DFS_INFO_50 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -759,7 +759,7 @@ pub struct DFS_INFO_6 {
     pub Comment: super::super::Foundation::PWSTR,
     pub State: u32,
     pub Timeout: u32,
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
     pub PropertyFlags: u32,
     pub MetadataSize: u32,
     pub NumberOfStorages: u32,
@@ -798,14 +798,14 @@ impl ::core::cmp::PartialEq for DFS_INFO_6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_INFO_6 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_6 {
+unsafe impl ::windows::core::Abi for DFS_INFO_6 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_7 {
-    pub GenerationGuid: ::windows::runtime::GUID,
+    pub GenerationGuid: ::windows::core::GUID,
 }
 impl DFS_INFO_7 {}
 impl ::core::default::Default for DFS_INFO_7 {
@@ -824,7 +824,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_7 {
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_7 {}
-unsafe impl ::windows::runtime::Abi for DFS_INFO_7 {
+unsafe impl ::windows::core::Abi for DFS_INFO_7 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -836,7 +836,7 @@ pub struct DFS_INFO_8 {
     pub Comment: super::super::Foundation::PWSTR,
     pub State: u32,
     pub Timeout: u32,
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
     pub PropertyFlags: u32,
     pub MetadataSize: u32,
     pub SdLengthReserved: u32,
@@ -877,7 +877,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_8 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for DFS_INFO_8 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_8 {
+unsafe impl ::windows::core::Abi for DFS_INFO_8 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -889,7 +889,7 @@ pub struct DFS_INFO_9 {
     pub Comment: super::super::Foundation::PWSTR,
     pub State: u32,
     pub Timeout: u32,
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
     pub PropertyFlags: u32,
     pub MetadataSize: u32,
     pub SdLengthReserved: u32,
@@ -932,7 +932,7 @@ impl ::core::cmp::PartialEq for DFS_INFO_9 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for DFS_INFO_9 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for DFS_INFO_9 {
+unsafe impl ::windows::core::Abi for DFS_INFO_9 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
@@ -949,7 +949,7 @@ impl ::core::convert::From<i32> for DFS_NAMESPACE_VERSION_ORIGIN {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DFS_NAMESPACE_VERSION_ORIGIN {
+unsafe impl ::windows::core::Abi for DFS_NAMESPACE_VERSION_ORIGIN {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
@@ -997,7 +997,7 @@ impl ::core::cmp::PartialEq for DFS_SITELIST_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_SITELIST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_SITELIST_INFO {
+unsafe impl ::windows::core::Abi for DFS_SITELIST_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1031,7 +1031,7 @@ impl ::core::cmp::PartialEq for DFS_SITENAME_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_SITENAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_SITENAME_INFO {
+unsafe impl ::windows::core::Abi for DFS_SITENAME_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
@@ -1070,7 +1070,7 @@ impl ::core::cmp::PartialEq for DFS_STORAGE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_STORAGE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_STORAGE_INFO {
+unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1105,7 +1105,7 @@ impl ::core::cmp::PartialEq for DFS_STORAGE_INFO_0_32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for DFS_STORAGE_INFO_0_32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for DFS_STORAGE_INFO_0_32 {
+unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO_0_32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1141,7 +1141,7 @@ impl ::core::cmp::PartialEq for DFS_STORAGE_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DFS_STORAGE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DFS_STORAGE_INFO_1 {
+unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
@@ -1187,7 +1187,7 @@ impl ::core::cmp::PartialEq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     }
 }
 impl ::core::cmp::Eq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {}
-unsafe impl ::windows::runtime::Abi for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
+unsafe impl ::windows::core::Abi for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1215,7 +1215,7 @@ impl ::core::cmp::PartialEq for DFS_TARGET_PRIORITY {
     }
 }
 impl ::core::cmp::Eq for DFS_TARGET_PRIORITY {}
-unsafe impl ::windows::runtime::Abi for DFS_TARGET_PRIORITY {
+unsafe impl ::windows::core::Abi for DFS_TARGET_PRIORITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
@@ -1233,7 +1233,7 @@ impl ::core::convert::From<i32> for DFS_TARGET_PRIORITY_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DFS_TARGET_PRIORITY_CLASS {
+unsafe impl ::windows::core::Abi for DFS_TARGET_PRIORITY_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
@@ -1273,7 +1273,7 @@ pub const NET_DFS_SETDC_TIMEOUT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, comment: Param3, flags: u32) -> u32 {
+pub unsafe fn NetDfsAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, comment: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1288,7 +1288,7 @@ pub unsafe fn NetDfsAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsAddFtRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, ftdfsname: Param2, comment: Param3, flags: u32) -> u32 {
+pub unsafe fn NetDfsAddFtRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, ftdfsname: Param2, comment: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1303,7 +1303,7 @@ pub unsafe fn NetDfsAddFtRoot<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsAddRootTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pdfspath: Param0, ptargetpath: Param1, majorversion: u32, pcomment: Param3, flags: u32) -> u32 {
+pub unsafe fn NetDfsAddRootTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pdfspath: Param0, ptargetpath: Param1, majorversion: u32, pcomment: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1318,7 +1318,7 @@ pub unsafe fn NetDfsAddRootTarget<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsAddStdRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, comment: Param2, flags: u32) -> u32 {
+pub unsafe fn NetDfsAddStdRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, comment: Param2, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1333,7 +1333,7 @@ pub unsafe fn NetDfsAddStdRoot<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsname: Param0, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32 {
+pub unsafe fn NetDfsEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsname: Param0, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1348,7 +1348,7 @@ pub unsafe fn NetDfsEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsGetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *mut *mut u8) -> u32 {
+pub unsafe fn NetDfsGetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1363,7 +1363,7 @@ pub unsafe fn NetDfsGetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsGetFtContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
+pub unsafe fn NetDfsGetFtContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1378,7 +1378,7 @@ pub unsafe fn NetDfsGetFtContainerSecurity<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *mut *mut u8) -> u32 {
+pub unsafe fn NetDfsGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1393,7 +1393,7 @@ pub unsafe fn NetDfsGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsGetSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
+pub unsafe fn NetDfsGetSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1408,7 +1408,7 @@ pub unsafe fn NetDfsGetSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsGetStdContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(machinename: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
+pub unsafe fn NetDfsGetStdContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(machinename: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1423,7 +1423,7 @@ pub unsafe fn NetDfsGetStdContainerSecurity<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsGetSupportedNamespaceVersion<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: Param1, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32 {
+pub unsafe fn NetDfsGetSupportedNamespaceVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: Param1, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1438,7 +1438,7 @@ pub unsafe fn NetDfsGetSupportedNamespaceVersion<'a, Param1: ::windows::runtime:
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsMove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(olddfsentrypath: Param0, newdfsentrypath: Param1, flags: u32) -> u32 {
+pub unsafe fn NetDfsMove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(olddfsentrypath: Param0, newdfsentrypath: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1453,7 +1453,7 @@ pub unsafe fn NetDfsMove<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsRemove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2) -> u32 {
+pub unsafe fn NetDfsRemove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1468,7 +1468,7 @@ pub unsafe fn NetDfsRemove<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsRemoveFtRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, ftdfsname: Param2, flags: u32) -> u32 {
+pub unsafe fn NetDfsRemoveFtRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, ftdfsname: Param2, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1483,7 +1483,7 @@ pub unsafe fn NetDfsRemoveFtRoot<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsRemoveFtRootForced<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, servername: Param1, rootshare: Param2, ftdfsname: Param3, flags: u32) -> u32 {
+pub unsafe fn NetDfsRemoveFtRootForced<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, servername: Param1, rootshare: Param2, ftdfsname: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1498,7 +1498,7 @@ pub unsafe fn NetDfsRemoveFtRootForced<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsRemoveRootTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pdfspath: Param0, ptargetpath: Param1, flags: u32) -> u32 {
+pub unsafe fn NetDfsRemoveRootTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pdfspath: Param0, ptargetpath: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1513,7 +1513,7 @@ pub unsafe fn NetDfsRemoveRootTarget<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsRemoveStdRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, flags: u32) -> u32 {
+pub unsafe fn NetDfsRemoveStdRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1528,7 +1528,7 @@ pub unsafe fn NetDfsRemoveStdRoot<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsSetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *const u8) -> u32 {
+pub unsafe fn NetDfsSetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1543,7 +1543,7 @@ pub unsafe fn NetDfsSetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsSetFtContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
+pub unsafe fn NetDfsSetFtContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1558,7 +1558,7 @@ pub unsafe fn NetDfsSetFtContainerSecurity<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *const u8) -> u32 {
+pub unsafe fn NetDfsSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1573,7 +1573,7 @@ pub unsafe fn NetDfsSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsSetSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
+pub unsafe fn NetDfsSetSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1588,7 +1588,7 @@ pub unsafe fn NetDfsSetSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsSetStdContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(machinename: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
+pub unsafe fn NetDfsSetStdContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(machinename: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

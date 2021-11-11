@@ -5,3 +5,5 @@ pub mod Certificates;
 pub mod Core;
 #[cfg(feature = "Security_Cryptography_DataProtection")]
 pub mod DataProtection;
+#[link(name = "windows")]
+extern "system" {}

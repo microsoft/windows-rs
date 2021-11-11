@@ -96,7 +96,7 @@ impl ::core::cmp::PartialEq for Fts5ExtensionApi {
     }
 }
 impl ::core::cmp::Eq for Fts5ExtensionApi {}
-unsafe impl ::windows::runtime::Abi for Fts5ExtensionApi {
+unsafe impl ::windows::core::Abi for Fts5ExtensionApi {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -123,7 +123,7 @@ impl ::core::cmp::PartialEq for Fts5PhraseIter {
     }
 }
 impl ::core::cmp::Eq for Fts5PhraseIter {}
-unsafe impl ::windows::runtime::Abi for Fts5PhraseIter {
+unsafe impl ::windows::core::Abi for Fts5PhraseIter {
     type Abi = Self;
 }
 #[repr(C)]
@@ -909,7 +909,7 @@ impl ::core::cmp::PartialEq for fts5_api {
     }
 }
 impl ::core::cmp::Eq for fts5_api {}
-unsafe impl ::windows::runtime::Abi for fts5_api {
+unsafe impl ::windows::core::Abi for fts5_api {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
@@ -939,7 +939,7 @@ impl ::core::cmp::PartialEq for fts5_tokenizer {
     }
 }
 impl ::core::cmp::Eq for fts5_tokenizer {}
-unsafe impl ::windows::runtime::Abi for fts5_tokenizer {
+unsafe impl ::windows::core::Abi for fts5_tokenizer {
     type Abi = Self;
 }
 #[repr(C)]
@@ -1768,7 +1768,7 @@ impl ::core::cmp::PartialEq for sqlite3_api_routines {
 impl ::core::cmp::Eq for sqlite3_api_routines {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for sqlite3_api_routines {
+unsafe impl ::windows::core::Abi for sqlite3_api_routines {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2566,7 +2566,7 @@ impl ::core::cmp::PartialEq for sqlite3_api_routines {
 impl ::core::cmp::Eq for sqlite3_api_routines {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for sqlite3_api_routines {
+unsafe impl ::windows::core::Abi for sqlite3_api_routines {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
@@ -2603,7 +2603,7 @@ pub unsafe fn sqlite3_backup_finish(p: *mut sqlite3_backup) -> i32 {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_backup_init<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pdest: *mut sqlite3, zdestname: Param1, psource: *mut sqlite3, zsourcename: Param3) -> *mut sqlite3_backup {
+pub unsafe fn sqlite3_backup_init<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pdest: *mut sqlite3, zdestname: Param1, psource: *mut sqlite3, zsourcename: Param3) -> *mut sqlite3_backup {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2758,7 +2758,7 @@ pub unsafe fn sqlite3_bind_parameter_count(param0: *mut sqlite3_stmt) -> i32 {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_bind_parameter_index<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, zname: Param1) -> i32 {
+pub unsafe fn sqlite3_bind_parameter_index<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, zname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2788,7 +2788,7 @@ pub unsafe fn sqlite3_bind_parameter_name(param0: *mut sqlite3_stmt, param1: i32
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_bind_pointer<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: *mut ::core::ffi::c_void, param3: Param3, param4: isize) -> i32 {
+pub unsafe fn sqlite3_bind_pointer<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: *mut ::core::ffi::c_void, param3: Param3, param4: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2803,7 +2803,7 @@ pub unsafe fn sqlite3_bind_pointer<'a, Param3: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_bind_text<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: Param2, param3: i32, param4: isize) -> i32 {
+pub unsafe fn sqlite3_bind_text<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: Param2, param3: i32, param4: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2832,7 +2832,7 @@ pub unsafe fn sqlite3_bind_text16(param0: *mut sqlite3_stmt, param1: i32, param2
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_bind_text64<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: Param2, param3: u64, param4: isize, encoding: u8) -> i32 {
+pub unsafe fn sqlite3_bind_text64<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: Param2, param3: u64, param4: isize, encoding: u8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2920,7 +2920,7 @@ pub unsafe fn sqlite3_blob_close(param0: *mut sqlite3_blob) -> i32 {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_blob_open<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zdb: Param1, ztable: Param2, zcolumn: Param3, irow: i64, flags: i32, ppblob: *mut *mut sqlite3_blob) -> i32 {
+pub unsafe fn sqlite3_blob_open<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zdb: Param1, ztable: Param2, zcolumn: Param3, irow: i64, flags: i32, ppblob: *mut *mut sqlite3_blob) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3433,7 +3433,7 @@ pub unsafe fn sqlite3_compileoption_get(n: i32) -> super::super::Foundation::PST
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_compileoption_used<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(zoptname: Param0) -> i32 {
+pub unsafe fn sqlite3_compileoption_used<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zoptname: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3448,7 +3448,7 @@ pub unsafe fn sqlite3_compileoption_used<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_complete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(sql: Param0) -> i32 {
+pub unsafe fn sqlite3_complete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sql: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3508,7 +3508,7 @@ pub unsafe fn sqlite3_context_db_handle(param0: *mut sqlite3_context) -> *mut sq
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_create_collation<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zname: Param1, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize) -> i32 {
+pub unsafe fn sqlite3_create_collation<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zname: Param1, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3537,7 +3537,7 @@ pub unsafe fn sqlite3_create_collation16(param0: *mut sqlite3, zname: *const ::c
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_create_collation_v2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zname: Param1, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize, xdestroy: isize) -> i32 {
+pub unsafe fn sqlite3_create_collation_v2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zname: Param1, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize, xdestroy: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3552,7 +3552,7 @@ pub unsafe fn sqlite3_create_collation_v2<'a, Param1: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_create_filename<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(zdatabase: Param0, zjournal: Param1, zwal: Param2, nparam: i32, azparam: *const *const i8) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_create_filename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zdatabase: Param0, zjournal: Param1, zwal: Param2, nparam: i32, azparam: *const *const i8) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3567,7 +3567,7 @@ pub unsafe fn sqlite3_create_filename<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_create_function<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize) -> i32 {
+pub unsafe fn sqlite3_create_function<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3596,7 +3596,7 @@ pub unsafe fn sqlite3_create_function16(db: *mut sqlite3, zfunctionname: *const 
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_create_function_v2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize, xdestroy: isize) -> i32 {
+pub unsafe fn sqlite3_create_function_v2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize, xdestroy: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3621,7 +3621,7 @@ pub unsafe fn sqlite3_create_function_v2<'a, Param1: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_create_module<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zname: Param1, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn sqlite3_create_module<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zname: Param1, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3636,7 +3636,7 @@ pub unsafe fn sqlite3_create_module<'a, Param1: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_create_module_v2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zname: Param1, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void, xdestroy: isize) -> i32 {
+pub unsafe fn sqlite3_create_module_v2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zname: Param1, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void, xdestroy: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3651,7 +3651,7 @@ pub unsafe fn sqlite3_create_module_v2<'a, Param1: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_create_window_function<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xstep: isize, xfinal: isize, xvalue: isize, xinverse: isize, xdestroy: isize) -> i32 {
+pub unsafe fn sqlite3_create_window_function<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xstep: isize, xfinal: isize, xvalue: isize, xinverse: isize, xdestroy: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3691,7 +3691,7 @@ pub unsafe fn sqlite3_data_count(pstmt: *mut sqlite3_stmt) -> i32 {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_database_file_object<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> *mut sqlite3_file {
+pub unsafe fn sqlite3_database_file_object<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> *mut sqlite3_file {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3734,7 +3734,7 @@ pub unsafe fn sqlite3_db_config(param0: *mut sqlite3, op: i32) -> i32 {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_db_filename<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdbname: Param1) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_db_filename<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdbname: Param1) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3777,7 +3777,7 @@ pub unsafe fn sqlite3_db_mutex(param0: *mut sqlite3) -> *mut sqlite3_mutex {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_db_readonly<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdbname: Param1) -> i32 {
+pub unsafe fn sqlite3_db_readonly<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdbname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3820,7 +3820,7 @@ pub unsafe fn sqlite3_db_status(param0: *mut sqlite3, op: i32, pcur: *mut i32, p
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_declare_vtab<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zsql: Param1) -> i32 {
+pub unsafe fn sqlite3_declare_vtab<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zsql: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3835,7 +3835,7 @@ pub unsafe fn sqlite3_declare_vtab<'a, Param1: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_deserialize<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zschema: Param1, pdata: *mut u8, szdb: i64, szbuf: i64, mflags: u32) -> i32 {
+pub unsafe fn sqlite3_deserialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zschema: Param1, pdata: *mut u8, szdb: i64, szbuf: i64, mflags: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3952,7 +3952,7 @@ pub unsafe fn sqlite3_errstr(param0: i32) -> super::super::Foundation::PSTR {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_exec<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, sql: Param1, callback: isize, param3: *mut ::core::ffi::c_void, errmsg: *mut *mut i8) -> i32 {
+pub unsafe fn sqlite3_exec<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, sql: Param1, callback: isize, param3: *mut ::core::ffi::c_void, errmsg: *mut *mut i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4044,13 +4044,13 @@ impl ::core::cmp::PartialEq for sqlite3_file {
     }
 }
 impl ::core::cmp::Eq for sqlite3_file {}
-unsafe impl ::windows::runtime::Abi for sqlite3_file {
+unsafe impl ::windows::core::Abi for sqlite3_file {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_file_control<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zdbname: Param1, op: i32, param3: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn sqlite3_file_control<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zdbname: Param1, op: i32, param3: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4065,7 +4065,7 @@ pub unsafe fn sqlite3_file_control<'a, Param1: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_filename_database<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_filename_database<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4080,7 +4080,7 @@ pub unsafe fn sqlite3_filename_database<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_filename_journal<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_filename_journal<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4095,7 +4095,7 @@ pub unsafe fn sqlite3_filename_journal<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_filename_wal<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_filename_wal<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4138,7 +4138,7 @@ pub unsafe fn sqlite3_free(param0: *mut ::core::ffi::c_void) {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_free_filename<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) {
+pub unsafe fn sqlite3_free_filename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4195,7 +4195,7 @@ pub unsafe fn sqlite3_get_auxdata(param0: *mut sqlite3_context, n: i32) -> *mut 
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_get_table<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, pazresult: *mut *mut *mut i8, pnrow: *mut i32, pncolumn: *mut i32, pzerrmsg: *mut *mut i8) -> i32 {
+pub unsafe fn sqlite3_get_table<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, pazresult: *mut *mut *mut i8, pnrow: *mut i32, pncolumn: *mut i32, pzerrmsg: *mut *mut i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4303,7 +4303,7 @@ impl ::core::cmp::PartialEq for sqlite3_index_info {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for sqlite3_index_info {
+unsafe impl ::windows::core::Abi for sqlite3_index_info {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4338,7 +4338,7 @@ impl ::core::cmp::PartialEq for sqlite3_index_info_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for sqlite3_index_info_0 {
+unsafe impl ::windows::core::Abi for sqlite3_index_info_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4371,7 +4371,7 @@ impl ::core::cmp::PartialEq for sqlite3_index_info_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for sqlite3_index_info_1 {
+unsafe impl ::windows::core::Abi for sqlite3_index_info_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4404,7 +4404,7 @@ impl ::core::cmp::PartialEq for sqlite3_index_info_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for sqlite3_index_info_2 {
+unsafe impl ::windows::core::Abi for sqlite3_index_info_2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
@@ -4514,13 +4514,13 @@ impl ::core::cmp::PartialEq for sqlite3_io_methods {
     }
 }
 impl ::core::cmp::Eq for sqlite3_io_methods {}
-unsafe impl ::windows::runtime::Abi for sqlite3_io_methods {
+unsafe impl ::windows::core::Abi for sqlite3_io_methods {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_keyword_check<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: i32) -> i32 {
+pub unsafe fn sqlite3_keyword_check<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4620,7 +4620,7 @@ pub unsafe fn sqlite3_limit(param0: *mut sqlite3, id: i32, newval: i32) -> i32 {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_load_extension<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfile: Param1, zproc: Param2, pzerrmsg: *mut *mut i8) -> i32 {
+pub unsafe fn sqlite3_load_extension<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfile: Param1, zproc: Param2, pzerrmsg: *mut *mut i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4638,7 +4638,7 @@ pub type sqlite3_loadext_entry = unsafe extern "system" fn(db: *mut sqlite3, pze
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_log<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(ierrcode: i32, zformat: Param1) {
+pub unsafe fn sqlite3_log<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ierrcode: i32, zformat: Param1) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4717,7 +4717,7 @@ impl ::core::cmp::PartialEq for sqlite3_mem_methods {
     }
 }
 impl ::core::cmp::Eq for sqlite3_mem_methods {}
-unsafe impl ::windows::runtime::Abi for sqlite3_mem_methods {
+unsafe impl ::windows::core::Abi for sqlite3_mem_methods {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
@@ -4856,13 +4856,13 @@ impl ::core::cmp::PartialEq for sqlite3_module {
     }
 }
 impl ::core::cmp::Eq for sqlite3_module {}
-unsafe impl ::windows::runtime::Abi for sqlite3_module {
+unsafe impl ::windows::core::Abi for sqlite3_module {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_mprintf<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_mprintf<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4988,7 +4988,7 @@ impl ::core::cmp::PartialEq for sqlite3_mutex_methods {
     }
 }
 impl ::core::cmp::Eq for sqlite3_mutex_methods {}
-unsafe impl ::windows::runtime::Abi for sqlite3_mutex_methods {
+unsafe impl ::windows::core::Abi for sqlite3_mutex_methods {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
@@ -5022,7 +5022,7 @@ pub unsafe fn sqlite3_next_stmt(pdb: *mut sqlite3, pstmt: *mut sqlite3_stmt) -> 
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, ppdb: *mut *mut sqlite3) -> i32 {
+pub unsafe fn sqlite3_open<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, ppdb: *mut *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5051,7 +5051,7 @@ pub unsafe fn sqlite3_open16(filename: *const ::core::ffi::c_void, ppdb: *mut *m
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_open_v2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, ppdb: *mut *mut sqlite3, flags: i32, zvfs: Param3) -> i32 {
+pub unsafe fn sqlite3_open_v2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, ppdb: *mut *mut sqlite3, flags: i32, zvfs: Param3) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5094,7 +5094,7 @@ pub unsafe fn sqlite3_os_init() -> i32 {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_overload_function<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zfuncname: Param1, narg: i32) -> i32 {
+pub unsafe fn sqlite3_overload_function<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zfuncname: Param1, narg: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5154,7 +5154,7 @@ impl ::core::cmp::PartialEq for sqlite3_pcache_methods {
     }
 }
 impl ::core::cmp::Eq for sqlite3_pcache_methods {}
-unsafe impl ::windows::runtime::Abi for sqlite3_pcache_methods {
+unsafe impl ::windows::core::Abi for sqlite3_pcache_methods {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5206,7 +5206,7 @@ impl ::core::cmp::PartialEq for sqlite3_pcache_methods2 {
     }
 }
 impl ::core::cmp::Eq for sqlite3_pcache_methods2 {}
-unsafe impl ::windows::runtime::Abi for sqlite3_pcache_methods2 {
+unsafe impl ::windows::core::Abi for sqlite3_pcache_methods2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5233,13 +5233,13 @@ impl ::core::cmp::PartialEq for sqlite3_pcache_page {
     }
 }
 impl ::core::cmp::Eq for sqlite3_pcache_page {}
-unsafe impl ::windows::runtime::Abi for sqlite3_pcache_page {
+unsafe impl ::windows::core::Abi for sqlite3_pcache_page {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_prepare<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
+pub unsafe fn sqlite3_prepare<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5296,7 +5296,7 @@ pub unsafe fn sqlite3_prepare16_v3(db: *mut sqlite3, zsql: *const ::core::ffi::c
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_prepare_v2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
+pub unsafe fn sqlite3_prepare_v2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5311,7 +5311,7 @@ pub unsafe fn sqlite3_prepare_v2<'a, Param1: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_prepare_v3<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, prepflags: u32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
+pub unsafe fn sqlite3_prepare_v3<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, prepflags: u32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5480,7 +5480,7 @@ pub unsafe fn sqlite3_result_double(param0: *mut sqlite3_context, param1: f64) {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_result_error<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: i32) {
+pub unsafe fn sqlite3_result_error<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5593,7 +5593,7 @@ pub unsafe fn sqlite3_result_null(param0: *mut sqlite3_context) {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_result_pointer<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: *mut ::core::ffi::c_void, param2: Param2, param3: isize) {
+pub unsafe fn sqlite3_result_pointer<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: *mut ::core::ffi::c_void, param2: Param2, param3: isize) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5622,7 +5622,7 @@ pub unsafe fn sqlite3_result_subtype(param0: *mut sqlite3_context, param1: u32) 
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_result_text<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: i32, param3: isize) {
+pub unsafe fn sqlite3_result_text<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: i32, param3: isize) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5679,7 +5679,7 @@ pub unsafe fn sqlite3_result_text16le(param0: *mut sqlite3_context, param1: *con
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_result_text64<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: u64, param3: isize, encoding: u8) {
+pub unsafe fn sqlite3_result_text64<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: u64, param3: isize, encoding: u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5774,13 +5774,13 @@ impl ::core::cmp::PartialEq for sqlite3_rtree_geometry {
     }
 }
 impl ::core::cmp::Eq for sqlite3_rtree_geometry {}
-unsafe impl ::windows::runtime::Abi for sqlite3_rtree_geometry {
+unsafe impl ::windows::core::Abi for sqlite3_rtree_geometry {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_rtree_geometry_callback<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zgeom: Param1, xgeom: isize, pcontext: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn sqlite3_rtree_geometry_callback<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zgeom: Param1, xgeom: isize, pcontext: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5795,7 +5795,7 @@ pub unsafe fn sqlite3_rtree_geometry_callback<'a, Param1: ::windows::runtime::In
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_rtree_query_callback<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zqueryfunc: Param1, xqueryfunc: isize, pcontext: *mut ::core::ffi::c_void, xdestructor: isize) -> i32 {
+pub unsafe fn sqlite3_rtree_query_callback<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zqueryfunc: Param1, xqueryfunc: isize, pcontext: *mut ::core::ffi::c_void, xdestructor: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5877,13 +5877,13 @@ impl ::core::cmp::PartialEq for sqlite3_rtree_query_info {
     }
 }
 impl ::core::cmp::Eq for sqlite3_rtree_query_info {}
-unsafe impl ::windows::runtime::Abi for sqlite3_rtree_query_info {
+unsafe impl ::windows::core::Abi for sqlite3_rtree_query_info {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_serialize<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zschema: Param1, pisize: *mut i64, mflags: u32) -> *mut u8 {
+pub unsafe fn sqlite3_serialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zschema: Param1, pisize: *mut i64, mflags: u32) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5988,13 +5988,13 @@ impl ::core::cmp::PartialEq for sqlite3_snapshot {
     }
 }
 impl ::core::cmp::Eq for sqlite3_snapshot {}
-unsafe impl ::windows::runtime::Abi for sqlite3_snapshot {
+unsafe impl ::windows::core::Abi for sqlite3_snapshot {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_snprintf<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: i32, param1: Param1, param2: Param2) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_snprintf<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: i32, param1: Param1, param2: Param2) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6171,7 +6171,7 @@ pub struct sqlite3_str(pub u8);
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_str_append<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zin: Param1, n: i32) {
+pub unsafe fn sqlite3_str_append<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zin: Param1, n: i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6186,7 +6186,7 @@ pub unsafe fn sqlite3_str_append<'a, Param1: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_str_appendall<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zin: Param1) {
+pub unsafe fn sqlite3_str_appendall<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zin: Param1) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6201,7 +6201,7 @@ pub unsafe fn sqlite3_str_appendall<'a, Param1: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_str_appendchar<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::CHAR>>(param0: *mut sqlite3_str, n: i32, c: Param2) {
+pub unsafe fn sqlite3_str_appendchar<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(param0: *mut sqlite3_str, n: i32, c: Param2) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6216,7 +6216,7 @@ pub unsafe fn sqlite3_str_appendchar<'a, Param2: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_str_appendf<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zformat: Param1) {
+pub unsafe fn sqlite3_str_appendf<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zformat: Param1) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6317,7 +6317,7 @@ pub unsafe fn sqlite3_str_value(param0: *mut sqlite3_str) -> super::super::Found
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_str_vappendf<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zformat: Param1, param2: *mut i8) {
+pub unsafe fn sqlite3_str_vappendf<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zformat: Param1, param2: *mut i8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6332,7 +6332,7 @@ pub unsafe fn sqlite3_str_vappendf<'a, Param1: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_strglob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(zglob: Param0, zstr: Param1) -> i32 {
+pub unsafe fn sqlite3_strglob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zglob: Param0, zstr: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6347,7 +6347,7 @@ pub unsafe fn sqlite3_strglob<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_stricmp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> i32 {
+pub unsafe fn sqlite3_stricmp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6362,7 +6362,7 @@ pub unsafe fn sqlite3_stricmp<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_strlike<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(zglob: Param0, zstr: Param1, cesc: u32) -> i32 {
+pub unsafe fn sqlite3_strlike<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zglob: Param0, zstr: Param1, cesc: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6377,7 +6377,7 @@ pub unsafe fn sqlite3_strlike<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_strnicmp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: i32) -> i32 {
+pub unsafe fn sqlite3_strnicmp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6408,7 +6408,7 @@ pub unsafe fn sqlite3_system_errno(param0: *mut sqlite3) -> i32 {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_table_column_metadata<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdbname: Param1, ztablename: Param2, zcolumnname: Param3, pzdatatype: *const *const i8, pzcollseq: *const *const i8, pnotnull: *mut i32, pprimarykey: *mut i32, pautoinc: *mut i32) -> i32 {
+pub unsafe fn sqlite3_table_column_metadata<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdbname: Param1, ztablename: Param2, zcolumnname: Param3, pzdatatype: *const *const i8, pzcollseq: *const *const i8, pnotnull: *mut i32, pprimarykey: *mut i32, pautoinc: *mut i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6531,7 +6531,7 @@ pub unsafe fn sqlite3_transfer_bindings(param0: *mut sqlite3_stmt, param1: *mut 
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_txn_state<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zschema: Param1) -> i32 {
+pub unsafe fn sqlite3_txn_state<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zschema: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6560,7 +6560,7 @@ pub unsafe fn sqlite3_update_hook(param0: *mut sqlite3, param1: isize, param2: *
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_uri_boolean<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(zfile: Param0, zparam: Param1, bdefault: i32) -> i32 {
+pub unsafe fn sqlite3_uri_boolean<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zfile: Param0, zparam: Param1, bdefault: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6575,7 +6575,7 @@ pub unsafe fn sqlite3_uri_boolean<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_uri_int64<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: i64) -> i64 {
+pub unsafe fn sqlite3_uri_int64<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: i64) -> i64 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6590,7 +6590,7 @@ pub unsafe fn sqlite3_uri_int64<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_uri_key<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(zfilename: Param0, n: i32) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_uri_key<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zfilename: Param0, n: i32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6605,7 +6605,7 @@ pub unsafe fn sqlite3_uri_key<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_uri_parameter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(zfilename: Param0, zparam: Param1) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_uri_parameter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zfilename: Param0, zparam: Param1) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6791,7 +6791,7 @@ pub unsafe fn sqlite3_value_numeric_type(param0: *mut sqlite3_value) -> i32 {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_value_pointer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_value, param1: Param1) -> *mut ::core::ffi::c_void {
+pub unsafe fn sqlite3_value_pointer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_value, param1: Param1) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6982,13 +6982,13 @@ impl ::core::cmp::PartialEq for sqlite3_vfs {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_vfs {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for sqlite3_vfs {
+unsafe impl ::windows::core::Abi for sqlite3_vfs {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_vfs_find<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(zvfsname: Param0) -> *mut sqlite3_vfs {
+pub unsafe fn sqlite3_vfs_find<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zvfsname: Param0) -> *mut sqlite3_vfs {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7033,7 +7033,7 @@ pub unsafe fn sqlite3_vfs_unregister(param0: *mut sqlite3_vfs) -> i32 {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_vmprintf<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: *mut i8) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_vmprintf<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: *mut i8) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7048,7 +7048,7 @@ pub unsafe fn sqlite3_vmprintf<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_vsnprintf<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: i32, param1: Param1, param2: Param2, param3: *mut i8) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_vsnprintf<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: i32, param1: Param1, param2: Param2, param3: *mut i8) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7092,7 +7092,7 @@ impl ::core::cmp::PartialEq for sqlite3_vtab {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_vtab {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for sqlite3_vtab {
+unsafe impl ::windows::core::Abi for sqlite3_vtab {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
@@ -7154,7 +7154,7 @@ impl ::core::cmp::PartialEq for sqlite3_vtab_cursor {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_vtab_cursor {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for sqlite3_vtab_cursor {
+unsafe impl ::windows::core::Abi for sqlite3_vtab_cursor {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
@@ -7202,7 +7202,7 @@ pub unsafe fn sqlite3_wal_autocheckpoint(db: *mut sqlite3, n: i32) -> i32 {
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_wal_checkpoint<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdb: Param1) -> i32 {
+pub unsafe fn sqlite3_wal_checkpoint<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdb: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7217,7 +7217,7 @@ pub unsafe fn sqlite3_wal_checkpoint<'a, Param1: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_wal_checkpoint_v2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdb: Param1, emode: i32, pnlog: *mut i32, pnckpt: *mut i32) -> i32 {
+pub unsafe fn sqlite3_wal_checkpoint_v2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdb: Param1, emode: i32, pnlog: *mut i32, pnckpt: *mut i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7274,7 +7274,7 @@ pub unsafe fn sqlite3_win32_set_directory16(r#type: u32, zvalue: *const ::core::
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sqlite3_win32_set_directory8<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(r#type: u32, zvalue: Param1) -> i32 {
+pub unsafe fn sqlite3_win32_set_directory8<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(r#type: u32, zvalue: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

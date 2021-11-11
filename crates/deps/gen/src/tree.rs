@@ -1,7 +1,8 @@
 use super::*;
 
 pub fn gen_sys_file(root: &'static str, tree: &TypeTree, ignore_windows_features: bool) -> TokenStream {
-    let _gen = Gen { relative: tree.namespace, root, ignore_windows_features };
+    let gen = Gen { relative: tree.namespace, root, ignore_windows_features };
+    let types = gen_sys(tree, &gen);
 
     let namespaces = tree.namespaces.iter().filter_map(move |(name, tree)| {
         if !tree.include {
@@ -18,6 +19,7 @@ pub fn gen_sys_file(root: &'static str, tree: &TypeTree, ignore_windows_features
     quote! {
         #![allow(non_snake_case, non_camel_case_types)]
         #(#namespaces)*
+        #types
     }
 }
 

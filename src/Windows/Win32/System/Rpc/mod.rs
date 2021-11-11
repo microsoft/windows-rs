@@ -34,7 +34,7 @@ impl ::core::cmp::PartialEq for ARRAY_INFO {
     }
 }
 impl ::core::cmp::Eq for ARRAY_INFO {}
-unsafe impl ::windows::runtime::Abi for ARRAY_INFO {
+unsafe impl ::windows::core::Abi for ARRAY_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -61,7 +61,7 @@ impl ::core::cmp::PartialEq for BinaryParam {
     }
 }
 impl ::core::cmp::Eq for BinaryParam {}
-unsafe impl ::windows::runtime::Abi for BinaryParam {
+unsafe impl ::windows::core::Abi for BinaryParam {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -83,7 +83,7 @@ impl ::core::cmp::PartialEq for CLIENT_CALL_RETURN {
     }
 }
 impl ::core::cmp::Eq for CLIENT_CALL_RETURN {}
-unsafe impl ::windows::runtime::Abi for CLIENT_CALL_RETURN {
+unsafe impl ::windows::core::Abi for CLIENT_CALL_RETURN {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -110,7 +110,7 @@ impl ::core::cmp::PartialEq for COMM_FAULT_OFFSETS {
     }
 }
 impl ::core::cmp::Eq for COMM_FAULT_OFFSETS {}
-unsafe impl ::windows::runtime::Abi for COMM_FAULT_OFFSETS {
+unsafe impl ::windows::core::Abi for COMM_FAULT_OFFSETS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -183,7 +183,7 @@ impl ::core::convert::From<i32> for EXPR_TOKEN {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for EXPR_TOKEN {
+unsafe impl ::windows::core::Abi for EXPR_TOKEN {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -202,7 +202,7 @@ impl ::core::convert::From<i32> for ExtendedErrorParamTypes {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ExtendedErrorParamTypes {
+unsafe impl ::windows::core::Abi for ExtendedErrorParamTypes {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -231,7 +231,7 @@ impl ::core::cmp::PartialEq for FULL_PTR_XLAT_TABLES {
     }
 }
 impl ::core::cmp::Eq for FULL_PTR_XLAT_TABLES {}
-unsafe impl ::windows::runtime::Abi for FULL_PTR_XLAT_TABLES {
+unsafe impl ::windows::core::Abi for FULL_PTR_XLAT_TABLES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -260,7 +260,7 @@ impl ::core::cmp::PartialEq for GENERIC_BINDING_INFO {
     }
 }
 impl ::core::cmp::Eq for GENERIC_BINDING_INFO {}
-unsafe impl ::windows::runtime::Abi for GENERIC_BINDING_INFO {
+unsafe impl ::windows::core::Abi for GENERIC_BINDING_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -289,7 +289,7 @@ impl ::core::cmp::PartialEq for GENERIC_BINDING_ROUTINE_PAIR {
     }
 }
 impl ::core::cmp::Eq for GENERIC_BINDING_ROUTINE_PAIR {}
-unsafe impl ::windows::runtime::Abi for GENERIC_BINDING_ROUTINE_PAIR {
+unsafe impl ::windows::core::Abi for GENERIC_BINDING_ROUTINE_PAIR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -305,7 +305,7 @@ impl ::core::convert::From<u32> for GROUP_NAME_SYNTAX {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GROUP_NAME_SYNTAX {
+unsafe impl ::windows::core::Abi for GROUP_NAME_SYNTAX {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for GROUP_NAME_SYNTAX {
@@ -348,19 +348,19 @@ impl ::core::convert::From<i32> for IDL_CS_CONVERT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IDL_CS_CONVERT {
+unsafe impl ::windows::core::Abi for IDL_CS_CONVERT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const INVALID_FRAGMENT_ID: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn IUnknown_AddRef_Proxy<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(this: Param0) -> u32 {
+pub unsafe fn IUnknown_AddRef_Proxy<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(this: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IUnknown_AddRef_Proxy(this: ::windows::runtime::RawPtr) -> u32;
+            fn IUnknown_AddRef_Proxy(this: ::windows::core::RawPtr) -> u32;
         }
         ::core::mem::transmute(IUnknown_AddRef_Proxy(this.into_param().abi()))
     }
@@ -369,12 +369,12 @@ pub unsafe fn IUnknown_AddRef_Proxy<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn IUnknown_QueryInterface_Proxy<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(this: Param0, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn IUnknown_QueryInterface_Proxy<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(this: Param0, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IUnknown_QueryInterface_Proxy(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn IUnknown_QueryInterface_Proxy(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         IUnknown_QueryInterface_Proxy(this.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
@@ -383,12 +383,12 @@ pub unsafe fn IUnknown_QueryInterface_Proxy<'a, Param0: ::windows::runtime::Into
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn IUnknown_Release_Proxy<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(this: Param0) -> u32 {
+pub unsafe fn IUnknown_Release_Proxy<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(this: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IUnknown_Release_Proxy(this: ::windows::runtime::RawPtr) -> u32;
+            fn IUnknown_Release_Proxy(this: ::windows::core::RawPtr) -> u32;
         }
         ::core::mem::transmute(IUnknown_Release_Proxy(this.into_param().abi()))
     }
@@ -766,12 +766,12 @@ pub unsafe fn I_RpcGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn I_RpcGetBufferWithObject(message: *mut RPC_MESSAGE, objectuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn I_RpcGetBufferWithObject(message: *mut RPC_MESSAGE, objectuuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcGetBufferWithObject(message: *mut RPC_MESSAGE, objectuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+            fn I_RpcGetBufferWithObject(message: *mut RPC_MESSAGE, objectuuid: *mut ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(I_RpcGetBufferWithObject(::core::mem::transmute(message), ::core::mem::transmute(objectuuid)))
     }
@@ -1050,16 +1050,16 @@ impl ::core::cmp::PartialEq for I_RpcProxyCallbackInterface {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for I_RpcProxyCallbackInterface {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for I_RpcProxyCallbackInterface {
+unsafe impl ::windows::core::Abi for I_RpcProxyCallbackInterface {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
-pub type I_RpcProxyFilterIfFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifuuid: *const ::windows::runtime::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS;
+pub type I_RpcProxyFilterIfFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifuuid: *const ::windows::core::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS;
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type I_RpcProxyGetClientAddressFn = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, buffer: super::super::Foundation::PSTR, bufferlength: *mut u32) -> RPC_STATUS;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
-pub type I_RpcProxyGetClientSessionAndResourceUUID = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut ::windows::runtime::GUID, resourceidpresent: *mut i32, resourceid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+pub type I_RpcProxyGetClientSessionAndResourceUUID = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut ::windows::core::GUID, resourceidpresent: *mut i32, resourceid: *mut ::windows::core::GUID) -> RPC_STATUS;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub type I_RpcProxyGetConnectionTimeoutFn = unsafe extern "system" fn(connectiontimeout: *mut u32) -> RPC_STATUS;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -1271,7 +1271,7 @@ pub unsafe fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut ::core::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut ::windows::runtime::RawPtr) -> RPC_STATUS;
+            fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut ::windows::core::RawPtr) -> RPC_STATUS;
         }
         ::core::mem::transmute(I_RpcServerRegisterForwardFunction(::core::mem::transmute(pforwardfunction)))
     }
@@ -1285,7 +1285,7 @@ pub unsafe fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut ::core::optio
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut ::windows::runtime::RawPtr) -> RPC_STATUS;
+            fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut ::windows::core::RawPtr) -> RPC_STATUS;
         }
         ::core::mem::transmute(I_RpcServerSetAddressChangeFn(::core::mem::transmute(paddresschangefn)))
     }
@@ -1322,12 +1322,12 @@ pub unsafe fn I_RpcServerSubscribeForDisconnectNotification(binding: *const ::co
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(binding: *const ::core::ffi::c_void, hevent: *const ::core::ffi::c_void, subscriptionid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(binding: *const ::core::ffi::c_void, hevent: *const ::core::ffi::c_void, subscriptionid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerSubscribeForDisconnectNotification2(binding: *const ::core::ffi::c_void, hevent: *const ::core::ffi::c_void, subscriptionid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+            fn I_RpcServerSubscribeForDisconnectNotification2(binding: *const ::core::ffi::c_void, hevent: *const ::core::ffi::c_void, subscriptionid: *mut ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(I_RpcServerSubscribeForDisconnectNotification2(::core::mem::transmute(binding), ::core::mem::transmute(hevent), ::core::mem::transmute(subscriptionid)))
     }
@@ -1336,12 +1336,12 @@ pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(binding: *const ::c
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn I_RpcServerUnsubscribeForDisconnectNotification<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(binding: *const ::core::ffi::c_void, subscriptionid: Param1) -> RPC_STATUS {
+pub unsafe fn I_RpcServerUnsubscribeForDisconnectNotification<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(binding: *const ::core::ffi::c_void, subscriptionid: Param1) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerUnsubscribeForDisconnectNotification(binding: *const ::core::ffi::c_void, subscriptionid: ::windows::runtime::GUID) -> RPC_STATUS;
+            fn I_RpcServerUnsubscribeForDisconnectNotification(binding: *const ::core::ffi::c_void, subscriptionid: ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(I_RpcServerUnsubscribeForDisconnectNotification(::core::mem::transmute(binding), subscriptionid.into_param().abi()))
     }
@@ -1462,12 +1462,12 @@ pub unsafe fn I_RpcTurnOnEEInfoPropagation() -> RPC_STATUS {
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn I_UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn I_UuidCreate(uuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+            fn I_UuidCreate(uuid: *mut ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(I_UuidCreate(::core::mem::transmute(uuid)))
     }
@@ -1485,7 +1485,7 @@ impl ::core::convert::From<i32> for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
+unsafe impl ::windows::core::Abi for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1512,7 +1512,7 @@ impl ::core::cmp::PartialEq for MALLOC_FREE_STRUCT {
     }
 }
 impl ::core::cmp::Eq for MALLOC_FREE_STRUCT {}
-unsafe impl ::windows::runtime::Abi for MALLOC_FREE_STRUCT {
+unsafe impl ::windows::core::Abi for MALLOC_FREE_STRUCT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -1529,7 +1529,7 @@ impl ::core::convert::From<i32> for MIDL_ES_CODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MIDL_ES_CODE {
+unsafe impl ::windows::core::Abi for MIDL_ES_CODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -1544,7 +1544,7 @@ impl ::core::convert::From<i32> for MIDL_ES_HANDLE_STYLE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MIDL_ES_HANDLE_STYLE {
+unsafe impl ::windows::core::Abi for MIDL_ES_HANDLE_STYLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -1576,7 +1576,7 @@ impl ::core::cmp::PartialEq for MIDL_FORMAT_STRING {
     }
 }
 impl ::core::cmp::Eq for MIDL_FORMAT_STRING {}
-unsafe impl ::windows::runtime::Abi for MIDL_FORMAT_STRING {
+unsafe impl ::windows::core::Abi for MIDL_FORMAT_STRING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1606,7 +1606,7 @@ impl ::core::cmp::PartialEq for MIDL_INTERCEPTION_INFO {
     }
 }
 impl ::core::cmp::Eq for MIDL_INTERCEPTION_INFO {}
-unsafe impl ::windows::runtime::Abi for MIDL_INTERCEPTION_INFO {
+unsafe impl ::windows::core::Abi for MIDL_INTERCEPTION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1633,7 +1633,7 @@ impl ::core::cmp::PartialEq for MIDL_INTERFACE_METHOD_PROPERTIES {
     }
 }
 impl ::core::cmp::Eq for MIDL_INTERFACE_METHOD_PROPERTIES {}
-unsafe impl ::windows::runtime::Abi for MIDL_INTERFACE_METHOD_PROPERTIES {
+unsafe impl ::windows::core::Abi for MIDL_INTERFACE_METHOD_PROPERTIES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1660,7 +1660,7 @@ impl ::core::cmp::PartialEq for MIDL_METHOD_PROPERTY {
     }
 }
 impl ::core::cmp::Eq for MIDL_METHOD_PROPERTY {}
-unsafe impl ::windows::runtime::Abi for MIDL_METHOD_PROPERTY {
+unsafe impl ::windows::core::Abi for MIDL_METHOD_PROPERTY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1687,7 +1687,7 @@ impl ::core::cmp::PartialEq for MIDL_METHOD_PROPERTY_MAP {
     }
 }
 impl ::core::cmp::Eq for MIDL_METHOD_PROPERTY_MAP {}
-unsafe impl ::windows::runtime::Abi for MIDL_METHOD_PROPERTY_MAP {
+unsafe impl ::windows::core::Abi for MIDL_METHOD_PROPERTY_MAP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1727,7 +1727,7 @@ impl ::core::cmp::PartialEq for MIDL_SERVER_INFO {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MIDL_SERVER_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for MIDL_SERVER_INFO {
+unsafe impl ::windows::core::Abi for MIDL_SERVER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1772,7 +1772,7 @@ impl ::core::cmp::PartialEq for MIDL_STUBLESS_PROXY_INFO {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MIDL_STUBLESS_PROXY_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for MIDL_STUBLESS_PROXY_INFO {
+unsafe impl ::windows::core::Abi for MIDL_STUBLESS_PROXY_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1818,7 +1818,7 @@ impl ::core::cmp::PartialEq for MIDL_STUB_DESC {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MIDL_STUB_DESC {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for MIDL_STUB_DESC {
+unsafe impl ::windows::core::Abi for MIDL_STUB_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1846,7 +1846,7 @@ impl ::core::cmp::PartialEq for MIDL_STUB_DESC_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MIDL_STUB_DESC_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for MIDL_STUB_DESC_0 {
+unsafe impl ::windows::core::Abi for MIDL_STUB_DESC_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2055,7 +2055,7 @@ impl ::core::cmp::PartialEq for MIDL_STUB_MESSAGE {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MIDL_STUB_MESSAGE {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for MIDL_STUB_MESSAGE {
+unsafe impl ::windows::core::Abi for MIDL_STUB_MESSAGE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2097,7 +2097,7 @@ impl ::core::cmp::PartialEq for MIDL_SYNTAX_INFO {
     }
 }
 impl ::core::cmp::Eq for MIDL_SYNTAX_INFO {}
-unsafe impl ::windows::runtime::Abi for MIDL_SYNTAX_INFO {
+unsafe impl ::windows::core::Abi for MIDL_SYNTAX_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2125,7 +2125,7 @@ impl ::core::cmp::PartialEq for MIDL_TYPE_PICKLING_INFO {
     }
 }
 impl ::core::cmp::Eq for MIDL_TYPE_PICKLING_INFO {}
-unsafe impl ::windows::runtime::Abi for MIDL_TYPE_PICKLING_INFO {
+unsafe impl ::windows::core::Abi for MIDL_TYPE_PICKLING_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2162,7 +2162,7 @@ impl ::core::cmp::PartialEq for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MIDL_WINRT_TYPE_SERIALIZATION_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
+unsafe impl ::windows::core::Abi for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -2186,7 +2186,7 @@ pub unsafe fn MesBufferHandleReset(handle: *const ::core::ffi::c_void, handlesty
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MesDecodeBufferHandleCreate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(buffer: Param0, buffersize: u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn MesDecodeBufferHandleCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(buffer: Param0, buffersize: u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2205,7 +2205,7 @@ pub unsafe fn MesDecodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_vo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesDecodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, readfn: ::windows::runtime::RawPtr, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn MesDecodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, readfn: ::windows::core::RawPtr, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(MesDecodeIncrementalHandleCreate(::core::mem::transmute(userstate), ::core::mem::transmute(readfn), ::core::mem::transmute(phandle)))
     }
@@ -2249,7 +2249,7 @@ pub unsafe fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_vo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, allocfn: ::windows::runtime::RawPtr, writefn: ::windows::runtime::RawPtr, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, allocfn: ::windows::core::RawPtr, writefn: ::windows::core::RawPtr, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(MesEncodeIncrementalHandleCreate(::core::mem::transmute(userstate), ::core::mem::transmute(allocfn), ::core::mem::transmute(writefn), ::core::mem::transmute(phandle)))
     }
@@ -2278,7 +2278,7 @@ pub unsafe fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userst
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: ::windows::runtime::RawPtr, writefn: ::windows::runtime::RawPtr, readfn: ::windows::runtime::RawPtr, operation: MIDL_ES_CODE) -> RPC_STATUS;
+            fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: ::windows::core::RawPtr, writefn: ::windows::core::RawPtr, readfn: ::windows::core::RawPtr, operation: MIDL_ES_CODE) -> RPC_STATUS;
         }
         ::core::mem::transmute(MesIncrementalHandleReset(::core::mem::transmute(handle), ::core::mem::transmute(userstate), ::core::mem::transmute(allocfn), ::core::mem::transmute(writefn), ::core::mem::transmute(readfn), ::core::mem::transmute(operation)))
     }
@@ -2327,7 +2327,7 @@ impl ::core::cmp::PartialEq for NDR64_ARRAY_ELEMENT_INFO {
     }
 }
 impl ::core::cmp::Eq for NDR64_ARRAY_ELEMENT_INFO {}
-unsafe impl ::windows::runtime::Abi for NDR64_ARRAY_ELEMENT_INFO {
+unsafe impl ::windows::core::Abi for NDR64_ARRAY_ELEMENT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2353,7 +2353,7 @@ impl ::core::cmp::PartialEq for NDR64_ARRAY_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_ARRAY_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_ARRAY_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_ARRAY_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2376,7 +2376,7 @@ impl ::core::cmp::PartialEq for NDR64_BINDINGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_BINDINGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_BINDINGS {
+unsafe impl ::windows::core::Abi for NDR64_BINDINGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2403,7 +2403,7 @@ impl ::core::cmp::PartialEq for NDR64_BIND_AND_NOTIFY_EXTENSION {
     }
 }
 impl ::core::cmp::Eq for NDR64_BIND_AND_NOTIFY_EXTENSION {}
-unsafe impl ::windows::runtime::Abi for NDR64_BIND_AND_NOTIFY_EXTENSION {
+unsafe impl ::windows::core::Abi for NDR64_BIND_AND_NOTIFY_EXTENSION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2433,7 +2433,7 @@ impl ::core::cmp::PartialEq for NDR64_BIND_CONTEXT {
     }
 }
 impl ::core::cmp::Eq for NDR64_BIND_CONTEXT {}
-unsafe impl ::windows::runtime::Abi for NDR64_BIND_CONTEXT {
+unsafe impl ::windows::core::Abi for NDR64_BIND_CONTEXT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2463,7 +2463,7 @@ impl ::core::cmp::PartialEq for NDR64_BIND_GENERIC {
     }
 }
 impl ::core::cmp::Eq for NDR64_BIND_GENERIC {}
-unsafe impl ::windows::runtime::Abi for NDR64_BIND_GENERIC {
+unsafe impl ::windows::core::Abi for NDR64_BIND_GENERIC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2492,7 +2492,7 @@ impl ::core::cmp::PartialEq for NDR64_BIND_PRIMITIVE {
     }
 }
 impl ::core::cmp::Eq for NDR64_BIND_PRIMITIVE {}
-unsafe impl ::windows::runtime::Abi for NDR64_BIND_PRIMITIVE {
+unsafe impl ::windows::core::Abi for NDR64_BIND_PRIMITIVE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2523,7 +2523,7 @@ impl ::core::cmp::PartialEq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2565,7 +2565,7 @@ impl ::core::cmp::PartialEq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2594,7 +2594,7 @@ impl ::core::cmp::PartialEq for NDR64_BUFFER_ALIGN_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_BUFFER_ALIGN_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_BUFFER_ALIGN_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_BUFFER_ALIGN_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2620,7 +2620,7 @@ impl ::core::cmp::PartialEq for NDR64_CONFORMANT_STRING_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_CONFORMANT_STRING_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_CONFORMANT_STRING_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_CONFORMANT_STRING_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2651,7 +2651,7 @@ impl ::core::cmp::PartialEq for NDR64_CONF_ARRAY_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_CONF_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_CONF_ARRAY_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_CONF_ARRAY_HEADER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2695,7 +2695,7 @@ impl ::core::cmp::PartialEq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2726,7 +2726,7 @@ impl ::core::cmp::PartialEq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2766,7 +2766,7 @@ impl ::core::cmp::PartialEq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2795,7 +2795,7 @@ impl ::core::cmp::PartialEq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2805,7 +2805,7 @@ pub struct NDR64_CONSTANT_IID_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
     pub Reserved: u16,
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
 }
 impl NDR64_CONSTANT_IID_FORMAT {}
 impl ::core::default::Default for NDR64_CONSTANT_IID_FORMAT {
@@ -2824,7 +2824,7 @@ impl ::core::cmp::PartialEq for NDR64_CONSTANT_IID_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_CONSTANT_IID_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_CONSTANT_IID_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_CONSTANT_IID_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2850,7 +2850,7 @@ impl ::core::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_CONTEXT_HANDLE_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_CONTEXT_HANDLE_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_CONTEXT_HANDLE_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2879,7 +2879,7 @@ impl ::core::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_CONTEXT_HANDLE_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_CONTEXT_HANDLE_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_CONTEXT_HANDLE_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2908,7 +2908,7 @@ impl ::core::cmp::PartialEq for NDR64_EMBEDDED_COMPLEX_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_EMBEDDED_COMPLEX_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_EMBEDDED_COMPLEX_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_EMBEDDED_COMPLEX_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2948,7 +2948,7 @@ impl ::core::cmp::PartialEq for NDR64_ENCAPSULATED_UNION {
     }
 }
 impl ::core::cmp::Eq for NDR64_ENCAPSULATED_UNION {}
-unsafe impl ::windows::runtime::Abi for NDR64_ENCAPSULATED_UNION {
+unsafe impl ::windows::core::Abi for NDR64_ENCAPSULATED_UNION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2977,7 +2977,7 @@ impl ::core::cmp::PartialEq for NDR64_EXPR_CONST32 {
     }
 }
 impl ::core::cmp::Eq for NDR64_EXPR_CONST32 {}
-unsafe impl ::windows::runtime::Abi for NDR64_EXPR_CONST32 {
+unsafe impl ::windows::core::Abi for NDR64_EXPR_CONST32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3006,7 +3006,7 @@ impl ::core::cmp::PartialEq for NDR64_EXPR_CONST64 {
     }
 }
 impl ::core::cmp::Eq for NDR64_EXPR_CONST64 {}
-unsafe impl ::windows::runtime::Abi for NDR64_EXPR_CONST64 {
+unsafe impl ::windows::core::Abi for NDR64_EXPR_CONST64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3034,7 +3034,7 @@ impl ::core::cmp::PartialEq for NDR64_EXPR_NOOP {
     }
 }
 impl ::core::cmp::Eq for NDR64_EXPR_NOOP {}
-unsafe impl ::windows::runtime::Abi for NDR64_EXPR_NOOP {
+unsafe impl ::windows::core::Abi for NDR64_EXPR_NOOP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3063,7 +3063,7 @@ impl ::core::cmp::PartialEq for NDR64_EXPR_OPERATOR {
     }
 }
 impl ::core::cmp::Eq for NDR64_EXPR_OPERATOR {}
-unsafe impl ::windows::runtime::Abi for NDR64_EXPR_OPERATOR {
+unsafe impl ::windows::core::Abi for NDR64_EXPR_OPERATOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3092,7 +3092,7 @@ impl ::core::cmp::PartialEq for NDR64_EXPR_VAR {
     }
 }
 impl ::core::cmp::Eq for NDR64_EXPR_VAR {}
-unsafe impl ::windows::runtime::Abi for NDR64_EXPR_VAR {
+unsafe impl ::windows::core::Abi for NDR64_EXPR_VAR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -3132,7 +3132,7 @@ impl ::core::cmp::PartialEq for NDR64_FIXED_REPEAT_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_FIXED_REPEAT_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_FIXED_REPEAT_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_FIXED_REPEAT_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3162,7 +3162,7 @@ impl ::core::cmp::PartialEq for NDR64_FIX_ARRAY_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_FIX_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_FIX_ARRAY_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_FIX_ARRAY_HEADER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3188,7 +3188,7 @@ impl ::core::cmp::PartialEq for NDR64_IID_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_IID_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_IID_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_IID_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3217,7 +3217,7 @@ impl ::core::cmp::PartialEq for NDR64_IID_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_IID_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_IID_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_IID_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3246,7 +3246,7 @@ impl ::core::cmp::PartialEq for NDR64_MEMPAD_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_MEMPAD_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_MEMPAD_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_MEMPAD_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3273,7 +3273,7 @@ impl ::core::cmp::PartialEq for NDR64_NON_CONFORMANT_STRING_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_NON_CONFORMANT_STRING_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_NON_CONFORMANT_STRING_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_NON_CONFORMANT_STRING_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3305,7 +3305,7 @@ impl ::core::cmp::PartialEq for NDR64_NON_ENCAPSULATED_UNION {
     }
 }
 impl ::core::cmp::Eq for NDR64_NON_ENCAPSULATED_UNION {}
-unsafe impl ::windows::runtime::Abi for NDR64_NON_ENCAPSULATED_UNION {
+unsafe impl ::windows::core::Abi for NDR64_NON_ENCAPSULATED_UNION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3334,7 +3334,7 @@ impl ::core::cmp::PartialEq for NDR64_NO_REPEAT_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_NO_REPEAT_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_NO_REPEAT_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_NO_REPEAT_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3360,7 +3360,7 @@ impl ::core::cmp::PartialEq for NDR64_PARAM_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_PARAM_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_PARAM_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_PARAM_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3389,7 +3389,7 @@ impl ::core::cmp::PartialEq for NDR64_PARAM_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_PARAM_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_PARAM_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_PARAM_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3415,7 +3415,7 @@ impl ::core::cmp::PartialEq for NDR64_PIPE_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_PIPE_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_PIPE_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_PIPE_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3447,7 +3447,7 @@ impl ::core::cmp::PartialEq for NDR64_PIPE_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_PIPE_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_PIPE_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_PIPE_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3476,7 +3476,7 @@ impl ::core::cmp::PartialEq for NDR64_POINTER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_POINTER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_POINTER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_POINTER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3503,7 +3503,7 @@ impl ::core::cmp::PartialEq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3529,7 +3529,7 @@ impl ::core::cmp::PartialEq for NDR64_POINTER_REPEAT_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_POINTER_REPEAT_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_POINTER_REPEAT_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_POINTER_REPEAT_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3555,7 +3555,7 @@ impl ::core::cmp::PartialEq for NDR64_PROC_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_PROC_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_PROC_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_PROC_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3597,7 +3597,7 @@ impl ::core::cmp::PartialEq for NDR64_PROC_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_PROC_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_PROC_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_PROC_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3626,7 +3626,7 @@ impl ::core::cmp::PartialEq for NDR64_RANGED_STRING_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_RANGED_STRING_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_RANGED_STRING_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_RANGED_STRING_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3656,7 +3656,7 @@ impl ::core::cmp::PartialEq for NDR64_RANGE_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_RANGE_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_RANGE_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_RANGE_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3700,7 +3700,7 @@ impl ::core::cmp::PartialEq for NDR64_RANGE_PIPE_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_RANGE_PIPE_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_RANGE_PIPE_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_RANGE_PIPE_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3731,7 +3731,7 @@ impl ::core::cmp::PartialEq for NDR64_REPEAT_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_REPEAT_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_REPEAT_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_REPEAT_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3757,7 +3757,7 @@ impl ::core::cmp::PartialEq for NDR64_RPC_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_RPC_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_RPC_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_RPC_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3786,7 +3786,7 @@ impl ::core::cmp::PartialEq for NDR64_SIMPLE_MEMBER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_SIMPLE_MEMBER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_SIMPLE_MEMBER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_SIMPLE_MEMBER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3815,7 +3815,7 @@ impl ::core::cmp::PartialEq for NDR64_SIMPLE_REGION_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_SIMPLE_REGION_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_SIMPLE_REGION_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_SIMPLE_REGION_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3842,7 +3842,7 @@ impl ::core::cmp::PartialEq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3868,7 +3868,7 @@ impl ::core::cmp::PartialEq for NDR64_STRING_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_STRING_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_STRING_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_STRING_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3896,7 +3896,7 @@ impl ::core::cmp::PartialEq for NDR64_STRING_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_STRING_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_STRING_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_STRING_HEADER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3922,7 +3922,7 @@ impl ::core::cmp::PartialEq for NDR64_STRUCTURE_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_STRUCTURE_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_STRUCTURE_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_STRUCTURE_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3952,7 +3952,7 @@ impl ::core::cmp::PartialEq for NDR64_STRUCTURE_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_STRUCTURE_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_STRUCTURE_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_STRUCTURE_HEADER_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3980,7 +3980,7 @@ impl ::core::cmp::PartialEq for NDR64_SYSTEM_HANDLE_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_SYSTEM_HANDLE_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_SYSTEM_HANDLE_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_SYSTEM_HANDLE_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4006,7 +4006,7 @@ impl ::core::cmp::PartialEq for NDR64_TRANSMIT_AS_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_TRANSMIT_AS_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_TRANSMIT_AS_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_TRANSMIT_AS_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4048,7 +4048,7 @@ impl ::core::cmp::PartialEq for NDR64_TRANSMIT_AS_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_TRANSMIT_AS_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_TRANSMIT_AS_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_TRANSMIT_AS_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4079,7 +4079,7 @@ impl ::core::cmp::PartialEq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     }
 }
 impl ::core::cmp::Eq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {}
-unsafe impl ::windows::runtime::Abi for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
+unsafe impl ::windows::core::Abi for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4107,7 +4107,7 @@ impl ::core::cmp::PartialEq for NDR64_UNION_ARM {
     }
 }
 impl ::core::cmp::Eq for NDR64_UNION_ARM {}
-unsafe impl ::windows::runtime::Abi for NDR64_UNION_ARM {
+unsafe impl ::windows::core::Abi for NDR64_UNION_ARM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4136,7 +4136,7 @@ impl ::core::cmp::PartialEq for NDR64_UNION_ARM_SELECTOR {
     }
 }
 impl ::core::cmp::Eq for NDR64_UNION_ARM_SELECTOR {}
-unsafe impl ::windows::runtime::Abi for NDR64_UNION_ARM_SELECTOR {
+unsafe impl ::windows::core::Abi for NDR64_UNION_ARM_SELECTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4162,7 +4162,7 @@ impl ::core::cmp::PartialEq for NDR64_USER_MARSHAL_FLAGS {
     }
 }
 impl ::core::cmp::Eq for NDR64_USER_MARSHAL_FLAGS {}
-unsafe impl ::windows::runtime::Abi for NDR64_USER_MARSHAL_FLAGS {
+unsafe impl ::windows::core::Abi for NDR64_USER_MARSHAL_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4204,7 +4204,7 @@ impl ::core::cmp::PartialEq for NDR64_USER_MARSHAL_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_USER_MARSHAL_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_USER_MARSHAL_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_USER_MARSHAL_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4244,7 +4244,7 @@ impl ::core::cmp::PartialEq for NDR64_VAR_ARRAY_HEADER_FORMAT {
     }
 }
 impl ::core::cmp::Eq for NDR64_VAR_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::runtime::Abi for NDR64_VAR_ARRAY_HEADER_FORMAT {
+unsafe impl ::windows::core::Abi for NDR64_VAR_ARRAY_HEADER_FORMAT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -4296,7 +4296,7 @@ pub unsafe fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut :
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::runtime::RawPtr);
+            fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::core::RawPtr);
         }
         ::core::mem::transmute(NDRSContextMarshall(::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin)))
     }
@@ -4310,7 +4310,7 @@ pub unsafe fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, cc
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::runtime::RawPtr, ctxguard: *const ::core::ffi::c_void, flags: u32);
+            fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::core::RawPtr, ctxguard: *const ::core::ffi::c_void, flags: u32);
         }
         ::core::mem::transmute(NDRSContextMarshall2(::core::mem::transmute(bindinghandle), ::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin), ::core::mem::transmute(ctxguard), ::core::mem::transmute(flags)))
     }
@@ -4324,7 +4324,7 @@ pub unsafe fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::runtime::RawPtr);
+            fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::core::RawPtr);
         }
         ::core::mem::transmute(NDRSContextMarshallEx(::core::mem::transmute(bindinghandle), ::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin)))
     }
@@ -4400,7 +4400,7 @@ impl ::core::cmp::PartialEq for NDR_CS_ROUTINES {
     }
 }
 impl ::core::cmp::Eq for NDR_CS_ROUTINES {}
-unsafe impl ::windows::runtime::Abi for NDR_CS_ROUTINES {
+unsafe impl ::windows::core::Abi for NDR_CS_ROUTINES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -4429,7 +4429,7 @@ impl ::core::cmp::PartialEq for NDR_CS_SIZE_CONVERT_ROUTINES {
     }
 }
 impl ::core::cmp::Eq for NDR_CS_SIZE_CONVERT_ROUTINES {}
-unsafe impl ::windows::runtime::Abi for NDR_CS_SIZE_CONVERT_ROUTINES {
+unsafe impl ::windows::core::Abi for NDR_CS_SIZE_CONVERT_ROUTINES {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -4460,7 +4460,7 @@ impl ::core::cmp::PartialEq for NDR_EXPR_DESC {
     }
 }
 impl ::core::cmp::Eq for NDR_EXPR_DESC {}
-unsafe impl ::windows::runtime::Abi for NDR_EXPR_DESC {
+unsafe impl ::windows::core::Abi for NDR_EXPR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -4496,7 +4496,7 @@ impl ::core::cmp::PartialEq for NDR_SCONTEXT_1 {
     }
 }
 impl ::core::cmp::Eq for NDR_SCONTEXT_1 {}
-unsafe impl ::windows::runtime::Abi for NDR_SCONTEXT_1 {
+unsafe impl ::windows::core::Abi for NDR_SCONTEXT_1 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4529,7 +4529,7 @@ impl ::core::cmp::PartialEq for NDR_USER_MARSHAL_INFO {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for NDR_USER_MARSHAL_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for NDR_USER_MARSHAL_INFO {
+unsafe impl ::windows::core::Abi for NDR_USER_MARSHAL_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4560,7 +4560,7 @@ impl ::core::cmp::PartialEq for NDR_USER_MARSHAL_INFO_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for NDR_USER_MARSHAL_INFO_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for NDR_USER_MARSHAL_INFO_0 {
+unsafe impl ::windows::core::Abi for NDR_USER_MARSHAL_INFO_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -4598,7 +4598,7 @@ impl ::core::cmp::PartialEq for NDR_USER_MARSHAL_INFO_LEVEL1 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for NDR_USER_MARSHAL_INFO_LEVEL1 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for NDR_USER_MARSHAL_INFO_LEVEL1 {
+unsafe impl ::windows::core::Abi for NDR_USER_MARSHAL_INFO_LEVEL1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -4664,12 +4664,12 @@ pub unsafe fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn Ndr64DcomAsyncStubCall<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>, Param1: ::windows::runtime::IntoParam<'a, super::Com::IRpcChannelBuffer>>(pthis: Param0, pchannel: Param1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
+pub unsafe fn Ndr64DcomAsyncStubCall<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IRpcStubBuffer>, Param1: ::windows::core::IntoParam<'a, super::Com::IRpcChannelBuffer>>(pthis: Param0, pchannel: Param1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Ndr64DcomAsyncStubCall(pthis: ::windows::runtime::RawPtr, pchannel: ::windows::runtime::RawPtr, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
+            fn Ndr64DcomAsyncStubCall(pthis: ::windows::core::RawPtr, pchannel: ::windows::core::RawPtr, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
         }
         ::core::mem::transmute(Ndr64DcomAsyncStubCall(pthis.into_param().abi(), pchannel.into_param().abi(), ::core::mem::transmute(prpcmsg), ::core::mem::transmute(pdwstubphase)))
     }
@@ -5503,12 +5503,12 @@ pub unsafe fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE) {
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrCreateServerInterfaceFromStub<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>>(pstub: Param0, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS {
+pub unsafe fn NdrCreateServerInterfaceFromStub<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IRpcStubBuffer>>(pstub: Param0, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrCreateServerInterfaceFromStub(pstub: ::windows::runtime::RawPtr, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
+            fn NdrCreateServerInterfaceFromStub(pstub: ::windows::core::RawPtr, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
         }
         ::core::mem::transmute(NdrCreateServerInterfaceFromStub(pstub.into_param().abi(), ::core::mem::transmute(pserverif)))
     }
@@ -5533,12 +5533,12 @@ pub unsafe fn NdrDcomAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pform
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrDcomAsyncStubCall<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>, Param1: ::windows::runtime::IntoParam<'a, super::Com::IRpcChannelBuffer>>(pthis: Param0, pchannel: Param1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
+pub unsafe fn NdrDcomAsyncStubCall<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IRpcStubBuffer>, Param1: ::windows::core::IntoParam<'a, super::Com::IRpcChannelBuffer>>(pthis: Param0, pchannel: Param1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrDcomAsyncStubCall(pthis: ::windows::runtime::RawPtr, pchannel: ::windows::runtime::RawPtr, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
+            fn NdrDcomAsyncStubCall(pthis: ::windows::core::RawPtr, pchannel: ::windows::core::RawPtr, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
         }
         ::core::mem::transmute(NdrDcomAsyncStubCall(pthis.into_param().abi(), pchannel.into_param().abi(), ::core::mem::transmute(prpcmsg), ::core::mem::transmute(pdwstubphase)))
     }
@@ -5756,12 +5756,12 @@ pub unsafe fn NdrGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, 
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: *mut MIDL_STUB_MESSAGE, pversion: *mut RPC_VERSION) -> ::windows::runtime::Result<()> {
+pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: *mut MIDL_STUB_MESSAGE, pversion: *mut RPC_VERSION) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrGetDcomProtocolVersion(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pversion: *mut RPC_VERSION) -> ::windows::runtime::HRESULT;
+            fn NdrGetDcomProtocolVersion(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pversion: *mut RPC_VERSION) -> ::windows::core::HRESULT;
         }
         NdrGetDcomProtocolVersion(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pversion)).ok()
     }
@@ -6680,7 +6680,7 @@ pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, context
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerContextMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::runtime::RawPtr);
+            fn NdrServerContextMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::core::RawPtr);
         }
         ::core::mem::transmute(NdrServerContextMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(rundownroutine)))
     }
@@ -6695,7 +6695,7 @@ pub unsafe fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, cont
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerContextNewMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::runtime::RawPtr, pformat: *mut u8);
+            fn NdrServerContextNewMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::core::RawPtr, pformat: *mut u8);
         }
         ::core::mem::transmute(NdrServerContextNewMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(rundownroutine), ::core::mem::transmute(pformat)))
     }
@@ -7196,7 +7196,7 @@ impl ::core::convert::From<i32> for PROXY_PHASE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PROXY_PHASE {
+unsafe impl ::windows::core::Abi for PROXY_PHASE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -7215,8 +7215,8 @@ pub struct RDR_CALLOUT_STATE {
     pub ResourceTypePresent: u8,
     pub SessionIdPresent: u8,
     pub InterfacePresent: u8,
-    pub ResourceType: ::windows::runtime::GUID,
-    pub SessionId: ::windows::runtime::GUID,
+    pub ResourceType: ::windows::core::GUID,
+    pub SessionId: ::windows::core::GUID,
     pub Interface: RPC_SYNTAX_IDENTIFIER,
     pub CertContext: *mut ::core::ffi::c_void,
 }
@@ -7265,7 +7265,7 @@ impl ::core::cmp::PartialEq for RDR_CALLOUT_STATE {
     }
 }
 impl ::core::cmp::Eq for RDR_CALLOUT_STATE {}
-unsafe impl ::windows::runtime::Abi for RDR_CALLOUT_STATE {
+unsafe impl ::windows::core::Abi for RDR_CALLOUT_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -7314,7 +7314,7 @@ impl ::core::convert::From<i32> for RPC_ADDRESS_CHANGE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_ADDRESS_CHANGE_TYPE {
+unsafe impl ::windows::core::Abi for RPC_ADDRESS_CHANGE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -7331,7 +7331,7 @@ impl ::core::convert::From<i32> for RPC_ASYNC_EVENT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_ASYNC_EVENT {
+unsafe impl ::windows::core::Abi for RPC_ASYNC_EVENT {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -7348,7 +7348,7 @@ pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub IOC: RPC_ASYNC_NOTIFICATION_INFO_1,
     pub IntPtr: RPC_ASYNC_NOTIFICATION_INFO_2,
     pub hEvent: super::super::Foundation::HANDLE,
-    pub NotificationRoutine: ::windows::runtime::RawPtr,
+    pub NotificationRoutine: ::windows::core::RawPtr,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl RPC_ASYNC_NOTIFICATION_INFO {}
@@ -7367,7 +7367,7 @@ impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO {
+unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -7400,7 +7400,7 @@ impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_0 {
+unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7435,7 +7435,7 @@ impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_1 {
+unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7468,7 +7468,7 @@ impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_2 {
+unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_2 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -7510,7 +7510,7 @@ impl ::core::cmp::PartialEq for RPC_ASYNC_STATE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::cmp::Eq for RPC_ASYNC_STATE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::runtime::Abi for RPC_ASYNC_STATE {
+unsafe impl ::windows::core::Abi for RPC_ASYNC_STATE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -7530,7 +7530,7 @@ impl ::core::convert::From<u32> for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
@@ -7587,7 +7587,7 @@ impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_OPTIONS_V1 {
     }
 }
 impl ::core::cmp::Eq for RPC_BINDING_HANDLE_OPTIONS_V1 {}
-unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_OPTIONS_V1 {
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_OPTIONS_V1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7625,7 +7625,7 @@ impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_A {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_BINDING_HANDLE_SECURITY_V1_A {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_SECURITY_V1_A {
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_SECURITY_V1_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7663,7 +7663,7 @@ impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_W {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_BINDING_HANDLE_SECURITY_V1_W {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_SECURITY_V1_W {
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_SECURITY_V1_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7676,7 +7676,7 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     pub NetworkAddress: *mut u8,
     pub StringEndpoint: *mut u8,
     pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_A_0,
-    pub ObjectUuid: ::windows::runtime::GUID,
+    pub ObjectUuid: ::windows::core::GUID,
 }
 impl RPC_BINDING_HANDLE_TEMPLATE_V1_A {}
 impl ::core::default::Default for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
@@ -7690,7 +7690,7 @@ impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     }
 }
 impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_A {}
-unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7711,7 +7711,7 @@ impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
     }
 }
 impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {}
-unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7724,7 +7724,7 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     pub NetworkAddress: *mut u16,
     pub StringEndpoint: *mut u16,
     pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_W_0,
-    pub ObjectUuid: ::windows::runtime::GUID,
+    pub ObjectUuid: ::windows::core::GUID,
 }
 impl RPC_BINDING_HANDLE_TEMPLATE_V1_W {}
 impl ::core::default::Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
@@ -7738,7 +7738,7 @@ impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     }
 }
 impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_W {}
-unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7759,7 +7759,7 @@ impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     }
 }
 impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {}
-unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7786,7 +7786,7 @@ impl ::core::cmp::PartialEq for RPC_BINDING_VECTOR {
     }
 }
 impl ::core::cmp::Eq for RPC_BINDING_VECTOR {}
-unsafe impl ::windows::runtime::Abi for RPC_BINDING_VECTOR {
+unsafe impl ::windows::core::Abi for RPC_BINDING_VECTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -7857,7 +7857,7 @@ impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V1_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V1_A {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V1_A {
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V1_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7916,7 +7916,7 @@ impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V1_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V1_W {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V1_W {
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V1_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7941,7 +7941,7 @@ pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: ::windows::runtime::GUID,
+    pub InterfaceUuid: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl RPC_CALL_ATTRIBUTES_V2_A {}
@@ -8002,7 +8002,7 @@ impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V2_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V2_A {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V2_A {
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V2_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8027,7 +8027,7 @@ pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: ::windows::runtime::GUID,
+    pub InterfaceUuid: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl RPC_CALL_ATTRIBUTES_V2_W {}
@@ -8088,7 +8088,7 @@ impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V2_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V2_W {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V2_W {
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V2_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8113,7 +8113,7 @@ pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: ::windows::runtime::GUID,
+    pub InterfaceUuid: ::windows::core::GUID,
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
@@ -8180,7 +8180,7 @@ impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V3_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V3_A {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V3_A {
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V3_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8205,7 +8205,7 @@ pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: ::windows::runtime::GUID,
+    pub InterfaceUuid: ::windows::core::GUID,
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
@@ -8272,7 +8272,7 @@ impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V3_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V3_W {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V3_W {
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V3_W {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -8303,7 +8303,7 @@ impl ::core::cmp::PartialEq for RPC_CALL_LOCAL_ADDRESS_V1 {
     }
 }
 impl ::core::cmp::Eq for RPC_CALL_LOCAL_ADDRESS_V1 {}
-unsafe impl ::windows::runtime::Abi for RPC_CALL_LOCAL_ADDRESS_V1 {
+unsafe impl ::windows::core::Abi for RPC_CALL_LOCAL_ADDRESS_V1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -8340,7 +8340,7 @@ impl ::core::cmp::PartialEq for RPC_CLIENT_INFORMATION1 {
     }
 }
 impl ::core::cmp::Eq for RPC_CLIENT_INFORMATION1 {}
-unsafe impl ::windows::runtime::Abi for RPC_CLIENT_INFORMATION1 {
+unsafe impl ::windows::core::Abi for RPC_CLIENT_INFORMATION1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8384,7 +8384,7 @@ impl ::core::cmp::PartialEq for RPC_CLIENT_INTERFACE {
     }
 }
 impl ::core::cmp::Eq for RPC_CLIENT_INTERFACE {}
-unsafe impl ::windows::runtime::Abi for RPC_CLIENT_INTERFACE {
+unsafe impl ::windows::core::Abi for RPC_CLIENT_INTERFACE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -8426,7 +8426,7 @@ impl ::core::convert::From<u32> for RPC_C_AUTHN_INFO_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_C_AUTHN_INFO_TYPE {
+unsafe impl ::windows::core::Abi for RPC_C_AUTHN_INFO_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RPC_C_AUTHN_INFO_TYPE {
@@ -8532,7 +8532,7 @@ impl ::core::convert::From<u32> for RPC_C_HTTP_AUTHN_TARGET {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_C_HTTP_AUTHN_TARGET {
+unsafe impl ::windows::core::Abi for RPC_C_HTTP_AUTHN_TARGET {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RPC_C_HTTP_AUTHN_TARGET {
@@ -8576,7 +8576,7 @@ impl ::core::convert::From<u32> for RPC_C_HTTP_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_C_HTTP_FLAGS {
+unsafe impl ::windows::core::Abi for RPC_C_HTTP_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RPC_C_HTTP_FLAGS {
@@ -8686,7 +8686,7 @@ impl ::core::cmp::PartialEq for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -8763,7 +8763,7 @@ impl ::core::convert::From<u32> for RPC_C_QOS_CAPABILITIES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_C_QOS_CAPABILITIES {
+unsafe impl ::windows::core::Abi for RPC_C_QOS_CAPABILITIES {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RPC_C_QOS_CAPABILITIES {
@@ -8805,7 +8805,7 @@ impl ::core::convert::From<u32> for RPC_C_QOS_IDENTITY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_C_QOS_IDENTITY {
+unsafe impl ::windows::core::Abi for RPC_C_QOS_IDENTITY {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for RPC_C_QOS_IDENTITY {
@@ -8901,7 +8901,7 @@ impl ::core::cmp::PartialEq for RPC_DISPATCH_TABLE {
     }
 }
 impl ::core::cmp::Eq for RPC_DISPATCH_TABLE {}
-unsafe impl ::windows::runtime::Abi for RPC_DISPATCH_TABLE {
+unsafe impl ::windows::core::Abi for RPC_DISPATCH_TABLE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -8931,7 +8931,7 @@ impl ::core::cmp::PartialEq for RPC_EE_INFO_PARAM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_EE_INFO_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RPC_EE_INFO_PARAM {
+unsafe impl ::windows::core::Abi for RPC_EE_INFO_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8962,7 +8962,7 @@ impl ::core::cmp::PartialEq for RPC_EE_INFO_PARAM_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_EE_INFO_PARAM_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RPC_EE_INFO_PARAM_0 {
+unsafe impl ::windows::core::Abi for RPC_EE_INFO_PARAM_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8992,7 +8992,7 @@ impl ::core::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEA {
     }
 }
 impl ::core::cmp::Eq for RPC_ENDPOINT_TEMPLATEA {}
-unsafe impl ::windows::runtime::Abi for RPC_ENDPOINT_TEMPLATEA {
+unsafe impl ::windows::core::Abi for RPC_ENDPOINT_TEMPLATEA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9022,7 +9022,7 @@ impl ::core::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEW {
     }
 }
 impl ::core::cmp::Eq for RPC_ENDPOINT_TEMPLATEW {}
-unsafe impl ::windows::runtime::Abi for RPC_ENDPOINT_TEMPLATEW {
+unsafe impl ::windows::core::Abi for RPC_ENDPOINT_TEMPLATEW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9050,7 +9050,7 @@ impl ::core::cmp::PartialEq for RPC_ERROR_ENUM_HANDLE {
     }
 }
 impl ::core::cmp::Eq for RPC_ERROR_ENUM_HANDLE {}
-unsafe impl ::windows::runtime::Abi for RPC_ERROR_ENUM_HANDLE {
+unsafe impl ::windows::core::Abi for RPC_ERROR_ENUM_HANDLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9086,7 +9086,7 @@ impl ::core::cmp::PartialEq for RPC_EXTENDED_ERROR_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_EXTENDED_ERROR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RPC_EXTENDED_ERROR_INFO {
+unsafe impl ::windows::core::Abi for RPC_EXTENDED_ERROR_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9113,13 +9113,13 @@ impl ::core::cmp::PartialEq for RPC_EXTENDED_ERROR_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_EXTENDED_ERROR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RPC_EXTENDED_ERROR_INFO_0 {
+unsafe impl ::windows::core::Abi for RPC_EXTENDED_ERROR_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_FLAGS_VALID_BIT: u32 = 32768u32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
-pub type RPC_FORWARD_FUNCTION = unsafe extern "system" fn(interfaceid: *mut ::windows::runtime::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut ::windows::runtime::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+pub type RPC_FORWARD_FUNCTION = unsafe extern "system" fn(interfaceid: *mut ::windows::core::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut ::windows::core::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_FW_IF_FLAG_DCOM: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -9138,7 +9138,7 @@ impl ::core::convert::From<i32> for RPC_HTTP_REDIRECTOR_STAGE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_HTTP_REDIRECTOR_STAGE {
+unsafe impl ::windows::core::Abi for RPC_HTTP_REDIRECTOR_STAGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9176,7 +9176,7 @@ impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     }
 }
 impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {}
-unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9220,7 +9220,7 @@ impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     }
 }
 impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
-unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9264,7 +9264,7 @@ impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     }
 }
 impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {}
-unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9308,7 +9308,7 @@ impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     }
 }
 impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
-unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9352,7 +9352,7 @@ impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     }
 }
 impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {}
-unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9390,7 +9390,7 @@ impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     }
 }
 impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
-unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -9411,7 +9411,7 @@ pub type RPC_IF_CALLBACK_FN = unsafe extern "system" fn(interfaceuuid: *const ::
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub struct RPC_IF_ID {
-    pub Uuid: ::windows::runtime::GUID,
+    pub Uuid: ::windows::core::GUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
@@ -9432,7 +9432,7 @@ impl ::core::cmp::PartialEq for RPC_IF_ID {
     }
 }
 impl ::core::cmp::Eq for RPC_IF_ID {}
-unsafe impl ::windows::runtime::Abi for RPC_IF_ID {
+unsafe impl ::windows::core::Abi for RPC_IF_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9459,7 +9459,7 @@ impl ::core::cmp::PartialEq for RPC_IF_ID_VECTOR {
     }
 }
 impl ::core::cmp::Eq for RPC_IF_ID_VECTOR {}
-unsafe impl ::windows::runtime::Abi for RPC_IF_ID_VECTOR {
+unsafe impl ::windows::core::Abi for RPC_IF_ID_VECTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -9493,7 +9493,7 @@ impl ::core::cmp::PartialEq for RPC_IMPORT_CONTEXT_P {
     }
 }
 impl ::core::cmp::Eq for RPC_IMPORT_CONTEXT_P {}
-unsafe impl ::windows::runtime::Abi for RPC_IMPORT_CONTEXT_P {
+unsafe impl ::windows::core::Abi for RPC_IMPORT_CONTEXT_P {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -9506,7 +9506,7 @@ pub const RPC_INTERFACE_HAS_PIPES: u32 = 1u32;
 pub struct RPC_INTERFACE_TEMPLATEA {
     pub Version: u32,
     pub IfSpec: *mut ::core::ffi::c_void,
-    pub MgrTypeUuid: *mut ::windows::runtime::GUID,
+    pub MgrTypeUuid: *mut ::windows::core::GUID,
     pub MgrEpv: *mut ::core::ffi::c_void,
     pub Flags: u32,
     pub MaxCalls: u32,
@@ -9544,7 +9544,7 @@ impl ::core::cmp::PartialEq for RPC_INTERFACE_TEMPLATEA {
     }
 }
 impl ::core::cmp::Eq for RPC_INTERFACE_TEMPLATEA {}
-unsafe impl ::windows::runtime::Abi for RPC_INTERFACE_TEMPLATEA {
+unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -9553,7 +9553,7 @@ unsafe impl ::windows::runtime::Abi for RPC_INTERFACE_TEMPLATEA {
 pub struct RPC_INTERFACE_TEMPLATEW {
     pub Version: u32,
     pub IfSpec: *mut ::core::ffi::c_void,
-    pub MgrTypeUuid: *mut ::windows::runtime::GUID,
+    pub MgrTypeUuid: *mut ::windows::core::GUID,
     pub MgrEpv: *mut ::core::ffi::c_void,
     pub Flags: u32,
     pub MaxCalls: u32,
@@ -9591,7 +9591,7 @@ impl ::core::cmp::PartialEq for RPC_INTERFACE_TEMPLATEW {
     }
 }
 impl ::core::cmp::Eq for RPC_INTERFACE_TEMPLATEW {}
-unsafe impl ::windows::runtime::Abi for RPC_INTERFACE_TEMPLATEW {
+unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9639,7 +9639,7 @@ impl ::core::cmp::PartialEq for RPC_MESSAGE {
     }
 }
 impl ::core::cmp::Eq for RPC_MESSAGE {}
-unsafe impl ::windows::runtime::Abi for RPC_MESSAGE {
+unsafe impl ::windows::core::Abi for RPC_MESSAGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -9666,7 +9666,7 @@ impl ::core::convert::From<i32> for RPC_NOTIFICATIONS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_NOTIFICATIONS {
+unsafe impl ::windows::core::Abi for RPC_NOTIFICATIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -9684,11 +9684,11 @@ impl ::core::convert::From<i32> for RPC_NOTIFICATION_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_NOTIFICATION_TYPES {
+unsafe impl ::windows::core::Abi for RPC_NOTIFICATION_TYPES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
-pub type RPC_OBJECT_INQ_FN = unsafe extern "system" fn(objectuuid: *const ::windows::runtime::GUID, typeuuid: *mut ::windows::runtime::GUID, status: *mut RPC_STATUS);
+pub type RPC_OBJECT_INQ_FN = unsafe extern "system" fn(objectuuid: *const ::windows::core::GUID, typeuuid: *mut ::windows::core::GUID, status: *mut RPC_STATUS);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -9714,7 +9714,7 @@ impl ::core::cmp::PartialEq for RPC_POLICY {
     }
 }
 impl ::core::cmp::Eq for RPC_POLICY {}
-unsafe impl ::windows::runtime::Abi for RPC_POLICY {
+unsafe impl ::windows::core::Abi for RPC_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9741,7 +9741,7 @@ impl ::core::cmp::PartialEq for RPC_PROTSEQ_ENDPOINT {
     }
 }
 impl ::core::cmp::Eq for RPC_PROTSEQ_ENDPOINT {}
-unsafe impl ::windows::runtime::Abi for RPC_PROTSEQ_ENDPOINT {
+unsafe impl ::windows::core::Abi for RPC_PROTSEQ_ENDPOINT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -9776,7 +9776,7 @@ impl ::core::cmp::PartialEq for RPC_PROTSEQ_VECTORA {
     }
 }
 impl ::core::cmp::Eq for RPC_PROTSEQ_VECTORA {}
-unsafe impl ::windows::runtime::Abi for RPC_PROTSEQ_VECTORA {
+unsafe impl ::windows::core::Abi for RPC_PROTSEQ_VECTORA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9803,7 +9803,7 @@ impl ::core::cmp::PartialEq for RPC_PROTSEQ_VECTORW {
     }
 }
 impl ::core::cmp::Eq for RPC_PROTSEQ_VECTORW {}
-unsafe impl ::windows::runtime::Abi for RPC_PROTSEQ_VECTORW {
+unsafe impl ::windows::core::Abi for RPC_PROTSEQ_VECTORW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -9863,7 +9863,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9895,7 +9895,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_A {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_A {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_A {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9921,7 +9921,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_A_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_A_0 {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_A_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9953,7 +9953,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_W {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_W {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_W {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9979,7 +9979,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_W_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_W_0 {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_W_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10012,7 +10012,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_A {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_A {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_A {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10038,7 +10038,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_A_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_A_0 {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_A_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10071,7 +10071,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_W {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_W {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_W {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10097,7 +10097,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_W_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_W_0 {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_W_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10131,7 +10131,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_A {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_A {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_A {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10157,7 +10157,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_A_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_A_0 {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_A_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10191,7 +10191,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_W {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_W {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_W {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10217,7 +10217,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_W_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_W_0 {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_W_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10252,7 +10252,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_A {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_A {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_A {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10278,7 +10278,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_A_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_A_0 {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_A_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10313,7 +10313,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_W {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_W {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_W {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10339,7 +10339,7 @@ impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_W_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_W_0 {
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_W_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10367,7 +10367,7 @@ impl ::core::cmp::PartialEq for RPC_SEC_CONTEXT_KEY_INFO {
     }
 }
 impl ::core::cmp::Eq for RPC_SEC_CONTEXT_KEY_INFO {}
-unsafe impl ::windows::runtime::Abi for RPC_SEC_CONTEXT_KEY_INFO {
+unsafe impl ::windows::core::Abi for RPC_SEC_CONTEXT_KEY_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10411,11 +10411,11 @@ impl ::core::cmp::PartialEq for RPC_SERVER_INTERFACE {
     }
 }
 impl ::core::cmp::Eq for RPC_SERVER_INTERFACE {}
-unsafe impl ::windows::runtime::Abi for RPC_SERVER_INTERFACE {
+unsafe impl ::windows::core::Abi for RPC_SERVER_INTERFACE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
-pub type RPC_SETFILTER_FUNC = unsafe extern "system" fn(pfnfilter: ::windows::runtime::RawPtr);
+pub type RPC_SETFILTER_FUNC = unsafe extern "system" fn(pfnfilter: ::windows::core::RawPtr);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -10440,7 +10440,7 @@ impl ::core::cmp::PartialEq for RPC_STATS_VECTOR {
     }
 }
 impl ::core::cmp::Eq for RPC_STATS_VECTOR {}
-unsafe impl ::windows::runtime::Abi for RPC_STATS_VECTOR {
+unsafe impl ::windows::core::Abi for RPC_STATS_VECTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -10552,14 +10552,14 @@ impl ::core::convert::From<i32> for RPC_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RPC_STATUS {
+unsafe impl ::windows::core::Abi for RPC_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub struct RPC_SYNTAX_IDENTIFIER {
-    pub SyntaxGUID: ::windows::runtime::GUID,
+    pub SyntaxGUID: ::windows::core::GUID,
     pub SyntaxVersion: RPC_VERSION,
 }
 impl RPC_SYNTAX_IDENTIFIER {}
@@ -10579,7 +10579,7 @@ impl ::core::cmp::PartialEq for RPC_SYNTAX_IDENTIFIER {
     }
 }
 impl ::core::cmp::Eq for RPC_SYNTAX_IDENTIFIER {}
-unsafe impl ::windows::runtime::Abi for RPC_SYNTAX_IDENTIFIER {
+unsafe impl ::windows::core::Abi for RPC_SYNTAX_IDENTIFIER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -10594,7 +10594,7 @@ pub const RPC_SYSTEM_HANDLE_FREE_UNRETRIEVED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub struct RPC_TRANSFER_SYNTAX {
-    pub Uuid: ::windows::runtime::GUID,
+    pub Uuid: ::windows::core::GUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
@@ -10615,7 +10615,7 @@ impl ::core::cmp::PartialEq for RPC_TRANSFER_SYNTAX {
     }
 }
 impl ::core::cmp::Eq for RPC_TRANSFER_SYNTAX {}
-unsafe impl ::windows::runtime::Abi for RPC_TRANSFER_SYNTAX {
+unsafe impl ::windows::core::Abi for RPC_TRANSFER_SYNTAX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -10646,7 +10646,7 @@ impl ::core::cmp::PartialEq for RPC_VERSION {
     }
 }
 impl ::core::cmp::Eq for RPC_VERSION {}
-unsafe impl ::windows::runtime::Abi for RPC_VERSION {
+unsafe impl ::windows::core::Abi for RPC_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
@@ -10667,7 +10667,7 @@ pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn RpcAsyncCancelCall<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pasync: *mut RPC_ASYNC_STATE, fabort: Param1) -> RPC_STATUS {
+pub unsafe fn RpcAsyncCancelCall<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pasync: *mut RPC_ASYNC_STATE, fabort: Param1) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10988,12 +10988,12 @@ pub unsafe fn RpcBindingInqMaxCalls(binding: *const ::core::ffi::c_void, maxcall
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcBindingInqObject(binding: *const ::core::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqObject(binding: *const ::core::ffi::c_void, objectuuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqObject(binding: *const ::core::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+            fn RpcBindingInqObject(binding: *const ::core::ffi::c_void, objectuuid: *mut ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcBindingInqObject(::core::mem::transmute(binding), ::core::mem::transmute(objectuuid)))
     }
@@ -11102,12 +11102,12 @@ pub unsafe fn RpcBindingSetAuthInfoW(binding: *const ::core::ffi::c_void, server
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcBindingSetObject(binding: *const ::core::ffi::c_void, objectuuid: *const ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn RpcBindingSetObject(binding: *const ::core::ffi::c_void, objectuuid: *const ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingSetObject(binding: *const ::core::ffi::c_void, objectuuid: *const ::windows::runtime::GUID) -> RPC_STATUS;
+            fn RpcBindingSetObject(binding: *const ::core::ffi::c_void, objectuuid: *const ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcBindingSetObject(::core::mem::transmute(binding), ::core::mem::transmute(objectuuid)))
     }
@@ -11197,7 +11197,7 @@ impl ::core::convert::From<i32> for RpcCallClientLocality {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RpcCallClientLocality {
+unsafe impl ::windows::core::Abi for RpcCallClientLocality {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -11213,7 +11213,7 @@ impl ::core::convert::From<i32> for RpcCallType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RpcCallType {
+unsafe impl ::windows::core::Abi for RpcCallType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -11404,7 +11404,7 @@ pub unsafe fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> 
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RpcErrorGetNextRecord<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(enumhandle: *const RPC_ERROR_ENUM_HANDLE, copystrings: Param1, errorinfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS {
+pub unsafe fn RpcErrorGetNextRecord<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(enumhandle: *const RPC_ERROR_ENUM_HANDLE, copystrings: Param1, errorinfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11517,7 +11517,7 @@ pub unsafe fn RpcFreeAuthorizationContext(pauthzclientcontext: *mut *mut ::core:
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RpcGetAuthorizationContextForClient<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>>(clientbinding: *const ::core::ffi::c_void, impersonateonreturn: Param1, reserved1: *const ::core::ffi::c_void, pexpirationtime: *const i64, reserved2: Param4, reserved3: u32, reserved4: *const ::core::ffi::c_void, pauthzclientcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcGetAuthorizationContextForClient<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(clientbinding: *const ::core::ffi::c_void, impersonateonreturn: Param1, reserved1: *const ::core::ffi::c_void, pexpirationtime: *const i64, reserved2: Param4, reserved3: u32, reserved4: *const ::core::ffi::c_void, pauthzclientcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11620,7 +11620,7 @@ impl ::core::convert::From<i32> for RpcLocalAddressFormat {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RpcLocalAddressFormat {
+unsafe impl ::windows::core::Abi for RpcLocalAddressFormat {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -11639,12 +11639,12 @@ pub unsafe fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS {
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqBegin(epbinding: *const ::core::ffi::c_void, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, objectuuid: *const ::windows::runtime::GUID, inquirycontext: *mut *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcMgmtEpEltInqBegin(epbinding: *const ::core::ffi::c_void, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, objectuuid: *const ::windows::core::GUID, inquirycontext: *mut *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtEpEltInqBegin(epbinding: *const ::core::ffi::c_void, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, objectuuid: *const ::windows::runtime::GUID, inquirycontext: *mut *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcMgmtEpEltInqBegin(epbinding: *const ::core::ffi::c_void, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, objectuuid: *const ::windows::core::GUID, inquirycontext: *mut *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcMgmtEpEltInqBegin(::core::mem::transmute(epbinding), ::core::mem::transmute(inquirytype), ::core::mem::transmute(ifid), ::core::mem::transmute(versoption), ::core::mem::transmute(objectuuid), ::core::mem::transmute(inquirycontext)))
     }
@@ -11667,12 +11667,12 @@ pub unsafe fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut ::core::ffi::c_
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqNextA(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::core::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID, annotation: *mut *mut u8) -> RPC_STATUS {
+pub unsafe fn RpcMgmtEpEltInqNextA(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::core::ffi::c_void, objectuuid: *mut ::windows::core::GUID, annotation: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtEpEltInqNextA(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::core::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID, annotation: *mut *mut u8) -> RPC_STATUS;
+            fn RpcMgmtEpEltInqNextA(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::core::ffi::c_void, objectuuid: *mut ::windows::core::GUID, annotation: *mut *mut u8) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcMgmtEpEltInqNextA(::core::mem::transmute(inquirycontext), ::core::mem::transmute(ifid), ::core::mem::transmute(binding), ::core::mem::transmute(objectuuid), ::core::mem::transmute(annotation)))
     }
@@ -11681,12 +11681,12 @@ pub unsafe fn RpcMgmtEpEltInqNextA(inquirycontext: *const *const ::core::ffi::c_
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqNextW(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::core::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID, annotation: *mut *mut u16) -> RPC_STATUS {
+pub unsafe fn RpcMgmtEpEltInqNextW(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::core::ffi::c_void, objectuuid: *mut ::windows::core::GUID, annotation: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtEpEltInqNextW(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::core::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID, annotation: *mut *mut u16) -> RPC_STATUS;
+            fn RpcMgmtEpEltInqNextW(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::core::ffi::c_void, objectuuid: *mut ::windows::core::GUID, annotation: *mut *mut u16) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcMgmtEpEltInqNextW(::core::mem::transmute(inquirycontext), ::core::mem::transmute(ifid), ::core::mem::transmute(binding), ::core::mem::transmute(objectuuid), ::core::mem::transmute(annotation)))
     }
@@ -11695,12 +11695,12 @@ pub unsafe fn RpcMgmtEpEltInqNextW(inquirycontext: *const *const ::core::ffi::c_
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcMgmtEpUnregister(epbinding: *const ::core::ffi::c_void, ifid: *const RPC_IF_ID, binding: *const ::core::ffi::c_void, objectuuid: *const ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn RpcMgmtEpUnregister(epbinding: *const ::core::ffi::c_void, ifid: *const RPC_IF_ID, binding: *const ::core::ffi::c_void, objectuuid: *const ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtEpUnregister(epbinding: *const ::core::ffi::c_void, ifid: *const RPC_IF_ID, binding: *const ::core::ffi::c_void, objectuuid: *const ::windows::runtime::GUID) -> RPC_STATUS;
+            fn RpcMgmtEpUnregister(epbinding: *const ::core::ffi::c_void, ifid: *const RPC_IF_ID, binding: *const ::core::ffi::c_void, objectuuid: *const ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcMgmtEpUnregister(::core::mem::transmute(epbinding), ::core::mem::transmute(ifid), ::core::mem::transmute(binding), ::core::mem::transmute(objectuuid)))
     }
@@ -11812,7 +11812,7 @@ pub unsafe fn RpcMgmtSetAuthorizationFn(authorizationfn: ::core::option::Option<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtSetAuthorizationFn(authorizationfn: ::windows::runtime::RawPtr) -> RPC_STATUS;
+            fn RpcMgmtSetAuthorizationFn(authorizationfn: ::windows::core::RawPtr) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcMgmtSetAuthorizationFn(::core::mem::transmute(authorizationfn)))
     }
@@ -12017,12 +12017,12 @@ pub unsafe fn RpcNsBindingExportW(entrynamesyntax: u32, entryname: *const u16, i
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcNsBindingImportBeginA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), ::core::mem::transmute(importcontext)))
     }
@@ -12031,12 +12031,12 @@ pub unsafe fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcNsBindingImportBeginW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), ::core::mem::transmute(importcontext)))
     }
@@ -12101,12 +12101,12 @@ pub unsafe fn RpcNsBindingInqEntryNameW(binding: *const ::core::ffi::c_void, ent
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcNsBindingLookupBeginA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), ::core::mem::transmute(bindingmaxcount), ::core::mem::transmute(lookupcontext)))
     }
@@ -12115,12 +12115,12 @@ pub unsafe fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::runtime::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcNsBindingLookupBeginW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), ::core::mem::transmute(bindingmaxcount), ::core::mem::transmute(lookupcontext)))
     }
@@ -12297,12 +12297,12 @@ pub unsafe fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut ::core::ffi::c_v
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcNsEntryObjectInqNext(inquirycontext: *mut ::core::ffi::c_void, objuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn RpcNsEntryObjectInqNext(inquirycontext: *mut ::core::ffi::c_void, objuuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsEntryObjectInqNext(inquirycontext: *mut ::core::ffi::c_void, objuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+            fn RpcNsEntryObjectInqNext(inquirycontext: *mut ::core::ffi::c_void, objuuid: *mut ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcNsEntryObjectInqNext(::core::mem::transmute(inquirycontext), ::core::mem::transmute(objuuid)))
     }
@@ -12791,12 +12791,12 @@ pub unsafe fn RpcNsProfileEltRemoveW(profilenamesyntax: u32, profilename: *const
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcObjectInqType(objuuid: *const ::windows::runtime::GUID, typeuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn RpcObjectInqType(objuuid: *const ::windows::core::GUID, typeuuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcObjectInqType(objuuid: *const ::windows::runtime::GUID, typeuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+            fn RpcObjectInqType(objuuid: *const ::windows::core::GUID, typeuuid: *mut ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcObjectInqType(::core::mem::transmute(objuuid), ::core::mem::transmute(typeuuid)))
     }
@@ -12810,7 +12810,7 @@ pub unsafe fn RpcObjectSetInqFn(inquiryfn: ::core::option::Option<RPC_OBJECT_INQ
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcObjectSetInqFn(inquiryfn: ::windows::runtime::RawPtr) -> RPC_STATUS;
+            fn RpcObjectSetInqFn(inquiryfn: ::windows::core::RawPtr) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcObjectSetInqFn(::core::mem::transmute(inquiryfn)))
     }
@@ -12819,12 +12819,12 @@ pub unsafe fn RpcObjectSetInqFn(inquiryfn: ::core::option::Option<RPC_OBJECT_INQ
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcObjectSetType(objuuid: *const ::windows::runtime::GUID, typeuuid: *const ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn RpcObjectSetType(objuuid: *const ::windows::core::GUID, typeuuid: *const ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcObjectSetType(objuuid: *const ::windows::runtime::GUID, typeuuid: *const ::windows::runtime::GUID) -> RPC_STATUS;
+            fn RpcObjectSetType(objuuid: *const ::windows::core::GUID, typeuuid: *const ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcObjectSetType(::core::mem::transmute(objuuid), ::core::mem::transmute(typeuuid)))
     }
@@ -12880,7 +12880,7 @@ impl ::core::convert::From<i32> for RpcProxyPerfCounters {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RpcProxyPerfCounters {
+unsafe impl ::windows::core::Abi for RpcProxyPerfCounters {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -13053,12 +13053,12 @@ pub unsafe fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut *mut 
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcServerInqIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcServerInqIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInqIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerInqIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerInqIf(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv)))
     }
@@ -13100,7 +13100,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TE
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInterfaceGroupCreateA(interfaces: *const ::core::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEA>, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::runtime::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerInterfaceGroupCreateA(interfaces: *const ::core::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEA>, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerInterfaceGroupCreateA(
             ::core::mem::transmute(interfaces),
@@ -13123,7 +13123,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: *const RPC_INTERFACE_TE
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInterfaceGroupCreateW(interfaces: *const ::core::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEW>, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::runtime::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerInterfaceGroupCreateW(interfaces: *const ::core::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEW>, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerInterfaceGroupCreateW(
             ::core::mem::transmute(interfaces),
@@ -13188,7 +13188,7 @@ pub unsafe fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u32, getkeyfn: ::windows::runtime::RawPtr, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u32, getkeyfn: ::windows::core::RawPtr, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerRegisterAuthInfoA(::core::mem::transmute(serverprincname), ::core::mem::transmute(authnsvc), ::core::mem::transmute(getkeyfn), ::core::mem::transmute(arg)))
     }
@@ -13202,7 +13202,7 @@ pub unsafe fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: u32, getkeyfn: ::windows::runtime::RawPtr, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: u32, getkeyfn: ::windows::core::RawPtr, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerRegisterAuthInfoW(::core::mem::transmute(serverprincname), ::core::mem::transmute(authnsvc), ::core::mem::transmute(getkeyfn), ::core::mem::transmute(arg)))
     }
@@ -13211,12 +13211,12 @@ pub unsafe fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: 
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcServerRegisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerRegisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerRegisterIf(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv)))
     }
@@ -13225,12 +13225,12 @@ pub unsafe fn RpcServerRegisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuui
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: ::core::option::Option<RPC_IF_CALLBACK_FN>) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: ::core::option::Option<RPC_IF_CALLBACK_FN>) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: ::windows::runtime::RawPtr) -> RPC_STATUS;
+            fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: ::windows::core::RawPtr) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerRegisterIf2(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), ::core::mem::transmute(flags), ::core::mem::transmute(maxcalls), ::core::mem::transmute(maxrpcsize), ::core::mem::transmute(ifcallbackfn)))
     }
@@ -13239,12 +13239,12 @@ pub unsafe fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuu
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: ::core::option::Option<RPC_IF_CALLBACK_FN>, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: ::core::option::Option<RPC_IF_CALLBACK_FN>, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: ::windows::runtime::RawPtr, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: ::windows::core::RawPtr, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerRegisterIf3(
             ::core::mem::transmute(ifspec),
@@ -13262,12 +13262,12 @@ pub unsafe fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuu
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: ::core::option::Option<RPC_IF_CALLBACK_FN>) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: ::core::option::Option<RPC_IF_CALLBACK_FN>) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: ::windows::runtime::RawPtr) -> RPC_STATUS;
+            fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: ::windows::core::RawPtr) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerRegisterIfEx(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), ::core::mem::transmute(flags), ::core::mem::transmute(maxcalls), ::core::mem::transmute(ifcallback)))
     }
@@ -13305,12 +13305,12 @@ pub unsafe fn RpcServerTestCancel(bindinghandle: *const ::core::ffi::c_void) -> 
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcServerUnregisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, waitforcallstocomplete: u32) -> RPC_STATUS {
+pub unsafe fn RpcServerUnregisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, waitforcallstocomplete: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUnregisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, waitforcallstocomplete: u32) -> RPC_STATUS;
+            fn RpcServerUnregisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, waitforcallstocomplete: u32) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerUnregisterIf(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(waitforcallstocomplete)))
     }
@@ -13319,12 +13319,12 @@ pub unsafe fn RpcServerUnregisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeu
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn RpcServerUnregisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, rundowncontexthandles: i32) -> RPC_STATUS {
+pub unsafe fn RpcServerUnregisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, rundowncontexthandles: i32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUnregisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, rundowncontexthandles: i32) -> RPC_STATUS;
+            fn RpcServerUnregisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, rundowncontexthandles: i32) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerUnregisterIfEx(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(rundowncontexthandles)))
     }
@@ -13688,7 +13688,7 @@ pub unsafe fn RpcSmSetClientAllocFree(clientalloc: ::core::option::Option<RPC_CL
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSmSetClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr) -> RPC_STATUS;
+            fn RpcSmSetClientAllocFree(clientalloc: ::windows::core::RawPtr, clientfree: ::windows::core::RawPtr) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcSmSetClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree)))
     }
@@ -13716,7 +13716,7 @@ pub unsafe fn RpcSmSwapClientAllocFree(clientalloc: ::core::option::Option<RPC_C
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSmSwapClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr, oldclientalloc: *mut ::windows::runtime::RawPtr, oldclientfree: *mut ::windows::runtime::RawPtr) -> RPC_STATUS;
+            fn RpcSmSwapClientAllocFree(clientalloc: ::windows::core::RawPtr, clientfree: ::windows::core::RawPtr, oldclientalloc: *mut ::windows::core::RawPtr, oldclientfree: *mut ::windows::core::RawPtr) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcSmSwapClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree), ::core::mem::transmute(oldclientalloc), ::core::mem::transmute(oldclientfree)))
     }
@@ -13870,7 +13870,7 @@ pub unsafe fn RpcSsSetClientAllocFree(clientalloc: ::core::option::Option<RPC_CL
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSsSetClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr);
+            fn RpcSsSetClientAllocFree(clientalloc: ::windows::core::RawPtr, clientfree: ::windows::core::RawPtr);
         }
         ::core::mem::transmute(RpcSsSetClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree)))
     }
@@ -13898,7 +13898,7 @@ pub unsafe fn RpcSsSwapClientAllocFree(clientalloc: ::core::option::Option<RPC_C
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSsSwapClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr, oldclientalloc: *mut ::windows::runtime::RawPtr, oldclientfree: *mut ::windows::runtime::RawPtr);
+            fn RpcSsSwapClientAllocFree(clientalloc: ::windows::core::RawPtr, clientfree: ::windows::core::RawPtr, oldclientalloc: *mut ::windows::core::RawPtr, oldclientfree: *mut ::windows::core::RawPtr);
         }
         ::core::mem::transmute(RpcSsSwapClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree), ::core::mem::transmute(oldclientalloc), ::core::mem::transmute(oldclientfree)))
     }
@@ -14041,7 +14041,7 @@ impl ::core::cmp::PartialEq for SCONTEXT_QUEUE {
     }
 }
 impl ::core::cmp::Eq for SCONTEXT_QUEUE {}
-unsafe impl ::windows::runtime::Abi for SCONTEXT_QUEUE {
+unsafe impl ::windows::core::Abi for SCONTEXT_QUEUE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -14055,7 +14055,7 @@ impl ::core::convert::From<u32> for SEC_WINNT_AUTH_IDENTITY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SEC_WINNT_AUTH_IDENTITY {
+unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SEC_WINNT_AUTH_IDENTITY {
@@ -14115,7 +14115,7 @@ impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_A {
     }
 }
 impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_A {}
-unsafe impl ::windows::runtime::Abi for SEC_WINNT_AUTH_IDENTITY_A {
+unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14147,7 +14147,7 @@ impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_W {
     }
 }
 impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_W {}
-unsafe impl ::windows::runtime::Abi for SEC_WINNT_AUTH_IDENTITY_W {
+unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_W {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -14165,7 +14165,7 @@ impl ::core::convert::From<i32> for STUB_PHASE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STUB_PHASE {
+unsafe impl ::windows::core::Abi for STUB_PHASE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
@@ -14237,7 +14237,7 @@ impl ::core::cmp::PartialEq for USER_MARSHAL_CB {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for USER_MARSHAL_CB {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for USER_MARSHAL_CB {
+unsafe impl ::windows::core::Abi for USER_MARSHAL_CB {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -14253,7 +14253,7 @@ impl ::core::convert::From<i32> for USER_MARSHAL_CB_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USER_MARSHAL_CB_TYPE {
+unsafe impl ::windows::core::Abi for USER_MARSHAL_CB_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -14310,7 +14310,7 @@ impl ::core::cmp::PartialEq for USER_MARSHAL_ROUTINE_QUADRUPLE {
     }
 }
 impl ::core::cmp::Eq for USER_MARSHAL_ROUTINE_QUADRUPLE {}
-unsafe impl ::windows::runtime::Abi for USER_MARSHAL_ROUTINE_QUADRUPLE {
+unsafe impl ::windows::core::Abi for USER_MARSHAL_ROUTINE_QUADRUPLE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -14322,7 +14322,7 @@ pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = unsafe extern "system" fn(param0: 
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub struct UUID_VECTOR {
     pub Count: u32,
-    pub Uuid: [*mut ::windows::runtime::GUID; 1],
+    pub Uuid: [*mut ::windows::core::GUID; 1],
 }
 impl UUID_VECTOR {}
 impl ::core::default::Default for UUID_VECTOR {
@@ -14341,17 +14341,17 @@ impl ::core::cmp::PartialEq for UUID_VECTOR {
     }
 }
 impl ::core::cmp::Eq for UUID_VECTOR {}
-unsafe impl ::windows::runtime::Abi for UUID_VECTOR {
+unsafe impl ::windows::core::Abi for UUID_VECTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn UuidCompare(uuid1: *const ::windows::runtime::GUID, uuid2: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32 {
+pub unsafe fn UuidCompare(uuid1: *const ::windows::core::GUID, uuid2: *const ::windows::core::GUID, status: *mut RPC_STATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidCompare(uuid1: *const ::windows::runtime::GUID, uuid2: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32;
+            fn UuidCompare(uuid1: *const ::windows::core::GUID, uuid2: *const ::windows::core::GUID, status: *mut RPC_STATUS) -> i32;
         }
         ::core::mem::transmute(UuidCompare(::core::mem::transmute(uuid1), ::core::mem::transmute(uuid2), ::core::mem::transmute(status)))
     }
@@ -14360,12 +14360,12 @@ pub unsafe fn UuidCompare(uuid1: *const ::windows::runtime::GUID, uuid2: *const 
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn UuidCreate(uuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+            fn UuidCreate(uuid: *mut ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(UuidCreate(::core::mem::transmute(uuid)))
     }
@@ -14374,12 +14374,12 @@ pub unsafe fn UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn UuidCreateNil(niluuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn UuidCreateNil(niluuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidCreateNil(niluuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+            fn UuidCreateNil(niluuid: *mut ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(UuidCreateNil(::core::mem::transmute(niluuid)))
     }
@@ -14388,12 +14388,12 @@ pub unsafe fn UuidCreateNil(niluuid: *mut ::windows::runtime::GUID) -> RPC_STATU
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn UuidCreateSequential(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn UuidCreateSequential(uuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidCreateSequential(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+            fn UuidCreateSequential(uuid: *mut ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(UuidCreateSequential(::core::mem::transmute(uuid)))
     }
@@ -14402,12 +14402,12 @@ pub unsafe fn UuidCreateSequential(uuid: *mut ::windows::runtime::GUID) -> RPC_S
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn UuidEqual(uuid1: *const ::windows::runtime::GUID, uuid2: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32 {
+pub unsafe fn UuidEqual(uuid1: *const ::windows::core::GUID, uuid2: *const ::windows::core::GUID, status: *mut RPC_STATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidEqual(uuid1: *const ::windows::runtime::GUID, uuid2: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32;
+            fn UuidEqual(uuid1: *const ::windows::core::GUID, uuid2: *const ::windows::core::GUID, status: *mut RPC_STATUS) -> i32;
         }
         ::core::mem::transmute(UuidEqual(::core::mem::transmute(uuid1), ::core::mem::transmute(uuid2), ::core::mem::transmute(status)))
     }
@@ -14416,12 +14416,12 @@ pub unsafe fn UuidEqual(uuid1: *const ::windows::runtime::GUID, uuid2: *const ::
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn UuidFromStringA(stringuuid: *const u8, uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn UuidFromStringA(stringuuid: *const u8, uuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidFromStringA(stringuuid: *const u8, uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+            fn UuidFromStringA(stringuuid: *const u8, uuid: *mut ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(UuidFromStringA(::core::mem::transmute(stringuuid), ::core::mem::transmute(uuid)))
     }
@@ -14430,12 +14430,12 @@ pub unsafe fn UuidFromStringA(stringuuid: *const u8, uuid: *mut ::windows::runti
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn UuidFromStringW(stringuuid: *const u16, uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
+pub unsafe fn UuidFromStringW(stringuuid: *const u16, uuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidFromStringW(stringuuid: *const u16, uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+            fn UuidFromStringW(stringuuid: *const u16, uuid: *mut ::windows::core::GUID) -> RPC_STATUS;
         }
         ::core::mem::transmute(UuidFromStringW(::core::mem::transmute(stringuuid), ::core::mem::transmute(uuid)))
     }
@@ -14444,12 +14444,12 @@ pub unsafe fn UuidFromStringW(stringuuid: *const u16, uuid: *mut ::windows::runt
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn UuidHash(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> u16 {
+pub unsafe fn UuidHash(uuid: *const ::windows::core::GUID, status: *mut RPC_STATUS) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidHash(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> u16;
+            fn UuidHash(uuid: *const ::windows::core::GUID, status: *mut RPC_STATUS) -> u16;
         }
         ::core::mem::transmute(UuidHash(::core::mem::transmute(uuid), ::core::mem::transmute(status)))
     }
@@ -14458,12 +14458,12 @@ pub unsafe fn UuidHash(uuid: *const ::windows::runtime::GUID, status: *mut RPC_S
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn UuidIsNil(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32 {
+pub unsafe fn UuidIsNil(uuid: *const ::windows::core::GUID, status: *mut RPC_STATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidIsNil(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32;
+            fn UuidIsNil(uuid: *const ::windows::core::GUID, status: *mut RPC_STATUS) -> i32;
         }
         ::core::mem::transmute(UuidIsNil(::core::mem::transmute(uuid), ::core::mem::transmute(status)))
     }
@@ -14472,12 +14472,12 @@ pub unsafe fn UuidIsNil(uuid: *const ::windows::runtime::GUID, status: *mut RPC_
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn UuidToStringA(uuid: *const ::windows::runtime::GUID, stringuuid: *mut *mut u8) -> RPC_STATUS {
+pub unsafe fn UuidToStringA(uuid: *const ::windows::core::GUID, stringuuid: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidToStringA(uuid: *const ::windows::runtime::GUID, stringuuid: *mut *mut u8) -> RPC_STATUS;
+            fn UuidToStringA(uuid: *const ::windows::core::GUID, stringuuid: *mut *mut u8) -> RPC_STATUS;
         }
         ::core::mem::transmute(UuidToStringA(::core::mem::transmute(uuid), ::core::mem::transmute(stringuuid)))
     }
@@ -14486,12 +14486,12 @@ pub unsafe fn UuidToStringA(uuid: *const ::windows::runtime::GUID, stringuuid: *
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
-pub unsafe fn UuidToStringW(uuid: *const ::windows::runtime::GUID, stringuuid: *mut *mut u16) -> RPC_STATUS {
+pub unsafe fn UuidToStringW(uuid: *const ::windows::core::GUID, stringuuid: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidToStringW(uuid: *const ::windows::runtime::GUID, stringuuid: *mut *mut u16) -> RPC_STATUS;
+            fn UuidToStringW(uuid: *const ::windows::core::GUID, stringuuid: *mut *mut u16) -> RPC_STATUS;
         }
         ::core::mem::transmute(UuidToStringW(::core::mem::transmute(uuid), ::core::mem::transmute(stringuuid)))
     }
@@ -14509,7 +14509,7 @@ impl ::core::convert::From<i32> for XLAT_SIDE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for XLAT_SIDE {
+unsafe impl ::windows::core::Abi for XLAT_SIDE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
@@ -14548,7 +14548,7 @@ impl ::core::cmp::PartialEq for XMIT_ROUTINE_QUINTUPLE {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for XMIT_ROUTINE_QUINTUPLE {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for XMIT_ROUTINE_QUINTUPLE {
+unsafe impl ::windows::core::Abi for XMIT_ROUTINE_QUINTUPLE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[repr(C)]
@@ -14584,7 +14584,7 @@ impl ::core::cmp::PartialEq for _NDR_SCONTEXT {
     }
 }
 impl ::core::cmp::Eq for _NDR_SCONTEXT {}
-unsafe impl ::windows::runtime::Abi for _NDR_SCONTEXT {
+unsafe impl ::windows::core::Abi for _NDR_SCONTEXT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -14613,6 +14613,6 @@ impl ::core::convert::From<i32> for system_handle_t {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for system_handle_t {
+unsafe impl ::windows::core::Abi for system_handle_t {
     type Abi = Self;
 }

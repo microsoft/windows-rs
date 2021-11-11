@@ -17,7 +17,7 @@ impl ::core::convert::From<i32> for AR_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AR_STATE {
+unsafe impl ::windows::core::Abi for AR_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -45,7 +45,7 @@ impl ::core::cmp::PartialEq for Adapter {
     }
 }
 impl ::core::cmp::Eq for Adapter {}
-unsafe impl ::windows::runtime::Abi for Adapter {
+unsafe impl ::windows::core::Abi for Adapter {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -72,7 +72,7 @@ impl ::core::cmp::PartialEq for Adapters {
     }
 }
 impl ::core::cmp::Eq for Adapters {}
-unsafe impl ::windows::runtime::Abi for Adapters {
+unsafe impl ::windows::core::Abi for Adapters {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -89,7 +89,7 @@ impl ::core::convert::From<i32> for BACKLIGHT_OPTIMIZATION_LEVEL {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BACKLIGHT_OPTIMIZATION_LEVEL {
+unsafe impl ::windows::core::Abi for BACKLIGHT_OPTIMIZATION_LEVEL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -117,7 +117,7 @@ impl ::core::cmp::PartialEq for BACKLIGHT_REDUCTION_GAMMA_RAMP {
     }
 }
 impl ::core::cmp::Eq for BACKLIGHT_REDUCTION_GAMMA_RAMP {}
-unsafe impl ::windows::runtime::Abi for BACKLIGHT_REDUCTION_GAMMA_RAMP {
+unsafe impl ::windows::core::Abi for BACKLIGHT_REDUCTION_GAMMA_RAMP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -144,7 +144,7 @@ impl ::core::cmp::PartialEq for BANK_POSITION {
     }
 }
 impl ::core::cmp::Eq for BANK_POSITION {}
-unsafe impl ::windows::runtime::Abi for BANK_POSITION {
+unsafe impl ::windows::core::Abi for BANK_POSITION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -187,7 +187,7 @@ impl ::core::cmp::PartialEq for BLENDOBJ {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for BLENDOBJ {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::runtime::Abi for BLENDOBJ {
+unsafe impl ::windows::core::Abi for BLENDOBJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -246,7 +246,7 @@ impl ::core::convert::From<i32> for BRIGHTNESS_INTERFACE_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BRIGHTNESS_INTERFACE_VERSION {
+unsafe impl ::windows::core::Abi for BRIGHTNESS_INTERFACE_VERSION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -273,7 +273,7 @@ impl ::core::cmp::PartialEq for BRIGHTNESS_LEVEL {
     }
 }
 impl ::core::cmp::Eq for BRIGHTNESS_LEVEL {}
-unsafe impl ::windows::runtime::Abi for BRIGHTNESS_LEVEL {
+unsafe impl ::windows::core::Abi for BRIGHTNESS_LEVEL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -305,7 +305,7 @@ impl ::core::cmp::PartialEq for BRIGHTNESS_NIT_RANGE {
     }
 }
 impl ::core::cmp::Eq for BRIGHTNESS_NIT_RANGE {}
-unsafe impl ::windows::runtime::Abi for BRIGHTNESS_NIT_RANGE {
+unsafe impl ::windows::core::Abi for BRIGHTNESS_NIT_RANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -334,7 +334,7 @@ impl ::core::cmp::PartialEq for BRIGHTNESS_NIT_RANGES {
     }
 }
 impl ::core::cmp::Eq for BRIGHTNESS_NIT_RANGES {}
-unsafe impl ::windows::runtime::Abi for BRIGHTNESS_NIT_RANGES {
+unsafe impl ::windows::core::Abi for BRIGHTNESS_NIT_RANGES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -362,7 +362,7 @@ impl ::core::cmp::PartialEq for BRUSHOBJ {
     }
 }
 impl ::core::cmp::Eq for BRUSHOBJ {}
-unsafe impl ::windows::runtime::Abi for BRUSHOBJ {
+unsafe impl ::windows::core::Abi for BRUSHOBJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
@@ -441,7 +441,7 @@ impl ::core::convert::From<i32> for BlackScreenDiagnosticsCalloutParam {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BlackScreenDiagnosticsCalloutParam {
+unsafe impl ::windows::core::Abi for BlackScreenDiagnosticsCalloutParam {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -488,7 +488,7 @@ impl ::core::cmp::PartialEq for CDDDXGK_REDIRBITMAPPRESENTINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CDDDXGK_REDIRBITMAPPRESENTINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CDDDXGK_REDIRBITMAPPRESENTINFO {
+unsafe impl ::windows::core::Abi for CDDDXGK_REDIRBITMAPPRESENTINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -530,7 +530,7 @@ impl ::core::cmp::PartialEq for CHAR_IMAGE_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 impl ::core::cmp::Eq for CHAR_IMAGE_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
-unsafe impl ::windows::runtime::Abi for CHAR_IMAGE_INFO {
+unsafe impl ::windows::core::Abi for CHAR_IMAGE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -563,7 +563,7 @@ impl ::core::cmp::PartialEq for CHROMATICITY_COORDINATE {
     }
 }
 impl ::core::cmp::Eq for CHROMATICITY_COORDINATE {}
-unsafe impl ::windows::runtime::Abi for CHROMATICITY_COORDINATE {
+unsafe impl ::windows::core::Abi for CHROMATICITY_COORDINATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -591,7 +591,7 @@ impl ::core::cmp::PartialEq for CIECHROMA {
     }
 }
 impl ::core::cmp::Eq for CIECHROMA {}
-unsafe impl ::windows::runtime::Abi for CIECHROMA {
+unsafe impl ::windows::core::Abi for CIECHROMA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -621,7 +621,7 @@ impl ::core::cmp::PartialEq for CLIPLINE {
     }
 }
 impl ::core::cmp::Eq for CLIPLINE {}
-unsafe impl ::windows::runtime::Abi for CLIPLINE {
+unsafe impl ::windows::core::Abi for CLIPLINE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -659,7 +659,7 @@ impl ::core::cmp::PartialEq for CLIPOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CLIPOBJ {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CLIPOBJ {
+unsafe impl ::windows::core::Abi for CLIPOBJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
@@ -680,7 +680,7 @@ pub unsafe fn CLIPOBJ_bEnum(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> super:
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CLIPOBJ_cEnumStart<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pco: *mut CLIPOBJ, ball: Param1, itype: u32, idirection: u32, climit: u32) -> u32 {
+pub unsafe fn CLIPOBJ_cEnumStart<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pco: *mut CLIPOBJ, ball: Param1, itype: u32, idirection: u32, climit: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -777,7 +777,7 @@ impl ::core::cmp::PartialEq for COLORINFO {
     }
 }
 impl ::core::cmp::Eq for COLORINFO {}
-unsafe impl ::windows::runtime::Abi for COLORINFO {
+unsafe impl ::windows::core::Abi for COLORINFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -799,7 +799,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -823,7 +823,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_0 {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_0 {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_0 {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -845,7 +845,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_1DLUT_CAP {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_1DLUT_CAP {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_1DLUT_CAP {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_1DLUT_CAP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -873,7 +873,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_3x4 {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_3x4 {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_3x4 {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_3x4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -897,7 +897,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_CAP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -920,7 +920,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP_0 {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP_0 {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0 {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -946,7 +946,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -972,7 +972,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -986,7 +986,7 @@ impl ::core::convert::From<i32> for COLORSPACE_TRANSFORM_DATA_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_TYPE {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1008,7 +1008,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_CAP {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_CAP {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1030,7 +1030,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1056,7 +1056,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1094,7 +1094,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_V2 {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_V2 {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_V2 {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_MATRIX_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1117,7 +1117,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_SET_INPUT {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_SET_INPUT {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_SET_INPUT {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_SET_INPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -1132,7 +1132,7 @@ impl ::core::convert::From<i32> for COLORSPACE_TRANSFORM_STAGE_CONTROL {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_STAGE_CONTROL {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_STAGE_CONTROL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1156,7 +1156,7 @@ impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_TARGET_CAPS {
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_TARGET_CAPS {}
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -1171,7 +1171,7 @@ impl ::core::convert::From<i32> for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -1189,7 +1189,7 @@ impl ::core::convert::From<i32> for COLORSPACE_TRANSFORM_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TYPE {
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -1197,7 +1197,7 @@ pub const CT_RECTANGLES: i32 = 0i32;
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pszasciicapabilitiesstring: super::super::Foundation::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32 {
+pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pszasciicapabilitiesstring: super::super::Foundation::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1260,7 +1260,7 @@ impl ::core::cmp::PartialEq for DEVHTADJDATA {
     }
 }
 impl ::core::cmp::Eq for DEVHTADJDATA {}
-unsafe impl ::windows::runtime::Abi for DEVHTADJDATA {
+unsafe impl ::windows::core::Abi for DEVHTADJDATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -1293,7 +1293,7 @@ impl ::core::cmp::PartialEq for DEVHTINFO {
     }
 }
 impl ::core::cmp::Eq for DEVHTINFO {}
-unsafe impl ::windows::runtime::Abi for DEVHTINFO {
+unsafe impl ::windows::core::Abi for DEVHTINFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1346,33 +1346,21 @@ impl ::core::cmp::PartialEq for DEVINFO {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for DEVINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::runtime::Abi for DEVINFO {
+unsafe impl ::windows::core::Abi for DEVINFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310),
-    pid: 4u32,
-};
+pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_Device_AdapterLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310),
-    pid: 3u32,
-};
+pub const DEVPKEY_Device_AdapterLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310),
-    pid: 2u32,
-};
+pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310),
-    pid: 1u32,
-};
+pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1u32 };
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct DHPDEV(pub isize);
@@ -1381,8 +1369,8 @@ impl ::core::default::Default for DHPDEV {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for DHPDEV {}
-unsafe impl ::windows::runtime::Abi for DHPDEV {
+unsafe impl ::windows::core::Handle for DHPDEV {}
+unsafe impl ::windows::core::Abi for DHPDEV {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1393,8 +1381,8 @@ impl ::core::default::Default for DHSURF {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for DHSURF {}
-unsafe impl ::windows::runtime::Abi for DHSURF {
+unsafe impl ::windows::core::Handle for DHSURF {}
+unsafe impl ::windows::core::Abi for DHSURF {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1421,7 +1409,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_2DREGION {
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_2DREGION {}
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_2DREGION {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_2DREGION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1455,7 +1443,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_ADAPTER_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_ADAPTER_NAME {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_ADAPTER_NAME {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_ADAPTER_NAME {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1490,7 +1478,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1526,7 +1514,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_DEVICE_INFO_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_DEVICE_INFO_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_DEVICE_INFO_HEADER {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -1552,7 +1540,7 @@ impl ::core::convert::From<i32> for DISPLAYCONFIG_DEVICE_INFO_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_DEVICE_INFO_TYPE {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_DEVICE_INFO_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1582,7 +1570,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1609,7 +1597,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1641,7 +1629,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1669,7 +1657,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1696,7 +1684,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1728,7 +1716,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1758,7 +1746,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_MODE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_MODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_MODE_INFO {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_MODE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1786,7 +1774,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_MODE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_MODE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_MODE_INFO_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_MODE_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -1802,7 +1790,7 @@ impl ::core::convert::From<i32> for DISPLAYCONFIG_MODE_INFO_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_MODE_INFO_TYPE {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_MODE_INFO_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1831,7 +1819,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_INFO {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1861,7 +1849,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_SOURCE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_SOURCE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1888,7 +1876,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1920,7 +1908,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1956,7 +1944,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_TARGET_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_TARGET_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_TARGET_INFO {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_TARGET_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1983,7 +1971,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_TARGET_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2015,7 +2003,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -2033,7 +2021,7 @@ impl ::core::convert::From<i32> for DISPLAYCONFIG_PIXELFORMAT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PIXELFORMAT {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PIXELFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2060,7 +2048,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_RATIONAL {
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_RATIONAL {}
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_RATIONAL {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_RATIONAL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -2077,7 +2065,7 @@ impl ::core::convert::From<i32> for DISPLAYCONFIG_ROTATION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_ROTATION {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_ROTATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -2096,7 +2084,7 @@ impl ::core::convert::From<i32> for DISPLAYCONFIG_SCALING {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SCALING {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SCALING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -2114,7 +2102,7 @@ impl ::core::convert::From<i32> for DISPLAYCONFIG_SCANLINE_ORDERING {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SCANLINE_ORDERING {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SCANLINE_ORDERING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2148,7 +2136,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SDR_WHITE_LEVEL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SDR_WHITE_LEVEL {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SDR_WHITE_LEVEL {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SDR_WHITE_LEVEL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2176,7 +2164,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2203,7 +2191,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2235,7 +2223,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2245,8 +2233,8 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0,
-    pub specializationType: ::windows::runtime::GUID,
-    pub specializationSubType: ::windows::runtime::GUID,
+    pub specializationType: ::windows::core::GUID,
+    pub specializationSubType: ::windows::core::GUID,
     pub specializationApplicationName: [u16; 128],
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2266,7 +2254,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2293,7 +2281,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2325,7 +2313,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2353,7 +2341,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2380,7 +2368,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2412,7 +2400,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2446,7 +2434,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SOURCE_DEVICE_NAME {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2482,7 +2470,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SOURCE_MODE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SOURCE_MODE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SOURCE_MODE {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SOURCE_MODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2510,7 +2498,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2537,7 +2525,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2569,7 +2557,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2603,7 +2591,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_BASE_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_BASE_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_BASE_TYPE {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_BASE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2637,7 +2625,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_DEVICE_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_DEVICE_NAME {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2658,7 +2646,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {}
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2680,7 +2668,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {}
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2706,7 +2694,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {}
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2727,7 +2715,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_MODE {
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_MODE {}
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_MODE {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_MODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2757,7 +2745,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_PREFERRED_MODE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -2774,7 +2762,7 @@ impl ::core::convert::From<i32> for DISPLAYCONFIG_TOPOLOGY_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TOPOLOGY_ID {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TOPOLOGY_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -2807,7 +2795,7 @@ impl ::core::convert::From<i32> for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2834,7 +2822,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {}
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2856,7 +2844,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2882,7 +2870,7 @@ impl ::core::cmp::PartialEq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {}
-unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -2914,7 +2902,7 @@ impl ::core::cmp::PartialEq for DISPLAY_BRIGHTNESS {
     }
 }
 impl ::core::cmp::Eq for DISPLAY_BRIGHTNESS {}
-unsafe impl ::windows::runtime::Abi for DISPLAY_BRIGHTNESS {
+unsafe impl ::windows::core::Abi for DISPLAY_BRIGHTNESS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -2974,7 +2962,7 @@ impl ::core::cmp::PartialEq for DRH_APIBITMAPDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRH_APIBITMAPDATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DRH_APIBITMAPDATA {
+unsafe impl ::windows::core::Abi for DRH_APIBITMAPDATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -3010,7 +2998,7 @@ impl ::core::cmp::PartialEq for DRIVEROBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRIVEROBJ {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DRIVEROBJ {
+unsafe impl ::windows::core::Abi for DRIVEROBJ {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3038,7 +3026,7 @@ impl ::core::cmp::PartialEq for DRVENABLEDATA {
     }
 }
 impl ::core::cmp::Eq for DRVENABLEDATA {}
-unsafe impl ::windows::runtime::Abi for DRVENABLEDATA {
+unsafe impl ::windows::core::Abi for DRVENABLEDATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -3065,7 +3053,7 @@ impl ::core::cmp::PartialEq for DRVFN {
     }
 }
 impl ::core::cmp::Eq for DRVFN {}
-unsafe impl ::windows::runtime::Abi for DRVFN {
+unsafe impl ::windows::core::Abi for DRVFN {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -3088,7 +3076,7 @@ impl ::core::convert::From<i32> for DSI_CONTROL_TRANSMISSION_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DSI_CONTROL_TRANSMISSION_MODE {
+unsafe impl ::windows::core::Abi for DSI_CONTROL_TRANSMISSION_MODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -3156,7 +3144,7 @@ impl ::core::cmp::PartialEq for DXGK_WIN32K_PARAM_DATA {
     }
 }
 impl ::core::cmp::Eq for DXGK_WIN32K_PARAM_DATA {}
-unsafe impl ::windows::runtime::Abi for DXGK_WIN32K_PARAM_DATA {
+unsafe impl ::windows::core::Abi for DXGK_WIN32K_PARAM_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -3168,7 +3156,7 @@ pub const DXGK_WIN32K_PARAM_FLAG_UPDATEREGISTRY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DegaussMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
+pub unsafe fn DegaussMonitor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3183,7 +3171,7 @@ pub unsafe fn DegaussMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DestroyPhysicalMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
+pub unsafe fn DestroyPhysicalMonitor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3265,7 +3253,7 @@ impl ::core::cmp::PartialEq for DisplayMode {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for DisplayMode {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for DisplayMode {
+unsafe impl ::windows::core::Abi for DisplayMode {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3293,7 +3281,7 @@ impl ::core::cmp::PartialEq for DisplayModes {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for DisplayModes {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for DisplayModes {
+unsafe impl ::windows::core::Abi for DisplayModes {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -3339,7 +3327,7 @@ impl ::core::cmp::PartialEq for EMFINFO {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for EMFINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::runtime::Abi for EMFINFO {
+unsafe impl ::windows::core::Abi for EMFINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -3372,7 +3360,7 @@ impl ::core::cmp::PartialEq for ENGSAFESEMAPHORE {
     }
 }
 impl ::core::cmp::Eq for ENGSAFESEMAPHORE {}
-unsafe impl ::windows::runtime::Abi for ENGSAFESEMAPHORE {
+unsafe impl ::windows::core::Abi for ENGSAFESEMAPHORE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -3386,7 +3374,7 @@ impl ::core::convert::From<i32> for ENG_DEVICE_ATTRIBUTE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ENG_DEVICE_ATTRIBUTE {
+unsafe impl ::windows::core::Abi for ENG_DEVICE_ATTRIBUTE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3413,7 +3401,7 @@ impl ::core::cmp::PartialEq for ENG_EVENT {
     }
 }
 impl ::core::cmp::Eq for ENG_EVENT {}
-unsafe impl ::windows::runtime::Abi for ENG_EVENT {
+unsafe impl ::windows::core::Abi for ENG_EVENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -3433,7 +3421,7 @@ impl ::core::convert::From<i32> for ENG_SYSTEM_ATTRIBUTE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ENG_SYSTEM_ATTRIBUTE {
+unsafe impl ::windows::core::Abi for ENG_SYSTEM_ATTRIBUTE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3475,7 +3463,7 @@ impl ::core::cmp::PartialEq for ENG_TIME_FIELDS {
     }
 }
 impl ::core::cmp::Eq for ENG_TIME_FIELDS {}
-unsafe impl ::windows::runtime::Abi for ENG_TIME_FIELDS {
+unsafe impl ::windows::core::Abi for ENG_TIME_FIELDS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3509,12 +3497,12 @@ impl ::core::cmp::PartialEq for ENUMRECTS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENUMRECTS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ENUMRECTS {
+unsafe impl ::windows::core::Abi for ENUMRECTS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[inline]
-pub unsafe fn EngAcquireSemaphore<'a, Param0: ::windows::runtime::IntoParam<'a, HSEMAPHORE>>(hsem: Param0) {
+pub unsafe fn EngAcquireSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSEMAPHORE>>(hsem: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3544,7 +3532,7 @@ pub unsafe fn EngAlphaBlend(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *m
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngAssociateSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>, Param1: ::windows::runtime::IntoParam<'a, HDEV>>(hsurf: Param0, hdev: Param1, flhooks: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EngAssociateSurface<'a, Param0: ::windows::core::IntoParam<'a, HSURF>, Param1: ::windows::core::IntoParam<'a, HDEV>>(hsurf: Param0, hdev: Param1, flhooks: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3630,7 +3618,7 @@ pub unsafe fn EngCopyBits(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn EngCreateBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(sizl: Param0, lwidth: i32, iformat: u32, fl: u32, pvbits: *mut ::core::ffi::c_void) -> super::super::Graphics::Gdi::HBITMAP {
+pub unsafe fn EngCreateBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::SIZE>>(sizl: Param0, lwidth: i32, iformat: u32, fl: u32, pvbits: *mut ::core::ffi::c_void) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3660,7 +3648,7 @@ pub unsafe fn EngCreateClip() -> *mut CLIPOBJ {
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn EngCreateDeviceBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, DHSURF>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(dhsurf: Param0, sizl: Param1, iformatcompat: u32) -> super::super::Graphics::Gdi::HBITMAP {
+pub unsafe fn EngCreateDeviceBitmap<'a, Param0: ::windows::core::IntoParam<'a, DHSURF>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::SIZE>>(dhsurf: Param0, sizl: Param1, iformatcompat: u32) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3675,7 +3663,7 @@ pub unsafe fn EngCreateDeviceBitmap<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngCreateDeviceSurface<'a, Param0: ::windows::runtime::IntoParam<'a, DHSURF>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(dhsurf: Param0, sizl: Param1, iformatcompat: u32) -> HSURF {
+pub unsafe fn EngCreateDeviceSurface<'a, Param0: ::windows::core::IntoParam<'a, DHSURF>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::SIZE>>(dhsurf: Param0, sizl: Param1, iformatcompat: u32) -> HSURF {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3734,7 +3722,7 @@ pub unsafe fn EngDeleteClip(pco: *const CLIPOBJ) {
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn EngDeletePalette<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(hpal: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn EngDeletePalette<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(hpal: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3762,7 +3750,7 @@ pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[inline]
-pub unsafe fn EngDeleteSemaphore<'a, Param0: ::windows::runtime::IntoParam<'a, HSEMAPHORE>>(hsem: Param0) {
+pub unsafe fn EngDeleteSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSEMAPHORE>>(hsem: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3777,7 +3765,7 @@ pub unsafe fn EngDeleteSemaphore<'a, Param0: ::windows::runtime::IntoParam<'a, H
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngDeleteSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(hsurf: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn EngDeleteSurface<'a, Param0: ::windows::core::IntoParam<'a, HSURF>>(hsurf: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3822,7 +3810,7 @@ pub unsafe fn EngFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOB
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngFindResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0, iname: i32, itype: i32, pulsize: *mut u32) -> *mut ::core::ffi::c_void {
+pub unsafe fn EngFindResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0, iname: i32, itype: i32, pulsize: *mut u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3837,7 +3825,7 @@ pub unsafe fn EngFindResource<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngFreeModule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0) {
+pub unsafe fn EngFreeModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3866,7 +3854,7 @@ pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u1
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngGetDriverName<'a, Param0: ::windows::runtime::IntoParam<'a, HDEV>>(hdev: Param0) -> super::super::Foundation::PWSTR {
+pub unsafe fn EngGetDriverName<'a, Param0: ::windows::core::IntoParam<'a, HDEV>>(hdev: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3881,7 +3869,7 @@ pub unsafe fn EngGetDriverName<'a, Param0: ::windows::runtime::IntoParam<'a, HDE
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngGetPrinterDataFileName<'a, Param0: ::windows::runtime::IntoParam<'a, HDEV>>(hdev: Param0) -> super::super::Foundation::PWSTR {
+pub unsafe fn EngGetPrinterDataFileName<'a, Param0: ::windows::core::IntoParam<'a, HDEV>>(hdev: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3937,7 +3925,7 @@ pub unsafe fn EngLineTo(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngLoadModule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwsz: Param0) -> super::super::Foundation::HANDLE {
+pub unsafe fn EngLoadModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwsz: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3952,7 +3940,7 @@ pub unsafe fn EngLoadModule<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngLockSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(hsurf: Param0) -> *mut SURFOBJ {
+pub unsafe fn EngLockSurface<'a, Param0: ::windows::core::IntoParam<'a, HSURF>>(hsurf: Param0) -> *mut SURFOBJ {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3967,7 +3955,7 @@ pub unsafe fn EngLockSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngMarkBandingSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(hsurf: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn EngMarkBandingSurface<'a, Param0: ::windows::core::IntoParam<'a, HSURF>>(hsurf: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3982,7 +3970,7 @@ pub unsafe fn EngMarkBandingSurface<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngMultiByteToUnicodeN<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(unicodestring: super::super::Foundation::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: *mut u32, multibytestring: Param3, bytesinmultibytestring: u32) {
+pub unsafe fn EngMultiByteToUnicodeN<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(unicodestring: super::super::Foundation::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: *mut u32, multibytestring: Param3, bytesinmultibytestring: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3997,7 +3985,7 @@ pub unsafe fn EngMultiByteToUnicodeN<'a, Param3: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngMultiByteToWideChar<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(codepage: u32, widecharstring: super::super::Foundation::PWSTR, bytesinwidecharstring: i32, multibytestring: Param3, bytesinmultibytestring: i32) -> i32 {
+pub unsafe fn EngMultiByteToWideChar<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(codepage: u32, widecharstring: super::super::Foundation::PWSTR, bytesinwidecharstring: i32, multibytestring: Param3, bytesinmultibytestring: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4054,7 +4042,7 @@ pub unsafe fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn EngQueryEMFInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HDEV>>(hdev: Param0, pemfinfo: *mut EMFINFO) -> super::super::Foundation::BOOL {
+pub unsafe fn EngQueryEMFInfo<'a, Param0: ::windows::core::IntoParam<'a, HDEV>>(hdev: Param0, pemfinfo: *mut EMFINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4082,7 +4070,7 @@ pub unsafe fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS) {
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[inline]
-pub unsafe fn EngReleaseSemaphore<'a, Param0: ::windows::runtime::IntoParam<'a, HSEMAPHORE>>(hsem: Param0) {
+pub unsafe fn EngReleaseSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSEMAPHORE>>(hsem: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4235,7 +4223,7 @@ pub unsafe fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, 
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngUnicodeToMultiByteN<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(multibytestring: super::super::Foundation::PSTR, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: Param3, bytesinunicodestring: u32) {
+pub unsafe fn EngUnicodeToMultiByteN<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(multibytestring: super::super::Foundation::PSTR, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: Param3, bytesinunicodestring: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4265,7 +4253,7 @@ pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngWideCharToMultiByte<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(codepage: u32, widecharstring: Param1, bytesinwidecharstring: i32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: i32) -> i32 {
+pub unsafe fn EngWideCharToMultiByte<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(codepage: u32, widecharstring: Param1, bytesinwidecharstring: i32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4388,7 +4376,7 @@ impl ::core::cmp::PartialEq for FD_DEVICEMETRICS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FD_DEVICEMETRICS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FD_DEVICEMETRICS {
+unsafe impl ::windows::core::Abi for FD_DEVICEMETRICS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -4419,7 +4407,7 @@ impl ::core::cmp::PartialEq for FD_GLYPHATTR {
     }
 }
 impl ::core::cmp::Eq for FD_GLYPHATTR {}
-unsafe impl ::windows::runtime::Abi for FD_GLYPHATTR {
+unsafe impl ::windows::core::Abi for FD_GLYPHATTR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4449,7 +4437,7 @@ impl ::core::cmp::PartialEq for FD_GLYPHSET {
     }
 }
 impl ::core::cmp::Eq for FD_GLYPHSET {}
-unsafe impl ::windows::runtime::Abi for FD_GLYPHSET {
+unsafe impl ::windows::core::Abi for FD_GLYPHSET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4477,7 +4465,7 @@ impl ::core::cmp::PartialEq for FD_KERNINGPAIR {
     }
 }
 impl ::core::cmp::Eq for FD_KERNINGPAIR {}
-unsafe impl ::windows::runtime::Abi for FD_KERNINGPAIR {
+unsafe impl ::windows::core::Abi for FD_KERNINGPAIR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4513,7 +4501,7 @@ impl ::core::cmp::PartialEq for FD_LIGATURE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FD_LIGATURE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FD_LIGATURE {
+unsafe impl ::windows::core::Abi for FD_LIGATURE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -4551,7 +4539,7 @@ impl ::core::cmp::PartialEq for FD_XFORM {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for FD_XFORM {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for FD_XFORM {
+unsafe impl ::windows::core::Abi for FD_XFORM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4587,7 +4575,7 @@ impl ::core::cmp::PartialEq for FD_XFORM {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for FD_XFORM {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for FD_XFORM {
+unsafe impl ::windows::core::Abi for FD_XFORM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -4625,7 +4613,7 @@ impl ::core::cmp::PartialEq for FLOATOBJ {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for FLOATOBJ {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for FLOATOBJ {
+unsafe impl ::windows::core::Abi for FLOATOBJ {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4663,7 +4651,7 @@ impl ::core::cmp::PartialEq for FLOATOBJ_XFORM {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for FLOATOBJ_XFORM {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for FLOATOBJ_XFORM {
+unsafe impl ::windows::core::Abi for FLOATOBJ_XFORM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4701,7 +4689,7 @@ impl ::core::cmp::PartialEq for FLOATOBJ_XFORM {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for FLOATOBJ_XFORM {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for FLOATOBJ_XFORM {
+unsafe impl ::windows::core::Abi for FLOATOBJ_XFORM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4729,7 +4717,7 @@ impl ::core::cmp::PartialEq for FLOAT_LONG {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for FLOAT_LONG {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for FLOAT_LONG {
+unsafe impl ::windows::core::Abi for FLOAT_LONG {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4757,7 +4745,7 @@ impl ::core::cmp::PartialEq for FLOAT_LONG {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for FLOAT_LONG {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for FLOAT_LONG {
+unsafe impl ::windows::core::Abi for FLOAT_LONG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -4904,7 +4892,7 @@ impl ::core::cmp::PartialEq for FONTDIFF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FONTDIFF {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FONTDIFF {
+unsafe impl ::windows::core::Abi for FONTDIFF {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4944,7 +4932,7 @@ impl ::core::cmp::PartialEq for FONTINFO {
     }
 }
 impl ::core::cmp::Eq for FONTINFO {}
-unsafe impl ::windows::runtime::Abi for FONTINFO {
+unsafe impl ::windows::core::Abi for FONTINFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4997,7 +4985,7 @@ impl ::core::cmp::PartialEq for FONTOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FONTOBJ {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FONTOBJ {
+unsafe impl ::windows::core::Abi for FONTOBJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
@@ -5145,7 +5133,7 @@ impl ::core::cmp::PartialEq for FONTSIM {
     }
 }
 impl ::core::cmp::Eq for FONTSIM {}
-unsafe impl ::windows::runtime::Abi for FONTSIM {
+unsafe impl ::windows::core::Abi for FONTSIM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5179,7 +5167,7 @@ impl ::core::cmp::PartialEq for FONT_IMAGE_INFO {
 #[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::Eq for FONT_IMAGE_INFO {}
 #[cfg(feature = "Win32_System_Console")]
-unsafe impl ::windows::runtime::Abi for FONT_IMAGE_INFO {
+unsafe impl ::windows::core::Abi for FONT_IMAGE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -5265,7 +5253,7 @@ impl ::core::cmp::PartialEq for FSCNTL_SCREEN_INFO {
 #[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::Eq for FSCNTL_SCREEN_INFO {}
 #[cfg(feature = "Win32_System_Console")]
-unsafe impl ::windows::runtime::Abi for FSCNTL_SCREEN_INFO {
+unsafe impl ::windows::core::Abi for FSCNTL_SCREEN_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5299,7 +5287,7 @@ impl ::core::cmp::PartialEq for FSVIDEO_COPY_FRAME_BUFFER {
 #[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::Eq for FSVIDEO_COPY_FRAME_BUFFER {}
 #[cfg(feature = "Win32_System_Console")]
-unsafe impl ::windows::runtime::Abi for FSVIDEO_COPY_FRAME_BUFFER {
+unsafe impl ::windows::core::Abi for FSVIDEO_COPY_FRAME_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5326,7 +5314,7 @@ impl ::core::cmp::PartialEq for FSVIDEO_CURSOR_POSITION {
     }
 }
 impl ::core::cmp::Eq for FSVIDEO_CURSOR_POSITION {}
-unsafe impl ::windows::runtime::Abi for FSVIDEO_CURSOR_POSITION {
+unsafe impl ::windows::core::Abi for FSVIDEO_CURSOR_POSITION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5353,7 +5341,7 @@ impl ::core::cmp::PartialEq for FSVIDEO_MODE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for FSVIDEO_MODE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for FSVIDEO_MODE_INFORMATION {
+unsafe impl ::windows::core::Abi for FSVIDEO_MODE_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5387,7 +5375,7 @@ impl ::core::cmp::PartialEq for FSVIDEO_REVERSE_MOUSE_POINTER {
 #[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::Eq for FSVIDEO_REVERSE_MOUSE_POINTER {}
 #[cfg(feature = "Win32_System_Console")]
-unsafe impl ::windows::runtime::Abi for FSVIDEO_REVERSE_MOUSE_POINTER {
+unsafe impl ::windows::core::Abi for FSVIDEO_REVERSE_MOUSE_POINTER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5421,7 +5409,7 @@ impl ::core::cmp::PartialEq for FSVIDEO_SCREEN_INFORMATION {
 #[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::Eq for FSVIDEO_SCREEN_INFORMATION {}
 #[cfg(feature = "Win32_System_Console")]
-unsafe impl ::windows::runtime::Abi for FSVIDEO_SCREEN_INFORMATION {
+unsafe impl ::windows::core::Abi for FSVIDEO_SCREEN_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5455,7 +5443,7 @@ impl ::core::cmp::PartialEq for FSVIDEO_WRITE_TO_FRAME_BUFFER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 impl ::core::cmp::Eq for FSVIDEO_WRITE_TO_FRAME_BUFFER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
-unsafe impl ::windows::runtime::Abi for FSVIDEO_WRITE_TO_FRAME_BUFFER {
+unsafe impl ::windows::core::Abi for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5483,7 +5471,7 @@ impl ::core::cmp::PartialEq for GAMMARAMP {
     }
 }
 impl ::core::cmp::Eq for GAMMARAMP {}
-unsafe impl ::windows::runtime::Abi for GAMMARAMP {
+unsafe impl ::windows::core::Abi for GAMMARAMP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5511,7 +5499,7 @@ impl ::core::cmp::PartialEq for GAMMA_RAMP_DXGI_1 {
     }
 }
 impl ::core::cmp::Eq for GAMMA_RAMP_DXGI_1 {}
-unsafe impl ::windows::runtime::Abi for GAMMA_RAMP_DXGI_1 {
+unsafe impl ::windows::core::Abi for GAMMA_RAMP_DXGI_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5539,7 +5527,7 @@ impl ::core::cmp::PartialEq for GAMMA_RAMP_RGB {
     }
 }
 impl ::core::cmp::Eq for GAMMA_RAMP_RGB {}
-unsafe impl ::windows::runtime::Abi for GAMMA_RAMP_RGB {
+unsafe impl ::windows::core::Abi for GAMMA_RAMP_RGB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5567,7 +5555,7 @@ impl ::core::cmp::PartialEq for GAMMA_RAMP_RGB256x3x16 {
     }
 }
 impl ::core::cmp::Eq for GAMMA_RAMP_RGB256x3x16 {}
-unsafe impl ::windows::runtime::Abi for GAMMA_RAMP_RGB256x3x16 {
+unsafe impl ::windows::core::Abi for GAMMA_RAMP_RGB256x3x16 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -5828,7 +5816,7 @@ impl ::core::cmp::PartialEq for GDIINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GDIINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GDIINFO {
+unsafe impl ::windows::core::Abi for GDIINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -5869,7 +5857,7 @@ impl ::core::cmp::PartialEq for GLYPHBITS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GLYPHBITS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GLYPHBITS {
+unsafe impl ::windows::core::Abi for GLYPHBITS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5904,7 +5892,7 @@ impl ::core::cmp::PartialEq for GLYPHDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GLYPHDATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GLYPHDATA {
+unsafe impl ::windows::core::Abi for GLYPHDATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5932,7 +5920,7 @@ impl ::core::cmp::PartialEq for GLYPHDEF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GLYPHDEF {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GLYPHDEF {
+unsafe impl ::windows::core::Abi for GLYPHDEF {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5967,7 +5955,7 @@ impl ::core::cmp::PartialEq for GLYPHPOS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GLYPHPOS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for GLYPHPOS {
+unsafe impl ::windows::core::Abi for GLYPHPOS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -5976,11 +5964,11 @@ pub const GS_16BIT_HANDLES: u32 = 4u32;
 pub const GS_8BIT_HANDLES: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const GS_UNICODE_HANDLES: u32 = 1u32;
-pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b45201d_f2f2_4f3b_85bb_30ff1f953599);
-pub const GUID_DEVINTERFACE_MONITOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe6f07b5f_ee97_4a90_b076_33f57bf4eaa7);
-pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ad9e4f0_f88d_4360_bab9_4c2d55e564cd);
-pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ca05180_a699_450a_9a0c_de4fbe3ddd89);
-pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf196c02f_f86f_4f9a_aa15_e9cebdfe3b96);
+pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b45201d_f2f2_4f3b_85bb_30ff1f953599);
+pub const GUID_DEVINTERFACE_MONITOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6f07b5f_ee97_4a90_b076_33f57bf4eaa7);
+pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad9e4f0_f88d_4360_bab9_4c2d55e564cd);
+pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ca05180_a699_450a_9a0c_de4fbe3ddd89);
+pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf196c02f_f86f_4f9a_aa15_e9cebdfe3b96);
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const GX_GENERAL: i32 = 3i32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -6007,7 +5995,7 @@ pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Found
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCapabilitiesStringLength<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwcapabilitiesstringlengthincharacters: *mut u32) -> i32 {
+pub unsafe fn GetCapabilitiesStringLength<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwcapabilitiesstringlengthincharacters: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6051,7 +6039,7 @@ pub unsafe fn GetDisplayConfigBufferSizes(flags: u32, numpatharrayelements: *mut
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorBrightness<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32 {
+pub unsafe fn GetMonitorBrightness<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6066,7 +6054,7 @@ pub unsafe fn GetMonitorBrightness<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorCapabilities<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwmonitorcapabilities: *mut u32, pdwsupportedcolortemperatures: *mut u32) -> i32 {
+pub unsafe fn GetMonitorCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwmonitorcapabilities: *mut u32, pdwsupportedcolortemperatures: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6081,7 +6069,7 @@ pub unsafe fn GetMonitorCapabilities<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorColorTemperature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE) -> i32 {
+pub unsafe fn GetMonitorColorTemperature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6096,7 +6084,7 @@ pub unsafe fn GetMonitorColorTemperature<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorContrast<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwminimumcontrast: *mut u32, pdwcurrentcontrast: *mut u32, pdwmaximumcontrast: *mut u32) -> i32 {
+pub unsafe fn GetMonitorContrast<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwminimumcontrast: *mut u32, pdwcurrentcontrast: *mut u32, pdwmaximumcontrast: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6111,7 +6099,7 @@ pub unsafe fn GetMonitorContrast<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorDisplayAreaPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32 {
+pub unsafe fn GetMonitorDisplayAreaPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6126,7 +6114,7 @@ pub unsafe fn GetMonitorDisplayAreaPosition<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorDisplayAreaSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32 {
+pub unsafe fn GetMonitorDisplayAreaSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6141,7 +6129,7 @@ pub unsafe fn GetMonitorDisplayAreaSize<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32 {
+pub unsafe fn GetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6156,7 +6144,7 @@ pub unsafe fn GetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32 {
+pub unsafe fn GetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6171,7 +6159,7 @@ pub unsafe fn GetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorTechnologyType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32 {
+pub unsafe fn GetMonitorTechnologyType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6186,7 +6174,7 @@ pub unsafe fn GetMonitorTechnologyType<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Graphics_Gdi`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, pdwnumberofphysicalmonitors: *mut u32) -> i32 {
+pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, pdwnumberofphysicalmonitors: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6201,14 +6189,14 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::run
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
-pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0) -> ::windows::runtime::Result<u32> {
+pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: ::windows::runtime::RawPtr, pdwnumberofphysicalmonitors: *mut u32) -> ::windows::runtime::HRESULT;
+            fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: ::windows::core::RawPtr, pdwnumberofphysicalmonitors: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
@@ -6217,7 +6205,7 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::wind
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> i32 {
+pub unsafe fn GetPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6232,12 +6220,12 @@ pub unsafe fn GetPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::runtime::In
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
-pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: ::windows::runtime::RawPtr, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows::runtime::HRESULT;
+            fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: ::windows::core::RawPtr, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows::core::HRESULT;
         }
         GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), ::core::mem::transmute(dwphysicalmonitorarraysize), ::core::mem::transmute(pphysicalmonitorarray)).ok()
     }
@@ -6247,7 +6235,7 @@ pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::run
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTimingReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32 {
+pub unsafe fn GetTimingReport<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6262,7 +6250,7 @@ pub unsafe fn GetTimingReport<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVCPFeatureAndVCPFeatureReply<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, bvcpcode: u8, pvct: *mut MC_VCP_CODE_TYPE, pdwcurrentvalue: *mut u32, pdwmaximumvalue: *mut u32) -> i32 {
+pub unsafe fn GetVCPFeatureAndVCPFeatureReply<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, bvcpcode: u8, pvct: *mut MC_VCP_CODE_TYPE, pdwcurrentvalue: *mut u32, pdwmaximumvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6282,8 +6270,8 @@ impl ::core::default::Default for HBM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HBM {}
-unsafe impl ::windows::runtime::Abi for HBM {
+unsafe impl ::windows::core::Handle for HBM {}
+unsafe impl ::windows::core::Abi for HBM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6294,8 +6282,8 @@ impl ::core::default::Default for HDEV {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HDEV {}
-unsafe impl ::windows::runtime::Abi for HDEV {
+unsafe impl ::windows::core::Handle for HDEV {}
+unsafe impl ::windows::core::Abi for HDEV {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6306,8 +6294,8 @@ impl ::core::default::Default for HDRVOBJ {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HDRVOBJ {}
-unsafe impl ::windows::runtime::Abi for HDRVOBJ {
+unsafe impl ::windows::core::Handle for HDRVOBJ {}
+unsafe impl ::windows::core::Abi for HDRVOBJ {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6318,8 +6306,8 @@ impl ::core::default::Default for HFASTMUTEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HFASTMUTEX {}
-unsafe impl ::windows::runtime::Abi for HFASTMUTEX {
+unsafe impl ::windows::core::Handle for HFASTMUTEX {}
+unsafe impl ::windows::core::Abi for HFASTMUTEX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -6386,8 +6374,8 @@ impl ::core::default::Default for HSEMAPHORE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HSEMAPHORE {}
-unsafe impl ::windows::runtime::Abi for HSEMAPHORE {
+unsafe impl ::windows::core::Handle for HSEMAPHORE {}
+unsafe impl ::windows::core::Abi for HSEMAPHORE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6398,8 +6386,8 @@ impl ::core::default::Default for HSURF {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for HSURF {}
-unsafe impl ::windows::runtime::Abi for HSURF {
+unsafe impl ::windows::core::Handle for HSURF {}
+unsafe impl ::windows::core::Abi for HSURF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -6474,7 +6462,7 @@ pub unsafe fn HT_Get8BPPFormatPalette(ppaletteentry: *mut super::super::Graphics
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn HT_Get8BPPMaskPalette<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, use8bppmaskpal: Param1, cmymask: u8, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32 {
+pub unsafe fn HT_Get8BPPMaskPalette<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, use8bppmaskpal: Param1, cmymask: u8, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6539,66 +6527,66 @@ pub const HT_USERPAT_CY_MIN: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ICloneViewHelper(pub ::windows::runtime::IUnknown);
+pub struct ICloneViewHelper(pub ::windows::core::IUnknown);
 impl ICloneViewHelper {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
-    pub unsafe fn GetConnectedIDs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ::core::mem::transmute(ulflags)).ok()
+    pub unsafe fn GetConnectedIDs<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ::core::mem::transmute(ulflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
-    pub unsafe fn GetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
+    pub unsafe fn GetActiveTopology<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
-    pub unsafe fn SetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(ulcount), ::core::mem::transmute(pultargetid)).ok()
+    pub unsafe fn SetActiveTopology<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(ulcount), ::core::mem::transmute(pultargetid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
-    pub unsafe fn Commit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffinalcall: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ffinalcall.into_param().abi()).ok()
+    pub unsafe fn Commit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffinalcall: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ffinalcall.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ICloneViewHelper {
+unsafe impl ::windows::core::Interface for ICloneViewHelper {
     type Vtable = ICloneViewHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
 }
-impl ::core::convert::From<ICloneViewHelper> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICloneViewHelper> for ::windows::core::IUnknown {
     fn from(value: ICloneViewHelper) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ICloneViewHelper> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICloneViewHelper> for ::windows::core::IUnknown {
     fn from(value: &ICloneViewHelper) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICloneViewHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICloneViewHelper {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICloneViewHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICloneViewHelper {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICloneViewHelper_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ffinalcall: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ffinalcall: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6629,7 +6617,7 @@ impl ::core::cmp::PartialEq for IFIEXTRA {
     }
 }
 impl ::core::cmp::Eq for IFIEXTRA {}
-unsafe impl ::windows::runtime::Abi for IFIEXTRA {
+unsafe impl ::windows::core::Abi for IFIEXTRA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6848,7 +6836,7 @@ impl ::core::cmp::PartialEq for IFIMETRICS {
 impl ::core::cmp::Eq for IFIMETRICS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for IFIMETRICS {
+unsafe impl ::windows::core::Abi for IFIMETRICS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7064,7 +7052,7 @@ impl ::core::cmp::PartialEq for IFIMETRICS {
 impl ::core::cmp::Eq for IFIMETRICS {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for IFIMETRICS {
+unsafe impl ::windows::core::Abi for IFIMETRICS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -7304,7 +7292,7 @@ impl ::core::cmp::PartialEq for INDIRECT_DISPLAY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for INDIRECT_DISPLAY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for INDIRECT_DISPLAY_INFO {
+unsafe impl ::windows::core::Abi for INDIRECT_DISPLAY_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -7458,78 +7446,78 @@ pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IViewHelper(pub ::windows::runtime::IUnknown);
+pub struct IViewHelper(pub ::windows::core::IUnknown);
 impl IViewHelper {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
-    pub unsafe fn GetConnectedIDs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ::core::mem::transmute(ulflags)).ok()
+    pub unsafe fn GetConnectedIDs<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ::core::mem::transmute(ulflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
-    pub unsafe fn GetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
+    pub unsafe fn GetActiveTopology<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
-    pub unsafe fn SetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(ulcount), ::core::mem::transmute(pultargetid)).ok()
+    pub unsafe fn SetActiveTopology<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(ulcount), ::core::mem::transmute(pultargetid)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Display`*"]
-    pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_Com`*"]
-    pub unsafe fn SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pistream.into_param().abi(), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pistream.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_Display`*"]
-    pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IViewHelper {
+unsafe impl ::windows::core::Interface for IViewHelper {
     type Vtable = IViewHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
 }
-impl ::core::convert::From<IViewHelper> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IViewHelper> for ::windows::core::IUnknown {
     fn from(value: IViewHelper) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IViewHelper> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IViewHelper> for ::windows::core::IUnknown {
     fn from(value: &IViewHelper) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IViewHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IViewHelper {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IViewHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IViewHelper {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewHelper_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pistream: ::windows::runtime::RawPtr, pulstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pistream: ::windows::core::RawPtr, pulstatus: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const JOIN_BEVEL: i32 = 1i32;
@@ -7578,7 +7566,7 @@ impl ::core::cmp::PartialEq for LIGATURE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LIGATURE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for LIGATURE {
+unsafe impl ::windows::core::Abi for LIGATURE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7612,7 +7600,7 @@ impl ::core::cmp::PartialEq for LINEATTRS {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for LINEATTRS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for LINEATTRS {
+unsafe impl ::windows::core::Abi for LINEATTRS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7646,7 +7634,7 @@ impl ::core::cmp::PartialEq for LINEATTRS {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for LINEATTRS {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for LINEATTRS {
+unsafe impl ::windows::core::Abi for LINEATTRS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -7695,7 +7683,7 @@ impl ::core::convert::From<i32> for MC_COLOR_TEMPERATURE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MC_COLOR_TEMPERATURE {
+unsafe impl ::windows::core::Abi for MC_COLOR_TEMPERATURE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -7716,7 +7704,7 @@ impl ::core::convert::From<i32> for MC_DISPLAY_TECHNOLOGY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MC_DISPLAY_TECHNOLOGY_TYPE {
+unsafe impl ::windows::core::Abi for MC_DISPLAY_TECHNOLOGY_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -7731,7 +7719,7 @@ impl ::core::convert::From<i32> for MC_DRIVE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MC_DRIVE_TYPE {
+unsafe impl ::windows::core::Abi for MC_DRIVE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -7746,7 +7734,7 @@ impl ::core::convert::From<i32> for MC_GAIN_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MC_GAIN_TYPE {
+unsafe impl ::windows::core::Abi for MC_GAIN_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -7760,7 +7748,7 @@ impl ::core::convert::From<i32> for MC_POSITION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MC_POSITION_TYPE {
+unsafe impl ::windows::core::Abi for MC_POSITION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -7776,7 +7764,7 @@ impl ::core::convert::From<i32> for MC_SIZE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MC_SIZE_TYPE {
+unsafe impl ::windows::core::Abi for MC_SIZE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -7817,7 +7805,7 @@ impl ::core::cmp::PartialEq for MC_TIMING_REPORT {
     }
 }
 impl ::core::cmp::Eq for MC_TIMING_REPORT {}
-unsafe impl ::windows::runtime::Abi for MC_TIMING_REPORT {
+unsafe impl ::windows::core::Abi for MC_TIMING_REPORT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -7831,7 +7819,7 @@ impl ::core::convert::From<i32> for MC_VCP_CODE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MC_VCP_CODE_TYPE {
+unsafe impl ::windows::core::Abi for MC_VCP_CODE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7910,7 +7898,7 @@ impl ::core::cmp::PartialEq for MIPI_DSI_CAPS {
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_CAPS {}
-unsafe impl ::windows::runtime::Abi for MIPI_DSI_CAPS {
+unsafe impl ::windows::core::Abi for MIPI_DSI_CAPS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7934,7 +7922,7 @@ impl ::core::cmp::PartialEq for MIPI_DSI_PACKET {
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_PACKET {}
-unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET {
+unsafe impl ::windows::core::Abi for MIPI_DSI_PACKET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7956,7 +7944,7 @@ impl ::core::cmp::PartialEq for MIPI_DSI_PACKET_0 {
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_PACKET_0 {}
-unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_0 {
+unsafe impl ::windows::core::Abi for MIPI_DSI_PACKET_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7982,7 +7970,7 @@ impl ::core::cmp::PartialEq for MIPI_DSI_PACKET_0_0 {
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_PACKET_0_0 {}
-unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_0_0 {
+unsafe impl ::windows::core::Abi for MIPI_DSI_PACKET_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8004,7 +7992,7 @@ impl ::core::cmp::PartialEq for MIPI_DSI_PACKET_1 {
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_PACKET_1 {}
-unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_1 {
+unsafe impl ::windows::core::Abi for MIPI_DSI_PACKET_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8031,7 +8019,7 @@ impl ::core::cmp::PartialEq for MIPI_DSI_PACKET_1_0 {
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_PACKET_1_0 {}
-unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_1_0 {
+unsafe impl ::windows::core::Abi for MIPI_DSI_PACKET_1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8053,7 +8041,7 @@ impl ::core::cmp::PartialEq for MIPI_DSI_RESET {
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_RESET {}
-unsafe impl ::windows::runtime::Abi for MIPI_DSI_RESET {
+unsafe impl ::windows::core::Abi for MIPI_DSI_RESET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8075,7 +8063,7 @@ impl ::core::cmp::PartialEq for MIPI_DSI_RESET_0 {
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_RESET_0 {}
-unsafe impl ::windows::runtime::Abi for MIPI_DSI_RESET_0 {
+unsafe impl ::windows::core::Abi for MIPI_DSI_RESET_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8101,7 +8089,7 @@ impl ::core::cmp::PartialEq for MIPI_DSI_RESET_0_0 {
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_RESET_0_0 {}
-unsafe impl ::windows::runtime::Abi for MIPI_DSI_RESET_0_0 {
+unsafe impl ::windows::core::Abi for MIPI_DSI_RESET_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8130,7 +8118,7 @@ impl ::core::cmp::PartialEq for MIPI_DSI_TRANSMISSION {
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_TRANSMISSION {}
-unsafe impl ::windows::runtime::Abi for MIPI_DSI_TRANSMISSION {
+unsafe impl ::windows::core::Abi for MIPI_DSI_TRANSMISSION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8156,7 +8144,7 @@ impl ::core::cmp::PartialEq for MIPI_DSI_TRANSMISSION_0 {
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_TRANSMISSION_0 {}
-unsafe impl ::windows::runtime::Abi for MIPI_DSI_TRANSMISSION_0 {
+unsafe impl ::windows::core::Abi for MIPI_DSI_TRANSMISSION_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -8187,7 +8175,7 @@ impl ::core::convert::From<i32> for ORIENTATION_PREFERENCE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ORIENTATION_PREFERENCE {
+unsafe impl ::windows::core::Abi for ORIENTATION_PREFERENCE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -8205,7 +8193,7 @@ impl ::core::convert::From<i32> for OUTPUT_COLOR_ENCODING {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OUTPUT_COLOR_ENCODING {
+unsafe impl ::windows::core::Abi for OUTPUT_COLOR_ENCODING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -8224,7 +8212,7 @@ impl ::core::convert::From<i32> for OUTPUT_WIRE_COLOR_SPACE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OUTPUT_WIRE_COLOR_SPACE_TYPE {
+unsafe impl ::windows::core::Abi for OUTPUT_WIRE_COLOR_SPACE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8251,7 +8239,7 @@ impl ::core::cmp::PartialEq for OUTPUT_WIRE_FORMAT {
     }
 }
 impl ::core::cmp::Eq for OUTPUT_WIRE_FORMAT {}
-unsafe impl ::windows::runtime::Abi for OUTPUT_WIRE_FORMAT {
+unsafe impl ::windows::core::Abi for OUTPUT_WIRE_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8277,7 +8265,7 @@ impl ::core::cmp::PartialEq for PALOBJ {
     }
 }
 impl ::core::cmp::Eq for PALOBJ {}
-unsafe impl ::windows::runtime::Abi for PALOBJ {
+unsafe impl ::windows::core::Abi for PALOBJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -8311,7 +8299,7 @@ impl ::core::cmp::PartialEq for PANEL_BRIGHTNESS_SENSOR_DATA {
     }
 }
 impl ::core::cmp::Eq for PANEL_BRIGHTNESS_SENSOR_DATA {}
-unsafe impl ::windows::runtime::Abi for PANEL_BRIGHTNESS_SENSOR_DATA {
+unsafe impl ::windows::core::Abi for PANEL_BRIGHTNESS_SENSOR_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8333,7 +8321,7 @@ impl ::core::cmp::PartialEq for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
     }
 }
 impl ::core::cmp::Eq for PANEL_BRIGHTNESS_SENSOR_DATA_0 {}
-unsafe impl ::windows::runtime::Abi for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
+unsafe impl ::windows::core::Abi for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8359,7 +8347,7 @@ impl ::core::cmp::PartialEq for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
     }
 }
 impl ::core::cmp::Eq for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {}
-unsafe impl ::windows::runtime::Abi for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
+unsafe impl ::windows::core::Abi for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8387,7 +8375,7 @@ impl ::core::cmp::PartialEq for PANEL_GET_BACKLIGHT_REDUCTION {
     }
 }
 impl ::core::cmp::Eq for PANEL_GET_BACKLIGHT_REDUCTION {}
-unsafe impl ::windows::runtime::Abi for PANEL_GET_BACKLIGHT_REDUCTION {
+unsafe impl ::windows::core::Abi for PANEL_GET_BACKLIGHT_REDUCTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8409,7 +8397,7 @@ impl ::core::cmp::PartialEq for PANEL_GET_BRIGHTNESS {
     }
 }
 impl ::core::cmp::Eq for PANEL_GET_BRIGHTNESS {}
-unsafe impl ::windows::runtime::Abi for PANEL_GET_BRIGHTNESS {
+unsafe impl ::windows::core::Abi for PANEL_GET_BRIGHTNESS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8431,7 +8419,7 @@ impl ::core::cmp::PartialEq for PANEL_GET_BRIGHTNESS_0 {
     }
 }
 impl ::core::cmp::Eq for PANEL_GET_BRIGHTNESS_0 {}
-unsafe impl ::windows::runtime::Abi for PANEL_GET_BRIGHTNESS_0 {
+unsafe impl ::windows::core::Abi for PANEL_GET_BRIGHTNESS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8458,7 +8446,7 @@ impl ::core::cmp::PartialEq for PANEL_GET_BRIGHTNESS_0_0 {
     }
 }
 impl ::core::cmp::Eq for PANEL_GET_BRIGHTNESS_0_0 {}
-unsafe impl ::windows::runtime::Abi for PANEL_GET_BRIGHTNESS_0_0 {
+unsafe impl ::windows::core::Abi for PANEL_GET_BRIGHTNESS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8480,7 +8468,7 @@ impl ::core::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_CAPS {
     }
 }
 impl ::core::cmp::Eq for PANEL_QUERY_BRIGHTNESS_CAPS {}
-unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_CAPS {
+unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_CAPS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8502,7 +8490,7 @@ impl ::core::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
     }
 }
 impl ::core::cmp::Eq for PANEL_QUERY_BRIGHTNESS_CAPS_0 {}
-unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
+unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8528,7 +8516,7 @@ impl ::core::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
     }
 }
 impl ::core::cmp::Eq for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {}
-unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
+unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8550,7 +8538,7 @@ impl ::core::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_RANGES {
     }
 }
 impl ::core::cmp::Eq for PANEL_QUERY_BRIGHTNESS_RANGES {}
-unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_RANGES {
+unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_RANGES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8572,7 +8560,7 @@ impl ::core::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
     }
 }
 impl ::core::cmp::Eq for PANEL_QUERY_BRIGHTNESS_RANGES_0 {}
-unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
+unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8598,7 +8586,7 @@ impl ::core::cmp::PartialEq for PANEL_SET_BACKLIGHT_OPTIMIZATION {
     }
 }
 impl ::core::cmp::Eq for PANEL_SET_BACKLIGHT_OPTIMIZATION {}
-unsafe impl ::windows::runtime::Abi for PANEL_SET_BACKLIGHT_OPTIMIZATION {
+unsafe impl ::windows::core::Abi for PANEL_SET_BACKLIGHT_OPTIMIZATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8620,7 +8608,7 @@ impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS {
     }
 }
 impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS {}
-unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS {
+unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8642,7 +8630,7 @@ impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS_0 {
     }
 }
 impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS_0 {}
-unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_0 {
+unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8665,7 +8653,7 @@ impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS_0_0 {
     }
 }
 impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS_0_0 {}
-unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_0_0 {
+unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8686,7 +8674,7 @@ impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS_STATE {
     }
 }
 impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS_STATE {}
-unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_STATE {
+unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8708,7 +8696,7 @@ impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS_STATE_0 {
     }
 }
 impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS_STATE_0 {}
-unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_STATE_0 {
+unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_STATE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8734,7 +8722,7 @@ impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS_STATE_0_0 {
     }
 }
 impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS_STATE_0_0 {}
-unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_STATE_0_0 {
+unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_STATE_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8762,7 +8750,7 @@ impl ::core::cmp::PartialEq for PATHDATA {
     }
 }
 impl ::core::cmp::Eq for PATHDATA {}
-unsafe impl ::windows::runtime::Abi for PATHDATA {
+unsafe impl ::windows::core::Abi for PATHDATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8789,7 +8777,7 @@ impl ::core::cmp::PartialEq for PATHOBJ {
     }
 }
 impl ::core::cmp::Eq for PATHOBJ {}
-unsafe impl ::windows::runtime::Abi for PATHOBJ {
+unsafe impl ::windows::core::Abi for PATHOBJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
@@ -8908,7 +8896,7 @@ impl ::core::cmp::PartialEq for PERBANDINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PERBANDINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PERBANDINFO {
+unsafe impl ::windows::core::Abi for PERBANDINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -9203,7 +9191,7 @@ impl ::core::cmp::PartialEq for PHYSICAL_MONITOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PHYSICAL_MONITOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PHYSICAL_MONITOR {
+unsafe impl ::windows::core::Abi for PHYSICAL_MONITOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -9241,7 +9229,7 @@ impl ::core::cmp::PartialEq for POINTE {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for POINTE {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for POINTE {
+unsafe impl ::windows::core::Abi for POINTE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9275,7 +9263,7 @@ impl ::core::cmp::PartialEq for POINTE {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for POINTE {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for POINTE {
+unsafe impl ::windows::core::Abi for POINTE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9302,7 +9290,7 @@ impl ::core::cmp::PartialEq for POINTFIX {
     }
 }
 impl ::core::cmp::Eq for POINTFIX {}
-unsafe impl ::windows::runtime::Abi for POINTFIX {
+unsafe impl ::windows::core::Abi for POINTFIX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9329,7 +9317,7 @@ impl ::core::cmp::PartialEq for POINTQF {
     }
 }
 impl ::core::cmp::Eq for POINTQF {}
-unsafe impl ::windows::runtime::Abi for POINTQF {
+unsafe impl ::windows::core::Abi for POINTQF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -9469,7 +9457,7 @@ impl ::core::cmp::PartialEq for RECTFX {
     }
 }
 impl ::core::cmp::Eq for RECTFX {}
-unsafe impl ::windows::runtime::Abi for RECTFX {
+unsafe impl ::windows::core::Abi for RECTFX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9496,13 +9484,13 @@ impl ::core::cmp::PartialEq for RUN {
     }
 }
 impl ::core::cmp::Eq for RUN {}
-unsafe impl ::windows::runtime::Abi for RUN {
+unsafe impl ::windows::core::Abi for RUN {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RestoreMonitorFactoryColorDefaults<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
+pub unsafe fn RestoreMonitorFactoryColorDefaults<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9517,7 +9505,7 @@ pub unsafe fn RestoreMonitorFactoryColorDefaults<'a, Param0: ::windows::runtime:
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RestoreMonitorFactoryDefaults<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
+pub unsafe fn RestoreMonitorFactoryDefaults<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9558,7 +9546,7 @@ impl ::core::cmp::PartialEq for SET_ACTIVE_COLOR_PROFILE_NAME {
     }
 }
 impl ::core::cmp::Eq for SET_ACTIVE_COLOR_PROFILE_NAME {}
-unsafe impl ::windows::runtime::Abi for SET_ACTIVE_COLOR_PROFILE_NAME {
+unsafe impl ::windows::core::Abi for SET_ACTIVE_COLOR_PROFILE_NAME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -9662,7 +9650,7 @@ impl ::core::cmp::PartialEq for STROBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STROBJ {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STROBJ {
+unsafe impl ::windows::core::Abi for STROBJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
@@ -9800,7 +9788,7 @@ impl ::core::cmp::PartialEq for SURFOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SURFOBJ {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SURFOBJ {
+unsafe impl ::windows::core::Abi for SURFOBJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -9808,7 +9796,7 @@ pub const S_INIT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaveCurrentMonitorSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
+pub unsafe fn SaveCurrentMonitorSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9823,7 +9811,7 @@ pub unsafe fn SaveCurrentMonitorSettings<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaveCurrentSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
+pub unsafe fn SaveCurrentSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9868,7 +9856,7 @@ pub unsafe fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISP
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorBrightness<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dwnewbrightness: u32) -> i32 {
+pub unsafe fn SetMonitorBrightness<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dwnewbrightness: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9883,7 +9871,7 @@ pub unsafe fn SetMonitorBrightness<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorColorTemperature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32 {
+pub unsafe fn SetMonitorColorTemperature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9898,7 +9886,7 @@ pub unsafe fn SetMonitorColorTemperature<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorContrast<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dwnewcontrast: u32) -> i32 {
+pub unsafe fn SetMonitorContrast<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dwnewcontrast: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9913,7 +9901,7 @@ pub unsafe fn SetMonitorContrast<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorDisplayAreaPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32 {
+pub unsafe fn SetMonitorDisplayAreaPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9928,7 +9916,7 @@ pub unsafe fn SetMonitorDisplayAreaPosition<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorDisplayAreaSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32 {
+pub unsafe fn SetMonitorDisplayAreaSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9943,7 +9931,7 @@ pub unsafe fn SetMonitorDisplayAreaSize<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32 {
+pub unsafe fn SetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9958,7 +9946,7 @@ pub unsafe fn SetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32 {
+pub unsafe fn SetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9973,7 +9961,7 @@ pub unsafe fn SetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVCPFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, bvcpcode: u8, dwnewvalue: u32) -> i32 {
+pub unsafe fn SetVCPFeature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, bvcpcode: u8, dwnewvalue: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10010,7 +9998,7 @@ impl ::core::cmp::PartialEq for Sources {
     }
 }
 impl ::core::cmp::Eq for Sources {}
-unsafe impl ::windows::runtime::Abi for Sources {
+unsafe impl ::windows::core::Abi for Sources {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -10055,7 +10043,7 @@ impl ::core::cmp::PartialEq for TYPE1_FONT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TYPE1_FONT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TYPE1_FONT {
+unsafe impl ::windows::core::Abi for TYPE1_FONT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10089,14 +10077,14 @@ impl ::core::cmp::PartialEq for VGA_CHAR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VGA_CHAR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for VGA_CHAR {
+unsafe impl ::windows::core::Abi for VGA_CHAR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEOPARAMETERS {
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
     pub dwOffset: u32,
     pub dwCommand: u32,
     pub dwFlags: u32,
@@ -10183,7 +10171,7 @@ impl ::core::cmp::PartialEq for VIDEOPARAMETERS {
     }
 }
 impl ::core::cmp::Eq for VIDEOPARAMETERS {}
-unsafe impl ::windows::runtime::Abi for VIDEOPARAMETERS {
+unsafe impl ::windows::core::Abi for VIDEOPARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10247,7 +10235,7 @@ impl ::core::cmp::PartialEq for VIDEO_BANK_SELECT {
     }
 }
 impl ::core::cmp::Eq for VIDEO_BANK_SELECT {}
-unsafe impl ::windows::runtime::Abi for VIDEO_BANK_SELECT {
+unsafe impl ::windows::core::Abi for VIDEO_BANK_SELECT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -10264,7 +10252,7 @@ impl ::core::convert::From<i32> for VIDEO_BANK_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VIDEO_BANK_TYPE {
+unsafe impl ::windows::core::Abi for VIDEO_BANK_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10299,7 +10287,7 @@ impl ::core::cmp::PartialEq for VIDEO_BRIGHTNESS_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VIDEO_BRIGHTNESS_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for VIDEO_BRIGHTNESS_POLICY {
+unsafe impl ::windows::core::Abi for VIDEO_BRIGHTNESS_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10332,7 +10320,7 @@ impl ::core::cmp::PartialEq for VIDEO_BRIGHTNESS_POLICY_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VIDEO_BRIGHTNESS_POLICY_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for VIDEO_BRIGHTNESS_POLICY_0 {
+unsafe impl ::windows::core::Abi for VIDEO_BRIGHTNESS_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10355,7 +10343,7 @@ impl ::core::cmp::PartialEq for VIDEO_CLUT {
     }
 }
 impl ::core::cmp::Eq for VIDEO_CLUT {}
-unsafe impl ::windows::runtime::Abi for VIDEO_CLUT {
+unsafe impl ::windows::core::Abi for VIDEO_CLUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10377,7 +10365,7 @@ impl ::core::cmp::PartialEq for VIDEO_CLUT_0 {
     }
 }
 impl ::core::cmp::Eq for VIDEO_CLUT_0 {}
-unsafe impl ::windows::runtime::Abi for VIDEO_CLUT_0 {
+unsafe impl ::windows::core::Abi for VIDEO_CLUT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10406,7 +10394,7 @@ impl ::core::cmp::PartialEq for VIDEO_CLUTDATA {
     }
 }
 impl ::core::cmp::Eq for VIDEO_CLUTDATA {}
-unsafe impl ::windows::runtime::Abi for VIDEO_CLUTDATA {
+unsafe impl ::windows::core::Abi for VIDEO_CLUTDATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10485,7 +10473,7 @@ impl ::core::cmp::PartialEq for VIDEO_COLOR_CAPABILITIES {
     }
 }
 impl ::core::cmp::Eq for VIDEO_COLOR_CAPABILITIES {}
-unsafe impl ::windows::runtime::Abi for VIDEO_COLOR_CAPABILITIES {
+unsafe impl ::windows::core::Abi for VIDEO_COLOR_CAPABILITIES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10513,7 +10501,7 @@ impl ::core::cmp::PartialEq for VIDEO_COLOR_LUT_DATA {
     }
 }
 impl ::core::cmp::Eq for VIDEO_COLOR_LUT_DATA {}
-unsafe impl ::windows::runtime::Abi for VIDEO_COLOR_LUT_DATA {
+unsafe impl ::windows::core::Abi for VIDEO_COLOR_LUT_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -10548,7 +10536,7 @@ impl ::core::cmp::PartialEq for VIDEO_CURSOR_ATTRIBUTES {
     }
 }
 impl ::core::cmp::Eq for VIDEO_CURSOR_ATTRIBUTES {}
-unsafe impl ::windows::runtime::Abi for VIDEO_CURSOR_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for VIDEO_CURSOR_ATTRIBUTES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10575,7 +10563,7 @@ impl ::core::cmp::PartialEq for VIDEO_CURSOR_POSITION {
     }
 }
 impl ::core::cmp::Eq for VIDEO_CURSOR_POSITION {}
-unsafe impl ::windows::runtime::Abi for VIDEO_CURSOR_POSITION {
+unsafe impl ::windows::core::Abi for VIDEO_CURSOR_POSITION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -10604,7 +10592,7 @@ impl ::core::cmp::PartialEq for VIDEO_DEVICE_SESSION_STATUS {
     }
 }
 impl ::core::cmp::Eq for VIDEO_DEVICE_SESSION_STATUS {}
-unsafe impl ::windows::runtime::Abi for VIDEO_DEVICE_SESSION_STATUS {
+unsafe impl ::windows::core::Abi for VIDEO_DEVICE_SESSION_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -10639,7 +10627,7 @@ impl ::core::cmp::PartialEq for VIDEO_HARDWARE_STATE {
     }
 }
 impl ::core::cmp::Eq for VIDEO_HARDWARE_STATE {}
-unsafe impl ::windows::runtime::Abi for VIDEO_HARDWARE_STATE {
+unsafe impl ::windows::core::Abi for VIDEO_HARDWARE_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10754,7 +10742,7 @@ impl ::core::cmp::PartialEq for VIDEO_HARDWARE_STATE_HEADER {
     }
 }
 impl ::core::cmp::Eq for VIDEO_HARDWARE_STATE_HEADER {}
-unsafe impl ::windows::runtime::Abi for VIDEO_HARDWARE_STATE_HEADER {
+unsafe impl ::windows::core::Abi for VIDEO_HARDWARE_STATE_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10783,7 +10771,7 @@ impl ::core::cmp::PartialEq for VIDEO_LOAD_FONT_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for VIDEO_LOAD_FONT_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for VIDEO_LOAD_FONT_INFORMATION {
+unsafe impl ::windows::core::Abi for VIDEO_LOAD_FONT_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10811,7 +10799,7 @@ impl ::core::cmp::PartialEq for VIDEO_LUT_RGB256WORDS {
     }
 }
 impl ::core::cmp::Eq for VIDEO_LUT_RGB256WORDS {}
-unsafe impl ::windows::runtime::Abi for VIDEO_LUT_RGB256WORDS {
+unsafe impl ::windows::core::Abi for VIDEO_LUT_RGB256WORDS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -10839,7 +10827,7 @@ impl ::core::cmp::PartialEq for VIDEO_MEMORY {
     }
 }
 impl ::core::cmp::Eq for VIDEO_MEMORY {}
-unsafe impl ::windows::runtime::Abi for VIDEO_MEMORY {
+unsafe impl ::windows::core::Abi for VIDEO_MEMORY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10868,7 +10856,7 @@ impl ::core::cmp::PartialEq for VIDEO_MEMORY_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for VIDEO_MEMORY_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for VIDEO_MEMORY_INFORMATION {
+unsafe impl ::windows::core::Abi for VIDEO_MEMORY_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10894,7 +10882,7 @@ impl ::core::cmp::PartialEq for VIDEO_MODE {
     }
 }
 impl ::core::cmp::Eq for VIDEO_MODE {}
-unsafe impl ::windows::runtime::Abi for VIDEO_MODE {
+unsafe impl ::windows::core::Abi for VIDEO_MODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -10993,7 +10981,7 @@ impl ::core::cmp::PartialEq for VIDEO_MODE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for VIDEO_MODE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for VIDEO_MODE_INFORMATION {
+unsafe impl ::windows::core::Abi for VIDEO_MODE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -11038,7 +11026,7 @@ impl ::core::cmp::PartialEq for VIDEO_MONITOR_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for VIDEO_MONITOR_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for VIDEO_MONITOR_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for VIDEO_MONITOR_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11065,7 +11053,7 @@ impl ::core::cmp::PartialEq for VIDEO_NUM_MODES {
     }
 }
 impl ::core::cmp::Eq for VIDEO_NUM_MODES {}
-unsafe impl ::windows::runtime::Abi for VIDEO_NUM_MODES {
+unsafe impl ::windows::core::Abi for VIDEO_NUM_MODES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -11095,7 +11083,7 @@ impl ::core::cmp::PartialEq for VIDEO_PALETTE_DATA {
     }
 }
 impl ::core::cmp::Eq for VIDEO_PALETTE_DATA {}
-unsafe impl ::windows::runtime::Abi for VIDEO_PALETTE_DATA {
+unsafe impl ::windows::core::Abi for VIDEO_PALETTE_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11183,7 +11171,7 @@ impl ::core::cmp::PartialEq for VIDEO_PERFORMANCE_COUNTER {
     }
 }
 impl ::core::cmp::Eq for VIDEO_PERFORMANCE_COUNTER {}
-unsafe impl ::windows::runtime::Abi for VIDEO_PERFORMANCE_COUNTER {
+unsafe impl ::windows::core::Abi for VIDEO_PERFORMANCE_COUNTER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11216,7 +11204,7 @@ impl ::core::cmp::PartialEq for VIDEO_POINTER_ATTRIBUTES {
     }
 }
 impl ::core::cmp::Eq for VIDEO_POINTER_ATTRIBUTES {}
-unsafe impl ::windows::runtime::Abi for VIDEO_POINTER_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for VIDEO_POINTER_ATTRIBUTES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11246,7 +11234,7 @@ impl ::core::cmp::PartialEq for VIDEO_POINTER_CAPABILITIES {
     }
 }
 impl ::core::cmp::Eq for VIDEO_POINTER_CAPABILITIES {}
-unsafe impl ::windows::runtime::Abi for VIDEO_POINTER_CAPABILITIES {
+unsafe impl ::windows::core::Abi for VIDEO_POINTER_CAPABILITIES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11273,7 +11261,7 @@ impl ::core::cmp::PartialEq for VIDEO_POINTER_POSITION {
     }
 }
 impl ::core::cmp::Eq for VIDEO_POINTER_POSITION {}
-unsafe impl ::windows::runtime::Abi for VIDEO_POINTER_POSITION {
+unsafe impl ::windows::core::Abi for VIDEO_POINTER_POSITION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11301,7 +11289,7 @@ impl ::core::cmp::PartialEq for VIDEO_POWER_MANAGEMENT {
     }
 }
 impl ::core::cmp::Eq for VIDEO_POWER_MANAGEMENT {}
-unsafe impl ::windows::runtime::Abi for VIDEO_POWER_MANAGEMENT {
+unsafe impl ::windows::core::Abi for VIDEO_POWER_MANAGEMENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -11321,7 +11309,7 @@ impl ::core::convert::From<i32> for VIDEO_POWER_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VIDEO_POWER_STATE {
+unsafe impl ::windows::core::Abi for VIDEO_POWER_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11349,7 +11337,7 @@ impl ::core::cmp::PartialEq for VIDEO_PUBLIC_ACCESS_RANGES {
     }
 }
 impl ::core::cmp::Eq for VIDEO_PUBLIC_ACCESS_RANGES {}
-unsafe impl ::windows::runtime::Abi for VIDEO_PUBLIC_ACCESS_RANGES {
+unsafe impl ::windows::core::Abi for VIDEO_PUBLIC_ACCESS_RANGES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11376,7 +11364,7 @@ impl ::core::cmp::PartialEq for VIDEO_QUERY_PERFORMANCE_COUNTER {
     }
 }
 impl ::core::cmp::Eq for VIDEO_QUERY_PERFORMANCE_COUNTER {}
-unsafe impl ::windows::runtime::Abi for VIDEO_QUERY_PERFORMANCE_COUNTER {
+unsafe impl ::windows::core::Abi for VIDEO_QUERY_PERFORMANCE_COUNTER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -11422,7 +11410,7 @@ impl ::core::cmp::PartialEq for VIDEO_REGISTER_VDM {
     }
 }
 impl ::core::cmp::Eq for VIDEO_REGISTER_VDM {}
-unsafe impl ::windows::runtime::Abi for VIDEO_REGISTER_VDM {
+unsafe impl ::windows::core::Abi for VIDEO_REGISTER_VDM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11458,7 +11446,7 @@ impl ::core::cmp::PartialEq for VIDEO_SHARE_MEMORY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VIDEO_SHARE_MEMORY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for VIDEO_SHARE_MEMORY {
+unsafe impl ::windows::core::Abi for VIDEO_SHARE_MEMORY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11486,7 +11474,7 @@ impl ::core::cmp::PartialEq for VIDEO_SHARE_MEMORY_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for VIDEO_SHARE_MEMORY_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for VIDEO_SHARE_MEMORY_INFORMATION {
+unsafe impl ::windows::core::Abi for VIDEO_SHARE_MEMORY_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -11525,7 +11513,7 @@ impl ::core::cmp::PartialEq for VIDEO_VDM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VIDEO_VDM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for VIDEO_VDM {
+unsafe impl ::windows::core::Abi for VIDEO_VDM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -11562,7 +11550,7 @@ impl ::core::cmp::PartialEq for VIDEO_WIN32K_CALLBACKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VIDEO_WIN32K_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for VIDEO_WIN32K_CALLBACKS {
+unsafe impl ::windows::core::Abi for VIDEO_WIN32K_CALLBACKS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11611,7 +11599,7 @@ impl ::core::cmp::PartialEq for VIDEO_WIN32K_CALLBACKS_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VIDEO_WIN32K_CALLBACKS_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS {
+unsafe impl ::windows::core::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -11635,7 +11623,7 @@ impl ::core::convert::From<i32> for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
+unsafe impl ::windows::core::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11663,7 +11651,7 @@ impl ::core::cmp::PartialEq for WCRUN {
     }
 }
 impl ::core::cmp::Eq for WCRUN {}
-unsafe impl ::windows::runtime::Abi for WCRUN {
+unsafe impl ::windows::core::Abi for WCRUN {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -11705,7 +11693,7 @@ impl ::core::cmp::PartialEq for WNDOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WNDOBJ {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WNDOBJ {
+unsafe impl ::windows::core::Abi for WNDOBJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
@@ -11788,7 +11776,7 @@ impl ::core::cmp::PartialEq for XFORML {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for XFORML {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for XFORML {
+unsafe impl ::windows::core::Abi for XFORML {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11826,7 +11814,7 @@ impl ::core::cmp::PartialEq for XFORML {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for XFORML {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for XFORML {
+unsafe impl ::windows::core::Abi for XFORML {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11852,7 +11840,7 @@ impl ::core::cmp::PartialEq for XFORMOBJ {
     }
 }
 impl ::core::cmp::Eq for XFORMOBJ {}
-unsafe impl ::windows::runtime::Abi for XFORMOBJ {
+unsafe impl ::windows::core::Abi for XFORMOBJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
@@ -11920,7 +11908,7 @@ impl ::core::cmp::PartialEq for XLATEOBJ {
     }
 }
 impl ::core::cmp::Eq for XLATEOBJ {}
-unsafe impl ::windows::runtime::Abi for XLATEOBJ {
+unsafe impl ::windows::core::Abi for XLATEOBJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]

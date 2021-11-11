@@ -17,14 +17,14 @@ pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERF
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInterfaceContextTableForHostName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, proxyname: Param1, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32) -> ::windows::runtime::Result<*mut NET_INTERFACE_CONTEXT_TABLE> {
+pub unsafe fn GetInterfaceContextTableForHostName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, proxyname: Param1, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32) -> ::windows::core::Result<*mut NET_INTERFACE_CONTEXT_TABLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetInterfaceContextTableForHostName(hostname: super::super::Foundation::PWSTR, proxyname: super::super::Foundation::PWSTR, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32, interfacecontexttable: *mut *mut NET_INTERFACE_CONTEXT_TABLE) -> ::windows::runtime::HRESULT;
+            fn GetInterfaceContextTableForHostName(hostname: super::super::Foundation::PWSTR, proxyname: super::super::Foundation::PWSTR, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32, interfacecontexttable: *mut *mut NET_INTERFACE_CONTEXT_TABLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut NET_INTERFACE_CONTEXT_TABLE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <*mut NET_INTERFACE_CONTEXT_TABLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetInterfaceContextTableForHostName(hostname.into_param().abi(), proxyname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(connectionprofilefilterrawdata), ::core::mem::transmute(connectionprofilefilterrawdatasize), &mut result__).from_abi::<*mut NET_INTERFACE_CONTEXT_TABLE>(result__)
     }
     #[cfg(not(windows))]
@@ -61,7 +61,7 @@ impl ::core::cmp::PartialEq for NET_INTERFACE_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NET_INTERFACE_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NET_INTERFACE_CONTEXT {
+unsafe impl ::windows::core::Abi for NET_INTERFACE_CONTEXT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -96,7 +96,7 @@ impl ::core::cmp::PartialEq for NET_INTERFACE_CONTEXT_TABLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NET_INTERFACE_CONTEXT_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NET_INTERFACE_CONTEXT_TABLE {
+unsafe impl ::windows::core::Abi for NET_INTERFACE_CONTEXT_TABLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
@@ -108,14 +108,14 @@ pub type ONDEMAND_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *con
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationhostname: Param0) -> ::windows::runtime::Result<u32> {
+pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationhostname: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OnDemandGetRoutingHint(destinationhostname: super::super::Foundation::PWSTR, interfaceindex: *mut u32) -> ::windows::runtime::HRESULT;
+            fn OnDemandGetRoutingHint(destinationhostname: super::super::Foundation::PWSTR, interfaceindex: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         OnDemandGetRoutingHint(destinationhostname.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
@@ -124,14 +124,14 @@ pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OnDemandRegisterNotification(callback: ::core::option::Option<ONDEMAND_NOTIFICATION_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn OnDemandRegisterNotification(callback: ::core::option::Option<ONDEMAND_NOTIFICATION_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OnDemandRegisterNotification(callback: ::windows::runtime::RawPtr, callbackcontext: *const ::core::ffi::c_void, registrationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+            fn OnDemandRegisterNotification(callback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void, registrationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         OnDemandRegisterNotification(::core::mem::transmute(callback), ::core::mem::transmute(callbackcontext), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
@@ -140,12 +140,12 @@ pub unsafe fn OnDemandRegisterNotification(callback: ::core::option::Option<ONDE
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OnDemandUnRegisterNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(registrationhandle: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn OnDemandUnRegisterNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(registrationhandle: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OnDemandUnRegisterNotification(registrationhandle: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+            fn OnDemandUnRegisterNotification(registrationhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
         OnDemandUnRegisterNotification(registrationhandle.into_param().abi()).ok()
     }
@@ -188,7 +188,7 @@ impl ::core::cmp::PartialEq for WCM_BILLING_CYCLE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WCM_BILLING_CYCLE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WCM_BILLING_CYCLE_INFO {
+unsafe impl ::windows::core::Abi for WCM_BILLING_CYCLE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
@@ -208,7 +208,7 @@ impl ::core::convert::From<i32> for WCM_CONNECTION_COST {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WCM_CONNECTION_COST {
+unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -235,7 +235,7 @@ impl ::core::cmp::PartialEq for WCM_CONNECTION_COST_DATA {
     }
 }
 impl ::core::cmp::Eq for WCM_CONNECTION_COST_DATA {}
-unsafe impl ::windows::runtime::Abi for WCM_CONNECTION_COST_DATA {
+unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
@@ -251,7 +251,7 @@ impl ::core::convert::From<i32> for WCM_CONNECTION_COST_SOURCE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WCM_CONNECTION_COST_SOURCE {
+unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST_SOURCE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -298,7 +298,7 @@ impl ::core::cmp::PartialEq for WCM_DATAPLAN_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WCM_DATAPLAN_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WCM_DATAPLAN_STATUS {
+unsafe impl ::windows::core::Abi for WCM_DATAPLAN_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
@@ -318,7 +318,7 @@ impl ::core::convert::From<i32> for WCM_MEDIA_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WCM_MEDIA_TYPE {
+unsafe impl ::windows::core::Abi for WCM_MEDIA_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -352,7 +352,7 @@ impl ::core::cmp::PartialEq for WCM_POLICY_VALUE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WCM_POLICY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WCM_POLICY_VALUE {
+unsafe impl ::windows::core::Abi for WCM_POLICY_VALUE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -360,7 +360,7 @@ unsafe impl ::windows::runtime::Abi for WCM_POLICY_VALUE {
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub struct WCM_PROFILE_INFO {
     pub strProfileName: [u16; 256],
-    pub AdapterGUID: ::windows::runtime::GUID,
+    pub AdapterGUID: ::windows::core::GUID,
     pub Media: WCM_MEDIA_TYPE,
 }
 impl WCM_PROFILE_INFO {}
@@ -380,7 +380,7 @@ impl ::core::cmp::PartialEq for WCM_PROFILE_INFO {
     }
 }
 impl ::core::cmp::Eq for WCM_PROFILE_INFO {}
-unsafe impl ::windows::runtime::Abi for WCM_PROFILE_INFO {
+unsafe impl ::windows::core::Abi for WCM_PROFILE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -407,7 +407,7 @@ impl ::core::cmp::PartialEq for WCM_PROFILE_INFO_LIST {
     }
 }
 impl ::core::cmp::Eq for WCM_PROFILE_INFO_LIST {}
-unsafe impl ::windows::runtime::Abi for WCM_PROFILE_INFO_LIST {
+unsafe impl ::windows::core::Abi for WCM_PROFILE_INFO_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
@@ -426,7 +426,7 @@ impl ::core::convert::From<i32> for WCM_PROPERTY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WCM_PROPERTY {
+unsafe impl ::windows::core::Abi for WCM_PROPERTY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -458,7 +458,7 @@ impl ::core::cmp::PartialEq for WCM_TIME_INTERVAL {
     }
 }
 impl ::core::cmp::Eq for WCM_TIME_INTERVAL {}
-unsafe impl ::windows::runtime::Abi for WCM_TIME_INTERVAL {
+unsafe impl ::windows::core::Abi for WCM_TIME_INTERVAL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
@@ -494,7 +494,7 @@ impl ::core::cmp::PartialEq for WCM_USAGE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WCM_USAGE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WCM_USAGE_DATA {
+unsafe impl ::windows::core::Abi for WCM_USAGE_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
@@ -528,12 +528,12 @@ pub unsafe fn WcmGetProfileList(preserved: *mut ::core::ffi::c_void, ppprofileli
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcmQueryProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::runtime::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32 {
+pub unsafe fn WcmQueryProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::core::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WcmQueryProperty(pinterface: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
+            fn WcmQueryProperty(pinterface: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
         }
         ::core::mem::transmute(WcmQueryProperty(::core::mem::transmute(pinterface), strprofilename.into_param().abi(), ::core::mem::transmute(property), ::core::mem::transmute(preserved), ::core::mem::transmute(pdwdatasize), ::core::mem::transmute(ppdata)))
     }
@@ -543,7 +543,7 @@ pub unsafe fn WcmQueryProperty<'a, Param1: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcmSetProfileList<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: Param2, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WcmSetProfileList<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: Param2, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -558,12 +558,12 @@ pub unsafe fn WcmSetProfileList<'a, Param2: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcmSetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::runtime::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32 {
+pub unsafe fn WcmSetProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::core::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WcmSetProperty(pinterface: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
+            fn WcmSetProperty(pinterface: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
         }
         ::core::mem::transmute(WcmSetProperty(::core::mem::transmute(pinterface), strprofilename.into_param().abi(), ::core::mem::transmute(property), ::core::mem::transmute(preserved), ::core::mem::transmute(dwdatasize), ::core::mem::transmute(pbdata)))
     }

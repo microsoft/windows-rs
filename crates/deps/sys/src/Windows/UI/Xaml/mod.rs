@@ -27,3 +27,5 @@ pub mod Printing;
 pub mod Resources;
 #[cfg(feature = "UI_Xaml_Shapes")]
 pub mod Shapes;
+#[link(name = "windows")]
+extern "system" {}

@@ -3,3 +3,5 @@
 pub mod Provider;
 #[cfg(feature = "ApplicationModel_UserDataAccounts_SystemAccess")]
 pub mod SystemAccess;
+#[link(name = "windows")]
+extern "system" {}

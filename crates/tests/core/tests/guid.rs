@@ -1,4 +1,4 @@
-use windows::runtime::GUID;
+use windows::core::GUID;
 
 #[test]
 fn test_new() {

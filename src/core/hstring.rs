@@ -103,7 +103,7 @@ unsafe impl RuntimeType for HSTRING {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"string");
 }
 
-impl ::windows::runtime::DefaultType for HSTRING {
+impl ::windows::core::DefaultType for HSTRING {
     type DefaultType = Self;
 }
 

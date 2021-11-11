@@ -7,3 +7,5 @@ pub mod PrintSupport;
 pub mod PrintTicket;
 #[cfg(feature = "Graphics_Printing_Workflow")]
 pub mod Workflow;
+#[link(name = "windows")]
+extern "system" {}

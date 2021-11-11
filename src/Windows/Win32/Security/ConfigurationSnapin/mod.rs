@@ -2,113 +2,113 @@
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISceSvcAttachmentData(pub ::windows::runtime::IUnknown);
+pub struct ISceSvcAttachmentData(pub ::windows::core::IUnknown);
 impl ISceSvcAttachmentData {
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
-    pub unsafe fn GetData(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(scesvchandle), ::core::mem::transmute(scetype), ::core::mem::transmute(ppvdata), ::core::mem::transmute(psceenumhandle)).ok()
+    pub unsafe fn GetData(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(scesvchandle), ::core::mem::transmute(scetype), ::core::mem::transmute(ppvdata), ::core::mem::transmute(psceenumhandle)).ok()
     }
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
-    pub unsafe fn Initialize<'a, Param2: ::windows::runtime::IntoParam<'a, ISceSvcAttachmentPersistInfo>>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: Param2, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lptemplatename), lpscesvcpersistinfo.into_param().abi(), ::core::mem::transmute(pscesvchandle)).ok()
+    pub unsafe fn Initialize<'a, Param2: ::windows::core::IntoParam<'a, ISceSvcAttachmentPersistInfo>>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: Param2, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lptemplatename), lpscesvcpersistinfo.into_param().abi(), ::core::mem::transmute(pscesvchandle)).ok()
     }
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
-    pub unsafe fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata)).ok()
+    pub unsafe fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata)).ok()
     }
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
-    pub unsafe fn CloseHandle(&self, scesvchandle: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(scesvchandle)).ok()
+    pub unsafe fn CloseHandle(&self, scesvchandle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(scesvchandle)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentData {
+unsafe impl ::windows::core::Interface for ISceSvcAttachmentData {
     type Vtable = ISceSvcAttachmentData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17c35fde_200d_11d1_affb_00c04fb984f9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17c35fde_200d_11d1_affb_00c04fb984f9);
 }
-impl ::core::convert::From<ISceSvcAttachmentData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISceSvcAttachmentData> for ::windows::core::IUnknown {
     fn from(value: ISceSvcAttachmentData) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISceSvcAttachmentData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISceSvcAttachmentData> for ::windows::core::IUnknown {
     fn from(value: &ISceSvcAttachmentData) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISceSvcAttachmentData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISceSvcAttachmentData {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISceSvcAttachmentData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISceSvcAttachmentData {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceSvcAttachmentData_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: ::windows::runtime::RawPtr, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scesvchandle: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: ::windows::core::RawPtr, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, scesvchandle: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ISceSvcAttachmentPersistInfo(pub ::windows::runtime::IUnknown);
+pub struct ISceSvcAttachmentPersistInfo(pub ::windows::core::IUnknown);
 impl ISceSvcAttachmentPersistInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
-    pub unsafe fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lptemplatename), ::core::mem::transmute(scesvchandle), ::core::mem::transmute(ppvdata), ::core::mem::transmute(pboverwriteall)).ok()
+    pub unsafe fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lptemplatename), ::core::mem::transmute(scesvchandle), ::core::mem::transmute(ppvdata), ::core::mem::transmute(pboverwriteall)).ok()
     }
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
-    pub unsafe fn IsDirty(&self, lptemplatename: *mut i8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lptemplatename)).ok()
+    pub unsafe fn IsDirty(&self, lptemplatename: *mut i8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lptemplatename)).ok()
     }
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
-    pub unsafe fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata)).ok()
+    pub unsafe fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentPersistInfo {
+unsafe impl ::windows::core::Interface for ISceSvcAttachmentPersistInfo {
     type Vtable = ISceSvcAttachmentPersistInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
 }
-impl ::core::convert::From<ISceSvcAttachmentPersistInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISceSvcAttachmentPersistInfo> for ::windows::core::IUnknown {
     fn from(value: ISceSvcAttachmentPersistInfo) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&ISceSvcAttachmentPersistInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISceSvcAttachmentPersistInfo> for ::windows::core::IUnknown {
     fn from(value: &ISceSvcAttachmentPersistInfo) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISceSvcAttachmentPersistInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISceSvcAttachmentPersistInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISceSvcAttachmentPersistInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISceSvcAttachmentPersistInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceSvcAttachmentPersistInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lptemplatename: *mut i8) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lptemplatename: *mut i8) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub type PFSCE_FREE_INFO = unsafe extern "system" fn(pvserviceinfo: *mut ::core::ffi::c_void) -> u32;
@@ -190,7 +190,7 @@ impl ::core::cmp::PartialEq for SCESVC_ANALYSIS_INFO {
     }
 }
 impl ::core::cmp::Eq for SCESVC_ANALYSIS_INFO {}
-unsafe impl ::windows::runtime::Abi for SCESVC_ANALYSIS_INFO {
+unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -218,7 +218,7 @@ impl ::core::cmp::PartialEq for SCESVC_ANALYSIS_LINE {
     }
 }
 impl ::core::cmp::Eq for SCESVC_ANALYSIS_LINE {}
-unsafe impl ::windows::runtime::Abi for SCESVC_ANALYSIS_LINE {
+unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_LINE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -255,7 +255,7 @@ impl ::core::cmp::PartialEq for SCESVC_CALLBACK_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCESVC_CALLBACK_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SCESVC_CALLBACK_INFO {
+unsafe impl ::windows::core::Abi for SCESVC_CALLBACK_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -282,7 +282,7 @@ impl ::core::cmp::PartialEq for SCESVC_CONFIGURATION_INFO {
     }
 }
 impl ::core::cmp::Eq for SCESVC_CONFIGURATION_INFO {}
-unsafe impl ::windows::runtime::Abi for SCESVC_CONFIGURATION_INFO {
+unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -310,7 +310,7 @@ impl ::core::cmp::PartialEq for SCESVC_CONFIGURATION_LINE {
     }
 }
 impl ::core::cmp::Eq for SCESVC_CONFIGURATION_LINE {}
-unsafe impl ::windows::runtime::Abi for SCESVC_CONFIGURATION_LINE {
+unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_LINE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
@@ -328,7 +328,7 @@ impl ::core::convert::From<i32> for SCESVC_INFO_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCESVC_INFO_TYPE {
+unsafe impl ::windows::core::Abi for SCESVC_INFO_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
@@ -344,7 +344,7 @@ impl ::core::convert::From<u32> for SCE_LOG_ERR_LEVEL {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCE_LOG_ERR_LEVEL {
+unsafe impl ::windows::core::Abi for SCE_LOG_ERR_LEVEL {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SCE_LOG_ERR_LEVEL {
@@ -375,6 +375,6 @@ impl ::core::ops::Not for SCE_LOG_ERR_LEVEL {
         Self(self.0.not())
     }
 }
-pub const cNodetypeSceAnalysisServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9);
-pub const cNodetypeSceEventLog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ce06698_4bf3_11d1_8c30_00c04fb984f9);
-pub const cNodetypeSceTemplateServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x24a7f717_1f0c_11d1_affb_00c04fb984f9);
+pub const cNodetypeSceAnalysisServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9);
+pub const cNodetypeSceEventLog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce06698_4bf3_11d1_8c30_00c04fb984f9);
+pub const cNodetypeSceTemplateServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24a7f717_1f0c_11d1_affb_00c04fb984f9);

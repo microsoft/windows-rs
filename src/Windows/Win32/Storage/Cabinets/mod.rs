@@ -63,7 +63,7 @@ impl ::core::cmp::PartialEq for CCAB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CCAB {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CCAB {
+unsafe impl ::windows::core::Abi for CCAB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -98,13 +98,13 @@ impl ::core::cmp::PartialEq for ERF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ERF {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ERF {
+unsafe impl ::windows::core::Abi for ERF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FCIAddFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
+pub unsafe fn FCIAddFile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
     hfci: *const ::core::ffi::c_void,
     pszsourcefile: Param1,
     pszfilename: Param2,
@@ -118,7 +118,7 @@ pub unsafe fn FCIAddFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FCIAddFile(hfci: *const ::core::ffi::c_void, pszsourcefile: super::super::Foundation::PSTR, pszfilename: super::super::Foundation::PSTR, fexecute: super::super::Foundation::BOOL, pfnfcignc: ::windows::runtime::RawPtr, pfnfcis: ::windows::runtime::RawPtr, pfnfcigoi: ::windows::runtime::RawPtr, typecompress: u16) -> super::super::Foundation::BOOL;
+            fn FCIAddFile(hfci: *const ::core::ffi::c_void, pszsourcefile: super::super::Foundation::PSTR, pszfilename: super::super::Foundation::PSTR, fexecute: super::super::Foundation::BOOL, pfnfcignc: ::windows::core::RawPtr, pfnfcis: ::windows::core::RawPtr, pfnfcigoi: ::windows::core::RawPtr, typecompress: u16) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(FCIAddFile(::core::mem::transmute(hfci), pszsourcefile.into_param().abi(), pszfilename.into_param().abi(), fexecute.into_param().abi(), ::core::mem::transmute(pfnfcignc), ::core::mem::transmute(pfnfcis), ::core::mem::transmute(pfnfcigoi), ::core::mem::transmute(typecompress)))
     }
@@ -147,7 +147,7 @@ pub unsafe fn FCICreate(
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FCICreate(perf: *const ERF, pfnfcifp: ::windows::runtime::RawPtr, pfna: ::windows::runtime::RawPtr, pfnf: ::windows::runtime::RawPtr, pfnopen: ::windows::runtime::RawPtr, pfnread: ::windows::runtime::RawPtr, pfnwrite: ::windows::runtime::RawPtr, pfnclose: ::windows::runtime::RawPtr, pfnseek: ::windows::runtime::RawPtr, pfndelete: ::windows::runtime::RawPtr, pfnfcigtf: ::windows::runtime::RawPtr, pccab: *const CCAB, pv: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+            fn FCICreate(perf: *const ERF, pfnfcifp: ::windows::core::RawPtr, pfna: ::windows::core::RawPtr, pfnf: ::windows::core::RawPtr, pfnopen: ::windows::core::RawPtr, pfnread: ::windows::core::RawPtr, pfnwrite: ::windows::core::RawPtr, pfnclose: ::windows::core::RawPtr, pfnseek: ::windows::core::RawPtr, pfndelete: ::windows::core::RawPtr, pfnfcigtf: ::windows::core::RawPtr, pccab: *const CCAB, pv: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
         }
         ::core::mem::transmute(FCICreate(
             ::core::mem::transmute(perf),
@@ -202,18 +202,18 @@ impl ::core::convert::From<i32> for FCIERROR {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FCIERROR {
+unsafe impl ::windows::core::Abi for FCIERROR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hfci: *const ::core::ffi::c_void, fgetnextcab: Param1, pfnfcignc: ::core::option::Option<PFNFCIGETNEXTCABINET>, pfnfcis: ::core::option::Option<PFNFCISTATUS>) -> super::super::Foundation::BOOL {
+pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfci: *const ::core::ffi::c_void, fgetnextcab: Param1, pfnfcignc: ::core::option::Option<PFNFCIGETNEXTCABINET>, pfnfcis: ::core::option::Option<PFNFCISTATUS>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FCIFlushCabinet(hfci: *const ::core::ffi::c_void, fgetnextcab: super::super::Foundation::BOOL, pfnfcignc: ::windows::runtime::RawPtr, pfnfcis: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
+            fn FCIFlushCabinet(hfci: *const ::core::ffi::c_void, fgetnextcab: super::super::Foundation::BOOL, pfnfcignc: ::windows::core::RawPtr, pfnfcis: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(FCIFlushCabinet(::core::mem::transmute(hfci), fgetnextcab.into_param().abi(), ::core::mem::transmute(pfnfcignc), ::core::mem::transmute(pfnfcis)))
     }
@@ -228,7 +228,7 @@ pub unsafe fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: ::core
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: ::windows::runtime::RawPtr, pfnfcis: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
+            fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: ::windows::core::RawPtr, pfnfcis: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(FCIFlushFolder(::core::mem::transmute(hfci), ::core::mem::transmute(pfnfcignc), ::core::mem::transmute(pfnfcis)))
     }
@@ -281,7 +281,7 @@ impl ::core::cmp::PartialEq for FDICABINETINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDICABINETINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FDICABINETINFO {
+unsafe impl ::windows::core::Abi for FDICABINETINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Cabinets`*"]
@@ -295,7 +295,7 @@ impl ::core::convert::From<u32> for FDICREATE_CPU_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FDICREATE_CPU_TYPE {
+unsafe impl ::windows::core::Abi for FDICREATE_CPU_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FDICREATE_CPU_TYPE {
@@ -329,12 +329,12 @@ impl ::core::ops::Not for FDICREATE_CPU_TYPE {
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FDICopy<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::core::ffi::c_void, pszcabinet: Param1, pszcabpath: Param2, flags: i32, pfnfdin: ::core::option::Option<PFNFDINOTIFY>, pfnfdid: ::core::option::Option<PFNFDIDECRYPT>, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn FDICopy<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::core::ffi::c_void, pszcabinet: Param1, pszcabpath: Param2, flags: i32, pfnfdin: ::core::option::Option<PFNFDINOTIFY>, pfnfdid: ::core::option::Option<PFNFDIDECRYPT>, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FDICopy(hfdi: *const ::core::ffi::c_void, pszcabinet: super::super::Foundation::PSTR, pszcabpath: super::super::Foundation::PSTR, flags: i32, pfnfdin: ::windows::runtime::RawPtr, pfnfdid: ::windows::runtime::RawPtr, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn FDICopy(hfdi: *const ::core::ffi::c_void, pszcabinet: super::super::Foundation::PSTR, pszcabpath: super::super::Foundation::PSTR, flags: i32, pfnfdin: ::windows::core::RawPtr, pfnfdid: ::windows::core::RawPtr, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(FDICopy(::core::mem::transmute(hfdi), pszcabinet.into_param().abi(), pszcabpath.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pfnfdin), ::core::mem::transmute(pfnfdid), ::core::mem::transmute(pvuser)))
     }
@@ -349,7 +349,7 @@ pub unsafe fn FDICreate(pfnalloc: ::core::option::Option<PFNALLOC>, pfnfree: ::c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FDICreate(pfnalloc: ::windows::runtime::RawPtr, pfnfree: ::windows::runtime::RawPtr, pfnopen: ::windows::runtime::RawPtr, pfnread: ::windows::runtime::RawPtr, pfnwrite: ::windows::runtime::RawPtr, pfnclose: ::windows::runtime::RawPtr, pfnseek: ::windows::runtime::RawPtr, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void;
+            fn FDICreate(pfnalloc: ::windows::core::RawPtr, pfnfree: ::windows::core::RawPtr, pfnopen: ::windows::core::RawPtr, pfnread: ::windows::core::RawPtr, pfnwrite: ::windows::core::RawPtr, pfnclose: ::windows::core::RawPtr, pfnseek: ::windows::core::RawPtr, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void;
         }
         ::core::mem::transmute(FDICreate(
             ::core::mem::transmute(pfnalloc),
@@ -392,7 +392,7 @@ impl ::core::cmp::PartialEq for FDIDECRYPT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDIDECRYPT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FDIDECRYPT {
+unsafe impl ::windows::core::Abi for FDIDECRYPT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -420,7 +420,7 @@ impl ::core::cmp::PartialEq for FDIDECRYPT_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDIDECRYPT_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0 {
+unsafe impl ::windows::core::Abi for FDIDECRYPT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -455,7 +455,7 @@ impl ::core::cmp::PartialEq for FDIDECRYPT_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDIDECRYPT_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0_0 {
+unsafe impl ::windows::core::Abi for FDIDECRYPT_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -492,7 +492,7 @@ impl ::core::cmp::PartialEq for FDIDECRYPT_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDIDECRYPT_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0_1 {
+unsafe impl ::windows::core::Abi for FDIDECRYPT_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -526,7 +526,7 @@ impl ::core::cmp::PartialEq for FDIDECRYPT_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDIDECRYPT_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0_2 {
+unsafe impl ::windows::core::Abi for FDIDECRYPT_0_2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Cabinets`*"]
@@ -541,7 +541,7 @@ impl ::core::convert::From<i32> for FDIDECRYPTTYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FDIDECRYPTTYPE {
+unsafe impl ::windows::core::Abi for FDIDECRYPTTYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
@@ -581,7 +581,7 @@ impl ::core::convert::From<i32> for FDIERROR {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FDIERROR {
+unsafe impl ::windows::core::Abi for FDIERROR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
@@ -655,7 +655,7 @@ impl ::core::cmp::PartialEq for FDINOTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDINOTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FDINOTIFICATION {
+unsafe impl ::windows::core::Abi for FDINOTIFICATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Cabinets`*"]
@@ -673,7 +673,7 @@ impl ::core::convert::From<i32> for FDINOTIFICATIONTYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FDINOTIFICATIONTYPE {
+unsafe impl ::windows::core::Abi for FDINOTIFICATIONTYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -714,7 +714,7 @@ impl ::core::cmp::PartialEq for FDISPILLFILE {
 impl ::core::cmp::Eq for FDISPILLFILE {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FDISPILLFILE {
+unsafe impl ::windows::core::Abi for FDISPILLFILE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -748,13 +748,13 @@ impl ::core::cmp::PartialEq for FDISPILLFILE {
 impl ::core::cmp::Eq for FDISPILLFILE {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FDISPILLFILE {
+unsafe impl ::windows::core::Abi for FDISPILLFILE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FDITruncateCabinet<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::core::ffi::c_void, pszcabinetname: Param1, ifoldertodelete: u16) -> super::super::Foundation::BOOL {
+pub unsafe fn FDITruncateCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::core::ffi::c_void, pszcabinetname: Param1, ifoldertodelete: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

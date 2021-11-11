@@ -1,4 +1,4 @@
-use windows::runtime::Array;
+use windows::core::Array;
 
 #[test]
 fn empty() {

@@ -3,3 +3,5 @@
 pub mod Core;
 #[cfg(feature = "Security_Authentication_Identity_Provider")]
 pub mod Provider;
+#[link(name = "windows")]
+extern "system" {}

@@ -12,13 +12,13 @@ impl ::core::convert::From<i32> for TextPatternRangeEndpoint {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TextPatternRangeEndpoint {
+unsafe impl ::windows::core::Abi for TextPatternRangeEndpoint {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for TextPatternRangeEndpoint {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Text.TextPatternRangeEndpoint;i4)");
+unsafe impl ::windows::core::RuntimeType for TextPatternRangeEndpoint {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Text.TextPatternRangeEndpoint;i4)");
 }
-impl ::windows::runtime::DefaultType for TextPatternRangeEndpoint {
+impl ::windows::core::DefaultType for TextPatternRangeEndpoint {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation_Text`*"]
@@ -39,12 +39,12 @@ impl ::core::convert::From<i32> for TextUnit {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TextUnit {
+unsafe impl ::windows::core::Abi for TextUnit {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for TextUnit {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Text.TextUnit;i4)");
+unsafe impl ::windows::core::RuntimeType for TextUnit {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Text.TextUnit;i4)");
 }
-impl ::windows::runtime::DefaultType for TextUnit {
+impl ::windows::core::DefaultType for TextUnit {
     type DefaultType = Self;
 }

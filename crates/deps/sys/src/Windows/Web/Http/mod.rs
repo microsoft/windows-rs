@@ -5,3 +5,5 @@ pub mod Diagnostics;
 pub mod Filters;
 #[cfg(feature = "Web_Http_Headers")]
 pub mod Headers;
+#[link(name = "windows")]
+extern "system" {}

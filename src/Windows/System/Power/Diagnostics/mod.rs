@@ -4,31 +4,31 @@ pub struct BackgroundEnergyDiagnostics {}
 impl BackgroundEnergyDiagnostics {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
-    pub fn DeviceSpecificConversionFactor() -> ::windows::runtime::Result<f64> {
+    pub fn DeviceSpecificConversionFactor() -> ::windows::core::Result<f64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
-    pub fn ComputeTotalEnergyUsage() -> ::windows::runtime::Result<u64> {
+    pub fn ComputeTotalEnergyUsage() -> ::windows::core::Result<u64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
-    pub fn ResetTotalEnergyUsage() -> ::windows::runtime::Result<()> {
-        Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })
+    pub fn ResetTotalEnergyUsage() -> ::windows::core::Result<()> {
+        Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })
     }
-    pub fn IBackgroundEnergyDiagnosticsStatics<R, F: FnOnce(&IBackgroundEnergyDiagnosticsStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<BackgroundEnergyDiagnostics, IBackgroundEnergyDiagnosticsStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IBackgroundEnergyDiagnosticsStatics<R, F: FnOnce(&IBackgroundEnergyDiagnosticsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<BackgroundEnergyDiagnostics, IBackgroundEnergyDiagnosticsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-impl ::windows::runtime::RuntimeName for BackgroundEnergyDiagnostics {
+impl ::windows::core::RuntimeName for BackgroundEnergyDiagnostics {
     const NAME: &'static str = "Windows.System.Power.Diagnostics.BackgroundEnergyDiagnostics";
 }
 #[doc = "*Required features: `System_Power_Diagnostics`*"]
@@ -36,70 +36,70 @@ pub struct ForegroundEnergyDiagnostics {}
 impl ForegroundEnergyDiagnostics {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
-    pub fn DeviceSpecificConversionFactor() -> ::windows::runtime::Result<f64> {
+    pub fn DeviceSpecificConversionFactor() -> ::windows::core::Result<f64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
-    pub fn ComputeTotalEnergyUsage() -> ::windows::runtime::Result<u64> {
+    pub fn ComputeTotalEnergyUsage() -> ::windows::core::Result<u64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
-    pub fn ResetTotalEnergyUsage() -> ::windows::runtime::Result<()> {
-        Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })
+    pub fn ResetTotalEnergyUsage() -> ::windows::core::Result<()> {
+        Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })
     }
-    pub fn IForegroundEnergyDiagnosticsStatics<R, F: FnOnce(&IForegroundEnergyDiagnosticsStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<ForegroundEnergyDiagnostics, IForegroundEnergyDiagnosticsStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IForegroundEnergyDiagnosticsStatics<R, F: FnOnce(&IForegroundEnergyDiagnosticsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<ForegroundEnergyDiagnostics, IForegroundEnergyDiagnosticsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-impl ::windows::runtime::RuntimeName for ForegroundEnergyDiagnostics {
+impl ::windows::core::RuntimeName for ForegroundEnergyDiagnostics {
     const NAME: &'static str = "Windows.System.Power.Diagnostics.ForegroundEnergyDiagnostics";
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundEnergyDiagnosticsStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IBackgroundEnergyDiagnosticsStatics {
+pub struct IBackgroundEnergyDiagnosticsStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IBackgroundEnergyDiagnosticsStatics {
     type Vtable = IBackgroundEnergyDiagnosticsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd7663702_d3a6_46e0_8f9b_50b95bb4f9c5);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7663702_d3a6_46e0_8f9b_50b95bb4f9c5);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundEnergyDiagnosticsStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IForegroundEnergyDiagnosticsStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IForegroundEnergyDiagnosticsStatics {
+pub struct IForegroundEnergyDiagnosticsStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IForegroundEnergyDiagnosticsStatics {
     type Vtable = IForegroundEnergyDiagnosticsStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x23ca0917_cd07_4609_be15_8fe894c5e41e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23ca0917_cd07_4609_be15_8fe894c5e41e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IForegroundEnergyDiagnosticsStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );

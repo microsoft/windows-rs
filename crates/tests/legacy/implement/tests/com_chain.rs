@@ -1,5 +1,5 @@
 use test_implement::*;
-use windows::runtime::*;
+use windows::core::*;
 use Windows::Win32::Foundation::BOOL;
 use Windows::Win32::System::Com::{IPersist, IPersistStream, IStream};
 

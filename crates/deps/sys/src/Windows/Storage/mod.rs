@@ -15,3 +15,5 @@ pub mod Provider;
 pub mod Search;
 #[cfg(feature = "Storage_Streams")]
 pub mod Streams;
+#[link(name = "windows")]
+extern "system" {}

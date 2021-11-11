@@ -39,13 +39,13 @@ impl ::core::cmp::PartialEq for DisplayAdapterId {
     }
 }
 impl ::core::cmp::Eq for DisplayAdapterId {}
-unsafe impl ::windows::runtime::Abi for DisplayAdapterId {
+unsafe impl ::windows::core::Abi for DisplayAdapterId {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DisplayAdapterId {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayAdapterId;u4;i4)");
+unsafe impl ::windows::core::RuntimeType for DisplayAdapterId {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayAdapterId;u4;i4)");
 }
-impl ::windows::runtime::DefaultType for DisplayAdapterId {
+impl ::windows::core::DefaultType for DisplayAdapterId {
     type DefaultType = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -71,76 +71,76 @@ impl ::core::cmp::PartialEq for DisplayId {
     }
 }
 impl ::core::cmp::Eq for DisplayId {}
-unsafe impl ::windows::runtime::Abi for DisplayId {
+unsafe impl ::windows::core::Abi for DisplayId {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DisplayId {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
+unsafe impl ::windows::core::RuntimeType for DisplayId {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
 }
-impl ::windows::runtime::DefaultType for DisplayId {
+impl ::windows::core::DefaultType for DisplayId {
     type DefaultType = Self;
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics`*"]
-pub struct IGeometrySource2D(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IGeometrySource2D {
+pub struct IGeometrySource2D(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IGeometrySource2D {
     type Vtable = IGeometrySource2D_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaff7902_670c_4181_a624_da977203b845);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaff7902_670c_4181_a624_da977203b845);
 }
 impl IGeometrySource2D {}
-unsafe impl ::windows::runtime::RuntimeType for IGeometrySource2D {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
+unsafe impl ::windows::core::RuntimeType for IGeometrySource2D {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
 }
-impl ::core::convert::From<IGeometrySource2D> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IUnknown {
     fn from(value: IGeometrySource2D) -> Self {
         value.0 .0
     }
 }
-impl ::core::convert::From<&IGeometrySource2D> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IUnknown {
     fn from(value: &IGeometrySource2D) -> Self {
         value.0 .0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGeometrySource2D {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGeometrySource2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGeometrySource2D {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0 .0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGeometrySource2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::core::convert::From<IGeometrySource2D> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IInspectable {
     fn from(value: IGeometrySource2D) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IGeometrySource2D> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IInspectable {
     fn from(value: &IGeometrySource2D) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IGeometrySource2D {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGeometrySource2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IGeometrySource2D {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IGeometrySource2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometrySource2D_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
 );
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -166,13 +166,13 @@ impl ::core::cmp::PartialEq for PointInt32 {
     }
 }
 impl ::core::cmp::Eq for PointInt32 {}
-unsafe impl ::windows::runtime::Abi for PointInt32 {
+unsafe impl ::windows::core::Abi for PointInt32 {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for PointInt32 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.PointInt32;i4;i4)");
+unsafe impl ::windows::core::RuntimeType for PointInt32 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.PointInt32;i4;i4)");
 }
-impl ::windows::runtime::DefaultType for PointInt32 {
+impl ::windows::core::DefaultType for PointInt32 {
     type DefaultType = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -201,13 +201,13 @@ impl ::core::cmp::PartialEq for RectInt32 {
     }
 }
 impl ::core::cmp::Eq for RectInt32 {}
-unsafe impl ::windows::runtime::Abi for RectInt32 {
+unsafe impl ::windows::core::Abi for RectInt32 {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for RectInt32 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)");
+unsafe impl ::windows::core::RuntimeType for RectInt32 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)");
 }
-impl ::windows::runtime::DefaultType for RectInt32 {
+impl ::windows::core::DefaultType for RectInt32 {
     type DefaultType = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -234,12 +234,12 @@ impl ::core::cmp::PartialEq for SizeInt32 {
     }
 }
 impl ::core::cmp::Eq for SizeInt32 {}
-unsafe impl ::windows::runtime::Abi for SizeInt32 {
+unsafe impl ::windows::core::Abi for SizeInt32 {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for SizeInt32 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");
+unsafe impl ::windows::core::RuntimeType for SizeInt32 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");
 }
-impl ::windows::runtime::DefaultType for SizeInt32 {
+impl ::windows::core::DefaultType for SizeInt32 {
     type DefaultType = Self;
 }

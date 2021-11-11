@@ -7,3 +7,5 @@ pub mod Inking;
 pub mod Preview;
 #[cfg(feature = "UI_Input_Spatial")]
 pub mod Spatial;
+#[link(name = "windows")]
+extern "system" {}

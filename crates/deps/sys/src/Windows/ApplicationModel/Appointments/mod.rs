@@ -3,3 +3,5 @@
 pub mod AppointmentsProvider;
 #[cfg(feature = "ApplicationModel_Appointments_DataProvider")]
 pub mod DataProvider;
+#[link(name = "windows")]
+extern "system" {}

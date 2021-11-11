@@ -23,12 +23,12 @@ impl ::core::convert::From<i32> for HCN_NOTIFICATIONS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HCN_NOTIFICATIONS {
+unsafe impl ::windows::core::Abi for HCN_NOTIFICATIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type HCN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows::runtime::HRESULT, notificationdata: super::super::Foundation::PWSTR);
+pub type HCN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows::core::HRESULT, notificationdata: super::super::Foundation::PWSTR);
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -40,7 +40,7 @@ impl ::core::convert::From<i32> for HCN_PORT_ACCESS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HCN_PORT_ACCESS {
+unsafe impl ::windows::core::Abi for HCN_PORT_ACCESS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
@@ -55,15 +55,15 @@ impl ::core::convert::From<i32> for HCN_PORT_PROTOCOL {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HCN_PORT_PROTOCOL {
+unsafe impl ::windows::core::Abi for HCN_PORT_PROTOCOL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 pub struct HCN_PORT_RANGE_ENTRY {
-    pub OwningPartitionId: ::windows::runtime::GUID,
-    pub TargetPartitionId: ::windows::runtime::GUID,
+    pub OwningPartitionId: ::windows::core::GUID,
+    pub TargetPartitionId: ::windows::core::GUID,
     pub Protocol: HCN_PORT_PROTOCOL,
     pub Priority: u64,
     pub ReservationType: u32,
@@ -99,7 +99,7 @@ impl ::core::cmp::PartialEq for HCN_PORT_RANGE_ENTRY {
     }
 }
 impl ::core::cmp::Eq for HCN_PORT_RANGE_ENTRY {}
-unsafe impl ::windows::runtime::Abi for HCN_PORT_RANGE_ENTRY {
+unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -126,17 +126,17 @@ impl ::core::cmp::PartialEq for HCN_PORT_RANGE_RESERVATION {
     }
 }
 impl ::core::cmp::Eq for HCN_PORT_RANGE_RESERVATION {}
-unsafe impl ::windows::runtime::Abi for HCN_PORT_RANGE_RESERVATION {
+unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_RESERVATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 #[inline]
-pub unsafe fn HcnCloseEndpoint(endpoint: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnCloseEndpoint(endpoint: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnCloseEndpoint(endpoint: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn HcnCloseEndpoint(endpoint: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcnCloseEndpoint(::core::mem::transmute(endpoint)).ok()
     }
@@ -145,12 +145,12 @@ pub unsafe fn HcnCloseEndpoint(endpoint: *const ::core::ffi::c_void) -> ::window
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 #[inline]
-pub unsafe fn HcnCloseGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnCloseGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnCloseGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn HcnCloseGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcnCloseGuestNetworkService(::core::mem::transmute(guestnetworkservice)).ok()
     }
@@ -159,12 +159,12 @@ pub unsafe fn HcnCloseGuestNetworkService(guestnetworkservice: *const ::core::ff
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 #[inline]
-pub unsafe fn HcnCloseLoadBalancer(loadbalancer: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnCloseLoadBalancer(loadbalancer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnCloseLoadBalancer(loadbalancer: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn HcnCloseLoadBalancer(loadbalancer: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcnCloseLoadBalancer(::core::mem::transmute(loadbalancer)).ok()
     }
@@ -173,12 +173,12 @@ pub unsafe fn HcnCloseLoadBalancer(loadbalancer: *const ::core::ffi::c_void) -> 
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 #[inline]
-pub unsafe fn HcnCloseNamespace(namespace: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnCloseNamespace(namespace: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnCloseNamespace(namespace: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn HcnCloseNamespace(namespace: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcnCloseNamespace(::core::mem::transmute(namespace)).ok()
     }
@@ -187,12 +187,12 @@ pub unsafe fn HcnCloseNamespace(namespace: *const ::core::ffi::c_void) -> ::wind
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 #[inline]
-pub unsafe fn HcnCloseNetwork(network: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnCloseNetwork(network: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnCloseNetwork(network: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn HcnCloseNetwork(network: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcnCloseNetwork(::core::mem::transmute(network)).ok()
     }
@@ -202,12 +202,12 @@ pub unsafe fn HcnCloseNetwork(network: *const ::core::ffi::c_void) -> ::windows:
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnCreateEndpoint<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::core::ffi::c_void, id: *const ::windows::runtime::GUID, settings: Param2, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnCreateEndpoint<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::core::ffi::c_void, id: *const ::windows::core::GUID, settings: Param2, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnCreateEndpoint(network: *const ::core::ffi::c_void, id: *const ::windows::runtime::GUID, settings: super::super::Foundation::PWSTR, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnCreateEndpoint(network: *const ::core::ffi::c_void, id: *const ::windows::core::GUID, settings: super::super::Foundation::PWSTR, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnCreateEndpoint(::core::mem::transmute(network), ::core::mem::transmute(id), settings.into_param().abi(), ::core::mem::transmute(endpoint), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -217,12 +217,12 @@ pub unsafe fn HcnCreateEndpoint<'a, Param2: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnCreateGuestNetworkService<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::runtime::GUID, settings: Param1, guestnetworkservice: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnCreateGuestNetworkService<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::core::GUID, settings: Param1, guestnetworkservice: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnCreateGuestNetworkService(id: *const ::windows::runtime::GUID, settings: super::super::Foundation::PWSTR, guestnetworkservice: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnCreateGuestNetworkService(id: *const ::windows::core::GUID, settings: super::super::Foundation::PWSTR, guestnetworkservice: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnCreateGuestNetworkService(::core::mem::transmute(id), settings.into_param().abi(), ::core::mem::transmute(guestnetworkservice), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -232,12 +232,12 @@ pub unsafe fn HcnCreateGuestNetworkService<'a, Param1: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnCreateLoadBalancer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::runtime::GUID, settings: Param1, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnCreateLoadBalancer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::core::GUID, settings: Param1, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnCreateLoadBalancer(id: *const ::windows::runtime::GUID, settings: super::super::Foundation::PWSTR, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnCreateLoadBalancer(id: *const ::windows::core::GUID, settings: super::super::Foundation::PWSTR, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnCreateLoadBalancer(::core::mem::transmute(id), settings.into_param().abi(), ::core::mem::transmute(loadbalancer), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -247,12 +247,12 @@ pub unsafe fn HcnCreateLoadBalancer<'a, Param1: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnCreateNamespace<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::runtime::GUID, settings: Param1, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnCreateNamespace<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::core::GUID, settings: Param1, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnCreateNamespace(id: *const ::windows::runtime::GUID, settings: super::super::Foundation::PWSTR, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnCreateNamespace(id: *const ::windows::core::GUID, settings: super::super::Foundation::PWSTR, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnCreateNamespace(::core::mem::transmute(id), settings.into_param().abi(), ::core::mem::transmute(namespace), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -262,12 +262,12 @@ pub unsafe fn HcnCreateNamespace<'a, Param1: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnCreateNetwork<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::runtime::GUID, settings: Param1, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnCreateNetwork<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::core::GUID, settings: Param1, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnCreateNetwork(id: *const ::windows::runtime::GUID, settings: super::super::Foundation::PWSTR, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnCreateNetwork(id: *const ::windows::core::GUID, settings: super::super::Foundation::PWSTR, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnCreateNetwork(::core::mem::transmute(id), settings.into_param().abi(), ::core::mem::transmute(network), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -277,14 +277,14 @@ pub unsafe fn HcnCreateNetwork<'a, Param1: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnDeleteEndpoint(id: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn HcnDeleteEndpoint(id: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnDeleteEndpoint(id: *const ::windows::runtime::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnDeleteEndpoint(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HcnDeleteEndpoint(::core::mem::transmute(id), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -293,14 +293,14 @@ pub unsafe fn HcnDeleteEndpoint(id: *const ::windows::runtime::GUID) -> ::window
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnDeleteGuestNetworkService(id: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn HcnDeleteGuestNetworkService(id: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnDeleteGuestNetworkService(id: *const ::windows::runtime::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnDeleteGuestNetworkService(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HcnDeleteGuestNetworkService(::core::mem::transmute(id), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -309,14 +309,14 @@ pub unsafe fn HcnDeleteGuestNetworkService(id: *const ::windows::runtime::GUID) 
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnDeleteLoadBalancer(id: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn HcnDeleteLoadBalancer(id: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnDeleteLoadBalancer(id: *const ::windows::runtime::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnDeleteLoadBalancer(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HcnDeleteLoadBalancer(::core::mem::transmute(id), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -325,14 +325,14 @@ pub unsafe fn HcnDeleteLoadBalancer(id: *const ::windows::runtime::GUID) -> ::wi
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnDeleteNamespace(id: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn HcnDeleteNamespace(id: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnDeleteNamespace(id: *const ::windows::runtime::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnDeleteNamespace(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HcnDeleteNamespace(::core::mem::transmute(id), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -341,14 +341,14 @@ pub unsafe fn HcnDeleteNamespace(id: *const ::windows::runtime::GUID) -> ::windo
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnDeleteNetwork(id: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn HcnDeleteNetwork(id: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnDeleteNetwork(id: *const ::windows::runtime::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnDeleteNetwork(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HcnDeleteNetwork(::core::mem::transmute(id), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -357,12 +357,12 @@ pub unsafe fn HcnDeleteNetwork(id: *const ::windows::runtime::GUID) -> ::windows
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnEnumerateEndpoints<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, endpoints: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnEnumerateEndpoints<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, endpoints: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnEnumerateEndpoints(query: super::super::Foundation::PWSTR, endpoints: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnEnumerateEndpoints(query: super::super::Foundation::PWSTR, endpoints: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnEnumerateEndpoints(query.into_param().abi(), ::core::mem::transmute(endpoints), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -371,12 +371,12 @@ pub unsafe fn HcnEnumerateEndpoints<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 #[inline]
-pub unsafe fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, portentries: *mut *mut HCN_PORT_RANGE_ENTRY) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, portentries: *mut *mut HCN_PORT_RANGE_ENTRY) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, portentries: *mut *mut HCN_PORT_RANGE_ENTRY) -> ::windows::runtime::HRESULT;
+            fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, portentries: *mut *mut HCN_PORT_RANGE_ENTRY) -> ::windows::core::HRESULT;
         }
         HcnEnumerateGuestNetworkPortReservations(::core::mem::transmute(returncount), ::core::mem::transmute(portentries)).ok()
     }
@@ -386,12 +386,12 @@ pub unsafe fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, po
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnEnumerateLoadBalancers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, loadbalancer: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnEnumerateLoadBalancers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, loadbalancer: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnEnumerateLoadBalancers(query: super::super::Foundation::PWSTR, loadbalancer: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnEnumerateLoadBalancers(query: super::super::Foundation::PWSTR, loadbalancer: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnEnumerateLoadBalancers(query.into_param().abi(), ::core::mem::transmute(loadbalancer), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -401,12 +401,12 @@ pub unsafe fn HcnEnumerateLoadBalancers<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnEnumerateNamespaces<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, namespaces: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnEnumerateNamespaces<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, namespaces: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnEnumerateNamespaces(query: super::super::Foundation::PWSTR, namespaces: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnEnumerateNamespaces(query: super::super::Foundation::PWSTR, namespaces: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnEnumerateNamespaces(query.into_param().abi(), ::core::mem::transmute(namespaces), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -416,12 +416,12 @@ pub unsafe fn HcnEnumerateNamespaces<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnEnumerateNetworks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, networks: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnEnumerateNetworks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, networks: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnEnumerateNetworks(query: super::super::Foundation::PWSTR, networks: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnEnumerateNetworks(query: super::super::Foundation::PWSTR, networks: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnEnumerateNetworks(query.into_param().abi(), ::core::mem::transmute(networks), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -445,14 +445,14 @@ pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RAN
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnModifyEndpoint<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(endpoint: *const ::core::ffi::c_void, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn HcnModifyEndpoint<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(endpoint: *const ::core::ffi::c_void, settings: Param1) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnModifyEndpoint(endpoint: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnModifyEndpoint(endpoint: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HcnModifyEndpoint(::core::mem::transmute(endpoint), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -461,14 +461,14 @@ pub unsafe fn HcnModifyEndpoint<'a, Param1: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnModifyGuestNetworkService<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(guestnetworkservice: *const ::core::ffi::c_void, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn HcnModifyGuestNetworkService<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(guestnetworkservice: *const ::core::ffi::c_void, settings: Param1) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnModifyGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnModifyGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HcnModifyGuestNetworkService(::core::mem::transmute(guestnetworkservice), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -477,14 +477,14 @@ pub unsafe fn HcnModifyGuestNetworkService<'a, Param1: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnModifyLoadBalancer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(loadbalancer: *const ::core::ffi::c_void, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn HcnModifyLoadBalancer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(loadbalancer: *const ::core::ffi::c_void, settings: Param1) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnModifyLoadBalancer(loadbalancer: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnModifyLoadBalancer(loadbalancer: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HcnModifyLoadBalancer(::core::mem::transmute(loadbalancer), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -493,14 +493,14 @@ pub unsafe fn HcnModifyLoadBalancer<'a, Param1: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnModifyNamespace<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespace: *const ::core::ffi::c_void, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn HcnModifyNamespace<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespace: *const ::core::ffi::c_void, settings: Param1) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnModifyNamespace(namespace: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnModifyNamespace(namespace: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HcnModifyNamespace(::core::mem::transmute(namespace), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -509,14 +509,14 @@ pub unsafe fn HcnModifyNamespace<'a, Param1: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnModifyNetwork<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::core::ffi::c_void, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+pub unsafe fn HcnModifyNetwork<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::core::ffi::c_void, settings: Param1) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnModifyNetwork(network: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnModifyNetwork(network: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HcnModifyNetwork(::core::mem::transmute(network), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -525,12 +525,12 @@ pub unsafe fn HcnModifyNetwork<'a, Param1: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnOpenEndpoint(id: *const ::windows::runtime::GUID, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnOpenEndpoint(id: *const ::windows::core::GUID, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnOpenEndpoint(id: *const ::windows::runtime::GUID, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnOpenEndpoint(id: *const ::windows::core::GUID, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnOpenEndpoint(::core::mem::transmute(id), ::core::mem::transmute(endpoint), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -540,12 +540,12 @@ pub unsafe fn HcnOpenEndpoint(id: *const ::windows::runtime::GUID, endpoint: *mu
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnOpenLoadBalancer(id: *const ::windows::runtime::GUID, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnOpenLoadBalancer(id: *const ::windows::core::GUID, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnOpenLoadBalancer(id: *const ::windows::runtime::GUID, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnOpenLoadBalancer(id: *const ::windows::core::GUID, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnOpenLoadBalancer(::core::mem::transmute(id), ::core::mem::transmute(loadbalancer), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -555,12 +555,12 @@ pub unsafe fn HcnOpenLoadBalancer(id: *const ::windows::runtime::GUID, loadbalan
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnOpenNamespace(id: *const ::windows::runtime::GUID, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnOpenNamespace(id: *const ::windows::core::GUID, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnOpenNamespace(id: *const ::windows::runtime::GUID, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnOpenNamespace(id: *const ::windows::core::GUID, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnOpenNamespace(::core::mem::transmute(id), ::core::mem::transmute(namespace), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -570,12 +570,12 @@ pub unsafe fn HcnOpenNamespace(id: *const ::windows::runtime::GUID, namespace: *
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnOpenNetwork(id: *const ::windows::runtime::GUID, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnOpenNetwork(id: *const ::windows::core::GUID, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnOpenNetwork(id: *const ::windows::runtime::GUID, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnOpenNetwork(id: *const ::windows::core::GUID, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnOpenNetwork(::core::mem::transmute(id), ::core::mem::transmute(network), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -585,12 +585,12 @@ pub unsafe fn HcnOpenNetwork(id: *const ::windows::runtime::GUID, network: *mut 
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnQueryEndpointProperties<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(endpoint: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnQueryEndpointProperties<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(endpoint: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnQueryEndpointProperties(endpoint: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnQueryEndpointProperties(endpoint: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnQueryEndpointProperties(::core::mem::transmute(endpoint), query.into_param().abi(), ::core::mem::transmute(properties), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -600,12 +600,12 @@ pub unsafe fn HcnQueryEndpointProperties<'a, Param1: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnQueryLoadBalancerProperties<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(loadbalancer: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnQueryLoadBalancerProperties<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(loadbalancer: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnQueryLoadBalancerProperties(loadbalancer: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnQueryLoadBalancerProperties(loadbalancer: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnQueryLoadBalancerProperties(::core::mem::transmute(loadbalancer), query.into_param().abi(), ::core::mem::transmute(properties), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -615,12 +615,12 @@ pub unsafe fn HcnQueryLoadBalancerProperties<'a, Param1: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnQueryNamespaceProperties<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespace: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnQueryNamespaceProperties<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespace: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnQueryNamespaceProperties(namespace: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnQueryNamespaceProperties(namespace: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnQueryNamespaceProperties(::core::mem::transmute(namespace), query.into_param().abi(), ::core::mem::transmute(properties), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -630,12 +630,12 @@ pub unsafe fn HcnQueryNamespaceProperties<'a, Param1: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnQueryNetworkProperties<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnQueryNetworkProperties<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnQueryNetworkProperties(network: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn HcnQueryNetworkProperties(network: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         HcnQueryNetworkProperties(::core::mem::transmute(network), query.into_param().abi(), ::core::mem::transmute(properties), ::core::mem::transmute(errorrecord)).ok()
     }
@@ -645,12 +645,12 @@ pub unsafe fn HcnQueryNetworkProperties<'a, Param1: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const ::core::ffi::c_void, callback: ::core::option::Option<HCN_NOTIFICATION_CALLBACK>, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const ::core::ffi::c_void, callback: ::core::option::Option<HCN_NOTIFICATION_CALLBACK>, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const ::core::ffi::c_void, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const ::core::ffi::c_void, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcnRegisterGuestNetworkServiceCallback(::core::mem::transmute(guestnetworkservice), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(callbackhandle)).ok()
     }
@@ -660,12 +660,12 @@ pub unsafe fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnRegisterServiceCallback(callback: ::core::option::Option<HCN_NOTIFICATION_CALLBACK>, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnRegisterServiceCallback(callback: ::core::option::Option<HCN_NOTIFICATION_CALLBACK>, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnRegisterServiceCallback(callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn HcnRegisterServiceCallback(callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcnRegisterServiceCallback(::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(callbackhandle)).ok()
     }
@@ -675,12 +675,12 @@ pub unsafe fn HcnRegisterServiceCallback(callback: ::core::option::Option<HCN_NO
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnReleaseGuestNetworkServicePortReservationHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(portreservationhandle: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnReleaseGuestNetworkServicePortReservationHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(portreservationhandle: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+            fn HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
         HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle.into_param().abi()).ok()
     }
@@ -690,14 +690,14 @@ pub unsafe fn HcnReleaseGuestNetworkServicePortReservationHandle<'a, Param0: ::w
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::core::ffi::c_void, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: u16) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::core::ffi::c_void, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: u16) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::core::ffi::c_void, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: u16, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+            fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::core::ffi::c_void, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: u16, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         HcnReserveGuestNetworkServicePort(::core::mem::transmute(guestnetworkservice), ::core::mem::transmute(protocol), ::core::mem::transmute(access), ::core::mem::transmute(port), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
@@ -706,12 +706,12 @@ pub unsafe fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::co
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice: *const ::core::ffi::c_void, portcount: u16, portrangereservation: *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice: *const ::core::ffi::c_void, portcount: u16, portrangereservation: *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice: *const ::core::ffi::c_void, portcount: u16, portrangereservation: *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+            fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice: *const ::core::ffi::c_void, portcount: u16, portrangereservation: *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
         HcnReserveGuestNetworkServicePortRange(::core::mem::transmute(guestnetworkservice), ::core::mem::transmute(portcount), ::core::mem::transmute(portrangereservation), ::core::mem::transmute(portreservationhandle)).ok()
     }
@@ -720,12 +720,12 @@ pub unsafe fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice: *const
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 #[inline]
-pub unsafe fn HcnUnregisterGuestNetworkServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnUnregisterGuestNetworkServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnUnregisterGuestNetworkServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn HcnUnregisterGuestNetworkServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcnUnregisterGuestNetworkServiceCallback(::core::mem::transmute(callbackhandle)).ok()
     }
@@ -734,12 +734,12 @@ pub unsafe fn HcnUnregisterGuestNetworkServiceCallback(callbackhandle: *const ::
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 #[inline]
-pub unsafe fn HcnUnregisterServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn HcnUnregisterServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcnUnregisterServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn HcnUnregisterServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcnUnregisterServiceCallback(::core::mem::transmute(callbackhandle)).ok()
     }

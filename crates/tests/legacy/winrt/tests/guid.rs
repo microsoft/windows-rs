@@ -1,8 +1,8 @@
 use test_winrt::Windows::Foundation::GuidHelper;
-use windows::runtime::GUID;
+use windows::core::GUID;
 
 #[test]
-fn guid_helper() -> windows::runtime::Result<()> {
+fn guid_helper() -> windows::core::Result<()> {
     let a = GuidHelper::CreateNewGuid()?;
     let b = GuidHelper::CreateNewGuid()?;
 

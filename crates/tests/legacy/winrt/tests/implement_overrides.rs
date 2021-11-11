@@ -1,7 +1,7 @@
-use ::windows::runtime::Result;
+use ::windows::core::Result;
 use test_winrt::*;
 
-#[::windows::runtime::implement(Windows::UI::Xaml::{IApplicationOverrides, IApplicationOverrides2})]
+#[::windows::core::implement(Windows::UI::Xaml::{IApplicationOverrides, IApplicationOverrides2})]
 struct App {}
 
 #[allow(non_snake_case)]

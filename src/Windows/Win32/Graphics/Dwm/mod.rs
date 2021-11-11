@@ -12,7 +12,7 @@ impl ::core::convert::From<i32> for DWMFLIP3DWINDOWPOLICY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DWMFLIP3DWINDOWPOLICY {
+unsafe impl ::windows::core::Abi for DWMFLIP3DWINDOWPOLICY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
@@ -28,7 +28,7 @@ impl ::core::convert::From<i32> for DWMNCRENDERINGPOLICY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DWMNCRENDERINGPOLICY {
+unsafe impl ::windows::core::Abi for DWMNCRENDERINGPOLICY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
@@ -42,7 +42,7 @@ impl ::core::convert::From<i32> for DWMTRANSITION_OWNEDWINDOW_TARGET {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DWMTRANSITION_OWNEDWINDOW_TARGET {
+unsafe impl ::windows::core::Abi for DWMTRANSITION_OWNEDWINDOW_TARGET {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
@@ -82,7 +82,7 @@ impl ::core::convert::From<i32> for DWMWINDOWATTRIBUTE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DWMWINDOWATTRIBUTE {
+unsafe impl ::windows::core::Abi for DWMWINDOWATTRIBUTE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
@@ -118,7 +118,7 @@ impl ::core::cmp::PartialEq for DWM_BLURBEHIND {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for DWM_BLURBEHIND {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for DWM_BLURBEHIND {
+unsafe impl ::windows::core::Abi for DWM_BLURBEHIND {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
@@ -164,7 +164,7 @@ impl ::core::cmp::PartialEq for DWM_PRESENT_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DWM_PRESENT_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DWM_PRESENT_PARAMETERS {
+unsafe impl ::windows::core::Abi for DWM_PRESENT_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
@@ -183,7 +183,7 @@ impl ::core::convert::From<u32> for DWM_SHOWCONTACT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DWM_SHOWCONTACT {
+unsafe impl ::windows::core::Abi for DWM_SHOWCONTACT {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DWM_SHOWCONTACT {
@@ -228,7 +228,7 @@ impl ::core::convert::From<i32> for DWM_SOURCE_FRAME_SAMPLING {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DWM_SOURCE_FRAME_SAMPLING {
+unsafe impl ::windows::core::Abi for DWM_SOURCE_FRAME_SAMPLING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
@@ -251,7 +251,7 @@ impl ::core::convert::From<u32> for DWM_TAB_WINDOW_REQUIREMENTS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DWM_TAB_WINDOW_REQUIREMENTS {
+unsafe impl ::windows::core::Abi for DWM_TAB_WINDOW_REQUIREMENTS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DWM_TAB_WINDOW_REQUIREMENTS {
@@ -311,7 +311,7 @@ impl ::core::cmp::PartialEq for DWM_THUMBNAIL_PROPERTIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DWM_THUMBNAIL_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DWM_THUMBNAIL_PROPERTIES {
+unsafe impl ::windows::core::Abi for DWM_THUMBNAIL_PROPERTIES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -371,7 +371,7 @@ impl ::core::cmp::PartialEq for DWM_TIMING_INFO {
     }
 }
 impl ::core::cmp::Eq for DWM_TIMING_INFO {}
-unsafe impl ::windows::runtime::Abi for DWM_TIMING_INFO {
+unsafe impl ::windows::core::Abi for DWM_TIMING_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
@@ -397,18 +397,18 @@ impl ::core::convert::From<i32> for DWM_WINDOW_CORNER_PREFERENCE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DWM_WINDOW_CORNER_PREFERENCE {
+unsafe impl ::windows::core::Abi for DWM_WINDOW_CORNER_PREFERENCE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmAttachMilContent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmAttachMilContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmAttachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
+            fn DwmAttachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
         DwmAttachMilContent(hwnd.into_param().abi()).ok()
     }
@@ -418,7 +418,7 @@ pub unsafe fn DwmAttachMilContent<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmDefWindowProc<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL {
+pub unsafe fn DwmDefWindowProc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -433,12 +433,12 @@ pub unsafe fn DwmDefWindowProc<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmDetachMilContent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmDetachMilContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmDetachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
+            fn DwmDetachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
         DwmDetachMilContent(hwnd.into_param().abi()).ok()
     }
@@ -448,12 +448,12 @@ pub unsafe fn DwmDetachMilContent<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DwmEnableBlurBehindWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pblurbehind: *const DWM_BLURBEHIND) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmEnableBlurBehindWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pblurbehind: *const DWM_BLURBEHIND) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmEnableBlurBehindWindow(hwnd: super::super::Foundation::HWND, pblurbehind: *const DWM_BLURBEHIND) -> ::windows::runtime::HRESULT;
+            fn DwmEnableBlurBehindWindow(hwnd: super::super::Foundation::HWND, pblurbehind: *const DWM_BLURBEHIND) -> ::windows::core::HRESULT;
         }
         DwmEnableBlurBehindWindow(hwnd.into_param().abi(), ::core::mem::transmute(pblurbehind)).ok()
     }
@@ -462,12 +462,12 @@ pub unsafe fn DwmEnableBlurBehindWindow<'a, Param0: ::windows::runtime::IntoPara
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 #[inline]
-pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::runtime::HRESULT;
+            fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::HRESULT;
         }
         DwmEnableComposition(::core::mem::transmute(ucompositionaction)).ok()
     }
@@ -477,12 +477,12 @@ pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::runtim
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmEnableMMCSS<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(fenablemmcss: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmEnableMMCSS<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fenablemmcss: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmEnableMMCSS(fenablemmcss: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn DwmEnableMMCSS(fenablemmcss: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         DwmEnableMMCSS(fenablemmcss.into_param().abi()).ok()
     }
@@ -492,12 +492,12 @@ pub unsafe fn DwmEnableMMCSS<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
-pub unsafe fn DwmExtendFrameIntoClientArea<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pmarinset: *const super::super::UI::Controls::MARGINS) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmExtendFrameIntoClientArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pmarinset: *const super::super::UI::Controls::MARGINS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmExtendFrameIntoClientArea(hwnd: super::super::Foundation::HWND, pmarinset: *const super::super::UI::Controls::MARGINS) -> ::windows::runtime::HRESULT;
+            fn DwmExtendFrameIntoClientArea(hwnd: super::super::Foundation::HWND, pmarinset: *const super::super::UI::Controls::MARGINS) -> ::windows::core::HRESULT;
         }
         DwmExtendFrameIntoClientArea(hwnd.into_param().abi(), ::core::mem::transmute(pmarinset)).ok()
     }
@@ -506,12 +506,12 @@ pub unsafe fn DwmExtendFrameIntoClientArea<'a, Param0: ::windows::runtime::IntoP
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 #[inline]
-pub unsafe fn DwmFlush() -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmFlush() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmFlush() -> ::windows::runtime::HRESULT;
+            fn DwmFlush() -> ::windows::core::HRESULT;
         }
         DwmFlush().ok()
     }
@@ -521,12 +521,12 @@ pub unsafe fn DwmFlush() -> ::windows::runtime::Result<()> {
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         DwmGetColorizationColor(::core::mem::transmute(pcrcolorization), ::core::mem::transmute(pfopaqueblend)).ok()
     }
@@ -536,14 +536,14 @@ pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: 
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmGetCompositionTimingInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::runtime::Result<DWM_TIMING_INFO> {
+pub unsafe fn DwmGetCompositionTimingInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<DWM_TIMING_INFO> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmGetCompositionTimingInfo(hwnd: super::super::Foundation::HWND, ptiminginfo: *mut DWM_TIMING_INFO) -> ::windows::runtime::HRESULT;
+            fn DwmGetCompositionTimingInfo(hwnd: super::super::Foundation::HWND, ptiminginfo: *mut DWM_TIMING_INFO) -> ::windows::core::HRESULT;
         }
-        let mut result__: <DWM_TIMING_INFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <DWM_TIMING_INFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         DwmGetCompositionTimingInfo(hwnd.into_param().abi(), &mut result__).from_abi::<DWM_TIMING_INFO>(result__)
     }
     #[cfg(not(windows))]
@@ -551,29 +551,29 @@ pub unsafe fn DwmGetCompositionTimingInfo<'a, Param0: ::windows::runtime::IntoPa
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 #[inline]
-pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
+pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmGetGraphicsStreamClient(uindex: u32, pclientuuid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
+            fn DwmGetGraphicsStreamClient(uindex: u32, pclientuuid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        DwmGetGraphicsStreamClient(::core::mem::transmute(uindex), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        DwmGetGraphicsStreamClient(::core::mem::transmute(uindex), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 #[inline]
-pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::runtime::Result<MilMatrix3x2D> {
+pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::core::Result<MilMatrix3x2D> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut MilMatrix3x2D) -> ::windows::runtime::HRESULT;
+            fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut MilMatrix3x2D) -> ::windows::core::HRESULT;
         }
-        let mut result__: <MilMatrix3x2D as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <MilMatrix3x2D as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         DwmGetGraphicsStreamTransformHint(::core::mem::transmute(uindex), &mut result__).from_abi::<MilMatrix3x2D>(result__)
     }
     #[cfg(not(windows))]
@@ -582,12 +582,12 @@ pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::runti
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundation::BOOL, pfisconnected: *mut super::super::Foundation::BOOL, pdwgeneration: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundation::BOOL, pfisconnected: *mut super::super::Foundation::BOOL, pdwgeneration: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundation::BOOL, pfisconnected: *mut super::super::Foundation::BOOL, pdwgeneration: *mut u32) -> ::windows::runtime::HRESULT;
+            fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundation::BOOL, pfisconnected: *mut super::super::Foundation::BOOL, pdwgeneration: *mut u32) -> ::windows::core::HRESULT;
         }
         DwmGetTransportAttributes(::core::mem::transmute(pfisremoting), ::core::mem::transmute(pfisconnected), ::core::mem::transmute(pdwgeneration)).ok()
     }
@@ -597,14 +597,14 @@ pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundat
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmGetUnmetTabRequirements<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(appwindow: Param0) -> ::windows::runtime::Result<DWM_TAB_WINDOW_REQUIREMENTS> {
+pub unsafe fn DwmGetUnmetTabRequirements<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(appwindow: Param0) -> ::windows::core::Result<DWM_TAB_WINDOW_REQUIREMENTS> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmGetUnmetTabRequirements(appwindow: super::super::Foundation::HWND, value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> ::windows::runtime::HRESULT;
+            fn DwmGetUnmetTabRequirements(appwindow: super::super::Foundation::HWND, value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> ::windows::core::HRESULT;
         }
-        let mut result__: <DWM_TAB_WINDOW_REQUIREMENTS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <DWM_TAB_WINDOW_REQUIREMENTS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         DwmGetUnmetTabRequirements(appwindow.into_param().abi(), &mut result__).from_abi::<DWM_TAB_WINDOW_REQUIREMENTS>(result__)
     }
     #[cfg(not(windows))]
@@ -613,12 +613,12 @@ pub unsafe fn DwmGetUnmetTabRequirements<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmGetWindowAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmGetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::runtime::HRESULT;
+            fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
         }
         DwmGetWindowAttribute(hwnd.into_param().abi(), ::core::mem::transmute(dwattribute), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
     }
@@ -628,12 +628,12 @@ pub unsafe fn DwmGetWindowAttribute<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmInvalidateIconicBitmaps<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmInvalidateIconicBitmaps<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmInvalidateIconicBitmaps(hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
+            fn DwmInvalidateIconicBitmaps(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
         DwmInvalidateIconicBitmaps(hwnd.into_param().abi()).ok()
     }
@@ -643,14 +643,14 @@ pub unsafe fn DwmInvalidateIconicBitmaps<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmIsCompositionEnabled() -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+pub unsafe fn DwmIsCompositionEnabled() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmIsCompositionEnabled(pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn DwmIsCompositionEnabled(pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         DwmIsCompositionEnabled(&mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
@@ -659,12 +659,12 @@ pub unsafe fn DwmIsCompositionEnabled() -> ::windows::runtime::Result<super::sup
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmModifyPreviousDxFrameDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, crefreshes: i32, frelative: Param2) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmModifyPreviousDxFrameDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, crefreshes: i32, frelative: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmModifyPreviousDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32, frelative: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn DwmModifyPreviousDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32, frelative: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         DwmModifyPreviousDxFrameDuration(hwnd.into_param().abi(), ::core::mem::transmute(crefreshes), frelative.into_param().abi()).ok()
     }
@@ -674,14 +674,14 @@ pub unsafe fn DwmModifyPreviousDxFrameDuration<'a, Param0: ::windows::runtime::I
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::runtime::Result<super::super::Foundation::SIZE> {
+pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::core::Result<super::super::Foundation::SIZE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmQueryThumbnailSourceSize(hthumbnail: isize, psize: *mut super::super::Foundation::SIZE) -> ::windows::runtime::HRESULT;
+            fn DwmQueryThumbnailSourceSize(hthumbnail: isize, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::SIZE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::SIZE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         DwmQueryThumbnailSourceSize(::core::mem::transmute(hthumbnail), &mut result__).from_abi::<super::super::Foundation::SIZE>(result__)
     }
     #[cfg(not(windows))]
@@ -690,14 +690,14 @@ pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::runti
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmRegisterThumbnail<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnddestination: Param0, hwndsource: Param1) -> ::windows::runtime::Result<isize> {
+pub unsafe fn DwmRegisterThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnddestination: Param0, hwndsource: Param1) -> ::windows::core::Result<isize> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HWND, hwndsource: super::super::Foundation::HWND, phthumbnailid: *mut isize) -> ::windows::runtime::HRESULT;
+            fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HWND, hwndsource: super::super::Foundation::HWND, phthumbnailid: *mut isize) -> ::windows::core::HRESULT;
         }
-        let mut result__: <isize as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <isize as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         DwmRegisterThumbnail(hwnddestination.into_param().abi(), hwndsource.into_param().abi(), &mut result__).from_abi::<isize>(result__)
     }
     #[cfg(not(windows))]
@@ -706,12 +706,12 @@ pub unsafe fn DwmRegisterThumbnail<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::runtime::HRESULT;
+            fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::HRESULT;
         }
         DwmRenderGesture(::core::mem::transmute(gt), ::core::mem::transmute(ccontacts), ::core::mem::transmute(pdwpointerid), ::core::mem::transmute(ppoints)).ok()
     }
@@ -721,12 +721,12 @@ pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmSetDxFrameDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, crefreshes: i32) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmSetDxFrameDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, crefreshes: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32) -> ::windows::runtime::HRESULT;
+            fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32) -> ::windows::core::HRESULT;
         }
         DwmSetDxFrameDuration(hwnd.into_param().abi(), ::core::mem::transmute(crefreshes)).ok()
     }
@@ -736,12 +736,12 @@ pub unsafe fn DwmSetDxFrameDuration<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DwmSetIconicLivePreviewBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::Gdi::HBITMAP>>(hwnd: Param0, hbmp: Param1, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmSetIconicLivePreviewBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>>(hwnd: Param0, hbmp: Param1, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows::runtime::HRESULT;
+            fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows::core::HRESULT;
         }
         DwmSetIconicLivePreviewBitmap(hwnd.into_param().abi(), hbmp.into_param().abi(), ::core::mem::transmute(pptclient), ::core::mem::transmute(dwsitflags)).ok()
     }
@@ -751,12 +751,12 @@ pub unsafe fn DwmSetIconicLivePreviewBitmap<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DwmSetIconicThumbnail<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::Gdi::HBITMAP>>(hwnd: Param0, hbmp: Param1, dwsitflags: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmSetIconicThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>>(hwnd: Param0, hbmp: Param1, dwsitflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmSetIconicThumbnail(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, dwsitflags: u32) -> ::windows::runtime::HRESULT;
+            fn DwmSetIconicThumbnail(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, dwsitflags: u32) -> ::windows::core::HRESULT;
         }
         DwmSetIconicThumbnail(hwnd.into_param().abi(), hbmp.into_param().abi(), ::core::mem::transmute(dwsitflags)).ok()
     }
@@ -766,12 +766,12 @@ pub unsafe fn DwmSetIconicThumbnail<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmSetPresentParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmSetPresentParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmSetPresentParameters(hwnd: super::super::Foundation::HWND, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> ::windows::runtime::HRESULT;
+            fn DwmSetPresentParameters(hwnd: super::super::Foundation::HWND, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> ::windows::core::HRESULT;
         }
         DwmSetPresentParameters(hwnd.into_param().abi(), ::core::mem::transmute(ppresentparams)).ok()
     }
@@ -781,12 +781,12 @@ pub unsafe fn DwmSetPresentParameters<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmSetWindowAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmSetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::runtime::HRESULT;
+            fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
         }
         DwmSetWindowAttribute(hwnd.into_param().abi(), ::core::mem::transmute(dwattribute), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
     }
@@ -795,12 +795,12 @@ pub unsafe fn DwmSetWindowAttribute<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 #[inline]
-pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::runtime::HRESULT;
+            fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::core::HRESULT;
         }
         DwmShowContact(::core::mem::transmute(dwpointerid), ::core::mem::transmute(eshowcontact)).ok()
     }
@@ -810,12 +810,12 @@ pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) ->
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmTetherContact<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(dwpointerid: u32, fenable: Param1, pttether: Param2) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmTetherContact<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(dwpointerid: u32, fenable: Param1, pttether: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmTetherContact(dwpointerid: u32, fenable: super::super::Foundation::BOOL, pttether: super::super::Foundation::POINT) -> ::windows::runtime::HRESULT;
+            fn DwmTetherContact(dwpointerid: u32, fenable: super::super::Foundation::BOOL, pttether: super::super::Foundation::POINT) -> ::windows::core::HRESULT;
         }
         DwmTetherContact(::core::mem::transmute(dwpointerid), fenable.into_param().abi(), pttether.into_param().abi()).ok()
     }
@@ -825,12 +825,12 @@ pub unsafe fn DwmTetherContact<'a, Param1: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmTransitionOwnedWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmTransitionOwnedWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::runtime::HRESULT;
+            fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::core::HRESULT;
         }
         DwmTransitionOwnedWindow(hwnd.into_param().abi(), ::core::mem::transmute(target)).ok()
     }
@@ -839,12 +839,12 @@ pub unsafe fn DwmTransitionOwnedWindow<'a, Param0: ::windows::runtime::IntoParam
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 #[inline]
-pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::runtime::HRESULT;
+            fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::HRESULT;
         }
         DwmUnregisterThumbnail(::core::mem::transmute(hthumbnailid)).ok()
     }
@@ -854,12 +854,12 @@ pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::runtime:
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows::runtime::Result<()> {
+pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows::runtime::HRESULT;
+            fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows::core::HRESULT;
         }
         DwmUpdateThumbnailProperties(::core::mem::transmute(hthumbnailid), ::core::mem::transmute(ptnproperties)).ok()
     }
@@ -886,7 +886,7 @@ impl ::core::convert::From<i32> for GESTURE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GESTURE_TYPE {
+unsafe impl ::windows::core::Abi for GESTURE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -912,7 +912,7 @@ impl ::core::cmp::PartialEq for MilMatrix3x2D {
     }
 }
 impl ::core::cmp::Eq for MilMatrix3x2D {}
-unsafe impl ::windows::runtime::Abi for MilMatrix3x2D {
+unsafe impl ::windows::core::Abi for MilMatrix3x2D {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -934,7 +934,7 @@ impl ::core::cmp::PartialEq for UNSIGNED_RATIO {
     }
 }
 impl ::core::cmp::Eq for UNSIGNED_RATIO {}
-unsafe impl ::windows::runtime::Abi for UNSIGNED_RATIO {
+unsafe impl ::windows::core::Abi for UNSIGNED_RATIO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]

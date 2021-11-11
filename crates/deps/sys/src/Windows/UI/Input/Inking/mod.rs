@@ -5,3 +5,5 @@ pub mod Analysis;
 pub mod Core;
 #[cfg(feature = "UI_Input_Inking_Preview")]
 pub mod Preview;
+#[link(name = "windows")]
+extern "system" {}

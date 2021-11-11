@@ -76,7 +76,7 @@ impl ::core::convert::From<i32> for ACCESS_REASON_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ACCESS_REASON_TYPE {
+unsafe impl ::windows::core::Abi for ACCESS_REASON_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -116,7 +116,7 @@ impl ::core::convert::From<i32> for ACTIVATION_CONTEXT_INFO_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ACTIVATION_CONTEXT_INFO_CLASS {
+unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_INFO_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -165,7 +165,7 @@ impl ::core::convert::From<u32> for ALERT_SYSTEM_SEV {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ALERT_SYSTEM_SEV {
+unsafe impl ::windows::core::Abi for ALERT_SYSTEM_SEV {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for ALERT_SYSTEM_SEV {
@@ -196,7 +196,7 @@ impl ::core::ops::Not for ALERT_SYSTEM_SEV {
         Self(self.0.not())
     }
 }
-pub const ALL_POWERSCHEMES_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
+pub const ALL_POWERSCHEMES_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ALL_PROCESSOR_GROUPS: u32 = 65535u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -208,7 +208,7 @@ pub struct ANON_OBJECT_HEADER {
     pub Version: u16,
     pub Machine: u16,
     pub TimeDateStamp: u32,
-    pub ClassID: ::windows::runtime::GUID,
+    pub ClassID: ::windows::core::GUID,
     pub SizeOfData: u32,
 }
 impl ANON_OBJECT_HEADER {}
@@ -228,7 +228,7 @@ impl ::core::cmp::PartialEq for ANON_OBJECT_HEADER {
     }
 }
 impl ::core::cmp::Eq for ANON_OBJECT_HEADER {}
-unsafe impl ::windows::runtime::Abi for ANON_OBJECT_HEADER {
+unsafe impl ::windows::core::Abi for ANON_OBJECT_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -240,7 +240,7 @@ pub struct ANON_OBJECT_HEADER_BIGOBJ {
     pub Version: u16,
     pub Machine: u16,
     pub TimeDateStamp: u32,
-    pub ClassID: ::windows::runtime::GUID,
+    pub ClassID: ::windows::core::GUID,
     pub SizeOfData: u32,
     pub Flags: u32,
     pub MetaDataSize: u32,
@@ -292,7 +292,7 @@ impl ::core::cmp::PartialEq for ANON_OBJECT_HEADER_BIGOBJ {
     }
 }
 impl ::core::cmp::Eq for ANON_OBJECT_HEADER_BIGOBJ {}
-unsafe impl ::windows::runtime::Abi for ANON_OBJECT_HEADER_BIGOBJ {
+unsafe impl ::windows::core::Abi for ANON_OBJECT_HEADER_BIGOBJ {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -304,7 +304,7 @@ pub struct ANON_OBJECT_HEADER_V2 {
     pub Version: u16,
     pub Machine: u16,
     pub TimeDateStamp: u32,
-    pub ClassID: ::windows::runtime::GUID,
+    pub ClassID: ::windows::core::GUID,
     pub SizeOfData: u32,
     pub Flags: u32,
     pub MetaDataSize: u32,
@@ -338,7 +338,7 @@ impl ::core::cmp::PartialEq for ANON_OBJECT_HEADER_V2 {
     }
 }
 impl ::core::cmp::Eq for ANON_OBJECT_HEADER_V2 {}
-unsafe impl ::windows::runtime::Abi for ANON_OBJECT_HEADER_V2 {
+unsafe impl ::windows::core::Abi for ANON_OBJECT_HEADER_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -408,7 +408,7 @@ impl ::core::convert::From<u32> for APPCOMMAND_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for APPCOMMAND_ID {
+unsafe impl ::windows::core::Abi for APPCOMMAND_ID {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for APPCOMMAND_ID {
@@ -464,7 +464,7 @@ impl ::core::cmp::PartialEq for APPLICATIONLAUNCH_SETTING_VALUE {
     }
 }
 impl ::core::cmp::Eq for APPLICATIONLAUNCH_SETTING_VALUE {}
-unsafe impl ::windows::runtime::Abi for APPLICATIONLAUNCH_SETTING_VALUE {
+unsafe impl ::windows::core::Abi for APPLICATIONLAUNCH_SETTING_VALUE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -482,7 +482,7 @@ impl ::core::convert::From<i32> for ARM64_FNPDATA_CR {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ARM64_FNPDATA_CR {
+unsafe impl ::windows::core::Abi for ARM64_FNPDATA_CR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -497,7 +497,7 @@ impl ::core::convert::From<i32> for ARM64_FNPDATA_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ARM64_FNPDATA_FLAGS {
+unsafe impl ::windows::core::Abi for ARM64_FNPDATA_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -541,7 +541,7 @@ impl ::core::convert::From<u32> for ATF_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ATF_FLAGS {
+unsafe impl ::windows::core::Abi for ATF_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for ATF_FLAGS {
@@ -619,7 +619,7 @@ impl ::core::convert::From<u32> for CFE_UNDERLINE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CFE_UNDERLINE {
+unsafe impl ::windows::core::Abi for CFE_UNDERLINE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CFE_UNDERLINE {
@@ -678,7 +678,7 @@ impl ::core::convert::From<u32> for CHOOSECOLOR_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CHOOSECOLOR_FLAGS {
+unsafe impl ::windows::core::Abi for CHOOSECOLOR_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CHOOSECOLOR_FLAGS {
@@ -753,7 +753,7 @@ impl ::core::convert::From<u32> for CLIPBOARD_FORMATS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CLIPBOARD_FORMATS {
+unsafe impl ::windows::core::Abi for CLIPBOARD_FORMATS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CLIPBOARD_FORMATS {
@@ -797,7 +797,7 @@ impl ::core::convert::From<i32> for CM_ERROR_CONTROL_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CM_ERROR_CONTROL_TYPE {
+unsafe impl ::windows::core::Abi for CM_ERROR_CONTROL_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -814,7 +814,7 @@ impl ::core::convert::From<i32> for CM_SERVICE_LOAD_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CM_SERVICE_LOAD_TYPE {
+unsafe impl ::windows::core::Abi for CM_SERVICE_LOAD_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -836,7 +836,7 @@ impl ::core::convert::From<i32> for CM_SERVICE_NODE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CM_SERVICE_NODE_TYPE {
+unsafe impl ::windows::core::Abi for CM_SERVICE_NODE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -876,7 +876,7 @@ impl ::core::cmp::PartialEq for COMPONENT_FILTER {
     }
 }
 impl ::core::cmp::Eq for COMPONENT_FILTER {}
-unsafe impl ::windows::runtime::Abi for COMPONENT_FILTER {
+unsafe impl ::windows::core::Abi for COMPONENT_FILTER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -1950,7 +1950,7 @@ impl ::core::cmp::PartialEq for DEVICE_EVENT_BECOMING_READY {
     }
 }
 impl ::core::cmp::Eq for DEVICE_EVENT_BECOMING_READY {}
-unsafe impl ::windows::runtime::Abi for DEVICE_EVENT_BECOMING_READY {
+unsafe impl ::windows::core::Abi for DEVICE_EVENT_BECOMING_READY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1980,7 +1980,7 @@ impl ::core::cmp::PartialEq for DEVICE_EVENT_EXTERNAL_REQUEST {
     }
 }
 impl ::core::cmp::Eq for DEVICE_EVENT_EXTERNAL_REQUEST {}
-unsafe impl ::windows::runtime::Abi for DEVICE_EVENT_EXTERNAL_REQUEST {
+unsafe impl ::windows::core::Abi for DEVICE_EVENT_EXTERNAL_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2006,7 +2006,7 @@ impl ::core::cmp::PartialEq for DEVICE_EVENT_GENERIC_DATA {
     }
 }
 impl ::core::cmp::Eq for DEVICE_EVENT_GENERIC_DATA {}
-unsafe impl ::windows::runtime::Abi for DEVICE_EVENT_GENERIC_DATA {
+unsafe impl ::windows::core::Abi for DEVICE_EVENT_GENERIC_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2035,7 +2035,7 @@ impl ::core::cmp::PartialEq for DEVICE_EVENT_MOUNT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_EVENT_MOUNT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_EVENT_MOUNT {
+unsafe impl ::windows::core::Abi for DEVICE_EVENT_MOUNT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2066,7 +2066,7 @@ impl ::core::cmp::PartialEq for DEVICE_EVENT_RBC_DATA {
     }
 }
 impl ::core::cmp::Eq for DEVICE_EVENT_RBC_DATA {}
-unsafe impl ::windows::runtime::Abi for DEVICE_EVENT_RBC_DATA {
+unsafe impl ::windows::core::Abi for DEVICE_EVENT_RBC_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2077,7 +2077,7 @@ pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
     pub dbcc_size: u32,
     pub dbcc_devicetype: u32,
     pub dbcc_reserved: u32,
-    pub dbcc_classguid: ::windows::runtime::GUID,
+    pub dbcc_classguid: ::windows::core::GUID,
     pub dbcc_name: [super::super::Foundation::CHAR; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2103,7 +2103,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_DEVICEINTERFACE_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEV_BROADCAST_DEVICEINTERFACE_A {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_DEVICEINTERFACE_A {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_DEVICEINTERFACE_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2113,7 +2113,7 @@ pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
     pub dbcc_size: u32,
     pub dbcc_devicetype: u32,
     pub dbcc_reserved: u32,
-    pub dbcc_classguid: ::windows::runtime::GUID,
+    pub dbcc_classguid: ::windows::core::GUID,
     pub dbcc_name: [u16; 1],
 }
 impl DEV_BROADCAST_DEVICEINTERFACE_W {}
@@ -2133,7 +2133,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_DEVICEINTERFACE_W {
     }
 }
 impl ::core::cmp::Eq for DEV_BROADCAST_DEVICEINTERFACE_W {}
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_DEVICEINTERFACE_W {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_DEVICEINTERFACE_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2162,7 +2162,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_DEVNODE {
     }
 }
 impl ::core::cmp::Eq for DEV_BROADCAST_DEVNODE {}
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_DEVNODE {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_DEVNODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2175,7 +2175,7 @@ pub struct DEV_BROADCAST_HANDLE {
     pub dbch_reserved: u32,
     pub dbch_handle: super::super::Foundation::HANDLE,
     pub dbch_hdevnotify: *mut ::core::ffi::c_void,
-    pub dbch_eventguid: ::windows::runtime::GUID,
+    pub dbch_eventguid: ::windows::core::GUID,
     pub dbch_nameoffset: i32,
     pub dbch_data: [u8; 1],
 }
@@ -2211,7 +2211,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_HANDLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEV_BROADCAST_HANDLE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_HANDLE {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_HANDLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2223,7 +2223,7 @@ pub struct DEV_BROADCAST_HANDLE32 {
     pub dbch_reserved: u32,
     pub dbch_handle: u32,
     pub dbch_hdevnotify: u32,
-    pub dbch_eventguid: ::windows::runtime::GUID,
+    pub dbch_eventguid: ::windows::core::GUID,
     pub dbch_nameoffset: i32,
     pub dbch_data: [u8; 1],
 }
@@ -2253,7 +2253,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_HANDLE32 {
     }
 }
 impl ::core::cmp::Eq for DEV_BROADCAST_HANDLE32 {}
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_HANDLE32 {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_HANDLE32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2265,7 +2265,7 @@ pub struct DEV_BROADCAST_HANDLE64 {
     pub dbch_reserved: u32,
     pub dbch_handle: u64,
     pub dbch_hdevnotify: u64,
-    pub dbch_eventguid: ::windows::runtime::GUID,
+    pub dbch_eventguid: ::windows::core::GUID,
     pub dbch_nameoffset: i32,
     pub dbch_data: [u8; 1],
 }
@@ -2295,7 +2295,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_HANDLE64 {
     }
 }
 impl ::core::cmp::Eq for DEV_BROADCAST_HANDLE64 {}
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_HANDLE64 {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_HANDLE64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2323,7 +2323,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_HDR {
     }
 }
 impl ::core::cmp::Eq for DEV_BROADCAST_HDR {}
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_HDR {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_HDR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -2340,7 +2340,7 @@ impl ::core::convert::From<u32> for DEV_BROADCAST_HDR_DEVICE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_HDR_DEVICE_TYPE {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_HDR_DEVICE_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DEV_BROADCAST_HDR_DEVICE_TYPE {
@@ -2398,7 +2398,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_NET {
     }
 }
 impl ::core::cmp::Eq for DEV_BROADCAST_NET {}
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_NET {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_NET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2428,7 +2428,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_OEM {
     }
 }
 impl ::core::cmp::Eq for DEV_BROADCAST_OEM {}
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_OEM {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_OEM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2464,7 +2464,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_PORT_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEV_BROADCAST_PORT_A {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_PORT_A {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_PORT_A {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2493,7 +2493,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_PORT_W {
     }
 }
 impl ::core::cmp::Eq for DEV_BROADCAST_PORT_W {}
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_PORT_W {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_PORT_W {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2523,7 +2523,7 @@ impl ::core::cmp::PartialEq for DEV_BROADCAST_VOLUME {
     }
 }
 impl ::core::cmp::Eq for DEV_BROADCAST_VOLUME {}
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_VOLUME {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_VOLUME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -2537,7 +2537,7 @@ impl ::core::convert::From<u16> for DEV_BROADCAST_VOLUME_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_VOLUME_FLAGS {
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_VOLUME_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -2558,7 +2558,7 @@ pub const DISCHARGE_POLICY_LOW: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DISK_HEALTH_NOTIFICATION_DATA {
-    pub DeviceGuid: ::windows::runtime::GUID,
+    pub DeviceGuid: ::windows::core::GUID,
 }
 impl DISK_HEALTH_NOTIFICATION_DATA {}
 impl ::core::default::Default for DISK_HEALTH_NOTIFICATION_DATA {
@@ -2577,7 +2577,7 @@ impl ::core::cmp::PartialEq for DISK_HEALTH_NOTIFICATION_DATA {
     }
 }
 impl ::core::cmp::Eq for DISK_HEALTH_NOTIFICATION_DATA {}
-unsafe impl ::windows::runtime::Abi for DISK_HEALTH_NOTIFICATION_DATA {
+unsafe impl ::windows::core::Abi for DISK_HEALTH_NOTIFICATION_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2599,7 +2599,7 @@ impl ::core::cmp::PartialEq for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     }
 }
 impl ::core::cmp::Eq for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {}
-unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
+unsafe impl ::windows::core::Abi for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2626,7 +2626,7 @@ impl ::core::cmp::PartialEq for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     }
 }
 impl ::core::cmp::Eq for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {}
-unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
+unsafe impl ::windows::core::Abi for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -2849,9 +2849,9 @@ pub const ENCLAVE_VBS_FLAG_DEBUG: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ENLISTMENT_BASIC_INFORMATION {
-    pub EnlistmentId: ::windows::runtime::GUID,
-    pub TransactionId: ::windows::runtime::GUID,
-    pub ResourceManagerId: ::windows::runtime::GUID,
+    pub EnlistmentId: ::windows::core::GUID,
+    pub TransactionId: ::windows::core::GUID,
+    pub ResourceManagerId: ::windows::core::GUID,
 }
 impl ENLISTMENT_BASIC_INFORMATION {}
 impl ::core::default::Default for ENLISTMENT_BASIC_INFORMATION {
@@ -2870,16 +2870,16 @@ impl ::core::cmp::PartialEq for ENLISTMENT_BASIC_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for ENLISTMENT_BASIC_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for ENLISTMENT_BASIC_INFORMATION {
+unsafe impl ::windows::core::Abi for ENLISTMENT_BASIC_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ENLISTMENT_CRM_INFORMATION {
-    pub CrmTransactionManagerId: ::windows::runtime::GUID,
-    pub CrmResourceManagerId: ::windows::runtime::GUID,
-    pub CrmEnlistmentId: ::windows::runtime::GUID,
+    pub CrmTransactionManagerId: ::windows::core::GUID,
+    pub CrmResourceManagerId: ::windows::core::GUID,
+    pub CrmEnlistmentId: ::windows::core::GUID,
 }
 impl ENLISTMENT_CRM_INFORMATION {}
 impl ::core::default::Default for ENLISTMENT_CRM_INFORMATION {
@@ -2898,7 +2898,7 @@ impl ::core::cmp::PartialEq for ENLISTMENT_CRM_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for ENLISTMENT_CRM_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for ENLISTMENT_CRM_INFORMATION {
+unsafe impl ::windows::core::Abi for ENLISTMENT_CRM_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -2913,7 +2913,7 @@ impl ::core::convert::From<i32> for ENLISTMENT_INFORMATION_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ENLISTMENT_INFORMATION_CLASS {
+unsafe impl ::windows::core::Abi for ENLISTMENT_INFORMATION_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -3225,7 +3225,7 @@ impl ::core::cmp::PartialEq for GDI_NONREMOTE {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for GDI_NONREMOTE {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for GDI_NONREMOTE {
+unsafe impl ::windows::core::Abi for GDI_NONREMOTE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3252,7 +3252,7 @@ impl ::core::cmp::PartialEq for GDI_NONREMOTE_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for GDI_NONREMOTE_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for GDI_NONREMOTE_0 {
+unsafe impl ::windows::core::Abi for GDI_NONREMOTE_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -3283,7 +3283,7 @@ impl ::core::convert::From<u32> for GESTURECONFIG_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GESTURECONFIG_FLAGS {
+unsafe impl ::windows::core::Abi for GESTURECONFIG_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for GESTURECONFIG_FLAGS {
@@ -3314,78 +3314,78 @@ impl ::core::ops::Not for GESTURECONFIG_FLAGS {
         Self(self.0.not())
     }
 }
-pub const GUID_ACDC_POWER_SOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
-pub const GUID_ACTIVE_POWERSCHEME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x31f9f286_5084_42fe_b720_2b0264993763);
-pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e98fae9_f45a_4de1_a757_6031f197f6ea);
-pub const GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8619b916_e004_4dd8_9b66_dae86f806698);
-pub const GUID_ADVANCED_COLOR_QUALITY_BIAS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x684c3e69_a4f7_4014_8754_d45179a56167);
-pub const GUID_ALLOW_AWAYMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25dfa149_5dd1_4736_b5ab_e8a37b5b8187);
-pub const GUID_ALLOW_DISPLAY_REQUIRED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa9ceb8da_cd46_44fb_a98b_02af69de4623);
-pub const GUID_ALLOW_RTC_WAKE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbd3b718a_0680_4d9d_8ab2_e1d2b4ac806d);
-pub const GUID_ALLOW_STANDBY_STATES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xabfc2519_3608_4c2a_94ea_171b0ed546ab);
-pub const GUID_ALLOW_SYSTEM_REQUIRED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa4b195f5_8225_47d8_8012_9d41369786e2);
-pub const GUID_APPLAUNCH_BUTTON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a689231_7399_4e9a_8f99_b71f999db3fa);
-pub const GUID_BACKGROUND_TASK_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcf23f240_2a54_48d8_b114_de1518ff052e);
-pub const GUID_BATTERY_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d263f15_fca4_49e5_854b_a9f2bfbd5c24);
-pub const GUID_BATTERY_DISCHARGE_ACTION_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x637ea02f_bbcb_4015_8e2c_a1c7b9c0b546);
-pub const GUID_BATTERY_DISCHARGE_ACTION_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8742dcb_3e6a_4b3c_b3fe_374623cdcf06);
-pub const GUID_BATTERY_DISCHARGE_ACTION_2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x421cba38_1a8e_4881_ac89_e33a8b04ece4);
-pub const GUID_BATTERY_DISCHARGE_ACTION_3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80472613_9780_455e_b308_72d3003cf2f8);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5dbb7c9f_38e9_40d2_9749_4f8a0e9f640f);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbcded951_187b_4d05_bccc_f7e51960c258);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fd2f0c4_feb7_4da3_8117_e3fbedc46582);
-pub const GUID_BATTERY_DISCHARGE_FLAGS_3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73613ccf_dbfa_4279_8356_4935f6bf62f3);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a66d8d7_4ff7_4ef9_b5a2_5a326ca2a469);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8183ba9a_e910_48da_8769_14ae6dc1170a);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x07a07ca2_adaf_40d7_b077_533aaded1bfa);
-pub const GUID_BATTERY_DISCHARGE_LEVEL_3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58afd5a6_c2dd_47d2_9fbf_ef70cc5c5965);
-pub const GUID_BATTERY_PERCENTAGE_REMAINING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7ad8041_b45a_4cae_87a3_eecbb468a9e1);
-pub const GUID_BATTERY_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe73a048d_bf27_4f12_9731_8b2076e8891f);
-pub const GUID_CONNECTIVITY_IN_STANDBY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf15576e8_98b7_4186_b944_eafa664402d9);
-pub const GUID_CONSOLE_DISPLAY_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6fe69556_704a_47a0_8f24_c28d936fda47);
-pub const GUID_CRITICAL_POWER_TRANSITION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7a27025_e569_46c2_a504_2b96cad225a1);
-pub const GUID_DEEP_SLEEP_ENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd502f7ee_1dc7_4efd_a55d_f04b6f5c0545);
-pub const GUID_DEEP_SLEEP_PLATFORM_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd23f2fb8_9536_4038_9c94_1ce02e5c2152);
-pub const GUID_DEVICE_EVENT_RBC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0744792_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_DEVICE_IDLE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4faab71a_92e5_4726_b531_224559672d19);
-pub const GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaded5e82_b909_4619_9949_f5d71dac0bcb);
-pub const GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf1fbfde2_a960_4165_9f88_50667911ce96);
-pub const GUID_DEVINTERFACE_DMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x25b4e268_2a05_496e_803b_266837fbda4b);
-pub const GUID_DEVINTERFACE_DMR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd0875fb4_2196_4c7a_a63d_e416addd60a1);
-pub const GUID_DEVINTERFACE_DMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc96037ae_a558_4470_b432_115a31b85553);
-pub const GUID_DISCONNECTED_STANDBY_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68afb2d9_ee95_47a8_8f50_4115088073b1);
-pub const GUID_DISK_ADAPTIVE_POWERDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x396a32e1_499a_40b2_9124_a96afe707667);
-pub const GUID_DISK_BURST_IGNORE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x80e3c60e_bb94_4ad8_bbe0_0d3195efc663);
-pub const GUID_DISK_COALESCING_POWERDOWN_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc36f0eb4_2988_4a70_8eee_0884fc2c2433);
-pub const GUID_DISK_IDLE_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x58e39ba8_b8e6_4ef6_90d0_89ae32b258d6);
-pub const GUID_DISK_MAX_POWER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x51dea550_bb38_4bc4_991b_eacf37be5ec8);
-pub const GUID_DISK_NVME_NOPPME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfc7372b6_ab2d_43ee_8797_15e9841f2cca);
-pub const GUID_DISK_POWERDOWN_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6738e2c4_e8a5_4a42_b16a_e040e769756e);
-pub const GUID_DISK_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0012ee47_9041_4b5d_9b77_535fba8b1442);
-pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x833a6b62_dfa4_46d1_82f8_e09e34d029d6);
-pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe69653ca_cf7f_4f05_aa73_cb833fa90ad4);
-pub const GUID_ENERGY_SAVER_BRIGHTNESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x13d09884_f74e_474a_a852_b6bde8ad03a8);
-pub const GUID_ENERGY_SAVER_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5c5bb349_ad29_4ee2_9d0b_2b25270f7a81);
-pub const GUID_ENERGY_SAVER_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde830923_a562_41af_a086_e3a2c6bad2da);
-pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3166bc41_7e98_4e03_b34e_ec0f5f2b218e);
-pub const GUID_GLOBAL_USER_PRESENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x786e8a1d_b427_4344_9207_09e70bdcbea9);
-pub const GUID_GPU_PREFERENCE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd848b2a_8a5d_4451_9ae2_39cd41658f6c);
-pub const GUID_GRAPHICS_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5fb4938d_1ee8_4b0f_9a3c_5036b0ab995c);
-pub const GUID_HIBERNATE_FASTS4_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94ac6d29_73ce_41a6_809f_6363ba21b47e);
-pub const GUID_HIBERNATE_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d7815a6_7ee4_497e_8888_515a05f02364);
-pub const GUID_HUPR_ADAPTIVE_DISPLAY_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0a7d6ab6_ac83_4ad1_8282_eca5b58308f3);
-pub const GUID_IDLE_BACKGROUND_TASK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x515c31d8_f734_163d_a0fd_11a08c91e8f1);
-pub const GUID_IDLE_RESILIENCY_PERIOD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc42b79aa_aa3a_484b_a98f_2cf32aa90a28);
-pub const GUID_IDLE_RESILIENCY_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2e601130_5351_4d9d_8e04_252966bad054);
-pub const GUID_INTSTEER_LOAD_PER_PROC_TRIGGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x73cde64d_d720_4bb2_a860_c755afe77ef2);
-pub const GUID_INTSTEER_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2bfc24f9_5ea2_4801_8213_3dbae01aa39d);
-pub const GUID_INTSTEER_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48672f38_7a9a_4bb2_8bf8_3d85be19de4e);
-pub const GUID_INTSTEER_TIME_UNPARK_TRIGGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd6ba4903_386f_4c2c_8adb_5c21b3328d25);
-pub const GUID_IO_CDROM_EXCLUSIVE_LOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc56c139_7a10_47ee_a294_4c6a38f0149a);
-pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa3b6d27d_5e35_4885_81e5_ee18c00ed779);
-pub const GUID_IO_DEVICE_BECOMING_READY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd07433f0_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd07433d0_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_IO_DISK_CLONE_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6a61885b_7c39_43dd_9b56_b8ac22a549aa);
+pub const GUID_ACDC_POWER_SOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
+pub const GUID_ACTIVE_POWERSCHEME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31f9f286_5084_42fe_b720_2b0264993763);
+pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e98fae9_f45a_4de1_a757_6031f197f6ea);
+pub const GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8619b916_e004_4dd8_9b66_dae86f806698);
+pub const GUID_ADVANCED_COLOR_QUALITY_BIAS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x684c3e69_a4f7_4014_8754_d45179a56167);
+pub const GUID_ALLOW_AWAYMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25dfa149_5dd1_4736_b5ab_e8a37b5b8187);
+pub const GUID_ALLOW_DISPLAY_REQUIRED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9ceb8da_cd46_44fb_a98b_02af69de4623);
+pub const GUID_ALLOW_RTC_WAKE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd3b718a_0680_4d9d_8ab2_e1d2b4ac806d);
+pub const GUID_ALLOW_STANDBY_STATES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabfc2519_3608_4c2a_94ea_171b0ed546ab);
+pub const GUID_ALLOW_SYSTEM_REQUIRED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4b195f5_8225_47d8_8012_9d41369786e2);
+pub const GUID_APPLAUNCH_BUTTON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a689231_7399_4e9a_8f99_b71f999db3fa);
+pub const GUID_BACKGROUND_TASK_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf23f240_2a54_48d8_b114_de1518ff052e);
+pub const GUID_BATTERY_COUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d263f15_fca4_49e5_854b_a9f2bfbd5c24);
+pub const GUID_BATTERY_DISCHARGE_ACTION_0: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x637ea02f_bbcb_4015_8e2c_a1c7b9c0b546);
+pub const GUID_BATTERY_DISCHARGE_ACTION_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8742dcb_3e6a_4b3c_b3fe_374623cdcf06);
+pub const GUID_BATTERY_DISCHARGE_ACTION_2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x421cba38_1a8e_4881_ac89_e33a8b04ece4);
+pub const GUID_BATTERY_DISCHARGE_ACTION_3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80472613_9780_455e_b308_72d3003cf2f8);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_0: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dbb7c9f_38e9_40d2_9749_4f8a0e9f640f);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcded951_187b_4d05_bccc_f7e51960c258);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fd2f0c4_feb7_4da3_8117_e3fbedc46582);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73613ccf_dbfa_4279_8356_4935f6bf62f3);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_0: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a66d8d7_4ff7_4ef9_b5a2_5a326ca2a469);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8183ba9a_e910_48da_8769_14ae6dc1170a);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07a07ca2_adaf_40d7_b077_533aaded1bfa);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58afd5a6_c2dd_47d2_9fbf_ef70cc5c5965);
+pub const GUID_BATTERY_PERCENTAGE_REMAINING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7ad8041_b45a_4cae_87a3_eecbb468a9e1);
+pub const GUID_BATTERY_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe73a048d_bf27_4f12_9731_8b2076e8891f);
+pub const GUID_CONNECTIVITY_IN_STANDBY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf15576e8_98b7_4186_b944_eafa664402d9);
+pub const GUID_CONSOLE_DISPLAY_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fe69556_704a_47a0_8f24_c28d936fda47);
+pub const GUID_CRITICAL_POWER_TRANSITION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7a27025_e569_46c2_a504_2b96cad225a1);
+pub const GUID_DEEP_SLEEP_ENABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd502f7ee_1dc7_4efd_a55d_f04b6f5c0545);
+pub const GUID_DEEP_SLEEP_PLATFORM_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd23f2fb8_9536_4038_9c94_1ce02e5c2152);
+pub const GUID_DEVICE_EVENT_RBC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0744792_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_DEVICE_IDLE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4faab71a_92e5_4726_b531_224559672d19);
+pub const GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaded5e82_b909_4619_9949_f5d71dac0bcb);
+pub const GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1fbfde2_a960_4165_9f88_50667911ce96);
+pub const GUID_DEVINTERFACE_DMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25b4e268_2a05_496e_803b_266837fbda4b);
+pub const GUID_DEVINTERFACE_DMR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0875fb4_2196_4c7a_a63d_e416addd60a1);
+pub const GUID_DEVINTERFACE_DMS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96037ae_a558_4470_b432_115a31b85553);
+pub const GUID_DISCONNECTED_STANDBY_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68afb2d9_ee95_47a8_8f50_4115088073b1);
+pub const GUID_DISK_ADAPTIVE_POWERDOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x396a32e1_499a_40b2_9124_a96afe707667);
+pub const GUID_DISK_BURST_IGNORE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e3c60e_bb94_4ad8_bbe0_0d3195efc663);
+pub const GUID_DISK_COALESCING_POWERDOWN_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc36f0eb4_2988_4a70_8eee_0884fc2c2433);
+pub const GUID_DISK_IDLE_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58e39ba8_b8e6_4ef6_90d0_89ae32b258d6);
+pub const GUID_DISK_MAX_POWER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51dea550_bb38_4bc4_991b_eacf37be5ec8);
+pub const GUID_DISK_NVME_NOPPME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc7372b6_ab2d_43ee_8797_15e9841f2cca);
+pub const GUID_DISK_POWERDOWN_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6738e2c4_e8a5_4a42_b16a_e040e769756e);
+pub const GUID_DISK_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0012ee47_9041_4b5d_9b77_535fba8b1442);
+pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x833a6b62_dfa4_46d1_82f8_e09e34d029d6);
+pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe69653ca_cf7f_4f05_aa73_cb833fa90ad4);
+pub const GUID_ENERGY_SAVER_BRIGHTNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13d09884_f74e_474a_a852_b6bde8ad03a8);
+pub const GUID_ENERGY_SAVER_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c5bb349_ad29_4ee2_9d0b_2b25270f7a81);
+pub const GUID_ENERGY_SAVER_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde830923_a562_41af_a086_e3a2c6bad2da);
+pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3166bc41_7e98_4e03_b34e_ec0f5f2b218e);
+pub const GUID_GLOBAL_USER_PRESENCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786e8a1d_b427_4344_9207_09e70bdcbea9);
+pub const GUID_GPU_PREFERENCE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd848b2a_8a5d_4451_9ae2_39cd41658f6c);
+pub const GUID_GRAPHICS_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fb4938d_1ee8_4b0f_9a3c_5036b0ab995c);
+pub const GUID_HIBERNATE_FASTS4_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94ac6d29_73ce_41a6_809f_6363ba21b47e);
+pub const GUID_HIBERNATE_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d7815a6_7ee4_497e_8888_515a05f02364);
+pub const GUID_HUPR_ADAPTIVE_DISPLAY_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a7d6ab6_ac83_4ad1_8282_eca5b58308f3);
+pub const GUID_IDLE_BACKGROUND_TASK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x515c31d8_f734_163d_a0fd_11a08c91e8f1);
+pub const GUID_IDLE_RESILIENCY_PERIOD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc42b79aa_aa3a_484b_a98f_2cf32aa90a28);
+pub const GUID_IDLE_RESILIENCY_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e601130_5351_4d9d_8e04_252966bad054);
+pub const GUID_INTSTEER_LOAD_PER_PROC_TRIGGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73cde64d_d720_4bb2_a860_c755afe77ef2);
+pub const GUID_INTSTEER_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bfc24f9_5ea2_4801_8213_3dbae01aa39d);
+pub const GUID_INTSTEER_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48672f38_7a9a_4bb2_8bf8_3d85be19de4e);
+pub const GUID_INTSTEER_TIME_UNPARK_TRIGGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6ba4903_386f_4c2c_8adb_5c21b3328d25);
+pub const GUID_IO_CDROM_EXCLUSIVE_LOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc56c139_7a10_47ee_a294_4c6a38f0149a);
+pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3b6d27d_5e35_4885_81e5_ee18c00ed779);
+pub const GUID_IO_DEVICE_BECOMING_READY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433f0_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433d0_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_IO_DISK_CLONE_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a61885b_7c39_43dd_9b56_b8ac22a549aa);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -3409,174 +3409,174 @@ impl ::core::cmp::PartialEq for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+unsafe impl ::windows::core::Abi for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
     type Abi = Self;
 }
-pub const GUID_IO_DISK_HEALTH_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0f1bd644_3916_49c5_b063_991940118fb2);
-pub const GUID_IO_DISK_LAYOUT_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x11dff54c_8469_41f9_b3de_ef836487c54a);
-pub const GUID_IO_DRIVE_REQUIRES_CLEANING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7207877c_90ed_44e5_a000_81428d4c79bb);
-pub const GUID_IO_MEDIA_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd07433c0_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_IO_MEDIA_EJECT_REQUEST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd07433d1_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_IO_MEDIA_REMOVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd07433c1_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_IO_TAPE_ERASE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x852d11eb_4bb8_4507_9d9b_417cc2b1b438);
-pub const GUID_IO_VOLUME_BACKGROUND_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa2e5fc86_d5cd_4038_b2e3_4445065c2377);
-pub const GUID_IO_VOLUME_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7373654a_812a_11d0_bec7_08002be2092f);
-pub const GUID_IO_VOLUME_CHANGE_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a1625be_ad03_49f1_8ef8_6bbac182d1fd);
-pub const GUID_IO_VOLUME_DEVICE_INTERFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_IO_VOLUME_DISMOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd16a55e8_1059_11d2_8ffd_00a0c9a06d32);
-pub const GUID_IO_VOLUME_DISMOUNT_FAILED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3c5b178_105d_11d2_8ffd_00a0c9a06d32);
-pub const GUID_IO_VOLUME_FORCE_CLOSED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x411ad84f_433e_4dc2_a5ae_4a2d1a2de654);
-pub const GUID_IO_VOLUME_FVE_STATUS_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x062998b2_ee1f_4b6a_b857_e76cbbe9a6da);
-pub const GUID_IO_VOLUME_INFO_MAKE_COMPAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3ab9a0d2_ef80_45cf_8cdc_cbe02a212906);
-pub const GUID_IO_VOLUME_LOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50708874_c9af_11d1_8fef_00a0c9a06d32);
-pub const GUID_IO_VOLUME_LOCK_FAILED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae2eed10_0ba8_11d2_8ffb_00a0c9a06d32);
-pub const GUID_IO_VOLUME_MOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb5804878_1a96_11d2_8ffd_00a0c9a06d32);
-pub const GUID_IO_VOLUME_NAME_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2de97f83_4c06_11d2_a532_00609713055a);
-pub const GUID_IO_VOLUME_NEED_CHKDSK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x799a0960_0a0b_4e03_ad88_2fa7c6ce748a);
-pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2de97f84_4c06_11d2_a532_00609713055a);
-pub const GUID_IO_VOLUME_PREPARING_EJECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc79eb16e_0dac_4e7a_a86c_b25ceeaa88f6);
-pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf39da42_6622_41f5_970b_139d092fa3d9);
-pub const GUID_IO_VOLUME_UNLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9a8c3d68_d0cb_11d1_8fef_00a0c9a06d32);
-pub const GUID_IO_VOLUME_WEARING_OUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x873113ca_1486_4508_82ac_c3b2e5297aaa);
-pub const GUID_IO_VOLUME_WORM_NEAR_FULL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf3bfff82_f3de_48d2_af95_457f80b763f2);
-pub const GUID_LEGACY_RTC_MITIGATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1a34bdc3_7e6b_442e_a9d0_64b6ef378e84);
-pub const GUID_LIDCLOSE_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5ca83367_6e45_459f_a27b_476b1d01c936);
-pub const GUID_LIDOPEN_POWERSTATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99ff10e7_23b1_4c07_a9d1_5c3206d741b4);
-pub const GUID_LIDSWITCH_STATE_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba3e0f4d_b817_4094_a2d1_d56379e6a0f3);
-pub const GUID_LIDSWITCH_STATE_RELIABILITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xae4c4ff1_d361_43f4_80aa_bbb6eb03de94);
-pub const GUID_LOCK_CONSOLE_ON_WAKE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e796bdb_100d_47d6_a2d5_f7d2daa51f51);
-pub const GUID_MAX_POWER_SAVINGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa1841308_3541_4fab_bc81_f71556f20b4a);
-pub const GUID_MIN_POWER_SAVINGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8c5e7fda_e8bf_4a96_9a85_a6e23a8c635c);
-pub const GUID_MIXED_REALITY_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1e626b4e_cf04_4f8d_9cc7_c97c5b0f2391);
-pub const GUID_MONITOR_POWER_ON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x02731015_4510_4526_99e6_e5a17ebd1aea);
-pub const GUID_NON_ADAPTIVE_INPUT_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5adbbfbc_074e_4da1_ba38_db8b36b2c8f3);
-pub const GUID_PCIEXPRESS_ASPM_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xee12f906_d277_404b_b6da_e5fa1a576df5);
-pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x501a4d13_42af_4429_9fd1_a8218c268e20);
-pub const GUID_POWERBUTTON_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7648efa3_dd9c_4e3e_b566_50f929386280);
-pub const GUID_POWERSCHEME_PERSONALITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x245d8541_3943_4422_b025_13a784f679b7);
-pub const GUID_POWER_SAVING_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe00958c0_c213_4ace_ac77_fecced2eeea5);
-pub const GUID_PROCESSOR_ALLOW_THROTTLING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3b04d4fd_1cc7_4f23_ab1c_d1337819c4bb);
-pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfddc842b_8364_4edc_94cf_c17f60de1c80);
-pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1facfc65_a930_4bc5_9f38_504ec097bbc0);
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f7b45e3_c393_480a_878c_f67ac3d07082);
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5b33697b_e89d_4d38_aa46_9e7dfb7cd2f9);
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe70867f1_fa2f_4f4e_aea1_4d8a0ba23b20);
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x71021b41_c749_4d21_be74_a00f335d582b);
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68dd2f27_a4ce_4e11_8487_3794e4135dfa);
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdfd10d17_d5eb_45dd_877a_9a34ddd15c82);
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc7be0679_2817_4d69_9d02_519a537ed0c6);
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdf142941_20f3_4edf_9a4a_9c83d3d717d1);
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2ddd5a84_5a71_437e_912a_db0b8c788732);
-pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334028);
-pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334029);
-pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318583);
-pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318584);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1299023c_bc28_4f0a_81ec_d3295a8d815d);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9ac18e92_aa3c_4e27_b307_01ae37307129);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x943c8cb6_6f93_4227_ad87_e9a3feec08d1);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8809c2d8_b155_42d4_bcda_0d345651b1db);
-pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe0007330_f589_42ed_a401_5ddb10e785d3);
-pub const GUID_PROCESSOR_DUTY_CYCLING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e4450b3_6179_4e91_b8f1_5bb9938f81a1);
-pub const GUID_PROCESSOR_FREQUENCY_LIMIT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e100);
-pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e101);
-pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f2f5cfa_f10c_4823_b5e1_e93ae85f46b5);
-pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6b);
-pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f2492b6_60b1_45e5_ae55_773f8cd5caec);
-pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfbf);
-pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4009efa7_e72d_4cba_9edf_91084ea8cbc3);
-pub const GUID_PROCESSOR_IDLESTATE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x68f262a7_f621_4069_b9a5_4874169be23c);
-pub const GUID_PROCESSOR_IDLE_ALLOW_SCALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6c2993b0_8f48_481f_bcc6_00dd2742aa06);
-pub const GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4b92d758_5a24_4851_a470_815d78aee119);
-pub const GUID_PROCESSOR_IDLE_DISABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5d76a2ca_e8c0_402f_a133_2158492d58ad);
-pub const GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7b224883_b3cc_4d79_819f_8374152cbe7c);
-pub const GUID_PROCESSOR_IDLE_STATE_MAXIMUM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9943e905_9a30_4ec1_9b99_44dd3b76f7a2);
-pub const GUID_PROCESSOR_IDLE_TIME_CHECK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc4581c31_89ab_4597_8e2b_9c9cab440e6b);
-pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd88);
-pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd89);
-pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2430ab6f_a520_44a2_9601_f7f23b5134b1);
-pub const GUID_PROCESSOR_PARKING_CORE_OVERRIDE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa55612aa_f624_42c6_a443_7397d064c04f);
-pub const GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4bdaf4e9_d103_46d7_a5f0_6280121616ef);
-pub const GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf735a673_2066_4f80_a0c5_ddee0cf1bf5d);
-pub const GUID_PROCESSOR_PARKING_PERF_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2b);
-pub const GUID_PROCESSOR_PARKING_PERF_STATE_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2c);
-pub const GUID_PROCESSOR_PERFSTATE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbbdc3814_18e9_4463_8a55_d197327c45c0);
-pub const GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcfeda3d0_7697_4566_a922_a9086cd49dfa);
-pub const GUID_PROCESSOR_PERF_AUTONOMOUS_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8baa4a8a_14c6_4451_8e8b_14bdbd197537);
-pub const GUID_PROCESSOR_PERF_BOOST_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbe337238_0d82_4146_a960_4f3749d470c7);
-pub const GUID_PROCESSOR_PERF_BOOST_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x45bcc044_d885_43e2_8605_ee0ec6e96b59);
-pub const GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x77d7f282_8f1a_42cd_8537_45450a839be8);
-pub const GUID_PROCESSOR_PERF_DECREASE_HISTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0300f6f8_abd6_45a9_b74f_4908691a40b5);
-pub const GUID_PROCESSOR_PERF_DECREASE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac6);
-pub const GUID_PROCESSOR_PERF_DECREASE_POLICY_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac7);
-pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a6);
-pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a7);
-pub const GUID_PROCESSOR_PERF_DECREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c8);
-pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c9);
-pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6863);
-pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6864);
-pub const GUID_PROCESSOR_PERF_HISTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f5f);
-pub const GUID_PROCESSOR_PERF_HISTORY_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f60);
-pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x99b3ef01_752f_46a1_80fb_7730011f2354);
-pub const GUID_PROCESSOR_PERF_INCREASE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc418);
-pub const GUID_PROCESSOR_PERF_INCREASE_POLICY_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc419);
-pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35d);
-pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35e);
-pub const GUID_PROCESSOR_PERF_INCREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5aa);
-pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5ab);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0822df31_9c83_441c_a079_0de4cf009c7b);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300971);
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300972);
-pub const GUID_PROCESSOR_PERF_TIME_CHECK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d2b0152_7d5c_498b_88e2_34345392a2c5);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc480);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc481);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec130);
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec131);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd830);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd831);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a200);
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a201);
-pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7320);
-pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7321);
-pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd40);
-pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd41);
-pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54533251_82be_4824_96c1_47b60b740d00);
-pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd92998c2_6a48_49ca_85d4_8cceec294570);
-pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbae08b81_2d5e_4688_ad6a_13243356654b);
-pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x97cfac41_2217_47eb_992d_618b1977c907);
-pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x93b8b6dc_0698_4d1c_9ee4_0644e900c85d);
-pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ec);
-pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ed);
-pub const GUID_PROCESSOR_THROTTLE_MINIMUM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964c);
-pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964d);
-pub const GUID_PROCESSOR_THROTTLE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57027304_4af6_4104_9260_e3d95248fc36);
-pub const GUID_SESSION_DISPLAY_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2b84c20e_ad23_4ddf_93db_05ffbd7efca5);
-pub const GUID_SESSION_USER_PRESENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c0f4548_c03f_4c4d_b9f2_237ede686376);
-pub const GUID_SLEEPBUTTON_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x96996bc0_ad50_47ec_923b_6f41874dd9eb);
-pub const GUID_SLEEP_IDLE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x81cd32e0_7833_44f3_8737_7081f38d1f70);
-pub const GUID_SLEEP_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x238c9fa8_0aad_41ed_83f4_97be242c8f20);
-pub const GUID_SPR_ACTIVE_SESSION_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0e24ce38_c393_4742_bdb1_744f4b9ee08e);
-pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x60c07fe1_0556_45cf_9903_d56e32210242);
-pub const GUID_STANDBY_BUDGET_PERCENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9fe527be_1b70_48da_930d_7bcf17b44990);
-pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc763ee92_71e8_4127_84eb_f6ed043a3e3d);
-pub const GUID_STANDBY_RESERVE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x468fe7e5_1158_46ec_88bc_5b96c9e44fd0);
-pub const GUID_STANDBY_RESET_PERCENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x49cb11a5_56e2_4afb_9d38_3df47872e21b);
-pub const GUID_STANDBY_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x29f6c1db_86da_48c5_9fdb_f2b67b1f44da);
-pub const GUID_SYSTEM_AWAYMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x98a7f580_01f7_48aa_9c0f_44352c29e5c0);
-pub const GUID_SYSTEM_BUTTON_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f971e89_eebd_4455_a8de_9e59040e7347);
-pub const GUID_SYSTEM_COOLING_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x94d3a615_a899_4ac5_ae2b_e4d8f634367f);
-pub const GUID_TYPICAL_POWER_SAVINGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x381b4222_f694_41f0_9685_ff5bb260df2e);
-pub const GUID_UNATTEND_SLEEP_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7bc4a2f9_d8fc_4469_b07b_33eb785aaca0);
-pub const GUID_USERINTERFACEBUTTON_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa7066653_8d6c_40a8_910e_a1f54b84c7e5);
-pub const GUID_USER_PRESENCE_PREDICTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82011705_fb95_4d46_8d35_4042b1d20def);
-pub const GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfbd9aa66_9553_4097_ba44_ed6e9d65eab8);
-pub const GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xeed904df_b142_4183_b10b_5a1197a37864);
-pub const GUID_VIDEO_ADAPTIVE_POWERDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x90959d22_d6a1_49b9_af93_bce885ad335b);
-pub const GUID_VIDEO_ANNOYANCE_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x82dbcf2d_cd67_40c5_bfdc_9f1a5ccd4663);
-pub const GUID_VIDEO_CONSOLE_LOCK_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ec4b3a5_6868_48c2_be75_4f3044be88a7);
-pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8ffee2c6_2d01_46be_adb9_398addc5b4ff);
-pub const GUID_VIDEO_DIM_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x17aaa29b_8b43_4b94_aafe_35f64daaf1ee);
-pub const GUID_VIDEO_POWERDOWN_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3c0bc021_c8a8_4e07_a973_6b14cbcb2b7e);
-pub const GUID_VIDEO_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7516b95f_f776_4464_8c53_06167f40cc99);
+pub const GUID_IO_DISK_HEALTH_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f1bd644_3916_49c5_b063_991940118fb2);
+pub const GUID_IO_DISK_LAYOUT_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11dff54c_8469_41f9_b3de_ef836487c54a);
+pub const GUID_IO_DRIVE_REQUIRES_CLEANING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7207877c_90ed_44e5_a000_81428d4c79bb);
+pub const GUID_IO_MEDIA_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433c0_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_IO_MEDIA_EJECT_REQUEST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433d1_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_IO_MEDIA_REMOVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433c1_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_IO_TAPE_ERASE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x852d11eb_4bb8_4507_9d9b_417cc2b1b438);
+pub const GUID_IO_VOLUME_BACKGROUND_FORMAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2e5fc86_d5cd_4038_b2e3_4445065c2377);
+pub const GUID_IO_VOLUME_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7373654a_812a_11d0_bec7_08002be2092f);
+pub const GUID_IO_VOLUME_CHANGE_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a1625be_ad03_49f1_8ef8_6bbac182d1fd);
+pub const GUID_IO_VOLUME_DEVICE_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_IO_VOLUME_DISMOUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd16a55e8_1059_11d2_8ffd_00a0c9a06d32);
+pub const GUID_IO_VOLUME_DISMOUNT_FAILED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3c5b178_105d_11d2_8ffd_00a0c9a06d32);
+pub const GUID_IO_VOLUME_FORCE_CLOSED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x411ad84f_433e_4dc2_a5ae_4a2d1a2de654);
+pub const GUID_IO_VOLUME_FVE_STATUS_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x062998b2_ee1f_4b6a_b857_e76cbbe9a6da);
+pub const GUID_IO_VOLUME_INFO_MAKE_COMPAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab9a0d2_ef80_45cf_8cdc_cbe02a212906);
+pub const GUID_IO_VOLUME_LOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50708874_c9af_11d1_8fef_00a0c9a06d32);
+pub const GUID_IO_VOLUME_LOCK_FAILED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2eed10_0ba8_11d2_8ffb_00a0c9a06d32);
+pub const GUID_IO_VOLUME_MOUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5804878_1a96_11d2_8ffd_00a0c9a06d32);
+pub const GUID_IO_VOLUME_NAME_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2de97f83_4c06_11d2_a532_00609713055a);
+pub const GUID_IO_VOLUME_NEED_CHKDSK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x799a0960_0a0b_4e03_ad88_2fa7c6ce748a);
+pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2de97f84_4c06_11d2_a532_00609713055a);
+pub const GUID_IO_VOLUME_PREPARING_EJECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79eb16e_0dac_4e7a_a86c_b25ceeaa88f6);
+pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf39da42_6622_41f5_970b_139d092fa3d9);
+pub const GUID_IO_VOLUME_UNLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a8c3d68_d0cb_11d1_8fef_00a0c9a06d32);
+pub const GUID_IO_VOLUME_WEARING_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x873113ca_1486_4508_82ac_c3b2e5297aaa);
+pub const GUID_IO_VOLUME_WORM_NEAR_FULL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3bfff82_f3de_48d2_af95_457f80b763f2);
+pub const GUID_LEGACY_RTC_MITIGATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a34bdc3_7e6b_442e_a9d0_64b6ef378e84);
+pub const GUID_LIDCLOSE_ACTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ca83367_6e45_459f_a27b_476b1d01c936);
+pub const GUID_LIDOPEN_POWERSTATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99ff10e7_23b1_4c07_a9d1_5c3206d741b4);
+pub const GUID_LIDSWITCH_STATE_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba3e0f4d_b817_4094_a2d1_d56379e6a0f3);
+pub const GUID_LIDSWITCH_STATE_RELIABILITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae4c4ff1_d361_43f4_80aa_bbb6eb03de94);
+pub const GUID_LOCK_CONSOLE_ON_WAKE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e796bdb_100d_47d6_a2d5_f7d2daa51f51);
+pub const GUID_MAX_POWER_SAVINGS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1841308_3541_4fab_bc81_f71556f20b4a);
+pub const GUID_MIN_POWER_SAVINGS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c5e7fda_e8bf_4a96_9a85_a6e23a8c635c);
+pub const GUID_MIXED_REALITY_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e626b4e_cf04_4f8d_9cc7_c97c5b0f2391);
+pub const GUID_MONITOR_POWER_ON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02731015_4510_4526_99e6_e5a17ebd1aea);
+pub const GUID_NON_ADAPTIVE_INPUT_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5adbbfbc_074e_4da1_ba38_db8b36b2c8f3);
+pub const GUID_PCIEXPRESS_ASPM_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee12f906_d277_404b_b6da_e5fa1a576df5);
+pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x501a4d13_42af_4429_9fd1_a8218c268e20);
+pub const GUID_POWERBUTTON_ACTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7648efa3_dd9c_4e3e_b566_50f929386280);
+pub const GUID_POWERSCHEME_PERSONALITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x245d8541_3943_4422_b025_13a784f679b7);
+pub const GUID_POWER_SAVING_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe00958c0_c213_4ace_ac77_fecced2eeea5);
+pub const GUID_PROCESSOR_ALLOW_THROTTLING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b04d4fd_1cc7_4f23_ab1c_d1337819c4bb);
+pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfddc842b_8364_4edc_94cf_c17f60de1c80);
+pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1facfc65_a930_4bc5_9f38_504ec097bbc0);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f7b45e3_c393_480a_878c_f67ac3d07082);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b33697b_e89d_4d38_aa46_9e7dfb7cd2f9);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe70867f1_fa2f_4f4e_aea1_4d8a0ba23b20);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71021b41_c749_4d21_be74_a00f335d582b);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68dd2f27_a4ce_4e11_8487_3794e4135dfa);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfd10d17_d5eb_45dd_877a_9a34ddd15c82);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7be0679_2817_4d69_9d02_519a537ed0c6);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf142941_20f3_4edf_9a4a_9c83d3d717d1);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ddd5a84_5a71_437e_912a_db0b8c788732);
+pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334028);
+pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334029);
+pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318583);
+pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318584);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1299023c_bc28_4f0a_81ec_d3295a8d815d);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ac18e92_aa3c_4e27_b307_01ae37307129);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x943c8cb6_6f93_4227_ad87_e9a3feec08d1);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8809c2d8_b155_42d4_bcda_0d345651b1db);
+pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0007330_f589_42ed_a401_5ddb10e785d3);
+pub const GUID_PROCESSOR_DUTY_CYCLING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e4450b3_6179_4e91_b8f1_5bb9938f81a1);
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e100);
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e101);
+pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f2f5cfa_f10c_4823_b5e1_e93ae85f46b5);
+pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6b);
+pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f2492b6_60b1_45e5_ae55_773f8cd5caec);
+pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfbf);
+pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4009efa7_e72d_4cba_9edf_91084ea8cbc3);
+pub const GUID_PROCESSOR_IDLESTATE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68f262a7_f621_4069_b9a5_4874169be23c);
+pub const GUID_PROCESSOR_IDLE_ALLOW_SCALING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c2993b0_8f48_481f_bcc6_00dd2742aa06);
+pub const GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b92d758_5a24_4851_a470_815d78aee119);
+pub const GUID_PROCESSOR_IDLE_DISABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d76a2ca_e8c0_402f_a133_2158492d58ad);
+pub const GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b224883_b3cc_4d79_819f_8374152cbe7c);
+pub const GUID_PROCESSOR_IDLE_STATE_MAXIMUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9943e905_9a30_4ec1_9b99_44dd3b76f7a2);
+pub const GUID_PROCESSOR_IDLE_TIME_CHECK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4581c31_89ab_4597_8e2b_9c9cab440e6b);
+pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd88);
+pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd89);
+pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2430ab6f_a520_44a2_9601_f7f23b5134b1);
+pub const GUID_PROCESSOR_PARKING_CORE_OVERRIDE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa55612aa_f624_42c6_a443_7397d064c04f);
+pub const GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bdaf4e9_d103_46d7_a5f0_6280121616ef);
+pub const GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf735a673_2066_4f80_a0c5_ddee0cf1bf5d);
+pub const GUID_PROCESSOR_PARKING_PERF_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2b);
+pub const GUID_PROCESSOR_PARKING_PERF_STATE_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2c);
+pub const GUID_PROCESSOR_PERFSTATE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbdc3814_18e9_4463_8a55_d197327c45c0);
+pub const GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfeda3d0_7697_4566_a922_a9086cd49dfa);
+pub const GUID_PROCESSOR_PERF_AUTONOMOUS_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8baa4a8a_14c6_4451_8e8b_14bdbd197537);
+pub const GUID_PROCESSOR_PERF_BOOST_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe337238_0d82_4146_a960_4f3749d470c7);
+pub const GUID_PROCESSOR_PERF_BOOST_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45bcc044_d885_43e2_8605_ee0ec6e96b59);
+pub const GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77d7f282_8f1a_42cd_8537_45450a839be8);
+pub const GUID_PROCESSOR_PERF_DECREASE_HISTORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0300f6f8_abd6_45a9_b74f_4908691a40b5);
+pub const GUID_PROCESSOR_PERF_DECREASE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac6);
+pub const GUID_PROCESSOR_PERF_DECREASE_POLICY_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac7);
+pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a6);
+pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a7);
+pub const GUID_PROCESSOR_PERF_DECREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c8);
+pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c9);
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6863);
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6864);
+pub const GUID_PROCESSOR_PERF_HISTORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f5f);
+pub const GUID_PROCESSOR_PERF_HISTORY_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f60);
+pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99b3ef01_752f_46a1_80fb_7730011f2354);
+pub const GUID_PROCESSOR_PERF_INCREASE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc418);
+pub const GUID_PROCESSOR_PERF_INCREASE_POLICY_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc419);
+pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35d);
+pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35e);
+pub const GUID_PROCESSOR_PERF_INCREASE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5aa);
+pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5ab);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0822df31_9c83_441c_a079_0de4cf009c7b);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300971);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300972);
+pub const GUID_PROCESSOR_PERF_TIME_CHECK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d2b0152_7d5c_498b_88e2_34345392a2c5);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc480);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc481);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec130);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec131);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd830);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd831);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a200);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a201);
+pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7320);
+pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7321);
+pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd40);
+pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd41);
+pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54533251_82be_4824_96c1_47b60b740d00);
+pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd92998c2_6a48_49ca_85d4_8cceec294570);
+pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbae08b81_2d5e_4688_ad6a_13243356654b);
+pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97cfac41_2217_47eb_992d_618b1977c907);
+pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93b8b6dc_0698_4d1c_9ee4_0644e900c85d);
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ec);
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ed);
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964c);
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964d);
+pub const GUID_PROCESSOR_THROTTLE_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57027304_4af6_4104_9260_e3d95248fc36);
+pub const GUID_SESSION_DISPLAY_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b84c20e_ad23_4ddf_93db_05ffbd7efca5);
+pub const GUID_SESSION_USER_PRESENCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c0f4548_c03f_4c4d_b9f2_237ede686376);
+pub const GUID_SLEEPBUTTON_ACTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96996bc0_ad50_47ec_923b_6f41874dd9eb);
+pub const GUID_SLEEP_IDLE_THRESHOLD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81cd32e0_7833_44f3_8737_7081f38d1f70);
+pub const GUID_SLEEP_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x238c9fa8_0aad_41ed_83f4_97be242c8f20);
+pub const GUID_SPR_ACTIVE_SESSION_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e24ce38_c393_4742_bdb1_744f4b9ee08e);
+pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60c07fe1_0556_45cf_9903_d56e32210242);
+pub const GUID_STANDBY_BUDGET_PERCENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fe527be_1b70_48da_930d_7bcf17b44990);
+pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc763ee92_71e8_4127_84eb_f6ed043a3e3d);
+pub const GUID_STANDBY_RESERVE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x468fe7e5_1158_46ec_88bc_5b96c9e44fd0);
+pub const GUID_STANDBY_RESET_PERCENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49cb11a5_56e2_4afb_9d38_3df47872e21b);
+pub const GUID_STANDBY_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29f6c1db_86da_48c5_9fdb_f2b67b1f44da);
+pub const GUID_SYSTEM_AWAYMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98a7f580_01f7_48aa_9c0f_44352c29e5c0);
+pub const GUID_SYSTEM_BUTTON_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f971e89_eebd_4455_a8de_9e59040e7347);
+pub const GUID_SYSTEM_COOLING_POLICY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94d3a615_a899_4ac5_ae2b_e4d8f634367f);
+pub const GUID_TYPICAL_POWER_SAVINGS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x381b4222_f694_41f0_9685_ff5bb260df2e);
+pub const GUID_UNATTEND_SLEEP_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bc4a2f9_d8fc_4469_b07b_33eb785aaca0);
+pub const GUID_USERINTERFACEBUTTON_ACTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7066653_8d6c_40a8_910e_a1f54b84c7e5);
+pub const GUID_USER_PRESENCE_PREDICTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82011705_fb95_4d46_8d35_4042b1d20def);
+pub const GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd9aa66_9553_4097_ba44_ed6e9d65eab8);
+pub const GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeed904df_b142_4183_b10b_5a1197a37864);
+pub const GUID_VIDEO_ADAPTIVE_POWERDOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90959d22_d6a1_49b9_af93_bce885ad335b);
+pub const GUID_VIDEO_ANNOYANCE_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82dbcf2d_cd67_40c5_bfdc_9f1a5ccd4663);
+pub const GUID_VIDEO_CONSOLE_LOCK_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ec4b3a5_6868_48c2_be75_4f3044be88a7);
+pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ffee2c6_2d01_46be_adb9_398addc5b4ff);
+pub const GUID_VIDEO_DIM_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17aaa29b_8b43_4b94_aafe_35f64daaf1ee);
+pub const GUID_VIDEO_POWERDOWN_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c0bc021_c8a8_4e07_a973_6b14cbcb2b7e);
+pub const GUID_VIDEO_SUBGROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7516b95f_f776_4464_8c53_06167f40cc99);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3603,7 +3603,7 @@ impl ::core::cmp::PartialEq for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for HEAP_OPTIMIZE_RESOURCES_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
+unsafe impl ::windows::core::Abi for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3630,7 +3630,7 @@ impl ::core::cmp::PartialEq for HIBERFILE_BUCKET {
     }
 }
 impl ::core::cmp::Eq for HIBERFILE_BUCKET {}
-unsafe impl ::windows::runtime::Abi for HIBERFILE_BUCKET {
+unsafe impl ::windows::core::Abi for HIBERFILE_BUCKET {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -3650,7 +3650,7 @@ impl ::core::convert::From<i32> for HIBERFILE_BUCKET_SIZE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HIBERFILE_BUCKET_SIZE {
+unsafe impl ::windows::core::Abi for HIBERFILE_BUCKET_SIZE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -3677,7 +3677,7 @@ impl ::core::convert::From<u32> for IGP_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IGP_ID {
+unsafe impl ::windows::core::Abi for IGP_ID {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for IGP_ID {
@@ -3730,7 +3730,7 @@ impl ::core::cmp::PartialEq for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     }
 }
 impl ::core::cmp::Eq for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {}
-unsafe impl ::windows::runtime::Abi for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
+unsafe impl ::windows::core::Abi for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3760,7 +3760,7 @@ impl ::core::cmp::PartialEq for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     }
 }
 impl ::core::cmp::Eq for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {}
-unsafe impl ::windows::runtime::Abi for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
+unsafe impl ::windows::core::Abi for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3787,7 +3787,7 @@ impl ::core::cmp::PartialEq for IMAGE_ARCHITECTURE_ENTRY {
     }
 }
 impl ::core::cmp::Eq for IMAGE_ARCHITECTURE_ENTRY {}
-unsafe impl ::windows::runtime::Abi for IMAGE_ARCHITECTURE_ENTRY {
+unsafe impl ::windows::core::Abi for IMAGE_ARCHITECTURE_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3814,7 +3814,7 @@ impl ::core::cmp::PartialEq for IMAGE_ARCHITECTURE_HEADER {
     }
 }
 impl ::core::cmp::Eq for IMAGE_ARCHITECTURE_HEADER {}
-unsafe impl ::windows::runtime::Abi for IMAGE_ARCHITECTURE_HEADER {
+unsafe impl ::windows::core::Abi for IMAGE_ARCHITECTURE_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3846,7 +3846,7 @@ impl ::core::cmp::PartialEq for IMAGE_ARCHIVE_MEMBER_HEADER {
     }
 }
 impl ::core::cmp::Eq for IMAGE_ARCHIVE_MEMBER_HEADER {}
-unsafe impl ::windows::runtime::Abi for IMAGE_ARCHIVE_MEMBER_HEADER {
+unsafe impl ::windows::core::Abi for IMAGE_ARCHIVE_MEMBER_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -3870,7 +3870,7 @@ impl ::core::cmp::PartialEq for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     }
 }
 impl ::core::cmp::Eq for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {}
-unsafe impl ::windows::runtime::Abi for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
+unsafe impl ::windows::core::Abi for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3896,7 +3896,7 @@ impl ::core::cmp::PartialEq for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
+unsafe impl ::windows::core::Abi for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3918,7 +3918,7 @@ impl ::core::cmp::PartialEq for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     }
 }
 impl ::core::cmp::Eq for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {}
-unsafe impl ::windows::runtime::Abi for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
+unsafe impl ::windows::core::Abi for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3940,7 +3940,7 @@ impl ::core::cmp::PartialEq for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
+unsafe impl ::windows::core::Abi for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3966,7 +3966,7 @@ impl ::core::cmp::PartialEq for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
+unsafe impl ::windows::core::Abi for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3991,7 +3991,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4013,7 +4013,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_0 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4039,7 +4039,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_1 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_1 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_1 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4067,7 +4067,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_2 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_2 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_2 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4091,7 +4091,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_3 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_3 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4113,7 +4113,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_3_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_3_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3_0 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_3_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4139,7 +4139,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_3_0_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_3_0_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3_0_0 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_3_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4161,7 +4161,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_3_0_1 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_3_0_1 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3_0_1 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_3_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4183,7 +4183,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_3_1 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_3_1 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3_1 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_3_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4210,7 +4210,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_3_1_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_3_1_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3_1_0 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_3_1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4235,7 +4235,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_EX {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_EX {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4257,7 +4257,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_EX_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_EX_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX_0 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_EX_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4279,7 +4279,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_EX_1 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_EX_1 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX_1 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_EX_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4305,7 +4305,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_EX_2 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_EX_2 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX_2 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_EX_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4334,7 +4334,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_EX_3 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_EX_3 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX_3 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_EX_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4357,7 +4357,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_EX_4 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_EX_4 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX_4 {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_EX_4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4381,7 +4381,7 @@ impl ::core::cmp::PartialEq for IMAGE_AUX_SYMBOL_TOKEN_DEF {
     }
 }
 impl ::core::cmp::Eq for IMAGE_AUX_SYMBOL_TOKEN_DEF {}
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_TOKEN_DEF {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_TOKEN_DEF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -4394,7 +4394,7 @@ impl ::core::convert::From<i32> for IMAGE_AUX_SYMBOL_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_TYPE {
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4421,7 +4421,7 @@ impl ::core::cmp::PartialEq for IMAGE_BASE_RELOCATION {
     }
 }
 impl ::core::cmp::Eq for IMAGE_BASE_RELOCATION {}
-unsafe impl ::windows::runtime::Abi for IMAGE_BASE_RELOCATION {
+unsafe impl ::windows::core::Abi for IMAGE_BASE_RELOCATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4449,7 +4449,7 @@ impl ::core::cmp::PartialEq for IMAGE_BOUND_FORWARDER_REF {
     }
 }
 impl ::core::cmp::Eq for IMAGE_BOUND_FORWARDER_REF {}
-unsafe impl ::windows::runtime::Abi for IMAGE_BOUND_FORWARDER_REF {
+unsafe impl ::windows::core::Abi for IMAGE_BOUND_FORWARDER_REF {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4477,7 +4477,7 @@ impl ::core::cmp::PartialEq for IMAGE_BOUND_IMPORT_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for IMAGE_BOUND_IMPORT_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for IMAGE_BOUND_IMPORT_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for IMAGE_BOUND_IMPORT_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4504,7 +4504,7 @@ impl ::core::cmp::PartialEq for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     }
 }
 impl ::core::cmp::Eq for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {}
-unsafe impl ::windows::runtime::Abi for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
+unsafe impl ::windows::core::Abi for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -4555,7 +4555,7 @@ impl ::core::cmp::PartialEq for IMAGE_DEBUG_MISC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGE_DEBUG_MISC {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IMAGE_DEBUG_MISC {
+unsafe impl ::windows::core::Abi for IMAGE_DEBUG_MISC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -4616,7 +4616,7 @@ impl ::core::cmp::PartialEq for IMAGE_DOS_HEADER {
     }
 }
 impl ::core::cmp::Eq for IMAGE_DOS_HEADER {}
-unsafe impl ::windows::runtime::Abi for IMAGE_DOS_HEADER {
+unsafe impl ::windows::core::Abi for IMAGE_DOS_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -4640,7 +4640,7 @@ impl ::core::cmp::PartialEq for IMAGE_DYNAMIC_RELOCATION32 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_DYNAMIC_RELOCATION32 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_DYNAMIC_RELOCATION32 {
+unsafe impl ::windows::core::Abi for IMAGE_DYNAMIC_RELOCATION32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4665,7 +4665,7 @@ impl ::core::cmp::PartialEq for IMAGE_DYNAMIC_RELOCATION32_V2 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_DYNAMIC_RELOCATION32_V2 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_DYNAMIC_RELOCATION32_V2 {
+unsafe impl ::windows::core::Abi for IMAGE_DYNAMIC_RELOCATION32_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4687,7 +4687,7 @@ impl ::core::cmp::PartialEq for IMAGE_DYNAMIC_RELOCATION64 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_DYNAMIC_RELOCATION64 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_DYNAMIC_RELOCATION64 {
+unsafe impl ::windows::core::Abi for IMAGE_DYNAMIC_RELOCATION64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4712,7 +4712,7 @@ impl ::core::cmp::PartialEq for IMAGE_DYNAMIC_RELOCATION64_V2 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_DYNAMIC_RELOCATION64_V2 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_DYNAMIC_RELOCATION64_V2 {
+unsafe impl ::windows::core::Abi for IMAGE_DYNAMIC_RELOCATION64_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -4749,7 +4749,7 @@ impl ::core::cmp::PartialEq for IMAGE_DYNAMIC_RELOCATION_TABLE {
     }
 }
 impl ::core::cmp::Eq for IMAGE_DYNAMIC_RELOCATION_TABLE {}
-unsafe impl ::windows::runtime::Abi for IMAGE_DYNAMIC_RELOCATION_TABLE {
+unsafe impl ::windows::core::Abi for IMAGE_DYNAMIC_RELOCATION_TABLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -4791,7 +4791,7 @@ impl ::core::cmp::PartialEq for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     }
 }
 impl ::core::cmp::Eq for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {}
-unsafe impl ::windows::runtime::Abi for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
+unsafe impl ::windows::core::Abi for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4839,7 +4839,7 @@ impl ::core::cmp::PartialEq for IMAGE_EXPORT_DIRECTORY {
     }
 }
 impl ::core::cmp::Eq for IMAGE_EXPORT_DIRECTORY {}
-unsafe impl ::windows::runtime::Abi for IMAGE_EXPORT_DIRECTORY {
+unsafe impl ::windows::core::Abi for IMAGE_EXPORT_DIRECTORY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -4925,7 +4925,7 @@ impl ::core::cmp::PartialEq for IMAGE_HOT_PATCH_BASE {
     }
 }
 impl ::core::cmp::Eq for IMAGE_HOT_PATCH_BASE {}
-unsafe impl ::windows::runtime::Abi for IMAGE_HOT_PATCH_BASE {
+unsafe impl ::windows::core::Abi for IMAGE_HOT_PATCH_BASE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -4976,7 +4976,7 @@ impl ::core::cmp::PartialEq for IMAGE_HOT_PATCH_HASHES {
     }
 }
 impl ::core::cmp::Eq for IMAGE_HOT_PATCH_HASHES {}
-unsafe impl ::windows::runtime::Abi for IMAGE_HOT_PATCH_HASHES {
+unsafe impl ::windows::core::Abi for IMAGE_HOT_PATCH_HASHES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -5018,7 +5018,7 @@ impl ::core::cmp::PartialEq for IMAGE_HOT_PATCH_INFO {
     }
 }
 impl ::core::cmp::Eq for IMAGE_HOT_PATCH_INFO {}
-unsafe impl ::windows::runtime::Abi for IMAGE_HOT_PATCH_INFO {
+unsafe impl ::windows::core::Abi for IMAGE_HOT_PATCH_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -5058,7 +5058,7 @@ impl ::core::cmp::PartialEq for IMAGE_IMPORT_BY_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGE_IMPORT_BY_NAME {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IMAGE_IMPORT_BY_NAME {
+unsafe impl ::windows::core::Abi for IMAGE_IMPORT_BY_NAME {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5079,7 +5079,7 @@ impl ::core::cmp::PartialEq for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION
     }
 }
 impl ::core::cmp::Eq for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {}
-unsafe impl ::windows::runtime::Abi for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
+unsafe impl ::windows::core::Abi for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5104,7 +5104,7 @@ impl ::core::cmp::PartialEq for IMAGE_IMPORT_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for IMAGE_IMPORT_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for IMAGE_IMPORT_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for IMAGE_IMPORT_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5126,7 +5126,7 @@ impl ::core::cmp::PartialEq for IMAGE_IMPORT_DESCRIPTOR_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_IMPORT_DESCRIPTOR_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_IMPORT_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for IMAGE_IMPORT_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5147,7 +5147,7 @@ impl ::core::cmp::PartialEq for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION 
     }
 }
 impl ::core::cmp::Eq for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {}
-unsafe impl ::windows::runtime::Abi for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
+unsafe impl ::windows::core::Abi for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5169,7 +5169,7 @@ impl ::core::cmp::PartialEq for IMAGE_LINENUMBER {
     }
 }
 impl ::core::cmp::Eq for IMAGE_LINENUMBER {}
-unsafe impl ::windows::runtime::Abi for IMAGE_LINENUMBER {
+unsafe impl ::windows::core::Abi for IMAGE_LINENUMBER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5191,7 +5191,7 @@ impl ::core::cmp::PartialEq for IMAGE_LINENUMBER_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_LINENUMBER_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_LINENUMBER_0 {
+unsafe impl ::windows::core::Abi for IMAGE_LINENUMBER_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -5257,7 +5257,7 @@ impl ::core::cmp::PartialEq for IMAGE_OS2_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGE_OS2_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IMAGE_OS2_HEADER {
+unsafe impl ::windows::core::Abi for IMAGE_OS2_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -5290,7 +5290,7 @@ impl ::core::cmp::PartialEq for IMAGE_POLICY_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGE_POLICY_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_ENTRY {
+unsafe impl ::windows::core::Abi for IMAGE_POLICY_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5327,7 +5327,7 @@ impl ::core::cmp::PartialEq for IMAGE_POLICY_ENTRY_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGE_POLICY_ENTRY_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_ENTRY_0 {
+unsafe impl ::windows::core::Abi for IMAGE_POLICY_ENTRY_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -5353,7 +5353,7 @@ impl ::core::convert::From<i32> for IMAGE_POLICY_ENTRY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_ENTRY_TYPE {
+unsafe impl ::windows::core::Abi for IMAGE_POLICY_ENTRY_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -5378,7 +5378,7 @@ impl ::core::convert::From<i32> for IMAGE_POLICY_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_ID {
+unsafe impl ::windows::core::Abi for IMAGE_POLICY_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5408,7 +5408,7 @@ impl ::core::cmp::PartialEq for IMAGE_POLICY_METADATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGE_POLICY_METADATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_METADATA {
+unsafe impl ::windows::core::Abi for IMAGE_POLICY_METADATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -5436,7 +5436,7 @@ impl ::core::cmp::PartialEq for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     }
 }
 impl ::core::cmp::Eq for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {}
-unsafe impl ::windows::runtime::Abi for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
+unsafe impl ::windows::core::Abi for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5459,7 +5459,7 @@ impl ::core::cmp::PartialEq for IMAGE_RELOCATION {
     }
 }
 impl ::core::cmp::Eq for IMAGE_RELOCATION {}
-unsafe impl ::windows::runtime::Abi for IMAGE_RELOCATION {
+unsafe impl ::windows::core::Abi for IMAGE_RELOCATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5481,7 +5481,7 @@ impl ::core::cmp::PartialEq for IMAGE_RELOCATION_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_RELOCATION_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_RELOCATION_0 {
+unsafe impl ::windows::core::Abi for IMAGE_RELOCATION_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -6030,7 +6030,7 @@ impl ::core::cmp::PartialEq for IMAGE_RESOURCE_DATA_ENTRY {
     }
 }
 impl ::core::cmp::Eq for IMAGE_RESOURCE_DATA_ENTRY {}
-unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DATA_ENTRY {
+unsafe impl ::windows::core::Abi for IMAGE_RESOURCE_DATA_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -6070,7 +6070,7 @@ impl ::core::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY {
     }
 }
 impl ::core::cmp::Eq for IMAGE_RESOURCE_DIRECTORY {}
-unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY {
+unsafe impl ::windows::core::Abi for IMAGE_RESOURCE_DIRECTORY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6092,7 +6092,7 @@ impl ::core::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY_ENTRY {
     }
 }
 impl ::core::cmp::Eq for IMAGE_RESOURCE_DIRECTORY_ENTRY {}
-unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY {
+unsafe impl ::windows::core::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6115,7 +6115,7 @@ impl ::core::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
+unsafe impl ::windows::core::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6141,7 +6141,7 @@ impl ::core::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
+unsafe impl ::windows::core::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6163,7 +6163,7 @@ impl ::core::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
+unsafe impl ::windows::core::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6189,7 +6189,7 @@ impl ::core::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
+unsafe impl ::windows::core::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6223,7 +6223,7 @@ impl ::core::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY_STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGE_RESOURCE_DIRECTORY_STRING {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_STRING {
+unsafe impl ::windows::core::Abi for IMAGE_RESOURCE_DIRECTORY_STRING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6250,7 +6250,7 @@ impl ::core::cmp::PartialEq for IMAGE_RESOURCE_DIR_STRING_U {
     }
 }
 impl ::core::cmp::Eq for IMAGE_RESOURCE_DIR_STRING_U {}
-unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIR_STRING_U {
+unsafe impl ::windows::core::Abi for IMAGE_RESOURCE_DIR_STRING_U {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -6318,7 +6318,7 @@ impl ::core::cmp::PartialEq for IMAGE_SEPARATE_DEBUG_HEADER {
     }
 }
 impl ::core::cmp::Eq for IMAGE_SEPARATE_DEBUG_HEADER {}
-unsafe impl ::windows::runtime::Abi for IMAGE_SEPARATE_DEBUG_HEADER {
+unsafe impl ::windows::core::Abi for IMAGE_SEPARATE_DEBUG_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -6353,7 +6353,7 @@ impl ::core::cmp::PartialEq for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     }
 }
 impl ::core::cmp::Eq for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {}
-unsafe impl ::windows::runtime::Abi for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
+unsafe impl ::windows::core::Abi for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6379,7 +6379,7 @@ impl ::core::cmp::PartialEq for IMAGE_SYMBOL {
     }
 }
 impl ::core::cmp::Eq for IMAGE_SYMBOL {}
-unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL {
+unsafe impl ::windows::core::Abi for IMAGE_SYMBOL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6402,7 +6402,7 @@ impl ::core::cmp::PartialEq for IMAGE_SYMBOL_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_SYMBOL_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL_0 {
+unsafe impl ::windows::core::Abi for IMAGE_SYMBOL_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6424,7 +6424,7 @@ impl ::core::cmp::PartialEq for IMAGE_SYMBOL_0_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_SYMBOL_0_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL_0_0 {
+unsafe impl ::windows::core::Abi for IMAGE_SYMBOL_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6450,7 +6450,7 @@ impl ::core::cmp::PartialEq for IMAGE_SYMBOL_EX {
     }
 }
 impl ::core::cmp::Eq for IMAGE_SYMBOL_EX {}
-unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL_EX {
+unsafe impl ::windows::core::Abi for IMAGE_SYMBOL_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6473,7 +6473,7 @@ impl ::core::cmp::PartialEq for IMAGE_SYMBOL_EX_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_SYMBOL_EX_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL_EX_0 {
+unsafe impl ::windows::core::Abi for IMAGE_SYMBOL_EX_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6495,7 +6495,7 @@ impl ::core::cmp::PartialEq for IMAGE_SYMBOL_EX_0_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_SYMBOL_EX_0_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL_EX_0_0 {
+unsafe impl ::windows::core::Abi for IMAGE_SYMBOL_EX_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -6621,7 +6621,7 @@ impl ::core::cmp::PartialEq for IMAGE_TLS_DIRECTORY32 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_TLS_DIRECTORY32 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY32 {
+unsafe impl ::windows::core::Abi for IMAGE_TLS_DIRECTORY32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6643,7 +6643,7 @@ impl ::core::cmp::PartialEq for IMAGE_TLS_DIRECTORY32_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_TLS_DIRECTORY32_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY32_0 {
+unsafe impl ::windows::core::Abi for IMAGE_TLS_DIRECTORY32_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6669,7 +6669,7 @@ impl ::core::cmp::PartialEq for IMAGE_TLS_DIRECTORY32_0_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_TLS_DIRECTORY32_0_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY32_0_0 {
+unsafe impl ::windows::core::Abi for IMAGE_TLS_DIRECTORY32_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6695,7 +6695,7 @@ impl ::core::cmp::PartialEq for IMAGE_TLS_DIRECTORY64 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_TLS_DIRECTORY64 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY64 {
+unsafe impl ::windows::core::Abi for IMAGE_TLS_DIRECTORY64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6717,7 +6717,7 @@ impl ::core::cmp::PartialEq for IMAGE_TLS_DIRECTORY64_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_TLS_DIRECTORY64_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY64_0 {
+unsafe impl ::windows::core::Abi for IMAGE_TLS_DIRECTORY64_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6743,7 +6743,7 @@ impl ::core::cmp::PartialEq for IMAGE_TLS_DIRECTORY64_0_0 {
     }
 }
 impl ::core::cmp::Eq for IMAGE_TLS_DIRECTORY64_0_0 {}
-unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY64_0_0 {
+unsafe impl ::windows::core::Abi for IMAGE_TLS_DIRECTORY64_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6814,7 +6814,7 @@ impl ::core::cmp::PartialEq for IMAGE_VXD_HEADER {
     }
 }
 impl ::core::cmp::Eq for IMAGE_VXD_HEADER {}
-unsafe impl ::windows::runtime::Abi for IMAGE_VXD_HEADER {
+unsafe impl ::windows::core::Abi for IMAGE_VXD_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -6854,7 +6854,7 @@ impl ::core::cmp::PartialEq for IMPORT_OBJECT_HEADER {
     }
 }
 impl ::core::cmp::Eq for IMPORT_OBJECT_HEADER {}
-unsafe impl ::windows::runtime::Abi for IMPORT_OBJECT_HEADER {
+unsafe impl ::windows::core::Abi for IMPORT_OBJECT_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6876,7 +6876,7 @@ impl ::core::cmp::PartialEq for IMPORT_OBJECT_HEADER_0 {
     }
 }
 impl ::core::cmp::Eq for IMPORT_OBJECT_HEADER_0 {}
-unsafe impl ::windows::runtime::Abi for IMPORT_OBJECT_HEADER_0 {
+unsafe impl ::windows::core::Abi for IMPORT_OBJECT_HEADER_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -6893,7 +6893,7 @@ impl ::core::convert::From<i32> for IMPORT_OBJECT_NAME_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IMPORT_OBJECT_NAME_TYPE {
+unsafe impl ::windows::core::Abi for IMPORT_OBJECT_NAME_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -6908,7 +6908,7 @@ impl ::core::convert::From<i32> for IMPORT_OBJECT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IMPORT_OBJECT_TYPE {
+unsafe impl ::windows::core::Abi for IMPORT_OBJECT_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -7363,7 +7363,7 @@ impl ::core::cmp::PartialEq for KERNEL_CET_CONTEXT {
     }
 }
 impl ::core::cmp::Eq for KERNEL_CET_CONTEXT {}
-unsafe impl ::windows::runtime::Abi for KERNEL_CET_CONTEXT {
+unsafe impl ::windows::core::Abi for KERNEL_CET_CONTEXT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7385,7 +7385,7 @@ impl ::core::cmp::PartialEq for KERNEL_CET_CONTEXT_0 {
     }
 }
 impl ::core::cmp::Eq for KERNEL_CET_CONTEXT_0 {}
-unsafe impl ::windows::runtime::Abi for KERNEL_CET_CONTEXT_0 {
+unsafe impl ::windows::core::Abi for KERNEL_CET_CONTEXT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7411,16 +7411,16 @@ impl ::core::cmp::PartialEq for KERNEL_CET_CONTEXT_0_0 {
     }
 }
 impl ::core::cmp::Eq for KERNEL_CET_CONTEXT_0_0 {}
-unsafe impl ::windows::runtime::Abi for KERNEL_CET_CONTEXT_0_0 {
+unsafe impl ::windows::core::Abi for KERNEL_CET_CONTEXT_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct KTMOBJECT_CURSOR {
-    pub LastQuery: ::windows::runtime::GUID,
+    pub LastQuery: ::windows::core::GUID,
     pub ObjectIdCount: u32,
-    pub ObjectIds: [::windows::runtime::GUID; 1],
+    pub ObjectIds: [::windows::core::GUID; 1],
 }
 impl KTMOBJECT_CURSOR {}
 impl ::core::default::Default for KTMOBJECT_CURSOR {
@@ -7439,7 +7439,7 @@ impl ::core::cmp::PartialEq for KTMOBJECT_CURSOR {
     }
 }
 impl ::core::cmp::Eq for KTMOBJECT_CURSOR {}
-unsafe impl ::windows::runtime::Abi for KTMOBJECT_CURSOR {
+unsafe impl ::windows::core::Abi for KTMOBJECT_CURSOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -7456,7 +7456,7 @@ impl ::core::convert::From<i32> for KTMOBJECT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for KTMOBJECT_TYPE {
+unsafe impl ::windows::core::Abi for KTMOBJECT_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -7838,7 +7838,7 @@ impl ::core::cmp::PartialEq for MAXVERSIONTESTED_INFO {
     }
 }
 impl ::core::cmp::Eq for MAXVERSIONTESTED_INFO {}
-unsafe impl ::windows::runtime::Abi for MAXVERSIONTESTED_INFO {
+unsafe impl ::windows::core::Abi for MAXVERSIONTESTED_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8068,7 +8068,7 @@ impl ::core::cmp::PartialEq for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     }
 }
 impl ::core::cmp::Eq for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {}
-unsafe impl ::windows::runtime::Abi for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
+unsafe impl ::windows::core::Abi for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8108,7 +8108,7 @@ impl ::core::cmp::PartialEq for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
+unsafe impl ::windows::core::Abi for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8144,7 +8144,7 @@ impl ::core::cmp::PartialEq for MEM_ADDRESS_REQUIREMENTS {
     }
 }
 impl ::core::cmp::Eq for MEM_ADDRESS_REQUIREMENTS {}
-unsafe impl ::windows::runtime::Abi for MEM_ADDRESS_REQUIREMENTS {
+unsafe impl ::windows::core::Abi for MEM_ADDRESS_REQUIREMENTS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8163,7 +8163,7 @@ impl ::core::convert::From<i32> for MEM_DEDICATED_ATTRIBUTE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MEM_DEDICATED_ATTRIBUTE_TYPE {
+unsafe impl ::windows::core::Abi for MEM_DEDICATED_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8202,7 +8202,7 @@ impl ::core::convert::From<i32> for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
+unsafe impl ::windows::core::Abi for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8233,7 +8233,7 @@ impl ::core::convert::From<i32> for MONITOR_DISPLAY_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MONITOR_DISPLAY_STATE {
+unsafe impl ::windows::core::Abi for MONITOR_DISPLAY_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8246,7 +8246,7 @@ pub const NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct NETWORK_APP_INSTANCE_EA {
-    pub AppInstanceID: ::windows::runtime::GUID,
+    pub AppInstanceID: ::windows::core::GUID,
     pub CsvFlags: u32,
 }
 impl NETWORK_APP_INSTANCE_EA {}
@@ -8266,7 +8266,7 @@ impl ::core::cmp::PartialEq for NETWORK_APP_INSTANCE_EA {
     }
 }
 impl ::core::cmp::Eq for NETWORK_APP_INSTANCE_EA {}
-unsafe impl ::windows::runtime::Abi for NETWORK_APP_INSTANCE_EA {
+unsafe impl ::windows::core::Abi for NETWORK_APP_INSTANCE_EA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8301,7 +8301,7 @@ impl ::core::cmp::PartialEq for NON_PAGED_DEBUG_INFO {
     }
 }
 impl ::core::cmp::Eq for NON_PAGED_DEBUG_INFO {}
-unsafe impl ::windows::runtime::Abi for NON_PAGED_DEBUG_INFO {
+unsafe impl ::windows::core::Abi for NON_PAGED_DEBUG_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8310,7 +8310,7 @@ pub const NON_PAGED_DEBUG_SIGNATURE: u32 = 18766u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct NOTIFY_USER_POWER_SETTING {
-    pub Guid: ::windows::runtime::GUID,
+    pub Guid: ::windows::core::GUID,
 }
 impl NOTIFY_USER_POWER_SETTING {}
 impl ::core::default::Default for NOTIFY_USER_POWER_SETTING {
@@ -8329,10 +8329,10 @@ impl ::core::cmp::PartialEq for NOTIFY_USER_POWER_SETTING {
     }
 }
 impl ::core::cmp::Eq for NOTIFY_USER_POWER_SETTING {}
-unsafe impl ::windows::runtime::Abi for NOTIFY_USER_POWER_SETTING {
+unsafe impl ::windows::core::Abi for NOTIFY_USER_POWER_SETTING {
     type Abi = Self;
 }
-pub const NO_SUBGROUP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xfea3413e_7e05_4911_9a71_700331f1c294);
+pub const NO_SUBGROUP_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea3413e_7e05_4911_9a71_700331f1c294);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8357,7 +8357,7 @@ impl ::core::cmp::PartialEq for NT_TIB32 {
     }
 }
 impl ::core::cmp::Eq for NT_TIB32 {}
-unsafe impl ::windows::runtime::Abi for NT_TIB32 {
+unsafe impl ::windows::core::Abi for NT_TIB32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8379,7 +8379,7 @@ impl ::core::cmp::PartialEq for NT_TIB32_0 {
     }
 }
 impl ::core::cmp::Eq for NT_TIB32_0 {}
-unsafe impl ::windows::runtime::Abi for NT_TIB32_0 {
+unsafe impl ::windows::core::Abi for NT_TIB32_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8406,7 +8406,7 @@ impl ::core::cmp::PartialEq for NT_TIB64 {
     }
 }
 impl ::core::cmp::Eq for NT_TIB64 {}
-unsafe impl ::windows::runtime::Abi for NT_TIB64 {
+unsafe impl ::windows::core::Abi for NT_TIB64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8428,7 +8428,7 @@ impl ::core::cmp::PartialEq for NT_TIB64_0 {
     }
 }
 impl ::core::cmp::Eq for NT_TIB64_0 {}
-unsafe impl ::windows::runtime::Abi for NT_TIB64_0 {
+unsafe impl ::windows::core::Abi for NT_TIB64_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8472,7 +8472,7 @@ impl ::core::cmp::PartialEq for PACKEDEVENTINFO {
     }
 }
 impl ::core::cmp::Eq for PACKEDEVENTINFO {}
-unsafe impl ::windows::runtime::Abi for PACKEDEVENTINFO {
+unsafe impl ::windows::core::Abi for PACKEDEVENTINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8651,7 +8651,7 @@ impl ::core::cmp::PartialEq for POWER_IDLE_RESILIENCY {
     }
 }
 impl ::core::cmp::Eq for POWER_IDLE_RESILIENCY {}
-unsafe impl ::windows::runtime::Abi for POWER_IDLE_RESILIENCY {
+unsafe impl ::windows::core::Abi for POWER_IDLE_RESILIENCY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8685,7 +8685,7 @@ impl ::core::cmp::PartialEq for POWER_MONITOR_INVOCATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for POWER_MONITOR_INVOCATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for POWER_MONITOR_INVOCATION {
+unsafe impl ::windows::core::Abi for POWER_MONITOR_INVOCATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8753,7 +8753,7 @@ impl ::core::convert::From<i32> for POWER_MONITOR_REQUEST_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for POWER_MONITOR_REQUEST_REASON {
+unsafe impl ::windows::core::Abi for POWER_MONITOR_REQUEST_REASON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8768,7 +8768,7 @@ impl ::core::convert::From<i32> for POWER_MONITOR_REQUEST_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for POWER_MONITOR_REQUEST_TYPE {
+unsafe impl ::windows::core::Abi for POWER_MONITOR_REQUEST_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8801,7 +8801,7 @@ impl ::core::cmp::PartialEq for POWER_PLATFORM_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for POWER_PLATFORM_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for POWER_PLATFORM_INFORMATION {
+unsafe impl ::windows::core::Abi for POWER_PLATFORM_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8836,7 +8836,7 @@ impl ::core::cmp::PartialEq for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
+unsafe impl ::windows::core::Abi for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8870,7 +8870,7 @@ impl ::core::cmp::PartialEq for POWER_SESSION_CONNECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for POWER_SESSION_CONNECT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for POWER_SESSION_CONNECT {
+unsafe impl ::windows::core::Abi for POWER_SESSION_CONNECT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8904,7 +8904,7 @@ impl ::core::cmp::PartialEq for POWER_SESSION_RIT_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for POWER_SESSION_RIT_STATE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for POWER_SESSION_RIT_STATE {
+unsafe impl ::windows::core::Abi for POWER_SESSION_RIT_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8931,7 +8931,7 @@ impl ::core::cmp::PartialEq for POWER_SESSION_TIMEOUTS {
     }
 }
 impl ::core::cmp::Eq for POWER_SESSION_TIMEOUTS {}
-unsafe impl ::windows::runtime::Abi for POWER_SESSION_TIMEOUTS {
+unsafe impl ::windows::core::Abi for POWER_SESSION_TIMEOUTS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8966,7 +8966,7 @@ impl ::core::cmp::PartialEq for POWER_SESSION_WINLOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for POWER_SESSION_WINLOGON {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for POWER_SESSION_WINLOGON {
+unsafe impl ::windows::core::Abi for POWER_SESSION_WINLOGON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -8985,7 +8985,7 @@ impl ::core::convert::From<i32> for POWER_SETTING_ALTITUDE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for POWER_SETTING_ALTITUDE {
+unsafe impl ::windows::core::Abi for POWER_SETTING_ALTITUDE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -9017,7 +9017,7 @@ impl ::core::cmp::PartialEq for POWER_USER_PRESENCE {
     }
 }
 impl ::core::cmp::Eq for POWER_USER_PRESENCE {}
-unsafe impl ::windows::runtime::Abi for POWER_USER_PRESENCE {
+unsafe impl ::windows::core::Abi for POWER_USER_PRESENCE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -9032,7 +9032,7 @@ impl ::core::convert::From<i32> for POWER_USER_PRESENCE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for POWER_USER_PRESENCE_TYPE {
+unsafe impl ::windows::core::Abi for POWER_USER_PRESENCE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -9085,8 +9085,8 @@ pub const PPM_FIRMWARE_TSD: u32 = 8192u32;
 pub const PPM_FIRMWARE_TSS: u32 = 2048u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_XPSS: u32 = 128u32;
-pub const PPM_IDLESTATES_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
-pub const PPM_IDLESTATE_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
+pub const PPM_IDLESTATES_DATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
+pub const PPM_IDLESTATE_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -9112,7 +9112,7 @@ impl ::core::cmp::PartialEq for PPM_IDLESTATE_EVENT {
     }
 }
 impl ::core::cmp::Eq for PPM_IDLESTATE_EVENT {}
-unsafe impl ::windows::runtime::Abi for PPM_IDLESTATE_EVENT {
+unsafe impl ::windows::core::Abi for PPM_IDLESTATE_EVENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9142,7 +9142,7 @@ impl ::core::cmp::PartialEq for PPM_IDLE_ACCOUNTING {
     }
 }
 impl ::core::cmp::Eq for PPM_IDLE_ACCOUNTING {}
-unsafe impl ::windows::runtime::Abi for PPM_IDLE_ACCOUNTING {
+unsafe impl ::windows::core::Abi for PPM_IDLE_ACCOUNTING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9173,11 +9173,11 @@ impl ::core::cmp::PartialEq for PPM_IDLE_ACCOUNTING_EX {
     }
 }
 impl ::core::cmp::Eq for PPM_IDLE_ACCOUNTING_EX {}
-unsafe impl ::windows::runtime::Abi for PPM_IDLE_ACCOUNTING_EX {
+unsafe impl ::windows::core::Abi for PPM_IDLE_ACCOUNTING_EX {
     type Abi = Self;
 }
-pub const PPM_IDLE_ACCOUNTING_EX_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd67abd39_81f8_4a5e_8152_72e31ec912ee);
-pub const PPM_IDLE_ACCOUNTING_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe2a26f78_ae07_4ee0_a30f_ce54f55a94cd);
+pub const PPM_IDLE_ACCOUNTING_EX_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd67abd39_81f8_4a5e_8152_72e31ec912ee);
+pub const PPM_IDLE_ACCOUNTING_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2a26f78_ae07_4ee0_a30f_ce54f55a94cd);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_IDLE_IMPLEMENTATION_CSTATES: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -9215,7 +9215,7 @@ impl ::core::cmp::PartialEq for PPM_IDLE_STATE_ACCOUNTING {
     }
 }
 impl ::core::cmp::Eq for PPM_IDLE_STATE_ACCOUNTING {}
-unsafe impl ::windows::runtime::Abi for PPM_IDLE_STATE_ACCOUNTING {
+unsafe impl ::windows::core::Abi for PPM_IDLE_STATE_ACCOUNTING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9257,7 +9257,7 @@ impl ::core::cmp::PartialEq for PPM_IDLE_STATE_ACCOUNTING_EX {
     }
 }
 impl ::core::cmp::Eq for PPM_IDLE_STATE_ACCOUNTING_EX {}
-unsafe impl ::windows::runtime::Abi for PPM_IDLE_STATE_ACCOUNTING_EX {
+unsafe impl ::windows::core::Abi for PPM_IDLE_STATE_ACCOUNTING_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9286,10 +9286,10 @@ impl ::core::cmp::PartialEq for PPM_IDLE_STATE_BUCKET_EX {
     }
 }
 impl ::core::cmp::Eq for PPM_IDLE_STATE_BUCKET_EX {}
-unsafe impl ::windows::runtime::Abi for PPM_IDLE_STATE_BUCKET_EX {
+unsafe impl ::windows::core::Abi for PPM_IDLE_STATE_BUCKET_EX {
     type Abi = Self;
 }
-pub const PPM_PERFMON_PERFSTATE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e);
+pub const PPM_PERFMON_PERFSTATE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -9300,9 +9300,9 @@ pub const PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: u32 = 2u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PEP: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: u32 = 1u32;
-pub const PPM_PERFSTATES_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5708cc20_7d40_4bf4_b4aa_2b01338d0126);
-pub const PPM_PERFSTATE_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
-pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
+pub const PPM_PERFSTATES_DATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5708cc20_7d40_4bf4_b4aa_2b01338d0126);
+pub const PPM_PERFSTATE_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
+pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -9329,7 +9329,7 @@ impl ::core::cmp::PartialEq for PPM_PERFSTATE_DOMAIN_EVENT {
     }
 }
 impl ::core::cmp::Eq for PPM_PERFSTATE_DOMAIN_EVENT {}
-unsafe impl ::windows::runtime::Abi for PPM_PERFSTATE_DOMAIN_EVENT {
+unsafe impl ::windows::core::Abi for PPM_PERFSTATE_DOMAIN_EVENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9359,7 +9359,7 @@ impl ::core::cmp::PartialEq for PPM_PERFSTATE_EVENT {
     }
 }
 impl ::core::cmp::Eq for PPM_PERFSTATE_EVENT {}
-unsafe impl ::windows::runtime::Abi for PPM_PERFSTATE_EVENT {
+unsafe impl ::windows::core::Abi for PPM_PERFSTATE_EVENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9386,11 +9386,11 @@ impl ::core::cmp::PartialEq for PPM_THERMALCHANGE_EVENT {
     }
 }
 impl ::core::cmp::Eq for PPM_THERMALCHANGE_EVENT {}
-unsafe impl ::windows::runtime::Abi for PPM_THERMALCHANGE_EVENT {
+unsafe impl ::windows::core::Abi for PPM_THERMALCHANGE_EVENT {
     type Abi = Self;
 }
-pub const PPM_THERMALCONSTRAINT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88);
-pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d);
+pub const PPM_THERMALCONSTRAINT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88);
+pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -9415,7 +9415,7 @@ impl ::core::cmp::PartialEq for PPM_THERMAL_POLICY_EVENT {
     }
 }
 impl ::core::cmp::Eq for PPM_THERMAL_POLICY_EVENT {}
-unsafe impl ::windows::runtime::Abi for PPM_THERMAL_POLICY_EVENT {
+unsafe impl ::windows::core::Abi for PPM_THERMAL_POLICY_EVENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9463,7 +9463,7 @@ impl ::core::cmp::PartialEq for PPM_WMI_IDLE_STATE {
     }
 }
 impl ::core::cmp::Eq for PPM_WMI_IDLE_STATE {}
-unsafe impl ::windows::runtime::Abi for PPM_WMI_IDLE_STATE {
+unsafe impl ::windows::core::Abi for PPM_WMI_IDLE_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9494,7 +9494,7 @@ impl ::core::cmp::PartialEq for PPM_WMI_IDLE_STATES {
     }
 }
 impl ::core::cmp::Eq for PPM_WMI_IDLE_STATES {}
-unsafe impl ::windows::runtime::Abi for PPM_WMI_IDLE_STATES {
+unsafe impl ::windows::core::Abi for PPM_WMI_IDLE_STATES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9525,7 +9525,7 @@ impl ::core::cmp::PartialEq for PPM_WMI_IDLE_STATES_EX {
     }
 }
 impl ::core::cmp::Eq for PPM_WMI_IDLE_STATES_EX {}
-unsafe impl ::windows::runtime::Abi for PPM_WMI_IDLE_STATES_EX {
+unsafe impl ::windows::core::Abi for PPM_WMI_IDLE_STATES_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9553,7 +9553,7 @@ impl ::core::cmp::PartialEq for PPM_WMI_LEGACY_PERFSTATE {
     }
 }
 impl ::core::cmp::Eq for PPM_WMI_LEGACY_PERFSTATE {}
-unsafe impl ::windows::runtime::Abi for PPM_WMI_LEGACY_PERFSTATE {
+unsafe impl ::windows::core::Abi for PPM_WMI_LEGACY_PERFSTATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9620,7 +9620,7 @@ impl ::core::cmp::PartialEq for PPM_WMI_PERF_STATE {
     }
 }
 impl ::core::cmp::Eq for PPM_WMI_PERF_STATE {}
-unsafe impl ::windows::runtime::Abi for PPM_WMI_PERF_STATE {
+unsafe impl ::windows::core::Abi for PPM_WMI_PERF_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9708,7 +9708,7 @@ impl ::core::cmp::PartialEq for PPM_WMI_PERF_STATES {
     }
 }
 impl ::core::cmp::Eq for PPM_WMI_PERF_STATES {}
-unsafe impl ::windows::runtime::Abi for PPM_WMI_PERF_STATES {
+unsafe impl ::windows::core::Abi for PPM_WMI_PERF_STATES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9796,7 +9796,7 @@ impl ::core::cmp::PartialEq for PPM_WMI_PERF_STATES_EX {
     }
 }
 impl ::core::cmp::Eq for PPM_WMI_PERF_STATES_EX {}
-unsafe impl ::windows::runtime::Abi for PPM_WMI_PERF_STATES_EX {
+unsafe impl ::windows::core::Abi for PPM_WMI_PERF_STATES_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -9873,7 +9873,7 @@ impl ::core::cmp::PartialEq for PROCESSOR_IDLESTATE_INFO {
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_IDLESTATE_INFO {}
-unsafe impl ::windows::runtime::Abi for PROCESSOR_IDLESTATE_INFO {
+unsafe impl ::windows::core::Abi for PROCESSOR_IDLESTATE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9897,7 +9897,7 @@ impl ::core::cmp::PartialEq for PROCESSOR_IDLESTATE_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_IDLESTATE_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESSOR_IDLESTATE_POLICY {
+unsafe impl ::windows::core::Abi for PROCESSOR_IDLESTATE_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9919,7 +9919,7 @@ impl ::core::cmp::PartialEq for PROCESSOR_IDLESTATE_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_IDLESTATE_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESSOR_IDLESTATE_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESSOR_IDLESTATE_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9945,7 +9945,7 @@ impl ::core::cmp::PartialEq for PROCESSOR_IDLESTATE_POLICY_0_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_IDLESTATE_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESSOR_IDLESTATE_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESSOR_IDLESTATE_POLICY_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -9991,7 +9991,7 @@ impl ::core::cmp::PartialEq for PROCESSOR_PERFSTATE_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_PERFSTATE_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESSOR_PERFSTATE_POLICY {
+unsafe impl ::windows::core::Abi for PROCESSOR_PERFSTATE_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10013,7 +10013,7 @@ impl ::core::cmp::PartialEq for PROCESSOR_PERFSTATE_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_PERFSTATE_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESSOR_PERFSTATE_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESSOR_PERFSTATE_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10035,7 +10035,7 @@ impl ::core::cmp::PartialEq for PROCESSOR_PERFSTATE_POLICY_0_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_PERFSTATE_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESSOR_PERFSTATE_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESSOR_PERFSTATE_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10061,7 +10061,7 @@ impl ::core::cmp::PartialEq for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_PERFSTATE_POLICY_0_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
+unsafe impl ::windows::core::Abi for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -10146,7 +10146,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_ASLR_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_ASLR_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_ASLR_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_ASLR_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10168,7 +10168,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_ASLR_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_ASLR_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_ASLR_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_ASLR_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10194,7 +10194,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_ASLR_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10215,7 +10215,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10237,7 +10237,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10263,7 +10263,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10284,7 +10284,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10306,7 +10306,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10332,7 +10332,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10353,7 +10353,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10375,7 +10375,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10401,7 +10401,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10429,7 +10429,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_DEP_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROCESS_MITIGATION_DEP_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DEP_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_DEP_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10456,7 +10456,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_DEP_POLICY_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROCESS_MITIGATION_DEP_POLICY_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DEP_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_DEP_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10488,7 +10488,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_DEP_POLICY_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROCESS_MITIGATION_DEP_POLICY_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DEP_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10509,7 +10509,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10531,7 +10531,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10557,7 +10557,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10578,7 +10578,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLIC
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10600,7 +10600,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLIC
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10626,7 +10626,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLIC
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10647,7 +10647,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_FONT_DISABLE_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10669,7 +10669,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10695,7 +10695,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10716,7 +10716,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10738,7 +10738,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10764,7 +10764,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10785,7 +10785,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10807,7 +10807,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10833,7 +10833,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10854,7 +10854,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10876,7 +10876,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10902,7 +10902,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10923,7 +10923,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10945,7 +10945,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10971,7 +10971,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10992,7 +10992,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11014,7 +11014,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11040,7 +11040,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11061,7 +11061,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11083,7 +11083,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11109,7 +11109,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11130,7 +11130,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11152,7 +11152,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11178,7 +11178,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11199,7 +11199,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11221,7 +11221,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11247,7 +11247,7 @@ impl ::core::cmp::PartialEq for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 
     }
 }
 impl ::core::cmp::Eq for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -11451,7 +11451,7 @@ impl ::core::cmp::PartialEq for QUOTA_LIMITS_EX {
     }
 }
 impl ::core::cmp::Eq for QUOTA_LIMITS_EX {}
-unsafe impl ::windows::runtime::Abi for QUOTA_LIMITS_EX {
+unsafe impl ::windows::core::Abi for QUOTA_LIMITS_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -11483,7 +11483,7 @@ impl ::core::cmp::PartialEq for RATE_QUOTA_LIMIT {
     }
 }
 impl ::core::cmp::Eq for RATE_QUOTA_LIMIT {}
-unsafe impl ::windows::runtime::Abi for RATE_QUOTA_LIMIT {
+unsafe impl ::windows::core::Abi for RATE_QUOTA_LIMIT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11509,7 +11509,7 @@ impl ::core::cmp::PartialEq for RATE_QUOTA_LIMIT_0 {
     }
 }
 impl ::core::cmp::Eq for RATE_QUOTA_LIMIT_0 {}
-unsafe impl ::windows::runtime::Abi for RATE_QUOTA_LIMIT_0 {
+unsafe impl ::windows::core::Abi for RATE_QUOTA_LIMIT_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -11550,7 +11550,7 @@ impl ::core::cmp::PartialEq for REARRANGE_FILE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for REARRANGE_FILE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for REARRANGE_FILE_DATA {
+unsafe impl ::windows::core::Abi for REARRANGE_FILE_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11587,7 +11587,7 @@ impl ::core::cmp::PartialEq for REARRANGE_FILE_DATA32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for REARRANGE_FILE_DATA32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for REARRANGE_FILE_DATA32 {
+unsafe impl ::windows::core::Abi for REARRANGE_FILE_DATA32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11616,7 +11616,7 @@ impl ::core::cmp::PartialEq for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     }
 }
 impl ::core::cmp::Eq for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {}
-unsafe impl ::windows::runtime::Abi for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
+unsafe impl ::windows::core::Abi for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -11659,7 +11659,7 @@ pub const REG_UNLOAD_LEGAL_FLAGS: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RESOURCEMANAGER_BASIC_INFORMATION {
-    pub ResourceManagerId: ::windows::runtime::GUID,
+    pub ResourceManagerId: ::windows::core::GUID,
     pub DescriptionLength: u32,
     pub Description: [u16; 1],
 }
@@ -11680,7 +11680,7 @@ impl ::core::cmp::PartialEq for RESOURCEMANAGER_BASIC_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for RESOURCEMANAGER_BASIC_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for RESOURCEMANAGER_BASIC_INFORMATION {
+unsafe impl ::windows::core::Abi for RESOURCEMANAGER_BASIC_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -11716,7 +11716,7 @@ impl ::core::cmp::PartialEq for RESOURCEMANAGER_COMPLETION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RESOURCEMANAGER_COMPLETION_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RESOURCEMANAGER_COMPLETION_INFORMATION {
+unsafe impl ::windows::core::Abi for RESOURCEMANAGER_COMPLETION_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -11734,7 +11734,7 @@ impl ::core::convert::From<i32> for RESOURCEMANAGER_INFORMATION_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RESOURCEMANAGER_INFORMATION_CLASS {
+unsafe impl ::windows::core::Abi for RESOURCEMANAGER_INFORMATION_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -11770,7 +11770,7 @@ impl ::core::cmp::PartialEq for RESUME_PERFORMANCE {
     }
 }
 impl ::core::cmp::Eq for RESUME_PERFORMANCE {}
-unsafe impl ::windows::runtime::Abi for RESUME_PERFORMANCE {
+unsafe impl ::windows::core::Abi for RESUME_PERFORMANCE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -11815,7 +11815,7 @@ impl ::core::convert::From<i32> for RTL_UMS_SCHEDULER_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RTL_UMS_SCHEDULER_REASON {
+unsafe impl ::windows::core::Abi for RTL_UMS_SCHEDULER_REASON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -11848,7 +11848,7 @@ impl ::core::cmp::PartialEq for RemBRUSH {
     }
 }
 impl ::core::cmp::Eq for RemBRUSH {}
-unsafe impl ::windows::runtime::Abi for RemBRUSH {
+unsafe impl ::windows::core::Abi for RemBRUSH {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11875,7 +11875,7 @@ impl ::core::cmp::PartialEq for RemHBITMAP {
     }
 }
 impl ::core::cmp::Eq for RemHBITMAP {}
-unsafe impl ::windows::runtime::Abi for RemHBITMAP {
+unsafe impl ::windows::core::Abi for RemHBITMAP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11902,7 +11902,7 @@ impl ::core::cmp::PartialEq for RemHENHMETAFILE {
     }
 }
 impl ::core::cmp::Eq for RemHENHMETAFILE {}
-unsafe impl ::windows::runtime::Abi for RemHENHMETAFILE {
+unsafe impl ::windows::core::Abi for RemHENHMETAFILE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11930,7 +11930,7 @@ impl ::core::cmp::PartialEq for RemHGLOBAL {
     }
 }
 impl ::core::cmp::Eq for RemHGLOBAL {}
-unsafe impl ::windows::runtime::Abi for RemHGLOBAL {
+unsafe impl ::windows::core::Abi for RemHGLOBAL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11960,7 +11960,7 @@ impl ::core::cmp::PartialEq for RemHMETAFILEPICT {
     }
 }
 impl ::core::cmp::Eq for RemHMETAFILEPICT {}
-unsafe impl ::windows::runtime::Abi for RemHMETAFILEPICT {
+unsafe impl ::windows::core::Abi for RemHMETAFILEPICT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11987,7 +11987,7 @@ impl ::core::cmp::PartialEq for RemHPALETTE {
     }
 }
 impl ::core::cmp::Eq for RemHPALETTE {}
-unsafe impl ::windows::runtime::Abi for RemHPALETTE {
+unsafe impl ::windows::core::Abi for RemHPALETTE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12009,7 +12009,7 @@ impl ::core::cmp::PartialEq for RemotableHandle {
     }
 }
 impl ::core::cmp::Eq for RemotableHandle {}
-unsafe impl ::windows::runtime::Abi for RemotableHandle {
+unsafe impl ::windows::core::Abi for RemotableHandle {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12031,7 +12031,7 @@ impl ::core::cmp::PartialEq for RemotableHandle_0 {
     }
 }
 impl ::core::cmp::Eq for RemotableHandle_0 {}
-unsafe impl ::windows::runtime::Abi for RemotableHandle_0 {
+unsafe impl ::windows::core::Abi for RemotableHandle_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -12068,7 +12068,7 @@ impl ::core::convert::From<i32> for ReplacesCorHdrNumericDefines {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ReplacesCorHdrNumericDefines {
+unsafe impl ::windows::core::Abi for ReplacesCorHdrNumericDefines {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12095,7 +12095,7 @@ impl ::core::cmp::PartialEq for SCOPE_TABLE_AMD64 {
     }
 }
 impl ::core::cmp::Eq for SCOPE_TABLE_AMD64 {}
-unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_AMD64 {
+unsafe impl ::windows::core::Abi for SCOPE_TABLE_AMD64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12124,7 +12124,7 @@ impl ::core::cmp::PartialEq for SCOPE_TABLE_AMD64_0 {
     }
 }
 impl ::core::cmp::Eq for SCOPE_TABLE_AMD64_0 {}
-unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_AMD64_0 {
+unsafe impl ::windows::core::Abi for SCOPE_TABLE_AMD64_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12151,7 +12151,7 @@ impl ::core::cmp::PartialEq for SCOPE_TABLE_ARM {
     }
 }
 impl ::core::cmp::Eq for SCOPE_TABLE_ARM {}
-unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_ARM {
+unsafe impl ::windows::core::Abi for SCOPE_TABLE_ARM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12180,7 +12180,7 @@ impl ::core::cmp::PartialEq for SCOPE_TABLE_ARM_0 {
     }
 }
 impl ::core::cmp::Eq for SCOPE_TABLE_ARM_0 {}
-unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_ARM_0 {
+unsafe impl ::windows::core::Abi for SCOPE_TABLE_ARM_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12207,7 +12207,7 @@ impl ::core::cmp::PartialEq for SCOPE_TABLE_ARM64 {
     }
 }
 impl ::core::cmp::Eq for SCOPE_TABLE_ARM64 {}
-unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_ARM64 {
+unsafe impl ::windows::core::Abi for SCOPE_TABLE_ARM64 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12236,7 +12236,7 @@ impl ::core::cmp::PartialEq for SCOPE_TABLE_ARM64_0 {
     }
 }
 impl ::core::cmp::Eq for SCOPE_TABLE_ARM64_0 {}
-unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_ARM64_0 {
+unsafe impl ::windows::core::Abi for SCOPE_TABLE_ARM64_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12267,7 +12267,7 @@ impl ::core::cmp::PartialEq for SCRUB_DATA_INPUT {
     }
 }
 impl ::core::cmp::Eq for SCRUB_DATA_INPUT {}
-unsafe impl ::windows::runtime::Abi for SCRUB_DATA_INPUT {
+unsafe impl ::windows::core::Abi for SCRUB_DATA_INPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -12378,7 +12378,7 @@ impl ::core::cmp::PartialEq for SCRUB_DATA_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for SCRUB_DATA_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for SCRUB_DATA_OUTPUT {
+unsafe impl ::windows::core::Abi for SCRUB_DATA_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -12413,7 +12413,7 @@ impl ::core::cmp::PartialEq for SCRUB_PARITY_EXTENT {
     }
 }
 impl ::core::cmp::Eq for SCRUB_PARITY_EXTENT {}
-unsafe impl ::windows::runtime::Abi for SCRUB_PARITY_EXTENT {
+unsafe impl ::windows::core::Abi for SCRUB_PARITY_EXTENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12443,7 +12443,7 @@ impl ::core::cmp::PartialEq for SCRUB_PARITY_EXTENT_DATA {
     }
 }
 impl ::core::cmp::Eq for SCRUB_PARITY_EXTENT_DATA {}
-unsafe impl ::windows::runtime::Abi for SCRUB_PARITY_EXTENT_DATA {
+unsafe impl ::windows::core::Abi for SCRUB_PARITY_EXTENT_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -12462,7 +12462,7 @@ impl ::core::convert::From<u32> for SECTION_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SECTION_FLAGS {
+unsafe impl ::windows::core::Abi for SECTION_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SECTION_FLAGS {
@@ -12622,7 +12622,7 @@ impl ::core::cmp::PartialEq for SECURITY_DESCRIPTOR_RELATIVE {
     }
 }
 impl ::core::cmp::Eq for SECURITY_DESCRIPTOR_RELATIVE {}
-unsafe impl ::windows::runtime::Abi for SECURITY_DESCRIPTOR_RELATIVE {
+unsafe impl ::windows::core::Abi for SECURITY_DESCRIPTOR_RELATIVE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -12721,7 +12721,7 @@ impl ::core::cmp::PartialEq for SECURITY_OBJECT_AI_PARAMS {
     }
 }
 impl ::core::cmp::Eq for SECURITY_OBJECT_AI_PARAMS {}
-unsafe impl ::windows::runtime::Abi for SECURITY_OBJECT_AI_PARAMS {
+unsafe impl ::windows::core::Abi for SECURITY_OBJECT_AI_PARAMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -12876,7 +12876,7 @@ impl ::core::cmp::PartialEq for SERVERSILO_BASIC_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVERSILO_BASIC_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVERSILO_BASIC_INFORMATION {
+unsafe impl ::windows::core::Abi for SERVERSILO_BASIC_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -12893,7 +12893,7 @@ impl ::core::convert::From<i32> for SERVERSILO_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVERSILO_STATE {
+unsafe impl ::windows::core::Abi for SERVERSILO_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -12959,7 +12959,7 @@ impl ::core::convert::From<i32> for SE_IMAGE_SIGNATURE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SE_IMAGE_SIGNATURE_TYPE {
+unsafe impl ::windows::core::Abi for SE_IMAGE_SIGNATURE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -12974,7 +12974,7 @@ impl ::core::convert::From<i32> for SE_LEARNING_MODE_DATA_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SE_LEARNING_MODE_DATA_TYPE {
+unsafe impl ::windows::core::Abi for SE_LEARNING_MODE_DATA_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -13064,7 +13064,7 @@ impl ::core::cmp::PartialEq for SE_TOKEN_USER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for SE_TOKEN_USER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for SE_TOKEN_USER {
+unsafe impl ::windows::core::Abi for SE_TOKEN_USER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13091,7 +13091,7 @@ impl ::core::cmp::PartialEq for SE_TOKEN_USER_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for SE_TOKEN_USER_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for SE_TOKEN_USER_0 {
+unsafe impl ::windows::core::Abi for SE_TOKEN_USER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13118,7 +13118,7 @@ impl ::core::cmp::PartialEq for SE_TOKEN_USER_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for SE_TOKEN_USER_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for SE_TOKEN_USER_1 {
+unsafe impl ::windows::core::Abi for SE_TOKEN_USER_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13145,7 +13145,7 @@ impl ::core::cmp::PartialEq for SHARED_VIRTUAL_DISK_SUPPORT {
     }
 }
 impl ::core::cmp::Eq for SHARED_VIRTUAL_DISK_SUPPORT {}
-unsafe impl ::windows::runtime::Abi for SHARED_VIRTUAL_DISK_SUPPORT {
+unsafe impl ::windows::core::Abi for SHARED_VIRTUAL_DISK_SUPPORT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13173,7 +13173,7 @@ impl ::core::cmp::PartialEq for SHUFFLE_FILE_DATA {
     }
 }
 impl ::core::cmp::Eq for SHUFFLE_FILE_DATA {}
-unsafe impl ::windows::runtime::Abi for SHUFFLE_FILE_DATA {
+unsafe impl ::windows::core::Abi for SHUFFLE_FILE_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -13220,7 +13220,7 @@ impl ::core::cmp::PartialEq for SILOOBJECT_BASIC_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SILOOBJECT_BASIC_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SILOOBJECT_BASIC_INFORMATION {
+unsafe impl ::windows::core::Abi for SILOOBJECT_BASIC_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -13775,7 +13775,7 @@ impl ::core::cmp::PartialEq for SUPPORTED_OS_INFO {
     }
 }
 impl ::core::cmp::Eq for SUPPORTED_OS_INFO {}
-unsafe impl ::windows::runtime::Abi for SUPPORTED_OS_INFO {
+unsafe impl ::windows::core::Abi for SUPPORTED_OS_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -13832,7 +13832,7 @@ impl ::core::convert::From<i32> for SharedVirtualDiskHandleState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SharedVirtualDiskHandleState {
+unsafe impl ::windows::core::Abi for SharedVirtualDiskHandleState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -13848,7 +13848,7 @@ impl ::core::convert::From<i32> for SharedVirtualDiskSupportType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SharedVirtualDiskSupportType {
+unsafe impl ::windows::core::Abi for SharedVirtualDiskSupportType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -13878,7 +13878,7 @@ impl ::core::cmp::PartialEq for TAPE_CREATE_PARTITION {
     }
 }
 impl ::core::cmp::Eq for TAPE_CREATE_PARTITION {}
-unsafe impl ::windows::runtime::Abi for TAPE_CREATE_PARTITION {
+unsafe impl ::windows::core::Abi for TAPE_CREATE_PARTITION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -13940,7 +13940,7 @@ impl ::core::convert::From<i32> for TAPE_DRIVE_PROBLEM_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TAPE_DRIVE_PROBLEM_TYPE {
+unsafe impl ::windows::core::Abi for TAPE_DRIVE_PROBLEM_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14023,7 +14023,7 @@ impl ::core::cmp::PartialEq for TAPE_GET_DRIVE_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TAPE_GET_DRIVE_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TAPE_GET_DRIVE_PARAMETERS {
+unsafe impl ::windows::core::Abi for TAPE_GET_DRIVE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14064,7 +14064,7 @@ impl ::core::convert::From<u32> for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
+unsafe impl ::windows::core::Abi for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
@@ -14129,7 +14129,7 @@ impl ::core::cmp::PartialEq for TAPE_GET_MEDIA_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TAPE_GET_MEDIA_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TAPE_GET_MEDIA_PARAMETERS {
+unsafe impl ::windows::core::Abi for TAPE_GET_MEDIA_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14178,7 +14178,7 @@ impl ::core::cmp::PartialEq for TAPE_SET_DRIVE_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TAPE_SET_DRIVE_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TAPE_SET_DRIVE_PARAMETERS {
+unsafe impl ::windows::core::Abi for TAPE_SET_DRIVE_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14204,7 +14204,7 @@ impl ::core::cmp::PartialEq for TAPE_SET_MEDIA_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for TAPE_SET_MEDIA_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for TAPE_SET_MEDIA_PARAMETERS {
+unsafe impl ::windows::core::Abi for TAPE_SET_MEDIA_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14232,7 +14232,7 @@ impl ::core::cmp::PartialEq for TAPE_WMI_OPERATIONS {
     }
 }
 impl ::core::cmp::Eq for TAPE_WMI_OPERATIONS {}
-unsafe impl ::windows::runtime::Abi for TAPE_WMI_OPERATIONS {
+unsafe impl ::windows::core::Abi for TAPE_WMI_OPERATIONS {
     type Abi = Self;
 }
 #[repr(C)]
@@ -14293,7 +14293,7 @@ impl ::core::cmp::PartialEq for TOKEN_BNO_ISOLATION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TOKEN_BNO_ISOLATION_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TOKEN_BNO_ISOLATION_INFORMATION {
+unsafe impl ::windows::core::Abi for TOKEN_BNO_ISOLATION_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14326,7 +14326,7 @@ impl ::core::cmp::PartialEq for TOKEN_SID_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TOKEN_SID_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TOKEN_SID_INFORMATION {
+unsafe impl ::windows::core::Abi for TOKEN_SID_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14341,7 +14341,7 @@ pub struct TP_POOL(pub u8);
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
-    pub TmIdentity: ::windows::runtime::GUID,
+    pub TmIdentity: ::windows::core::GUID,
     pub VirtualClock: i64,
 }
 impl TRANSACTIONMANAGER_BASIC_INFORMATION {}
@@ -14361,7 +14361,7 @@ impl ::core::cmp::PartialEq for TRANSACTIONMANAGER_BASIC_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TRANSACTIONMANAGER_BASIC_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_BASIC_INFORMATION {
+unsafe impl ::windows::core::Abi for TRANSACTIONMANAGER_BASIC_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14383,7 +14383,7 @@ impl ::core::convert::From<i32> for TRANSACTIONMANAGER_INFORMATION_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_INFORMATION_CLASS {
+unsafe impl ::windows::core::Abi for TRANSACTIONMANAGER_INFORMATION_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14410,14 +14410,14 @@ impl ::core::cmp::PartialEq for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TRANSACTIONMANAGER_LOGPATH_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
+unsafe impl ::windows::core::Abi for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTIONMANAGER_LOG_INFORMATION {
-    pub LogIdentity: ::windows::runtime::GUID,
+    pub LogIdentity: ::windows::core::GUID,
 }
 impl TRANSACTIONMANAGER_LOG_INFORMATION {}
 impl ::core::default::Default for TRANSACTIONMANAGER_LOG_INFORMATION {
@@ -14436,14 +14436,14 @@ impl ::core::cmp::PartialEq for TRANSACTIONMANAGER_LOG_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TRANSACTIONMANAGER_LOG_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_LOG_INFORMATION {
+unsafe impl ::windows::core::Abi for TRANSACTIONMANAGER_LOG_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTIONMANAGER_OLDEST_INFORMATION {
-    pub OldestTransactionGuid: ::windows::runtime::GUID,
+    pub OldestTransactionGuid: ::windows::core::GUID,
 }
 impl TRANSACTIONMANAGER_OLDEST_INFORMATION {}
 impl ::core::default::Default for TRANSACTIONMANAGER_OLDEST_INFORMATION {
@@ -14462,7 +14462,7 @@ impl ::core::cmp::PartialEq for TRANSACTIONMANAGER_OLDEST_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TRANSACTIONMANAGER_OLDEST_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_OLDEST_INFORMATION {
+unsafe impl ::windows::core::Abi for TRANSACTIONMANAGER_OLDEST_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14492,7 +14492,7 @@ impl ::core::cmp::PartialEq for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TRANSACTIONMANAGER_RECOVERY_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
+unsafe impl ::windows::core::Abi for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14503,7 +14503,7 @@ pub const TRANSACTIONMANAGER_SET_INFORMATION: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTION_BASIC_INFORMATION {
-    pub TransactionId: ::windows::runtime::GUID,
+    pub TransactionId: ::windows::core::GUID,
     pub State: u32,
     pub Outcome: u32,
 }
@@ -14524,7 +14524,7 @@ impl ::core::cmp::PartialEq for TRANSACTION_BASIC_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_BASIC_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_BASIC_INFORMATION {
+unsafe impl ::windows::core::Abi for TRANSACTION_BASIC_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14557,7 +14557,7 @@ impl ::core::cmp::PartialEq for TRANSACTION_BIND_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TRANSACTION_BIND_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TRANSACTION_BIND_INFORMATION {
+unsafe impl ::windows::core::Abi for TRANSACTION_BIND_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14588,15 +14588,15 @@ impl ::core::cmp::PartialEq for TRANSACTION_ENLISTMENTS_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_ENLISTMENTS_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_ENLISTMENTS_INFORMATION {
+unsafe impl ::windows::core::Abi for TRANSACTION_ENLISTMENTS_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTION_ENLISTMENT_PAIR {
-    pub EnlistmentId: ::windows::runtime::GUID,
-    pub ResourceManagerId: ::windows::runtime::GUID,
+    pub EnlistmentId: ::windows::core::GUID,
+    pub ResourceManagerId: ::windows::core::GUID,
 }
 impl TRANSACTION_ENLISTMENT_PAIR {}
 impl ::core::default::Default for TRANSACTION_ENLISTMENT_PAIR {
@@ -14615,7 +14615,7 @@ impl ::core::cmp::PartialEq for TRANSACTION_ENLISTMENT_PAIR {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_ENLISTMENT_PAIR {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_ENLISTMENT_PAIR {
+unsafe impl ::windows::core::Abi for TRANSACTION_ENLISTMENT_PAIR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14633,14 +14633,14 @@ impl ::core::convert::From<i32> for TRANSACTION_INFORMATION_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TRANSACTION_INFORMATION_CLASS {
+unsafe impl ::windows::core::Abi for TRANSACTION_INFORMATION_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTION_LIST_ENTRY {
-    pub UOW: ::windows::runtime::GUID,
+    pub UOW: ::windows::core::GUID,
 }
 impl TRANSACTION_LIST_ENTRY {}
 impl ::core::default::Default for TRANSACTION_LIST_ENTRY {
@@ -14659,7 +14659,7 @@ impl ::core::cmp::PartialEq for TRANSACTION_LIST_ENTRY {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_LIST_ENTRY {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_LIST_ENTRY {
+unsafe impl ::windows::core::Abi for TRANSACTION_LIST_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14686,7 +14686,7 @@ impl ::core::cmp::PartialEq for TRANSACTION_LIST_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_LIST_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_LIST_INFORMATION {
+unsafe impl ::windows::core::Abi for TRANSACTION_LIST_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14726,7 +14726,7 @@ impl ::core::cmp::PartialEq for TRANSACTION_PROPERTIES_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_PROPERTIES_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_PROPERTIES_INFORMATION {
+unsafe impl ::windows::core::Abi for TRANSACTION_PROPERTIES_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14749,7 +14749,7 @@ impl ::core::convert::From<i32> for TRANSACTION_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TRANSACTION_STATE {
+unsafe impl ::windows::core::Abi for TRANSACTION_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14775,7 +14775,7 @@ impl ::core::cmp::PartialEq for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
+unsafe impl ::windows::core::Abi for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14815,7 +14815,7 @@ impl ::core::cmp::PartialEq for UMS_CREATE_THREAD_ATTRIBUTES {
     }
 }
 impl ::core::cmp::Eq for UMS_CREATE_THREAD_ATTRIBUTES {}
-unsafe impl ::windows::runtime::Abi for UMS_CREATE_THREAD_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for UMS_CREATE_THREAD_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -14842,7 +14842,7 @@ impl ::core::convert::From<i32> for USER_ACTIVITY_PRESENCE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USER_ACTIVITY_PRESENCE {
+unsafe impl ::windows::core::Abi for USER_ACTIVITY_PRESENCE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
@@ -14977,7 +14977,7 @@ impl ::core::cmp::PartialEq for VolLockBroadcast {
     }
 }
 impl ::core::cmp::Eq for VolLockBroadcast {}
-unsafe impl ::windows::runtime::Abi for VolLockBroadcast {
+unsafe impl ::windows::core::Abi for VolLockBroadcast {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -15114,7 +15114,7 @@ impl ::core::cmp::PartialEq for XSAVE_CET_U_FORMAT {
     }
 }
 impl ::core::cmp::Eq for XSAVE_CET_U_FORMAT {}
-unsafe impl ::windows::runtime::Abi for XSAVE_CET_U_FORMAT {
+unsafe impl ::windows::core::Abi for XSAVE_CET_U_FORMAT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -15186,7 +15186,7 @@ impl ::core::cmp::PartialEq for _DEV_BROADCAST_HEADER {
     }
 }
 impl ::core::cmp::Eq for _DEV_BROADCAST_HEADER {}
-unsafe impl ::windows::runtime::Abi for _DEV_BROADCAST_HEADER {
+unsafe impl ::windows::core::Abi for _DEV_BROADCAST_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15220,7 +15220,7 @@ impl ::core::cmp::PartialEq for _DEV_BROADCAST_USERDEFINED {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for _DEV_BROADCAST_USERDEFINED {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for _DEV_BROADCAST_USERDEFINED {
+unsafe impl ::windows::core::Abi for _DEV_BROADCAST_USERDEFINED {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -15502,7 +15502,7 @@ impl ::core::cmp::PartialEq for remoteMETAFILEPICT {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for remoteMETAFILEPICT {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for remoteMETAFILEPICT {
+unsafe impl ::windows::core::Abi for remoteMETAFILEPICT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15544,7 +15544,7 @@ impl ::core::cmp::PartialEq for userBITMAP {
     }
 }
 impl ::core::cmp::Eq for userBITMAP {}
-unsafe impl ::windows::runtime::Abi for userBITMAP {
+unsafe impl ::windows::core::Abi for userBITMAP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15572,7 +15572,7 @@ impl ::core::cmp::PartialEq for userCLIPFORMAT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for userCLIPFORMAT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for userCLIPFORMAT {
+unsafe impl ::windows::core::Abi for userCLIPFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15599,7 +15599,7 @@ impl ::core::cmp::PartialEq for userCLIPFORMAT_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for userCLIPFORMAT_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for userCLIPFORMAT_0 {
+unsafe impl ::windows::core::Abi for userCLIPFORMAT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15621,7 +15621,7 @@ impl ::core::cmp::PartialEq for userHBITMAP {
     }
 }
 impl ::core::cmp::Eq for userHBITMAP {}
-unsafe impl ::windows::runtime::Abi for userHBITMAP {
+unsafe impl ::windows::core::Abi for userHBITMAP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15644,7 +15644,7 @@ impl ::core::cmp::PartialEq for userHBITMAP_0 {
     }
 }
 impl ::core::cmp::Eq for userHBITMAP_0 {}
-unsafe impl ::windows::runtime::Abi for userHBITMAP_0 {
+unsafe impl ::windows::core::Abi for userHBITMAP_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15672,7 +15672,7 @@ impl ::core::cmp::PartialEq for userHENHMETAFILE {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for userHENHMETAFILE {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for userHENHMETAFILE {
+unsafe impl ::windows::core::Abi for userHENHMETAFILE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15700,7 +15700,7 @@ impl ::core::cmp::PartialEq for userHENHMETAFILE_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for userHENHMETAFILE_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for userHENHMETAFILE_0 {
+unsafe impl ::windows::core::Abi for userHENHMETAFILE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15728,7 +15728,7 @@ impl ::core::cmp::PartialEq for userHGLOBAL {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for userHGLOBAL {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for userHGLOBAL {
+unsafe impl ::windows::core::Abi for userHGLOBAL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15756,7 +15756,7 @@ impl ::core::cmp::PartialEq for userHGLOBAL_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for userHGLOBAL_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for userHGLOBAL_0 {
+unsafe impl ::windows::core::Abi for userHGLOBAL_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15784,7 +15784,7 @@ impl ::core::cmp::PartialEq for userHMETAFILE {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for userHMETAFILE {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for userHMETAFILE {
+unsafe impl ::windows::core::Abi for userHMETAFILE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15812,7 +15812,7 @@ impl ::core::cmp::PartialEq for userHMETAFILE_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for userHMETAFILE_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for userHMETAFILE_0 {
+unsafe impl ::windows::core::Abi for userHMETAFILE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15840,7 +15840,7 @@ impl ::core::cmp::PartialEq for userHMETAFILEPICT {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for userHMETAFILEPICT {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for userHMETAFILEPICT {
+unsafe impl ::windows::core::Abi for userHMETAFILEPICT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15868,7 +15868,7 @@ impl ::core::cmp::PartialEq for userHMETAFILEPICT_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for userHMETAFILEPICT_0 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::runtime::Abi for userHMETAFILEPICT_0 {
+unsafe impl ::windows::core::Abi for userHMETAFILEPICT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15896,7 +15896,7 @@ impl ::core::cmp::PartialEq for userHPALETTE {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for userHPALETTE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::runtime::Abi for userHPALETTE {
+unsafe impl ::windows::core::Abi for userHPALETTE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15924,6 +15924,6 @@ impl ::core::cmp::PartialEq for userHPALETTE_0 {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for userHPALETTE_0 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::runtime::Abi for userHPALETTE_0 {
+unsafe impl ::windows::core::Abi for userHPALETTE_0 {
     type Abi = Self;
 }

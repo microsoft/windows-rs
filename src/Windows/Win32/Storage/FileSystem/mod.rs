@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddLogContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: Param0, pcbcontainer: *const u64, pwszcontainerpath: Param2, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn AddLogContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: Param0, pcbcontainer: *const u64, pwszcontainerpath: Param2, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17,7 +17,7 @@ pub unsafe fn AddLogContainer<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddLogContainerSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, ccontainer: u16, pcbcontainer: *const u64, rgwszcontainerpath: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn AddLogContainerSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, ccontainer: u16, pcbcontainer: *const u64, rgwszcontainerpath: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -32,7 +32,7 @@ pub unsafe fn AddLogContainerSet<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn AddUsersToEncryptedFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pencryptioncertificates: *const ENCRYPTION_CERTIFICATE_LIST) -> u32 {
+pub unsafe fn AddUsersToEncryptedFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pencryptioncertificates: *const ENCRYPTION_CERTIFICATE_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -107,7 +107,7 @@ pub unsafe fn AreFileApisANSI() -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AreShortNamesEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0, enabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+pub unsafe fn AreShortNamesEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0, enabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -169,13 +169,13 @@ impl ::core::cmp::PartialEq for BY_HANDLE_FILE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for BY_HANDLE_FILE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for BY_HANDLE_FILE_INFORMATION {
+unsafe impl ::windows::core::Abi for BY_HANDLE_FILE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BackupRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, babort: Param4, bprocesssecurity: Param5, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn BackupRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, babort: Param4, bprocesssecurity: Param5, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -190,7 +190,7 @@ pub unsafe fn BackupRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BackupSeek<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn BackupSeek<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -205,7 +205,7 @@ pub unsafe fn BackupSeek<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BackupWrite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, babort: Param4, bprocesssecurity: Param5, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn BackupWrite<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, babort: Param4, bprocesssecurity: Param5, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -220,12 +220,12 @@ pub unsafe fn BackupWrite<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildIoRingCancelRequest<'a, Param1: ::windows::runtime::IntoParam<'a, IORING_HANDLE_REF>>(ioring: *const HIORING__, file: Param1, optocancel: usize, userdata: usize) -> ::windows::runtime::Result<()> {
+pub unsafe fn BuildIoRingCancelRequest<'a, Param1: ::windows::core::IntoParam<'a, IORING_HANDLE_REF>>(ioring: *const HIORING__, file: Param1, optocancel: usize, userdata: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BuildIoRingCancelRequest(ioring: *const HIORING__, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> ::windows::runtime::HRESULT;
+            fn BuildIoRingCancelRequest(ioring: *const HIORING__, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> ::windows::core::HRESULT;
         }
         BuildIoRingCancelRequest(::core::mem::transmute(ioring), file.into_param().abi(), ::core::mem::transmute(optocancel), ::core::mem::transmute(userdata)).ok()
     }
@@ -235,12 +235,12 @@ pub unsafe fn BuildIoRingCancelRequest<'a, Param1: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildIoRingReadFile<'a, Param1: ::windows::runtime::IntoParam<'a, IORING_HANDLE_REF>, Param2: ::windows::runtime::IntoParam<'a, IORING_BUFFER_REF>>(ioring: *const HIORING__, fileref: Param1, dataref: Param2, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows::runtime::Result<()> {
+pub unsafe fn BuildIoRingReadFile<'a, Param1: ::windows::core::IntoParam<'a, IORING_HANDLE_REF>, Param2: ::windows::core::IntoParam<'a, IORING_BUFFER_REF>>(ioring: *const HIORING__, fileref: Param1, dataref: Param2, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BuildIoRingReadFile(ioring: *const HIORING__, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows::runtime::HRESULT;
+            fn BuildIoRingReadFile(ioring: *const HIORING__, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows::core::HRESULT;
         }
         BuildIoRingReadFile(::core::mem::transmute(ioring), fileref.into_param().abi(), dataref.into_param().abi(), ::core::mem::transmute(numberofbytestoread), ::core::mem::transmute(fileoffset), ::core::mem::transmute(userdata), ::core::mem::transmute(flags)).ok()
     }
@@ -249,12 +249,12 @@ pub unsafe fn BuildIoRingReadFile<'a, Param1: ::windows::runtime::IntoParam<'a, 
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[inline]
-pub unsafe fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, count: u32, buffers: *const IORING_BUFFER_INFO, userdata: usize) -> ::windows::runtime::Result<()> {
+pub unsafe fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, count: u32, buffers: *const IORING_BUFFER_INFO, userdata: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, count: u32, buffers: *const IORING_BUFFER_INFO, userdata: usize) -> ::windows::runtime::HRESULT;
+            fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, count: u32, buffers: *const IORING_BUFFER_INFO, userdata: usize) -> ::windows::core::HRESULT;
         }
         BuildIoRingRegisterBuffers(::core::mem::transmute(ioring), ::core::mem::transmute(count), ::core::mem::transmute(buffers), ::core::mem::transmute(userdata)).ok()
     }
@@ -264,12 +264,12 @@ pub unsafe fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, count: u32, b
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, count: u32, handles: *const super::super::Foundation::HANDLE, userdata: usize) -> ::windows::runtime::Result<()> {
+pub unsafe fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, count: u32, handles: *const super::super::Foundation::HANDLE, userdata: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, count: u32, handles: *const super::super::Foundation::HANDLE, userdata: usize) -> ::windows::runtime::HRESULT;
+            fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, count: u32, handles: *const super::super::Foundation::HANDLE, userdata: usize) -> ::windows::core::HRESULT;
         }
         BuildIoRingRegisterFileHandles(::core::mem::transmute(ioring), ::core::mem::transmute(count), ::core::mem::transmute(handles), ::core::mem::transmute(userdata)).ok()
     }
@@ -291,7 +291,7 @@ pub type CACHE_READ_CALLBACK = unsafe extern "system" fn(cb: u32, lpb: *mut u8, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub type CLAIMMEDIALABEL = unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo) -> u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub type CLAIMMEDIALABELEX = unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut ::windows::runtime::GUID) -> u32;
+pub type CLAIMMEDIALABELEX = unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut ::windows::core::GUID) -> u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub type CLFS_BLOCK_ALLOCATION = unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -309,7 +309,7 @@ impl ::core::convert::From<i32> for CLFS_CONTEXT_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CLFS_CONTEXT_MODE {
+unsafe impl ::windows::core::Abi for CLFS_CONTEXT_MODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -325,7 +325,7 @@ impl ::core::convert::From<u32> for CLFS_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CLFS_FLAG {
+unsafe impl ::windows::core::Abi for CLFS_FLAG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CLFS_FLAG {
@@ -385,7 +385,7 @@ impl ::core::convert::From<i32> for CLFS_IOSTATS_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CLFS_IOSTATS_CLASS {
+unsafe impl ::windows::core::Abi for CLFS_IOSTATS_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -399,7 +399,7 @@ impl ::core::convert::From<i32> for CLFS_LOG_ARCHIVE_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CLFS_LOG_ARCHIVE_MODE {
+unsafe impl ::windows::core::Abi for CLFS_LOG_ARCHIVE_MODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -426,7 +426,7 @@ impl ::core::cmp::PartialEq for CLFS_LOG_NAME_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for CLFS_LOG_NAME_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for CLFS_LOG_NAME_INFORMATION {
+unsafe impl ::windows::core::Abi for CLFS_LOG_NAME_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -462,7 +462,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_NOTIFICATION {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_NOTIFICATION {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_NOTIFICATION {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_NOTIFICATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -478,7 +478,7 @@ impl ::core::convert::From<i32> for CLFS_MGMT_NOTIFICATION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_NOTIFICATION_TYPE {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_NOTIFICATION_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -503,7 +503,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -533,7 +533,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0 {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0 {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0 {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -559,7 +559,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_0 {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_0 {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_0 {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -585,7 +585,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_1 {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_1 {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_1 {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -612,7 +612,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_2 {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_2 {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_2 {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -639,7 +639,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_3 {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_3 {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_3 {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -665,7 +665,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_4 {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_4 {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_4 {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -691,7 +691,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_5 {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_5 {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_5 {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_5 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -718,7 +718,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_6 {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_6 {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_6 {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_6 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -745,7 +745,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_7 {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_7 {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_7 {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_7 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -771,7 +771,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_8 {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_8 {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_8 {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_8 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -797,7 +797,7 @@ impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_9 {
     }
 }
 impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_9 {}
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_9 {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_9 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -820,7 +820,7 @@ impl ::core::convert::From<i32> for CLFS_MGMT_POLICY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_TYPE {
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -849,7 +849,7 @@ impl ::core::cmp::PartialEq for CLFS_NODE_ID {
     }
 }
 impl ::core::cmp::Eq for CLFS_NODE_ID {}
-unsafe impl ::windows::runtime::Abi for CLFS_NODE_ID {
+unsafe impl ::windows::core::Abi for CLFS_NODE_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -877,7 +877,7 @@ impl ::core::cmp::PartialEq for CLFS_PHYSICAL_LSN_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for CLFS_PHYSICAL_LSN_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for CLFS_PHYSICAL_LSN_INFORMATION {
+unsafe impl ::windows::core::Abi for CLFS_PHYSICAL_LSN_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -915,10 +915,10 @@ impl ::core::cmp::PartialEq for CLFS_STREAM_ID_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for CLFS_STREAM_ID_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for CLFS_STREAM_ID_INFORMATION {
+unsafe impl ::windows::core::Abi for CLFS_STREAM_ID_INFORMATION {
     type Abi = Self;
 }
-pub const CLSID_DiskQuotaControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b571_ec89_11cf_9c00_00aa00a14f56);
+pub const CLSID_DiskQuotaControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b571_ec89_11cf_9c00_00aa00a14f56);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -944,7 +944,7 @@ impl ::core::cmp::PartialEq for CLS_ARCHIVE_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for CLS_ARCHIVE_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for CLS_ARCHIVE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for CLS_ARCHIVE_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1002,7 +1002,7 @@ impl ::core::cmp::PartialEq for CLS_CONTAINER_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for CLS_CONTAINER_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for CLS_CONTAINER_INFORMATION {
+unsafe impl ::windows::core::Abi for CLS_CONTAINER_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -1018,7 +1018,7 @@ impl ::core::convert::From<i32> for CLS_CONTEXT_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CLS_CONTEXT_MODE {
+unsafe impl ::windows::core::Abi for CLS_CONTEXT_MODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1041,7 +1041,7 @@ pub struct CLS_INFORMATION {
     pub LastFlushedLsn: CLS_LSN,
     pub LastLsn: CLS_LSN,
     pub RestartLsn: CLS_LSN,
-    pub Identity: ::windows::runtime::GUID,
+    pub Identity: ::windows::core::GUID,
 }
 impl CLS_INFORMATION {}
 impl ::core::default::Default for CLS_INFORMATION {
@@ -1094,7 +1094,7 @@ impl ::core::cmp::PartialEq for CLS_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for CLS_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for CLS_INFORMATION {
+unsafe impl ::windows::core::Abi for CLS_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -1108,7 +1108,7 @@ impl ::core::convert::From<i32> for CLS_IOSTATS_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CLS_IOSTATS_CLASS {
+unsafe impl ::windows::core::Abi for CLS_IOSTATS_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1138,7 +1138,7 @@ impl ::core::cmp::PartialEq for CLS_IO_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for CLS_IO_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for CLS_IO_STATISTICS {
+unsafe impl ::windows::core::Abi for CLS_IO_STATISTICS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1168,7 +1168,7 @@ impl ::core::cmp::PartialEq for CLS_IO_STATISTICS_HEADER {
     }
 }
 impl ::core::cmp::Eq for CLS_IO_STATISTICS_HEADER {}
-unsafe impl ::windows::runtime::Abi for CLS_IO_STATISTICS_HEADER {
+unsafe impl ::windows::core::Abi for CLS_IO_STATISTICS_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -1186,7 +1186,7 @@ impl ::core::convert::From<i32> for CLS_LOG_INFORMATION_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CLS_LOG_INFORMATION_CLASS {
+unsafe impl ::windows::core::Abi for CLS_LOG_INFORMATION_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1212,7 +1212,7 @@ impl ::core::cmp::PartialEq for CLS_LSN {
     }
 }
 impl ::core::cmp::Eq for CLS_LSN {}
-unsafe impl ::windows::runtime::Abi for CLS_LSN {
+unsafe impl ::windows::core::Abi for CLS_LSN {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1259,7 +1259,7 @@ impl ::core::cmp::PartialEq for CLS_SCAN_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CLS_SCAN_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CLS_SCAN_CONTEXT {
+unsafe impl ::windows::core::Abi for CLS_SCAN_CONTEXT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1286,7 +1286,7 @@ impl ::core::cmp::PartialEq for CLS_WRITE_ENTRY {
     }
 }
 impl ::core::cmp::Eq for CLS_WRITE_ENTRY {}
-unsafe impl ::windows::runtime::Abi for CLS_WRITE_ENTRY {
+unsafe impl ::windows::core::Abi for CLS_WRITE_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1312,7 +1312,7 @@ impl ::core::cmp::PartialEq for CONNECTION_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for CONNECTION_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for CONNECTION_INFO_0 {
+unsafe impl ::windows::core::Abi for CONNECTION_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1359,7 +1359,7 @@ impl ::core::cmp::PartialEq for CONNECTION_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CONNECTION_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CONNECTION_INFO_1 {
+unsafe impl ::windows::core::Abi for CONNECTION_INFO_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -1379,7 +1379,7 @@ impl ::core::convert::From<i32> for COPYFILE2_COPY_PHASE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COPYFILE2_COPY_PHASE {
+unsafe impl ::windows::core::Abi for COPYFILE2_COPY_PHASE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -1416,7 +1416,7 @@ impl ::core::cmp::PartialEq for COPYFILE2_EXTENDED_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COPYFILE2_EXTENDED_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for COPYFILE2_EXTENDED_PARAMETERS {
+unsafe impl ::windows::core::Abi for COPYFILE2_EXTENDED_PARAMETERS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -1466,7 +1466,7 @@ impl ::core::cmp::PartialEq for COPYFILE2_EXTENDED_PARAMETERS_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COPYFILE2_EXTENDED_PARAMETERS_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+unsafe impl ::windows::core::Abi for COPYFILE2_EXTENDED_PARAMETERS_V2 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1495,7 +1495,7 @@ impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COPYFILE2_MESSAGE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE {
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1526,7 +1526,7 @@ impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0 {
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1578,7 +1578,7 @@ impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_0 {
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1626,7 +1626,7 @@ impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_1 {
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1635,7 +1635,7 @@ unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_1 {
 pub struct COPYFILE2_MESSAGE_0_2 {
     pub CopyPhase: COPYFILE2_COPY_PHASE,
     pub dwStreamNumber: u32,
-    pub hrFailure: ::windows::runtime::HRESULT,
+    pub hrFailure: ::windows::core::HRESULT,
     pub dwReserved: u32,
     pub uliChunkNumber: u64,
     pub uliStreamSize: u64,
@@ -1676,7 +1676,7 @@ impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_2 {
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1708,7 +1708,7 @@ impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_3 {
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1756,7 +1756,7 @@ impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_4 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_4 {
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1800,7 +1800,7 @@ impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_5 {
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_5 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -1817,7 +1817,7 @@ impl ::core::convert::From<i32> for COPYFILE2_MESSAGE_ACTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_ACTION {
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_ACTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -1837,7 +1837,7 @@ impl ::core::convert::From<i32> for COPYFILE2_MESSAGE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_TYPE {
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1882,7 +1882,7 @@ impl ::core::cmp::PartialEq for CREATEFILE2_EXTENDED_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for CREATEFILE2_EXTENDED_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for CREATEFILE2_EXTENDED_PARAMETERS {
+unsafe impl ::windows::core::Abi for CREATEFILE2_EXTENDED_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -1897,7 +1897,7 @@ impl ::core::convert::From<i32> for CREATE_TAPE_PARTITION_METHOD {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CREATE_TAPE_PARTITION_METHOD {
+unsafe impl ::windows::core::Abi for CREATE_TAPE_PARTITION_METHOD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -1925,7 +1925,7 @@ pub const CSV_BLOCK_CACHE_CALLBACK_VERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckNameLegalDOS8Dot3A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpname: Param0, lpoemname: super::super::Foundation::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut super::super::Foundation::BOOL, pbnamelegal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+pub unsafe fn CheckNameLegalDOS8Dot3A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpname: Param0, lpoemname: super::super::Foundation::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut super::super::Foundation::BOOL, pbnamelegal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1940,7 +1940,7 @@ pub unsafe fn CheckNameLegalDOS8Dot3A<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckNameLegalDOS8Dot3W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpname: Param0, lpoemname: super::super::Foundation::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut super::super::Foundation::BOOL, pbnamelegal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+pub unsafe fn CheckNameLegalDOS8Dot3W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpname: Param0, lpoemname: super::super::Foundation::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut super::super::Foundation::BOOL, pbnamelegal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1975,7 +1975,7 @@ pub const ClfsRestartRecord: u8 = 2u8;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseAndResetLogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn CloseAndResetLogFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2003,12 +2003,12 @@ pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[inline]
-pub unsafe fn CloseIoRing(ioring: *const HIORING__) -> ::windows::runtime::Result<()> {
+pub unsafe fn CloseIoRing(ioring: *const HIORING__) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CloseIoRing(ioring: *const HIORING__) -> ::windows::runtime::HRESULT;
+            fn CloseIoRing(ioring: *const HIORING__) -> ::windows::core::HRESULT;
         }
         CloseIoRing(::core::mem::transmute(ioring)).ok()
     }
@@ -2030,7 +2030,7 @@ pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommitComplete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn CommitComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2045,7 +2045,7 @@ pub unsafe fn CommitComplete<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommitEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn CommitEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2060,7 +2060,7 @@ pub unsafe fn CommitEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommitTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn CommitTransaction<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2075,7 +2075,7 @@ pub unsafe fn CommitTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommitTransactionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn CommitTransactionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2105,12 +2105,12 @@ pub unsafe fn CompareFileTime(lpfiletime1: *const super::super::Foundation::FILE
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFile2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszexistingfilename: Param0, pwsznewfilename: Param1, pextendedparameters: *const COPYFILE2_EXTENDED_PARAMETERS) -> ::windows::runtime::Result<()> {
+pub unsafe fn CopyFile2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszexistingfilename: Param0, pwsznewfilename: Param1, pextendedparameters: *const COPYFILE2_EXTENDED_PARAMETERS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyFile2(pwszexistingfilename: super::super::Foundation::PWSTR, pwsznewfilename: super::super::Foundation::PWSTR, pextendedparameters: *const ::core::mem::ManuallyDrop<COPYFILE2_EXTENDED_PARAMETERS>) -> ::windows::runtime::HRESULT;
+            fn CopyFile2(pwszexistingfilename: super::super::Foundation::PWSTR, pwsznewfilename: super::super::Foundation::PWSTR, pextendedparameters: *const ::core::mem::ManuallyDrop<COPYFILE2_EXTENDED_PARAMETERS>) -> ::windows::core::HRESULT;
         }
         CopyFile2(pwszexistingfilename.into_param().abi(), pwsznewfilename.into_param().abi(), ::core::mem::transmute(pextendedparameters)).ok()
     }
@@ -2120,7 +2120,7 @@ pub unsafe fn CopyFile2<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpexistingfilename: Param0, lpnewfilename: Param1, bfailifexists: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn CopyFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpexistingfilename: Param0, lpnewfilename: Param1, bfailifexists: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2135,12 +2135,12 @@ pub unsafe fn CopyFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CopyFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyFileExA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
+            fn CopyFileExA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::core::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CopyFileExA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags)))
     }
@@ -2150,12 +2150,12 @@ pub unsafe fn CopyFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CopyFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyFileExW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
+            fn CopyFileExW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::core::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CopyFileExW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags)))
     }
@@ -2165,7 +2165,7 @@ pub unsafe fn CopyFileExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpexistingfilename: Param0, lpnewfilename: Param1, bfailifexists: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn CopyFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpexistingfilename: Param0, lpnewfilename: Param1, bfailifexists: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2180,7 +2180,7 @@ pub unsafe fn CopyFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
+pub unsafe fn CopyFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
     lpexistingfilename: Param0,
     lpnewfilename: Param1,
     lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>,
@@ -2193,7 +2193,7 @@ pub unsafe fn CopyFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyFileTransactedA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+            fn CopyFileTransactedA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::core::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CopyFileTransactedA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags), htransaction.into_param().abi()))
     }
@@ -2203,7 +2203,7 @@ pub unsafe fn CopyFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
+pub unsafe fn CopyFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
     lpexistingfilename: Param0,
     lpnewfilename: Param1,
     lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>,
@@ -2216,7 +2216,7 @@ pub unsafe fn CopyFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyFileTransactedW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+            fn CopyFileTransactedW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::core::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CopyFileTransactedW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags), htransaction.into_param().abi()))
     }
@@ -2226,7 +2226,7 @@ pub unsafe fn CopyFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpexistingfilename: Param0, lpnewfilename: Param1, bfailifexists: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn CopyFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpexistingfilename: Param0, lpnewfilename: Param1, bfailifexists: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2255,7 +2255,7 @@ pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lppathname: Param0, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lppathname: Param0, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2270,7 +2270,7 @@ pub unsafe fn CreateDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateDirectoryExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDirectoryExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2285,7 +2285,7 @@ pub unsafe fn CreateDirectoryExA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateDirectoryExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDirectoryExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2300,7 +2300,7 @@ pub unsafe fn CreateDirectoryExW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateDirectoryFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDirectoryFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2315,7 +2315,7 @@ pub unsafe fn CreateDirectoryFromAppW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateDirectoryTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDirectoryTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2330,7 +2330,7 @@ pub unsafe fn CreateDirectoryTransactedA<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateDirectoryTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDirectoryTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2345,7 +2345,7 @@ pub unsafe fn CreateDirectoryTransactedW<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2360,7 +2360,7 @@ pub unsafe fn CreateDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateEnlistment<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: Param1, transactionhandle: Param2, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateEnlistment<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: Param1, transactionhandle: Param2, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2375,7 +2375,7 @@ pub unsafe fn CreateEnlistment<'a, Param1: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFile2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateFile2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2390,7 +2390,7 @@ pub unsafe fn CreateFile2<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFile2FromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateFile2FromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2405,15 +2405,7 @@ pub unsafe fn CreateFile2FromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
-    lpfilename: Param0,
-    dwdesiredaccess: FILE_ACCESS_FLAGS,
-    dwsharemode: FILE_SHARE_MODE,
-    lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    dwcreationdisposition: FILE_CREATION_DISPOSITION,
-    dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES,
-    htemplatefile: Param6,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Param6) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2428,7 +2420,7 @@ pub unsafe fn CreateFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: Param6) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: Param6) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2443,7 +2435,7 @@ pub unsafe fn CreateFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
+pub unsafe fn CreateFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
     lpfilename: Param0,
     dwdesiredaccess: u32,
     dwsharemode: FILE_SHARE_MODE,
@@ -2491,7 +2483,7 @@ pub unsafe fn CreateFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
+pub unsafe fn CreateFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
     lpfilename: Param0,
     dwdesiredaccess: u32,
     dwsharemode: FILE_SHARE_MODE,
@@ -2539,15 +2531,7 @@ pub unsafe fn CreateFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
-    lpfilename: Param0,
-    dwdesiredaccess: FILE_ACCESS_FLAGS,
-    dwsharemode: FILE_SHARE_MODE,
-    lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    dwcreationdisposition: FILE_CREATION_DISPOSITION,
-    dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES,
-    htemplatefile: Param6,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Param6) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2562,7 +2546,7 @@ pub unsafe fn CreateFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateHardLinkA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateHardLinkA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2577,7 +2561,7 @@ pub unsafe fn CreateHardLinkA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateHardLinkTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateHardLinkTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2592,7 +2576,7 @@ pub unsafe fn CreateHardLinkTransactedA<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateHardLinkTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateHardLinkTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2607,7 +2591,7 @@ pub unsafe fn CreateHardLinkTransactedW<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateHardLinkW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateHardLinkW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2621,14 +2605,14 @@ pub unsafe fn CreateHardLinkW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[inline]
-pub unsafe fn CreateIoRing<'a, Param1: ::windows::runtime::IntoParam<'a, IORING_CREATE_FLAGS>>(ioringversion: IORING_VERSION, flags: Param1, submissionqueuesize: u32, completionqueuesize: u32) -> ::windows::runtime::Result<*mut HIORING__> {
+pub unsafe fn CreateIoRing<'a, Param1: ::windows::core::IntoParam<'a, IORING_CREATE_FLAGS>>(ioringversion: IORING_VERSION, flags: Param1, submissionqueuesize: u32, completionqueuesize: u32) -> ::windows::core::Result<*mut HIORING__> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32, h: *mut *mut HIORING__) -> ::windows::runtime::HRESULT;
+            fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32, h: *mut *mut HIORING__) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut HIORING__ as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <*mut HIORING__ as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CreateIoRing(::core::mem::transmute(ioringversion), flags.into_param().abi(), ::core::mem::transmute(submissionqueuesize), ::core::mem::transmute(completionqueuesize), &mut result__).from_abi::<*mut HIORING__>(result__)
     }
     #[cfg(not(windows))]
@@ -2637,7 +2621,7 @@ pub unsafe fn CreateIoRing<'a, Param1: ::windows::runtime::IntoParam<'a, IORING_
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CreateLogContainerScanContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, cfromcontainer: u32, ccontainers: u32, escanmode: u8, pcxscan: *mut CLS_SCAN_CONTEXT, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateLogContainerScanContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, cfromcontainer: u32, ccontainers: u32, escanmode: u8, pcxscan: *mut CLS_SCAN_CONTEXT, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2652,7 +2636,7 @@ pub unsafe fn CreateLogContainerScanContext<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateLogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlogfilename: Param0, fdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateLogFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlogfilename: Param0, fdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2667,12 +2651,12 @@ pub unsafe fn CreateLogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateLogMarshallingArea<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pfnallocbuffer: ::core::option::Option<CLFS_BLOCK_ALLOCATION>, pfnfreebuffer: ::core::option::Option<CLFS_BLOCK_DEALLOCATION>, pvblockalloccontext: *mut ::core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateLogMarshallingArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pfnallocbuffer: ::core::option::Option<CLFS_BLOCK_ALLOCATION>, pfnfreebuffer: ::core::option::Option<CLFS_BLOCK_DEALLOCATION>, pvblockalloccontext: *mut ::core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateLogMarshallingArea(hlog: super::super::Foundation::HANDLE, pfnallocbuffer: ::windows::runtime::RawPtr, pfnfreebuffer: ::windows::runtime::RawPtr, pvblockalloccontext: *mut ::core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn CreateLogMarshallingArea(hlog: super::super::Foundation::HANDLE, pfnallocbuffer: ::windows::core::RawPtr, pfnfreebuffer: ::windows::core::RawPtr, pvblockalloccontext: *mut ::core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CreateLogMarshallingArea(
             hlog.into_param().abi(),
@@ -2691,12 +2675,12 @@ pub unsafe fn CreateLogMarshallingArea<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateResourceManager<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut ::windows::runtime::GUID, createoptions: u32, tmhandle: Param3, description: Param4) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateResourceManager<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut ::windows::core::GUID, createoptions: u32, tmhandle: Param3, description: Param4) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateResourceManager(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut ::windows::runtime::GUID, createoptions: u32, tmhandle: super::super::Foundation::HANDLE, description: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+            fn CreateResourceManager(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut ::windows::core::GUID, createoptions: u32, tmhandle: super::super::Foundation::HANDLE, description: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
         ::core::mem::transmute(CreateResourceManager(::core::mem::transmute(lpresourcemanagerattributes), ::core::mem::transmute(resourcemanagerid), ::core::mem::transmute(createoptions), tmhandle.into_param().abi(), description.into_param().abi()))
     }
@@ -2706,7 +2690,7 @@ pub unsafe fn CreateResourceManager<'a, Param3: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateSymbolicLinkA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn CreateSymbolicLinkA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2721,7 +2705,7 @@ pub unsafe fn CreateSymbolicLinkA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateSymbolicLinkTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: Param3) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn CreateSymbolicLinkTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: Param3) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2736,7 +2720,7 @@ pub unsafe fn CreateSymbolicLinkTransactedA<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateSymbolicLinkTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: Param3) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn CreateSymbolicLinkTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: Param3) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2751,7 +2735,7 @@ pub unsafe fn CreateSymbolicLinkTransactedW<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateSymbolicLinkW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn CreateSymbolicLinkW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2766,7 +2750,7 @@ pub unsafe fn CreateSymbolicLinkW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateTapePartition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32 {
+pub unsafe fn CreateTapePartition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2781,12 +2765,12 @@ pub unsafe fn CreateTapePartition<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateTransaction<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut ::windows::runtime::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: Param6) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateTransaction<'a, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut ::windows::core::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: Param6) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateTransaction(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut ::windows::runtime::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+            fn CreateTransaction(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut ::windows::core::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
         ::core::mem::transmute(CreateTransaction(::core::mem::transmute(lptransactionattributes), ::core::mem::transmute(uow), ::core::mem::transmute(createoptions), ::core::mem::transmute(isolationlevel), ::core::mem::transmute(isolationflags), ::core::mem::transmute(timeout), description.into_param().abi()))
     }
@@ -2796,7 +2780,7 @@ pub unsafe fn CreateTransaction<'a, Param6: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateTransactionManager<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: Param1, createoptions: u32, commitstrength: u32) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateTransactionManager<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: Param1, createoptions: u32, commitstrength: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2822,7 +2806,7 @@ impl ::core::convert::From<u32> for DEFINE_DOS_DEVICE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DEFINE_DOS_DEVICE_FLAGS {
+unsafe impl ::windows::core::Abi for DEFINE_DOS_DEVICE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DEFINE_DOS_DEVICE_FLAGS {
@@ -2883,7 +2867,7 @@ impl ::core::convert::From<u32> for DISKQUOTA_USERNAME_RESOLVE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DISKQUOTA_USERNAME_RESOLVE {
+unsafe impl ::windows::core::Abi for DISKQUOTA_USERNAME_RESOLVE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for DISKQUOTA_USERNAME_RESOLVE {
@@ -2951,7 +2935,7 @@ impl ::core::cmp::PartialEq for DISKQUOTA_USER_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for DISKQUOTA_USER_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for DISKQUOTA_USER_INFORMATION {
+unsafe impl ::windows::core::Abi for DISKQUOTA_USER_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3015,13 +2999,13 @@ impl ::core::cmp::PartialEq for DISK_SPACE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for DISK_SPACE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for DISK_SPACE_INFORMATION {
+unsafe impl ::windows::core::Abi for DISK_SPACE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DecryptFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn DecryptFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3036,7 +3020,7 @@ pub unsafe fn DecryptFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DecryptFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn DecryptFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3051,7 +3035,7 @@ pub unsafe fn DecryptFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DefineDosDeviceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: Param1, lptargetpath: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn DefineDosDeviceA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: Param1, lptargetpath: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3066,7 +3050,7 @@ pub unsafe fn DefineDosDeviceA<'a, Param1: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DefineDosDeviceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: Param1, lptargetpath: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn DefineDosDeviceW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: Param1, lptargetpath: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3081,7 +3065,7 @@ pub unsafe fn DefineDosDeviceW<'a, Param1: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3096,7 +3080,7 @@ pub unsafe fn DeleteFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3111,7 +3095,7 @@ pub unsafe fn DeleteFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3126,7 +3110,7 @@ pub unsafe fn DeleteFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3141,7 +3125,7 @@ pub unsafe fn DeleteFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3156,7 +3140,7 @@ pub unsafe fn DeleteFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteLogByHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteLogByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3171,7 +3155,7 @@ pub unsafe fn DeleteLogByHandle<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteLogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlogfilename: Param0, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteLogFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlogfilename: Param0, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3201,7 +3185,7 @@ pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *mut ::core::ffi::c_void) -> s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteVolumeMountPointA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumemountpoint: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumemountpoint: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3216,7 +3200,7 @@ pub unsafe fn DeleteVolumeMountPointA<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteVolumeMountPointW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumemountpoint: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumemountpoint: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3231,7 +3215,7 @@ pub unsafe fn DeleteVolumeMountPointW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeregisterManageableLogClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn DeregisterManageableLogClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3246,7 +3230,7 @@ pub unsafe fn DeregisterManageableLogClient<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DuplicateEncryptionInfoFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(srcfilename: Param0, dstfilename: Param1, dwcreationdistribution: u32, dwattributes: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> u32 {
+pub unsafe fn DuplicateEncryptionInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(srcfilename: Param0, dstfilename: Param1, dwcreationdistribution: u32, dwattributes: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3283,7 +3267,7 @@ impl ::core::cmp::PartialEq for EFS_CERTIFICATE_BLOB {
     }
 }
 impl ::core::cmp::Eq for EFS_CERTIFICATE_BLOB {}
-unsafe impl ::windows::runtime::Abi for EFS_CERTIFICATE_BLOB {
+unsafe impl ::windows::core::Abi for EFS_CERTIFICATE_BLOB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3309,7 +3293,7 @@ impl ::core::cmp::PartialEq for EFS_COMPATIBILITY_INFO {
     }
 }
 impl ::core::cmp::Eq for EFS_COMPATIBILITY_INFO {}
-unsafe impl ::windows::runtime::Abi for EFS_COMPATIBILITY_INFO {
+unsafe impl ::windows::core::Abi for EFS_COMPATIBILITY_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -3341,7 +3325,7 @@ impl ::core::cmp::PartialEq for EFS_DECRYPTION_STATUS_INFO {
     }
 }
 impl ::core::cmp::Eq for EFS_DECRYPTION_STATUS_INFO {}
-unsafe impl ::windows::runtime::Abi for EFS_DECRYPTION_STATUS_INFO {
+unsafe impl ::windows::core::Abi for EFS_DECRYPTION_STATUS_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -3377,7 +3361,7 @@ impl ::core::cmp::PartialEq for EFS_ENCRYPTION_STATUS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EFS_ENCRYPTION_STATUS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for EFS_ENCRYPTION_STATUS_INFO {
+unsafe impl ::windows::core::Abi for EFS_ENCRYPTION_STATUS_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3404,7 +3388,7 @@ impl ::core::cmp::PartialEq for EFS_HASH_BLOB {
     }
 }
 impl ::core::cmp::Eq for EFS_HASH_BLOB {}
-unsafe impl ::windows::runtime::Abi for EFS_HASH_BLOB {
+unsafe impl ::windows::core::Abi for EFS_HASH_BLOB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3433,7 +3417,7 @@ impl ::core::cmp::PartialEq for EFS_KEY_INFO {
     }
 }
 impl ::core::cmp::Eq for EFS_KEY_INFO {}
-unsafe impl ::windows::runtime::Abi for EFS_KEY_INFO {
+unsafe impl ::windows::core::Abi for EFS_KEY_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -3473,7 +3457,7 @@ impl ::core::cmp::PartialEq for EFS_PIN_BLOB {
     }
 }
 impl ::core::cmp::Eq for EFS_PIN_BLOB {}
-unsafe impl ::windows::runtime::Abi for EFS_PIN_BLOB {
+unsafe impl ::windows::core::Abi for EFS_PIN_BLOB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3500,7 +3484,7 @@ impl ::core::cmp::PartialEq for EFS_RPC_BLOB {
     }
 }
 impl ::core::cmp::Eq for EFS_RPC_BLOB {}
-unsafe impl ::windows::runtime::Abi for EFS_RPC_BLOB {
+unsafe impl ::windows::core::Abi for EFS_RPC_BLOB {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -3529,7 +3513,7 @@ impl ::core::cmp::PartialEq for EFS_VERSION_INFO {
     }
 }
 impl ::core::cmp::Eq for EFS_VERSION_INFO {}
-unsafe impl ::windows::runtime::Abi for EFS_VERSION_INFO {
+unsafe impl ::windows::core::Abi for EFS_VERSION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3565,7 +3549,7 @@ impl ::core::cmp::PartialEq for ENCRYPTED_FILE_METADATA_SIGNATURE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for ENCRYPTED_FILE_METADATA_SIGNATURE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for ENCRYPTED_FILE_METADATA_SIGNATURE {
+unsafe impl ::windows::core::Abi for ENCRYPTED_FILE_METADATA_SIGNATURE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3600,7 +3584,7 @@ impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE {
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE {}
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::runtime::Abi for ENCRYPTION_CERTIFICATE {
+unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3636,7 +3620,7 @@ impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_HASH {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for ENCRYPTION_CERTIFICATE_HASH {
+unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_HASH {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3670,7 +3654,7 @@ impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH_LIST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_HASH_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for ENCRYPTION_CERTIFICATE_HASH_LIST {
+unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_HASH_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3704,7 +3688,7 @@ impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_LIST {
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_LIST {}
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::runtime::Abi for ENCRYPTION_CERTIFICATE_LIST {
+unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3739,7 +3723,7 @@ impl ::core::cmp::PartialEq for ENCRYPTION_PROTECTOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for ENCRYPTION_PROTECTOR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for ENCRYPTION_PROTECTOR {
+unsafe impl ::windows::core::Abi for ENCRYPTION_PROTECTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3773,7 +3757,7 @@ impl ::core::cmp::PartialEq for ENCRYPTION_PROTECTOR_LIST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for ENCRYPTION_PROTECTOR_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for ENCRYPTION_PROTECTOR_LIST {
+unsafe impl ::windows::core::Abi for ENCRYPTION_PROTECTOR_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -3791,13 +3775,13 @@ impl ::core::convert::From<i32> for ERASE_TAPE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ERASE_TAPE_TYPE {
+unsafe impl ::windows::core::Abi for ERASE_TAPE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EncryptFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn EncryptFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3812,7 +3796,7 @@ pub unsafe fn EncryptFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EncryptFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn EncryptFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3827,7 +3811,7 @@ pub unsafe fn EncryptFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EncryptionDisable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(dirpath: Param0, disable: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn EncryptionDisable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dirpath: Param0, disable: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3842,7 +3826,7 @@ pub unsafe fn EncryptionDisable<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EraseTape<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwerasetype: ERASE_TAPE_TYPE, bimmediate: Param2) -> u32 {
+pub unsafe fn EraseTape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwerasetype: ERASE_TAPE_TYPE, bimmediate: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3909,7 +3893,7 @@ impl ::core::cmp::PartialEq for FH_OVERLAPPED {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FH_OVERLAPPED {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FH_OVERLAPPED {
+unsafe impl ::windows::core::Abi for FH_OVERLAPPED {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -3947,7 +3931,7 @@ impl ::core::convert::From<u32> for FILE_ACCESS_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_ACCESS_FLAGS {
+unsafe impl ::windows::core::Abi for FILE_ACCESS_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FILE_ACCESS_FLAGS {
@@ -3992,7 +3976,7 @@ impl ::core::convert::From<u32> for FILE_ACTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_ACTION {
+unsafe impl ::windows::core::Abi for FILE_ACTION {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FILE_ACTION {
@@ -4046,7 +4030,7 @@ impl ::core::cmp::PartialEq for FILE_ALIGNMENT_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_ALIGNMENT_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_ALIGNMENT_INFO {
+unsafe impl ::windows::core::Abi for FILE_ALIGNMENT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4072,7 +4056,7 @@ impl ::core::cmp::PartialEq for FILE_ALLOCATION_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_ALLOCATION_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_ALLOCATION_INFO {
+unsafe impl ::windows::core::Abi for FILE_ALLOCATION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4099,7 +4083,7 @@ impl ::core::cmp::PartialEq for FILE_ATTRIBUTE_TAG_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_ATTRIBUTE_TAG_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_ATTRIBUTE_TAG_INFO {
+unsafe impl ::windows::core::Abi for FILE_ATTRIBUTE_TAG_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4129,7 +4113,7 @@ impl ::core::cmp::PartialEq for FILE_BASIC_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_BASIC_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_BASIC_INFO {
+unsafe impl ::windows::core::Abi for FILE_BASIC_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4167,7 +4151,7 @@ impl ::core::cmp::PartialEq for FILE_COMPRESSION_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_COMPRESSION_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_COMPRESSION_INFO {
+unsafe impl ::windows::core::Abi for FILE_COMPRESSION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -4184,7 +4168,7 @@ impl ::core::convert::From<u32> for FILE_CREATION_DISPOSITION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_CREATION_DISPOSITION {
+unsafe impl ::windows::core::Abi for FILE_CREATION_DISPOSITION {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FILE_CREATION_DISPOSITION {
@@ -4228,7 +4212,7 @@ impl ::core::convert::From<u32> for FILE_DEVICE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_DEVICE_TYPE {
+unsafe impl ::windows::core::Abi for FILE_DEVICE_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FILE_DEVICE_TYPE {
@@ -4289,7 +4273,7 @@ impl ::core::cmp::PartialEq for FILE_DISPOSITION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_DISPOSITION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_DISPOSITION_INFO {
+unsafe impl ::windows::core::Abi for FILE_DISPOSITION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4315,7 +4299,7 @@ impl ::core::cmp::PartialEq for FILE_END_OF_FILE_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_END_OF_FILE_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_END_OF_FILE_INFO {
+unsafe impl ::windows::core::Abi for FILE_END_OF_FILE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4342,7 +4326,7 @@ impl ::core::cmp::PartialEq for FILE_EXTENT {
     }
 }
 impl ::core::cmp::Eq for FILE_EXTENT {}
-unsafe impl ::windows::runtime::Abi for FILE_EXTENT {
+unsafe impl ::windows::core::Abi for FILE_EXTENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -4399,7 +4383,7 @@ impl ::core::convert::From<u32> for FILE_FLAGS_AND_ATTRIBUTES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_FLAGS_AND_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for FILE_FLAGS_AND_ATTRIBUTES {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FILE_FLAGS_AND_ATTRIBUTES {
@@ -4488,7 +4472,7 @@ impl ::core::cmp::PartialEq for FILE_FULL_DIR_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_FULL_DIR_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_FULL_DIR_INFO {
+unsafe impl ::windows::core::Abi for FILE_FULL_DIR_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4514,7 +4498,7 @@ impl ::core::cmp::PartialEq for FILE_ID_128 {
     }
 }
 impl ::core::cmp::Eq for FILE_ID_128 {}
-unsafe impl ::windows::runtime::Abi for FILE_ID_128 {
+unsafe impl ::windows::core::Abi for FILE_ID_128 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4584,7 +4568,7 @@ impl ::core::cmp::PartialEq for FILE_ID_BOTH_DIR_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_ID_BOTH_DIR_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_ID_BOTH_DIR_INFO {
+unsafe impl ::windows::core::Abi for FILE_ID_BOTH_DIR_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4607,7 +4591,7 @@ impl ::core::cmp::PartialEq for FILE_ID_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for FILE_ID_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for FILE_ID_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for FILE_ID_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4615,7 +4599,7 @@ unsafe impl ::windows::runtime::Abi for FILE_ID_DESCRIPTOR {
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub union FILE_ID_DESCRIPTOR_0 {
     pub FileId: i64,
-    pub ObjectId: ::windows::runtime::GUID,
+    pub ObjectId: ::windows::core::GUID,
     pub ExtendedFileId: FILE_ID_128,
 }
 impl FILE_ID_DESCRIPTOR_0 {}
@@ -4630,7 +4614,7 @@ impl ::core::cmp::PartialEq for FILE_ID_DESCRIPTOR_0 {
     }
 }
 impl ::core::cmp::Eq for FILE_ID_DESCRIPTOR_0 {}
-unsafe impl ::windows::runtime::Abi for FILE_ID_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for FILE_ID_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4697,7 +4681,7 @@ impl ::core::cmp::PartialEq for FILE_ID_EXTD_DIR_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_ID_EXTD_DIR_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_ID_EXTD_DIR_INFO {
+unsafe impl ::windows::core::Abi for FILE_ID_EXTD_DIR_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4724,7 +4708,7 @@ impl ::core::cmp::PartialEq for FILE_ID_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_ID_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_ID_INFO {
+unsafe impl ::windows::core::Abi for FILE_ID_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -4740,7 +4724,7 @@ impl ::core::convert::From<i32> for FILE_ID_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_ID_TYPE {
+unsafe impl ::windows::core::Abi for FILE_ID_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4766,7 +4750,7 @@ impl ::core::cmp::PartialEq for FILE_INFO_2 {
     }
 }
 impl ::core::cmp::Eq for FILE_INFO_2 {}
-unsafe impl ::windows::runtime::Abi for FILE_INFO_2 {
+unsafe impl ::windows::core::Abi for FILE_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4803,7 +4787,7 @@ impl ::core::cmp::PartialEq for FILE_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_INFO_3 {
+unsafe impl ::windows::core::Abi for FILE_INFO_3 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -4841,7 +4825,7 @@ impl ::core::convert::From<i32> for FILE_INFO_BY_HANDLE_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_INFO_BY_HANDLE_CLASS {
+unsafe impl ::windows::core::Abi for FILE_INFO_BY_HANDLE_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -4856,7 +4840,7 @@ impl ::core::convert::From<u32> for FILE_INFO_FLAGS_PERMISSIONS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_INFO_FLAGS_PERMISSIONS {
+unsafe impl ::windows::core::Abi for FILE_INFO_FLAGS_PERMISSIONS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FILE_INFO_FLAGS_PERMISSIONS {
@@ -4910,7 +4894,7 @@ impl ::core::cmp::PartialEq for FILE_IO_PRIORITY_HINT_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_IO_PRIORITY_HINT_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_IO_PRIORITY_HINT_INFO {
+unsafe impl ::windows::core::Abi for FILE_IO_PRIORITY_HINT_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -4924,7 +4908,7 @@ impl ::core::convert::From<u32> for FILE_NAME {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_NAME {
+unsafe impl ::windows::core::Abi for FILE_NAME {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FILE_NAME {
@@ -4979,7 +4963,7 @@ impl ::core::cmp::PartialEq for FILE_NAME_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_NAME_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_NAME_INFO {
+unsafe impl ::windows::core::Abi for FILE_NAME_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -4999,7 +4983,7 @@ impl ::core::convert::From<u32> for FILE_NOTIFY_CHANGE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_NOTIFY_CHANGE {
+unsafe impl ::windows::core::Abi for FILE_NOTIFY_CHANGE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FILE_NOTIFY_CHANGE {
@@ -5094,7 +5078,7 @@ impl ::core::cmp::PartialEq for FILE_NOTIFY_EXTENDED_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for FILE_NOTIFY_EXTENDED_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for FILE_NOTIFY_EXTENDED_INFORMATION {
+unsafe impl ::windows::core::Abi for FILE_NOTIFY_EXTENDED_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5123,7 +5107,7 @@ impl ::core::cmp::PartialEq for FILE_NOTIFY_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for FILE_NOTIFY_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for FILE_NOTIFY_INFORMATION {
+unsafe impl ::windows::core::Abi for FILE_NOTIFY_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -5161,7 +5145,7 @@ impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO {
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5187,7 +5171,7 @@ impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO_0 {
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5209,7 +5193,7 @@ impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1 {
     }
 }
 impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1 {}
-unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO_1 {
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5236,7 +5220,7 @@ impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0 {
     }
 }
 impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0 {}
-unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5262,7 +5246,7 @@ impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     }
 }
 impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {}
-unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5289,7 +5273,7 @@ impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     }
 }
 impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {}
-unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5319,7 +5303,7 @@ impl ::core::cmp::PartialEq for FILE_RENAME_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_RENAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_RENAME_INFO {
+unsafe impl ::windows::core::Abi for FILE_RENAME_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5346,7 +5330,7 @@ impl ::core::cmp::PartialEq for FILE_RENAME_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_RENAME_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_RENAME_INFO_0 {
+unsafe impl ::windows::core::Abi for FILE_RENAME_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5368,7 +5352,7 @@ impl ::core::cmp::PartialEq for FILE_SEGMENT_ELEMENT {
     }
 }
 impl ::core::cmp::Eq for FILE_SEGMENT_ELEMENT {}
-unsafe impl ::windows::runtime::Abi for FILE_SEGMENT_ELEMENT {
+unsafe impl ::windows::core::Abi for FILE_SEGMENT_ELEMENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -5384,7 +5368,7 @@ impl ::core::convert::From<u32> for FILE_SHARE_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_SHARE_MODE {
+unsafe impl ::windows::core::Abi for FILE_SHARE_MODE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FILE_SHARE_MODE {
@@ -5449,7 +5433,7 @@ impl ::core::cmp::PartialEq for FILE_STANDARD_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_STANDARD_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_STANDARD_INFO {
+unsafe impl ::windows::core::Abi for FILE_STANDARD_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5495,7 +5479,7 @@ impl ::core::cmp::PartialEq for FILE_STORAGE_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_STORAGE_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_STORAGE_INFO {
+unsafe impl ::windows::core::Abi for FILE_STORAGE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5525,7 +5509,7 @@ impl ::core::cmp::PartialEq for FILE_STREAM_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_STREAM_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_STREAM_INFO {
+unsafe impl ::windows::core::Abi for FILE_STREAM_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -5540,7 +5524,7 @@ impl ::core::convert::From<i32> for FINDEX_INFO_LEVELS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FINDEX_INFO_LEVELS {
+unsafe impl ::windows::core::Abi for FINDEX_INFO_LEVELS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -5556,7 +5540,7 @@ impl ::core::convert::From<i32> for FINDEX_SEARCH_OPS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FINDEX_SEARCH_OPS {
+unsafe impl ::windows::core::Abi for FINDEX_SEARCH_OPS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -5571,7 +5555,7 @@ impl ::core::convert::From<u32> for FIND_FIRST_EX_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FIND_FIRST_EX_FLAGS {
+unsafe impl ::windows::core::Abi for FIND_FIRST_EX_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FIND_FIRST_EX_FLAGS {
@@ -5636,13 +5620,13 @@ impl ::core::cmp::PartialEq for FIO_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FIO_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FIO_CONTEXT {
+unsafe impl ::windows::core::Abi for FIO_CONTEXT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FileEncryptionStatusA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpstatus: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn FileEncryptionStatusA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpstatus: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5657,7 +5641,7 @@ pub unsafe fn FileEncryptionStatusA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FileEncryptionStatusW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpstatus: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn FileEncryptionStatusW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpstatus: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5692,14 +5676,14 @@ impl ::core::default::Default for FindChangeNotificationHandle {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for FindChangeNotificationHandle {}
-unsafe impl ::windows::runtime::Abi for FindChangeNotificationHandle {
+unsafe impl ::windows::core::Handle for FindChangeNotificationHandle {}
+unsafe impl ::windows::core::Abi for FindChangeNotificationHandle {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindClose<'a, Param0: ::windows::runtime::IntoParam<'a, FindFileHandle>>(hfindfile: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn FindClose<'a, Param0: ::windows::core::IntoParam<'a, FindFileHandle>>(hfindfile: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5714,7 +5698,7 @@ pub unsafe fn FindClose<'a, Param0: ::windows::runtime::IntoParam<'a, FindFileHa
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindCloseChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, FindChangeNotificationHandle>>(hchangehandle: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn FindCloseChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, FindChangeNotificationHandle>>(hchangehandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5734,8 +5718,8 @@ impl ::core::default::Default for FindFileHandle {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for FindFileHandle {}
-unsafe impl ::windows::runtime::Abi for FindFileHandle {
+unsafe impl ::windows::core::Handle for FindFileHandle {}
+unsafe impl ::windows::core::Abi for FindFileHandle {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5746,14 +5730,14 @@ impl ::core::default::Default for FindFileNameHandle {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for FindFileNameHandle {}
-unsafe impl ::windows::runtime::Abi for FindFileNameHandle {
+unsafe impl ::windows::core::Handle for FindFileNameHandle {}
+unsafe impl ::windows::core::Abi for FindFileNameHandle {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstChangeNotificationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lppathname: Param0, bwatchsubtree: Param1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle {
+pub unsafe fn FindFirstChangeNotificationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lppathname: Param0, bwatchsubtree: Param1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5768,7 +5752,7 @@ pub unsafe fn FindFirstChangeNotificationA<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstChangeNotificationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lppathname: Param0, bwatchsubtree: Param1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle {
+pub unsafe fn FindFirstChangeNotificationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lppathname: Param0, bwatchsubtree: Param1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5783,7 +5767,7 @@ pub unsafe fn FindFirstChangeNotificationW<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpfindfiledata: *mut WIN32_FIND_DATAA) -> FindFileHandle {
+pub unsafe fn FindFirstFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpfindfiledata: *mut WIN32_FIND_DATAA) -> FindFileHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5798,7 +5782,7 @@ pub unsafe fn FindFirstFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle {
+pub unsafe fn FindFirstFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5813,7 +5797,7 @@ pub unsafe fn FindFirstFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileExFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE {
+pub unsafe fn FindFirstFileExFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5828,7 +5812,7 @@ pub unsafe fn FindFirstFileExFromAppW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle {
+pub unsafe fn FindFirstFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5843,7 +5827,7 @@ pub unsafe fn FindFirstFileExW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileNameTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwflags: u32, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR, htransaction: Param4) -> FindFileNameHandle {
+pub unsafe fn FindFirstFileNameTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwflags: u32, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR, htransaction: Param4) -> FindFileNameHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5858,7 +5842,7 @@ pub unsafe fn FindFirstFileNameTransactedW<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwflags: u32, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR) -> FindFileNameHandle {
+pub unsafe fn FindFirstFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwflags: u32, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR) -> FindFileNameHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5873,7 +5857,7 @@ pub unsafe fn FindFirstFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: Param6) -> FindFileHandle {
+pub unsafe fn FindFirstFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: Param6) -> FindFileHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5888,7 +5872,7 @@ pub unsafe fn FindFirstFileTransactedA<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: Param6) -> FindFileHandle {
+pub unsafe fn FindFirstFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: Param6) -> FindFileHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5903,7 +5887,7 @@ pub unsafe fn FindFirstFileTransactedW<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpfindfiledata: *mut WIN32_FIND_DATAW) -> FindFileHandle {
+pub unsafe fn FindFirstFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpfindfiledata: *mut WIN32_FIND_DATAW) -> FindFileHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5918,7 +5902,7 @@ pub unsafe fn FindFirstFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstStreamTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: Param4) -> FindStreamHandle {
+pub unsafe fn FindFirstStreamTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: Param4) -> FindStreamHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5933,7 +5917,7 @@ pub unsafe fn FindFirstStreamTransactedW<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> FindStreamHandle {
+pub unsafe fn FindFirstStreamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> FindStreamHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5963,7 +5947,7 @@ pub unsafe fn FindFirstVolumeA(lpszvolumename: super::super::Foundation::PSTR, c
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstVolumeMountPointA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszrootpathname: Param0, lpszvolumemountpoint: super::super::Foundation::PSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle {
+pub unsafe fn FindFirstVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszrootpathname: Param0, lpszvolumemountpoint: super::super::Foundation::PSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5978,7 +5962,7 @@ pub unsafe fn FindFirstVolumeMountPointA<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstVolumeMountPointW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszrootpathname: Param0, lpszvolumemountpoint: super::super::Foundation::PWSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle {
+pub unsafe fn FindFirstVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszrootpathname: Param0, lpszvolumemountpoint: super::super::Foundation::PWSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6008,7 +5992,7 @@ pub unsafe fn FindFirstVolumeW(lpszvolumename: super::super::Foundation::PWSTR, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, FindChangeNotificationHandle>>(hchangehandle: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, FindChangeNotificationHandle>>(hchangehandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6023,7 +6007,7 @@ pub unsafe fn FindNextChangeNotification<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextFileA<'a, Param0: ::windows::runtime::IntoParam<'a, FindFileHandle>>(hfindfile: Param0, lpfindfiledata: *mut WIN32_FIND_DATAA) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextFileA<'a, Param0: ::windows::core::IntoParam<'a, FindFileHandle>>(hfindfile: Param0, lpfindfiledata: *mut WIN32_FIND_DATAA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6038,7 +6022,7 @@ pub unsafe fn FindNextFileA<'a, Param0: ::windows::runtime::IntoParam<'a, FindFi
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, FindFileNameHandle>>(hfindstream: Param0, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextFileNameW<'a, Param0: ::windows::core::IntoParam<'a, FindFileNameHandle>>(hfindstream: Param0, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6053,7 +6037,7 @@ pub unsafe fn FindNextFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, Fi
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfindfile: Param0, lpfindfiledata: *mut WIN32_FIND_DATAW) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfindfile: Param0, lpfindfiledata: *mut WIN32_FIND_DATAW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6068,7 +6052,7 @@ pub unsafe fn FindNextFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, FindStreamHandle>>(hfindstream: Param0, lpfindstreamdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextStreamW<'a, Param0: ::windows::core::IntoParam<'a, FindStreamHandle>>(hfindstream: Param0, lpfindstreamdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6083,7 +6067,7 @@ pub unsafe fn FindNextStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, Find
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextVolumeA<'a, Param0: ::windows::runtime::IntoParam<'a, FindVolumeHandle>>(hfindvolume: Param0, lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextVolumeA<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeHandle>>(hfindvolume: Param0, lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6098,7 +6082,7 @@ pub unsafe fn FindNextVolumeA<'a, Param0: ::windows::runtime::IntoParam<'a, Find
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextVolumeMountPointA<'a, Param0: ::windows::runtime::IntoParam<'a, FindVolumeMointPointHandle>>(hfindvolumemountpoint: Param0, lpszvolumemountpoint: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeMointPointHandle>>(hfindvolumemountpoint: Param0, lpszvolumemountpoint: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6113,7 +6097,7 @@ pub unsafe fn FindNextVolumeMountPointA<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextVolumeMountPointW<'a, Param0: ::windows::runtime::IntoParam<'a, FindVolumeMointPointHandle>>(hfindvolumemountpoint: Param0, lpszvolumemountpoint: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeMointPointHandle>>(hfindvolumemountpoint: Param0, lpszvolumemountpoint: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6128,7 +6112,7 @@ pub unsafe fn FindNextVolumeMountPointW<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::runtime::IntoParam<'a, FindVolumeHandle>>(hfindvolume: Param0, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeHandle>>(hfindvolume: Param0, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6148,14 +6132,14 @@ impl ::core::default::Default for FindStreamHandle {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for FindStreamHandle {}
-unsafe impl ::windows::runtime::Abi for FindStreamHandle {
+unsafe impl ::windows::core::Handle for FindStreamHandle {}
+unsafe impl ::windows::core::Abi for FindStreamHandle {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindVolumeClose<'a, Param0: ::windows::runtime::IntoParam<'a, FindVolumeHandle>>(hfindvolume: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn FindVolumeClose<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeHandle>>(hfindvolume: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6175,8 +6159,8 @@ impl ::core::default::Default for FindVolumeHandle {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for FindVolumeHandle {}
-unsafe impl ::windows::runtime::Abi for FindVolumeHandle {
+unsafe impl ::windows::core::Handle for FindVolumeHandle {}
+unsafe impl ::windows::core::Abi for FindVolumeHandle {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6187,14 +6171,14 @@ impl ::core::default::Default for FindVolumeMointPointHandle {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for FindVolumeMointPointHandle {}
-unsafe impl ::windows::runtime::Abi for FindVolumeMointPointHandle {
+unsafe impl ::windows::core::Handle for FindVolumeMointPointHandle {}
+unsafe impl ::windows::core::Abi for FindVolumeMointPointHandle {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindVolumeMountPointClose<'a, Param0: ::windows::runtime::IntoParam<'a, FindVolumeMointPointHandle>>(hfindvolumemountpoint: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn FindVolumeMountPointClose<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeMointPointHandle>>(hfindvolumemountpoint: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6209,7 +6193,7 @@ pub unsafe fn FindVolumeMountPointClose<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FlushFileBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn FlushFileBuffers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6306,7 +6290,7 @@ impl ::core::convert::From<i32> for GET_FILEEX_INFO_LEVELS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GET_FILEEX_INFO_LEVELS {
+unsafe impl ::windows::core::Abi for GET_FILEEX_INFO_LEVELS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -6321,7 +6305,7 @@ impl ::core::convert::From<u32> for GET_FILE_VERSION_INFO_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GET_FILE_VERSION_INFO_FLAGS {
+unsafe impl ::windows::core::Abi for GET_FILE_VERSION_INFO_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for GET_FILE_VERSION_INFO_FLAGS {
@@ -6363,7 +6347,7 @@ impl ::core::convert::From<u32> for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
+unsafe impl ::windows::core::Abi for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
@@ -6397,7 +6381,7 @@ impl ::core::ops::Not for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetBinaryTypeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpapplicationname: Param0, lpbinarytype: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetBinaryTypeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpapplicationname: Param0, lpbinarytype: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6412,7 +6396,7 @@ pub unsafe fn GetBinaryTypeA<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetBinaryTypeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpapplicationname: Param0, lpbinarytype: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetBinaryTypeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpapplicationname: Param0, lpbinarytype: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6427,7 +6411,7 @@ pub unsafe fn GetBinaryTypeW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCompressedFileSizeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpfilesizehigh: *mut u32) -> u32 {
+pub unsafe fn GetCompressedFileSizeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpfilesizehigh: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6442,7 +6426,7 @@ pub unsafe fn GetCompressedFileSizeA<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCompressedFileSizeTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpfilesizehigh: *mut u32, htransaction: Param2) -> u32 {
+pub unsafe fn GetCompressedFileSizeTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpfilesizehigh: *mut u32, htransaction: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6457,7 +6441,7 @@ pub unsafe fn GetCompressedFileSizeTransactedA<'a, Param0: ::windows::runtime::I
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCompressedFileSizeTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpfilesizehigh: *mut u32, htransaction: Param2) -> u32 {
+pub unsafe fn GetCompressedFileSizeTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpfilesizehigh: *mut u32, htransaction: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6472,7 +6456,7 @@ pub unsafe fn GetCompressedFileSizeTransactedW<'a, Param0: ::windows::runtime::I
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCompressedFileSizeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpfilesizehigh: *mut u32) -> u32 {
+pub unsafe fn GetCompressedFileSizeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpfilesizehigh: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6487,7 +6471,7 @@ pub unsafe fn GetCompressedFileSizeW<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCurrentClockTransactionManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCurrentClockTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6502,7 +6486,7 @@ pub unsafe fn GetCurrentClockTransactionManager<'a, Param0: ::windows::runtime::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDiskFreeSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDiskFreeSpaceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6517,7 +6501,7 @@ pub unsafe fn GetDiskFreeSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDiskFreeSpaceExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpdirectoryname: Param0, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDiskFreeSpaceExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpdirectoryname: Param0, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6532,7 +6516,7 @@ pub unsafe fn GetDiskFreeSpaceExA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDiskFreeSpaceExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdirectoryname: Param0, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDiskFreeSpaceExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdirectoryname: Param0, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6547,7 +6531,7 @@ pub unsafe fn GetDiskFreeSpaceExW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDiskFreeSpaceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDiskFreeSpaceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6562,14 +6546,14 @@ pub unsafe fn GetDiskFreeSpaceW<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDiskSpaceInformationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(rootpath: Param0) -> ::windows::runtime::Result<DISK_SPACE_INFORMATION> {
+pub unsafe fn GetDiskSpaceInformationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(rootpath: Param0) -> ::windows::core::Result<DISK_SPACE_INFORMATION> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDiskSpaceInformationA(rootpath: super::super::Foundation::PSTR, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> ::windows::runtime::HRESULT;
+            fn GetDiskSpaceInformationA(rootpath: super::super::Foundation::PSTR, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> ::windows::core::HRESULT;
         }
-        let mut result__: <DISK_SPACE_INFORMATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <DISK_SPACE_INFORMATION as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetDiskSpaceInformationA(rootpath.into_param().abi(), &mut result__).from_abi::<DISK_SPACE_INFORMATION>(result__)
     }
     #[cfg(not(windows))]
@@ -6578,14 +6562,14 @@ pub unsafe fn GetDiskSpaceInformationA<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDiskSpaceInformationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(rootpath: Param0) -> ::windows::runtime::Result<DISK_SPACE_INFORMATION> {
+pub unsafe fn GetDiskSpaceInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(rootpath: Param0) -> ::windows::core::Result<DISK_SPACE_INFORMATION> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDiskSpaceInformationW(rootpath: super::super::Foundation::PWSTR, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> ::windows::runtime::HRESULT;
+            fn GetDiskSpaceInformationW(rootpath: super::super::Foundation::PWSTR, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> ::windows::core::HRESULT;
         }
-        let mut result__: <DISK_SPACE_INFORMATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <DISK_SPACE_INFORMATION as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetDiskSpaceInformationW(rootpath.into_param().abi(), &mut result__).from_abi::<DISK_SPACE_INFORMATION>(result__)
     }
     #[cfg(not(windows))]
@@ -6594,7 +6578,7 @@ pub unsafe fn GetDiskSpaceInformationW<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDriveTypeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0) -> u32 {
+pub unsafe fn GetDriveTypeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6609,7 +6593,7 @@ pub unsafe fn GetDriveTypeA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDriveTypeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0) -> u32 {
+pub unsafe fn GetDriveTypeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6624,7 +6608,7 @@ pub unsafe fn GetDriveTypeW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetEncryptedFileMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pcbmetadata: *mut u32, ppbmetadata: *mut *mut u8) -> u32 {
+pub unsafe fn GetEncryptedFileMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pcbmetadata: *mut u32, ppbmetadata: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6639,12 +6623,12 @@ pub unsafe fn GetEncryptedFileMetadata<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetEnlistmentId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, enlistmentid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL {
+pub unsafe fn GetEnlistmentId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, enlistmentid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetEnlistmentId(enlistmenthandle: super::super::Foundation::HANDLE, enlistmentid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL;
+            fn GetEnlistmentId(enlistmenthandle: super::super::Foundation::HANDLE, enlistmentid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetEnlistmentId(enlistmenthandle.into_param().abi(), ::core::mem::transmute(enlistmentid)))
     }
@@ -6654,7 +6638,7 @@ pub unsafe fn GetEnlistmentId<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetEnlistmentRecoveryInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetEnlistmentRecoveryInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6669,7 +6653,7 @@ pub unsafe fn GetEnlistmentRecoveryInformation<'a, Param0: ::windows::runtime::I
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetExpandedNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszsource: Param0, lpszbuffer: super::super::Foundation::PSTR) -> i32 {
+pub unsafe fn GetExpandedNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszsource: Param0, lpszbuffer: super::super::Foundation::PSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6684,7 +6668,7 @@ pub unsafe fn GetExpandedNameA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetExpandedNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszsource: Param0, lpszbuffer: super::super::Foundation::PWSTR) -> i32 {
+pub unsafe fn GetExpandedNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszsource: Param0, lpszbuffer: super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6699,7 +6683,7 @@ pub unsafe fn GetExpandedNameW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> u32 {
+pub unsafe fn GetFileAttributesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6714,7 +6698,7 @@ pub unsafe fn GetFileAttributesA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileAttributesExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6729,7 +6713,7 @@ pub unsafe fn GetFileAttributesExA<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesExFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileAttributesExFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6744,7 +6728,7 @@ pub unsafe fn GetFileAttributesExFromAppW<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileAttributesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6759,7 +6743,7 @@ pub unsafe fn GetFileAttributesExW<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileAttributesTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6774,7 +6758,7 @@ pub unsafe fn GetFileAttributesTransactedA<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileAttributesTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6789,7 +6773,7 @@ pub unsafe fn GetFileAttributesTransactedW<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> u32 {
+pub unsafe fn GetFileAttributesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6804,7 +6788,7 @@ pub unsafe fn GetFileAttributesW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileBandwidthReservation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpperiodmilliseconds: *mut u32, lpbytesperperiod: *mut u32, pdiscardable: *mut i32, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileBandwidthReservation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpperiodmilliseconds: *mut u32, lpbytesperperiod: *mut u32, pdiscardable: *mut i32, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6819,7 +6803,7 @@ pub unsafe fn GetFileBandwidthReservation<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileInformationByHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpfileinformation: *mut BY_HANDLE_FILE_INFORMATION) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileInformationByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpfileinformation: *mut BY_HANDLE_FILE_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6834,7 +6818,7 @@ pub unsafe fn GetFileInformationByHandle<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileInformationByHandleEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileInformationByHandleEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6849,7 +6833,7 @@ pub unsafe fn GetFileInformationByHandleEx<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpfilesizehigh: *mut u32) -> u32 {
+pub unsafe fn GetFileSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpfilesizehigh: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6864,7 +6848,7 @@ pub unsafe fn GetFileSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileSizeEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpfilesize: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileSizeEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpfilesize: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6879,7 +6863,7 @@ pub unsafe fn GetFileSizeEx<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcreationtime: *mut super::super::Foundation::FILETIME, lplastaccesstime: *mut super::super::Foundation::FILETIME, lplastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcreationtime: *mut super::super::Foundation::FILETIME, lplastaccesstime: *mut super::super::Foundation::FILETIME, lplastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6894,7 +6878,7 @@ pub unsafe fn GetFileTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> u32 {
+pub unsafe fn GetFileType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6909,7 +6893,7 @@ pub unsafe fn GetFileType<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lptstrfilename: Param0, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileVersionInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lptstrfilename: Param0, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6924,7 +6908,7 @@ pub unsafe fn GetFileVersionInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileVersionInfoExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6939,7 +6923,7 @@ pub unsafe fn GetFileVersionInfoExA<'a, Param1: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileVersionInfoExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6954,7 +6938,7 @@ pub unsafe fn GetFileVersionInfoExW<'a, Param1: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoSizeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lptstrfilename: Param0, lpdwhandle: *mut u32) -> u32 {
+pub unsafe fn GetFileVersionInfoSizeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lptstrfilename: Param0, lpdwhandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6969,7 +6953,7 @@ pub unsafe fn GetFileVersionInfoSizeA<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoSizeExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, lpdwhandle: *mut u32) -> u32 {
+pub unsafe fn GetFileVersionInfoSizeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, lpdwhandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6984,7 +6968,7 @@ pub unsafe fn GetFileVersionInfoSizeExA<'a, Param1: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoSizeExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, lpdwhandle: *mut u32) -> u32 {
+pub unsafe fn GetFileVersionInfoSizeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, lpdwhandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6999,7 +6983,7 @@ pub unsafe fn GetFileVersionInfoSizeExW<'a, Param1: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoSizeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lptstrfilename: Param0, lpdwhandle: *mut u32) -> u32 {
+pub unsafe fn GetFileVersionInfoSizeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lptstrfilename: Param0, lpdwhandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7014,7 +6998,7 @@ pub unsafe fn GetFileVersionInfoSizeW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lptstrfilename: Param0, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileVersionInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lptstrfilename: Param0, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7029,7 +7013,7 @@ pub unsafe fn GetFileVersionInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFinalPathNameByHandleA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpszfilepath: super::super::Foundation::PSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32 {
+pub unsafe fn GetFinalPathNameByHandleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpszfilepath: super::super::Foundation::PSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7044,7 +7028,7 @@ pub unsafe fn GetFinalPathNameByHandleA<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFinalPathNameByHandleW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpszfilepath: super::super::Foundation::PWSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32 {
+pub unsafe fn GetFinalPathNameByHandleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpszfilepath: super::super::Foundation::PWSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7059,7 +7043,7 @@ pub unsafe fn GetFinalPathNameByHandleW<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFullPathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn GetFullPathNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7074,7 +7058,7 @@ pub unsafe fn GetFullPathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFullPathNameTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR, htransaction: Param4) -> u32 {
+pub unsafe fn GetFullPathNameTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR, htransaction: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7089,7 +7073,7 @@ pub unsafe fn GetFullPathNameTransactedA<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFullPathNameTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR, htransaction: Param4) -> u32 {
+pub unsafe fn GetFullPathNameTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR, htransaction: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7104,7 +7088,7 @@ pub unsafe fn GetFullPathNameTransactedW<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFullPathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn GetFullPathNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7118,14 +7102,14 @@ pub unsafe fn GetFullPathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[inline]
-pub unsafe fn GetIoRingInfo(ioring: *const HIORING__) -> ::windows::runtime::Result<IORING_INFO> {
+pub unsafe fn GetIoRingInfo(ioring: *const HIORING__) -> ::windows::core::Result<IORING_INFO> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIoRingInfo(ioring: *const HIORING__, info: *mut IORING_INFO) -> ::windows::runtime::HRESULT;
+            fn GetIoRingInfo(ioring: *const HIORING__, info: *mut IORING_INFO) -> ::windows::core::HRESULT;
         }
-        let mut result__: <IORING_INFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <IORING_INFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         GetIoRingInfo(::core::mem::transmute(ioring), &mut result__).from_abi::<IORING_INFO>(result__)
     }
     #[cfg(not(windows))]
@@ -7134,7 +7118,7 @@ pub unsafe fn GetIoRingInfo(ioring: *const HIORING__) -> ::windows::runtime::Res
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLogContainerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: Param0, cidlogicalcontainer: u32, pwstrcontainername: Param2, clencontainername: u32, pcactuallencontainername: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetLogContainerName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: Param0, cidlogicalcontainer: u32, pwstrcontainername: Param2, clencontainername: u32, pcactuallencontainername: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7149,7 +7133,7 @@ pub unsafe fn GetLogContainerName<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLogFileInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pinfobuffer: *mut CLS_INFORMATION, cbbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetLogFileInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pinfobuffer: *mut CLS_INFORMATION, cbbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7164,7 +7148,7 @@ pub unsafe fn GetLogFileInformation<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLogIoStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pvstatsbuffer: *mut ::core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetLogIoStatistics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pvstatsbuffer: *mut ::core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7238,7 +7222,7 @@ pub unsafe fn GetLogicalDrives() -> u32 {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLongPathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PSTR, cchbuffer: u32) -> u32 {
+pub unsafe fn GetLongPathNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PSTR, cchbuffer: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7253,7 +7237,7 @@ pub unsafe fn GetLongPathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLongPathNameTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PSTR, cchbuffer: u32, htransaction: Param3) -> u32 {
+pub unsafe fn GetLongPathNameTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PSTR, cchbuffer: u32, htransaction: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7268,7 +7252,7 @@ pub unsafe fn GetLongPathNameTransactedA<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLongPathNameTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PWSTR, cchbuffer: u32, htransaction: Param3) -> u32 {
+pub unsafe fn GetLongPathNameTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PWSTR, cchbuffer: u32, htransaction: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7283,7 +7267,7 @@ pub unsafe fn GetLongPathNameTransactedW<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLongPathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PWSTR, cchbuffer: u32) -> u32 {
+pub unsafe fn GetLongPathNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PWSTR, cchbuffer: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7313,7 +7297,7 @@ pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::core::ffi::c_void
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNotificationResourceManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0, transactionnotification: *mut TRANSACTION_NOTIFICATION, notificationlength: u32, dwmilliseconds: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetNotificationResourceManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0, transactionnotification: *mut TRANSACTION_NOTIFICATION, notificationlength: u32, dwmilliseconds: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7328,7 +7312,7 @@ pub unsafe fn GetNotificationResourceManager<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn GetNotificationResourceManagerAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0, transactionnotification: *mut TRANSACTION_NOTIFICATION, transactionnotificationlength: u32, returnlength: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn GetNotificationResourceManagerAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0, transactionnotification: *mut TRANSACTION_NOTIFICATION, transactionnotificationlength: u32, returnlength: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7343,7 +7327,7 @@ pub unsafe fn GetNotificationResourceManagerAsync<'a, Param0: ::windows::runtime
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetShortPathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszlongpath: Param0, lpszshortpath: super::super::Foundation::PSTR, cchbuffer: u32) -> u32 {
+pub unsafe fn GetShortPathNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszlongpath: Param0, lpszshortpath: super::super::Foundation::PSTR, cchbuffer: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7358,7 +7342,7 @@ pub unsafe fn GetShortPathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetShortPathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszlongpath: Param0, lpszshortpath: super::super::Foundation::PWSTR, cchbuffer: u32) -> u32 {
+pub unsafe fn GetShortPathNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszlongpath: Param0, lpszshortpath: super::super::Foundation::PWSTR, cchbuffer: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7373,7 +7357,7 @@ pub unsafe fn GetShortPathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTapeParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn GetTapeParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7388,7 +7372,7 @@ pub unsafe fn GetTapeParameters<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTapePosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: *mut u32, lpdwoffsetlow: *mut u32, lpdwoffsethigh: *mut u32) -> u32 {
+pub unsafe fn GetTapePosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: *mut u32, lpdwoffsetlow: *mut u32, lpdwoffsethigh: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7403,7 +7387,7 @@ pub unsafe fn GetTapePosition<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTapeStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0) -> u32 {
+pub unsafe fn GetTapeStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7418,7 +7402,7 @@ pub unsafe fn GetTapeStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTempFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lppathname: Param0, lpprefixstring: Param1, uunique: u32, lptempfilename: super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn GetTempFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lppathname: Param0, lpprefixstring: Param1, uunique: u32, lptempfilename: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7433,7 +7417,7 @@ pub unsafe fn GetTempFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTempFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0, lpprefixstring: Param1, uunique: u32, lptempfilename: super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn GetTempFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0, lpprefixstring: Param1, uunique: u32, lptempfilename: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7508,12 +7492,12 @@ pub unsafe fn GetTempPathW(nbufferlength: u32, lpbuffer: super::super::Foundatio
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTransactionId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0, transactionid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL {
+pub unsafe fn GetTransactionId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0, transactionid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetTransactionId(transactionhandle: super::super::Foundation::HANDLE, transactionid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL;
+            fn GetTransactionId(transactionhandle: super::super::Foundation::HANDLE, transactionid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetTransactionId(transactionhandle.into_param().abi(), ::core::mem::transmute(transactionid)))
     }
@@ -7523,7 +7507,7 @@ pub unsafe fn GetTransactionId<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTransactionInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0, outcome: *mut u32, isolationlevel: *mut u32, isolationflags: *mut u32, timeout: *mut u32, bufferlength: u32, description: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn GetTransactionInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0, outcome: *mut u32, isolationlevel: *mut u32, isolationflags: *mut u32, timeout: *mut u32, bufferlength: u32, description: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7538,12 +7522,12 @@ pub unsafe fn GetTransactionInformation<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTransactionManagerId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0, transactionmanagerid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL {
+pub unsafe fn GetTransactionManagerId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0, transactionmanagerid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetTransactionManagerId(transactionmanagerhandle: super::super::Foundation::HANDLE, transactionmanagerid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL;
+            fn GetTransactionManagerId(transactionmanagerhandle: super::super::Foundation::HANDLE, transactionmanagerid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetTransactionManagerId(transactionmanagerhandle.into_param().abi(), ::core::mem::transmute(transactionmanagerid)))
     }
@@ -7553,7 +7537,7 @@ pub unsafe fn GetTransactionManagerId<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVolumeInformationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0, lpvolumenamebuffer: super::super::Foundation::PSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetVolumeInformationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0, lpvolumenamebuffer: super::super::Foundation::PSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7577,7 +7561,7 @@ pub unsafe fn GetVolumeInformationA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVolumeInformationByHandleW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetVolumeInformationByHandleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7601,7 +7585,7 @@ pub unsafe fn GetVolumeInformationByHandleW<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVolumeInformationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetVolumeInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7625,7 +7609,7 @@ pub unsafe fn GetVolumeInformationW<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVolumeNameForVolumeMountPointA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetVolumeNameForVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7640,7 +7624,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointA<'a, Param0: ::windows::runtime::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVolumeNameForVolumeMountPointW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetVolumeNameForVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7655,7 +7639,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointW<'a, Param0: ::windows::runtime::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVolumePathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszfilename: Param0, lpszvolumepathname: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetVolumePathNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszfilename: Param0, lpszvolumepathname: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7670,7 +7654,7 @@ pub unsafe fn GetVolumePathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVolumePathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszfilename: Param0, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetVolumePathNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszfilename: Param0, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7685,7 +7669,7 @@ pub unsafe fn GetVolumePathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVolumePathNamesForVolumeNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumename: Param0, lpszvolumepathnames: super::super::Foundation::PSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetVolumePathNamesForVolumeNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumename: Param0, lpszvolumepathnames: super::super::Foundation::PSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7700,7 +7684,7 @@ pub unsafe fn GetVolumePathNamesForVolumeNameA<'a, Param0: ::windows::runtime::I
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVolumePathNamesForVolumeNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumename: Param0, lpszvolumepathnames: super::super::Foundation::PWSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetVolumePathNamesForVolumeNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumename: Param0, lpszvolumepathnames: super::super::Foundation::PWSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7735,13 +7719,13 @@ impl ::core::cmp::PartialEq for HIORING__ {
     }
 }
 impl ::core::cmp::Eq for HIORING__ {}
-unsafe impl ::windows::runtime::Abi for HIORING__ {
+unsafe impl ::windows::core::Abi for HIORING__ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HandleLogFull<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn HandleLogFull<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7756,140 +7740,140 @@ pub unsafe fn HandleLogFull<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDiskQuotaControl(pub ::windows::runtime::IUnknown);
+pub struct IDiskQuotaControl(pub ::windows::core::IUnknown);
 impl IDiskQuotaControl {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_System_Com`*"]
-    pub unsafe fn EnumConnectionPoints(&self) -> ::windows::runtime::Result<super::super::System::Com::IEnumConnectionPoints> {
-        let mut result__: <super::super::System::Com::IEnumConnectionPoints as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumConnectionPoints>(result__)
+    pub unsafe fn EnumConnectionPoints(&self) -> ::windows::core::Result<super::super::System::Com::IEnumConnectionPoints> {
+        let mut result__: <super::super::System::Com::IEnumConnectionPoints as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumConnectionPoints>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_System_Com`*"]
-    pub unsafe fn FindConnectionPoint(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::System::Com::IConnectionPoint> {
-        let mut result__: <super::super::System::Com::IConnectionPoint as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), &mut result__).from_abi::<super::super::System::Com::IConnectionPoint>(result__)
+    pub unsafe fn FindConnectionPoint(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::IConnectionPoint> {
+        let mut result__: <super::super::System::Com::IConnectionPoint as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), &mut result__).from_abi::<super::super::System::Com::IConnectionPoint>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpath: Param0, breadwrite: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), breadwrite.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpath: Param0, breadwrite: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), breadwrite.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn SetQuotaState(&self, dwstate: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstate)).ok()
+    pub unsafe fn SetQuotaState(&self, dwstate: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstate)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetQuotaState(&self, pdwstate: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwstate)).ok()
+    pub unsafe fn GetQuotaState(&self, pdwstate: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwstate)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn SetQuotaLogFlags(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn SetQuotaLogFlags(&self, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetQuotaLogFlags(&self, pdwflags: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwflags)).ok()
+    pub unsafe fn GetQuotaLogFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwflags)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn SetDefaultQuotaThreshold(&self, llthreshold: i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(llthreshold)).ok()
+    pub unsafe fn SetDefaultQuotaThreshold(&self, llthreshold: i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(llthreshold)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetDefaultQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllthreshold)).ok()
+    pub unsafe fn GetDefaultQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllthreshold)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn GetDefaultQuotaThresholdText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
+    pub unsafe fn GetDefaultQuotaThresholdText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn SetDefaultQuotaLimit(&self, lllimit: i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(lllimit)).ok()
+    pub unsafe fn SetDefaultQuotaLimit(&self, lllimit: i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(lllimit)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetDefaultQuotaLimit(&self, plllimit: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(plllimit)).ok()
+    pub unsafe fn GetDefaultQuotaLimit(&self, plllimit: *mut i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(plllimit)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn GetDefaultQuotaLimitText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
+    pub unsafe fn GetDefaultQuotaLimitText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn AddUserSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(&self, pusersid: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::runtime::Result<IDiskQuotaUser> {
-        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pusersid.into_param().abi(), ::core::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
+    pub unsafe fn AddUserSid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(&self, pusersid: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser> {
+        let mut result__: <IDiskQuotaUser as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pusersid.into_param().abi(), ::core::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn AddUserName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszlogonname: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::runtime::Result<IDiskQuotaUser> {
-        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pszlogonname.into_param().abi(), ::core::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
+    pub unsafe fn AddUserName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszlogonname: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser> {
+        let mut result__: <IDiskQuotaUser as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pszlogonname.into_param().abi(), ::core::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn DeleteUser<'a, Param0: ::windows::runtime::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
+    pub unsafe fn DeleteUser<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn FindUserSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(&self, pusersid: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::runtime::Result<IDiskQuotaUser> {
-        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pusersid.into_param().abi(), ::core::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
+    pub unsafe fn FindUserSid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(&self, pusersid: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser> {
+        let mut result__: <IDiskQuotaUser as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pusersid.into_param().abi(), ::core::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn FindUserName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszlogonname: Param0) -> ::windows::runtime::Result<IDiskQuotaUser> {
-        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), pszlogonname.into_param().abi(), &mut result__).from_abi::<IDiskQuotaUser>(result__)
+    pub unsafe fn FindUserName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszlogonname: Param0) -> ::windows::core::Result<IDiskQuotaUser> {
+        let mut result__: <IDiskQuotaUser as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), pszlogonname.into_param().abi(), &mut result__).from_abi::<IDiskQuotaUser>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(rgpusersids), ::core::mem::transmute(cpsids), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(ppenum)).ok()
+    pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(rgpusersids), ::core::mem::transmute(cpsids), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(ppenum)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn CreateUserBatch(&self) -> ::windows::runtime::Result<IDiskQuotaUserBatch> {
-        let mut result__: <IDiskQuotaUserBatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDiskQuotaUserBatch>(result__)
+    pub unsafe fn CreateUserBatch(&self) -> ::windows::core::Result<IDiskQuotaUserBatch> {
+        let mut result__: <IDiskQuotaUserBatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDiskQuotaUserBatch>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn InvalidateSidNameCache(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn InvalidateSidNameCache(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GiveUserNameResolutionPriority<'a, Param0: ::windows::runtime::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
+    pub unsafe fn GiveUserNameResolutionPriority<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn ShutdownNameResolution(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn ShutdownNameResolution(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDiskQuotaControl {
+unsafe impl ::windows::core::Interface for IDiskQuotaControl {
     type Vtable = IDiskQuotaControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b572_ec89_11cf_9c00_00aa00a14f56);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b572_ec89_11cf_9c00_00aa00a14f56);
 }
-impl ::core::convert::From<IDiskQuotaControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDiskQuotaControl> for ::windows::core::IUnknown {
     fn from(value: IDiskQuotaControl) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDiskQuotaControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDiskQuotaControl> for ::windows::core::IUnknown {
     fn from(value: &IDiskQuotaControl) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiskQuotaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuotaControl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDiskQuotaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaControl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7905,337 +7889,337 @@ impl ::core::convert::From<&IDiskQuotaControl> for super::super::System::Com::IC
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IConnectionPointContainer> for IDiskQuotaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IConnectionPointContainer> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IConnectionPointContainer> for IDiskQuotaControl {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IConnectionPointContainer> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IConnectionPointContainer> for &IDiskQuotaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IConnectionPointContainer> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IConnectionPointContainer> for &IDiskQuotaControl {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IConnectionPointContainer> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaControl_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppcp: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppcp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpath: super::super::Foundation::PWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszpath: super::super::Foundation::PWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwstate: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstate: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwflags: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, llthreshold: i64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pllthreshold: *mut i64) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwstate: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwstate: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwflags: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, llthreshold: i64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pllthreshold: *mut i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lllimit: i64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plllimit: *mut i64) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lllimit: i64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, plllimit: *mut i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszlogonname: super::super::Foundation::PWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszlogonname: super::super::Foundation::PWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puser: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszlogonname: super::super::Foundation::PWSTR, ppuser: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszlogonname: super::super::Foundation::PWSTR, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppbatch: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puser: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppbatch: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDiskQuotaEvents(pub ::windows::runtime::IUnknown);
+pub struct IDiskQuotaEvents(pub ::windows::core::IUnknown);
 impl IDiskQuotaEvents {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn OnUserNameChanged<'a, Param0: ::windows::runtime::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
+    pub unsafe fn OnUserNameChanged<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDiskQuotaEvents {
+unsafe impl ::windows::core::Interface for IDiskQuotaEvents {
     type Vtable = IDiskQuotaEvents_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b579_ec89_11cf_9c00_00aa00a14f56);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b579_ec89_11cf_9c00_00aa00a14f56);
 }
-impl ::core::convert::From<IDiskQuotaEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDiskQuotaEvents> for ::windows::core::IUnknown {
     fn from(value: IDiskQuotaEvents) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDiskQuotaEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDiskQuotaEvents> for ::windows::core::IUnknown {
     fn from(value: &IDiskQuotaEvents) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiskQuotaEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuotaEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDiskQuotaEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaEvents_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puser: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDiskQuotaUser(pub ::windows::runtime::IUnknown);
+pub struct IDiskQuotaUser(pub ::windows::core::IUnknown);
 impl IDiskQuotaUser {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetID(&self, pulid: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pulid)).ok()
+    pub unsafe fn GetID(&self, pulid: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pulid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn GetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszaccountcontainer: Param0, cchaccountcontainer: u32, pszlogonname: Param2, cchlogonname: u32, pszdisplayname: Param4, cchdisplayname: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszaccountcontainer.into_param().abi(), ::core::mem::transmute(cchaccountcontainer), pszlogonname.into_param().abi(), ::core::mem::transmute(cchlogonname), pszdisplayname.into_param().abi(), ::core::mem::transmute(cchdisplayname)).ok()
+    pub unsafe fn GetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszaccountcontainer: Param0, cchaccountcontainer: u32, pszlogonname: Param2, cchlogonname: u32, pszdisplayname: Param4, cchdisplayname: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszaccountcontainer.into_param().abi(), ::core::mem::transmute(cchaccountcontainer), pszlogonname.into_param().abi(), ::core::mem::transmute(cchlogonname), pszdisplayname.into_param().abi(), ::core::mem::transmute(cchdisplayname)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetSidLength(&self, pdwlength: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwlength)).ok()
+    pub unsafe fn GetSidLength(&self, pdwlength: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetSid(&self, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsidbuffer), ::core::mem::transmute(cbsidbuffer)).ok()
+    pub unsafe fn GetSid(&self, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsidbuffer), ::core::mem::transmute(cbsidbuffer)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllthreshold)).ok()
+    pub unsafe fn GetQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllthreshold)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn GetQuotaThresholdText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
+    pub unsafe fn GetQuotaThresholdText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetQuotaLimit(&self, plllimit: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(plllimit)).ok()
+    pub unsafe fn GetQuotaLimit(&self, plllimit: *mut i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(plllimit)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn GetQuotaLimitText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
+    pub unsafe fn GetQuotaLimitText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetQuotaUsed(&self, pllused: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllused)).ok()
+    pub unsafe fn GetQuotaUsed(&self, pllused: *mut i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllused)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn GetQuotaUsedText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
+    pub unsafe fn GetQuotaUsedText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbquotainfo), ::core::mem::transmute(cbquotainfo)).ok()
+    pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbquotainfo), ::core::mem::transmute(cbquotainfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn SetQuotaThreshold<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, llthreshold: i64, fwritethrough: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(llthreshold), fwritethrough.into_param().abi()).ok()
+    pub unsafe fn SetQuotaThreshold<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, llthreshold: i64, fwritethrough: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(llthreshold), fwritethrough.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn SetQuotaLimit<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, lllimit: i64, fwritethrough: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(lllimit), fwritethrough.into_param().abi()).ok()
+    pub unsafe fn SetQuotaLimit<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, lllimit: i64, fwritethrough: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(lllimit), fwritethrough.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn Invalidate(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Invalidate(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetAccountStatus(&self, pdwstatus: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwstatus)).ok()
+    pub unsafe fn GetAccountStatus(&self, pdwstatus: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwstatus)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDiskQuotaUser {
+unsafe impl ::windows::core::Interface for IDiskQuotaUser {
     type Vtable = IDiskQuotaUser_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b574_ec89_11cf_9c00_00aa00a14f56);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b574_ec89_11cf_9c00_00aa00a14f56);
 }
-impl ::core::convert::From<IDiskQuotaUser> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDiskQuotaUser> for ::windows::core::IUnknown {
     fn from(value: IDiskQuotaUser) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDiskQuotaUser> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDiskQuotaUser> for ::windows::core::IUnknown {
     fn from(value: &IDiskQuotaUser) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiskQuotaUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuotaUser {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDiskQuotaUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaUser {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaUser_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pulid: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszaccountcontainer: super::super::Foundation::PWSTR, cchaccountcontainer: u32, pszlogonname: super::super::Foundation::PWSTR, cchlogonname: u32, pszdisplayname: super::super::Foundation::PWSTR, cchdisplayname: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pulid: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszaccountcontainer: super::super::Foundation::PWSTR, cchaccountcontainer: u32, pszlogonname: super::super::Foundation::PWSTR, cchlogonname: u32, pszdisplayname: super::super::Foundation::PWSTR, cchdisplayname: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwlength: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pllthreshold: *mut i64) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pllthreshold: *mut i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plllimit: *mut i64) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, plllimit: *mut i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pllused: *mut i64) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pllused: *mut i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, llthreshold: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, llthreshold: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lllimit: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lllimit: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDiskQuotaUserBatch(pub ::windows::runtime::IUnknown);
+pub struct IDiskQuotaUserBatch(pub ::windows::core::IUnknown);
 impl IDiskQuotaUserBatch {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
+    pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn RemoveAll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn RemoveAll(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn FlushToDisk(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn FlushToDisk(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDiskQuotaUserBatch {
+unsafe impl ::windows::core::Interface for IDiskQuotaUserBatch {
     type Vtable = IDiskQuotaUserBatch_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b576_ec89_11cf_9c00_00aa00a14f56);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b576_ec89_11cf_9c00_00aa00a14f56);
 }
-impl ::core::convert::From<IDiskQuotaUserBatch> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDiskQuotaUserBatch> for ::windows::core::IUnknown {
     fn from(value: IDiskQuotaUserBatch) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDiskQuotaUserBatch> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDiskQuotaUserBatch> for ::windows::core::IUnknown {
     fn from(value: &IDiskQuotaUserBatch) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiskQuotaUserBatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuotaUserBatch {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDiskQuotaUserBatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaUserBatch {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaUserBatch_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puser: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puser: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IEnumDiskQuotaUsers(pub ::windows::runtime::IUnknown);
+pub struct IEnumDiskQuotaUsers(pub ::windows::core::IUnknown);
 impl IEnumDiskQuotaUsers {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn Next(&self, cusers: u32, rgusers: *mut ::core::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cusers), ::core::mem::transmute(rgusers), ::core::mem::transmute(pcusersfetched)).ok()
+    pub unsafe fn Next(&self, cusers: u32, rgusers: *mut ::core::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cusers), ::core::mem::transmute(rgusers), ::core::mem::transmute(pcusersfetched)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn Skip(&self, cusers: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(cusers)).ok()
+    pub unsafe fn Skip(&self, cusers: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(cusers)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumDiskQuotaUsers> {
-        let mut result__: <IEnumDiskQuotaUsers as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDiskQuotaUsers>(result__)
+    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumDiskQuotaUsers> {
+        let mut result__: <IEnumDiskQuotaUsers as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDiskQuotaUsers>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IEnumDiskQuotaUsers {
+unsafe impl ::windows::core::Interface for IEnumDiskQuotaUsers {
     type Vtable = IEnumDiskQuotaUsers_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7988b577_ec89_11cf_9c00_00aa00a14f56);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b577_ec89_11cf_9c00_00aa00a14f56);
 }
-impl ::core::convert::From<IEnumDiskQuotaUsers> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumDiskQuotaUsers> for ::windows::core::IUnknown {
     fn from(value: IEnumDiskQuotaUsers) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IEnumDiskQuotaUsers> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumDiskQuotaUsers> for ::windows::core::IUnknown {
     fn from(value: &IEnumDiskQuotaUsers) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDiskQuotaUsers {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumDiskQuotaUsers {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumDiskQuotaUsers {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumDiskQuotaUsers {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDiskQuotaUsers_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cusers: u32, rgusers: *mut ::windows::runtime::RawPtr, pcusersfetched: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cusers: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cusers: u32, rgusers: *mut ::windows::core::RawPtr, pcusersfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cusers: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
@@ -8323,7 +8307,7 @@ impl ::core::cmp::PartialEq for IORING_BUFFER_INFO {
     }
 }
 impl ::core::cmp::Eq for IORING_BUFFER_INFO {}
-unsafe impl ::windows::runtime::Abi for IORING_BUFFER_INFO {
+unsafe impl ::windows::core::Abi for IORING_BUFFER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8345,7 +8329,7 @@ impl ::core::cmp::PartialEq for IORING_BUFFER_REF {
     }
 }
 impl ::core::cmp::Eq for IORING_BUFFER_REF {}
-unsafe impl ::windows::runtime::Abi for IORING_BUFFER_REF {
+unsafe impl ::windows::core::Abi for IORING_BUFFER_REF {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8367,7 +8351,7 @@ impl ::core::cmp::PartialEq for IORING_BUFFER_REF_0 {
     }
 }
 impl ::core::cmp::Eq for IORING_BUFFER_REF_0 {}
-unsafe impl ::windows::runtime::Abi for IORING_BUFFER_REF_0 {
+unsafe impl ::windows::core::Abi for IORING_BUFFER_REF_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8396,7 +8380,7 @@ impl ::core::cmp::PartialEq for IORING_CAPABILITIES {
     }
 }
 impl ::core::cmp::Eq for IORING_CAPABILITIES {}
-unsafe impl ::windows::runtime::Abi for IORING_CAPABILITIES {
+unsafe impl ::windows::core::Abi for IORING_CAPABILITIES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8404,7 +8388,7 @@ unsafe impl ::windows::runtime::Abi for IORING_CAPABILITIES {
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct IORING_CQE {
     pub UserData: usize,
-    pub ResultCode: ::windows::runtime::HRESULT,
+    pub ResultCode: ::windows::core::HRESULT,
     pub Information: usize,
 }
 impl IORING_CQE {}
@@ -8424,7 +8408,7 @@ impl ::core::cmp::PartialEq for IORING_CQE {
     }
 }
 impl ::core::cmp::Eq for IORING_CQE {}
-unsafe impl ::windows::runtime::Abi for IORING_CQE {
+unsafe impl ::windows::core::Abi for IORING_CQE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -8437,7 +8421,7 @@ impl ::core::convert::From<i32> for IORING_CREATE_ADVISORY_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IORING_CREATE_ADVISORY_FLAGS {
+unsafe impl ::windows::core::Abi for IORING_CREATE_ADVISORY_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8464,7 +8448,7 @@ impl ::core::cmp::PartialEq for IORING_CREATE_FLAGS {
     }
 }
 impl ::core::cmp::Eq for IORING_CREATE_FLAGS {}
-unsafe impl ::windows::runtime::Abi for IORING_CREATE_FLAGS {
+unsafe impl ::windows::core::Abi for IORING_CREATE_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -8477,7 +8461,7 @@ impl ::core::convert::From<i32> for IORING_CREATE_REQUIRED_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IORING_CREATE_REQUIRED_FLAGS {
+unsafe impl ::windows::core::Abi for IORING_CREATE_REQUIRED_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -8492,7 +8476,7 @@ impl ::core::convert::From<i32> for IORING_FEATURE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IORING_FEATURE_FLAGS {
+unsafe impl ::windows::core::Abi for IORING_FEATURE_FLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8520,7 +8504,7 @@ impl ::core::cmp::PartialEq for IORING_HANDLE_REF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IORING_HANDLE_REF {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IORING_HANDLE_REF {
+unsafe impl ::windows::core::Abi for IORING_HANDLE_REF {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8547,7 +8531,7 @@ impl ::core::cmp::PartialEq for IORING_HANDLE_REF_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IORING_HANDLE_REF_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IORING_HANDLE_REF_0 {
+unsafe impl ::windows::core::Abi for IORING_HANDLE_REF_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8576,7 +8560,7 @@ impl ::core::cmp::PartialEq for IORING_INFO {
     }
 }
 impl ::core::cmp::Eq for IORING_INFO {}
-unsafe impl ::windows::runtime::Abi for IORING_INFO {
+unsafe impl ::windows::core::Abi for IORING_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -8593,7 +8577,7 @@ impl ::core::convert::From<i32> for IORING_OP_CODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IORING_OP_CODE {
+unsafe impl ::windows::core::Abi for IORING_OP_CODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -8607,7 +8591,7 @@ impl ::core::convert::From<i32> for IORING_REF_KIND {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IORING_REF_KIND {
+unsafe impl ::windows::core::Abi for IORING_REF_KIND {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8634,7 +8618,7 @@ impl ::core::cmp::PartialEq for IORING_REGISTERED_BUFFER {
     }
 }
 impl ::core::cmp::Eq for IORING_REGISTERED_BUFFER {}
-unsafe impl ::windows::runtime::Abi for IORING_REGISTERED_BUFFER {
+unsafe impl ::windows::core::Abi for IORING_REGISTERED_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -8647,7 +8631,7 @@ impl ::core::convert::From<i32> for IORING_SQE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IORING_SQE_FLAGS {
+unsafe impl ::windows::core::Abi for IORING_SQE_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -8661,13 +8645,13 @@ impl ::core::convert::From<i32> for IORING_VERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IORING_VERSION {
+unsafe impl ::windows::core::Abi for IORING_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InstallLogPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, ppolicy: *mut CLFS_MGMT_POLICY) -> super::super::Foundation::BOOL {
+pub unsafe fn InstallLogPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, ppolicy: *mut CLFS_MGMT_POLICY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8720,14 +8704,14 @@ impl ::core::cmp::PartialEq for KCRM_MARSHAL_HEADER {
     }
 }
 impl ::core::cmp::Eq for KCRM_MARSHAL_HEADER {}
-unsafe impl ::windows::runtime::Abi for KCRM_MARSHAL_HEADER {
+unsafe impl ::windows::core::Abi for KCRM_MARSHAL_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct KCRM_PROTOCOL_BLOB {
-    pub ProtocolId: ::windows::runtime::GUID,
+    pub ProtocolId: ::windows::core::GUID,
     pub StaticInfoLength: u32,
     pub TransactionIdInfoLength: u32,
     pub Unused1: u32,
@@ -8750,15 +8734,15 @@ impl ::core::cmp::PartialEq for KCRM_PROTOCOL_BLOB {
     }
 }
 impl ::core::cmp::Eq for KCRM_PROTOCOL_BLOB {}
-unsafe impl ::windows::runtime::Abi for KCRM_PROTOCOL_BLOB {
+unsafe impl ::windows::core::Abi for KCRM_PROTOCOL_BLOB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct KCRM_TRANSACTION_BLOB {
-    pub UOW: ::windows::runtime::GUID,
-    pub TmIdentity: ::windows::runtime::GUID,
+    pub UOW: ::windows::core::GUID,
+    pub TmIdentity: ::windows::core::GUID,
     pub IsolationLevel: u32,
     pub IsolationFlags: u32,
     pub Timeout: u32,
@@ -8781,7 +8765,7 @@ impl ::core::cmp::PartialEq for KCRM_TRANSACTION_BLOB {
     }
 }
 impl ::core::cmp::Eq for KCRM_TRANSACTION_BLOB {}
-unsafe impl ::windows::runtime::Abi for KCRM_TRANSACTION_BLOB {
+unsafe impl ::windows::core::Abi for KCRM_TRANSACTION_BLOB {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -8799,7 +8783,7 @@ impl ::core::convert::From<u32> for LOCK_FILE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for LOCK_FILE_FLAGS {
+unsafe impl ::windows::core::Abi for LOCK_FILE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for LOCK_FILE_FLAGS {
@@ -8863,7 +8847,7 @@ impl ::core::cmp::PartialEq for LOG_MANAGEMENT_CALLBACKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LOG_MANAGEMENT_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for LOG_MANAGEMENT_CALLBACKS {
+unsafe impl ::windows::core::Abi for LOG_MANAGEMENT_CALLBACKS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -8884,7 +8868,7 @@ impl ::core::convert::From<u32> for LPPROGRESS_ROUTINE_CALLBACK_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for LPPROGRESS_ROUTINE_CALLBACK_REASON {
+unsafe impl ::windows::core::Abi for LPPROGRESS_ROUTINE_CALLBACK_REASON {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for LPPROGRESS_ROUTINE_CALLBACK_REASON {
@@ -9012,7 +8996,7 @@ impl ::core::convert::From<u32> for LZOPENFILE_STYLE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for LZOPENFILE_STYLE {
+unsafe impl ::windows::core::Abi for LZOPENFILE_STYLE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for LZOPENFILE_STYLE {
@@ -9046,7 +9030,7 @@ impl ::core::ops::Not for LZOPENFILE_STYLE {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LZOpenFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32 {
+pub unsafe fn LZOpenFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9061,7 +9045,7 @@ pub unsafe fn LZOpenFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LZOpenFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32 {
+pub unsafe fn LZOpenFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9134,7 +9118,7 @@ pub unsafe fn LocalFileTimeToFileTime(lplocalfiletime: *const super::super::Foun
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LockFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn LockFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9149,7 +9133,7 @@ pub unsafe fn LockFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn LockFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwflags: LOCK_FILE_FLAGS, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn LockFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwflags: LOCK_FILE_FLAGS, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9164,7 +9148,7 @@ pub unsafe fn LockFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LogTailAdvanceFailure<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, dwreason: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn LogTailAdvanceFailure<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, dwreason: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9344,7 +9328,7 @@ impl ::core::convert::From<u32> for MOVE_FILE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MOVE_FILE_FLAGS {
+unsafe impl ::windows::core::Abi for MOVE_FILE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for MOVE_FILE_FLAGS {
@@ -9401,13 +9385,13 @@ impl ::core::cmp::PartialEq for MediaLabelInfo {
     }
 }
 impl ::core::cmp::Eq for MediaLabelInfo {}
-unsafe impl ::windows::runtime::Abi for MediaLabelInfo {
+unsafe impl ::windows::core::Abi for MediaLabelInfo {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9422,7 +9406,7 @@ pub unsafe fn MoveFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9437,7 +9421,7 @@ pub unsafe fn MoveFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9452,7 +9436,7 @@ pub unsafe fn MoveFileExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9467,12 +9451,12 @@ pub unsafe fn MoveFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: Param5) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MoveFileTransactedA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+            fn MoveFileTransactedA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::core::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(MoveFileTransactedA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags), htransaction.into_param().abi()))
     }
@@ -9482,12 +9466,12 @@ pub unsafe fn MoveFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: Param5) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MoveFileTransactedW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+            fn MoveFileTransactedW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::core::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(MoveFileTransactedW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags), htransaction.into_param().abi()))
     }
@@ -9497,7 +9481,7 @@ pub unsafe fn MoveFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9512,12 +9496,12 @@ pub unsafe fn MoveFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileWithProgressA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileWithProgressA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MoveFileWithProgressA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
+            fn MoveFileWithProgressA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::core::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(MoveFileWithProgressA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags)))
     }
@@ -9527,12 +9511,12 @@ pub unsafe fn MoveFileWithProgressA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileWithProgressW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileWithProgressW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MoveFileWithProgressW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
+            fn MoveFileWithProgressW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::core::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(MoveFileWithProgressW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags)))
     }
@@ -9562,7 +9546,7 @@ impl ::core::cmp::PartialEq for NAME_CACHE_CONTEXT {
     }
 }
 impl ::core::cmp::Eq for NAME_CACHE_CONTEXT {}
-unsafe impl ::windows::runtime::Abi for NAME_CACHE_CONTEXT {
+unsafe impl ::windows::core::Abi for NAME_CACHE_CONTEXT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -9577,7 +9561,7 @@ pub const NTMSMLI_MAXTYPE: u32 = 64u32;
 pub struct NTMS_ALLOCATION_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut ::core::ffi::c_void,
-    pub AllocatedFrom: ::windows::runtime::GUID,
+    pub AllocatedFrom: ::windows::core::GUID,
 }
 impl NTMS_ALLOCATION_INFORMATION {}
 impl ::core::default::Default for NTMS_ALLOCATION_INFORMATION {
@@ -9596,7 +9580,7 @@ impl ::core::cmp::PartialEq for NTMS_ALLOCATION_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for NTMS_ALLOCATION_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for NTMS_ALLOCATION_INFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_ALLOCATION_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -9606,8 +9590,8 @@ pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct NTMS_ASYNC_IO {
-    pub OperationId: ::windows::runtime::GUID,
-    pub EventId: ::windows::runtime::GUID,
+    pub OperationId: ::windows::core::GUID,
+    pub EventId: ::windows::core::GUID,
     pub dwOperationType: u32,
     pub dwResult: u32,
     pub dwAsyncState: u32,
@@ -9645,7 +9629,7 @@ impl ::core::cmp::PartialEq for NTMS_ASYNC_IO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_ASYNC_IO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_ASYNC_IO {
+unsafe impl ::windows::core::Abi for NTMS_ASYNC_IO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -9656,7 +9640,7 @@ pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct NTMS_CHANGERINFORMATIONA {
     pub Number: u32,
-    pub ChangerType: ::windows::runtime::GUID,
+    pub ChangerType: ::windows::core::GUID,
     pub szSerialNumber: [super::super::Foundation::CHAR; 32],
     pub szRevision: [super::super::Foundation::CHAR; 32],
     pub szDeviceName: [super::super::Foundation::CHAR; 64],
@@ -9664,7 +9648,7 @@ pub struct NTMS_CHANGERINFORMATIONA {
     pub ScsiBus: u16,
     pub ScsiTarget: u16,
     pub ScsiLun: u16,
-    pub Library: ::windows::runtime::GUID,
+    pub Library: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_CHANGERINFORMATIONA {}
@@ -9700,7 +9684,7 @@ impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_CHANGERINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_CHANGERINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_CHANGERINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9708,7 +9692,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_CHANGERINFORMATIONA {
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_CHANGERINFORMATIONW {
     pub Number: u32,
-    pub ChangerType: ::windows::runtime::GUID,
+    pub ChangerType: ::windows::core::GUID,
     pub szSerialNumber: [u16; 32],
     pub szRevision: [u16; 32],
     pub szDeviceName: [u16; 64],
@@ -9716,7 +9700,7 @@ pub struct NTMS_CHANGERINFORMATIONW {
     pub ScsiBus: u16,
     pub ScsiTarget: u16,
     pub ScsiLun: u16,
-    pub Library: ::windows::runtime::GUID,
+    pub Library: ::windows::core::GUID,
 }
 impl NTMS_CHANGERINFORMATIONW {}
 impl ::core::default::Default for NTMS_CHANGERINFORMATIONW {
@@ -9746,7 +9730,7 @@ impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONW {
     }
 }
 impl ::core::cmp::Eq for NTMS_CHANGERINFORMATIONW {}
-unsafe impl ::windows::runtime::Abi for NTMS_CHANGERINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_CHANGERINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9781,7 +9765,7 @@ impl ::core::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_CHANGERTYPEINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_CHANGERTYPEINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9809,7 +9793,7 @@ impl ::core::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONW {
     }
 }
 impl ::core::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONW {}
-unsafe impl ::windows::runtime::Abi for NTMS_CHANGERTYPEINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_CHANGERTYPEINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9845,7 +9829,7 @@ impl ::core::cmp::PartialEq for NTMS_COMPUTERINFORMATION {
     }
 }
 impl ::core::cmp::Eq for NTMS_COMPUTERINFORMATION {}
-unsafe impl ::windows::runtime::Abi for NTMS_COMPUTERINFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_COMPUTERINFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -9861,7 +9845,7 @@ pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
 pub struct NTMS_DRIVEINFORMATIONA {
     pub Number: u32,
     pub State: NtmsDriveState,
-    pub DriveType: ::windows::runtime::GUID,
+    pub DriveType: ::windows::core::GUID,
     pub szDeviceName: [super::super::Foundation::CHAR; 64],
     pub szSerialNumber: [super::super::Foundation::CHAR; 32],
     pub szRevision: [super::super::Foundation::CHAR; 32],
@@ -9871,9 +9855,9 @@ pub struct NTMS_DRIVEINFORMATIONA {
     pub ScsiLun: u16,
     pub dwMountCount: u32,
     pub LastCleanedTs: super::super::Foundation::SYSTEMTIME,
-    pub SavedPartitionId: ::windows::runtime::GUID,
-    pub Library: ::windows::runtime::GUID,
-    pub Reserved: ::windows::runtime::GUID,
+    pub SavedPartitionId: ::windows::core::GUID,
+    pub Library: ::windows::core::GUID,
+    pub Reserved: ::windows::core::GUID,
     pub dwDeferDismountDelay: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9931,7 +9915,7 @@ impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_DRIVEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_DRIVEINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_DRIVEINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9941,7 +9925,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_DRIVEINFORMATIONA {
 pub struct NTMS_DRIVEINFORMATIONW {
     pub Number: u32,
     pub State: NtmsDriveState,
-    pub DriveType: ::windows::runtime::GUID,
+    pub DriveType: ::windows::core::GUID,
     pub szDeviceName: [u16; 64],
     pub szSerialNumber: [u16; 32],
     pub szRevision: [u16; 32],
@@ -9951,9 +9935,9 @@ pub struct NTMS_DRIVEINFORMATIONW {
     pub ScsiLun: u16,
     pub dwMountCount: u32,
     pub LastCleanedTs: super::super::Foundation::SYSTEMTIME,
-    pub SavedPartitionId: ::windows::runtime::GUID,
-    pub Library: ::windows::runtime::GUID,
-    pub Reserved: ::windows::runtime::GUID,
+    pub SavedPartitionId: ::windows::core::GUID,
+    pub Library: ::windows::core::GUID,
+    pub Reserved: ::windows::core::GUID,
     pub dwDeferDismountDelay: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10011,7 +9995,7 @@ impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_DRIVEINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_DRIVEINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_DRIVEINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10047,7 +10031,7 @@ impl ::core::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_DRIVETYPEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_DRIVETYPEINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_DRIVETYPEINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10076,7 +10060,7 @@ impl ::core::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONW {
     }
 }
 impl ::core::cmp::Eq for NTMS_DRIVETYPEINFORMATIONW {}
-unsafe impl ::windows::runtime::Abi for NTMS_DRIVETYPEINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_DRIVETYPEINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10104,7 +10088,7 @@ impl ::core::cmp::PartialEq for NTMS_FILESYSTEM_INFO {
     }
 }
 impl ::core::cmp::Eq for NTMS_FILESYSTEM_INFO {}
-unsafe impl ::windows::runtime::Abi for NTMS_FILESYSTEM_INFO {
+unsafe impl ::windows::core::Abi for NTMS_FILESYSTEM_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10113,8 +10097,8 @@ unsafe impl ::windows::runtime::Abi for NTMS_FILESYSTEM_INFO {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct NTMS_I1_LIBRARYINFORMATION {
     pub LibraryType: u32,
-    pub CleanerSlot: ::windows::runtime::GUID,
-    pub CleanerSlotDefault: ::windows::runtime::GUID,
+    pub CleanerSlot: ::windows::core::GUID,
+    pub CleanerSlotDefault: ::windows::core::GUID,
     pub LibrarySupportsDriveCleaning: super::super::Foundation::BOOL,
     pub BarCodeReaderInstalled: super::super::Foundation::BOOL,
     pub InventoryMethod: u32,
@@ -10132,7 +10116,7 @@ pub struct NTMS_I1_LIBRARYINFORMATION {
     pub dwNumberOfMedia: u32,
     pub dwNumberOfMediaTypes: u32,
     pub dwNumberOfLibRequests: u32,
-    pub Reserved: ::windows::runtime::GUID,
+    pub Reserved: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_LIBRARYINFORMATION {}
@@ -10199,7 +10183,7 @@ impl ::core::cmp::PartialEq for NTMS_I1_LIBRARYINFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_LIBRARYINFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_I1_LIBRARYINFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_I1_LIBRARYINFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10210,11 +10194,11 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub OperationCode: u32,
     pub OperationOption: u32,
     pub State: u32,
-    pub PartitionId: ::windows::runtime::GUID,
-    pub DriveId: ::windows::runtime::GUID,
-    pub PhysMediaId: ::windows::runtime::GUID,
-    pub Library: ::windows::runtime::GUID,
-    pub SlotId: ::windows::runtime::GUID,
+    pub PartitionId: ::windows::core::GUID,
+    pub DriveId: ::windows::core::GUID,
+    pub PhysMediaId: ::windows::core::GUID,
+    pub Library: ::windows::core::GUID,
+    pub SlotId: ::windows::core::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
     pub szApplication: [super::super::Foundation::CHAR; 64],
@@ -10270,7 +10254,7 @@ impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_LIBREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_I1_LIBREQUESTINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_I1_LIBREQUESTINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10281,11 +10265,11 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
     pub OperationCode: u32,
     pub OperationOption: u32,
     pub State: u32,
-    pub PartitionId: ::windows::runtime::GUID,
-    pub DriveId: ::windows::runtime::GUID,
-    pub PhysMediaId: ::windows::runtime::GUID,
-    pub Library: ::windows::runtime::GUID,
-    pub SlotId: ::windows::runtime::GUID,
+    pub PartitionId: ::windows::core::GUID,
+    pub DriveId: ::windows::core::GUID,
+    pub PhysMediaId: ::windows::core::GUID,
+    pub Library: ::windows::core::GUID,
+    pub SlotId: ::windows::core::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
     pub szApplication: [u16; 64],
@@ -10341,7 +10325,7 @@ impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_LIBREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_I1_LIBREQUESTINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_I1_LIBREQUESTINFORMATIONW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -10355,7 +10339,7 @@ pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub dwType: u32,
     pub Created: super::super::Foundation::SYSTEMTIME,
     pub Modified: super::super::Foundation::SYSTEMTIME,
-    pub ObjectGuid: ::windows::runtime::GUID,
+    pub ObjectGuid: ::windows::core::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: u32,
     pub szName: [super::super::Foundation::CHAR; 64],
@@ -10379,7 +10363,7 @@ impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10419,7 +10403,7 @@ impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONA_0 {
+unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONA_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10431,7 +10415,7 @@ pub struct NTMS_I1_OBJECTINFORMATIONW {
     pub dwType: u32,
     pub Created: super::super::Foundation::SYSTEMTIME,
     pub Modified: super::super::Foundation::SYSTEMTIME,
-    pub ObjectGuid: ::windows::runtime::GUID,
+    pub ObjectGuid: ::windows::core::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: u32,
     pub szName: [u16; 64],
@@ -10455,7 +10439,7 @@ impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10495,7 +10479,7 @@ impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONW_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONW_0 {
+unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONW_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10508,9 +10492,9 @@ pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub State: u32,
     pub szMessage: [super::super::Foundation::CHAR; 127],
     pub Arg1Type: u32,
-    pub Arg1: ::windows::runtime::GUID,
+    pub Arg1: ::windows::core::GUID,
     pub Arg2Type: u32,
-    pub Arg2: ::windows::runtime::GUID,
+    pub Arg2: ::windows::core::GUID,
     pub szApplication: [super::super::Foundation::CHAR; 64],
     pub szUser: [super::super::Foundation::CHAR; 64],
     pub szComputer: [super::super::Foundation::CHAR; 64],
@@ -10550,7 +10534,7 @@ impl ::core::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_OPREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_I1_OPREQUESTINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_I1_OPREQUESTINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10563,9 +10547,9 @@ pub struct NTMS_I1_OPREQUESTINFORMATIONW {
     pub State: u32,
     pub szMessage: [u16; 127],
     pub Arg1Type: u32,
-    pub Arg1: ::windows::runtime::GUID,
+    pub Arg1: ::windows::core::GUID,
     pub Arg2Type: u32,
-    pub Arg2: ::windows::runtime::GUID,
+    pub Arg2: ::windows::core::GUID,
     pub szApplication: [u16; 64],
     pub szUser: [u16; 64],
     pub szComputer: [u16; 64],
@@ -10605,7 +10589,7 @@ impl ::core::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_OPREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_I1_OPREQUESTINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_I1_OPREQUESTINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10613,8 +10597,8 @@ unsafe impl ::windows::runtime::Abi for NTMS_I1_OPREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct NTMS_I1_PARTITIONINFORMATIONA {
-    pub PhysicalMedia: ::windows::runtime::GUID,
-    pub LogicalMedia: ::windows::runtime::GUID,
+    pub PhysicalMedia: ::windows::core::GUID,
+    pub LogicalMedia: ::windows::core::GUID,
     pub State: u32,
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
@@ -10658,15 +10642,15 @@ impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_I1_PARTITIONINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_I1_PARTITIONINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_I1_PARTITIONINFORMATIONW {
-    pub PhysicalMedia: ::windows::runtime::GUID,
-    pub LogicalMedia: ::windows::runtime::GUID,
+    pub PhysicalMedia: ::windows::core::GUID,
+    pub LogicalMedia: ::windows::core::GUID,
     pub State: u32,
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
@@ -10704,7 +10688,7 @@ impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONW {
     }
 }
 impl ::core::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONW {}
-unsafe impl ::windows::runtime::Abi for NTMS_I1_PARTITIONINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_I1_PARTITIONINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10712,12 +10696,12 @@ unsafe impl ::windows::runtime::Abi for NTMS_I1_PARTITIONINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct NTMS_I1_PMIDINFORMATIONA {
-    pub CurrentLibrary: ::windows::runtime::GUID,
-    pub MediaPool: ::windows::runtime::GUID,
-    pub Location: ::windows::runtime::GUID,
+    pub CurrentLibrary: ::windows::core::GUID,
+    pub MediaPool: ::windows::core::GUID,
+    pub Location: ::windows::core::GUID,
     pub LocationType: u32,
-    pub MediaType: ::windows::runtime::GUID,
-    pub HomeSlot: ::windows::runtime::GUID,
+    pub MediaType: ::windows::core::GUID,
+    pub HomeSlot: ::windows::core::GUID,
     pub szBarCode: [super::super::Foundation::CHAR; 64],
     pub BarCodeState: u32,
     pub szSequenceNumber: [super::super::Foundation::CHAR; 32],
@@ -10759,19 +10743,19 @@ impl ::core::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_PMIDINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_I1_PMIDINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_I1_PMIDINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_I1_PMIDINFORMATIONW {
-    pub CurrentLibrary: ::windows::runtime::GUID,
-    pub MediaPool: ::windows::runtime::GUID,
-    pub Location: ::windows::runtime::GUID,
+    pub CurrentLibrary: ::windows::core::GUID,
+    pub MediaPool: ::windows::core::GUID,
+    pub Location: ::windows::core::GUID,
     pub LocationType: u32,
-    pub MediaType: ::windows::runtime::GUID,
-    pub HomeSlot: ::windows::runtime::GUID,
+    pub MediaType: ::windows::core::GUID,
+    pub HomeSlot: ::windows::core::GUID,
     pub szBarCode: [u16; 64],
     pub BarCodeState: u32,
     pub szSequenceNumber: [u16; 32],
@@ -10807,7 +10791,7 @@ impl ::core::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONW {
     }
 }
 impl ::core::cmp::Eq for NTMS_I1_PMIDINFORMATIONW {}
-unsafe impl ::windows::runtime::Abi for NTMS_I1_PMIDINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_I1_PMIDINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10817,7 +10801,7 @@ pub struct NTMS_IEDOORINFORMATION {
     pub Number: u32,
     pub State: NtmsDoorState,
     pub MaxOpenSecs: u16,
-    pub Library: ::windows::runtime::GUID,
+    pub Library: ::windows::core::GUID,
 }
 impl NTMS_IEDOORINFORMATION {}
 impl ::core::default::Default for NTMS_IEDOORINFORMATION {
@@ -10836,7 +10820,7 @@ impl ::core::cmp::PartialEq for NTMS_IEDOORINFORMATION {
     }
 }
 impl ::core::cmp::Eq for NTMS_IEDOORINFORMATION {}
-unsafe impl ::windows::runtime::Abi for NTMS_IEDOORINFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_IEDOORINFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10847,7 +10831,7 @@ pub struct NTMS_IEPORTINFORMATION {
     pub Content: NtmsPortContent,
     pub Position: NtmsPortPosition,
     pub MaxExtendSecs: u16,
-    pub Library: ::windows::runtime::GUID,
+    pub Library: ::windows::core::GUID,
 }
 impl NTMS_IEPORTINFORMATION {}
 impl ::core::default::Default for NTMS_IEPORTINFORMATION {
@@ -10866,7 +10850,7 @@ impl ::core::cmp::PartialEq for NTMS_IEPORTINFORMATION {
     }
 }
 impl ::core::cmp::Eq for NTMS_IEPORTINFORMATION {}
-unsafe impl ::windows::runtime::Abi for NTMS_IEPORTINFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_IEPORTINFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10875,8 +10859,8 @@ unsafe impl ::windows::runtime::Abi for NTMS_IEPORTINFORMATION {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct NTMS_LIBRARYINFORMATION {
     pub LibraryType: NtmsLibraryType,
-    pub CleanerSlot: ::windows::runtime::GUID,
-    pub CleanerSlotDefault: ::windows::runtime::GUID,
+    pub CleanerSlot: ::windows::core::GUID,
+    pub CleanerSlotDefault: ::windows::core::GUID,
     pub LibrarySupportsDriveCleaning: super::super::Foundation::BOOL,
     pub BarCodeReaderInstalled: super::super::Foundation::BOOL,
     pub InventoryMethod: NtmsInventoryMethod,
@@ -10894,7 +10878,7 @@ pub struct NTMS_LIBRARYINFORMATION {
     pub dwNumberOfMedia: u32,
     pub dwNumberOfMediaTypes: u32,
     pub dwNumberOfLibRequests: u32,
-    pub Reserved: ::windows::runtime::GUID,
+    pub Reserved: ::windows::core::GUID,
     pub AutoRecovery: super::super::Foundation::BOOL,
     pub dwFlags: NtmsLibraryFlags,
 }
@@ -10967,7 +10951,7 @@ impl ::core::cmp::PartialEq for NTMS_LIBRARYINFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_LIBRARYINFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_LIBRARYINFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_LIBRARYINFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10978,18 +10962,18 @@ pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub OperationCode: NtmsLmOperation,
     pub OperationOption: u32,
     pub State: NtmsLmState,
-    pub PartitionId: ::windows::runtime::GUID,
-    pub DriveId: ::windows::runtime::GUID,
-    pub PhysMediaId: ::windows::runtime::GUID,
-    pub Library: ::windows::runtime::GUID,
-    pub SlotId: ::windows::runtime::GUID,
+    pub PartitionId: ::windows::core::GUID,
+    pub DriveId: ::windows::core::GUID,
+    pub PhysMediaId: ::windows::core::GUID,
+    pub Library: ::windows::core::GUID,
+    pub SlotId: ::windows::core::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
     pub szApplication: [super::super::Foundation::CHAR; 64],
     pub szUser: [super::super::Foundation::CHAR; 64],
     pub szComputer: [super::super::Foundation::CHAR; 64],
     pub dwErrorCode: u32,
-    pub WorkItemId: ::windows::runtime::GUID,
+    pub WorkItemId: ::windows::core::GUID,
     pub dwPriority: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11047,7 +11031,7 @@ impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_LIBREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_LIBREQUESTINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_LIBREQUESTINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11058,18 +11042,18 @@ pub struct NTMS_LIBREQUESTINFORMATIONW {
     pub OperationCode: NtmsLmOperation,
     pub OperationOption: u32,
     pub State: NtmsLmState,
-    pub PartitionId: ::windows::runtime::GUID,
-    pub DriveId: ::windows::runtime::GUID,
-    pub PhysMediaId: ::windows::runtime::GUID,
-    pub Library: ::windows::runtime::GUID,
-    pub SlotId: ::windows::runtime::GUID,
+    pub PartitionId: ::windows::core::GUID,
+    pub DriveId: ::windows::core::GUID,
+    pub PhysMediaId: ::windows::core::GUID,
+    pub Library: ::windows::core::GUID,
+    pub SlotId: ::windows::core::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
     pub szApplication: [u16; 64],
     pub szUser: [u16; 64],
     pub szComputer: [u16; 64],
     pub dwErrorCode: u32,
-    pub WorkItemId: ::windows::runtime::GUID,
+    pub WorkItemId: ::windows::core::GUID,
     pub dwPriority: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11127,14 +11111,14 @@ impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_LIBREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_LIBREQUESTINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_LIBREQUESTINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_LMIDINFORMATION {
-    pub MediaPool: ::windows::runtime::GUID,
+    pub MediaPool: ::windows::core::GUID,
     pub dwNumberOfPartitions: u32,
 }
 impl NTMS_LMIDINFORMATION {}
@@ -11154,7 +11138,7 @@ impl ::core::cmp::PartialEq for NTMS_LMIDINFORMATION {
     }
 }
 impl ::core::cmp::Eq for NTMS_LMIDINFORMATION {}
-unsafe impl ::windows::runtime::Abi for NTMS_LMIDINFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_LMIDINFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -11166,8 +11150,8 @@ pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_MEDIAPOOLINFORMATION {
     pub PoolType: u32,
-    pub MediaType: ::windows::runtime::GUID,
-    pub Parent: ::windows::runtime::GUID,
+    pub MediaType: ::windows::core::GUID,
+    pub Parent: ::windows::core::GUID,
     pub AllocationPolicy: u32,
     pub DeallocationPolicy: u32,
     pub dwMaxAllocates: u32,
@@ -11202,7 +11186,7 @@ impl ::core::cmp::PartialEq for NTMS_MEDIAPOOLINFORMATION {
     }
 }
 impl ::core::cmp::Eq for NTMS_MEDIAPOOLINFORMATION {}
-unsafe impl ::windows::runtime::Abi for NTMS_MEDIAPOOLINFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_MEDIAPOOLINFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11231,7 +11215,7 @@ impl ::core::cmp::PartialEq for NTMS_MEDIATYPEINFORMATION {
     }
 }
 impl ::core::cmp::Eq for NTMS_MEDIATYPEINFORMATION {}
-unsafe impl ::windows::runtime::Abi for NTMS_MEDIATYPEINFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_MEDIATYPEINFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -11260,7 +11244,7 @@ impl ::core::cmp::PartialEq for NTMS_MOUNT_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for NTMS_MOUNT_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for NTMS_MOUNT_INFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_MOUNT_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11268,7 +11252,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_MOUNT_INFORMATION {
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_NOTIFICATIONINFORMATION {
     pub dwOperation: NtmsNotificationOperations,
-    pub ObjectId: ::windows::runtime::GUID,
+    pub ObjectId: ::windows::core::GUID,
 }
 impl NTMS_NOTIFICATIONINFORMATION {}
 impl ::core::default::Default for NTMS_NOTIFICATIONINFORMATION {
@@ -11287,7 +11271,7 @@ impl ::core::cmp::PartialEq for NTMS_NOTIFICATIONINFORMATION {
     }
 }
 impl ::core::cmp::Eq for NTMS_NOTIFICATIONINFORMATION {}
-unsafe impl ::windows::runtime::Abi for NTMS_NOTIFICATIONINFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_NOTIFICATIONINFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11299,7 +11283,7 @@ pub struct NTMS_OBJECTINFORMATIONA {
     pub dwType: NtmsObjectsTypes,
     pub Created: super::super::Foundation::SYSTEMTIME,
     pub Modified: super::super::Foundation::SYSTEMTIME,
-    pub ObjectGuid: ::windows::runtime::GUID,
+    pub ObjectGuid: ::windows::core::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: NtmsOperationalState,
     pub szName: [super::super::Foundation::CHAR; 64],
@@ -11323,7 +11307,7 @@ impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11364,7 +11348,7 @@ impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONA_0 {
+unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONA_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11376,7 +11360,7 @@ pub struct NTMS_OBJECTINFORMATIONW {
     pub dwType: NtmsObjectsTypes,
     pub Created: super::super::Foundation::SYSTEMTIME,
     pub Modified: super::super::Foundation::SYSTEMTIME,
-    pub ObjectGuid: ::windows::runtime::GUID,
+    pub ObjectGuid: ::windows::core::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: NtmsOperationalState,
     pub szName: [u16; 64],
@@ -11400,7 +11384,7 @@ impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11441,7 +11425,7 @@ impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONW_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONW_0 {
+unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONW_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -11463,7 +11447,7 @@ impl ::core::convert::From<u32> for NTMS_OMID_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NTMS_OMID_TYPE {
+unsafe impl ::windows::core::Abi for NTMS_OMID_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for NTMS_OMID_TYPE {
@@ -11504,9 +11488,9 @@ pub struct NTMS_OPREQUESTINFORMATIONA {
     pub State: NtmsOpreqState,
     pub szMessage: [super::super::Foundation::CHAR; 256],
     pub Arg1Type: NtmsObjectsTypes,
-    pub Arg1: ::windows::runtime::GUID,
+    pub Arg1: ::windows::core::GUID,
     pub Arg2Type: NtmsObjectsTypes,
-    pub Arg2: ::windows::runtime::GUID,
+    pub Arg2: ::windows::core::GUID,
     pub szApplication: [super::super::Foundation::CHAR; 64],
     pub szUser: [super::super::Foundation::CHAR; 64],
     pub szComputer: [super::super::Foundation::CHAR; 64],
@@ -11546,7 +11530,7 @@ impl ::core::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_OPREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_OPREQUESTINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_OPREQUESTINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11559,9 +11543,9 @@ pub struct NTMS_OPREQUESTINFORMATIONW {
     pub State: NtmsOpreqState,
     pub szMessage: [u16; 256],
     pub Arg1Type: NtmsObjectsTypes,
-    pub Arg1: ::windows::runtime::GUID,
+    pub Arg1: ::windows::core::GUID,
     pub Arg2Type: NtmsObjectsTypes,
-    pub Arg2: ::windows::runtime::GUID,
+    pub Arg2: ::windows::core::GUID,
     pub szApplication: [u16; 64],
     pub szUser: [u16; 64],
     pub szComputer: [u16; 64],
@@ -11601,7 +11585,7 @@ impl ::core::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_OPREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_OPREQUESTINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_OPREQUESTINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11609,8 +11593,8 @@ unsafe impl ::windows::runtime::Abi for NTMS_OPREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct NTMS_PARTITIONINFORMATIONA {
-    pub PhysicalMedia: ::windows::runtime::GUID,
-    pub LogicalMedia: ::windows::runtime::GUID,
+    pub PhysicalMedia: ::windows::core::GUID,
+    pub LogicalMedia: ::windows::core::GUID,
     pub State: NtmsPartitionState,
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
@@ -11656,15 +11640,15 @@ impl ::core::cmp::PartialEq for NTMS_PARTITIONINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_PARTITIONINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_PARTITIONINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_PARTITIONINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_PARTITIONINFORMATIONW {
-    pub PhysicalMedia: ::windows::runtime::GUID,
-    pub LogicalMedia: ::windows::runtime::GUID,
+    pub PhysicalMedia: ::windows::core::GUID,
+    pub LogicalMedia: ::windows::core::GUID,
     pub State: NtmsPartitionState,
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
@@ -11704,7 +11688,7 @@ impl ::core::cmp::PartialEq for NTMS_PARTITIONINFORMATIONW {
     }
 }
 impl ::core::cmp::Eq for NTMS_PARTITIONINFORMATIONW {}
-unsafe impl ::windows::runtime::Abi for NTMS_PARTITIONINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_PARTITIONINFORMATIONW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11712,12 +11696,12 @@ unsafe impl ::windows::runtime::Abi for NTMS_PARTITIONINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct NTMS_PMIDINFORMATIONA {
-    pub CurrentLibrary: ::windows::runtime::GUID,
-    pub MediaPool: ::windows::runtime::GUID,
-    pub Location: ::windows::runtime::GUID,
+    pub CurrentLibrary: ::windows::core::GUID,
+    pub MediaPool: ::windows::core::GUID,
+    pub Location: ::windows::core::GUID,
     pub LocationType: u32,
-    pub MediaType: ::windows::runtime::GUID,
-    pub HomeSlot: ::windows::runtime::GUID,
+    pub MediaType: ::windows::core::GUID,
+    pub HomeSlot: ::windows::core::GUID,
     pub szBarCode: [super::super::Foundation::CHAR; 64],
     pub BarCodeState: NtmsBarCodeState,
     pub szSequenceNumber: [super::super::Foundation::CHAR; 32],
@@ -11725,7 +11709,7 @@ pub struct NTMS_PMIDINFORMATIONA {
     pub dwNumberOfPartitions: u32,
     pub dwMediaTypeCode: u32,
     pub dwDensityCode: u32,
-    pub MountedPartition: ::windows::runtime::GUID,
+    pub MountedPartition: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_PMIDINFORMATIONA {}
@@ -11778,19 +11762,19 @@ impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_PMIDINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTMS_PMIDINFORMATIONA {
+unsafe impl ::windows::core::Abi for NTMS_PMIDINFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_PMIDINFORMATIONW {
-    pub CurrentLibrary: ::windows::runtime::GUID,
-    pub MediaPool: ::windows::runtime::GUID,
-    pub Location: ::windows::runtime::GUID,
+    pub CurrentLibrary: ::windows::core::GUID,
+    pub MediaPool: ::windows::core::GUID,
+    pub Location: ::windows::core::GUID,
     pub LocationType: u32,
-    pub MediaType: ::windows::runtime::GUID,
-    pub HomeSlot: ::windows::runtime::GUID,
+    pub MediaType: ::windows::core::GUID,
+    pub HomeSlot: ::windows::core::GUID,
     pub szBarCode: [u16; 64],
     pub BarCodeState: NtmsBarCodeState,
     pub szSequenceNumber: [u16; 32],
@@ -11798,7 +11782,7 @@ pub struct NTMS_PMIDINFORMATIONW {
     pub dwNumberOfPartitions: u32,
     pub dwMediaTypeCode: u32,
     pub dwDensityCode: u32,
-    pub MountedPartition: ::windows::runtime::GUID,
+    pub MountedPartition: ::windows::core::GUID,
 }
 impl NTMS_PMIDINFORMATIONW {}
 impl ::core::default::Default for NTMS_PMIDINFORMATIONW {
@@ -11845,7 +11829,7 @@ impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONW {
     }
 }
 impl ::core::cmp::Eq for NTMS_PMIDINFORMATIONW {}
-unsafe impl ::windows::runtime::Abi for NTMS_PMIDINFORMATIONW {
+unsafe impl ::windows::core::Abi for NTMS_PMIDINFORMATIONW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -11864,7 +11848,7 @@ pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
 pub struct NTMS_STORAGESLOTINFORMATION {
     pub Number: u32,
     pub State: u32,
-    pub Library: ::windows::runtime::GUID,
+    pub Library: ::windows::core::GUID,
 }
 impl NTMS_STORAGESLOTINFORMATION {}
 impl ::core::default::Default for NTMS_STORAGESLOTINFORMATION {
@@ -11883,7 +11867,7 @@ impl ::core::cmp::PartialEq for NTMS_STORAGESLOTINFORMATION {
     }
 }
 impl ::core::cmp::Eq for NTMS_STORAGESLOTINFORMATION {}
-unsafe impl ::windows::runtime::Abi for NTMS_STORAGESLOTINFORMATION {
+unsafe impl ::windows::core::Abi for NTMS_STORAGESLOTINFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -11905,7 +11889,7 @@ impl ::core::convert::From<u32> for NT_CREATE_FILE_DISPOSITION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NT_CREATE_FILE_DISPOSITION {
+unsafe impl ::windows::core::Abi for NT_CREATE_FILE_DISPOSITION {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for NT_CREATE_FILE_DISPOSITION {
@@ -11939,7 +11923,7 @@ impl ::core::ops::Not for NT_CREATE_FILE_DISPOSITION {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetConnectionEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, qualifier: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
+pub unsafe fn NetConnectionEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, qualifier: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11954,7 +11938,7 @@ pub unsafe fn NetConnectionEnum<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetFileClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, fileid: u32) -> u32 {
+pub unsafe fn NetFileClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, fileid: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11969,7 +11953,7 @@ pub unsafe fn NetFileClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetFileEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, basepath: Param1, username: Param2, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32 {
+pub unsafe fn NetFileEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, basepath: Param1, username: Param2, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11994,7 +11978,7 @@ pub unsafe fn NetFileEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetFileGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, fileid: u32, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetFileGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, fileid: u32, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12009,7 +11993,7 @@ pub unsafe fn NetFileGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerAliasAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8) -> u32 {
+pub unsafe fn NetServerAliasAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12024,7 +12008,7 @@ pub unsafe fn NetServerAliasAdd<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerAliasDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8) -> u32 {
+pub unsafe fn NetServerAliasDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12039,7 +12023,7 @@ pub unsafe fn NetServerAliasDel<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetServerAliasEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
+pub unsafe fn NetServerAliasEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12054,7 +12038,7 @@ pub unsafe fn NetServerAliasEnum<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetSessionDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, uncclientname: Param1, username: Param2) -> u32 {
+pub unsafe fn NetSessionDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, uncclientname: Param1, username: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12069,7 +12053,7 @@ pub unsafe fn NetSessionDel<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetSessionEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, uncclientname: Param1, username: Param2, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
+pub unsafe fn NetSessionEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, uncclientname: Param1, username: Param2, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12094,7 +12078,7 @@ pub unsafe fn NetSessionEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetSessionGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, uncclientname: Param1, username: Param2, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetSessionGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, uncclientname: Param1, username: Param2, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12109,7 +12093,7 @@ pub unsafe fn NetSessionGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetShareAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetShareAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12124,7 +12108,7 @@ pub unsafe fn NetShareAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetShareCheck<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, device: Param1, r#type: *mut u32) -> u32 {
+pub unsafe fn NetShareCheck<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, device: Param1, r#type: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12139,7 +12123,7 @@ pub unsafe fn NetShareCheck<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetShareDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, reserved: u32) -> u32 {
+pub unsafe fn NetShareDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12154,7 +12138,7 @@ pub unsafe fn NetShareDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetShareDelEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8) -> u32 {
+pub unsafe fn NetShareDelEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12169,7 +12153,7 @@ pub unsafe fn NetShareDelEx<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetShareDelSticky<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, reserved: u32) -> u32 {
+pub unsafe fn NetShareDelSticky<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12184,7 +12168,7 @@ pub unsafe fn NetShareDelSticky<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetShareEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
+pub unsafe fn NetShareEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12199,7 +12183,7 @@ pub unsafe fn NetShareEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetShareEnumSticky<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
+pub unsafe fn NetShareEnumSticky<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12214,7 +12198,7 @@ pub unsafe fn NetShareEnumSticky<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetShareGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetShareGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12229,7 +12213,7 @@ pub unsafe fn NetShareGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetShareSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
+pub unsafe fn NetShareSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12258,7 +12242,7 @@ pub unsafe fn NetStatisticsGet(servername: *const i8, service: *const i8, level:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12295,7 +12279,7 @@ impl ::core::convert::From<i32> for NtmsAccessMask {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsAccessMask {
+unsafe impl ::windows::core::Abi for NtmsAccessMask {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12310,7 +12294,7 @@ impl ::core::convert::From<i32> for NtmsAllocateOptions {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsAllocateOptions {
+unsafe impl ::windows::core::Abi for NtmsAllocateOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12323,7 +12307,7 @@ impl ::core::convert::From<i32> for NtmsAllocationPolicy {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsAllocationPolicy {
+unsafe impl ::windows::core::Abi for NtmsAllocationPolicy {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12336,7 +12320,7 @@ impl ::core::convert::From<i32> for NtmsAsyncOperations {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsAsyncOperations {
+unsafe impl ::windows::core::Abi for NtmsAsyncOperations {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12353,7 +12337,7 @@ impl ::core::convert::From<i32> for NtmsAsyncStatus {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsAsyncStatus {
+unsafe impl ::windows::core::Abi for NtmsAsyncStatus {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12367,7 +12351,7 @@ impl ::core::convert::From<i32> for NtmsBarCodeState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsBarCodeState {
+unsafe impl ::windows::core::Abi for NtmsBarCodeState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12380,7 +12364,7 @@ impl ::core::convert::From<i32> for NtmsCreateNtmsMediaOptions {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsCreateNtmsMediaOptions {
+unsafe impl ::windows::core::Abi for NtmsCreateNtmsMediaOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12395,7 +12379,7 @@ impl ::core::convert::From<i32> for NtmsCreateOptions {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsCreateOptions {
+unsafe impl ::windows::core::Abi for NtmsCreateOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12408,7 +12392,7 @@ impl ::core::convert::From<i32> for NtmsDeallocationPolicy {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsDeallocationPolicy {
+unsafe impl ::windows::core::Abi for NtmsDeallocationPolicy {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12422,7 +12406,7 @@ impl ::core::convert::From<i32> for NtmsDismountOptions {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsDismountOptions {
+unsafe impl ::windows::core::Abi for NtmsDismountOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12437,7 +12421,7 @@ impl ::core::convert::From<i32> for NtmsDoorState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsDoorState {
+unsafe impl ::windows::core::Abi for NtmsDoorState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12455,7 +12439,7 @@ impl ::core::convert::From<i32> for NtmsDriveState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsDriveState {
+unsafe impl ::windows::core::Abi for NtmsDriveState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12468,7 +12452,7 @@ impl ::core::convert::From<i32> for NtmsDriveType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsDriveType {
+unsafe impl ::windows::core::Abi for NtmsDriveType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12486,7 +12470,7 @@ impl ::core::convert::From<i32> for NtmsEjectOperation {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsEjectOperation {
+unsafe impl ::windows::core::Abi for NtmsEjectOperation {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12500,7 +12484,7 @@ impl ::core::convert::From<i32> for NtmsEnumerateOption {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsEnumerateOption {
+unsafe impl ::windows::core::Abi for NtmsEnumerateOption {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12516,7 +12500,7 @@ impl ::core::convert::From<i32> for NtmsInjectOperation {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsInjectOperation {
+unsafe impl ::windows::core::Abi for NtmsInjectOperation {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12535,7 +12519,7 @@ impl ::core::convert::From<i32> for NtmsInventoryMethod {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsInventoryMethod {
+unsafe impl ::windows::core::Abi for NtmsInventoryMethod {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12549,7 +12533,7 @@ impl ::core::convert::From<i32> for NtmsLibRequestFlags {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsLibRequestFlags {
+unsafe impl ::windows::core::Abi for NtmsLibRequestFlags {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12566,7 +12550,7 @@ impl ::core::convert::From<i32> for NtmsLibraryFlags {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsLibraryFlags {
+unsafe impl ::windows::core::Abi for NtmsLibraryFlags {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12582,7 +12566,7 @@ impl ::core::convert::From<i32> for NtmsLibraryType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsLibraryType {
+unsafe impl ::windows::core::Abi for NtmsLibraryType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12619,7 +12603,7 @@ impl ::core::convert::From<i32> for NtmsLmOperation {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsLmOperation {
+unsafe impl ::windows::core::Abi for NtmsLmOperation {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12641,7 +12625,7 @@ impl ::core::convert::From<i32> for NtmsLmState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsLmState {
+unsafe impl ::windows::core::Abi for NtmsLmState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12655,7 +12639,7 @@ impl ::core::convert::From<i32> for NtmsMediaPoolPolicy {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsMediaPoolPolicy {
+unsafe impl ::windows::core::Abi for NtmsMediaPoolPolicy {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12674,7 +12658,7 @@ impl ::core::convert::From<i32> for NtmsMediaState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsMediaState {
+unsafe impl ::windows::core::Abi for NtmsMediaState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12694,7 +12678,7 @@ impl ::core::convert::From<i32> for NtmsMountOptions {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsMountOptions {
+unsafe impl ::windows::core::Abi for NtmsMountOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12712,7 +12696,7 @@ impl ::core::convert::From<i32> for NtmsMountPriority {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsMountPriority {
+unsafe impl ::windows::core::Abi for NtmsMountPriority {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12729,7 +12713,7 @@ impl ::core::convert::From<i32> for NtmsNotificationOperations {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsNotificationOperations {
+unsafe impl ::windows::core::Abi for NtmsNotificationOperations {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12761,7 +12745,7 @@ impl ::core::convert::From<i32> for NtmsObjectsTypes {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsObjectsTypes {
+unsafe impl ::windows::core::Abi for NtmsObjectsTypes {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12777,7 +12761,7 @@ impl ::core::convert::From<i32> for NtmsOpRequestFlags {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsOpRequestFlags {
+unsafe impl ::windows::core::Abi for NtmsOpRequestFlags {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12793,7 +12777,7 @@ impl ::core::convert::From<i32> for NtmsOperationalState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsOperationalState {
+unsafe impl ::windows::core::Abi for NtmsOperationalState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12811,7 +12795,7 @@ impl ::core::convert::From<i32> for NtmsOpreqCommand {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsOpreqCommand {
+unsafe impl ::windows::core::Abi for NtmsOpreqCommand {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12829,7 +12813,7 @@ impl ::core::convert::From<i32> for NtmsOpreqState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsOpreqState {
+unsafe impl ::windows::core::Abi for NtmsOpreqState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12851,7 +12835,7 @@ impl ::core::convert::From<i32> for NtmsPartitionState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsPartitionState {
+unsafe impl ::windows::core::Abi for NtmsPartitionState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12868,7 +12852,7 @@ impl ::core::convert::From<i32> for NtmsPoolType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsPoolType {
+unsafe impl ::windows::core::Abi for NtmsPoolType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12883,7 +12867,7 @@ impl ::core::convert::From<i32> for NtmsPortContent {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsPortContent {
+unsafe impl ::windows::core::Abi for NtmsPortContent {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12898,7 +12882,7 @@ impl ::core::convert::From<i32> for NtmsPortPosition {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsPortPosition {
+unsafe impl ::windows::core::Abi for NtmsPortPosition {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12914,7 +12898,7 @@ impl ::core::convert::From<i32> for NtmsReadWriteCharacteristics {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsReadWriteCharacteristics {
+unsafe impl ::windows::core::Abi for NtmsReadWriteCharacteristics {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12927,7 +12911,7 @@ impl ::core::convert::From<i32> for NtmsSessionOptions {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsSessionOptions {
+unsafe impl ::windows::core::Abi for NtmsSessionOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12944,7 +12928,7 @@ impl ::core::convert::From<i32> for NtmsSlotState {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsSlotState {
+unsafe impl ::windows::core::Abi for NtmsSlotState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12960,7 +12944,7 @@ impl ::core::convert::From<i32> for NtmsUIOperations {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsUIOperations {
+unsafe impl ::windows::core::Abi for NtmsUIOperations {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -12977,7 +12961,7 @@ impl ::core::convert::From<i32> for NtmsUITypes {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NtmsUITypes {
+unsafe impl ::windows::core::Abi for NtmsUITypes {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13015,13 +12999,13 @@ impl ::core::cmp::PartialEq for OFSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OFSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OFSTRUCT {
+unsafe impl ::windows::core::Abi for OFSTRUCT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenEncryptedFileRawA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn OpenEncryptedFileRawA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13036,7 +13020,7 @@ pub unsafe fn OpenEncryptedFileRawA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenEncryptedFileRawW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn OpenEncryptedFileRawW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13051,12 +13035,12 @@ pub unsafe fn OpenEncryptedFileRawW<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenEnlistment<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(dwdesiredaccess: u32, resourcemanagerhandle: Param1, enlistmentid: *mut ::windows::runtime::GUID) -> super::super::Foundation::HANDLE {
+pub unsafe fn OpenEnlistment<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwdesiredaccess: u32, resourcemanagerhandle: Param1, enlistmentid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenEnlistment(dwdesiredaccess: u32, resourcemanagerhandle: super::super::Foundation::HANDLE, enlistmentid: *mut ::windows::runtime::GUID) -> super::super::Foundation::HANDLE;
+            fn OpenEnlistment(dwdesiredaccess: u32, resourcemanagerhandle: super::super::Foundation::HANDLE, enlistmentid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE;
         }
         ::core::mem::transmute(OpenEnlistment(::core::mem::transmute(dwdesiredaccess), resourcemanagerhandle.into_param().abi(), ::core::mem::transmute(enlistmentid)))
     }
@@ -13066,7 +13050,7 @@ pub unsafe fn OpenEnlistment<'a, Param1: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpreopenbuff: *mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32 {
+pub unsafe fn OpenFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpreopenbuff: *mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13081,7 +13065,7 @@ pub unsafe fn OpenFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn OpenFileById<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumehint: Param0, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE {
+pub unsafe fn OpenFileById<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumehint: Param0, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13096,12 +13080,12 @@ pub unsafe fn OpenFileById<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenResourceManager<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(dwdesiredaccess: u32, tmhandle: Param1, resourcemanagerid: *mut ::windows::runtime::GUID) -> super::super::Foundation::HANDLE {
+pub unsafe fn OpenResourceManager<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwdesiredaccess: u32, tmhandle: Param1, resourcemanagerid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenResourceManager(dwdesiredaccess: u32, tmhandle: super::super::Foundation::HANDLE, resourcemanagerid: *mut ::windows::runtime::GUID) -> super::super::Foundation::HANDLE;
+            fn OpenResourceManager(dwdesiredaccess: u32, tmhandle: super::super::Foundation::HANDLE, resourcemanagerid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE;
         }
         ::core::mem::transmute(OpenResourceManager(::core::mem::transmute(dwdesiredaccess), tmhandle.into_param().abi(), ::core::mem::transmute(resourcemanagerid)))
     }
@@ -13111,12 +13095,12 @@ pub unsafe fn OpenResourceManager<'a, Param1: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::windows::runtime::GUID) -> super::super::Foundation::HANDLE {
+pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::windows::runtime::GUID) -> super::super::Foundation::HANDLE;
+            fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE;
         }
         ::core::mem::transmute(OpenTransaction(::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(transactionid)))
     }
@@ -13126,7 +13110,7 @@ pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::window
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenTransactionManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(logfilename: Param0, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE {
+pub unsafe fn OpenTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(logfilename: Param0, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13141,42 +13125,42 @@ pub unsafe fn OpenTransactionManager<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const ::windows::runtime::GUID, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE {
+pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const ::windows::core::GUID, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenTransactionManagerById(transactionmanagerid: *const ::windows::runtime::GUID, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
+            fn OpenTransactionManagerById(transactionmanagerid: *const ::windows::core::GUID, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
         }
         ::core::mem::transmute(OpenTransactionManagerById(::core::mem::transmute(transactionmanagerid), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(openoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const PARTITION_BASIC_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xebd0a0a2_b9e5_4433_87c0_68b6b72699c7);
-pub const PARTITION_BSP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_4df9_45b9_8e9e_2370f006457c);
-pub const PARTITION_CLUSTER_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdb97dba9_0840_4bae_97f0_ffb9a327c7e1);
-pub const PARTITION_DPP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_94cb_43f0_a533_d73c10cfa57d);
-pub const PARTITION_ENTRY_UNUSED_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
-pub const PARTITION_LDM_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xaf9b60a0_1431_4f62_bc68_3311714a69ad);
-pub const PARTITION_LDM_METADATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5808c8aa_7e8f_42e0_85d2_e1e90434cfb3);
-pub const PARTITION_LEGACY_BL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x424ca0e2_7cb2_4fb9_8143_c52a99398bc6);
-pub const PARTITION_LEGACY_BL_GUID_BACKUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x424c3e6c_d79f_49cb_935d_36d71467a288);
-pub const PARTITION_MAIN_OS_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_8f45_405e_8a23_186d8a4330d3);
-pub const PARTITION_MSFT_RECOVERY_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xde94bba4_06d1_4d40_a16a_bfd50179d6ac);
-pub const PARTITION_MSFT_RESERVED_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe3c9e316_0b5c_4db8_817d_f92df00215ae);
-pub const PARTITION_MSFT_SNAPSHOT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcaddebf1_4400_4de8_b103_12117dcf3ccf);
-pub const PARTITION_OS_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_23f2_44d5_a830_67bbdaa609f9);
-pub const PARTITION_PATCH_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8967a686_96aa_6aa8_9589_a84256541090);
-pub const PARTITION_PRE_INSTALLED_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_7fe0_4196_9b42_427b51643484);
-pub const PARTITION_SERVICING_FILES_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_432e_4014_ae4c_8deaa9c0006a);
-pub const PARTITION_SERVICING_METADATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_c691_4a05_bb4e_703dafd229ce);
-pub const PARTITION_SERVICING_RESERVE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_4b81_460b_a319_ffb6fe136d14);
-pub const PARTITION_SERVICING_STAGING_ROOT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_e84d_4e84_aaf3_ecbbbd04b9df);
-pub const PARTITION_SPACES_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe7addcb4_dc34_4539_9a76_ebbd07be6f7e);
-pub const PARTITION_SPACES_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xe75caf8f_f680_4cee_afa3_b001e56efc2d);
-pub const PARTITION_SYSTEM_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xc12a7328_f81f_11d2_ba4b_00a0c93ec93b);
-pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x57434f53_e3e3_4631_a5c5_26d2243873aa);
+pub const PARTITION_BASIC_DATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebd0a0a2_b9e5_4433_87c0_68b6b72699c7);
+pub const PARTITION_BSP_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_4df9_45b9_8e9e_2370f006457c);
+pub const PARTITION_CLUSTER_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb97dba9_0840_4bae_97f0_ffb9a327c7e1);
+pub const PARTITION_DPP_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_94cb_43f0_a533_d73c10cfa57d);
+pub const PARTITION_ENTRY_UNUSED_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const PARTITION_LDM_DATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf9b60a0_1431_4f62_bc68_3311714a69ad);
+pub const PARTITION_LDM_METADATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5808c8aa_7e8f_42e0_85d2_e1e90434cfb3);
+pub const PARTITION_LEGACY_BL_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x424ca0e2_7cb2_4fb9_8143_c52a99398bc6);
+pub const PARTITION_LEGACY_BL_GUID_BACKUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x424c3e6c_d79f_49cb_935d_36d71467a288);
+pub const PARTITION_MAIN_OS_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_8f45_405e_8a23_186d8a4330d3);
+pub const PARTITION_MSFT_RECOVERY_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde94bba4_06d1_4d40_a16a_bfd50179d6ac);
+pub const PARTITION_MSFT_RESERVED_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3c9e316_0b5c_4db8_817d_f92df00215ae);
+pub const PARTITION_MSFT_SNAPSHOT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaddebf1_4400_4de8_b103_12117dcf3ccf);
+pub const PARTITION_OS_DATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_23f2_44d5_a830_67bbdaa609f9);
+pub const PARTITION_PATCH_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8967a686_96aa_6aa8_9589_a84256541090);
+pub const PARTITION_PRE_INSTALLED_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_7fe0_4196_9b42_427b51643484);
+pub const PARTITION_SERVICING_FILES_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_432e_4014_ae4c_8deaa9c0006a);
+pub const PARTITION_SERVICING_METADATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_c691_4a05_bb4e_703dafd229ce);
+pub const PARTITION_SERVICING_RESERVE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_4b81_460b_a319_ffb6fe136d14);
+pub const PARTITION_SERVICING_STAGING_ROOT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_e84d_4e84_aaf3_ecbbbd04b9df);
+pub const PARTITION_SPACES_DATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7addcb4_dc34_4539_9a76_ebbd07be6f7e);
+pub const PARTITION_SPACES_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe75caf8f_f680_4cee_afa3_b001e56efc2d);
+pub const PARTITION_SYSTEM_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc12a7328_f81f_11d2_ba4b_00a0c93ec93b);
+pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_e3e3_4631_a5c5_26d2243873aa);
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub type PCLFS_COMPLETION_ROUTINE = unsafe extern "system" fn(pvoverlapped: *mut ::core::ffi::c_void, ulreserved: u32);
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -13213,7 +13197,7 @@ impl ::core::convert::From<i32> for PREPARE_TAPE_OPERATION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PREPARE_TAPE_OPERATION {
+unsafe impl ::windows::core::Abi for PREPARE_TAPE_OPERATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -13229,19 +13213,19 @@ impl ::core::convert::From<i32> for PRIORITY_HINT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PRIORITY_HINT {
+unsafe impl ::windows::core::Abi for PRIORITY_HINT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[inline]
-pub unsafe fn PopIoRingCompletion(ioring: *const HIORING__) -> ::windows::runtime::Result<IORING_CQE> {
+pub unsafe fn PopIoRingCompletion(ioring: *const HIORING__) -> ::windows::core::Result<IORING_CQE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PopIoRingCompletion(ioring: *const HIORING__, cqe: *mut IORING_CQE) -> ::windows::runtime::HRESULT;
+            fn PopIoRingCompletion(ioring: *const HIORING__, cqe: *mut IORING_CQE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <IORING_CQE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <IORING_CQE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         PopIoRingCompletion(::core::mem::transmute(ioring), &mut result__).from_abi::<IORING_CQE>(result__)
     }
     #[cfg(not(windows))]
@@ -13250,7 +13234,7 @@ pub unsafe fn PopIoRingCompletion(ioring: *const HIORING__) -> ::windows::runtim
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrePrepareComplete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn PrePrepareComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13265,7 +13249,7 @@ pub unsafe fn PrePrepareComplete<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrePrepareEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn PrePrepareEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13280,7 +13264,7 @@ pub unsafe fn PrePrepareEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrepareComplete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn PrepareComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13295,7 +13279,7 @@ pub unsafe fn PrepareComplete<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrepareEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn PrepareEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13310,7 +13294,7 @@ pub unsafe fn PrepareEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrepareLogArchive<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
+pub unsafe fn PrepareLogArchive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hlog: Param0,
     pszbaselogfilename: Param1,
     clen: u32,
@@ -13351,7 +13335,7 @@ pub unsafe fn PrepareLogArchive<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrepareTape<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: Param2) -> u32 {
+pub unsafe fn PrepareTape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13366,7 +13350,7 @@ pub unsafe fn PrepareTape<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryDosDeviceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpdevicename: Param0, lptargetpath: super::super::Foundation::PSTR, ucchmax: u32) -> u32 {
+pub unsafe fn QueryDosDeviceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpdevicename: Param0, lptargetpath: super::super::Foundation::PSTR, ucchmax: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13381,7 +13365,7 @@ pub unsafe fn QueryDosDeviceA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryDosDeviceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdevicename: Param0, lptargetpath: super::super::Foundation::PWSTR, ucchmax: u32) -> u32 {
+pub unsafe fn QueryDosDeviceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdevicename: Param0, lptargetpath: super::super::Foundation::PWSTR, ucchmax: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13395,14 +13379,14 @@ pub unsafe fn QueryDosDeviceW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[inline]
-pub unsafe fn QueryIoRingCapabilities() -> ::windows::runtime::Result<IORING_CAPABILITIES> {
+pub unsafe fn QueryIoRingCapabilities() -> ::windows::core::Result<IORING_CAPABILITIES> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QueryIoRingCapabilities(capabilities: *mut IORING_CAPABILITIES) -> ::windows::runtime::HRESULT;
+            fn QueryIoRingCapabilities(capabilities: *mut IORING_CAPABILITIES) -> ::windows::core::HRESULT;
         }
-        let mut result__: <IORING_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <IORING_CAPABILITIES as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         QueryIoRingCapabilities(&mut result__).from_abi::<IORING_CAPABILITIES>(result__)
     }
     #[cfg(not(windows))]
@@ -13411,7 +13395,7 @@ pub unsafe fn QueryIoRingCapabilities() -> ::windows::runtime::Result<IORING_CAP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryLogPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryLogPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13426,7 +13410,7 @@ pub unsafe fn QueryLogPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, precoveryagents: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
+pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, precoveryagents: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13441,7 +13425,7 @@ pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<'a, Param0: ::windows::runtime:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryUsersOnEncryptedFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pusers: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
+pub unsafe fn QueryUsersOnEncryptedFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pusers: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13464,7 +13448,7 @@ impl ::core::convert::From<i32> for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
+unsafe impl ::windows::core::Abi for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13474,7 +13458,7 @@ pub struct REPARSE_GUID_DATA_BUFFER {
     pub ReparseTag: u32,
     pub ReparseDataLength: u16,
     pub Reserved: u16,
-    pub ReparseGuid: ::windows::runtime::GUID,
+    pub ReparseGuid: ::windows::core::GUID,
     pub GenericReparseBuffer: REPARSE_GUID_DATA_BUFFER_0,
 }
 impl REPARSE_GUID_DATA_BUFFER {}
@@ -13494,7 +13478,7 @@ impl ::core::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER {
     }
 }
 impl ::core::cmp::Eq for REPARSE_GUID_DATA_BUFFER {}
-unsafe impl ::windows::runtime::Abi for REPARSE_GUID_DATA_BUFFER {
+unsafe impl ::windows::core::Abi for REPARSE_GUID_DATA_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13520,7 +13504,7 @@ impl ::core::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER_0 {
     }
 }
 impl ::core::cmp::Eq for REPARSE_GUID_DATA_BUFFER_0 {}
-unsafe impl ::windows::runtime::Abi for REPARSE_GUID_DATA_BUFFER_0 {
+unsafe impl ::windows::core::Abi for REPARSE_GUID_DATA_BUFFER_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -13535,7 +13519,7 @@ impl ::core::convert::From<u32> for REPLACE_FILE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for REPLACE_FILE_FLAGS {
+unsafe impl ::windows::core::Abi for REPLACE_FILE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for REPLACE_FILE_FLAGS {
@@ -13575,7 +13559,7 @@ pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReOpenFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(horiginalfile: Param0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE {
+pub unsafe fn ReOpenFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(horiginalfile: Param0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13590,7 +13574,7 @@ pub unsafe fn ReOpenFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadDirectoryChangesExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
+pub unsafe fn ReadDirectoryChangesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
     hdirectory: Param0,
     lpbuffer: *mut ::core::ffi::c_void,
     nbufferlength: u32,
@@ -13605,7 +13589,7 @@ pub unsafe fn ReadDirectoryChangesExW<'a, Param0: ::windows::runtime::IntoParam<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadDirectoryChangesExW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL;
+            fn ReadDirectoryChangesExW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(ReadDirectoryChangesExW(
             hdirectory.into_param().abi(),
@@ -13625,7 +13609,7 @@ pub unsafe fn ReadDirectoryChangesExW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadDirectoryChangesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
+pub unsafe fn ReadDirectoryChangesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
     hdirectory: Param0,
     lpbuffer: *mut ::core::ffi::c_void,
     nbufferlength: u32,
@@ -13639,7 +13623,7 @@ pub unsafe fn ReadDirectoryChangesW<'a, Param0: ::windows::runtime::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadDirectoryChangesW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
+            fn ReadDirectoryChangesW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(ReadDirectoryChangesW(
             hdirectory.into_param().abi(),
@@ -13662,7 +13646,7 @@ pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: ::core::option::Option<PFE_
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadEncryptedFileRaw(pfexportcallback: ::windows::runtime::RawPtr, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32;
+            fn ReadEncryptedFileRaw(pfexportcallback: ::windows::core::RawPtr, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(ReadEncryptedFileRaw(::core::mem::transmute(pfexportcallback), ::core::mem::transmute(pvcallbackcontext), ::core::mem::transmute(pvcontext)))
     }
@@ -13672,7 +13656,7 @@ pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: ::core::option::Option<PFE_
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13687,12 +13671,12 @@ pub unsafe fn ReadFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
+            fn ReadFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(ReadFileEx(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
@@ -13702,7 +13686,7 @@ pub unsafe fn ReadFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadFileScatter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestoread: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadFileScatter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestoread: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13732,7 +13716,7 @@ pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void,
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadLogNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pnotification: *mut CLFS_MGMT_NOTIFICATION, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadLogNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pnotification: *mut CLFS_MGMT_NOTIFICATION, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13813,7 +13797,7 @@ pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuff
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReadOnlyEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadOnlyEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13843,7 +13827,7 @@ pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::core::ffi::c_void
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RecoverEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn RecoverEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13858,7 +13842,7 @@ pub unsafe fn RecoverEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RecoverResourceManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn RecoverResourceManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13873,7 +13857,7 @@ pub unsafe fn RecoverResourceManager<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RecoverTransactionManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn RecoverTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13888,7 +13872,7 @@ pub unsafe fn RecoverTransactionManager<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterForLogWriteNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, cbthreshold: u32, fenable: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn RegisterForLogWriteNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, cbthreshold: u32, fenable: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13903,7 +13887,7 @@ pub unsafe fn RegisterForLogWriteNotification<'a, Param0: ::windows::runtime::In
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterManageableLogClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pcallbacks: *mut LOG_MANAGEMENT_CALLBACKS) -> super::super::Foundation::BOOL {
+pub unsafe fn RegisterManageableLogClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pcallbacks: *mut LOG_MANAGEMENT_CALLBACKS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13918,7 +13902,7 @@ pub unsafe fn RegisterManageableLogClient<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13933,7 +13917,7 @@ pub unsafe fn RemoveDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveDirectoryFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveDirectoryFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13948,7 +13932,7 @@ pub unsafe fn RemoveDirectoryFromAppW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveDirectoryTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lppathname: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveDirectoryTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lppathname: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13963,7 +13947,7 @@ pub unsafe fn RemoveDirectoryTransactedA<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveDirectoryTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lppathname: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveDirectoryTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lppathname: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13978,7 +13962,7 @@ pub unsafe fn RemoveDirectoryTransactedW<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13993,7 +13977,7 @@ pub unsafe fn RemoveDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveLogContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, pwszcontainerpath: Param1, fforce: Param2, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveLogContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, pwszcontainerpath: Param1, fforce: Param2, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14008,7 +13992,7 @@ pub unsafe fn RemoveLogContainer<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveLogContainerSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, ccontainer: u16, rgwszcontainerpath: *const super::super::Foundation::PWSTR, fforce: Param3, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveLogContainerSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, ccontainer: u16, rgwszcontainerpath: *const super::super::Foundation::PWSTR, fforce: Param3, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14023,7 +14007,7 @@ pub unsafe fn RemoveLogContainerSet<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveLogPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, epolicytype: CLFS_MGMT_POLICY_TYPE) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveLogPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, epolicytype: CLFS_MGMT_POLICY_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14038,7 +14022,7 @@ pub unsafe fn RemoveLogPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RemoveUsersFromEncryptedFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, phashes: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
+pub unsafe fn RemoveUsersFromEncryptedFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, phashes: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14053,12 +14037,12 @@ pub unsafe fn RemoveUsersFromEncryptedFile<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RenameTransactionManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(logfilename: Param0, existingtransactionmanagerguid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL {
+pub unsafe fn RenameTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(logfilename: Param0, existingtransactionmanagerguid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RenameTransactionManager(logfilename: super::super::Foundation::PWSTR, existingtransactionmanagerguid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL;
+            fn RenameTransactionManager(logfilename: super::super::Foundation::PWSTR, existingtransactionmanagerguid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(RenameTransactionManager(logfilename.into_param().abi(), ::core::mem::transmute(existingtransactionmanagerguid)))
     }
@@ -14068,7 +14052,7 @@ pub unsafe fn RenameTransactionManager<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReplaceFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ReplaceFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14083,7 +14067,7 @@ pub unsafe fn ReplaceFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReplaceFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: u32, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ReplaceFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: u32, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14098,7 +14082,7 @@ pub unsafe fn ReplaceFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReplaceFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ReplaceFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14166,7 +14150,7 @@ pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rg
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RollbackComplete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn RollbackComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14181,7 +14165,7 @@ pub unsafe fn RollbackComplete<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RollbackEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn RollbackEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14196,7 +14180,7 @@ pub unsafe fn RollbackEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RollbackTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn RollbackTransaction<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14211,7 +14195,7 @@ pub unsafe fn RollbackTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RollbackTransactionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn RollbackTransactionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14226,7 +14210,7 @@ pub unsafe fn RollbackTransactionAsync<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RollforwardTransactionManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn RollforwardTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14271,7 +14255,7 @@ impl ::core::cmp::PartialEq for SERVER_ALIAS_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_ALIAS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_ALIAS_INFO_0 {
+unsafe impl ::windows::core::Abi for SERVER_ALIAS_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14339,7 +14323,7 @@ impl ::core::cmp::PartialEq for SERVER_CERTIFICATE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVER_CERTIFICATE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVER_CERTIFICATE_INFO_0 {
+unsafe impl ::windows::core::Abi for SERVER_CERTIFICATE_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -14352,7 +14336,7 @@ impl ::core::convert::From<i32> for SERVER_CERTIFICATE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVER_CERTIFICATE_TYPE {
+unsafe impl ::windows::core::Abi for SERVER_CERTIFICATE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -14389,7 +14373,7 @@ impl ::core::cmp::PartialEq for SESSION_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SESSION_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SESSION_INFO_0 {
+unsafe impl ::windows::core::Abi for SESSION_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14434,7 +14418,7 @@ impl ::core::cmp::PartialEq for SESSION_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SESSION_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SESSION_INFO_1 {
+unsafe impl ::windows::core::Abi for SESSION_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14470,7 +14454,7 @@ impl ::core::cmp::PartialEq for SESSION_INFO_10 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SESSION_INFO_10 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SESSION_INFO_10 {
+unsafe impl ::windows::core::Abi for SESSION_INFO_10 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14517,7 +14501,7 @@ impl ::core::cmp::PartialEq for SESSION_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SESSION_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SESSION_INFO_2 {
+unsafe impl ::windows::core::Abi for SESSION_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14566,7 +14550,7 @@ impl ::core::cmp::PartialEq for SESSION_INFO_502 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SESSION_INFO_502 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SESSION_INFO_502 {
+unsafe impl ::windows::core::Abi for SESSION_INFO_502 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -14580,7 +14564,7 @@ impl ::core::convert::From<u32> for SESSION_INFO_USER_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SESSION_INFO_USER_FLAGS {
+unsafe impl ::windows::core::Abi for SESSION_INFO_USER_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SESSION_INFO_USER_FLAGS {
@@ -14623,7 +14607,7 @@ impl ::core::convert::From<u32> for SET_FILE_POINTER_MOVE_METHOD {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SET_FILE_POINTER_MOVE_METHOD {
+unsafe impl ::windows::core::Abi for SET_FILE_POINTER_MOVE_METHOD {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SET_FILE_POINTER_MOVE_METHOD {
@@ -14688,7 +14672,7 @@ impl ::core::cmp::PartialEq for SHARE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SHARE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_0 {
+unsafe impl ::windows::core::Abi for SHARE_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14723,7 +14707,7 @@ impl ::core::cmp::PartialEq for SHARE_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SHARE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_1 {
+unsafe impl ::windows::core::Abi for SHARE_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14756,7 +14740,7 @@ impl ::core::cmp::PartialEq for SHARE_INFO_1004 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SHARE_INFO_1004 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_1004 {
+unsafe impl ::windows::core::Abi for SHARE_INFO_1004 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14782,7 +14766,7 @@ impl ::core::cmp::PartialEq for SHARE_INFO_1005 {
     }
 }
 impl ::core::cmp::Eq for SHARE_INFO_1005 {}
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_1005 {
+unsafe impl ::windows::core::Abi for SHARE_INFO_1005 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14808,7 +14792,7 @@ impl ::core::cmp::PartialEq for SHARE_INFO_1006 {
     }
 }
 impl ::core::cmp::Eq for SHARE_INFO_1006 {}
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_1006 {
+unsafe impl ::windows::core::Abi for SHARE_INFO_1006 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14842,14 +14826,14 @@ impl ::core::cmp::PartialEq for SHARE_INFO_1501 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for SHARE_INFO_1501 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_1501 {
+unsafe impl ::windows::core::Abi for SHARE_INFO_1501 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct SHARE_INFO_1503 {
-    pub shi1503_sharefilter: ::windows::runtime::GUID,
+    pub shi1503_sharefilter: ::windows::core::GUID,
 }
 impl SHARE_INFO_1503 {}
 impl ::core::default::Default for SHARE_INFO_1503 {
@@ -14868,7 +14852,7 @@ impl ::core::cmp::PartialEq for SHARE_INFO_1503 {
     }
 }
 impl ::core::cmp::Eq for SHARE_INFO_1503 {}
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_1503 {
+unsafe impl ::windows::core::Abi for SHARE_INFO_1503 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14917,7 +14901,7 @@ impl ::core::cmp::PartialEq for SHARE_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SHARE_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_2 {
+unsafe impl ::windows::core::Abi for SHARE_INFO_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14953,7 +14937,7 @@ impl ::core::cmp::PartialEq for SHARE_INFO_501 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SHARE_INFO_501 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_501 {
+unsafe impl ::windows::core::Abi for SHARE_INFO_501 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15015,7 +14999,7 @@ impl ::core::cmp::PartialEq for SHARE_INFO_502 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for SHARE_INFO_502 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_502 {
+unsafe impl ::windows::core::Abi for SHARE_INFO_502 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15080,7 +15064,7 @@ impl ::core::cmp::PartialEq for SHARE_INFO_503 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::Eq for SHARE_INFO_503 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_503 {
+unsafe impl ::windows::core::Abi for SHARE_INFO_503 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -15100,7 +15084,7 @@ impl ::core::convert::From<u32> for SHARE_INFO_PERMISSIONS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SHARE_INFO_PERMISSIONS {
+unsafe impl ::windows::core::Abi for SHARE_INFO_PERMISSIONS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SHARE_INFO_PERMISSIONS {
@@ -15161,7 +15145,7 @@ impl ::core::convert::From<u32> for SHARE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SHARE_TYPE {
+unsafe impl ::windows::core::Abi for SHARE_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SHARE_TYPE {
@@ -15305,7 +15289,7 @@ impl ::core::cmp::PartialEq for STAT_SERVER_0 {
     }
 }
 impl ::core::cmp::Eq for STAT_SERVER_0 {}
-unsafe impl ::windows::runtime::Abi for STAT_SERVER_0 {
+unsafe impl ::windows::core::Abi for STAT_SERVER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15450,7 +15434,7 @@ impl ::core::cmp::PartialEq for STAT_WORKSTATION_0 {
     }
 }
 impl ::core::cmp::Eq for STAT_WORKSTATION_0 {}
-unsafe impl ::windows::runtime::Abi for STAT_WORKSTATION_0 {
+unsafe impl ::windows::core::Abi for STAT_WORKSTATION_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -15484,7 +15468,7 @@ impl ::core::convert::From<i32> for STORAGE_BUS_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_BUS_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_BUS_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -15498,7 +15482,7 @@ impl ::core::convert::From<i32> for STREAM_INFO_LEVELS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STREAM_INFO_LEVELS {
+unsafe impl ::windows::core::Abi for STREAM_INFO_LEVELS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -15524,7 +15508,7 @@ impl ::core::convert::From<u32> for SYMBOLIC_LINK_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SYMBOLIC_LINK_FLAGS {
+unsafe impl ::windows::core::Abi for SYMBOLIC_LINK_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SYMBOLIC_LINK_FLAGS {
@@ -15573,7 +15557,7 @@ pub unsafe fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, p
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SearchPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lppath: Param0, lpfilename: Param1, lpextension: Param2, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn SearchPathA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lppath: Param0, lpfilename: Param1, lpextension: Param2, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15588,7 +15572,7 @@ pub unsafe fn SearchPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SearchPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lppath: Param0, lpfilename: Param1, lpextension: Param2, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn SearchPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppath: Param0, lpfilename: Param1, lpextension: Param2, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15603,7 +15587,7 @@ pub unsafe fn SearchPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SetEncryptedFileMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pboldmetadata: *const u8, pbnewmetadata: *const u8, pownerhash: *const ENCRYPTION_CERTIFICATE_HASH, dwoperation: u32, pcertificatesadded: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
+pub unsafe fn SetEncryptedFileMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pboldmetadata: *const u8, pbnewmetadata: *const u8, pownerhash: *const ENCRYPTION_CERTIFICATE_HASH, dwoperation: u32, pcertificatesadded: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15618,7 +15602,7 @@ pub unsafe fn SetEncryptedFileMetadata<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetEndOfFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn SetEndOfFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15633,7 +15617,7 @@ pub unsafe fn SetEndOfFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn SetEndOfLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, plsnend: *mut CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn SetEndOfLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, plsnend: *mut CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15648,7 +15632,7 @@ pub unsafe fn SetEndOfLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetEnlistmentRecoveryInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, buffersize: u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SetEnlistmentRecoveryInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, buffersize: u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15691,7 +15675,7 @@ pub unsafe fn SetFileApisToOEM() {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileAttributesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileAttributesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15706,7 +15690,7 @@ pub unsafe fn SetFileAttributesA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileAttributesFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwfileattributes: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileAttributesFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwfileattributes: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15721,7 +15705,7 @@ pub unsafe fn SetFileAttributesFromAppW<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileAttributesTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwfileattributes: u32, htransaction: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileAttributesTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwfileattributes: u32, htransaction: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15736,7 +15720,7 @@ pub unsafe fn SetFileAttributesTransactedA<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileAttributesTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwfileattributes: u32, htransaction: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileAttributesTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwfileattributes: u32, htransaction: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15751,7 +15735,7 @@ pub unsafe fn SetFileAttributesTransactedW<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileAttributesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileAttributesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15766,7 +15750,7 @@ pub unsafe fn SetFileAttributesW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileBandwidthReservation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: Param3, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileBandwidthReservation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: Param3, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15781,7 +15765,7 @@ pub unsafe fn SetFileBandwidthReservation<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileCompletionNotificationModes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, flags: u8) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileCompletionNotificationModes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, flags: u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15796,7 +15780,7 @@ pub unsafe fn SetFileCompletionNotificationModes<'a, Param0: ::windows::runtime:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileInformationByHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileInformationByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15811,7 +15795,7 @@ pub unsafe fn SetFileInformationByHandle<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileIoOverlappedRange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, overlappedrangestart: *const u8, length: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileIoOverlappedRange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, overlappedrangestart: *const u8, length: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15826,7 +15810,7 @@ pub unsafe fn SetFileIoOverlappedRange<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFilePointer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> u32 {
+pub unsafe fn SetFilePointer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15841,7 +15825,7 @@ pub unsafe fn SetFilePointer<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFilePointerEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lidistancetomove: i64, lpnewfilepointer: *mut i64, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFilePointerEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lidistancetomove: i64, lpnewfilepointer: *mut i64, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15856,7 +15840,7 @@ pub unsafe fn SetFilePointerEx<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileShortNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hfile: Param0, lpshortname: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileShortNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hfile: Param0, lpshortname: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15871,7 +15855,7 @@ pub unsafe fn SetFileShortNameA<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileShortNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hfile: Param0, lpshortname: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileShortNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hfile: Param0, lpshortname: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15886,7 +15870,7 @@ pub unsafe fn SetFileShortNameW<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcreationtime: *const super::super::Foundation::FILETIME, lplastaccesstime: *const super::super::Foundation::FILETIME, lplastwritetime: *const super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcreationtime: *const super::super::Foundation::FILETIME, lplastaccesstime: *const super::super::Foundation::FILETIME, lplastwritetime: *const super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15901,7 +15885,7 @@ pub unsafe fn SetFileTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileValidData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, validdatalength: i64) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileValidData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, validdatalength: i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15916,12 +15900,12 @@ pub unsafe fn SetFileValidData<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIoRingCompletionEvent<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(ioring: *const HIORING__, hevent: Param1) -> ::windows::runtime::Result<()> {
+pub unsafe fn SetIoRingCompletionEvent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ioring: *const HIORING__, hevent: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIoRingCompletionEvent(ioring: *const HIORING__, hevent: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+            fn SetIoRingCompletionEvent(ioring: *const HIORING__, hevent: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
         SetIoRingCompletionEvent(::core::mem::transmute(ioring), hevent.into_param().abi()).ok()
     }
@@ -15931,7 +15915,7 @@ pub unsafe fn SetIoRingCompletionEvent<'a, Param1: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetLogArchiveMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, emode: CLFS_LOG_ARCHIVE_MODE) -> super::super::Foundation::BOOL {
+pub unsafe fn SetLogArchiveMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, emode: CLFS_LOG_ARCHIVE_MODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15946,7 +15930,7 @@ pub unsafe fn SetLogArchiveMode<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetLogArchiveTail<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, plsnarchivetail: *mut CLS_LSN, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SetLogArchiveTail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, plsnarchivetail: *mut CLS_LSN, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15961,7 +15945,7 @@ pub unsafe fn SetLogArchiveTail<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetLogFileSizeWithPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pdesiredsize: *mut u64, presultingsize: *mut u64) -> super::super::Foundation::BOOL {
+pub unsafe fn SetLogFileSizeWithPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pdesiredsize: *mut u64, presultingsize: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15976,7 +15960,7 @@ pub unsafe fn SetLogFileSizeWithPolicy<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetResourceManagerCompletionPort<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0, iocompletionporthandle: Param1, completionkey: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn SetResourceManagerCompletionPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0, iocompletionporthandle: Param1, completionkey: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16006,7 +15990,7 @@ pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTapeParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn SetTapeParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16021,7 +16005,7 @@ pub unsafe fn SetTapeParameters<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTapePosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: Param5) -> u32 {
+pub unsafe fn SetTapePosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: Param5) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16036,7 +16020,7 @@ pub unsafe fn SetTapePosition<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTransactionInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(transactionhandle: Param0, isolationlevel: u32, isolationflags: u32, timeout: u32, description: Param4) -> super::super::Foundation::BOOL {
+pub unsafe fn SetTransactionInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(transactionhandle: Param0, isolationlevel: u32, isolationflags: u32, timeout: u32, description: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16081,7 +16065,7 @@ pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: *const ENCRYPTI
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVolumeLabelA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0, lpvolumename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetVolumeLabelA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0, lpvolumename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16096,7 +16080,7 @@ pub unsafe fn SetVolumeLabelA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVolumeLabelW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0, lpvolumename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetVolumeLabelW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0, lpvolumename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16111,7 +16095,7 @@ pub unsafe fn SetVolumeLabelW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVolumeMountPointA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16126,7 +16110,7 @@ pub unsafe fn SetVolumeMountPointA<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVolumeMountPointW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16141,7 +16125,7 @@ pub unsafe fn SetVolumeMountPointW<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SinglePhaseReject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn SinglePhaseReject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16155,14 +16139,14 @@ pub unsafe fn SinglePhaseReject<'a, Param0: ::windows::runtime::IntoParam<'a, su
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[inline]
-pub unsafe fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, milliseconds: u32) -> ::windows::runtime::Result<u32> {
+pub unsafe fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, milliseconds: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, milliseconds: u32, submittedentries: *mut u32) -> ::windows::runtime::HRESULT;
+            fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, milliseconds: u32, submittedentries: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         SubmitIoRing(::core::mem::transmute(ioring), ::core::mem::transmute(waitoperations), ::core::mem::transmute(milliseconds), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
@@ -16181,7 +16165,7 @@ impl ::core::convert::From<i32> for TAPEMARK_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TAPEMARK_TYPE {
+unsafe impl ::windows::core::Abi for TAPEMARK_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16215,7 +16199,7 @@ impl ::core::cmp::PartialEq for TAPE_ERASE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TAPE_ERASE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TAPE_ERASE {
+unsafe impl ::windows::core::Abi for TAPE_ERASE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16243,7 +16227,7 @@ impl ::core::cmp::PartialEq for TAPE_GET_POSITION {
     }
 }
 impl ::core::cmp::Eq for TAPE_GET_POSITION {}
-unsafe impl ::windows::runtime::Abi for TAPE_GET_POSITION {
+unsafe impl ::windows::core::Abi for TAPE_GET_POSITION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -16257,7 +16241,7 @@ impl ::core::convert::From<u32> for TAPE_INFORMATION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TAPE_INFORMATION_TYPE {
+unsafe impl ::windows::core::Abi for TAPE_INFORMATION_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for TAPE_INFORMATION_TYPE {
@@ -16306,7 +16290,7 @@ impl ::core::convert::From<i32> for TAPE_POSITION_METHOD {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TAPE_POSITION_METHOD {
+unsafe impl ::windows::core::Abi for TAPE_POSITION_METHOD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -16320,7 +16304,7 @@ impl ::core::convert::From<i32> for TAPE_POSITION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TAPE_POSITION_TYPE {
+unsafe impl ::windows::core::Abi for TAPE_POSITION_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16354,7 +16338,7 @@ impl ::core::cmp::PartialEq for TAPE_PREPARE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TAPE_PREPARE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TAPE_PREPARE {
+unsafe impl ::windows::core::Abi for TAPE_PREPARE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16390,7 +16374,7 @@ impl ::core::cmp::PartialEq for TAPE_SET_POSITION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TAPE_SET_POSITION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TAPE_SET_POSITION {
+unsafe impl ::windows::core::Abi for TAPE_SET_POSITION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16425,7 +16409,7 @@ impl ::core::cmp::PartialEq for TAPE_WRITE_MARKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TAPE_WRITE_MARKS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TAPE_WRITE_MARKS {
+unsafe impl ::windows::core::Abi for TAPE_WRITE_MARKS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -16474,7 +16458,7 @@ impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION {
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16482,7 +16466,7 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION {
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     pub MarshalCookie: u32,
-    pub UOW: ::windows::runtime::GUID,
+    pub UOW: ::windows::core::GUID,
 }
 impl TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {}
 impl ::core::default::Default for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
@@ -16501,7 +16485,7 @@ impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16509,8 +16493,8 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMEN
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub PropagationCookie: u32,
-    pub UOW: ::windows::runtime::GUID,
-    pub TmIdentity: ::windows::runtime::GUID,
+    pub UOW: ::windows::core::GUID,
+    pub TmIdentity: ::windows::core::GUID,
     pub BufferLength: u32,
 }
 impl TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {}
@@ -16530,15 +16514,15 @@ impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
-    pub EnlistmentId: ::windows::runtime::GUID,
-    pub UOW: ::windows::runtime::GUID,
+    pub EnlistmentId: ::windows::core::GUID,
+    pub UOW: ::windows::core::GUID,
 }
 impl TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {}
 impl ::core::default::Default for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
@@ -16557,7 +16541,7 @@ impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16583,14 +16567,14 @@ impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
-    pub TmIdentity: ::windows::runtime::GUID,
+    pub TmIdentity: ::windows::core::GUID,
     pub Flags: u32,
 }
 impl TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {}
@@ -16610,7 +16594,7 @@ impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     }
 }
 impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {}
-unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -16681,7 +16665,7 @@ impl ::core::convert::From<i32> for TRANSACTION_OUTCOME {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TRANSACTION_OUTCOME {
+unsafe impl ::windows::core::Abi for TRANSACTION_OUTCOME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -16696,7 +16680,7 @@ impl ::core::convert::From<u32> for TXFS_MINIVERSION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TXFS_MINIVERSION {
+unsafe impl ::windows::core::Abi for TXFS_MINIVERSION {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for TXFS_MINIVERSION {
@@ -16745,7 +16729,7 @@ impl ::core::cmp::PartialEq for TXF_ID {
     }
 }
 impl ::core::cmp::Eq for TXF_ID {}
-unsafe impl ::windows::runtime::Abi for TXF_ID {
+unsafe impl ::windows::core::Abi for TXF_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16767,7 +16751,7 @@ impl ::core::cmp::PartialEq for TXF_ID_0 {
     }
 }
 impl ::core::cmp::Eq for TXF_ID_0 {}
-unsafe impl ::windows::runtime::Abi for TXF_ID_0 {
+unsafe impl ::windows::core::Abi for TXF_ID_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16778,7 +16762,7 @@ pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub RecordLength: u32,
     pub Flags: u32,
     pub TxfFileId: TXF_ID,
-    pub KtmGuid: ::windows::runtime::GUID,
+    pub KtmGuid: ::windows::core::GUID,
     pub FileNameLength: u32,
     pub FileNameByteOffsetInStructure: u32,
 }
@@ -16794,7 +16778,7 @@ impl ::core::cmp::PartialEq for TXF_LOG_RECORD_AFFECTED_FILE {
     }
 }
 impl ::core::cmp::Eq for TXF_LOG_RECORD_AFFECTED_FILE {}
-unsafe impl ::windows::runtime::Abi for TXF_LOG_RECORD_AFFECTED_FILE {
+unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_AFFECTED_FILE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16822,7 +16806,7 @@ impl ::core::cmp::PartialEq for TXF_LOG_RECORD_BASE {
     }
 }
 impl ::core::cmp::Eq for TXF_LOG_RECORD_BASE {}
-unsafe impl ::windows::runtime::Abi for TXF_LOG_RECORD_BASE {
+unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_BASE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -16842,7 +16826,7 @@ pub struct TXF_LOG_RECORD_TRUNCATE {
     pub RecordLength: u32,
     pub Flags: u32,
     pub TxfFileId: TXF_ID,
-    pub KtmGuid: ::windows::runtime::GUID,
+    pub KtmGuid: ::windows::core::GUID,
     pub NewFileSize: i64,
     pub FileNameLength: u32,
     pub FileNameByteOffsetInStructure: u32,
@@ -16859,7 +16843,7 @@ impl ::core::cmp::PartialEq for TXF_LOG_RECORD_TRUNCATE {
     }
 }
 impl ::core::cmp::Eq for TXF_LOG_RECORD_TRUNCATE {}
-unsafe impl ::windows::runtime::Abi for TXF_LOG_RECORD_TRUNCATE {
+unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_TRUNCATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -16874,7 +16858,7 @@ impl ::core::convert::From<u16> for TXF_LOG_RECORD_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TXF_LOG_RECORD_TYPE {
+unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16886,7 +16870,7 @@ pub struct TXF_LOG_RECORD_WRITE {
     pub RecordLength: u32,
     pub Flags: u32,
     pub TxfFileId: TXF_ID,
-    pub KtmGuid: ::windows::runtime::GUID,
+    pub KtmGuid: ::windows::core::GUID,
     pub ByteOffsetInFile: i64,
     pub NumBytesWritten: u32,
     pub ByteOffsetInStructure: u32,
@@ -16905,7 +16889,7 @@ impl ::core::cmp::PartialEq for TXF_LOG_RECORD_WRITE {
     }
 }
 impl ::core::cmp::Eq for TXF_LOG_RECORD_WRITE {}
-unsafe impl ::windows::runtime::Abi for TXF_LOG_RECORD_WRITE {
+unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_WRITE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -16970,7 +16954,7 @@ pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16) {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TxfLogCreateFileReadContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, CLS_LSN>, Param2: ::windows::runtime::IntoParam<'a, CLS_LSN>>(logpath: Param0, beginninglsn: Param1, endinglsn: Param2, txffileid: *const TXF_ID, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn TxfLogCreateFileReadContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, CLS_LSN>, Param2: ::windows::core::IntoParam<'a, CLS_LSN>>(logpath: Param0, beginninglsn: Param1, endinglsn: Param2, txffileid: *const TXF_ID, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16985,7 +16969,7 @@ pub unsafe fn TxfLogCreateFileReadContext<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TxfLogCreateRangeReadContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, CLS_LSN>, Param2: ::windows::runtime::IntoParam<'a, CLS_LSN>>(logpath: Param0, beginninglsn: Param1, endinglsn: Param2, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn TxfLogCreateRangeReadContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, CLS_LSN>, Param2: ::windows::core::IntoParam<'a, CLS_LSN>>(logpath: Param0, beginninglsn: Param1, endinglsn: Param2, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17060,12 +17044,12 @@ pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const ::core::ffi::c_voi
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TxfReadMetadataInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, txffileid: *mut TXF_ID, lastlsn: *mut CLS_LSN, transactionstate: *mut u32, lockingtransaction: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL {
+pub unsafe fn TxfReadMetadataInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, txffileid: *mut TXF_ID, lastlsn: *mut CLS_LSN, transactionstate: *mut u32, lockingtransaction: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TxfReadMetadataInfo(filehandle: super::super::Foundation::HANDLE, txffileid: *mut TXF_ID, lastlsn: *mut CLS_LSN, transactionstate: *mut u32, lockingtransaction: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL;
+            fn TxfReadMetadataInfo(filehandle: super::super::Foundation::HANDLE, txffileid: *mut TXF_ID, lastlsn: *mut CLS_LSN, transactionstate: *mut u32, lockingtransaction: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(TxfReadMetadataInfo(filehandle.into_param().abi(), ::core::mem::transmute(txffileid), ::core::mem::transmute(lastlsn), ::core::mem::transmute(transactionstate), ::core::mem::transmute(lockingtransaction)))
     }
@@ -17089,7 +17073,7 @@ pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnlockFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn UnlockFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17104,7 +17088,7 @@ pub unsafe fn UnlockFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn UnlockFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwreserved: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn UnlockFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwreserved: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17126,7 +17110,7 @@ impl ::core::convert::From<u32> for VER_FIND_FILE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VER_FIND_FILE_FLAGS {
+unsafe impl ::windows::core::Abi for VER_FIND_FILE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for VER_FIND_FILE_FLAGS {
@@ -17169,7 +17153,7 @@ impl ::core::convert::From<u32> for VER_FIND_FILE_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VER_FIND_FILE_STATUS {
+unsafe impl ::windows::core::Abi for VER_FIND_FILE_STATUS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for VER_FIND_FILE_STATUS {
@@ -17211,7 +17195,7 @@ impl ::core::convert::From<u32> for VER_INSTALL_FILE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VER_INSTALL_FILE_FLAGS {
+unsafe impl ::windows::core::Abi for VER_INSTALL_FILE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for VER_INSTALL_FILE_FLAGS {
@@ -17272,7 +17256,7 @@ impl ::core::convert::From<u32> for VER_INSTALL_FILE_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VER_INSTALL_FILE_STATUS {
+unsafe impl ::windows::core::Abi for VER_INSTALL_FILE_STATUS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for VER_INSTALL_FILE_STATUS {
@@ -17353,7 +17337,7 @@ impl ::core::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_INPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VOLUME_ALLOCATE_BC_STREAM_INPUT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for VOLUME_ALLOCATE_BC_STREAM_INPUT {
+unsafe impl ::windows::core::Abi for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17380,7 +17364,7 @@ impl ::core::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+unsafe impl ::windows::core::Abi for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17408,7 +17392,7 @@ impl ::core::cmp::PartialEq for VOLUME_ALLOCATION_HINT_INPUT {
     }
 }
 impl ::core::cmp::Eq for VOLUME_ALLOCATION_HINT_INPUT {}
-unsafe impl ::windows::runtime::Abi for VOLUME_ALLOCATION_HINT_INPUT {
+unsafe impl ::windows::core::Abi for VOLUME_ALLOCATION_HINT_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17434,7 +17418,7 @@ impl ::core::cmp::PartialEq for VOLUME_ALLOCATION_HINT_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for VOLUME_ALLOCATION_HINT_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for VOLUME_ALLOCATION_HINT_OUTPUT {
+unsafe impl ::windows::core::Abi for VOLUME_ALLOCATION_HINT_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17462,7 +17446,7 @@ impl ::core::cmp::PartialEq for VOLUME_CRITICAL_IO {
     }
 }
 impl ::core::cmp::Eq for VOLUME_CRITICAL_IO {}
-unsafe impl ::windows::runtime::Abi for VOLUME_CRITICAL_IO {
+unsafe impl ::windows::core::Abi for VOLUME_CRITICAL_IO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17489,7 +17473,7 @@ impl ::core::cmp::PartialEq for VOLUME_FAILOVER_SET {
     }
 }
 impl ::core::cmp::Eq for VOLUME_FAILOVER_SET {}
-unsafe impl ::windows::runtime::Abi for VOLUME_FAILOVER_SET {
+unsafe impl ::windows::core::Abi for VOLUME_FAILOVER_SET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17527,7 +17511,7 @@ impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_INPUT {
     }
 }
 impl ::core::cmp::Eq for VOLUME_GET_BC_PROPERTIES_INPUT {}
-unsafe impl ::windows::runtime::Abi for VOLUME_GET_BC_PROPERTIES_INPUT {
+unsafe impl ::windows::core::Abi for VOLUME_GET_BC_PROPERTIES_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17565,7 +17549,7 @@ impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for VOLUME_GET_BC_PROPERTIES_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for VOLUME_GET_BC_PROPERTIES_OUTPUT {
+unsafe impl ::windows::core::Abi for VOLUME_GET_BC_PROPERTIES_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17591,7 +17575,7 @@ impl ::core::cmp::PartialEq for VOLUME_LOGICAL_OFFSET {
     }
 }
 impl ::core::cmp::Eq for VOLUME_LOGICAL_OFFSET {}
-unsafe impl ::windows::runtime::Abi for VOLUME_LOGICAL_OFFSET {
+unsafe impl ::windows::core::Abi for VOLUME_LOGICAL_OFFSET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17618,7 +17602,7 @@ impl ::core::cmp::PartialEq for VOLUME_NUMBER {
     }
 }
 impl ::core::cmp::Eq for VOLUME_NUMBER {}
-unsafe impl ::windows::runtime::Abi for VOLUME_NUMBER {
+unsafe impl ::windows::core::Abi for VOLUME_NUMBER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17645,7 +17629,7 @@ impl ::core::cmp::PartialEq for VOLUME_PHYSICAL_OFFSET {
     }
 }
 impl ::core::cmp::Eq for VOLUME_PHYSICAL_OFFSET {}
-unsafe impl ::windows::runtime::Abi for VOLUME_PHYSICAL_OFFSET {
+unsafe impl ::windows::core::Abi for VOLUME_PHYSICAL_OFFSET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17672,7 +17656,7 @@ impl ::core::cmp::PartialEq for VOLUME_PHYSICAL_OFFSETS {
     }
 }
 impl ::core::cmp::Eq for VOLUME_PHYSICAL_OFFSETS {}
-unsafe impl ::windows::runtime::Abi for VOLUME_PHYSICAL_OFFSETS {
+unsafe impl ::windows::core::Abi for VOLUME_PHYSICAL_OFFSETS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17700,7 +17684,7 @@ impl ::core::cmp::PartialEq for VOLUME_READ_PLEX_INPUT {
     }
 }
 impl ::core::cmp::Eq for VOLUME_READ_PLEX_INPUT {}
-unsafe impl ::windows::runtime::Abi for VOLUME_READ_PLEX_INPUT {
+unsafe impl ::windows::core::Abi for VOLUME_READ_PLEX_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17737,7 +17721,7 @@ impl ::core::cmp::PartialEq for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+unsafe impl ::windows::core::Abi for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17763,7 +17747,7 @@ impl ::core::cmp::PartialEq for VOLUME_SHRINK_INFO {
     }
 }
 impl ::core::cmp::Eq for VOLUME_SHRINK_INFO {}
-unsafe impl ::windows::runtime::Abi for VOLUME_SHRINK_INFO {
+unsafe impl ::windows::core::Abi for VOLUME_SHRINK_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -17833,7 +17817,7 @@ impl ::core::cmp::PartialEq for VS_FIXEDFILEINFO {
     }
 }
 impl ::core::cmp::Eq for VS_FIXEDFILEINFO {}
-unsafe impl ::windows::runtime::Abi for VS_FIXEDFILEINFO {
+unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -17851,7 +17835,7 @@ impl ::core::convert::From<u32> for VS_FIXEDFILEINFO_FILE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VS_FIXEDFILEINFO_FILE_FLAGS {
+unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for VS_FIXEDFILEINFO_FILE_FLAGS {
@@ -17907,7 +17891,7 @@ impl ::core::convert::From<i32> for VS_FIXEDFILEINFO_FILE_OS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VS_FIXEDFILEINFO_FILE_OS {
+unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_OS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -17935,7 +17919,7 @@ impl ::core::convert::From<i32> for VS_FIXEDFILEINFO_FILE_SUBTYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VS_FIXEDFILEINFO_FILE_SUBTYPE {
+unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_SUBTYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -17954,7 +17938,7 @@ impl ::core::convert::From<i32> for VS_FIXEDFILEINFO_FILE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VS_FIXEDFILEINFO_FILE_TYPE {
+unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -17964,7 +17948,7 @@ pub const VS_VERSION_INFO: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ValidateLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlogfilename: Param0, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, pinfobuffer: *mut CLS_INFORMATION, pcbbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ValidateLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlogfilename: Param0, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, pinfobuffer: *mut CLS_INFORMATION, pcbbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17979,7 +17963,7 @@ pub unsafe fn ValidateLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerFindFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(uflags: VER_FIND_FILE_FLAGS, szfilename: Param1, szwindir: Param2, szappdir: Param3, szcurdir: super::super::Foundation::PSTR, pucurdirlen: *mut u32, szdestdir: super::super::Foundation::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS {
+pub unsafe fn VerFindFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(uflags: VER_FIND_FILE_FLAGS, szfilename: Param1, szwindir: Param2, szappdir: Param3, szcurdir: super::super::Foundation::PSTR, pucurdirlen: *mut u32, szdestdir: super::super::Foundation::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17994,16 +17978,7 @@ pub unsafe fn VerFindFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerFindFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    uflags: VER_FIND_FILE_FLAGS,
-    szfilename: Param1,
-    szwindir: Param2,
-    szappdir: Param3,
-    szcurdir: super::super::Foundation::PWSTR,
-    pucurdirlen: *mut u32,
-    szdestdir: super::super::Foundation::PWSTR,
-    pudestdirlen: *mut u32,
-) -> VER_FIND_FILE_STATUS {
+pub unsafe fn VerFindFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uflags: VER_FIND_FILE_FLAGS, szfilename: Param1, szwindir: Param2, szappdir: Param3, szcurdir: super::super::Foundation::PWSTR, pucurdirlen: *mut u32, szdestdir: super::super::Foundation::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18018,7 +17993,7 @@ pub unsafe fn VerFindFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerInstallFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
+pub unsafe fn VerInstallFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
     uflags: VER_INSTALL_FILE_FLAGS,
     szsrcfilename: Param1,
     szdestfilename: Param2,
@@ -18042,7 +18017,7 @@ pub unsafe fn VerInstallFileA<'a, Param1: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerInstallFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
+pub unsafe fn VerInstallFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     uflags: VER_INSTALL_FILE_FLAGS,
     szsrcfilename: Param1,
     szdestfilename: Param2,
@@ -18096,7 +18071,7 @@ pub unsafe fn VerLanguageNameW(wlang: u32, szlang: super::super::Foundation::PWS
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerQueryValueA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pblock: *const ::core::ffi::c_void, lpsubblock: Param1, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn VerQueryValueA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pblock: *const ::core::ffi::c_void, lpsubblock: Param1, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18111,7 +18086,7 @@ pub unsafe fn VerQueryValueA<'a, Param1: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerQueryValueW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pblock: *const ::core::ffi::c_void, lpsubblock: Param1, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn VerQueryValueW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pblock: *const ::core::ffi::c_void, lpsubblock: Param1, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18139,7 +18114,7 @@ pub struct WIM_ENTRY_INFO {
     pub WimEntryInfoSize: u32,
     pub WimType: u32,
     pub DataSourceId: i64,
-    pub WimGuid: ::windows::runtime::GUID,
+    pub WimGuid: ::windows::core::GUID,
     pub WimPath: super::super::Foundation::PWSTR,
     pub WimIndex: u32,
     pub Flags: u32,
@@ -18167,7 +18142,7 @@ impl ::core::cmp::PartialEq for WIM_ENTRY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WIM_ENTRY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WIM_ENTRY_INFO {
+unsafe impl ::windows::core::Abi for WIM_ENTRY_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18195,7 +18170,7 @@ impl ::core::cmp::PartialEq for WIM_EXTERNAL_FILE_INFO {
     }
 }
 impl ::core::cmp::Eq for WIM_EXTERNAL_FILE_INFO {}
-unsafe impl ::windows::runtime::Abi for WIM_EXTERNAL_FILE_INFO {
+unsafe impl ::windows::core::Abi for WIM_EXTERNAL_FILE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -18246,7 +18221,7 @@ impl ::core::cmp::PartialEq for WIN32_FILE_ATTRIBUTE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WIN32_FILE_ATTRIBUTE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WIN32_FILE_ATTRIBUTE_DATA {
+unsafe impl ::windows::core::Abi for WIN32_FILE_ATTRIBUTE_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18299,7 +18274,7 @@ impl ::core::cmp::PartialEq for WIN32_FIND_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WIN32_FIND_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WIN32_FIND_DATAA {
+unsafe impl ::windows::core::Abi for WIN32_FIND_DATAA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18352,7 +18327,7 @@ impl ::core::cmp::PartialEq for WIN32_FIND_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WIN32_FIND_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WIN32_FIND_DATAW {
+unsafe impl ::windows::core::Abi for WIN32_FIND_DATAW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18379,7 +18354,7 @@ impl ::core::cmp::PartialEq for WIN32_FIND_STREAM_DATA {
     }
 }
 impl ::core::cmp::Eq for WIN32_FIND_STREAM_DATA {}
-unsafe impl ::windows::runtime::Abi for WIN32_FIND_STREAM_DATA {
+unsafe impl ::windows::core::Abi for WIN32_FIND_STREAM_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18409,7 +18384,7 @@ impl ::core::cmp::PartialEq for WIN32_STREAM_ID {
     }
 }
 impl ::core::cmp::Eq for WIN32_STREAM_ID {}
-unsafe impl ::windows::runtime::Abi for WIN32_STREAM_ID {
+unsafe impl ::windows::core::Abi for WIN32_STREAM_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -18433,7 +18408,7 @@ impl ::core::convert::From<u32> for WIN_STREAM_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WIN_STREAM_ID {
+unsafe impl ::windows::core::Abi for WIN_STREAM_ID {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for WIN_STREAM_ID {
@@ -18487,7 +18462,7 @@ impl ::core::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V0 {
     }
 }
 impl ::core::cmp::Eq for WOF_FILE_COMPRESSION_INFO_V0 {}
-unsafe impl ::windows::runtime::Abi for WOF_FILE_COMPRESSION_INFO_V0 {
+unsafe impl ::windows::core::Abi for WOF_FILE_COMPRESSION_INFO_V0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18514,7 +18489,7 @@ impl ::core::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V1 {
     }
 }
 impl ::core::cmp::Eq for WOF_FILE_COMPRESSION_INFO_V1 {}
-unsafe impl ::windows::runtime::Abi for WOF_FILE_COMPRESSION_INFO_V1 {
+unsafe impl ::windows::core::Abi for WOF_FILE_COMPRESSION_INFO_V1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -18524,12 +18499,12 @@ pub const WOF_PROVIDER_WIM: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofEnumEntries<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, provider: u32, enumproc: ::core::option::Option<WofEnumEntryProc>, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofEnumEntries<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, provider: u32, enumproc: ::core::option::Option<WofEnumEntryProc>, userdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofEnumEntries(volumename: super::super::Foundation::PWSTR, provider: u32, enumproc: ::windows::runtime::RawPtr, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WofEnumEntries(volumename: super::super::Foundation::PWSTR, provider: u32, enumproc: ::windows::core::RawPtr, userdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         WofEnumEntries(volumename.into_param().abi(), ::core::mem::transmute(provider), ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
     }
@@ -18545,12 +18520,12 @@ pub type WofEnumFilesProc = unsafe extern "system" fn(filepath: super::super::Fo
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofFileEnumFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, algorithm: u32, enumproc: ::core::option::Option<WofEnumFilesProc>, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofFileEnumFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, algorithm: u32, enumproc: ::core::option::Option<WofEnumFilesProc>, userdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofFileEnumFiles(volumename: super::super::Foundation::PWSTR, algorithm: u32, enumproc: ::windows::runtime::RawPtr, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WofFileEnumFiles(volumename: super::super::Foundation::PWSTR, algorithm: u32, enumproc: ::windows::core::RawPtr, userdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         WofFileEnumFiles(volumename.into_param().abi(), ::core::mem::transmute(algorithm), ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
     }
@@ -18560,14 +18535,14 @@ pub unsafe fn WofFileEnumFiles<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofGetDriverVersion<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(fileorvolumehandle: Param0, provider: u32) -> ::windows::runtime::Result<u32> {
+pub unsafe fn WofGetDriverVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(fileorvolumehandle: Param0, provider: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofGetDriverVersion(fileorvolumehandle: super::super::Foundation::HANDLE, provider: u32, wofversion: *mut u32) -> ::windows::runtime::HRESULT;
+            fn WofGetDriverVersion(fileorvolumehandle: super::super::Foundation::HANDLE, provider: u32, wofversion: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         WofGetDriverVersion(fileorvolumehandle.into_param().abi(), ::core::mem::transmute(provider), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
@@ -18576,12 +18551,12 @@ pub unsafe fn WofGetDriverVersion<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofIsExternalFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, isexternalfile: *mut super::super::Foundation::BOOL, provider: *mut u32, externalfileinfo: *mut ::core::ffi::c_void, bufferlength: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofIsExternalFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, isexternalfile: *mut super::super::Foundation::BOOL, provider: *mut u32, externalfileinfo: *mut ::core::ffi::c_void, bufferlength: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofIsExternalFile(filepath: super::super::Foundation::PWSTR, isexternalfile: *mut super::super::Foundation::BOOL, provider: *mut u32, externalfileinfo: *mut ::core::ffi::c_void, bufferlength: *mut u32) -> ::windows::runtime::HRESULT;
+            fn WofIsExternalFile(filepath: super::super::Foundation::PWSTR, isexternalfile: *mut super::super::Foundation::BOOL, provider: *mut u32, externalfileinfo: *mut ::core::ffi::c_void, bufferlength: *mut u32) -> ::windows::core::HRESULT;
         }
         WofIsExternalFile(filepath.into_param().abi(), ::core::mem::transmute(isexternalfile), ::core::mem::transmute(provider), ::core::mem::transmute(externalfileinfo), ::core::mem::transmute(bufferlength)).ok()
     }
@@ -18591,12 +18566,12 @@ pub unsafe fn WofIsExternalFile<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofSetFileDataLocation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, provider: u32, externalfileinfo: *const ::core::ffi::c_void, length: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofSetFileDataLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, provider: u32, externalfileinfo: *const ::core::ffi::c_void, length: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofSetFileDataLocation(filehandle: super::super::Foundation::HANDLE, provider: u32, externalfileinfo: *const ::core::ffi::c_void, length: u32) -> ::windows::runtime::HRESULT;
+            fn WofSetFileDataLocation(filehandle: super::super::Foundation::HANDLE, provider: u32, externalfileinfo: *const ::core::ffi::c_void, length: u32) -> ::windows::core::HRESULT;
         }
         WofSetFileDataLocation(filehandle.into_param().abi(), ::core::mem::transmute(provider), ::core::mem::transmute(externalfileinfo), ::core::mem::transmute(length)).ok()
     }
@@ -18606,7 +18581,7 @@ pub unsafe fn WofSetFileDataLocation<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofShouldCompressBinaries<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volume: Param0, algorithm: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn WofShouldCompressBinaries<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volume: Param0, algorithm: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18621,14 +18596,14 @@ pub unsafe fn WofShouldCompressBinaries<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofWimAddEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, wimpath: Param1, wimtype: u32, wimindex: u32) -> ::windows::runtime::Result<i64> {
+pub unsafe fn WofWimAddEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, wimpath: Param1, wimtype: u32, wimindex: u32) -> ::windows::core::Result<i64> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofWimAddEntry(volumename: super::super::Foundation::PWSTR, wimpath: super::super::Foundation::PWSTR, wimtype: u32, wimindex: u32, datasourceid: *mut i64) -> ::windows::runtime::HRESULT;
+            fn WofWimAddEntry(volumename: super::super::Foundation::PWSTR, wimpath: super::super::Foundation::PWSTR, wimtype: u32, wimindex: u32, datasourceid: *mut i64) -> ::windows::core::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <i64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         WofWimAddEntry(volumename.into_param().abi(), wimpath.into_param().abi(), ::core::mem::transmute(wimtype), ::core::mem::transmute(wimindex), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
@@ -18637,12 +18612,12 @@ pub unsafe fn WofWimAddEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofWimEnumFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64, enumproc: ::core::option::Option<WofEnumFilesProc>, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofWimEnumFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64, enumproc: ::core::option::Option<WofEnumFilesProc>, userdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofWimEnumFiles(volumename: super::super::Foundation::PWSTR, datasourceid: i64, enumproc: ::windows::runtime::RawPtr, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WofWimEnumFiles(volumename: super::super::Foundation::PWSTR, datasourceid: i64, enumproc: ::windows::core::RawPtr, userdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         WofWimEnumFiles(volumename.into_param().abi(), ::core::mem::transmute(datasourceid), ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
     }
@@ -18652,12 +18627,12 @@ pub unsafe fn WofWimEnumFiles<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofWimRemoveEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofWimRemoveEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofWimRemoveEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64) -> ::windows::runtime::HRESULT;
+            fn WofWimRemoveEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64) -> ::windows::core::HRESULT;
         }
         WofWimRemoveEntry(volumename.into_param().abi(), ::core::mem::transmute(datasourceid)).ok()
     }
@@ -18667,12 +18642,12 @@ pub unsafe fn WofWimRemoveEntry<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofWimSuspendEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofWimSuspendEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofWimSuspendEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64) -> ::windows::runtime::HRESULT;
+            fn WofWimSuspendEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64) -> ::windows::core::HRESULT;
         }
         WofWimSuspendEntry(volumename.into_param().abi(), ::core::mem::transmute(datasourceid)).ok()
     }
@@ -18682,12 +18657,12 @@ pub unsafe fn WofWimSuspendEntry<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofWimUpdateEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64, newwimpath: Param2) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofWimUpdateEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64, newwimpath: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofWimUpdateEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64, newwimpath: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+            fn WofWimUpdateEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64, newwimpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         WofWimUpdateEntry(volumename.into_param().abi(), ::core::mem::transmute(datasourceid), newwimpath.into_param().abi()).ok()
     }
@@ -18712,7 +18687,7 @@ pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut ::core::ffi::c_
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Wow64EnableWow64FsRedirection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(wow64fsenableredirection: Param0) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn Wow64EnableWow64FsRedirection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(wow64fsenableredirection: Param0) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18746,7 +18721,7 @@ pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: ::core::option::Option<PFE
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WriteEncryptedFileRaw(pfimportcallback: ::windows::runtime::RawPtr, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32;
+            fn WriteEncryptedFileRaw(pfimportcallback: ::windows::core::RawPtr, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WriteEncryptedFileRaw(::core::mem::transmute(pfimportcallback), ::core::mem::transmute(pvcallbackcontext), ::core::mem::transmute(pvcontext)))
     }
@@ -18756,7 +18731,7 @@ pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: ::core::option::Option<PFE
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WriteFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WriteFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18771,12 +18746,12 @@ pub unsafe fn WriteFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WriteFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>) -> super::super::Foundation::BOOL {
+pub unsafe fn WriteFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WriteFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
+            fn WriteFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(WriteFileEx(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestowrite), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
@@ -18786,7 +18761,7 @@ pub unsafe fn WriteFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WriteFileGather<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestowrite: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WriteFileGather<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestowrite: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18825,7 +18800,7 @@ pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestart
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WriteTapemark<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: Param3) -> u32 {
+pub unsafe fn WriteTapemark<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

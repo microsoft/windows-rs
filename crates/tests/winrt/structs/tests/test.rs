@@ -1,5 +1,5 @@
 use test_winrt_structs::*;
-use windows::runtime::*;
+use windows::core::*;
 use Component::Structs::*;
 use Windows::Foundation::IReference;
 

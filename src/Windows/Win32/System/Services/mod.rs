@@ -1,9 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2d7a2816_0c5e_45fc_9ce7_570e5ecde9c9);
+pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d7a2816_0c5e_45fc_9ce7_570e5ecde9c9);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfig2A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ChangeServiceConfig2A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18,7 +18,7 @@ pub unsafe fn ChangeServiceConfig2A<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfig2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ChangeServiceConfig2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -35,13 +35,13 @@ pub unsafe fn ChangeServiceConfig2W<'a, Param0: ::windows::runtime::IntoParam<'a
 #[inline]
 pub unsafe fn ChangeServiceConfigA<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>,
+    Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
 >(
     hservice: Param0,
     dwservicetype: u32,
@@ -95,13 +95,13 @@ pub unsafe fn ChangeServiceConfigA<
 #[inline]
 pub unsafe fn ChangeServiceConfigW<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>,
+    Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     hservice: Param0,
     dwservicetype: u32,
@@ -153,7 +153,7 @@ pub unsafe fn ChangeServiceConfigW<
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CloseServiceHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscobject: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn CloseServiceHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscobject: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -168,7 +168,7 @@ pub unsafe fn CloseServiceHandle<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ControlService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL {
+pub unsafe fn ControlService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -183,7 +183,7 @@ pub unsafe fn ControlService<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ControlServiceExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ControlServiceExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -198,7 +198,7 @@ pub unsafe fn ControlServiceExA<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ControlServiceExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ControlServiceExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -215,14 +215,14 @@ pub unsafe fn ControlServiceExW<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[inline]
 pub unsafe fn CreateServiceA<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param11: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param12: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>,
+    Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param11: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
+    Param12: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
 >(
     hscmanager: Param0,
     lpservicename: Param1,
@@ -282,14 +282,14 @@ pub unsafe fn CreateServiceA<
 #[inline]
 pub unsafe fn CreateServiceW<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param11: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param12: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>,
+    Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param11: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
+    Param12: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     hscmanager: Param0,
     lpservicename: Param1,
@@ -344,12 +344,12 @@ pub unsafe fn CreateServiceW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const DOMAIN_JOIN_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1ce20aba_9851_4421_9430_1ddeb766e809);
-pub const DOMAIN_LEAVE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xddaf516e_58c2_4866_9574_c3b615d42ea1);
+pub const DOMAIN_JOIN_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce20aba_9851_4421_9430_1ddeb766e809);
+pub const DOMAIN_LEAVE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddaf516e_58c2_4866_9574_c3b615d42ea1);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DeleteService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -373,7 +373,7 @@ impl ::core::convert::From<u32> for ENUM_SERVICE_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_STATE {
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for ENUM_SERVICE_STATE {
@@ -436,7 +436,7 @@ impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENUM_SERVICE_STATUSA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_STATUSA {
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUSA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -471,7 +471,7 @@ impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENUM_SERVICE_STATUSW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_STATUSW {
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUSW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -506,7 +506,7 @@ impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUS_PROCESSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_STATUS_PROCESSA {
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUS_PROCESSA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -541,7 +541,7 @@ impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUS_PROCESSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_STATUS_PROCESSW {
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUS_PROCESSW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -565,7 +565,7 @@ impl ::core::convert::From<u32> for ENUM_SERVICE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_TYPE {
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for ENUM_SERVICE_TYPE {
@@ -599,7 +599,7 @@ impl ::core::ops::Not for ENUM_SERVICE_TYPE {
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumDependentServicesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumDependentServicesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -614,7 +614,7 @@ pub unsafe fn EnumDependentServicesA<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumDependentServicesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumDependentServicesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -629,7 +629,7 @@ pub unsafe fn EnumDependentServicesW<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumServicesStatusA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -653,7 +653,7 @@ pub unsafe fn EnumServicesStatusA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: Param9) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumServicesStatusExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: Param9) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -679,7 +679,7 @@ pub unsafe fn EnumServicesStatusExA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: Param9) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumServicesStatusExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: Param9) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -705,7 +705,7 @@ pub unsafe fn EnumServicesStatusExW<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumServicesStatusW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -726,12 +726,12 @@ pub unsafe fn EnumServicesStatusW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const FIREWALL_PORT_CLOSE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa144ed38_8e12_4de4_9d96_e64740b1a524);
-pub const FIREWALL_PORT_OPEN_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7569e07_8421_4ee0_ad10_86915afdad09);
+pub const FIREWALL_PORT_CLOSE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa144ed38_8e12_4de4_9d96_e64740b1a524);
+pub const FIREWALL_PORT_OPEN_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7569e07_8421_4ee0_ad10_86915afdad09);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetServiceDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, SERVICE_STATUS_HANDLE>>(hservicestatus: Param0, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: super::super::Foundation::PWSTR, cchpathbufferlength: u32, lpcchrequiredbufferlength: *mut u32) -> u32 {
+pub unsafe fn GetServiceDirectory<'a, Param0: ::windows::core::IntoParam<'a, SERVICE_STATUS_HANDLE>>(hservicestatus: Param0, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: super::super::Foundation::PWSTR, cchpathbufferlength: u32, lpcchrequiredbufferlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -746,7 +746,7 @@ pub unsafe fn GetServiceDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceDisplayNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, lpservicename: Param1, lpdisplayname: super::super::Foundation::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceDisplayNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, lpservicename: Param1, lpdisplayname: super::super::Foundation::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -761,7 +761,7 @@ pub unsafe fn GetServiceDisplayNameA<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceDisplayNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, lpservicename: Param1, lpdisplayname: super::super::Foundation::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceDisplayNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, lpservicename: Param1, lpdisplayname: super::super::Foundation::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -776,7 +776,7 @@ pub unsafe fn GetServiceDisplayNameW<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceKeyNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, lpdisplayname: Param1, lpservicename: super::super::Foundation::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceKeyNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, lpdisplayname: Param1, lpservicename: super::super::Foundation::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -791,7 +791,7 @@ pub unsafe fn GetServiceKeyNameA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceKeyNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, lpdisplayname: Param1, lpservicename: super::super::Foundation::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceKeyNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, lpdisplayname: Param1, lpservicename: super::super::Foundation::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -806,7 +806,7 @@ pub unsafe fn GetServiceKeyNameW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_Services`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn GetServiceRegistryStateKey<'a, Param0: ::windows::runtime::IntoParam<'a, SERVICE_STATUS_HANDLE>>(servicestatushandle: Param0, statetype: SERVICE_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32 {
+pub unsafe fn GetServiceRegistryStateKey<'a, Param0: ::windows::core::IntoParam<'a, SERVICE_STATUS_HANDLE>>(servicestatushandle: Param0, statetype: SERVICE_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -821,7 +821,7 @@ pub unsafe fn GetServiceRegistryStateKey<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetSharedServiceDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(servicehandle: Param0, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: super::super::Foundation::PWSTR, pathbufferlength: u32, requiredbufferlength: *mut u32) -> u32 {
+pub unsafe fn GetSharedServiceDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(servicehandle: Param0, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: super::super::Foundation::PWSTR, pathbufferlength: u32, requiredbufferlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -836,7 +836,7 @@ pub unsafe fn GetSharedServiceDirectory<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Security`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn GetSharedServiceRegistryStateKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(servicehandle: Param0, statetype: SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32 {
+pub unsafe fn GetSharedServiceRegistryStateKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(servicehandle: Param0, statetype: SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -865,7 +865,7 @@ pub type LPSERVICE_MAIN_FUNCTIONW = unsafe extern "system" fn(dwnumservicesargs:
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Security`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn LockServiceDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0) -> *mut ::core::ffi::c_void {
+pub unsafe fn LockServiceDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -877,14 +877,14 @@ pub unsafe fn LockServiceDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const MACHINE_POLICY_PRESENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
-pub const NAMED_PIPE_EVENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1f81d131_3fac_4537_9e0c_7e7b0c2f4b55);
-pub const NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4f27f2de_14e2_430b_a549_7cd48cbc8245);
-pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc4ba62a_162e_4648_847a_b6bdf993e335);
+pub const MACHINE_POLICY_PRESENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
+pub const NAMED_PIPE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f81d131_3fac_4537_9e0c_7e7b0c2f4b55);
+pub const NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f27f2de_14e2_430b_a549_7cd48cbc8245);
+pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc4ba62a_162e_4648_847a_b6bdf993e335);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NotifyBootConfigStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bootacceptable: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn NotifyBootConfigStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bootacceptable: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -899,7 +899,7 @@ pub unsafe fn NotifyBootConfigStatus<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NotifyServiceStatusChangeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2A) -> u32 {
+pub unsafe fn NotifyServiceStatusChangeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2A) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -914,7 +914,7 @@ pub unsafe fn NotifyServiceStatusChangeA<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NotifyServiceStatusChangeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2W) -> u32 {
+pub unsafe fn NotifyServiceStatusChangeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2W) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -929,7 +929,7 @@ pub unsafe fn NotifyServiceStatusChangeW<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn OpenSCManagerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpmachinename: Param0, lpdatabasename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
+pub unsafe fn OpenSCManagerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpmachinename: Param0, lpdatabasename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -944,7 +944,7 @@ pub unsafe fn OpenSCManagerA<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn OpenSCManagerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpmachinename: Param0, lpdatabasename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
+pub unsafe fn OpenSCManagerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpmachinename: Param0, lpdatabasename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -959,7 +959,7 @@ pub unsafe fn OpenSCManagerW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn OpenServiceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, lpservicename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
+pub unsafe fn OpenServiceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, lpservicename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -974,7 +974,7 @@ pub unsafe fn OpenServiceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn OpenServiceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, lpservicename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
+pub unsafe fn OpenServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, lpservicename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1038,7 +1038,7 @@ impl ::core::cmp::PartialEq for QUERY_SERVICE_CONFIGA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for QUERY_SERVICE_CONFIGA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for QUERY_SERVICE_CONFIGA {
+unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1089,7 +1089,7 @@ impl ::core::cmp::PartialEq for QUERY_SERVICE_CONFIGW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for QUERY_SERVICE_CONFIGW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for QUERY_SERVICE_CONFIGW {
+unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1124,7 +1124,7 @@ impl ::core::cmp::PartialEq for QUERY_SERVICE_LOCK_STATUSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for QUERY_SERVICE_LOCK_STATUSA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for QUERY_SERVICE_LOCK_STATUSA {
+unsafe impl ::windows::core::Abi for QUERY_SERVICE_LOCK_STATUSA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1159,13 +1159,13 @@ impl ::core::cmp::PartialEq for QUERY_SERVICE_LOCK_STATUSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for QUERY_SERVICE_LOCK_STATUSW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for QUERY_SERVICE_LOCK_STATUSW {
+unsafe impl ::windows::core::Abi for QUERY_SERVICE_LOCK_STATUSW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceConfig2A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceConfig2A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1180,7 +1180,7 @@ pub unsafe fn QueryServiceConfig2A<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceConfig2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceConfig2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1195,7 +1195,7 @@ pub unsafe fn QueryServiceConfig2W<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, lpserviceconfig: *mut QUERY_SERVICE_CONFIGA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceConfigA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, lpserviceconfig: *mut QUERY_SERVICE_CONFIGA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1210,7 +1210,7 @@ pub unsafe fn QueryServiceConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, lpserviceconfig: *mut QUERY_SERVICE_CONFIGW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceConfigW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, lpserviceconfig: *mut QUERY_SERVICE_CONFIGW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1225,7 +1225,7 @@ pub unsafe fn QueryServiceConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryServiceDynamicInformation<'a, Param0: ::windows::runtime::IntoParam<'a, SERVICE_STATUS_HANDLE>>(hservicestatus: Param0, dwinfolevel: u32, ppdynamicinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceDynamicInformation<'a, Param0: ::windows::core::IntoParam<'a, SERVICE_STATUS_HANDLE>>(hservicestatus: Param0, dwinfolevel: u32, ppdynamicinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1240,7 +1240,7 @@ pub unsafe fn QueryServiceDynamicInformation<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceLockStatusA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceLockStatusA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1255,7 +1255,7 @@ pub unsafe fn QueryServiceLockStatusA<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceLockStatusW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceLockStatusW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1270,7 +1270,7 @@ pub unsafe fn QueryServiceLockStatusW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceObjectSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwsecurityinformation: u32, lpsecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwsecurityinformation: u32, lpsecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1285,7 +1285,7 @@ pub unsafe fn QueryServiceObjectSecurity<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1300,7 +1300,7 @@ pub unsafe fn QueryServiceStatus<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceStatusEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, infolevel: SC_STATUS_TYPE, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceStatusEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, infolevel: SC_STATUS_TYPE, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1312,16 +1312,16 @@ pub unsafe fn QueryServiceStatusEx<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const RPC_INTERFACE_EVENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
+pub const RPC_INTERFACE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpservicename: Param0, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION>) -> SERVICE_STATUS_HANDLE {
+pub unsafe fn RegisterServiceCtrlHandlerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpservicename: Param0, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION>) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterServiceCtrlHandlerA(lpservicename: super::super::Foundation::PSTR, lphandlerproc: ::windows::runtime::RawPtr) -> SERVICE_STATUS_HANDLE;
+            fn RegisterServiceCtrlHandlerA(lpservicename: super::super::Foundation::PSTR, lphandlerproc: ::windows::core::RawPtr) -> SERVICE_STATUS_HANDLE;
         }
         ::core::mem::transmute(RegisterServiceCtrlHandlerA(lpservicename.into_param().abi(), ::core::mem::transmute(lphandlerproc)))
     }
@@ -1331,12 +1331,12 @@ pub unsafe fn RegisterServiceCtrlHandlerA<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpservicename: Param0, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION_EX>, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE {
+pub unsafe fn RegisterServiceCtrlHandlerExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpservicename: Param0, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION_EX>, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterServiceCtrlHandlerExA(lpservicename: super::super::Foundation::PSTR, lphandlerproc: ::windows::runtime::RawPtr, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
+            fn RegisterServiceCtrlHandlerExA(lpservicename: super::super::Foundation::PSTR, lphandlerproc: ::windows::core::RawPtr, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
         }
         ::core::mem::transmute(RegisterServiceCtrlHandlerExA(lpservicename.into_param().abi(), ::core::mem::transmute(lphandlerproc), ::core::mem::transmute(lpcontext)))
     }
@@ -1346,12 +1346,12 @@ pub unsafe fn RegisterServiceCtrlHandlerExA<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpservicename: Param0, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION_EX>, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE {
+pub unsafe fn RegisterServiceCtrlHandlerExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpservicename: Param0, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION_EX>, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterServiceCtrlHandlerExW(lpservicename: super::super::Foundation::PWSTR, lphandlerproc: ::windows::runtime::RawPtr, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
+            fn RegisterServiceCtrlHandlerExW(lpservicename: super::super::Foundation::PWSTR, lphandlerproc: ::windows::core::RawPtr, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
         }
         ::core::mem::transmute(RegisterServiceCtrlHandlerExW(lpservicename.into_param().abi(), ::core::mem::transmute(lphandlerproc), ::core::mem::transmute(lpcontext)))
     }
@@ -1361,12 +1361,12 @@ pub unsafe fn RegisterServiceCtrlHandlerExW<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpservicename: Param0, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION>) -> SERVICE_STATUS_HANDLE {
+pub unsafe fn RegisterServiceCtrlHandlerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpservicename: Param0, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION>) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterServiceCtrlHandlerW(lpservicename: super::super::Foundation::PWSTR, lphandlerproc: ::windows::runtime::RawPtr) -> SERVICE_STATUS_HANDLE;
+            fn RegisterServiceCtrlHandlerW(lpservicename: super::super::Foundation::PWSTR, lphandlerproc: ::windows::core::RawPtr) -> SERVICE_STATUS_HANDLE;
         }
         ::core::mem::transmute(RegisterServiceCtrlHandlerW(lpservicename.into_param().abi(), ::core::mem::transmute(lphandlerproc)))
     }
@@ -1397,7 +1397,7 @@ impl ::core::cmp::PartialEq for SC_ACTION {
     }
 }
 impl ::core::cmp::Eq for SC_ACTION {}
-unsafe impl ::windows::runtime::Abi for SC_ACTION {
+unsafe impl ::windows::core::Abi for SC_ACTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -1414,7 +1414,7 @@ impl ::core::convert::From<i32> for SC_ACTION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SC_ACTION_TYPE {
+unsafe impl ::windows::core::Abi for SC_ACTION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -1427,7 +1427,7 @@ impl ::core::convert::From<i32> for SC_ENUM_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SC_ENUM_TYPE {
+unsafe impl ::windows::core::Abi for SC_ENUM_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -1442,7 +1442,7 @@ impl ::core::convert::From<i32> for SC_EVENT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SC_EVENT_TYPE {
+unsafe impl ::windows::core::Abi for SC_EVENT_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -1469,7 +1469,7 @@ impl ::core::convert::From<i32> for SC_STATUS_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SC_STATUS_TYPE {
+unsafe impl ::windows::core::Abi for SC_STATUS_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -1523,7 +1523,7 @@ impl ::core::convert::From<u32> for SERVICE_CONFIG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_CONFIG {
+unsafe impl ::windows::core::Abi for SERVICE_CONFIG {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SERVICE_CONFIG {
@@ -1618,7 +1618,7 @@ impl ::core::cmp::PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
+unsafe impl ::windows::core::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1653,7 +1653,7 @@ impl ::core::cmp::PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
+unsafe impl ::windows::core::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -1682,7 +1682,7 @@ impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     }
 }
 impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {}
-unsafe impl ::windows::runtime::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
+unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1704,7 +1704,7 @@ impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     }
 }
 impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {}
-unsafe impl ::windows::runtime::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
+unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1731,7 +1731,7 @@ impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0
     }
 }
 impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
-unsafe impl ::windows::runtime::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
+unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1764,7 +1764,7 @@ impl ::core::cmp::PartialEq for SERVICE_DELAYED_AUTO_START_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_DELAYED_AUTO_START_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_DELAYED_AUTO_START_INFO {
+unsafe impl ::windows::core::Abi for SERVICE_DELAYED_AUTO_START_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1797,7 +1797,7 @@ impl ::core::cmp::PartialEq for SERVICE_DESCRIPTIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_DESCRIPTIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_DESCRIPTIONA {
+unsafe impl ::windows::core::Abi for SERVICE_DESCRIPTIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1830,7 +1830,7 @@ impl ::core::cmp::PartialEq for SERVICE_DESCRIPTIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_DESCRIPTIONW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_DESCRIPTIONW {
+unsafe impl ::windows::core::Abi for SERVICE_DESCRIPTIONW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -1844,7 +1844,7 @@ impl ::core::convert::From<i32> for SERVICE_DIRECTORY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_DIRECTORY_TYPE {
+unsafe impl ::windows::core::Abi for SERVICE_DIRECTORY_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -1864,7 +1864,7 @@ impl ::core::convert::From<u32> for SERVICE_ERROR {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_ERROR {
+unsafe impl ::windows::core::Abi for SERVICE_ERROR {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SERVICE_ERROR {
@@ -1929,7 +1929,7 @@ impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONSA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_FAILURE_ACTIONSA {
+unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1966,7 +1966,7 @@ impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONSW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_FAILURE_ACTIONSW {
+unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1999,7 +1999,7 @@ impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONS_FLAG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONS_FLAG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_FAILURE_ACTIONS_FLAG {
+unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONS_FLAG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -2029,7 +2029,7 @@ impl ::core::cmp::PartialEq for SERVICE_LAUNCH_PROTECTED_INFO {
     }
 }
 impl ::core::cmp::Eq for SERVICE_LAUNCH_PROTECTED_INFO {}
-unsafe impl ::windows::runtime::Abi for SERVICE_LAUNCH_PROTECTED_INFO {
+unsafe impl ::windows::core::Abi for SERVICE_LAUNCH_PROTECTED_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -2062,7 +2062,7 @@ impl ::core::convert::From<u32> for SERVICE_NOTIFY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_NOTIFY {
+unsafe impl ::windows::core::Abi for SERVICE_NOTIFY {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SERVICE_NOTIFY {
@@ -2120,7 +2120,7 @@ impl ::core::cmp::PartialEq for SERVICE_NOTIFY_1 {
     }
 }
 impl ::core::cmp::Eq for SERVICE_NOTIFY_1 {}
-unsafe impl ::windows::runtime::Abi for SERVICE_NOTIFY_1 {
+unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2166,7 +2166,7 @@ impl ::core::cmp::PartialEq for SERVICE_NOTIFY_2A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_NOTIFY_2A {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_NOTIFY_2A {
+unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_2A {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2212,7 +2212,7 @@ impl ::core::cmp::PartialEq for SERVICE_NOTIFY_2W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_NOTIFY_2W {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_NOTIFY_2W {
+unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_2W {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -2256,7 +2256,7 @@ impl ::core::cmp::PartialEq for SERVICE_PREFERRED_NODE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_PREFERRED_NODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_PREFERRED_NODE_INFO {
+unsafe impl ::windows::core::Abi for SERVICE_PREFERRED_NODE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2282,7 +2282,7 @@ impl ::core::cmp::PartialEq for SERVICE_PRESHUTDOWN_INFO {
     }
 }
 impl ::core::cmp::Eq for SERVICE_PRESHUTDOWN_INFO {}
-unsafe impl ::windows::runtime::Abi for SERVICE_PRESHUTDOWN_INFO {
+unsafe impl ::windows::core::Abi for SERVICE_PRESHUTDOWN_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -2301,7 +2301,7 @@ impl ::core::convert::From<i32> for SERVICE_REGISTRY_STATE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_REGISTRY_STATE_TYPE {
+unsafe impl ::windows::core::Abi for SERVICE_REGISTRY_STATE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2334,7 +2334,7 @@ impl ::core::cmp::PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOA {
+unsafe impl ::windows::core::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2367,7 +2367,7 @@ impl ::core::cmp::PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOW {
+unsafe impl ::windows::core::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -2381,7 +2381,7 @@ impl ::core::convert::From<u32> for SERVICE_RUNS_IN_PROCESS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_RUNS_IN_PROCESS {
+unsafe impl ::windows::core::Abi for SERVICE_RUNS_IN_PROCESS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SERVICE_RUNS_IN_PROCESS {
@@ -2422,7 +2422,7 @@ impl ::core::convert::From<i32> for SERVICE_SHARED_DIRECTORY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_SHARED_DIRECTORY_TYPE {
+unsafe impl ::windows::core::Abi for SERVICE_SHARED_DIRECTORY_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -2435,7 +2435,7 @@ impl ::core::convert::From<i32> for SERVICE_SHARED_REGISTRY_STATE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_SHARED_REGISTRY_STATE_TYPE {
+unsafe impl ::windows::core::Abi for SERVICE_SHARED_REGISTRY_STATE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2461,7 +2461,7 @@ impl ::core::cmp::PartialEq for SERVICE_SID_INFO {
     }
 }
 impl ::core::cmp::Eq for SERVICE_SID_INFO {}
-unsafe impl ::windows::runtime::Abi for SERVICE_SID_INFO {
+unsafe impl ::windows::core::Abi for SERVICE_SID_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -2493,7 +2493,7 @@ impl ::core::cmp::PartialEq for SERVICE_START_REASON {
     }
 }
 impl ::core::cmp::Eq for SERVICE_START_REASON {}
-unsafe impl ::windows::runtime::Abi for SERVICE_START_REASON {
+unsafe impl ::windows::core::Abi for SERVICE_START_REASON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -2520,7 +2520,7 @@ impl ::core::convert::From<u32> for SERVICE_START_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_START_TYPE {
+unsafe impl ::windows::core::Abi for SERVICE_START_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SERVICE_START_TYPE {
@@ -2588,7 +2588,7 @@ impl ::core::cmp::PartialEq for SERVICE_STATUS {
     }
 }
 impl ::core::cmp::Eq for SERVICE_STATUS {}
-unsafe impl ::windows::runtime::Abi for SERVICE_STATUS {
+unsafe impl ::windows::core::Abi for SERVICE_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -2607,7 +2607,7 @@ impl ::core::convert::From<u32> for SERVICE_STATUS_CURRENT_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_STATUS_CURRENT_STATE {
+unsafe impl ::windows::core::Abi for SERVICE_STATUS_CURRENT_STATE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SERVICE_STATUS_CURRENT_STATE {
@@ -2646,8 +2646,8 @@ impl ::core::default::Default for SERVICE_STATUS_HANDLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-unsafe impl ::windows::runtime::Handle for SERVICE_STATUS_HANDLE {}
-unsafe impl ::windows::runtime::Abi for SERVICE_STATUS_HANDLE {
+unsafe impl ::windows::core::Handle for SERVICE_STATUS_HANDLE {}
+unsafe impl ::windows::core::Abi for SERVICE_STATUS_HANDLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2691,7 +2691,7 @@ impl ::core::cmp::PartialEq for SERVICE_STATUS_PROCESS {
     }
 }
 impl ::core::cmp::Eq for SERVICE_STATUS_PROCESS {}
-unsafe impl ::windows::runtime::Abi for SERVICE_STATUS_PROCESS {
+unsafe impl ::windows::core::Abi for SERVICE_STATUS_PROCESS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -2813,7 +2813,7 @@ impl ::core::cmp::PartialEq for SERVICE_TABLE_ENTRYA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_TABLE_ENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_TABLE_ENTRYA {
+unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2847,7 +2847,7 @@ impl ::core::cmp::PartialEq for SERVICE_TABLE_ENTRYW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERVICE_TABLE_ENTRYW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SERVICE_TABLE_ENTRYW {
+unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2874,7 +2874,7 @@ impl ::core::cmp::PartialEq for SERVICE_TIMECHANGE_INFO {
     }
 }
 impl ::core::cmp::Eq for SERVICE_TIMECHANGE_INFO {}
-unsafe impl ::windows::runtime::Abi for SERVICE_TIMECHANGE_INFO {
+unsafe impl ::windows::core::Abi for SERVICE_TIMECHANGE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2883,7 +2883,7 @@ unsafe impl ::windows::runtime::Abi for SERVICE_TIMECHANGE_INFO {
 pub struct SERVICE_TRIGGER {
     pub dwTriggerType: SERVICE_TRIGGER_TYPE,
     pub dwAction: SERVICE_TRIGGER_ACTION,
-    pub pTriggerSubtype: *mut ::windows::runtime::GUID,
+    pub pTriggerSubtype: *mut ::windows::core::GUID,
     pub cDataItems: u32,
     pub pDataItems: *mut SERVICE_TRIGGER_SPECIFIC_DATA_ITEM,
 }
@@ -2904,7 +2904,7 @@ impl ::core::cmp::PartialEq for SERVICE_TRIGGER {
     }
 }
 impl ::core::cmp::Eq for SERVICE_TRIGGER {}
-unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER {
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -2918,7 +2918,7 @@ impl ::core::convert::From<u32> for SERVICE_TRIGGER_ACTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_ACTION {
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_ACTION {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SERVICE_TRIGGER_ACTION {
@@ -2972,7 +2972,7 @@ impl ::core::cmp::PartialEq for SERVICE_TRIGGER_CUSTOM_STATE_ID {
     }
 }
 impl ::core::cmp::Eq for SERVICE_TRIGGER_CUSTOM_STATE_ID {}
-unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_CUSTOM_STATE_ID {
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_CUSTOM_STATE_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3000,7 +3000,7 @@ impl ::core::cmp::PartialEq for SERVICE_TRIGGER_INFO {
     }
 }
 impl ::core::cmp::Eq for SERVICE_TRIGGER_INFO {}
-unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_INFO {
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3028,7 +3028,7 @@ impl ::core::cmp::PartialEq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     }
 }
 impl ::core::cmp::Eq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
-unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -3045,7 +3045,7 @@ impl ::core::convert::From<u32> for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
@@ -3092,7 +3092,7 @@ impl ::core::convert::From<u32> for SERVICE_TRIGGER_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_TYPE {
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SERVICE_TRIGGER_TYPE {
@@ -3132,7 +3132,7 @@ pub const SERVICE_USER_DEFINED_CONTROL: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetServiceBits<'a, Param0: ::windows::runtime::IntoParam<'a, SERVICE_STATUS_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hservicestatus: Param0, dwservicebits: u32, bsetbitson: Param2, bupdateimmediately: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn SetServiceBits<'a, Param0: ::windows::core::IntoParam<'a, SERVICE_STATUS_HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hservicestatus: Param0, dwservicebits: u32, bsetbitson: Param2, bupdateimmediately: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3147,7 +3147,7 @@ pub unsafe fn SetServiceBits<'a, Param0: ::windows::runtime::IntoParam<'a, SERVI
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SetServiceObjectSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwsecurityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL {
+pub unsafe fn SetServiceObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwsecurityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3162,7 +3162,7 @@ pub unsafe fn SetServiceObjectSecurity<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetServiceStatus<'a, Param0: ::windows::runtime::IntoParam<'a, SERVICE_STATUS_HANDLE>>(hservicestatus: Param0, lpservicestatus: *const SERVICE_STATUS) -> super::super::Foundation::BOOL {
+pub unsafe fn SetServiceStatus<'a, Param0: ::windows::core::IntoParam<'a, SERVICE_STATUS_HANDLE>>(hservicestatus: Param0, lpservicestatus: *const SERVICE_STATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3177,7 +3177,7 @@ pub unsafe fn SetServiceStatus<'a, Param0: ::windows::runtime::IntoParam<'a, SER
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn StartServiceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnumserviceargs: u32, lpserviceargvectors: *const super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn StartServiceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnumserviceargs: u32, lpserviceargvectors: *const super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3222,7 +3222,7 @@ pub unsafe fn StartServiceCtrlDispatcherW(lpservicestarttable: *const SERVICE_TA
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn StartServiceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnumserviceargs: u32, lpserviceargvectors: *const super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn StartServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnumserviceargs: u32, lpserviceargvectors: *const super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3234,7 +3234,7 @@ pub unsafe fn StartServiceW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const USER_POLICY_PRESENT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
+pub const USER_POLICY_PRESENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3253,7 +3253,7 @@ pub unsafe fn UnlockServiceDatabase(sclock: *const ::core::ffi::c_void) -> super
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn WaitServiceState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hservice: Param0, dwnotify: u32, dwtimeout: u32, hcancelevent: Param3) -> u32 {
+pub unsafe fn WaitServiceState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hservice: Param0, dwnotify: u32, dwtimeout: u32, hcancelevent: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

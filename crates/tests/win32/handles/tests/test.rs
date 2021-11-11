@@ -1,4 +1,4 @@
-use windows::runtime::*;
+use windows::core::*;
 use windows::Win32::Foundation::*;
 use windows::Win32::Graphics::Gdi::*;
 use windows::Win32::System::Registry::*;

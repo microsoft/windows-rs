@@ -25,3 +25,20 @@ pub mod Speech;
 pub mod Streaming;
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
 pub mod WindowsMediaFormat;
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeBeginPeriod();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeEndPeriod();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeGetDevCaps();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeGetSystemTime();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeGetTime();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeKillEvent();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeSetEvent();
+}

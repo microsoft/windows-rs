@@ -25,7 +25,7 @@ impl ::core::cmp::PartialEq for ALTERNATE_INTERFACE {
     }
 }
 impl ::core::cmp::Eq for ALTERNATE_INTERFACE {}
-unsafe impl ::windows::runtime::Abi for ALTERNATE_INTERFACE {
+unsafe impl ::windows::core::Abi for ALTERNATE_INTERFACE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -71,7 +71,7 @@ impl ::core::cmp::PartialEq for BM_REQUEST_TYPE {
     }
 }
 impl ::core::cmp::Eq for BM_REQUEST_TYPE {}
-unsafe impl ::windows::runtime::Abi for BM_REQUEST_TYPE {
+unsafe impl ::windows::core::Abi for BM_REQUEST_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -97,7 +97,7 @@ impl ::core::cmp::PartialEq for BM_REQUEST_TYPE_0 {
     }
 }
 impl ::core::cmp::Eq for BM_REQUEST_TYPE_0 {}
-unsafe impl ::windows::runtime::Abi for BM_REQUEST_TYPE_0 {
+unsafe impl ::windows::core::Abi for BM_REQUEST_TYPE_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -127,7 +127,7 @@ impl ::core::cmp::PartialEq for CHANNEL_INFO {
     }
 }
 impl ::core::cmp::Eq for CHANNEL_INFO {}
-unsafe impl ::windows::runtime::Abi for CHANNEL_INFO {
+unsafe impl ::windows::core::Abi for CHANNEL_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -156,7 +156,7 @@ impl ::core::cmp::PartialEq for DEVICE_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for DEVICE_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -186,7 +186,7 @@ impl ::core::cmp::PartialEq for DRV_VERSION {
     }
 }
 impl ::core::cmp::Eq for DRV_VERSION {}
-unsafe impl ::windows::runtime::Abi for DRV_VERSION {
+unsafe impl ::windows::core::Abi for DRV_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -195,19 +195,19 @@ pub const FILE_DEVICE_USB: u32 = 34u32;
 pub const FILE_DEVICE_USB_SCAN: u32 = 32768u32;
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const FullSpeed: u32 = 2u32;
-pub const GUID_DEVINTERFACE_USB_BILLBOARD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x5e9adaef_f879_473f_b807_4e5ea77d1b1c);
-pub const GUID_DEVINTERFACE_USB_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xa5dcbf10_6530_11d2_901f_00c04fb951ed);
-pub const GUID_DEVINTERFACE_USB_HOST_CONTROLLER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3abf6f2d_71c4_462a_8a92_1e6861e6af27);
-pub const GUID_DEVINTERFACE_USB_HUB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xf18a0e88_c30c_11d0_8815_00a0c906bed8);
-pub const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8dd60df_4589_4cc7_9cd2_659d9e648a9f);
-pub const GUID_USB_PERFORMANCE_TRACING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5de77a6_6ae9_425c_b1e2_f5615fd348a9);
-pub const GUID_USB_TRANSFER_TRACING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x681eb8aa_403d_452c_9f8a_f0616fac9540);
-pub const GUID_USB_WMI_DEVICE_PERF_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x66c1aa3c_499f_49a0_a9a5_61e2359f6407);
-pub const GUID_USB_WMI_NODE_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9c179357_dc7a_4f41_b66b_323b9ddcb5b1);
-pub const GUID_USB_WMI_STD_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
-pub const GUID_USB_WMI_STD_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
-pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9bbbf831_a2f2_43b4_96d1_86944b5914b3);
-pub const GUID_USB_WMI_TRACING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x3a61881b_b4e6_4bf9_ae0f_3cd8f394e52f);
+pub const GUID_DEVINTERFACE_USB_BILLBOARD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e9adaef_f879_473f_b807_4e5ea77d1b1c);
+pub const GUID_DEVINTERFACE_USB_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5dcbf10_6530_11d2_901f_00c04fb951ed);
+pub const GUID_DEVINTERFACE_USB_HOST_CONTROLLER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3abf6f2d_71c4_462a_8a92_1e6861e6af27);
+pub const GUID_DEVINTERFACE_USB_HUB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf18a0e88_c30c_11d0_8815_00a0c906bed8);
+pub const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8dd60df_4589_4cc7_9cd2_659d9e648a9f);
+pub const GUID_USB_PERFORMANCE_TRACING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5de77a6_6ae9_425c_b1e2_f5615fd348a9);
+pub const GUID_USB_TRANSFER_TRACING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x681eb8aa_403d_452c_9f8a_f0616fac9540);
+pub const GUID_USB_WMI_DEVICE_PERF_INFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66c1aa3c_499f_49a0_a9a5_61e2359f6407);
+pub const GUID_USB_WMI_NODE_INFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c179357_dc7a_4f41_b66b_323b9ddcb5b1);
+pub const GUID_USB_WMI_STD_DATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
+pub const GUID_USB_WMI_STD_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
+pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bbbf831_a2f2_43b4_96d1_86944b5914b3);
+pub const GUID_USB_WMI_TRACING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a61881b_b4e6_4bf9_ae0f_3cd8f394e52f);
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const HCD_DIAGNOSTIC_MODE_OFF: u32 = 257u32;
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -430,7 +430,7 @@ impl ::core::cmp::PartialEq for IO_BLOCK {
     }
 }
 impl ::core::cmp::Eq for IO_BLOCK {}
-unsafe impl ::windows::runtime::Abi for IO_BLOCK {
+unsafe impl ::windows::core::Abi for IO_BLOCK {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -470,7 +470,7 @@ impl ::core::cmp::PartialEq for IO_BLOCK_EX {
     }
 }
 impl ::core::cmp::Eq for IO_BLOCK_EX {}
-unsafe impl ::windows::runtime::Abi for IO_BLOCK_EX {
+unsafe impl ::windows::core::Abi for IO_BLOCK_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -523,7 +523,7 @@ impl ::core::cmp::PartialEq for OS_STRING {
     }
 }
 impl ::core::cmp::Eq for OS_STRING {}
-unsafe impl ::windows::runtime::Abi for OS_STRING {
+unsafe impl ::windows::core::Abi for OS_STRING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -545,7 +545,7 @@ impl ::core::cmp::PartialEq for OS_STRING_0 {
     }
 }
 impl ::core::cmp::Eq for OS_STRING_0 {}
-unsafe impl ::windows::runtime::Abi for OS_STRING_0 {
+unsafe impl ::windows::core::Abi for OS_STRING_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -579,7 +579,7 @@ impl ::core::cmp::PartialEq for PACKET_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for PACKET_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for PACKET_PARAMETERS {
+unsafe impl ::windows::core::Abi for PACKET_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -597,7 +597,7 @@ impl ::core::convert::From<i32> for PIPE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PIPE_TYPE {
+unsafe impl ::windows::core::Abi for PIPE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -641,7 +641,7 @@ impl ::core::convert::From<i32> for RAW_PIPE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RAW_PIPE_TYPE {
+unsafe impl ::windows::core::Abi for RAW_PIPE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -663,7 +663,7 @@ impl ::core::cmp::PartialEq for RAW_RESET_PORT_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for RAW_RESET_PORT_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for RAW_RESET_PORT_PARAMETERS {
+unsafe impl ::windows::core::Abi for RAW_RESET_PORT_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -686,7 +686,7 @@ impl ::core::cmp::PartialEq for RAW_ROOTPORT_FEATURE {
     }
 }
 impl ::core::cmp::Eq for RAW_ROOTPORT_FEATURE {}
-unsafe impl ::windows::runtime::Abi for RAW_ROOTPORT_FEATURE {
+unsafe impl ::windows::core::Abi for RAW_ROOTPORT_FEATURE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -708,7 +708,7 @@ impl ::core::cmp::PartialEq for RAW_ROOTPORT_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for RAW_ROOTPORT_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for RAW_ROOTPORT_PARAMETERS {
+unsafe impl ::windows::core::Abi for RAW_ROOTPORT_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -735,7 +735,7 @@ impl ::core::cmp::PartialEq for URB {
     }
 }
 impl ::core::cmp::Eq for URB {}
-unsafe impl ::windows::runtime::Abi for URB {
+unsafe impl ::windows::core::Abi for URB {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -776,7 +776,7 @@ impl ::core::cmp::PartialEq for URB_0 {
     }
 }
 impl ::core::cmp::Eq for URB_0 {}
-unsafe impl ::windows::runtime::Abi for URB_0 {
+unsafe impl ::windows::core::Abi for URB_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -925,7 +925,7 @@ impl ::core::cmp::PartialEq for USBD_DEVICE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for USBD_DEVICE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for USBD_DEVICE_INFORMATION {
+unsafe impl ::windows::core::Abi for USBD_DEVICE_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -960,7 +960,7 @@ impl ::core::cmp::PartialEq for USBD_ENDPOINT_OFFLOAD_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for USBD_ENDPOINT_OFFLOAD_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for USBD_ENDPOINT_OFFLOAD_INFORMATION {
+unsafe impl ::windows::core::Abi for USBD_ENDPOINT_OFFLOAD_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -975,7 +975,7 @@ impl ::core::convert::From<i32> for USBD_ENDPOINT_OFFLOAD_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USBD_ENDPOINT_OFFLOAD_MODE {
+unsafe impl ::windows::core::Abi for USBD_ENDPOINT_OFFLOAD_MODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1021,7 +1021,7 @@ impl ::core::cmp::PartialEq for USBD_INTERFACE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for USBD_INTERFACE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for USBD_INTERFACE_INFORMATION {
+unsafe impl ::windows::core::Abi for USBD_INTERFACE_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1049,7 +1049,7 @@ impl ::core::cmp::PartialEq for USBD_ISO_PACKET_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USBD_ISO_PACKET_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USBD_ISO_PACKET_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USBD_ISO_PACKET_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1111,7 +1111,7 @@ impl ::core::cmp::PartialEq for USBD_PIPE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for USBD_PIPE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for USBD_PIPE_INFORMATION {
+unsafe impl ::windows::core::Abi for USBD_PIPE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1127,7 +1127,7 @@ impl ::core::convert::From<i32> for USBD_PIPE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USBD_PIPE_TYPE {
+unsafe impl ::windows::core::Abi for USBD_PIPE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1164,7 +1164,7 @@ impl ::core::cmp::PartialEq for USBD_STREAM_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for USBD_STREAM_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for USBD_STREAM_INFORMATION {
+unsafe impl ::windows::core::Abi for USBD_STREAM_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1197,7 +1197,7 @@ impl ::core::cmp::PartialEq for USBD_VERSION_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for USBD_VERSION_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for USBD_VERSION_INFORMATION {
+unsafe impl ::windows::core::Abi for USBD_VERSION_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1232,7 +1232,7 @@ impl ::core::cmp::PartialEq for USBFN_BUS_CONFIGURATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USBFN_BUS_CONFIGURATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USBFN_BUS_CONFIGURATION_INFO {
+unsafe impl ::windows::core::Abi for USBFN_BUS_CONFIGURATION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1249,7 +1249,7 @@ impl ::core::convert::From<i32> for USBFN_BUS_SPEED {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USBFN_BUS_SPEED {
+unsafe impl ::windows::core::Abi for USBFN_BUS_SPEED {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1281,7 +1281,7 @@ impl ::core::cmp::PartialEq for USBFN_CLASS_INFORMATION_PACKET {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USBFN_CLASS_INFORMATION_PACKET {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USBFN_CLASS_INFORMATION_PACKET {
+unsafe impl ::windows::core::Abi for USBFN_CLASS_INFORMATION_PACKET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1313,7 +1313,7 @@ impl ::core::cmp::PartialEq for USBFN_CLASS_INFORMATION_PACKET_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USBFN_CLASS_INFORMATION_PACKET_EX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USBFN_CLASS_INFORMATION_PACKET_EX {
+unsafe impl ::windows::core::Abi for USBFN_CLASS_INFORMATION_PACKET_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1336,7 +1336,7 @@ impl ::core::cmp::PartialEq for USBFN_CLASS_INTERFACE {
     }
 }
 impl ::core::cmp::Eq for USBFN_CLASS_INTERFACE {}
-unsafe impl ::windows::runtime::Abi for USBFN_CLASS_INTERFACE {
+unsafe impl ::windows::core::Abi for USBFN_CLASS_INTERFACE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1360,7 +1360,7 @@ impl ::core::cmp::PartialEq for USBFN_CLASS_INTERFACE_EX {
     }
 }
 impl ::core::cmp::Eq for USBFN_CLASS_INTERFACE_EX {}
-unsafe impl ::windows::runtime::Abi for USBFN_CLASS_INTERFACE_EX {
+unsafe impl ::windows::core::Abi for USBFN_CLASS_INTERFACE_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1380,7 +1380,7 @@ impl ::core::convert::From<i32> for USBFN_DEVICE_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USBFN_DEVICE_STATE {
+unsafe impl ::windows::core::Abi for USBFN_DEVICE_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1398,7 +1398,7 @@ impl ::core::convert::From<i32> for USBFN_DIRECTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USBFN_DIRECTION {
+unsafe impl ::windows::core::Abi for USBFN_DIRECTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1423,7 +1423,7 @@ impl ::core::convert::From<i32> for USBFN_EVENT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USBFN_EVENT {
+unsafe impl ::windows::core::Abi for USBFN_EVENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1452,7 +1452,7 @@ impl ::core::cmp::PartialEq for USBFN_INTERFACE_INFO {
     }
 }
 impl ::core::cmp::Eq for USBFN_INTERFACE_INFO {}
-unsafe impl ::windows::runtime::Abi for USBFN_INTERFACE_INFO {
+unsafe impl ::windows::core::Abi for USBFN_INTERFACE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1476,7 +1476,7 @@ impl ::core::cmp::PartialEq for USBFN_NOTIFICATION {
     }
 }
 impl ::core::cmp::Eq for USBFN_NOTIFICATION {}
-unsafe impl ::windows::runtime::Abi for USBFN_NOTIFICATION {
+unsafe impl ::windows::core::Abi for USBFN_NOTIFICATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1501,7 +1501,7 @@ impl ::core::cmp::PartialEq for USBFN_NOTIFICATION_0 {
     }
 }
 impl ::core::cmp::Eq for USBFN_NOTIFICATION_0 {}
-unsafe impl ::windows::runtime::Abi for USBFN_NOTIFICATION_0 {
+unsafe impl ::windows::core::Abi for USBFN_NOTIFICATION_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1523,7 +1523,7 @@ impl ::core::cmp::PartialEq for USBFN_PIPE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for USBFN_PIPE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for USBFN_PIPE_INFORMATION {
+unsafe impl ::windows::core::Abi for USBFN_PIPE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1542,7 +1542,7 @@ impl ::core::convert::From<i32> for USBFN_PORT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USBFN_PORT_TYPE {
+unsafe impl ::windows::core::Abi for USBFN_PORT_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1569,7 +1569,7 @@ impl ::core::cmp::PartialEq for USBFN_USB_STRING {
     }
 }
 impl ::core::cmp::Eq for USBFN_USB_STRING {}
-unsafe impl ::windows::runtime::Abi for USBFN_USB_STRING {
+unsafe impl ::windows::core::Abi for USBFN_USB_STRING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1597,7 +1597,7 @@ impl ::core::cmp::PartialEq for USBSCAN_GET_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USBSCAN_GET_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USBSCAN_GET_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USBSCAN_GET_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1624,7 +1624,7 @@ impl ::core::cmp::PartialEq for USBSCAN_PIPE_CONFIGURATION {
     }
 }
 impl ::core::cmp::Eq for USBSCAN_PIPE_CONFIGURATION {}
-unsafe impl ::windows::runtime::Abi for USBSCAN_PIPE_CONFIGURATION {
+unsafe impl ::windows::core::Abi for USBSCAN_PIPE_CONFIGURATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1653,7 +1653,7 @@ impl ::core::cmp::PartialEq for USBSCAN_PIPE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for USBSCAN_PIPE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for USBSCAN_PIPE_INFORMATION {
+unsafe impl ::windows::core::Abi for USBSCAN_PIPE_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1681,7 +1681,7 @@ impl ::core::cmp::PartialEq for USBSCAN_TIMEOUT {
     }
 }
 impl ::core::cmp::Eq for USBSCAN_TIMEOUT {}
-unsafe impl ::windows::runtime::Abi for USBSCAN_TIMEOUT {
+unsafe impl ::windows::core::Abi for USBSCAN_TIMEOUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1703,7 +1703,7 @@ impl ::core::cmp::PartialEq for USBUSER_BANDWIDTH_INFO_REQUEST {
     }
 }
 impl ::core::cmp::Eq for USBUSER_BANDWIDTH_INFO_REQUEST {}
-unsafe impl ::windows::runtime::Abi for USBUSER_BANDWIDTH_INFO_REQUEST {
+unsafe impl ::windows::core::Abi for USBUSER_BANDWIDTH_INFO_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1731,7 +1731,7 @@ impl ::core::cmp::PartialEq for USBUSER_BUS_STATISTICS_0_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USBUSER_BUS_STATISTICS_0_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USBUSER_BUS_STATISTICS_0_REQUEST {
+unsafe impl ::windows::core::Abi for USBUSER_BUS_STATISTICS_0_REQUEST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1755,7 +1755,7 @@ impl ::core::cmp::PartialEq for USBUSER_CLOSE_RAW_DEVICE {
     }
 }
 impl ::core::cmp::Eq for USBUSER_CLOSE_RAW_DEVICE {}
-unsafe impl ::windows::runtime::Abi for USBUSER_CLOSE_RAW_DEVICE {
+unsafe impl ::windows::core::Abi for USBUSER_CLOSE_RAW_DEVICE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1777,7 +1777,7 @@ impl ::core::cmp::PartialEq for USBUSER_CONTROLLER_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for USBUSER_CONTROLLER_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for USBUSER_CONTROLLER_INFO_0 {
+unsafe impl ::windows::core::Abi for USBUSER_CONTROLLER_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1799,7 +1799,7 @@ impl ::core::cmp::PartialEq for USBUSER_CONTROLLER_UNICODE_NAME {
     }
 }
 impl ::core::cmp::Eq for USBUSER_CONTROLLER_UNICODE_NAME {}
-unsafe impl ::windows::runtime::Abi for USBUSER_CONTROLLER_UNICODE_NAME {
+unsafe impl ::windows::core::Abi for USBUSER_CONTROLLER_UNICODE_NAME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1835,7 +1835,7 @@ impl ::core::cmp::PartialEq for USBUSER_GET_DRIVER_VERSION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USBUSER_GET_DRIVER_VERSION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USBUSER_GET_DRIVER_VERSION {
+unsafe impl ::windows::core::Abi for USBUSER_GET_DRIVER_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1863,7 +1863,7 @@ impl ::core::cmp::PartialEq for USBUSER_GET_USB2HW_VERSION {
     }
 }
 impl ::core::cmp::Eq for USBUSER_GET_USB2HW_VERSION {}
-unsafe impl ::windows::runtime::Abi for USBUSER_GET_USB2HW_VERSION {
+unsafe impl ::windows::core::Abi for USBUSER_GET_USB2HW_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1891,7 +1891,7 @@ impl ::core::cmp::PartialEq for USBUSER_OPEN_RAW_DEVICE {
     }
 }
 impl ::core::cmp::Eq for USBUSER_OPEN_RAW_DEVICE {}
-unsafe impl ::windows::runtime::Abi for USBUSER_OPEN_RAW_DEVICE {
+unsafe impl ::windows::core::Abi for USBUSER_OPEN_RAW_DEVICE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1929,7 +1929,7 @@ impl ::core::cmp::PartialEq for USBUSER_PASS_THRU_REQUEST {
     }
 }
 impl ::core::cmp::Eq for USBUSER_PASS_THRU_REQUEST {}
-unsafe impl ::windows::runtime::Abi for USBUSER_PASS_THRU_REQUEST {
+unsafe impl ::windows::core::Abi for USBUSER_PASS_THRU_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1957,7 +1957,7 @@ impl ::core::cmp::PartialEq for USBUSER_POWER_INFO_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USBUSER_POWER_INFO_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USBUSER_POWER_INFO_REQUEST {
+unsafe impl ::windows::core::Abi for USBUSER_POWER_INFO_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1979,7 +1979,7 @@ impl ::core::cmp::PartialEq for USBUSER_RAW_RESET_ROOT_PORT {
     }
 }
 impl ::core::cmp::Eq for USBUSER_RAW_RESET_ROOT_PORT {}
-unsafe impl ::windows::runtime::Abi for USBUSER_RAW_RESET_ROOT_PORT {
+unsafe impl ::windows::core::Abi for USBUSER_RAW_RESET_ROOT_PORT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2001,7 +2001,7 @@ impl ::core::cmp::PartialEq for USBUSER_REFRESH_HCT_REG {
     }
 }
 impl ::core::cmp::Eq for USBUSER_REFRESH_HCT_REG {}
-unsafe impl ::windows::runtime::Abi for USBUSER_REFRESH_HCT_REG {
+unsafe impl ::windows::core::Abi for USBUSER_REFRESH_HCT_REG {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2025,7 +2025,7 @@ impl ::core::cmp::PartialEq for USBUSER_REQUEST_HEADER {
     }
 }
 impl ::core::cmp::Eq for USBUSER_REQUEST_HEADER {}
-unsafe impl ::windows::runtime::Abi for USBUSER_REQUEST_HEADER {
+unsafe impl ::windows::core::Abi for USBUSER_REQUEST_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2047,7 +2047,7 @@ impl ::core::cmp::PartialEq for USBUSER_ROOTPORT_FEATURE_REQUEST {
     }
 }
 impl ::core::cmp::Eq for USBUSER_ROOTPORT_FEATURE_REQUEST {}
-unsafe impl ::windows::runtime::Abi for USBUSER_ROOTPORT_FEATURE_REQUEST {
+unsafe impl ::windows::core::Abi for USBUSER_ROOTPORT_FEATURE_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2069,7 +2069,7 @@ impl ::core::cmp::PartialEq for USBUSER_ROOTPORT_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for USBUSER_ROOTPORT_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for USBUSER_ROOTPORT_PARAMETERS {
+unsafe impl ::windows::core::Abi for USBUSER_ROOTPORT_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2091,7 +2091,7 @@ impl ::core::cmp::PartialEq for USBUSER_SEND_ONE_PACKET {
     }
 }
 impl ::core::cmp::Eq for USBUSER_SEND_ONE_PACKET {}
-unsafe impl ::windows::runtime::Abi for USBUSER_SEND_ONE_PACKET {
+unsafe impl ::windows::core::Abi for USBUSER_SEND_ONE_PACKET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2113,7 +2113,7 @@ impl ::core::cmp::PartialEq for USBUSER_SEND_RAW_COMMAND {
     }
 }
 impl ::core::cmp::Eq for USBUSER_SEND_RAW_COMMAND {}
-unsafe impl ::windows::runtime::Abi for USBUSER_SEND_RAW_COMMAND {
+unsafe impl ::windows::core::Abi for USBUSER_SEND_RAW_COMMAND {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2145,7 +2145,7 @@ impl ::core::cmp::PartialEq for USB_20_PORT_CHANGE {
     }
 }
 impl ::core::cmp::Eq for USB_20_PORT_CHANGE {}
-unsafe impl ::windows::runtime::Abi for USB_20_PORT_CHANGE {
+unsafe impl ::windows::core::Abi for USB_20_PORT_CHANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2166,7 +2166,7 @@ impl ::core::cmp::PartialEq for USB_20_PORT_CHANGE_0 {
     }
 }
 impl ::core::cmp::Eq for USB_20_PORT_CHANGE_0 {}
-unsafe impl ::windows::runtime::Abi for USB_20_PORT_CHANGE_0 {
+unsafe impl ::windows::core::Abi for USB_20_PORT_CHANGE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2188,7 +2188,7 @@ impl ::core::cmp::PartialEq for USB_20_PORT_STATUS {
     }
 }
 impl ::core::cmp::Eq for USB_20_PORT_STATUS {}
-unsafe impl ::windows::runtime::Abi for USB_20_PORT_STATUS {
+unsafe impl ::windows::core::Abi for USB_20_PORT_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2209,7 +2209,7 @@ impl ::core::cmp::PartialEq for USB_20_PORT_STATUS_0 {
     }
 }
 impl ::core::cmp::Eq for USB_20_PORT_STATUS_0 {}
-unsafe impl ::windows::runtime::Abi for USB_20_PORT_STATUS_0 {
+unsafe impl ::windows::core::Abi for USB_20_PORT_STATUS_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2250,7 +2250,7 @@ impl ::core::cmp::PartialEq for USB_30_HUB_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_30_HUB_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_30_HUB_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_30_HUB_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2274,7 +2274,7 @@ impl ::core::cmp::PartialEq for USB_30_PORT_CHANGE {
     }
 }
 impl ::core::cmp::Eq for USB_30_PORT_CHANGE {}
-unsafe impl ::windows::runtime::Abi for USB_30_PORT_CHANGE {
+unsafe impl ::windows::core::Abi for USB_30_PORT_CHANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2295,7 +2295,7 @@ impl ::core::cmp::PartialEq for USB_30_PORT_CHANGE_0 {
     }
 }
 impl ::core::cmp::Eq for USB_30_PORT_CHANGE_0 {}
-unsafe impl ::windows::runtime::Abi for USB_30_PORT_CHANGE_0 {
+unsafe impl ::windows::core::Abi for USB_30_PORT_CHANGE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2317,7 +2317,7 @@ impl ::core::cmp::PartialEq for USB_30_PORT_STATUS {
     }
 }
 impl ::core::cmp::Eq for USB_30_PORT_STATUS {}
-unsafe impl ::windows::runtime::Abi for USB_30_PORT_STATUS {
+unsafe impl ::windows::core::Abi for USB_30_PORT_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2338,7 +2338,7 @@ impl ::core::cmp::PartialEq for USB_30_PORT_STATUS_0 {
     }
 }
 impl ::core::cmp::Eq for USB_30_PORT_STATUS_0 {}
-unsafe impl ::windows::runtime::Abi for USB_30_PORT_STATUS_0 {
+unsafe impl ::windows::core::Abi for USB_30_PORT_STATUS_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2371,7 +2371,7 @@ impl ::core::cmp::PartialEq for USB_BANDWIDTH_INFO {
     }
 }
 impl ::core::cmp::Eq for USB_BANDWIDTH_INFO {}
-unsafe impl ::windows::runtime::Abi for USB_BANDWIDTH_INFO {
+unsafe impl ::windows::core::Abi for USB_BANDWIDTH_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2395,7 +2395,7 @@ impl ::core::cmp::PartialEq for USB_BOS_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_BOS_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_BOS_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_BOS_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2439,7 +2439,7 @@ impl ::core::cmp::PartialEq for USB_BUS_STATISTICS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USB_BUS_STATISTICS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USB_BUS_STATISTICS_0 {
+unsafe impl ::windows::core::Abi for USB_BUS_STATISTICS_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2468,7 +2468,7 @@ impl ::core::cmp::PartialEq for USB_CLOSE_RAW_DEVICE_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for USB_CLOSE_RAW_DEVICE_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for USB_CLOSE_RAW_DEVICE_PARAMETERS {
+unsafe impl ::windows::core::Abi for USB_CLOSE_RAW_DEVICE_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2495,7 +2495,7 @@ impl ::core::cmp::PartialEq for USB_COMMON_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_COMMON_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_COMMON_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_COMMON_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2523,7 +2523,7 @@ impl ::core::cmp::PartialEq for USB_CONFIGURATION_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_CONFIGURATION_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_CONFIGURATION_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_CONFIGURATION_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2558,7 +2558,7 @@ impl ::core::cmp::PartialEq for USB_CONFIGURATION_POWER_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_CONFIGURATION_POWER_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_CONFIGURATION_POWER_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_CONFIGURATION_POWER_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2609,7 +2609,7 @@ impl ::core::convert::From<i32> for USB_CONTROLLER_FLAVOR {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USB_CONTROLLER_FLAVOR {
+unsafe impl ::windows::core::Abi for USB_CONTROLLER_FLAVOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2635,7 +2635,7 @@ impl ::core::cmp::PartialEq for USB_CONTROLLER_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for USB_CONTROLLER_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for USB_CONTROLLER_INFO_0 {
+unsafe impl ::windows::core::Abi for USB_CONTROLLER_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2670,7 +2670,7 @@ impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET {
     }
 }
 impl ::core::cmp::Eq for USB_DEFAULT_PIPE_SETUP_PACKET {}
-unsafe impl ::windows::runtime::Abi for USB_DEFAULT_PIPE_SETUP_PACKET {
+unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2692,7 +2692,7 @@ impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     }
 }
 impl ::core::cmp::Eq for USB_DEFAULT_PIPE_SETUP_PACKET_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
+unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2719,7 +2719,7 @@ impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     }
 }
 impl ::core::cmp::Eq for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
+unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2741,7 +2741,7 @@ impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     }
 }
 impl ::core::cmp::Eq for USB_DEFAULT_PIPE_SETUP_PACKET_1 {}
-unsafe impl ::windows::runtime::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
+unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2768,7 +2768,7 @@ impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     }
 }
 impl ::core::cmp::Eq for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
+unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2802,7 +2802,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2825,7 +2825,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2847,7 +2847,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2868,7 +2868,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2900,7 +2900,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2928,7 +2928,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -2957,7 +2957,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2979,7 +2979,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3000,7 +3000,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3037,7 +3037,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTO
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3059,7 +3059,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTO
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3080,7 +3080,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTO
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3095,7 +3095,7 @@ pub struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     pub bDescriptorType: u8,
     pub bDevCapabilityType: u8,
     pub bReserved: u8,
-    pub PlatformCapabilityUuid: ::windows::runtime::GUID,
+    pub PlatformCapabilityUuid: ::windows::core::GUID,
     pub CapabililityData: [u8; 1],
 }
 impl USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {}
@@ -3110,7 +3110,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3142,7 +3142,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR 
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3164,7 +3164,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3185,7 +3185,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3209,7 +3209,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3230,7 +3230,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3280,7 +3280,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIP
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3302,7 +3302,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIP
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3323,7 +3323,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIP
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3345,7 +3345,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIP
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3366,7 +3366,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIP
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3414,7 +3414,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR 
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3442,7 +3442,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3464,7 +3464,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3485,7 +3485,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3571,7 +3571,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3604,7 +3604,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_QUALIFIER_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_QUALIFIER_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_QUALIFIER_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_DEVICE_QUALIFIER_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3622,7 +3622,7 @@ impl ::core::convert::From<i32> for USB_DEVICE_SPEED {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_SPEED {
+unsafe impl ::windows::core::Abi for USB_DEVICE_SPEED {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3644,7 +3644,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_STATUS {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_STATUS {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_STATUS {
+unsafe impl ::windows::core::Abi for USB_DEVICE_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3665,7 +3665,7 @@ impl ::core::cmp::PartialEq for USB_DEVICE_STATUS_0 {
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_STATUS_0 {}
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_STATUS_0 {
+unsafe impl ::windows::core::Abi for USB_DEVICE_STATUS_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3679,7 +3679,7 @@ impl ::core::convert::From<i32> for USB_DEVICE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USB_DEVICE_TYPE {
+unsafe impl ::windows::core::Abi for USB_DEVICE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3717,7 +3717,7 @@ impl ::core::cmp::PartialEq for USB_DRIVER_VERSION_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USB_DRIVER_VERSION_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USB_DRIVER_VERSION_PARAMETERS {
+unsafe impl ::windows::core::Abi for USB_DRIVER_VERSION_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3747,7 +3747,7 @@ impl ::core::cmp::PartialEq for USB_ENDPOINT_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_ENDPOINT_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_ENDPOINT_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_ENDPOINT_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3773,7 +3773,7 @@ impl ::core::cmp::PartialEq for USB_ENDPOINT_STATUS {
     }
 }
 impl ::core::cmp::Eq for USB_ENDPOINT_STATUS {}
-unsafe impl ::windows::runtime::Abi for USB_ENDPOINT_STATUS {
+unsafe impl ::windows::core::Abi for USB_ENDPOINT_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3794,7 +3794,7 @@ impl ::core::cmp::PartialEq for USB_ENDPOINT_STATUS_0 {
     }
 }
 impl ::core::cmp::Eq for USB_ENDPOINT_STATUS_0 {}
-unsafe impl ::windows::runtime::Abi for USB_ENDPOINT_STATUS_0 {
+unsafe impl ::windows::core::Abi for USB_ENDPOINT_STATUS_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -3909,7 +3909,7 @@ impl ::core::cmp::PartialEq for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATI
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
+unsafe impl ::windows::core::Abi for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3931,7 +3931,7 @@ impl ::core::cmp::PartialEq for USB_FUNCTION_SUSPEND_OPTIONS {
     }
 }
 impl ::core::cmp::Eq for USB_FUNCTION_SUSPEND_OPTIONS {}
-unsafe impl ::windows::runtime::Abi for USB_FUNCTION_SUSPEND_OPTIONS {
+unsafe impl ::windows::core::Abi for USB_FUNCTION_SUSPEND_OPTIONS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3957,7 +3957,7 @@ impl ::core::cmp::PartialEq for USB_FUNCTION_SUSPEND_OPTIONS_0 {
     }
 }
 impl ::core::cmp::Eq for USB_FUNCTION_SUSPEND_OPTIONS_0 {}
-unsafe impl ::windows::runtime::Abi for USB_FUNCTION_SUSPEND_OPTIONS_0 {
+unsafe impl ::windows::core::Abi for USB_FUNCTION_SUSPEND_OPTIONS_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4056,7 +4056,7 @@ impl ::core::cmp::PartialEq for USB_HIGH_SPEED_MAXPACKET {
     }
 }
 impl ::core::cmp::Eq for USB_HIGH_SPEED_MAXPACKET {}
-unsafe impl ::windows::runtime::Abi for USB_HIGH_SPEED_MAXPACKET {
+unsafe impl ::windows::core::Abi for USB_HIGH_SPEED_MAXPACKET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4077,7 +4077,7 @@ impl ::core::cmp::PartialEq for USB_HIGH_SPEED_MAXPACKET_0 {
     }
 }
 impl ::core::cmp::Eq for USB_HIGH_SPEED_MAXPACKET_0 {}
-unsafe impl ::windows::runtime::Abi for USB_HIGH_SPEED_MAXPACKET_0 {
+unsafe impl ::windows::core::Abi for USB_HIGH_SPEED_MAXPACKET_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4099,7 +4099,7 @@ impl ::core::cmp::PartialEq for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     }
 }
 impl ::core::cmp::Eq for USB_HUB_30_PORT_REMOTE_WAKE_MASK {}
-unsafe impl ::windows::runtime::Abi for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
+unsafe impl ::windows::core::Abi for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4125,7 +4125,7 @@ impl ::core::cmp::PartialEq for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     }
 }
 impl ::core::cmp::Eq for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {}
-unsafe impl ::windows::runtime::Abi for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
+unsafe impl ::windows::core::Abi for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4147,7 +4147,7 @@ impl ::core::cmp::PartialEq for USB_HUB_CHANGE {
     }
 }
 impl ::core::cmp::Eq for USB_HUB_CHANGE {}
-unsafe impl ::windows::runtime::Abi for USB_HUB_CHANGE {
+unsafe impl ::windows::core::Abi for USB_HUB_CHANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4168,7 +4168,7 @@ impl ::core::cmp::PartialEq for USB_HUB_CHANGE_0 {
     }
 }
 impl ::core::cmp::Eq for USB_HUB_CHANGE_0 {}
-unsafe impl ::windows::runtime::Abi for USB_HUB_CHANGE_0 {
+unsafe impl ::windows::core::Abi for USB_HUB_CHANGE_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4197,7 +4197,7 @@ impl ::core::cmp::PartialEq for USB_HUB_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_HUB_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_HUB_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_HUB_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4219,7 +4219,7 @@ impl ::core::cmp::PartialEq for USB_HUB_STATUS {
     }
 }
 impl ::core::cmp::Eq for USB_HUB_STATUS {}
-unsafe impl ::windows::runtime::Abi for USB_HUB_STATUS {
+unsafe impl ::windows::core::Abi for USB_HUB_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4240,7 +4240,7 @@ impl ::core::cmp::PartialEq for USB_HUB_STATUS_0 {
     }
 }
 impl ::core::cmp::Eq for USB_HUB_STATUS_0 {}
-unsafe impl ::windows::runtime::Abi for USB_HUB_STATUS_0 {
+unsafe impl ::windows::core::Abi for USB_HUB_STATUS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4262,7 +4262,7 @@ impl ::core::cmp::PartialEq for USB_HUB_STATUS_AND_CHANGE {
     }
 }
 impl ::core::cmp::Eq for USB_HUB_STATUS_AND_CHANGE {}
-unsafe impl ::windows::runtime::Abi for USB_HUB_STATUS_AND_CHANGE {
+unsafe impl ::windows::core::Abi for USB_HUB_STATUS_AND_CHANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4284,7 +4284,7 @@ impl ::core::cmp::PartialEq for USB_HUB_STATUS_AND_CHANGE_0 {
     }
 }
 impl ::core::cmp::Eq for USB_HUB_STATUS_AND_CHANGE_0 {}
-unsafe impl ::windows::runtime::Abi for USB_HUB_STATUS_AND_CHANGE_0 {
+unsafe impl ::windows::core::Abi for USB_HUB_STATUS_AND_CHANGE_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4313,7 +4313,7 @@ impl ::core::cmp::PartialEq for USB_IDLE_CALLBACK_INFO {
     }
 }
 impl ::core::cmp::Eq for USB_IDLE_CALLBACK_INFO {}
-unsafe impl ::windows::runtime::Abi for USB_IDLE_CALLBACK_INFO {
+unsafe impl ::windows::core::Abi for USB_IDLE_CALLBACK_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4359,7 +4359,7 @@ impl ::core::cmp::PartialEq for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4405,7 +4405,7 @@ impl ::core::cmp::PartialEq for USB_INTERFACE_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_INTERFACE_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_INTERFACE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_INTERFACE_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4439,7 +4439,7 @@ impl ::core::cmp::PartialEq for USB_INTERFACE_POWER_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_INTERFACE_POWER_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_INTERFACE_POWER_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_INTERFACE_POWER_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4463,7 +4463,7 @@ impl ::core::cmp::PartialEq for USB_INTERFACE_STATUS {
     }
 }
 impl ::core::cmp::Eq for USB_INTERFACE_STATUS {}
-unsafe impl ::windows::runtime::Abi for USB_INTERFACE_STATUS {
+unsafe impl ::windows::core::Abi for USB_INTERFACE_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4484,7 +4484,7 @@ impl ::core::cmp::PartialEq for USB_INTERFACE_STATUS_0 {
     }
 }
 impl ::core::cmp::Eq for USB_INTERFACE_STATUS_0 {}
-unsafe impl ::windows::runtime::Abi for USB_INTERFACE_STATUS_0 {
+unsafe impl ::windows::core::Abi for USB_INTERFACE_STATUS_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4508,7 +4508,7 @@ impl ::core::cmp::PartialEq for USB_OPEN_RAW_DEVICE_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for USB_OPEN_RAW_DEVICE_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for USB_OPEN_RAW_DEVICE_PARAMETERS {
+unsafe impl ::windows::core::Abi for USB_OPEN_RAW_DEVICE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4539,7 +4539,7 @@ pub const USB_PACKETFLAG_TOGGLE1: u32 = 512u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub struct USB_PASS_THRU_PARAMETERS {
-    pub FunctionGUID: ::windows::runtime::GUID,
+    pub FunctionGUID: ::windows::core::GUID,
     pub ParameterLength: u32,
     pub Parameters: [u8; 4],
 }
@@ -4555,7 +4555,7 @@ impl ::core::cmp::PartialEq for USB_PASS_THRU_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for USB_PASS_THRU_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for USB_PASS_THRU_PARAMETERS {
+unsafe impl ::windows::core::Abi for USB_PASS_THRU_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4590,7 +4590,7 @@ impl ::core::cmp::PartialEq for USB_PORT_CHANGE {
     }
 }
 impl ::core::cmp::Eq for USB_PORT_CHANGE {}
-unsafe impl ::windows::runtime::Abi for USB_PORT_CHANGE {
+unsafe impl ::windows::core::Abi for USB_PORT_CHANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4612,7 +4612,7 @@ impl ::core::cmp::PartialEq for USB_PORT_EXT_STATUS {
     }
 }
 impl ::core::cmp::Eq for USB_PORT_EXT_STATUS {}
-unsafe impl ::windows::runtime::Abi for USB_PORT_EXT_STATUS {
+unsafe impl ::windows::core::Abi for USB_PORT_EXT_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4633,7 +4633,7 @@ impl ::core::cmp::PartialEq for USB_PORT_EXT_STATUS_0 {
     }
 }
 impl ::core::cmp::Eq for USB_PORT_EXT_STATUS_0 {}
-unsafe impl ::windows::runtime::Abi for USB_PORT_EXT_STATUS_0 {
+unsafe impl ::windows::core::Abi for USB_PORT_EXT_STATUS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4655,7 +4655,7 @@ impl ::core::cmp::PartialEq for USB_PORT_EXT_STATUS_AND_CHANGE {
     }
 }
 impl ::core::cmp::Eq for USB_PORT_EXT_STATUS_AND_CHANGE {}
-unsafe impl ::windows::runtime::Abi for USB_PORT_EXT_STATUS_AND_CHANGE {
+unsafe impl ::windows::core::Abi for USB_PORT_EXT_STATUS_AND_CHANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4677,7 +4677,7 @@ impl ::core::cmp::PartialEq for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
     }
 }
 impl ::core::cmp::Eq for USB_PORT_EXT_STATUS_AND_CHANGE_0 {}
-unsafe impl ::windows::runtime::Abi for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
+unsafe impl ::windows::core::Abi for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4700,7 +4700,7 @@ impl ::core::cmp::PartialEq for USB_PORT_STATUS {
     }
 }
 impl ::core::cmp::Eq for USB_PORT_STATUS {}
-unsafe impl ::windows::runtime::Abi for USB_PORT_STATUS {
+unsafe impl ::windows::core::Abi for USB_PORT_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4722,7 +4722,7 @@ impl ::core::cmp::PartialEq for USB_PORT_STATUS_AND_CHANGE {
     }
 }
 impl ::core::cmp::Eq for USB_PORT_STATUS_AND_CHANGE {}
-unsafe impl ::windows::runtime::Abi for USB_PORT_STATUS_AND_CHANGE {
+unsafe impl ::windows::core::Abi for USB_PORT_STATUS_AND_CHANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4744,7 +4744,7 @@ impl ::core::cmp::PartialEq for USB_PORT_STATUS_AND_CHANGE_0 {
     }
 }
 impl ::core::cmp::Eq for USB_PORT_STATUS_AND_CHANGE_0 {}
-unsafe impl ::windows::runtime::Abi for USB_PORT_STATUS_AND_CHANGE_0 {
+unsafe impl ::windows::core::Abi for USB_PORT_STATUS_AND_CHANGE_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4796,7 +4796,7 @@ impl ::core::cmp::PartialEq for USB_POWER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USB_POWER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USB_POWER_INFO {
+unsafe impl ::windows::core::Abi for USB_POWER_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4893,7 +4893,7 @@ impl ::core::cmp::PartialEq for USB_SEND_RAW_COMMAND_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for USB_SEND_RAW_COMMAND_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for USB_SEND_RAW_COMMAND_PARAMETERS {
+unsafe impl ::windows::core::Abi for USB_SEND_RAW_COMMAND_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4923,7 +4923,7 @@ impl ::core::cmp::PartialEq for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
+unsafe impl ::windows::core::Abi for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -4958,7 +4958,7 @@ impl ::core::cmp::PartialEq for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
+unsafe impl ::windows::core::Abi for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4981,7 +4981,7 @@ impl ::core::cmp::PartialEq for USB_STRING_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_STRING_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_STRING_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_STRING_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -5013,7 +5013,7 @@ impl ::core::cmp::PartialEq for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESC
     }
 }
 impl ::core::cmp::Eq for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -5040,7 +5040,7 @@ impl ::core::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5063,7 +5063,7 @@ impl ::core::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
     }
 }
 impl ::core::cmp::Eq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {}
-unsafe impl ::windows::runtime::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5089,7 +5089,7 @@ impl ::core::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0
     }
 }
 impl ::core::cmp::Eq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {}
-unsafe impl ::windows::runtime::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
+unsafe impl ::windows::core::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5115,7 +5115,7 @@ impl ::core::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1
     }
 }
 impl ::core::cmp::Eq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {}
-unsafe impl ::windows::runtime::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
+unsafe impl ::windows::core::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -5169,7 +5169,7 @@ impl ::core::cmp::PartialEq for USB_UNICODE_NAME {
     }
 }
 impl ::core::cmp::Eq for USB_UNICODE_NAME {}
-unsafe impl ::windows::runtime::Abi for USB_UNICODE_NAME {
+unsafe impl ::windows::core::Abi for USB_UNICODE_NAME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -5199,7 +5199,7 @@ impl ::core::cmp::PartialEq for USB_USB2HW_VERSION_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for USB_USB2HW_VERSION_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for USB_USB2HW_VERSION_PARAMETERS {
+unsafe impl ::windows::core::Abi for USB_USB2HW_VERSION_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -5222,7 +5222,7 @@ impl ::core::convert::From<i32> for USB_USER_ERROR_CODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USB_USER_ERROR_CODE {
+unsafe impl ::windows::core::Abi for USB_USER_ERROR_CODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -5247,7 +5247,7 @@ impl ::core::convert::From<i32> for WDMUSB_POWER_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WDMUSB_POWER_STATE {
+unsafe impl ::windows::core::Abi for WDMUSB_POWER_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5276,7 +5276,7 @@ impl ::core::cmp::PartialEq for WINUSB_PIPE_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for WINUSB_PIPE_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for WINUSB_PIPE_INFORMATION {
+unsafe impl ::windows::core::Abi for WINUSB_PIPE_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5306,7 +5306,7 @@ impl ::core::cmp::PartialEq for WINUSB_PIPE_INFORMATION_EX {
     }
 }
 impl ::core::cmp::Eq for WINUSB_PIPE_INFORMATION_EX {}
-unsafe impl ::windows::runtime::Abi for WINUSB_PIPE_INFORMATION_EX {
+unsafe impl ::windows::core::Abi for WINUSB_PIPE_INFORMATION_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5331,7 +5331,7 @@ impl ::core::cmp::PartialEq for WINUSB_SETUP_PACKET {
     }
 }
 impl ::core::cmp::Eq for WINUSB_SETUP_PACKET {}
-unsafe impl ::windows::runtime::Abi for WINUSB_SETUP_PACKET {
+unsafe impl ::windows::core::Abi for WINUSB_SETUP_PACKET {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -5346,7 +5346,7 @@ pub const WMI_USB_HUB_NODE_INFORMATION: u32 = 4u32;
 pub const WMI_USB_PERFORMANCE_INFORMATION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const WMI_USB_POWER_DEVICE_ENABLE: u32 = 2u32;
-pub const WinUSB_TestGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);
+pub const WinUSB_TestGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5365,7 +5365,7 @@ pub unsafe fn WinUsb_AbortPipe(interfacehandle: *const ::core::ffi::c_void, pipe
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_ControlTransfer<'a, Param1: ::windows::runtime::IntoParam<'a, WINUSB_SETUP_PACKET>>(interfacehandle: *const ::core::ffi::c_void, setuppacket: Param1, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_ControlTransfer<'a, Param1: ::windows::core::IntoParam<'a, WINUSB_SETUP_PACKET>>(interfacehandle: *const ::core::ffi::c_void, setuppacket: Param1, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5500,7 +5500,7 @@ pub unsafe fn WinUsb_GetDescriptor(interfacehandle: *const ::core::ffi::c_void, 
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_GetOverlappedResult<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(interfacehandle: *const ::core::ffi::c_void, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_GetOverlappedResult<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(interfacehandle: *const ::core::ffi::c_void, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5545,7 +5545,7 @@ pub unsafe fn WinUsb_GetPowerPolicy(interfacehandle: *const ::core::ffi::c_void,
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(devicehandle: Param0, interfacehandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(devicehandle: Param0, interfacehandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5671,7 +5671,7 @@ pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const ::core::ffi::c_void, off
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_ReadIsochPipeAsap<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: Param3, numberofpackets: u32, isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_ReadIsochPipeAsap<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: Param3, numberofpackets: u32, isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5836,7 +5836,7 @@ pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const ::core::ffi::c_void, of
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_WriteIsochPipeAsap<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: Param3, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_WriteIsochPipeAsap<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: Param3, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5902,7 +5902,7 @@ impl ::core::cmp::PartialEq for _URB_BULK_OR_INTERRUPT_TRANSFER {
     }
 }
 impl ::core::cmp::Eq for _URB_BULK_OR_INTERRUPT_TRANSFER {}
-unsafe impl ::windows::runtime::Abi for _URB_BULK_OR_INTERRUPT_TRANSFER {
+unsafe impl ::windows::core::Abi for _URB_BULK_OR_INTERRUPT_TRANSFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5966,7 +5966,7 @@ impl ::core::cmp::PartialEq for _URB_CONTROL_DESCRIPTOR_REQUEST {
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_DESCRIPTOR_REQUEST {}
-unsafe impl ::windows::runtime::Abi for _URB_CONTROL_DESCRIPTOR_REQUEST {
+unsafe impl ::windows::core::Abi for _URB_CONTROL_DESCRIPTOR_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6016,7 +6016,7 @@ impl ::core::cmp::PartialEq for _URB_CONTROL_FEATURE_REQUEST {
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_FEATURE_REQUEST {}
-unsafe impl ::windows::runtime::Abi for _URB_CONTROL_FEATURE_REQUEST {
+unsafe impl ::windows::core::Abi for _URB_CONTROL_FEATURE_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6060,7 +6060,7 @@ impl ::core::cmp::PartialEq for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_GET_CONFIGURATION_REQUEST {}
-unsafe impl ::windows::runtime::Abi for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
+unsafe impl ::windows::core::Abi for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6108,7 +6108,7 @@ impl ::core::cmp::PartialEq for _URB_CONTROL_GET_INTERFACE_REQUEST {
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_GET_INTERFACE_REQUEST {}
-unsafe impl ::windows::runtime::Abi for _URB_CONTROL_GET_INTERFACE_REQUEST {
+unsafe impl ::windows::core::Abi for _URB_CONTROL_GET_INTERFACE_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6156,7 +6156,7 @@ impl ::core::cmp::PartialEq for _URB_CONTROL_GET_STATUS_REQUEST {
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_GET_STATUS_REQUEST {}
-unsafe impl ::windows::runtime::Abi for _URB_CONTROL_GET_STATUS_REQUEST {
+unsafe impl ::windows::core::Abi for _URB_CONTROL_GET_STATUS_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6200,7 +6200,7 @@ impl ::core::cmp::PartialEq for _URB_CONTROL_TRANSFER {
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_TRANSFER {}
-unsafe impl ::windows::runtime::Abi for _URB_CONTROL_TRANSFER {
+unsafe impl ::windows::core::Abi for _URB_CONTROL_TRANSFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6244,7 +6244,7 @@ impl ::core::cmp::PartialEq for _URB_CONTROL_TRANSFER_EX {
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_TRANSFER_EX {}
-unsafe impl ::windows::runtime::Abi for _URB_CONTROL_TRANSFER_EX {
+unsafe impl ::windows::core::Abi for _URB_CONTROL_TRANSFER_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6308,7 +6308,7 @@ impl ::core::cmp::PartialEq for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {}
-unsafe impl ::windows::runtime::Abi for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
+unsafe impl ::windows::core::Abi for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6334,7 +6334,7 @@ impl ::core::cmp::PartialEq for _URB_FRAME_LENGTH_CONTROL {
     }
 }
 impl ::core::cmp::Eq for _URB_FRAME_LENGTH_CONTROL {}
-unsafe impl ::windows::runtime::Abi for _URB_FRAME_LENGTH_CONTROL {
+unsafe impl ::windows::core::Abi for _URB_FRAME_LENGTH_CONTROL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6361,7 +6361,7 @@ impl ::core::cmp::PartialEq for _URB_GET_CURRENT_FRAME_NUMBER {
     }
 }
 impl ::core::cmp::Eq for _URB_GET_CURRENT_FRAME_NUMBER {}
-unsafe impl ::windows::runtime::Abi for _URB_GET_CURRENT_FRAME_NUMBER {
+unsafe impl ::windows::core::Abi for _URB_GET_CURRENT_FRAME_NUMBER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6389,7 +6389,7 @@ impl ::core::cmp::PartialEq for _URB_GET_FRAME_LENGTH {
     }
 }
 impl ::core::cmp::Eq for _URB_GET_FRAME_LENGTH {}
-unsafe impl ::windows::runtime::Abi for _URB_GET_FRAME_LENGTH {
+unsafe impl ::windows::core::Abi for _URB_GET_FRAME_LENGTH {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6423,7 +6423,7 @@ impl ::core::cmp::PartialEq for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     }
 }
 impl ::core::cmp::Eq for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {}
-unsafe impl ::windows::runtime::Abi for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
+unsafe impl ::windows::core::Abi for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6449,7 +6449,7 @@ impl ::core::cmp::PartialEq for _URB_HCD_AREA {
     }
 }
 impl ::core::cmp::Eq for _URB_HCD_AREA {}
-unsafe impl ::windows::runtime::Abi for _URB_HCD_AREA {
+unsafe impl ::windows::core::Abi for _URB_HCD_AREA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6479,7 +6479,7 @@ impl ::core::cmp::PartialEq for _URB_HEADER {
     }
 }
 impl ::core::cmp::Eq for _URB_HEADER {}
-unsafe impl ::windows::runtime::Abi for _URB_HEADER {
+unsafe impl ::windows::core::Abi for _URB_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6529,7 +6529,7 @@ impl ::core::cmp::PartialEq for _URB_ISOCH_TRANSFER {
     }
 }
 impl ::core::cmp::Eq for _URB_ISOCH_TRANSFER {}
-unsafe impl ::windows::runtime::Abi for _URB_ISOCH_TRANSFER {
+unsafe impl ::windows::core::Abi for _URB_ISOCH_TRANSFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6560,7 +6560,7 @@ impl ::core::cmp::PartialEq for _URB_OPEN_STATIC_STREAMS {
     }
 }
 impl ::core::cmp::Eq for _URB_OPEN_STATIC_STREAMS {}
-unsafe impl ::windows::runtime::Abi for _URB_OPEN_STATIC_STREAMS {
+unsafe impl ::windows::core::Abi for _URB_OPEN_STATIC_STREAMS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6627,7 +6627,7 @@ impl ::core::cmp::PartialEq for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     }
 }
 impl ::core::cmp::Eq for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {}
-unsafe impl ::windows::runtime::Abi for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
+unsafe impl ::windows::core::Abi for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6655,7 +6655,7 @@ impl ::core::cmp::PartialEq for _URB_PIPE_REQUEST {
     }
 }
 impl ::core::cmp::Eq for _URB_PIPE_REQUEST {}
-unsafe impl ::windows::runtime::Abi for _URB_PIPE_REQUEST {
+unsafe impl ::windows::core::Abi for _URB_PIPE_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6684,7 +6684,7 @@ impl ::core::cmp::PartialEq for _URB_SELECT_CONFIGURATION {
     }
 }
 impl ::core::cmp::Eq for _URB_SELECT_CONFIGURATION {}
-unsafe impl ::windows::runtime::Abi for _URB_SELECT_CONFIGURATION {
+unsafe impl ::windows::core::Abi for _URB_SELECT_CONFIGURATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6712,7 +6712,7 @@ impl ::core::cmp::PartialEq for _URB_SELECT_INTERFACE {
     }
 }
 impl ::core::cmp::Eq for _URB_SELECT_INTERFACE {}
-unsafe impl ::windows::runtime::Abi for _URB_SELECT_INTERFACE {
+unsafe impl ::windows::core::Abi for _URB_SELECT_INTERFACE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6739,6 +6739,6 @@ impl ::core::cmp::PartialEq for _URB_SET_FRAME_LENGTH {
     }
 }
 impl ::core::cmp::Eq for _URB_SET_FRAME_LENGTH {}
-unsafe impl ::windows::runtime::Abi for _URB_SET_FRAME_LENGTH {
+unsafe impl ::windows::core::Abi for _URB_SET_FRAME_LENGTH {
     type Abi = Self;
 }

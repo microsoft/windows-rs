@@ -3,18 +3,18 @@
 pub struct ApplicationProfile {}
 impl ApplicationProfile {
     #[doc = "*Required features: `Phone_ApplicationModel`*"]
-    pub fn Modes() -> ::windows::runtime::Result<ApplicationProfileModes> {
+    pub fn Modes() -> ::windows::core::Result<ApplicationProfileModes> {
         Self::IApplicationProfileStatics(|this| unsafe {
             let mut result__: ApplicationProfileModes = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationProfileModes>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationProfileModes>(result__)
         })
     }
-    pub fn IApplicationProfileStatics<R, F: FnOnce(&IApplicationProfileStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<ApplicationProfile, IApplicationProfileStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IApplicationProfileStatics<R, F: FnOnce(&IApplicationProfileStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<ApplicationProfile, IApplicationProfileStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-impl ::windows::runtime::RuntimeName for ApplicationProfile {
+impl ::windows::core::RuntimeName for ApplicationProfile {
     const NAME: &'static str = "Windows.Phone.ApplicationModel.ApplicationProfile";
 }
 #[doc = "*Required features: `Phone_ApplicationModel`*"]
@@ -30,13 +30,13 @@ impl ::core::convert::From<u32> for ApplicationProfileModes {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ApplicationProfileModes {
+unsafe impl ::windows::core::Abi for ApplicationProfileModes {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ApplicationProfileModes {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
+unsafe impl ::windows::core::RuntimeType for ApplicationProfileModes {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
 }
-impl ::windows::runtime::DefaultType for ApplicationProfileModes {
+impl ::windows::core::DefaultType for ApplicationProfileModes {
     type DefaultType = Self;
 }
 impl ::core::ops::BitOr for ApplicationProfileModes {
@@ -69,19 +69,19 @@ impl ::core::ops::Not for ApplicationProfileModes {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationProfileStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IApplicationProfileStatics {
+pub struct IApplicationProfileStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
     type Vtable = IApplicationProfileStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationProfileStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ApplicationProfileModes) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ApplicationProfileModes) -> ::windows::core::HRESULT,
 );

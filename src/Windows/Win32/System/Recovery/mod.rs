@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_System_Recovery`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplicationRecoveryFinished<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bsuccess: Param0) {
+pub unsafe fn ApplicationRecoveryFinished<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bsuccess: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17,14 +17,14 @@ pub unsafe fn ApplicationRecoveryFinished<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_System_Recovery`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplicationRecoveryInProgress() -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+pub unsafe fn ApplicationRecoveryInProgress() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ApplicationRecoveryInProgress(pbcancelled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn ApplicationRecoveryInProgress(pbcancelled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         ApplicationRecoveryInProgress(&mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
@@ -33,12 +33,12 @@ pub unsafe fn ApplicationRecoveryInProgress() -> ::windows::runtime::Result<supe
 #[doc = "*Required features: `Win32_System_Recovery`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn GetApplicationRecoveryCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, precoverycallback: *mut ::core::option::Option<super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK>, ppvparameter: *mut *mut ::core::ffi::c_void, pdwpinginterval: *mut u32, pdwflags: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetApplicationRecoveryCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, precoverycallback: *mut ::core::option::Option<super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK>, ppvparameter: *mut *mut ::core::ffi::c_void, pdwpinginterval: *mut u32, pdwflags: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetApplicationRecoveryCallback(hprocess: super::super::Foundation::HANDLE, precoverycallback: *mut ::windows::runtime::RawPtr, ppvparameter: *mut *mut ::core::ffi::c_void, pdwpinginterval: *mut u32, pdwflags: *mut u32) -> ::windows::runtime::HRESULT;
+            fn GetApplicationRecoveryCallback(hprocess: super::super::Foundation::HANDLE, precoverycallback: *mut ::windows::core::RawPtr, ppvparameter: *mut *mut ::core::ffi::c_void, pdwpinginterval: *mut u32, pdwflags: *mut u32) -> ::windows::core::HRESULT;
         }
         GetApplicationRecoveryCallback(hprocess.into_param().abi(), ::core::mem::transmute(precoverycallback), ::core::mem::transmute(ppvparameter), ::core::mem::transmute(pdwpinginterval), ::core::mem::transmute(pdwflags)).ok()
     }
@@ -48,12 +48,12 @@ pub unsafe fn GetApplicationRecoveryCallback<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_System_Recovery`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetApplicationRestartSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pwzcommandline: super::super::Foundation::PWSTR, pcchsize: *mut u32, pdwflags: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetApplicationRestartSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pwzcommandline: super::super::Foundation::PWSTR, pcchsize: *mut u32, pdwflags: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetApplicationRestartSettings(hprocess: super::super::Foundation::HANDLE, pwzcommandline: super::super::Foundation::PWSTR, pcchsize: *mut u32, pdwflags: *mut u32) -> ::windows::runtime::HRESULT;
+            fn GetApplicationRestartSettings(hprocess: super::super::Foundation::HANDLE, pwzcommandline: super::super::Foundation::PWSTR, pcchsize: *mut u32, pdwflags: *mut u32) -> ::windows::core::HRESULT;
         }
         GetApplicationRestartSettings(hprocess.into_param().abi(), ::core::mem::transmute(pwzcommandline), ::core::mem::transmute(pcchsize), ::core::mem::transmute(pdwflags)).ok()
     }
@@ -73,7 +73,7 @@ impl ::core::convert::From<u32> for REGISTER_APPLICATION_RESTART_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for REGISTER_APPLICATION_RESTART_FLAGS {
+unsafe impl ::windows::core::Abi for REGISTER_APPLICATION_RESTART_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for REGISTER_APPLICATION_RESTART_FLAGS {
@@ -107,12 +107,12 @@ impl ::core::ops::Not for REGISTER_APPLICATION_RESTART_FLAGS {
 #[doc = "*Required features: `Win32_System_Recovery`, `Win32_System_WindowsProgramming`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: ::core::option::Option<super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK>, pvparameter: *const ::core::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: ::core::option::Option<super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK>, pvparameter: *const ::core::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterApplicationRecoveryCallback(precoveycallback: ::windows::runtime::RawPtr, pvparameter: *const ::core::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::runtime::HRESULT;
+            fn RegisterApplicationRecoveryCallback(precoveycallback: ::windows::core::RawPtr, pvparameter: *const ::core::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::core::HRESULT;
         }
         RegisterApplicationRecoveryCallback(::core::mem::transmute(precoveycallback), ::core::mem::transmute(pvparameter), ::core::mem::transmute(dwpinginterval), ::core::mem::transmute(dwflags)).ok()
     }
@@ -122,12 +122,12 @@ pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: ::core::opti
 #[doc = "*Required features: `Win32_System_Recovery`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterApplicationRestart<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzcommandline: Param0, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::runtime::Result<()> {
+pub unsafe fn RegisterApplicationRestart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzcommandline: Param0, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterApplicationRestart(pwzcommandline: super::super::Foundation::PWSTR, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::runtime::HRESULT;
+            fn RegisterApplicationRestart(pwzcommandline: super::super::Foundation::PWSTR, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::HRESULT;
         }
         RegisterApplicationRestart(pwzcommandline.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
@@ -136,12 +136,12 @@ pub unsafe fn RegisterApplicationRestart<'a, Param0: ::windows::runtime::IntoPar
 }
 #[doc = "*Required features: `Win32_System_Recovery`*"]
 #[inline]
-pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::runtime::Result<()> {
+pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnregisterApplicationRecoveryCallback() -> ::windows::runtime::HRESULT;
+            fn UnregisterApplicationRecoveryCallback() -> ::windows::core::HRESULT;
         }
         UnregisterApplicationRecoveryCallback().ok()
     }
@@ -150,12 +150,12 @@ pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::runtime::Res
 }
 #[doc = "*Required features: `Win32_System_Recovery`*"]
 #[inline]
-pub unsafe fn UnregisterApplicationRestart() -> ::windows::runtime::Result<()> {
+pub unsafe fn UnregisterApplicationRestart() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnregisterApplicationRestart() -> ::windows::runtime::HRESULT;
+            fn UnregisterApplicationRestart() -> ::windows::core::HRESULT;
         }
         UnregisterApplicationRestart().ok()
     }

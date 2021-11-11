@@ -29,3 +29,5 @@ pub mod WebUI;
 pub mod WindowManagement;
 #[cfg(feature = "UI_Xaml")]
 pub mod Xaml;
+#[link(name = "windows")]
+extern "system" {}

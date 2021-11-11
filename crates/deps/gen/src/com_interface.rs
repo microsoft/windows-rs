@@ -70,15 +70,15 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
                     }
                 }
                 #cfg
-                impl<'a> ::windows::runtime::IntoParam<'a, #into> for #name {
-                    fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+                impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
+                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
                     }
                 }
                 #cfg
-                impl<'a> ::windows::runtime::IntoParam<'a, #into> for &#name {
-                    fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+                impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
+                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
                     }
                 }
             });
@@ -95,9 +95,9 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
         let inspectable_vfptrs = if inspectable {
             quote! {
-                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
             }
         } else {
             quote! {}
@@ -109,22 +109,22 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             #doc
             #[repr(transparent)]
             #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)]
-            pub struct #name(pub ::windows::runtime::IUnknown);
+            pub struct #name(pub ::windows::core::IUnknown);
             impl #name {
                 #(#methods)*
             }
-            unsafe impl ::windows::runtime::Interface for #name {
+            unsafe impl ::windows::core::Interface for #name {
                 type Vtable = #abi_name;
-                const IID: ::windows::runtime::GUID = #guid;
+                const IID: ::windows::core::GUID = #guid;
             }
             #conversions
             #send_sync
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_name(
-                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
                 #inspectable_vfptrs
                 #(#abi_signatures)*
             );
@@ -134,10 +134,10 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             #[repr(transparent)]
             #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)]
             #[doc(hidden)]
-            pub struct #name(pub ::windows::runtime::IUnknown);
-            unsafe impl ::windows::runtime::Interface for #name {
-                type Vtable = <::windows::runtime::IUnknown as ::windows::runtime::Interface>::Vtable;
-                const IID: ::windows::runtime::GUID = #guid;
+            pub struct #name(pub ::windows::core::IUnknown);
+            unsafe impl ::windows::core::Interface for #name {
+                type Vtable = <::windows::core::IUnknown as ::windows::core::Interface>::Vtable;
+                const IID: ::windows::core::GUID = #guid;
             }
         }
     }
@@ -167,9 +167,9 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
             quote! {
                 #cfg
                 #doc
-                pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(&self, #params) -> ::windows::runtime::Result<T> {
+                pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params) -> ::windows::core::Result<T> {
                     let mut result__ = ::core::option::Option::None;
-                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                 }
             }
         }
@@ -181,8 +181,8 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
             quote! {
                 #cfg
                 #doc
-                pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
-                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
+                pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
+                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
             }
         }
@@ -195,9 +195,9 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
             quote! {
                 #cfg
                 #doc
-                pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::runtime::Result<#return_type_tokens> {
-                    let mut result__: <#return_type_tokens as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &mut result__)
+                pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
+                    let mut result__: <#return_type_tokens as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &mut result__)
                     .from_abi::<#return_type_tokens>(result__ )
                 }
             }
@@ -209,8 +209,8 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
             quote! {
                 #cfg
                 #doc
-                pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::runtime::Result<()> {
-                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*).ok()
+                pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<()> {
+                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*).ok()
                 }
             }
         }
@@ -224,7 +224,7 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
                 #doc
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
                     let mut result__: #return_sig = ::core::default::Default::default();
-                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
+                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
                     result__
                 }
             }
@@ -238,7 +238,7 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
                 #cfg
                 #doc
                 pub unsafe fn #name<#constraints>(&self, #params) #return_sig {
-                    ::core::mem::transmute((::windows::runtime::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*))
+                    ::core::mem::transmute((::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*))
                 }
             }
         }

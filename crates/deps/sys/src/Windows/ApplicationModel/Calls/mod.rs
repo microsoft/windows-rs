@@ -3,3 +3,5 @@
 pub mod Background;
 #[cfg(feature = "ApplicationModel_Calls_Provider")]
 pub mod Provider;
+#[link(name = "windows")]
+extern "system" {}

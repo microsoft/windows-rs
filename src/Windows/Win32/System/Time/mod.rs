@@ -47,7 +47,7 @@ impl ::core::cmp::PartialEq for DYNAMIC_TIME_ZONE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DYNAMIC_TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DYNAMIC_TIME_ZONE_INFORMATION {
+unsafe impl ::windows::core::Abi for DYNAMIC_TIME_ZONE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
@@ -289,7 +289,7 @@ impl ::core::cmp::PartialEq for TIME_ZONE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TIME_ZONE_INFORMATION {
+unsafe impl ::windows::core::Abi for TIME_ZONE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Time`*"]

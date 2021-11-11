@@ -3,3 +3,5 @@
 pub mod Core;
 #[cfg(feature = "Media_Capture_Frames")]
 pub mod Frames;
+#[link(name = "windows")]
+extern "system" {}

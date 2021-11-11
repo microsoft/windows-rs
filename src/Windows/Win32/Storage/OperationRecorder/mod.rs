@@ -24,7 +24,7 @@ impl ::core::cmp::PartialEq for OPERATION_END_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for OPERATION_END_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for OPERATION_END_PARAMETERS {
+unsafe impl ::windows::core::Abi for OPERATION_END_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OperationRecorder`*"]
@@ -37,7 +37,7 @@ impl ::core::convert::From<u32> for OPERATION_END_PARAMETERS_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OPERATION_END_PARAMETERS_FLAGS {
+unsafe impl ::windows::core::Abi for OPERATION_END_PARAMETERS_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for OPERATION_END_PARAMETERS_FLAGS {
@@ -78,7 +78,7 @@ impl ::core::convert::From<u32> for OPERATION_START_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for OPERATION_START_FLAGS {
+unsafe impl ::windows::core::Abi for OPERATION_START_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for OPERATION_START_FLAGS {
@@ -134,7 +134,7 @@ impl ::core::cmp::PartialEq for OPERATION_START_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for OPERATION_START_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for OPERATION_START_PARAMETERS {
+unsafe impl ::windows::core::Abi for OPERATION_START_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OperationRecorder`, `Win32_Foundation`*"]

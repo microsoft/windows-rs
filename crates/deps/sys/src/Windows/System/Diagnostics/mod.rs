@@ -5,3 +5,5 @@ pub mod DevicePortal;
 pub mod Telemetry;
 #[cfg(feature = "System_Diagnostics_TraceReporting")]
 pub mod TraceReporting;
+#[link(name = "windows")]
+extern "system" {}

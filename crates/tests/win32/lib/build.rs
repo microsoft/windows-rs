@@ -1,5 +1,5 @@
 fn main() {
-    windows::runtime::build! {
+    windows::core::build! {
         Windows::Win32::Graphics::Direct3D::Fxc::D3DCreateLinker,
     };
 }

@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use test_winrt_signatures::*;
-use windows::runtime::*;
+use windows::core::*;
 use Component::Signatures::*;
 
 #[implement(Component::Signatures::ITestBoolean)]

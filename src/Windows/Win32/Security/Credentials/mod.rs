@@ -23,7 +23,7 @@ impl ::core::cmp::PartialEq for BINARY_BLOB_CREDENTIAL_INFO {
     }
 }
 impl ::core::cmp::Eq for BINARY_BLOB_CREDENTIAL_INFO {}
-unsafe impl ::windows::runtime::Abi for BINARY_BLOB_CREDENTIAL_INFO {
+unsafe impl ::windows::core::Abi for BINARY_BLOB_CREDENTIAL_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -50,7 +50,7 @@ impl ::core::cmp::PartialEq for CERT_CREDENTIAL_INFO {
     }
 }
 impl ::core::cmp::Eq for CERT_CREDENTIAL_INFO {}
-unsafe impl ::windows::runtime::Abi for CERT_CREDENTIAL_INFO {
+unsafe impl ::windows::core::Abi for CERT_CREDENTIAL_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -109,7 +109,7 @@ impl ::core::cmp::PartialEq for CREDENTIALA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREDENTIALA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREDENTIALA {
+unsafe impl ::windows::core::Abi for CREDENTIALA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -166,7 +166,7 @@ impl ::core::cmp::PartialEq for CREDENTIALW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREDENTIALW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREDENTIALW {
+unsafe impl ::windows::core::Abi for CREDENTIALW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -202,7 +202,7 @@ impl ::core::cmp::PartialEq for CREDENTIAL_ATTRIBUTEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREDENTIAL_ATTRIBUTEA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREDENTIAL_ATTRIBUTEA {
+unsafe impl ::windows::core::Abi for CREDENTIAL_ATTRIBUTEA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -238,7 +238,7 @@ impl ::core::cmp::PartialEq for CREDENTIAL_ATTRIBUTEW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREDENTIAL_ATTRIBUTEW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREDENTIAL_ATTRIBUTEW {
+unsafe impl ::windows::core::Abi for CREDENTIAL_ATTRIBUTEW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -291,7 +291,7 @@ impl ::core::cmp::PartialEq for CREDENTIAL_TARGET_INFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREDENTIAL_TARGET_INFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREDENTIAL_TARGET_INFORMATIONA {
+unsafe impl ::windows::core::Abi for CREDENTIAL_TARGET_INFORMATIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -344,7 +344,7 @@ impl ::core::cmp::PartialEq for CREDENTIAL_TARGET_INFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREDENTIAL_TARGET_INFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CREDENTIAL_TARGET_INFORMATIONW {
+unsafe impl ::windows::core::Abi for CREDENTIAL_TARGET_INFORMATIONW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -362,7 +362,7 @@ impl ::core::convert::From<i32> for CREDSPP_SUBMIT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CREDSPP_SUBMIT_TYPE {
+unsafe impl ::windows::core::Abi for CREDSPP_SUBMIT_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -390,7 +390,7 @@ impl ::core::cmp::PartialEq for CREDSSP_CRED {
     }
 }
 impl ::core::cmp::Eq for CREDSSP_CRED {}
-unsafe impl ::windows::runtime::Abi for CREDSSP_CRED {
+unsafe impl ::windows::core::Abi for CREDSSP_CRED {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -420,7 +420,7 @@ impl ::core::cmp::PartialEq for CREDSSP_CRED_EX {
     }
 }
 impl ::core::cmp::Eq for CREDSSP_CRED_EX {}
-unsafe impl ::windows::runtime::Abi for CREDSSP_CRED_EX {
+unsafe impl ::windows::core::Abi for CREDSSP_CRED_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -453,7 +453,7 @@ impl ::core::convert::From<u32> for CREDUIWIN_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CREDUIWIN_FLAGS {
+unsafe impl ::windows::core::Abi for CREDUIWIN_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CREDUIWIN_FLAGS {
@@ -512,7 +512,7 @@ impl ::core::convert::From<u32> for CREDUI_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CREDUI_FLAGS {
+unsafe impl ::windows::core::Abi for CREDUI_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CREDUI_FLAGS {
@@ -577,7 +577,7 @@ impl ::core::cmp::PartialEq for CREDUI_INFOA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CREDUI_INFOA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for CREDUI_INFOA {
+unsafe impl ::windows::core::Abi for CREDUI_INFOA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -614,7 +614,7 @@ impl ::core::cmp::PartialEq for CREDUI_INFOW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CREDUI_INFOW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::runtime::Abi for CREDUI_INFOW {
+unsafe impl ::windows::core::Abi for CREDUI_INFOW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -637,7 +637,7 @@ impl ::core::convert::From<u32> for CRED_ENUMERATE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CRED_ENUMERATE_FLAGS {
+unsafe impl ::windows::core::Abi for CRED_ENUMERATE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CRED_ENUMERATE_FLAGS {
@@ -687,7 +687,7 @@ impl ::core::convert::From<u32> for CRED_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CRED_FLAGS {
+unsafe impl ::windows::core::Abi for CRED_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CRED_FLAGS {
@@ -734,7 +734,7 @@ impl ::core::convert::From<i32> for CRED_MARSHAL_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CRED_MARSHAL_TYPE {
+unsafe impl ::windows::core::Abi for CRED_MARSHAL_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -762,7 +762,7 @@ impl ::core::convert::From<u32> for CRED_PACK_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CRED_PACK_FLAGS {
+unsafe impl ::windows::core::Abi for CRED_PACK_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CRED_PACK_FLAGS {
@@ -806,7 +806,7 @@ impl ::core::convert::From<u32> for CRED_PERSIST {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CRED_PERSIST {
+unsafe impl ::windows::core::Abi for CRED_PERSIST {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CRED_PERSIST {
@@ -852,7 +852,7 @@ impl ::core::convert::From<i32> for CRED_PROTECTION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CRED_PROTECTION_TYPE {
+unsafe impl ::windows::core::Abi for CRED_PROTECTION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -892,7 +892,7 @@ impl ::core::convert::From<u32> for CRED_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CRED_TYPE {
+unsafe impl ::windows::core::Abi for CRED_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CRED_TYPE {
@@ -930,7 +930,7 @@ pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredDeleteA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredDeleteA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -945,7 +945,7 @@ pub unsafe fn CredDeleteA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredDeleteW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredDeleteW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -960,7 +960,7 @@ pub unsafe fn CredDeleteW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredEnumerateA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(filter: Param0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
+pub unsafe fn CredEnumerateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filter: Param0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -975,7 +975,7 @@ pub unsafe fn CredEnumerateA<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredEnumerateW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filter: Param0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
+pub unsafe fn CredEnumerateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filter: Param0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -990,7 +990,7 @@ pub unsafe fn CredEnumerateW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredFindBestCredentialA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
+pub unsafe fn CredFindBestCredentialA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1005,7 +1005,7 @@ pub unsafe fn CredFindBestCredentialA<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredFindBestCredentialW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
+pub unsafe fn CredFindBestCredentialW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1049,7 +1049,7 @@ pub unsafe fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredGetTargetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> super::super::Foundation::BOOL {
+pub unsafe fn CredGetTargetInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1064,7 +1064,7 @@ pub unsafe fn CredGetTargetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredGetTargetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> super::super::Foundation::BOOL {
+pub unsafe fn CredGetTargetInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1079,7 +1079,7 @@ pub unsafe fn CredGetTargetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredIsMarshaledCredentialA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(marshaledcredential: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn CredIsMarshaledCredentialA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(marshaledcredential: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1094,7 +1094,7 @@ pub unsafe fn CredIsMarshaledCredentialA<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredIsMarshaledCredentialW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(marshaledcredential: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn CredIsMarshaledCredentialW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(marshaledcredential: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1109,7 +1109,7 @@ pub unsafe fn CredIsMarshaledCredentialW<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredIsProtectedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszprotectedcredentials: Param0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
+pub unsafe fn CredIsProtectedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszprotectedcredentials: Param0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1124,7 +1124,7 @@ pub unsafe fn CredIsProtectedA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredIsProtectedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprotectedcredentials: Param0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
+pub unsafe fn CredIsProtectedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprotectedcredentials: Param0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1169,7 +1169,7 @@ pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *c
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: CRED_PACK_FLAGS, pszusername: Param1, pszpassword: Param2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredPackAuthenticationBufferA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: CRED_PACK_FLAGS, pszusername: Param1, pszpassword: Param2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1184,7 +1184,7 @@ pub unsafe fn CredPackAuthenticationBufferA<'a, Param1: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: CRED_PACK_FLAGS, pszusername: Param1, pszpassword: Param2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredPackAuthenticationBufferW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: CRED_PACK_FLAGS, pszusername: Param1, pszpassword: Param2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1199,7 +1199,7 @@ pub unsafe fn CredPackAuthenticationBufferW<'a, Param1: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredProtectA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fasself: Param0, pszcredentials: Param1, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
+pub unsafe fn CredProtectA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(fasself: Param0, pszcredentials: Param1, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1214,7 +1214,7 @@ pub unsafe fn CredProtectA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredProtectW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fasself: Param0, pszcredentials: Param1, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
+pub unsafe fn CredProtectW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(fasself: Param0, pszcredentials: Param1, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1229,7 +1229,7 @@ pub unsafe fn CredProtectW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
+pub unsafe fn CredReadA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1274,7 +1274,7 @@ pub unsafe fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_IN
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
+pub unsafe fn CredReadW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1289,7 +1289,7 @@ pub unsafe fn CredReadW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredRenameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(oldtargetname: Param0, newtargetname: Param1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredRenameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(oldtargetname: Param0, newtargetname: Param1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1304,7 +1304,7 @@ pub unsafe fn CredRenameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredRenameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(oldtargetname: Param0, newtargetname: Param1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredRenameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(oldtargetname: Param0, newtargetname: Param1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1319,7 +1319,7 @@ pub unsafe fn CredRenameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
+pub unsafe fn CredUICmdLinePromptForCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
     psztargetname: Param0,
     pcontext: *mut SecHandle,
     dwautherror: u32,
@@ -1354,7 +1354,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsA<'a, Param0: ::windows::runtime:
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
+pub unsafe fn CredUICmdLinePromptForCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     psztargetname: Param0,
     pcontext: *mut SecHandle,
     dwautherror: u32,
@@ -1389,7 +1389,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsW<'a, Param0: ::windows::runtime:
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIConfirmCredentialsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(psztargetname: Param0, bconfirm: Param1) -> u32 {
+pub unsafe fn CredUIConfirmCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(psztargetname: Param0, bconfirm: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1404,7 +1404,7 @@ pub unsafe fn CredUIConfirmCredentialsA<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIConfirmCredentialsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(psztargetname: Param0, bconfirm: Param1) -> u32 {
+pub unsafe fn CredUIConfirmCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(psztargetname: Param0, bconfirm: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1419,7 +1419,7 @@ pub unsafe fn CredUIConfirmCredentialsW<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIParseUserNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(username: Param0, user: super::super::Foundation::PSTR, userbuffersize: u32, domain: super::super::Foundation::PSTR, domainbuffersize: u32) -> u32 {
+pub unsafe fn CredUIParseUserNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(username: Param0, user: super::super::Foundation::PSTR, userbuffersize: u32, domain: super::super::Foundation::PSTR, domainbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1434,7 +1434,7 @@ pub unsafe fn CredUIParseUserNameA<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIParseUserNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(username: Param0, user: super::super::Foundation::PWSTR, userbuffersize: u32, domain: super::super::Foundation::PWSTR, domainbuffersize: u32) -> u32 {
+pub unsafe fn CredUIParseUserNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(username: Param0, user: super::super::Foundation::PWSTR, userbuffersize: u32, domain: super::super::Foundation::PWSTR, domainbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1449,7 +1449,7 @@ pub unsafe fn CredUIParseUserNameW<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
+pub unsafe fn CredUIPromptForCredentialsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
     puiinfo: *const CREDUI_INFOA,
     psztargetname: Param1,
     pcontext: *mut SecHandle,
@@ -1486,7 +1486,7 @@ pub unsafe fn CredUIPromptForCredentialsA<'a, Param1: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
+pub unsafe fn CredUIPromptForCredentialsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     puiinfo: *const CREDUI_INFOW,
     psztargetname: Param1,
     pcontext: *mut SecHandle,
@@ -1573,7 +1573,7 @@ pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: *const CREDUI_INFOW, d
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIReadSSOCredW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszrealm: Param0, ppszusername: *mut super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn CredUIReadSSOCredW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszrealm: Param0, ppszusername: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1588,7 +1588,7 @@ pub unsafe fn CredUIReadSSOCredW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIStoreSSOCredW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pszrealm: Param0, pszusername: Param1, pszpassword: Param2, bpersist: Param3) -> u32 {
+pub unsafe fn CredUIStoreSSOCredW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pszrealm: Param0, pszusername: Param1, pszpassword: Param2, bpersist: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1653,7 +1653,7 @@ pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuf
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnmarshalCredentialA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(marshaledcredential: Param0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnmarshalCredentialA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(marshaledcredential: Param0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1668,7 +1668,7 @@ pub unsafe fn CredUnmarshalCredentialA<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnmarshalCredentialW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(marshaledcredential: Param0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnmarshalCredentialW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(marshaledcredential: Param0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1683,7 +1683,7 @@ pub unsafe fn CredUnmarshalCredentialW<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnprotectA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fasself: Param0, pszprotectedcredentials: Param1, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnprotectA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(fasself: Param0, pszprotectedcredentials: Param1, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1698,7 +1698,7 @@ pub unsafe fn CredUnprotectA<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnprotectW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fasself: Param0, pszprotectedcredentials: Param1, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnprotectW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(fasself: Param0, pszprotectedcredentials: Param1, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1772,7 +1772,7 @@ pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::s
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
-pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
+pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1819,14 +1819,14 @@ pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *con
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
-pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::runtime::Result<*mut KeyCredentialManagerInfo> {
+pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::core::Result<*mut KeyCredentialManagerInfo> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn KeyCredentialManagerGetInformation(keycredentialmanagerinfo: *mut *mut KeyCredentialManagerInfo) -> ::windows::runtime::HRESULT;
+            fn KeyCredentialManagerGetInformation(keycredentialmanagerinfo: *mut *mut KeyCredentialManagerInfo) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut KeyCredentialManagerInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <*mut KeyCredentialManagerInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         KeyCredentialManagerGetInformation(&mut result__).from_abi::<*mut KeyCredentialManagerInfo>(result__)
     }
     #[cfg(not(windows))]
@@ -1835,12 +1835,12 @@ pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::runtime::Result
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: *mut super::super::Foundation::BOOL, keycredentialmanageroperationerrorstates: *mut KeyCredentialManagerOperationErrorStates) -> ::windows::runtime::Result<()> {
+pub unsafe fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: *mut super::super::Foundation::BOOL, keycredentialmanageroperationerrorstates: *mut KeyCredentialManagerOperationErrorStates) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: *mut super::super::Foundation::BOOL, keycredentialmanageroperationerrorstates: *mut KeyCredentialManagerOperationErrorStates) -> ::windows::runtime::HRESULT;
+            fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: *mut super::super::Foundation::BOOL, keycredentialmanageroperationerrorstates: *mut KeyCredentialManagerOperationErrorStates) -> ::windows::core::HRESULT;
         }
         KeyCredentialManagerGetOperationErrorStates(::core::mem::transmute(keycredentialmanageroperationtype), ::core::mem::transmute(isready), ::core::mem::transmute(keycredentialmanageroperationerrorstates)).ok()
     }
@@ -1851,7 +1851,7 @@ pub unsafe fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanagerop
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct KeyCredentialManagerInfo {
-    pub containerId: ::windows::runtime::GUID,
+    pub containerId: ::windows::core::GUID,
 }
 impl KeyCredentialManagerInfo {}
 impl ::core::default::Default for KeyCredentialManagerInfo {
@@ -1870,7 +1870,7 @@ impl ::core::cmp::PartialEq for KeyCredentialManagerInfo {
     }
 }
 impl ::core::cmp::Eq for KeyCredentialManagerInfo {}
-unsafe impl ::windows::runtime::Abi for KeyCredentialManagerInfo {
+unsafe impl ::windows::core::Abi for KeyCredentialManagerInfo {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -1890,7 +1890,7 @@ impl ::core::convert::From<u32> for KeyCredentialManagerOperationErrorStates {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for KeyCredentialManagerOperationErrorStates {
+unsafe impl ::windows::core::Abi for KeyCredentialManagerOperationErrorStates {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for KeyCredentialManagerOperationErrorStates {
@@ -1933,18 +1933,18 @@ impl ::core::convert::From<i32> for KeyCredentialManagerOperationType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for KeyCredentialManagerOperationType {
+unsafe impl ::windows::core::Abi for KeyCredentialManagerOperationType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KeyCredentialManagerShowUIOperation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> ::windows::runtime::Result<()> {
+pub unsafe fn KeyCredentialManagerShowUIOperation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn KeyCredentialManagerShowUIOperation(hwndowner: super::super::Foundation::HWND, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> ::windows::runtime::HRESULT;
+            fn KeyCredentialManagerShowUIOperation(hwndowner: super::super::Foundation::HWND, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> ::windows::core::HRESULT;
         }
         KeyCredentialManagerShowUIOperation(hwndowner.into_param().abi(), ::core::mem::transmute(keycredentialmanageroperationtype)).ok()
     }
@@ -1978,7 +1978,7 @@ pub struct OPENCARDNAMEA {
     pub nMaxGroupNames: u32,
     pub lpstrCardNames: super::super::Foundation::PSTR,
     pub nMaxCardNames: u32,
-    pub rgguidInterfaces: *mut ::windows::runtime::GUID,
+    pub rgguidInterfaces: *mut ::windows::core::GUID,
     pub cguidInterfaces: u32,
     pub lpstrRdr: super::super::Foundation::PSTR,
     pub nMaxRdr: u32,
@@ -2061,7 +2061,7 @@ impl ::core::cmp::PartialEq for OPENCARDNAMEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENCARDNAMEA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENCARDNAMEA {
+unsafe impl ::windows::core::Abi for OPENCARDNAMEA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2076,7 +2076,7 @@ pub struct OPENCARDNAMEW {
     pub nMaxGroupNames: u32,
     pub lpstrCardNames: super::super::Foundation::PWSTR,
     pub nMaxCardNames: u32,
-    pub rgguidInterfaces: *mut ::windows::runtime::GUID,
+    pub rgguidInterfaces: *mut ::windows::core::GUID,
     pub cguidInterfaces: u32,
     pub lpstrRdr: super::super::Foundation::PWSTR,
     pub nMaxRdr: u32,
@@ -2159,7 +2159,7 @@ impl ::core::cmp::PartialEq for OPENCARDNAMEW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENCARDNAMEW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENCARDNAMEW {
+unsafe impl ::windows::core::Abi for OPENCARDNAMEW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2244,7 +2244,7 @@ impl ::core::cmp::PartialEq for OPENCARDNAME_EXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for OPENCARDNAME_EXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for OPENCARDNAME_EXA {
+unsafe impl ::windows::core::Abi for OPENCARDNAME_EXA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2329,7 +2329,7 @@ impl ::core::cmp::PartialEq for OPENCARDNAME_EXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for OPENCARDNAME_EXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for OPENCARDNAME_EXW {
+unsafe impl ::windows::core::Abi for OPENCARDNAME_EXW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2340,7 +2340,7 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwStructSize: u32,
     pub lpstrGroupNames: super::super::Foundation::PSTR,
     pub nMaxGroupNames: u32,
-    pub rgguidInterfaces: *mut ::windows::runtime::GUID,
+    pub rgguidInterfaces: *mut ::windows::core::GUID,
     pub cguidInterfaces: u32,
     pub lpstrCardNames: super::super::Foundation::PSTR,
     pub nMaxCardNames: u32,
@@ -2397,7 +2397,7 @@ impl ::core::cmp::PartialEq for OPENCARD_SEARCH_CRITERIAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENCARD_SEARCH_CRITERIAA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENCARD_SEARCH_CRITERIAA {
+unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -2408,7 +2408,7 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwStructSize: u32,
     pub lpstrGroupNames: super::super::Foundation::PWSTR,
     pub nMaxGroupNames: u32,
-    pub rgguidInterfaces: *mut ::windows::runtime::GUID,
+    pub rgguidInterfaces: *mut ::windows::core::GUID,
     pub cguidInterfaces: u32,
     pub lpstrCardNames: super::super::Foundation::PWSTR,
     pub nMaxCardNames: u32,
@@ -2465,7 +2465,7 @@ impl ::core::cmp::PartialEq for OPENCARD_SEARCH_CRITERIAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENCARD_SEARCH_CRITERIAW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OPENCARD_SEARCH_CRITERIAW {
+unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2489,7 +2489,7 @@ impl ::core::cmp::PartialEq for READER_SEL_REQUEST {
     }
 }
 impl ::core::cmp::Eq for READER_SEL_REQUEST {}
-unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST {
+unsafe impl ::windows::core::Abi for READER_SEL_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2511,7 +2511,7 @@ impl ::core::cmp::PartialEq for READER_SEL_REQUEST_0 {
     }
 }
 impl ::core::cmp::Eq for READER_SEL_REQUEST_0 {}
-unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_0 {
+unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2549,7 +2549,7 @@ impl ::core::cmp::PartialEq for READER_SEL_REQUEST_0_0 {
     }
 }
 impl ::core::cmp::Eq for READER_SEL_REQUEST_0_0 {}
-unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_0_0 {
+unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2577,7 +2577,7 @@ impl ::core::cmp::PartialEq for READER_SEL_REQUEST_0_1 {
     }
 }
 impl ::core::cmp::Eq for READER_SEL_REQUEST_0_1 {}
-unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_0_1 {
+unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -2592,7 +2592,7 @@ impl ::core::convert::From<i32> for READER_SEL_REQUEST_MATCH_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_MATCH_TYPE {
+unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_MATCH_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2621,7 +2621,7 @@ impl ::core::cmp::PartialEq for READER_SEL_RESPONSE {
     }
 }
 impl ::core::cmp::Eq for READER_SEL_RESPONSE {}
-unsafe impl ::windows::runtime::Abi for READER_SEL_RESPONSE {
+unsafe impl ::windows::core::Abi for READER_SEL_RESPONSE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -2651,7 +2651,7 @@ impl ::core::cmp::PartialEq for SCARD_ATRMASK {
     }
 }
 impl ::core::cmp::Eq for SCARD_ATRMASK {}
-unsafe impl ::windows::runtime::Abi for SCARD_ATRMASK {
+unsafe impl ::windows::core::Abi for SCARD_ATRMASK {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -2710,7 +2710,7 @@ impl ::core::cmp::PartialEq for SCARD_IO_REQUEST {
     }
 }
 impl ::core::cmp::Eq for SCARD_IO_REQUEST {}
-unsafe impl ::windows::runtime::Abi for SCARD_IO_REQUEST {
+unsafe impl ::windows::core::Abi for SCARD_IO_REQUEST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -2776,7 +2776,7 @@ impl ::core::cmp::PartialEq for SCARD_READERSTATEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCARD_READERSTATEA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SCARD_READERSTATEA {
+unsafe impl ::windows::core::Abi for SCARD_READERSTATEA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2814,7 +2814,7 @@ impl ::core::cmp::PartialEq for SCARD_READERSTATEW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCARD_READERSTATEW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SCARD_READERSTATEW {
+unsafe impl ::windows::core::Abi for SCARD_READERSTATEW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -2864,7 +2864,7 @@ impl ::core::convert::From<u32> for SCARD_SCOPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCARD_SCOPE {
+unsafe impl ::windows::core::Abi for SCARD_SCOPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SCARD_SCOPE {
@@ -2925,7 +2925,7 @@ impl ::core::convert::From<u32> for SCARD_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCARD_STATE {
+unsafe impl ::windows::core::Abi for SCARD_STATE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for SCARD_STATE {
@@ -2989,7 +2989,7 @@ impl ::core::cmp::PartialEq for SCARD_T0_COMMAND {
     }
 }
 impl ::core::cmp::Eq for SCARD_T0_COMMAND {}
-unsafe impl ::windows::runtime::Abi for SCARD_T0_COMMAND {
+unsafe impl ::windows::core::Abi for SCARD_T0_COMMAND {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -3015,7 +3015,7 @@ impl ::core::cmp::PartialEq for SCARD_T0_REQUEST {
     }
 }
 impl ::core::cmp::Eq for SCARD_T0_REQUEST {}
-unsafe impl ::windows::runtime::Abi for SCARD_T0_REQUEST {
+unsafe impl ::windows::core::Abi for SCARD_T0_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3037,7 +3037,7 @@ impl ::core::cmp::PartialEq for SCARD_T0_REQUEST_0 {
     }
 }
 impl ::core::cmp::Eq for SCARD_T0_REQUEST_0 {}
-unsafe impl ::windows::runtime::Abi for SCARD_T0_REQUEST_0 {
+unsafe impl ::windows::core::Abi for SCARD_T0_REQUEST_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -3071,7 +3071,7 @@ impl ::core::cmp::PartialEq for SCARD_T1_REQUEST {
     }
 }
 impl ::core::cmp::Eq for SCARD_T1_REQUEST {}
-unsafe impl ::windows::runtime::Abi for SCARD_T1_REQUEST {
+unsafe impl ::windows::core::Abi for SCARD_T1_REQUEST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
@@ -3108,7 +3108,7 @@ pub unsafe fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE {
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardAddReaderToGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
+pub unsafe fn SCardAddReaderToGroupA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3123,7 +3123,7 @@ pub unsafe fn SCardAddReaderToGroupA<'a, Param1: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardAddReaderToGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
+pub unsafe fn SCardAddReaderToGroupW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3180,7 +3180,7 @@ pub unsafe fn SCardCancel(hcontext: usize) -> i32 {
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardConnectA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreader: Param1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32 {
+pub unsafe fn SCardConnectA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreader: Param1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3195,7 +3195,7 @@ pub unsafe fn SCardConnectA<'a, Param1: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardConnectW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreader: Param1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32 {
+pub unsafe fn SCardConnectW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreader: Param1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3280,7 +3280,7 @@ pub unsafe fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: *const ::
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetCardTypeA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1) -> i32 {
+pub unsafe fn SCardForgetCardTypeA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3295,7 +3295,7 @@ pub unsafe fn SCardForgetCardTypeA<'a, Param1: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetCardTypeW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1) -> i32 {
+pub unsafe fn SCardForgetCardTypeW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3310,7 +3310,7 @@ pub unsafe fn SCardForgetCardTypeW<'a, Param1: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetReaderA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1) -> i32 {
+pub unsafe fn SCardForgetReaderA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3325,7 +3325,7 @@ pub unsafe fn SCardForgetReaderA<'a, Param1: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetReaderGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
+pub unsafe fn SCardForgetReaderGroupA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3340,7 +3340,7 @@ pub unsafe fn SCardForgetReaderGroupA<'a, Param1: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetReaderGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
+pub unsafe fn SCardForgetReaderGroupW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3355,7 +3355,7 @@ pub unsafe fn SCardForgetReaderGroupW<'a, Param1: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetReaderW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1) -> i32 {
+pub unsafe fn SCardForgetReaderW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3398,7 +3398,7 @@ pub unsafe fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: *mut u8, pcbat
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetCardTypeProviderNameA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: super::super::Foundation::PSTR, pcchprovider: *mut u32) -> i32 {
+pub unsafe fn SCardGetCardTypeProviderNameA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: super::super::Foundation::PSTR, pcchprovider: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3413,7 +3413,7 @@ pub unsafe fn SCardGetCardTypeProviderNameA<'a, Param1: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetCardTypeProviderNameW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: super::super::Foundation::PWSTR, pcchprovider: *mut u32) -> i32 {
+pub unsafe fn SCardGetCardTypeProviderNameW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: super::super::Foundation::PWSTR, pcchprovider: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3428,7 +3428,7 @@ pub unsafe fn SCardGetCardTypeProviderNameW<'a, Param1: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetDeviceTypeIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, pdwdevicetypeid: *mut u32) -> i32 {
+pub unsafe fn SCardGetDeviceTypeIdA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, pdwdevicetypeid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3443,7 +3443,7 @@ pub unsafe fn SCardGetDeviceTypeIdA<'a, Param1: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetDeviceTypeIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, pdwdevicetypeid: *mut u32) -> i32 {
+pub unsafe fn SCardGetDeviceTypeIdW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, pdwdevicetypeid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3458,12 +3458,12 @@ pub unsafe fn SCardGetDeviceTypeIdW<'a, Param1: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetProviderIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcard: Param1, pguidproviderid: *mut ::windows::runtime::GUID) -> i32 {
+pub unsafe fn SCardGetProviderIdA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcard: Param1, pguidproviderid: *mut ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetProviderIdA(hcontext: usize, szcard: super::super::Foundation::PSTR, pguidproviderid: *mut ::windows::runtime::GUID) -> i32;
+            fn SCardGetProviderIdA(hcontext: usize, szcard: super::super::Foundation::PSTR, pguidproviderid: *mut ::windows::core::GUID) -> i32;
         }
         ::core::mem::transmute(SCardGetProviderIdA(::core::mem::transmute(hcontext), szcard.into_param().abi(), ::core::mem::transmute(pguidproviderid)))
     }
@@ -3473,12 +3473,12 @@ pub unsafe fn SCardGetProviderIdA<'a, Param1: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetProviderIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcard: Param1, pguidproviderid: *mut ::windows::runtime::GUID) -> i32 {
+pub unsafe fn SCardGetProviderIdW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcard: Param1, pguidproviderid: *mut ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetProviderIdW(hcontext: usize, szcard: super::super::Foundation::PWSTR, pguidproviderid: *mut ::windows::runtime::GUID) -> i32;
+            fn SCardGetProviderIdW(hcontext: usize, szcard: super::super::Foundation::PWSTR, pguidproviderid: *mut ::windows::core::GUID) -> i32;
         }
         ::core::mem::transmute(SCardGetProviderIdW(::core::mem::transmute(hcontext), szcard.into_param().abi(), ::core::mem::transmute(pguidproviderid)))
     }
@@ -3488,7 +3488,7 @@ pub unsafe fn SCardGetProviderIdW<'a, Param1: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetReaderDeviceInstanceIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szdeviceinstanceid: super::super::Foundation::PSTR, pcchdeviceinstanceid: *mut u32) -> i32 {
+pub unsafe fn SCardGetReaderDeviceInstanceIdA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szdeviceinstanceid: super::super::Foundation::PSTR, pcchdeviceinstanceid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3503,7 +3503,7 @@ pub unsafe fn SCardGetReaderDeviceInstanceIdA<'a, Param1: ::windows::runtime::In
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetReaderDeviceInstanceIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szdeviceinstanceid: super::super::Foundation::PWSTR, pcchdeviceinstanceid: *mut u32) -> i32 {
+pub unsafe fn SCardGetReaderDeviceInstanceIdW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szdeviceinstanceid: super::super::Foundation::PWSTR, pcchdeviceinstanceid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3518,7 +3518,7 @@ pub unsafe fn SCardGetReaderDeviceInstanceIdW<'a, Param1: ::windows::runtime::In
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetReaderIconA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, pbicon: *mut u8, pcbicon: *mut u32) -> i32 {
+pub unsafe fn SCardGetReaderIconA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, pbicon: *mut u8, pcbicon: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3533,7 +3533,7 @@ pub unsafe fn SCardGetReaderIconA<'a, Param1: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetReaderIconW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, pbicon: *mut u8, pcbicon: *mut u32) -> i32 {
+pub unsafe fn SCardGetReaderIconW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, pbicon: *mut u8, pcbicon: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3592,12 +3592,12 @@ pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> 
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::runtime::GUID, rgguidinterfaces: *const ::windows::runtime::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
+pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardIntroduceCardTypeA(hcontext: usize, szcardname: super::super::Foundation::PSTR, pguidprimaryprovider: *const ::windows::runtime::GUID, rgguidinterfaces: *const ::windows::runtime::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
+            fn SCardIntroduceCardTypeA(hcontext: usize, szcardname: super::super::Foundation::PSTR, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
         }
         ::core::mem::transmute(SCardIntroduceCardTypeA(
             ::core::mem::transmute(hcontext),
@@ -3616,12 +3616,12 @@ pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceCardTypeW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::runtime::GUID, rgguidinterfaces: *const ::windows::runtime::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
+pub unsafe fn SCardIntroduceCardTypeW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardIntroduceCardTypeW(hcontext: usize, szcardname: super::super::Foundation::PWSTR, pguidprimaryprovider: *const ::windows::runtime::GUID, rgguidinterfaces: *const ::windows::runtime::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
+            fn SCardIntroduceCardTypeW(hcontext: usize, szcardname: super::super::Foundation::PWSTR, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
         }
         ::core::mem::transmute(SCardIntroduceCardTypeW(
             ::core::mem::transmute(hcontext),
@@ -3640,7 +3640,7 @@ pub unsafe fn SCardIntroduceCardTypeW<'a, Param1: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceReaderA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szdevicename: Param2) -> i32 {
+pub unsafe fn SCardIntroduceReaderA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szdevicename: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3655,7 +3655,7 @@ pub unsafe fn SCardIntroduceReaderA<'a, Param1: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceReaderGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
+pub unsafe fn SCardIntroduceReaderGroupA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3670,7 +3670,7 @@ pub unsafe fn SCardIntroduceReaderGroupA<'a, Param1: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceReaderGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
+pub unsafe fn SCardIntroduceReaderGroupW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3685,7 +3685,7 @@ pub unsafe fn SCardIntroduceReaderGroupW<'a, Param1: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceReaderW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szdevicename: Param2) -> i32 {
+pub unsafe fn SCardIntroduceReaderW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szdevicename: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3714,12 +3714,12 @@ pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::runtime::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32 {
+pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::runtime::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32;
+            fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32;
         }
         ::core::mem::transmute(SCardListCardsA(::core::mem::transmute(hcontext), ::core::mem::transmute(pbatr), ::core::mem::transmute(rgquidinterfaces), ::core::mem::transmute(cguidinterfacecount), ::core::mem::transmute(mszcards), ::core::mem::transmute(pcchcards)))
     }
@@ -3729,12 +3729,12 @@ pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterface
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::runtime::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32 {
+pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::runtime::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32;
+            fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32;
         }
         ::core::mem::transmute(SCardListCardsW(::core::mem::transmute(hcontext), ::core::mem::transmute(pbatr), ::core::mem::transmute(rgquidinterfaces), ::core::mem::transmute(cguidinterfacecount), ::core::mem::transmute(mszcards), ::core::mem::transmute(pcchcards)))
     }
@@ -3744,12 +3744,12 @@ pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterface
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListInterfacesA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcard: Param1, pguidinterfaces: *mut ::windows::runtime::GUID, pcguidinterfaces: *mut u32) -> i32 {
+pub unsafe fn SCardListInterfacesA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcard: Param1, pguidinterfaces: *mut ::windows::core::GUID, pcguidinterfaces: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListInterfacesA(hcontext: usize, szcard: super::super::Foundation::PSTR, pguidinterfaces: *mut ::windows::runtime::GUID, pcguidinterfaces: *mut u32) -> i32;
+            fn SCardListInterfacesA(hcontext: usize, szcard: super::super::Foundation::PSTR, pguidinterfaces: *mut ::windows::core::GUID, pcguidinterfaces: *mut u32) -> i32;
         }
         ::core::mem::transmute(SCardListInterfacesA(::core::mem::transmute(hcontext), szcard.into_param().abi(), ::core::mem::transmute(pguidinterfaces), ::core::mem::transmute(pcguidinterfaces)))
     }
@@ -3759,12 +3759,12 @@ pub unsafe fn SCardListInterfacesA<'a, Param1: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListInterfacesW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcard: Param1, pguidinterfaces: *mut ::windows::runtime::GUID, pcguidinterfaces: *mut u32) -> i32 {
+pub unsafe fn SCardListInterfacesW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcard: Param1, pguidinterfaces: *mut ::windows::core::GUID, pcguidinterfaces: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListInterfacesW(hcontext: usize, szcard: super::super::Foundation::PWSTR, pguidinterfaces: *mut ::windows::runtime::GUID, pcguidinterfaces: *mut u32) -> i32;
+            fn SCardListInterfacesW(hcontext: usize, szcard: super::super::Foundation::PWSTR, pguidinterfaces: *mut ::windows::core::GUID, pcguidinterfaces: *mut u32) -> i32;
         }
         ::core::mem::transmute(SCardListInterfacesW(::core::mem::transmute(hcontext), szcard.into_param().abi(), ::core::mem::transmute(pguidinterfaces), ::core::mem::transmute(pcguidinterfaces)))
     }
@@ -3804,7 +3804,7 @@ pub unsafe fn SCardListReaderGroupsW(hcontext: usize, mszgroups: super::super::F
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListReadersA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, mszgroups: Param1, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32 {
+pub unsafe fn SCardListReadersA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, mszgroups: Param1, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3819,7 +3819,7 @@ pub unsafe fn SCardListReadersA<'a, Param1: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListReadersW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, mszgroups: Param1, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32 {
+pub unsafe fn SCardListReadersW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, mszgroups: Param1, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3834,7 +3834,7 @@ pub unsafe fn SCardListReadersW<'a, Param1: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListReadersWithDeviceInstanceIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szdeviceinstanceid: Param1, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32 {
+pub unsafe fn SCardListReadersWithDeviceInstanceIdA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szdeviceinstanceid: Param1, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3849,7 +3849,7 @@ pub unsafe fn SCardListReadersWithDeviceInstanceIdA<'a, Param1: ::windows::runti
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListReadersWithDeviceInstanceIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szdeviceinstanceid: Param1, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32 {
+pub unsafe fn SCardListReadersWithDeviceInstanceIdW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szdeviceinstanceid: Param1, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3864,7 +3864,7 @@ pub unsafe fn SCardListReadersWithDeviceInstanceIdW<'a, Param1: ::windows::runti
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardLocateCardsA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, mszcards: Param1, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
+pub unsafe fn SCardLocateCardsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, mszcards: Param1, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3909,7 +3909,7 @@ pub unsafe fn SCardLocateCardsByATRW(hcontext: usize, rgatrmasks: *const SCARD_A
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardLocateCardsW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, mszcards: Param1, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
+pub unsafe fn SCardLocateCardsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, mszcards: Param1, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3924,12 +3924,12 @@ pub unsafe fn SCardLocateCardsW<'a, Param1: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardReadCacheA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
+pub unsafe fn SCardReadCacheA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardReadCacheA(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *mut u8, datalen: *mut u32) -> i32;
+            fn SCardReadCacheA(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *mut u8, datalen: *mut u32) -> i32;
         }
         ::core::mem::transmute(SCardReadCacheA(::core::mem::transmute(hcontext), ::core::mem::transmute(cardidentifier), ::core::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(datalen)))
     }
@@ -3939,12 +3939,12 @@ pub unsafe fn SCardReadCacheA<'a, Param3: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardReadCacheW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
+pub unsafe fn SCardReadCacheW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardReadCacheW(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *mut u8, datalen: *mut u32) -> i32;
+            fn SCardReadCacheW(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *mut u8, datalen: *mut u32) -> i32;
         }
         ::core::mem::transmute(SCardReadCacheW(::core::mem::transmute(hcontext), ::core::mem::transmute(cardidentifier), ::core::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(datalen)))
     }
@@ -3996,7 +3996,7 @@ pub unsafe fn SCardReleaseStartedEvent() {
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardRemoveReaderFromGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
+pub unsafe fn SCardRemoveReaderFromGroupA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4011,7 +4011,7 @@ pub unsafe fn SCardRemoveReaderFromGroupA<'a, Param1: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardRemoveReaderFromGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
+pub unsafe fn SCardRemoveReaderFromGroupW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4040,7 +4040,7 @@ pub unsafe fn SCardSetAttrib(hcard: usize, dwattrid: u32, pbattr: *const u8, cba
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardSetCardTypeProviderNameA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: Param3) -> i32 {
+pub unsafe fn SCardSetCardTypeProviderNameA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: Param3) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4055,7 +4055,7 @@ pub unsafe fn SCardSetCardTypeProviderNameA<'a, Param1: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardSetCardTypeProviderNameW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: Param3) -> i32 {
+pub unsafe fn SCardSetCardTypeProviderNameW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: Param3) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4158,12 +4158,12 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardWriteCacheA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
+pub unsafe fn SCardWriteCacheA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardWriteCacheA(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *const u8, datalen: u32) -> i32;
+            fn SCardWriteCacheA(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *const u8, datalen: u32) -> i32;
         }
         ::core::mem::transmute(SCardWriteCacheA(::core::mem::transmute(hcontext), ::core::mem::transmute(cardidentifier), ::core::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(datalen)))
     }
@@ -4173,12 +4173,12 @@ pub unsafe fn SCardWriteCacheA<'a, Param3: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardWriteCacheW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
+pub unsafe fn SCardWriteCacheW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardWriteCacheW(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *const u8, datalen: u32) -> i32;
+            fn SCardWriteCacheW(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *const u8, datalen: u32) -> i32;
         }
         ::core::mem::transmute(SCardWriteCacheW(::core::mem::transmute(hcontext), ::core::mem::transmute(cardidentifier), ::core::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(datalen)))
     }
@@ -4255,7 +4255,7 @@ impl ::core::cmp::PartialEq for SecHandle {
     }
 }
 impl ::core::cmp::Eq for SecHandle {}
-unsafe impl ::windows::runtime::Abi for SecHandle {
+unsafe impl ::windows::core::Abi for SecHandle {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4282,7 +4282,7 @@ impl ::core::cmp::PartialEq for SecPkgContext_ClientCreds {
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_ClientCreds {}
-unsafe impl ::windows::runtime::Abi for SecPkgContext_ClientCreds {
+unsafe impl ::windows::core::Abi for SecPkgContext_ClientCreds {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4315,6 +4315,6 @@ impl ::core::cmp::PartialEq for USERNAME_TARGET_CREDENTIAL_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USERNAME_TARGET_CREDENTIAL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for USERNAME_TARGET_CREDENTIAL_INFO {
+unsafe impl ::windows::core::Abi for USERNAME_TARGET_CREDENTIAL_INFO {
     type Abi = Self;
 }

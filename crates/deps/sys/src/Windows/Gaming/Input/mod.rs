@@ -5,3 +5,5 @@ pub mod Custom;
 pub mod ForceFeedback;
 #[cfg(feature = "Gaming_Input_Preview")]
 pub mod Preview;
+#[link(name = "windows")]
+extern "system" {}

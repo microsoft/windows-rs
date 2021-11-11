@@ -14,7 +14,7 @@ fn main() -> std::io::Result<()> {
     };
 
     let mut path: std::path::PathBuf = reader::workspace_dir().into();
-    path.push("src/runtime/bindings.rs");
+    path.push("src/core/bindings.rs");
 
     std::fs::write(&path, tokens)?;
 

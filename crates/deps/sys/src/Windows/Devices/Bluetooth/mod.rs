@@ -7,3 +7,5 @@ pub mod Background;
 pub mod GenericAttributeProfile;
 #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
 pub mod Rfcomm;
+#[link(name = "windows")]
+extern "system" {}

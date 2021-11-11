@@ -16,7 +16,7 @@ impl ::core::convert::From<u32> for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+unsafe impl ::windows::core::Abi for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
@@ -54,7 +54,7 @@ pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ActivateKeyboardLayout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(hkl: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
+pub unsafe fn ActivateKeyboardLayout<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(hkl: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -71,7 +71,7 @@ pub const BREVE: u32 = 774u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BlockInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(fblockit: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn BlockInput<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(fblockit: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -116,7 +116,7 @@ impl ::core::cmp::PartialEq for DEADKEY {
     }
 }
 impl ::core::cmp::Eq for DEADKEY {}
-unsafe impl ::windows::runtime::Abi for DEADKEY {
+unsafe impl ::windows::core::Abi for DEADKEY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -138,7 +138,7 @@ pub const DOUBLE_ACUTE: u32 = 779u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DragDetect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::POINT>>(hwnd: Param0, pt: Param1) -> super::super::super::Foundation::BOOL {
+pub unsafe fn DragDetect<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::POINT>>(hwnd: Param0, pt: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -155,7 +155,7 @@ pub const EXTENDED_BIT: u32 = 16777216u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnableWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(hwnd: Param0, benable: Param1) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnableWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(hwnd: Param0, benable: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -186,7 +186,7 @@ impl ::core::convert::From<u32> for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+unsafe impl ::windows::core::Abi for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
@@ -497,7 +497,7 @@ impl ::core::cmp::PartialEq for HARDWAREINPUT {
     }
 }
 impl ::core::cmp::Eq for HARDWAREINPUT {}
-unsafe impl ::windows::runtime::Abi for HARDWAREINPUT {
+unsafe impl ::windows::core::Abi for HARDWAREINPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -516,7 +516,7 @@ impl ::core::convert::From<u32> for HOT_KEY_MODIFIERS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for HOT_KEY_MODIFIERS {
+unsafe impl ::windows::core::Abi for HOT_KEY_MODIFIERS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for HOT_KEY_MODIFIERS {
@@ -566,7 +566,7 @@ impl ::core::cmp::PartialEq for INPUT {
     }
 }
 impl ::core::cmp::Eq for INPUT {}
-unsafe impl ::windows::runtime::Abi for INPUT {
+unsafe impl ::windows::core::Abi for INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -589,7 +589,7 @@ impl ::core::cmp::PartialEq for INPUT_0 {
     }
 }
 impl ::core::cmp::Eq for INPUT_0 {}
-unsafe impl ::windows::runtime::Abi for INPUT_0 {
+unsafe impl ::windows::core::Abi for INPUT_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -604,7 +604,7 @@ impl ::core::convert::From<u32> for INPUT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for INPUT_TYPE {
+unsafe impl ::windows::core::Abi for INPUT_TYPE {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for INPUT_TYPE {
@@ -638,7 +638,7 @@ impl ::core::ops::Not for INPUT_TYPE {
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsWindowEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn IsWindowEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -735,7 +735,7 @@ impl ::core::cmp::PartialEq for KBDTABLE_DESC {
     }
 }
 impl ::core::cmp::Eq for KBDTABLE_DESC {}
-unsafe impl ::windows::runtime::Abi for KBDTABLE_DESC {
+unsafe impl ::windows::core::Abi for KBDTABLE_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -762,7 +762,7 @@ impl ::core::cmp::PartialEq for KBDTABLE_MULTI {
     }
 }
 impl ::core::cmp::Eq for KBDTABLE_MULTI {}
-unsafe impl ::windows::runtime::Abi for KBDTABLE_MULTI {
+unsafe impl ::windows::core::Abi for KBDTABLE_MULTI {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -794,7 +794,7 @@ impl ::core::cmp::PartialEq for KBD_TYPE_INFO {
     }
 }
 impl ::core::cmp::Eq for KBD_TYPE_INFO {}
-unsafe impl ::windows::runtime::Abi for KBD_TYPE_INFO {
+unsafe impl ::windows::core::Abi for KBD_TYPE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -826,7 +826,7 @@ impl ::core::cmp::PartialEq for KEYBDINPUT {
     }
 }
 impl ::core::cmp::Eq for KEYBDINPUT {}
-unsafe impl ::windows::runtime::Abi for KEYBDINPUT {
+unsafe impl ::windows::core::Abi for KEYBDINPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -842,7 +842,7 @@ impl ::core::convert::From<u32> for KEYBD_EVENT_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for KEYBD_EVENT_FLAGS {
+unsafe impl ::windows::core::Abi for KEYBD_EVENT_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for KEYBD_EVENT_FLAGS {
@@ -913,7 +913,7 @@ impl ::core::cmp::PartialEq for LASTINPUTINFO {
     }
 }
 impl ::core::cmp::Eq for LASTINPUTINFO {}
-unsafe impl ::windows::runtime::Abi for LASTINPUTINFO {
+unsafe impl ::windows::core::Abi for LASTINPUTINFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -941,7 +941,7 @@ impl ::core::cmp::PartialEq for LIGATURE1 {
     }
 }
 impl ::core::cmp::Eq for LIGATURE1 {}
-unsafe impl ::windows::runtime::Abi for LIGATURE1 {
+unsafe impl ::windows::core::Abi for LIGATURE1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -969,7 +969,7 @@ impl ::core::cmp::PartialEq for LIGATURE2 {
     }
 }
 impl ::core::cmp::Eq for LIGATURE2 {}
-unsafe impl ::windows::runtime::Abi for LIGATURE2 {
+unsafe impl ::windows::core::Abi for LIGATURE2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -997,7 +997,7 @@ impl ::core::cmp::PartialEq for LIGATURE3 {
     }
 }
 impl ::core::cmp::Eq for LIGATURE3 {}
-unsafe impl ::windows::runtime::Abi for LIGATURE3 {
+unsafe impl ::windows::core::Abi for LIGATURE3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1025,7 +1025,7 @@ impl ::core::cmp::PartialEq for LIGATURE4 {
     }
 }
 impl ::core::cmp::Eq for LIGATURE4 {}
-unsafe impl ::windows::runtime::Abi for LIGATURE4 {
+unsafe impl ::windows::core::Abi for LIGATURE4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1053,13 +1053,13 @@ impl ::core::cmp::PartialEq for LIGATURE5 {
     }
 }
 impl ::core::cmp::Eq for LIGATURE5 {}
-unsafe impl ::windows::runtime::Abi for LIGATURE5 {
+unsafe impl ::windows::core::Abi for LIGATURE5 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn LoadKeyboardLayoutA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(pwszklid: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
+pub unsafe fn LoadKeyboardLayoutA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pwszklid: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1074,7 +1074,7 @@ pub unsafe fn LoadKeyboardLayoutA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn LoadKeyboardLayoutW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszklid: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
+pub unsafe fn LoadKeyboardLayoutW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszklid: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1133,7 +1133,7 @@ impl ::core::cmp::PartialEq for MODIFIERS {
     }
 }
 impl ::core::cmp::Eq for MODIFIERS {}
-unsafe impl ::windows::runtime::Abi for MODIFIERS {
+unsafe impl ::windows::core::Abi for MODIFIERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1164,7 +1164,7 @@ impl ::core::cmp::PartialEq for MOUSEINPUT {
     }
 }
 impl ::core::cmp::Eq for MOUSEINPUT {}
-unsafe impl ::windows::runtime::Abi for MOUSEINPUT {
+unsafe impl ::windows::core::Abi for MOUSEINPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1193,7 +1193,7 @@ impl ::core::cmp::PartialEq for MOUSEMOVEPOINT {
     }
 }
 impl ::core::cmp::Eq for MOUSEMOVEPOINT {}
-unsafe impl ::windows::runtime::Abi for MOUSEMOVEPOINT {
+unsafe impl ::windows::core::Abi for MOUSEMOVEPOINT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -1219,7 +1219,7 @@ impl ::core::convert::From<u32> for MOUSE_EVENT_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MOUSE_EVENT_FLAGS {
+unsafe impl ::windows::core::Abi for MOUSE_EVENT_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for MOUSE_EVENT_FLAGS {
@@ -1267,7 +1267,7 @@ pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32 {
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn MapVirtualKeyExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ucode: u32, umaptype: u32, dwhkl: Param2) -> u32 {
+pub unsafe fn MapVirtualKeyExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(ucode: u32, umaptype: u32, dwhkl: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1282,7 +1282,7 @@ pub unsafe fn MapVirtualKeyExA<'a, Param2: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn MapVirtualKeyExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ucode: u32, umaptype: u32, dwhkl: Param2) -> u32 {
+pub unsafe fn MapVirtualKeyExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(ucode: u32, umaptype: u32, dwhkl: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1367,7 +1367,7 @@ pub const RING: u32 = 778u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterHotKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn RegisterHotKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1433,7 +1433,7 @@ pub unsafe fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetActiveWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
+pub unsafe fn SetActiveWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1448,7 +1448,7 @@ pub unsafe fn SetActiveWindow<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCapture<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
+pub unsafe fn SetCapture<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1478,7 +1478,7 @@ pub unsafe fn SetDoubleClickTime(param0: u32) -> super::super::super::Foundation
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
+pub unsafe fn SetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1508,7 +1508,7 @@ pub unsafe fn SetKeyboardState(lpkeystate: *const u8) -> super::super::super::Fo
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SwapMouseButton<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(fswap: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SwapMouseButton<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(fswap: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1561,7 +1561,7 @@ impl ::core::cmp::PartialEq for TRACKMOUSEEVENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TRACKMOUSEEVENT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TRACKMOUSEEVENT {
+unsafe impl ::windows::core::Abi for TRACKMOUSEEVENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -1578,7 +1578,7 @@ impl ::core::convert::From<u32> for TRACKMOUSEEVENT_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TRACKMOUSEEVENT_FLAGS {
+unsafe impl ::windows::core::Abi for TRACKMOUSEEVENT_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for TRACKMOUSEEVENT_FLAGS {
@@ -1626,7 +1626,7 @@ pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpch
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ToAsciiEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: Param5) -> i32 {
+pub unsafe fn ToAsciiEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: Param5) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1656,7 +1656,7 @@ pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pw
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn ToUnicodeEx<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32, dwhkl: Param6) -> i32 {
+pub unsafe fn ToUnicodeEx<'a, Param6: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32, dwhkl: Param6) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1688,7 +1688,7 @@ pub const UMLAUT: u32 = 776u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn UnloadKeyboardLayout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(hkl: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn UnloadKeyboardLayout<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(hkl: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1703,7 +1703,7 @@ pub unsafe fn UnloadKeyboardLayout<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnregisterHotKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, id: i32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn UnregisterHotKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, id: i32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1954,7 +1954,7 @@ impl ::core::convert::From<u16> for VIRTUAL_KEY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VIRTUAL_KEY {
+unsafe impl ::windows::core::Abi for VIRTUAL_KEY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -2013,7 +2013,7 @@ impl ::core::cmp::PartialEq for VK_TO_BIT {
     }
 }
 impl ::core::cmp::Eq for VK_TO_BIT {}
-unsafe impl ::windows::runtime::Abi for VK_TO_BIT {
+unsafe impl ::windows::core::Abi for VK_TO_BIT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2041,7 +2041,7 @@ impl ::core::cmp::PartialEq for VK_TO_WCHARS1 {
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS1 {}
-unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS1 {
+unsafe impl ::windows::core::Abi for VK_TO_WCHARS1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2069,7 +2069,7 @@ impl ::core::cmp::PartialEq for VK_TO_WCHARS10 {
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS10 {}
-unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS10 {
+unsafe impl ::windows::core::Abi for VK_TO_WCHARS10 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2097,7 +2097,7 @@ impl ::core::cmp::PartialEq for VK_TO_WCHARS2 {
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS2 {}
-unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS2 {
+unsafe impl ::windows::core::Abi for VK_TO_WCHARS2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2125,7 +2125,7 @@ impl ::core::cmp::PartialEq for VK_TO_WCHARS3 {
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS3 {}
-unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS3 {
+unsafe impl ::windows::core::Abi for VK_TO_WCHARS3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2153,7 +2153,7 @@ impl ::core::cmp::PartialEq for VK_TO_WCHARS4 {
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS4 {}
-unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS4 {
+unsafe impl ::windows::core::Abi for VK_TO_WCHARS4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2181,7 +2181,7 @@ impl ::core::cmp::PartialEq for VK_TO_WCHARS5 {
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS5 {}
-unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS5 {
+unsafe impl ::windows::core::Abi for VK_TO_WCHARS5 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2209,7 +2209,7 @@ impl ::core::cmp::PartialEq for VK_TO_WCHARS6 {
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS6 {}
-unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS6 {
+unsafe impl ::windows::core::Abi for VK_TO_WCHARS6 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2237,7 +2237,7 @@ impl ::core::cmp::PartialEq for VK_TO_WCHARS7 {
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS7 {}
-unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS7 {
+unsafe impl ::windows::core::Abi for VK_TO_WCHARS7 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2265,7 +2265,7 @@ impl ::core::cmp::PartialEq for VK_TO_WCHARS8 {
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS8 {}
-unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS8 {
+unsafe impl ::windows::core::Abi for VK_TO_WCHARS8 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2293,7 +2293,7 @@ impl ::core::cmp::PartialEq for VK_TO_WCHARS9 {
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS9 {}
-unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS9 {
+unsafe impl ::windows::core::Abi for VK_TO_WCHARS9 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2321,7 +2321,7 @@ impl ::core::cmp::PartialEq for VK_TO_WCHAR_TABLE {
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHAR_TABLE {}
-unsafe impl ::windows::runtime::Abi for VK_TO_WCHAR_TABLE {
+unsafe impl ::windows::core::Abi for VK_TO_WCHAR_TABLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2348,7 +2348,7 @@ impl ::core::cmp::PartialEq for VK_VSC {
     }
 }
 impl ::core::cmp::Eq for VK_VSC {}
-unsafe impl ::windows::runtime::Abi for VK_VSC {
+unsafe impl ::windows::core::Abi for VK_VSC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -2384,7 +2384,7 @@ impl ::core::cmp::PartialEq for VSC_LPWSTR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VSC_LPWSTR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for VSC_LPWSTR {
+unsafe impl ::windows::core::Abi for VSC_LPWSTR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2411,13 +2411,13 @@ impl ::core::cmp::PartialEq for VSC_VK {
     }
 }
 impl ::core::cmp::Eq for VSC_VK {}
-unsafe impl ::windows::runtime::Abi for VSC_VK {
+unsafe impl ::windows::core::Abi for VSC_VK {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VkKeyScanA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(ch: Param0) -> i16 {
+pub unsafe fn VkKeyScanA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::CHAR>>(ch: Param0) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2432,7 +2432,7 @@ pub unsafe fn VkKeyScanA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn VkKeyScanExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>, Param1: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ch: Param0, dwhkl: Param1) -> i16 {
+pub unsafe fn VkKeyScanExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::CHAR>, Param1: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(ch: Param0, dwhkl: Param1) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2447,7 +2447,7 @@ pub unsafe fn VkKeyScanExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn VkKeyScanExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ch: u16, dwhkl: Param1) -> i16 {
+pub unsafe fn VkKeyScanExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(ch: u16, dwhkl: Param1) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2518,7 +2518,7 @@ impl ::core::cmp::PartialEq for _VK_FUNCTION_PARAM {
     }
 }
 impl ::core::cmp::Eq for _VK_FUNCTION_PARAM {}
-unsafe impl ::windows::runtime::Abi for _VK_FUNCTION_PARAM {
+unsafe impl ::windows::core::Abi for _VK_FUNCTION_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2549,7 +2549,7 @@ impl ::core::cmp::PartialEq for _VK_TO_FUNCTION_TABLE {
     }
 }
 impl ::core::cmp::Eq for _VK_TO_FUNCTION_TABLE {}
-unsafe impl ::windows::runtime::Abi for _VK_TO_FUNCTION_TABLE {
+unsafe impl ::windows::core::Abi for _VK_TO_FUNCTION_TABLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -2657,7 +2657,7 @@ impl ::core::cmp::PartialEq for tagKbdLayer {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for tagKbdLayer {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for tagKbdLayer {
+unsafe impl ::windows::core::Abi for tagKbdLayer {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2688,6 +2688,6 @@ impl ::core::cmp::PartialEq for tagKbdNlsLayer {
     }
 }
 impl ::core::cmp::Eq for tagKbdNlsLayer {}
-unsafe impl ::windows::runtime::Abi for tagKbdNlsLayer {
+unsafe impl ::windows::core::Abi for tagKbdNlsLayer {
     type Abi = Self;
 }

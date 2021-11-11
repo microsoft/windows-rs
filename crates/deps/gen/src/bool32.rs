@@ -6,7 +6,7 @@ pub fn gen_bool32() -> TokenStream {
         #[derive(::core::default::Default, ::core::clone::Clone, ::core::marker::Copy, ::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug)]
         pub struct BOOL(pub i32);
 
-        unsafe impl ::windows::runtime::Abi for BOOL {
+        unsafe impl ::windows::core::Abi for BOOL {
             type Abi = Self;
         }
         impl BOOL {
@@ -16,11 +16,11 @@ pub fn gen_bool32() -> TokenStream {
             }
 
             #[inline]
-            pub fn ok(self) -> ::windows::runtime::Result<()> {
+            pub fn ok(self) -> ::windows::core::Result<()> {
                 if self.as_bool() {
                     Ok(())
                 } else {
-                    Err(::windows::runtime::Error::from_win32())
+                    Err(::windows::core::Error::from_win32())
                 }
             }
 
@@ -88,9 +88,9 @@ pub fn gen_bool32() -> TokenStream {
             }
         }
 
-        impl<'a> ::windows::runtime::IntoParam<'a, BOOL> for bool {
-            fn into_param(self) -> ::windows::runtime::Param<'a, BOOL> {
-                ::windows::runtime::Param::Owned(self.into())
+        impl<'a> ::windows::core::IntoParam<'a, BOOL> for bool {
+            fn into_param(self) -> ::windows::core::Param<'a, BOOL> {
+                ::windows::core::Param::Owned(self.into())
             }
         }
     }

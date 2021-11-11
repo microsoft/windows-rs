@@ -13,20 +13,20 @@ impl ::core::convert::From<i32> for LicenseProtectionStatus {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for LicenseProtectionStatus {
+unsafe impl ::windows::core::Abi for LicenseProtectionStatus {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_LicenseProtection`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, validityindays: u32) -> ::windows::runtime::Result<LicenseProtectionStatus> {
+pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, validityindays: u32) -> ::windows::core::Result<LicenseProtectionStatus> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterLicenseKeyWithExpiration(licensekey: super::super::Foundation::PWSTR, validityindays: u32, status: *mut LicenseProtectionStatus) -> ::windows::runtime::HRESULT;
+            fn RegisterLicenseKeyWithExpiration(licensekey: super::super::Foundation::PWSTR, validityindays: u32, status: *mut LicenseProtectionStatus) -> ::windows::core::HRESULT;
         }
-        let mut result__: <LicenseProtectionStatus as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        let mut result__: <LicenseProtectionStatus as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         RegisterLicenseKeyWithExpiration(licensekey.into_param().abi(), ::core::mem::transmute(validityindays), &mut result__).from_abi::<LicenseProtectionStatus>(result__)
     }
     #[cfg(not(windows))]
@@ -35,12 +35,12 @@ pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::runtime::I
 #[doc = "*Required features: `Win32_Security_LicenseProtection`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ValidateLicenseKeyProtection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows::runtime::Result<()> {
+pub unsafe fn ValidateLicenseKeyProtection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ValidateLicenseKeyProtection(licensekey: super::super::Foundation::PWSTR, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows::runtime::HRESULT;
+            fn ValidateLicenseKeyProtection(licensekey: super::super::Foundation::PWSTR, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows::core::HRESULT;
         }
         ValidateLicenseKeyProtection(licensekey.into_param().abi(), ::core::mem::transmute(notvalidbefore), ::core::mem::transmute(notvalidafter), ::core::mem::transmute(status)).ok()
     }

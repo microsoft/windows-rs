@@ -5,3 +5,5 @@ pub mod Peers;
 pub mod Provider;
 #[cfg(feature = "UI_Xaml_Automation_Text")]
 pub mod Text;
+#[link(name = "windows")]
+extern "system" {}

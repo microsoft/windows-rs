@@ -77,15 +77,15 @@ impl InterfaceInfo {
                         }
                     }
                     #cfg
-                    impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for #from {
-                        fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                            ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+                    impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for #from {
+                        fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                            ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
                         }
                     }
                     #cfg
-                    impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for &#from {
-                        fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                            ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+                    impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for &#from {
+                        fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                            ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
                         }
                     }
                 }
@@ -96,30 +96,30 @@ impl InterfaceInfo {
                 quote! {
                     #cfg
                     impl<#constraints> ::core::convert::TryFrom<#from> for #into {
-                        type Error = ::windows::runtime::Error;
-                        fn try_from(value: #from) -> ::windows::runtime::Result<Self> {
+                        type Error = ::windows::core::Error;
+                        fn try_from(value: #from) -> ::windows::core::Result<Self> {
                             ::core::convert::TryFrom::try_from(&value)
                         }
                     }
                     #cfg
                     impl<#constraints> ::core::convert::TryFrom<&#from> for #into {
-                        type Error = ::windows::runtime::Error;
-                        fn try_from(value: &#from) -> ::windows::runtime::Result<Self> {
-                            ::windows::runtime::Interface::cast(value)
+                        type Error = ::windows::core::Error;
+                        fn try_from(value: &#from) -> ::windows::core::Result<Self> {
+                            ::windows::core::Interface::cast(value)
                         }
                     }
                     #cfg
-                    impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for #from {
-                        fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                            ::windows::runtime::IntoParam::into_param(&self)
+                    impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for #from {
+                        fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                            ::windows::core::IntoParam::into_param(&self)
                         }
                     }
                     #cfg
-                    impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for &#from {
-                        fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
+                    impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for &#from {
+                        fn into_param(self) -> ::windows::core::Param<'a, #into> {
                             ::core::convert::TryInto::<#into>::try_into(self)
-                                .map(::windows::runtime::Param::Owned)
-                                .unwrap_or(::windows::runtime::Param::None)
+                                .map(::windows::core::Param::Owned)
+                                .unwrap_or(::windows::core::Param::None)
                         }
                     }
                 }

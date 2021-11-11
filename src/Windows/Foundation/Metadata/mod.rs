@@ -3,81 +3,81 @@
 pub struct ApiInformation {}
 impl ApiInformation {
     #[doc = "*Required features: `Foundation_Metadata`*"]
-    pub fn IsTypePresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0) -> ::windows::runtime::Result<bool> {
+    pub fn IsTypePresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), typename.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), typename.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Foundation_Metadata`*"]
-    pub fn IsMethodPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, methodname: Param1) -> ::windows::runtime::Result<bool> {
+    pub fn IsMethodPresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, methodname: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), typename.into_param().abi(), methodname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), typename.into_param().abi(), methodname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Foundation_Metadata`*"]
-    pub fn IsMethodPresentWithArity<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, methodname: Param1, inputparametercount: u32) -> ::windows::runtime::Result<bool> {
+    pub fn IsMethodPresentWithArity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, methodname: Param1, inputparametercount: u32) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), typename.into_param().abi(), methodname.into_param().abi(), inputparametercount, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), typename.into_param().abi(), methodname.into_param().abi(), inputparametercount, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Foundation_Metadata`*"]
-    pub fn IsEventPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, eventname: Param1) -> ::windows::runtime::Result<bool> {
+    pub fn IsEventPresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, eventname: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), typename.into_param().abi(), eventname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), typename.into_param().abi(), eventname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Foundation_Metadata`*"]
-    pub fn IsPropertyPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::runtime::Result<bool> {
+    pub fn IsPropertyPresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Foundation_Metadata`*"]
-    pub fn IsReadOnlyPropertyPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::runtime::Result<bool> {
+    pub fn IsReadOnlyPropertyPresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Foundation_Metadata`*"]
-    pub fn IsWriteablePropertyPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::runtime::Result<bool> {
+    pub fn IsWriteablePropertyPresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Foundation_Metadata`*"]
-    pub fn IsEnumNamedValuePresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(enumtypename: Param0, valuename: Param1) -> ::windows::runtime::Result<bool> {
+    pub fn IsEnumNamedValuePresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(enumtypename: Param0, valuename: Param1) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), enumtypename.into_param().abi(), valuename.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), enumtypename.into_param().abi(), valuename.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Foundation_Metadata`*"]
-    pub fn IsApiContractPresentByMajor<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(contractname: Param0, majorversion: u16) -> ::windows::runtime::Result<bool> {
+    pub fn IsApiContractPresentByMajor<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(contractname: Param0, majorversion: u16) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), contractname.into_param().abi(), majorversion, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), contractname.into_param().abi(), majorversion, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Foundation_Metadata`*"]
-    pub fn IsApiContractPresentByMajorAndMinor<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(contractname: Param0, majorversion: u16, minorversion: u16) -> ::windows::runtime::Result<bool> {
+    pub fn IsApiContractPresentByMajorAndMinor<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(contractname: Param0, majorversion: u16, minorversion: u16) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), contractname.into_param().abi(), majorversion, minorversion, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), contractname.into_param().abi(), majorversion, minorversion, &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IApiInformationStatics<R, F: FnOnce(&IApiInformationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<ApiInformation, IApiInformationStatics> = ::windows::runtime::FactoryCache::new();
+    pub fn IApiInformationStatics<R, F: FnOnce(&IApiInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<ApiInformation, IApiInformationStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
-impl ::windows::runtime::RuntimeName for ApiInformation {
+impl ::windows::core::RuntimeName for ApiInformation {
     const NAME: &'static str = "Windows.Foundation.Metadata.ApiInformation";
 }
 #[doc = "*Required features: `Foundation_Metadata`*"]
@@ -104,13 +104,13 @@ impl ::core::convert::From<u32> for AttributeTargets {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for AttributeTargets {
+unsafe impl ::windows::core::Abi for AttributeTargets {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for AttributeTargets {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
+unsafe impl ::windows::core::RuntimeType for AttributeTargets {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
 }
-impl ::windows::runtime::DefaultType for AttributeTargets {
+impl ::windows::core::DefaultType for AttributeTargets {
     type DefaultType = Self;
 }
 impl ::core::ops::BitOr for AttributeTargets {
@@ -154,13 +154,13 @@ impl ::core::convert::From<i32> for CompositionType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CompositionType {
+unsafe impl ::windows::core::Abi for CompositionType {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for CompositionType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
+unsafe impl ::windows::core::RuntimeType for CompositionType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
 }
-impl ::windows::runtime::DefaultType for CompositionType {
+impl ::windows::core::DefaultType for CompositionType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Foundation_Metadata`*"]
@@ -176,13 +176,13 @@ impl ::core::convert::From<i32> for DeprecationType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DeprecationType {
+unsafe impl ::windows::core::Abi for DeprecationType {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for DeprecationType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
+unsafe impl ::windows::core::RuntimeType for DeprecationType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
 }
-impl ::windows::runtime::DefaultType for DeprecationType {
+impl ::windows::core::DefaultType for DeprecationType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Foundation_Metadata`*"]
@@ -200,13 +200,13 @@ impl ::core::convert::From<i32> for FeatureStage {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FeatureStage {
+unsafe impl ::windows::core::Abi for FeatureStage {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for FeatureStage {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
+unsafe impl ::windows::core::RuntimeType for FeatureStage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
 }
-impl ::windows::runtime::DefaultType for FeatureStage {
+impl ::windows::core::DefaultType for FeatureStage {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Foundation_Metadata`*"]
@@ -223,41 +223,41 @@ impl ::core::convert::From<i32> for GCPressureAmount {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GCPressureAmount {
+unsafe impl ::windows::core::Abi for GCPressureAmount {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for GCPressureAmount {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
+unsafe impl ::windows::core::RuntimeType for GCPressureAmount {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
 }
-impl ::windows::runtime::DefaultType for GCPressureAmount {
+impl ::windows::core::DefaultType for GCPressureAmount {
     type DefaultType = Self;
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApiInformationStatics(pub ::windows::runtime::IInspectable);
-unsafe impl ::windows::runtime::Interface for IApiInformationStatics {
+pub struct IApiInformationStatics(pub ::windows::core::IInspectable);
+unsafe impl ::windows::core::Interface for IApiInformationStatics {
     type Vtable = IApiInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x997439fe_f681_4a11_b416_c13a47e8ba36);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x997439fe_f681_4a11_b416_c13a47e8ba36);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApiInformationStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, methodname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, methodname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, inputparametercount: u32, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, eventname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumtypename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, valuename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contractname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, majorversion: u16, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contractname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, majorversion: u16, minorversion: u16, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, methodname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, methodname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, inputparametercount: u32, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, enumtypename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, valuename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, contractname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, majorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, contractname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, majorversion: u16, minorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
@@ -274,13 +274,13 @@ impl ::core::convert::From<i32> for MarshalingType {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MarshalingType {
+unsafe impl ::windows::core::Abi for MarshalingType {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for MarshalingType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
+unsafe impl ::windows::core::RuntimeType for MarshalingType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
 }
-impl ::windows::runtime::DefaultType for MarshalingType {
+impl ::windows::core::DefaultType for MarshalingType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Foundation_Metadata`*"]
@@ -296,13 +296,13 @@ impl ::core::convert::From<i32> for Platform {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for Platform {
+unsafe impl ::windows::core::Abi for Platform {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for Platform {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
+unsafe impl ::windows::core::RuntimeType for Platform {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
 }
-impl ::windows::runtime::DefaultType for Platform {
+impl ::windows::core::DefaultType for Platform {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Foundation_Metadata`*"]
@@ -320,12 +320,12 @@ impl ::core::convert::From<i32> for ThreadingModel {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ThreadingModel {
+unsafe impl ::windows::core::Abi for ThreadingModel {
     type Abi = Self;
 }
-unsafe impl ::windows::runtime::RuntimeType for ThreadingModel {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)");
+unsafe impl ::windows::core::RuntimeType for ThreadingModel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)");
 }
-impl ::windows::runtime::DefaultType for ThreadingModel {
+impl ::windows::core::DefaultType for ThreadingModel {
     type DefaultType = Self;
 }

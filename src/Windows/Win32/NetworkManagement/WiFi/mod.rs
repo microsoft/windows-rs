@@ -11,243 +11,195 @@ impl ::core::convert::From<i32> for CH_DESCRIPTION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CH_DESCRIPTION_TYPE {
+unsafe impl ::windows::core::Abi for CH_DESCRIPTION_TYPE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_AccessPointBssid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_ChallengeAep: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_DevnodeAep: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_HostName_ResolutionMode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_PinSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 29u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_RtspTcpConnectionParametersSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 30u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_SinkHostName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_SinkIpAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_StreamSecuritySupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_InfraCast_Supported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirectServices_AdvertisementId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
-    pid: 5u32,
-};
+pub const DEVPKEY_WiFiDirectServices_AdvertisementId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 5u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirectServices_RequestServiceInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
-    pid: 7u32,
-};
+pub const DEVPKEY_WiFiDirectServices_RequestServiceInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 7u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirectServices_ServiceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
-    pid: 2u32,
-};
+pub const DEVPKEY_WiFiDirectServices_ServiceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirectServices_ServiceConfigMethods: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
-    pid: 6u32,
-};
+pub const DEVPKEY_WiFiDirectServices_ServiceConfigMethods: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 6u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirectServices_ServiceInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
-    pid: 4u32,
-};
+pub const DEVPKEY_WiFiDirectServices_ServiceInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 4u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirectServices_ServiceName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9),
-    pid: 3u32,
-};
+pub const DEVPKEY_WiFiDirectServices_ServiceName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 3u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirect_DeviceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 1u32,
-};
+pub const DEVPKEY_WiFiDirect_DeviceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 1u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_DeviceAddressCopy: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_FoundWsbService: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirect_GroupId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 4u32,
-};
+pub const DEVPKEY_WiFiDirect_GroupId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 4u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_InformationElements: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirect_InterfaceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 2u32,
-};
+pub const DEVPKEY_WiFiDirect_InterfaceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirect_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 3u32,
-};
+pub const DEVPKEY_WiFiDirect_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 3u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirect_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 5u32,
-};
+pub const DEVPKEY_WiFiDirect_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 5u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_IsDMGCapable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 22u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirect_IsLegacyDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 7u32,
-};
+pub const DEVPKEY_WiFiDirect_IsLegacyDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 7u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirect_IsMiracastLCPSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 9u32,
-};
+pub const DEVPKEY_WiFiDirect_IsMiracastLCPSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 9u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_IsRecentlyAssociated: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirect_IsVisible: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 6u32,
-};
+pub const DEVPKEY_WiFiDirect_IsVisible: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 6u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_LinkQuality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 28u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFiDirect_MiracastVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 8u32,
-};
+pub const DEVPKEY_WiFiDirect_MiracastVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 8u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_Miracast_SessionMgmtControlPort: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 31u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_NoMiracastAutoProject: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_RtspTcpConnectionParametersSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 32u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_Service_Aeps: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_Services: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_SupportedChannelList: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_WiFiDirect_TransientAssociation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
+    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
     pid: 27u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_WiFi_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0xef1167eb_cbfc_4341_a568_a7c91a68982c),
-    pid: 2u32,
-};
+pub const DEVPKEY_WiFi_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1167eb_cbfc_4341_a568_a7c91a68982c), pid: 2u32 };
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DISCOVERY_FILTER_BITMASK_ANY: u32 = 15u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -281,7 +233,7 @@ impl ::core::cmp::PartialEq for DOT11_ACCESSNETWORKOPTIONS {
     }
 }
 impl ::core::cmp::Eq for DOT11_ACCESSNETWORKOPTIONS {}
-unsafe impl ::windows::runtime::Abi for DOT11_ACCESSNETWORKOPTIONS {
+unsafe impl ::windows::core::Abi for DOT11_ACCESSNETWORKOPTIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -298,7 +250,7 @@ impl ::core::convert::From<i32> for DOT11_AC_PARAM {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_AC_PARAM {
+unsafe impl ::windows::core::Abi for DOT11_AC_PARAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -335,7 +287,7 @@ impl ::core::cmp::PartialEq for DOT11_ADDITIONAL_IE {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_ADDITIONAL_IE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_ADDITIONAL_IE {
+unsafe impl ::windows::core::Abi for DOT11_ADDITIONAL_IE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -352,7 +304,7 @@ impl ::core::convert::From<i32> for DOT11_ADHOC_AUTH_ALGORITHM {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_ADHOC_AUTH_ALGORITHM {
+unsafe impl ::windows::core::Abi for DOT11_ADHOC_AUTH_ALGORITHM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -368,7 +320,7 @@ impl ::core::convert::From<i32> for DOT11_ADHOC_CIPHER_ALGORITHM {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_ADHOC_CIPHER_ALGORITHM {
+unsafe impl ::windows::core::Abi for DOT11_ADHOC_CIPHER_ALGORITHM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -383,7 +335,7 @@ impl ::core::convert::From<i32> for DOT11_ADHOC_CONNECT_FAIL_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_ADHOC_CONNECT_FAIL_REASON {
+unsafe impl ::windows::core::Abi for DOT11_ADHOC_CONNECT_FAIL_REASON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -400,7 +352,7 @@ impl ::core::convert::From<i32> for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {
+unsafe impl ::windows::core::Abi for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -436,7 +388,7 @@ impl ::core::cmp::PartialEq for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -458,7 +410,7 @@ impl ::core::convert::From<i32> for DOT11_ANQP_QUERY_RESULT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_ANQP_QUERY_RESULT {
+unsafe impl ::windows::core::Abi for DOT11_ANQP_QUERY_RESULT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -487,7 +439,7 @@ impl ::core::cmp::PartialEq for DOT11_AP_JOIN_REQUEST {
     }
 }
 impl ::core::cmp::Eq for DOT11_AP_JOIN_REQUEST {}
-unsafe impl ::windows::runtime::Abi for DOT11_AP_JOIN_REQUEST {
+unsafe impl ::windows::core::Abi for DOT11_AP_JOIN_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -597,7 +549,7 @@ impl ::core::cmp::PartialEq for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -665,7 +617,7 @@ impl ::core::cmp::PartialEq for DOT11_ASSOCIATION_INFO_EX {
     }
 }
 impl ::core::cmp::Eq for DOT11_ASSOCIATION_INFO_EX {}
-unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_INFO_EX {
+unsafe impl ::windows::core::Abi for DOT11_ASSOCIATION_INFO_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -701,7 +653,7 @@ impl ::core::cmp::PartialEq for DOT11_ASSOCIATION_INFO_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_ASSOCIATION_INFO_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_INFO_LIST {
+unsafe impl ::windows::core::Abi for DOT11_ASSOCIATION_INFO_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -739,7 +691,7 @@ impl ::core::cmp::PartialEq for DOT11_ASSOCIATION_PARAMS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_ASSOCIATION_PARAMS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_PARAMS {
+unsafe impl ::windows::core::Abi for DOT11_ASSOCIATION_PARAMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -778,7 +730,7 @@ impl ::core::cmp::PartialEq for DOT11_ASSOCIATION_START_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_ASSOCIATION_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_START_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_ASSOCIATION_START_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -796,7 +748,7 @@ impl ::core::convert::From<i32> for DOT11_ASSOCIATION_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_STATE {
+unsafe impl ::windows::core::Abi for DOT11_ASSOCIATION_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -830,7 +782,7 @@ impl ::core::convert::From<i32> for DOT11_AUTH_ALGORITHM {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_AUTH_ALGORITHM {
+unsafe impl ::windows::core::Abi for DOT11_AUTH_ALGORITHM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -866,7 +818,7 @@ impl ::core::cmp::PartialEq for DOT11_AUTH_ALGORITHM_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_AUTH_ALGORITHM_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_AUTH_ALGORITHM_LIST {
+unsafe impl ::windows::core::Abi for DOT11_AUTH_ALGORITHM_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -897,7 +849,7 @@ impl ::core::cmp::PartialEq for DOT11_AUTH_CIPHER_PAIR {
     }
 }
 impl ::core::cmp::Eq for DOT11_AUTH_CIPHER_PAIR {}
-unsafe impl ::windows::runtime::Abi for DOT11_AUTH_CIPHER_PAIR {
+unsafe impl ::windows::core::Abi for DOT11_AUTH_CIPHER_PAIR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -933,7 +885,7 @@ impl ::core::cmp::PartialEq for DOT11_AUTH_CIPHER_PAIR_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_AUTH_CIPHER_PAIR_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_AUTH_CIPHER_PAIR_LIST {
+unsafe impl ::windows::core::Abi for DOT11_AUTH_CIPHER_PAIR_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -971,7 +923,7 @@ impl ::core::cmp::PartialEq for DOT11_AVAILABLE_CHANNEL_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_AVAILABLE_CHANNEL_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_AVAILABLE_CHANNEL_LIST {
+unsafe impl ::windows::core::Abi for DOT11_AVAILABLE_CHANNEL_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1009,7 +961,7 @@ impl ::core::cmp::PartialEq for DOT11_AVAILABLE_FREQUENCY_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_AVAILABLE_FREQUENCY_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_AVAILABLE_FREQUENCY_LIST {
+unsafe impl ::windows::core::Abi for DOT11_AVAILABLE_FREQUENCY_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1026,7 +978,7 @@ impl ::core::convert::From<i32> for DOT11_BAND {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_BAND {
+unsafe impl ::windows::core::Abi for DOT11_BAND {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1053,7 +1005,7 @@ impl ::core::cmp::PartialEq for DOT11_BSSID_CANDIDATE {
     }
 }
 impl ::core::cmp::Eq for DOT11_BSSID_CANDIDATE {}
-unsafe impl ::windows::runtime::Abi for DOT11_BSSID_CANDIDATE {
+unsafe impl ::windows::core::Abi for DOT11_BSSID_CANDIDATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1089,7 +1041,7 @@ impl ::core::cmp::PartialEq for DOT11_BSSID_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_BSSID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_BSSID_LIST {
+unsafe impl ::windows::core::Abi for DOT11_BSSID_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1133,7 +1085,7 @@ impl ::core::cmp::PartialEq for DOT11_BSS_DESCRIPTION {
     }
 }
 impl ::core::cmp::Eq for DOT11_BSS_DESCRIPTION {}
-unsafe impl ::windows::runtime::Abi for DOT11_BSS_DESCRIPTION {
+unsafe impl ::windows::core::Abi for DOT11_BSS_DESCRIPTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1172,7 +1124,7 @@ impl ::core::cmp::PartialEq for DOT11_BSS_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_BSS_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_BSS_ENTRY {
+unsafe impl ::windows::core::Abi for DOT11_BSS_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1196,7 +1148,7 @@ impl ::core::cmp::PartialEq for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     }
 }
 impl ::core::cmp::Eq for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {}
-unsafe impl ::windows::runtime::Abi for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
+unsafe impl ::windows::core::Abi for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1224,7 +1176,7 @@ impl ::core::cmp::PartialEq for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
+unsafe impl ::windows::core::Abi for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1239,7 +1191,7 @@ impl ::core::convert::From<i32> for DOT11_BSS_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_BSS_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_BSS_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1275,7 +1227,7 @@ impl ::core::cmp::PartialEq for DOT11_BYTE_ARRAY {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_BYTE_ARRAY {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_BYTE_ARRAY {
+unsafe impl ::windows::core::Abi for DOT11_BYTE_ARRAY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1309,7 +1261,7 @@ impl ::core::cmp::PartialEq for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_CAN_SUSTAIN_AP_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1372,7 +1324,7 @@ impl ::core::cmp::PartialEq for DOT11_CHANNEL_HINT {
     }
 }
 impl ::core::cmp::Eq for DOT11_CHANNEL_HINT {}
-unsafe impl ::windows::runtime::Abi for DOT11_CHANNEL_HINT {
+unsafe impl ::windows::core::Abi for DOT11_CHANNEL_HINT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1401,7 +1353,7 @@ impl ::core::convert::From<i32> for DOT11_CIPHER_ALGORITHM {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_CIPHER_ALGORITHM {
+unsafe impl ::windows::core::Abi for DOT11_CIPHER_ALGORITHM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1437,7 +1389,7 @@ impl ::core::cmp::PartialEq for DOT11_CIPHER_ALGORITHM_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_CIPHER_ALGORITHM_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_CIPHER_ALGORITHM_LIST {
+unsafe impl ::windows::core::Abi for DOT11_CIPHER_ALGORITHM_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1488,7 +1440,7 @@ impl ::core::cmp::PartialEq for DOT11_CIPHER_DEFAULT_KEY_VALUE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_CIPHER_DEFAULT_KEY_VALUE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_CIPHER_DEFAULT_KEY_VALUE {
+unsafe impl ::windows::core::Abi for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1537,7 +1489,7 @@ impl ::core::cmp::PartialEq for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
+unsafe impl ::windows::core::Abi for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1577,7 +1529,7 @@ impl ::core::cmp::PartialEq for DOT11_CONNECTION_COMPLETION_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_CONNECTION_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_CONNECTION_COMPLETION_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_CONNECTION_COMPLETION_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1615,7 +1567,7 @@ impl ::core::cmp::PartialEq for DOT11_CONNECTION_START_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_CONNECTION_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_CONNECTION_START_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_CONNECTION_START_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1683,7 +1635,7 @@ impl ::core::cmp::PartialEq for DOT11_COUNTERS_ENTRY {
     }
 }
 impl ::core::cmp::Eq for DOT11_COUNTERS_ENTRY {}
-unsafe impl ::windows::runtime::Abi for DOT11_COUNTERS_ENTRY {
+unsafe impl ::windows::core::Abi for DOT11_COUNTERS_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1719,7 +1671,7 @@ impl ::core::cmp::PartialEq for DOT11_COUNTRY_OR_REGION_STRING_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_COUNTRY_OR_REGION_STRING_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_COUNTRY_OR_REGION_STRING_LIST {
+unsafe impl ::windows::core::Abi for DOT11_COUNTRY_OR_REGION_STRING_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1748,7 +1700,7 @@ impl ::core::cmp::PartialEq for DOT11_CURRENT_OFFLOAD_CAPABILITY {
     }
 }
 impl ::core::cmp::Eq for DOT11_CURRENT_OFFLOAD_CAPABILITY {}
-unsafe impl ::windows::runtime::Abi for DOT11_CURRENT_OFFLOAD_CAPABILITY {
+unsafe impl ::windows::core::Abi for DOT11_CURRENT_OFFLOAD_CAPABILITY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1775,7 +1727,7 @@ impl ::core::cmp::PartialEq for DOT11_CURRENT_OPERATION_MODE {
     }
 }
 impl ::core::cmp::Eq for DOT11_CURRENT_OPERATION_MODE {}
-unsafe impl ::windows::runtime::Abi for DOT11_CURRENT_OPERATION_MODE {
+unsafe impl ::windows::core::Abi for DOT11_CURRENT_OPERATION_MODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1818,7 +1770,7 @@ impl ::core::cmp::PartialEq for DOT11_CURRENT_OPTIONAL_CAPABILITY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_CURRENT_OPTIONAL_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_CURRENT_OPTIONAL_CAPABILITY {
+unsafe impl ::windows::core::Abi for DOT11_CURRENT_OPTIONAL_CAPABILITY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1846,7 +1798,7 @@ impl ::core::cmp::PartialEq for DOT11_DATA_RATE_MAPPING_ENTRY {
     }
 }
 impl ::core::cmp::Eq for DOT11_DATA_RATE_MAPPING_ENTRY {}
-unsafe impl ::windows::runtime::Abi for DOT11_DATA_RATE_MAPPING_ENTRY {
+unsafe impl ::windows::core::Abi for DOT11_DATA_RATE_MAPPING_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1881,7 +1833,7 @@ impl ::core::cmp::PartialEq for DOT11_DATA_RATE_MAPPING_TABLE {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_DATA_RATE_MAPPING_TABLE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_DATA_RATE_MAPPING_TABLE {
+unsafe impl ::windows::core::Abi for DOT11_DATA_RATE_MAPPING_TABLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1957,7 +1909,7 @@ impl ::core::cmp::PartialEq for DOT11_DEFAULT_WEP_OFFLOAD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_DEFAULT_WEP_OFFLOAD {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_DEFAULT_WEP_OFFLOAD {
+unsafe impl ::windows::core::Abi for DOT11_DEFAULT_WEP_OFFLOAD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2002,7 +1954,7 @@ impl ::core::cmp::PartialEq for DOT11_DEFAULT_WEP_UPLOAD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_DEFAULT_WEP_UPLOAD {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_DEFAULT_WEP_UPLOAD {
+unsafe impl ::windows::core::Abi for DOT11_DEFAULT_WEP_UPLOAD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2019,7 +1971,7 @@ impl ::core::convert::From<i32> for DOT11_DIRECTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_DIRECTION {
+unsafe impl ::windows::core::Abi for DOT11_DIRECTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2054,7 +2006,7 @@ impl ::core::cmp::PartialEq for DOT11_DISASSOCIATE_PEER_REQUEST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_DISASSOCIATE_PEER_REQUEST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_DISASSOCIATE_PEER_REQUEST {
+unsafe impl ::windows::core::Abi for DOT11_DISASSOCIATE_PEER_REQUEST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2093,7 +2045,7 @@ impl ::core::cmp::PartialEq for DOT11_DISASSOCIATION_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_DISASSOCIATION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_DISASSOCIATION_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_DISASSOCIATION_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2129,7 +2081,7 @@ impl ::core::cmp::PartialEq for DOT11_DIVERSITY_SELECTION_RX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_DIVERSITY_SELECTION_RX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_DIVERSITY_SELECTION_RX {
+unsafe impl ::windows::core::Abi for DOT11_DIVERSITY_SELECTION_RX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2164,7 +2116,7 @@ impl ::core::cmp::PartialEq for DOT11_DIVERSITY_SELECTION_RX_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_DIVERSITY_SELECTION_RX_LIST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_DIVERSITY_SELECTION_RX_LIST {
+unsafe impl ::windows::core::Abi for DOT11_DIVERSITY_SELECTION_RX_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2180,7 +2132,7 @@ impl ::core::convert::From<i32> for DOT11_DIVERSITY_SUPPORT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_DIVERSITY_SUPPORT {
+unsafe impl ::windows::core::Abi for DOT11_DIVERSITY_SUPPORT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2195,7 +2147,7 @@ impl ::core::convert::From<i32> for DOT11_DS_INFO {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_DS_INFO {
+unsafe impl ::windows::core::Abi for DOT11_DS_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2224,7 +2176,7 @@ impl ::core::cmp::PartialEq for DOT11_ENCAP_ENTRY {
     }
 }
 impl ::core::cmp::Eq for DOT11_ENCAP_ENTRY {}
-unsafe impl ::windows::runtime::Abi for DOT11_ENCAP_ENTRY {
+unsafe impl ::windows::core::Abi for DOT11_ENCAP_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2267,7 +2219,7 @@ impl ::core::cmp::PartialEq for DOT11_ERP_PHY_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_ERP_PHY_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_ERP_PHY_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for DOT11_ERP_PHY_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2353,7 +2305,7 @@ impl ::core::cmp::PartialEq for DOT11_EXTAP_ATTRIBUTES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_EXTAP_ATTRIBUTES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_EXTAP_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for DOT11_EXTAP_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2493,7 +2445,7 @@ impl ::core::cmp::PartialEq for DOT11_EXTSTA_ATTRIBUTES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_EXTSTA_ATTRIBUTES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_EXTSTA_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for DOT11_EXTSTA_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2572,7 +2524,7 @@ impl ::core::cmp::PartialEq for DOT11_EXTSTA_CAPABILITY {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_EXTSTA_CAPABILITY {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_EXTSTA_CAPABILITY {
+unsafe impl ::windows::core::Abi for DOT11_EXTSTA_CAPABILITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2627,7 +2579,7 @@ impl ::core::cmp::PartialEq for DOT11_EXTSTA_RECV_CONTEXT {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_EXTSTA_RECV_CONTEXT {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_EXTSTA_RECV_CONTEXT {
+unsafe impl ::windows::core::Abi for DOT11_EXTSTA_RECV_CONTEXT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2674,7 +2626,7 @@ impl ::core::cmp::PartialEq for DOT11_EXTSTA_SEND_CONTEXT {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_EXTSTA_SEND_CONTEXT {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_EXTSTA_SEND_CONTEXT {
+unsafe impl ::windows::core::Abi for DOT11_EXTSTA_SEND_CONTEXT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2719,7 +2671,7 @@ impl ::core::cmp::PartialEq for DOT11_FRAGMENT_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for DOT11_FRAGMENT_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for DOT11_FRAGMENT_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for DOT11_FRAGMENT_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2770,7 +2722,7 @@ impl ::core::cmp::PartialEq for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2817,7 +2769,7 @@ impl ::core::cmp::PartialEq for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAM
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2864,7 +2816,7 @@ impl ::core::cmp::PartialEq for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARA
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2895,7 +2847,7 @@ impl ::core::cmp::PartialEq for DOT11_HOPPING_PATTERN_ENTRY {
     }
 }
 impl ::core::cmp::Eq for DOT11_HOPPING_PATTERN_ENTRY {}
-unsafe impl ::windows::runtime::Abi for DOT11_HOPPING_PATTERN_ENTRY {
+unsafe impl ::windows::core::Abi for DOT11_HOPPING_PATTERN_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2923,7 +2875,7 @@ impl ::core::cmp::PartialEq for DOT11_HOPPING_PATTERN_ENTRY_LIST {
     }
 }
 impl ::core::cmp::Eq for DOT11_HOPPING_PATTERN_ENTRY_LIST {}
-unsafe impl ::windows::runtime::Abi for DOT11_HOPPING_PATTERN_ENTRY_LIST {
+unsafe impl ::windows::core::Abi for DOT11_HOPPING_PATTERN_ENTRY_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -2938,7 +2890,7 @@ impl ::core::convert::From<i32> for DOT11_HOP_ALGO_ADOPTED {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_HOP_ALGO_ADOPTED {
+unsafe impl ::windows::core::Abi for DOT11_HOP_ALGO_ADOPTED {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2979,7 +2931,7 @@ impl ::core::cmp::PartialEq for DOT11_HRDSSS_PHY_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_HRDSSS_PHY_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_HRDSSS_PHY_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for DOT11_HRDSSS_PHY_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3037,7 +2989,7 @@ impl ::core::cmp::PartialEq for DOT11_IBSS_PARAMS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_IBSS_PARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_IBSS_PARAMS {
+unsafe impl ::windows::core::Abi for DOT11_IBSS_PARAMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3122,7 +3074,7 @@ impl ::core::cmp::PartialEq for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3169,7 +3121,7 @@ impl ::core::cmp::PartialEq for DOT11_INCOMING_ASSOC_DECISION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_INCOMING_ASSOC_DECISION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_INCOMING_ASSOC_DECISION {
+unsafe impl ::windows::core::Abi for DOT11_INCOMING_ASSOC_DECISION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3220,7 +3172,7 @@ impl ::core::cmp::PartialEq for DOT11_INCOMING_ASSOC_DECISION_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_INCOMING_ASSOC_DECISION_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_INCOMING_ASSOC_DECISION_V2 {
+unsafe impl ::windows::core::Abi for DOT11_INCOMING_ASSOC_DECISION_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3257,7 +3209,7 @@ impl ::core::cmp::PartialEq for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3293,7 +3245,7 @@ impl ::core::cmp::PartialEq for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3344,7 +3296,7 @@ impl ::core::cmp::PartialEq for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETER
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3391,7 +3343,7 @@ impl ::core::cmp::PartialEq for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETE
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3420,7 +3372,7 @@ impl ::core::cmp::PartialEq for DOT11_IV48_COUNTER {
     }
 }
 impl ::core::cmp::Eq for DOT11_IV48_COUNTER {}
-unsafe impl ::windows::runtime::Abi for DOT11_IV48_COUNTER {
+unsafe impl ::windows::core::Abi for DOT11_IV48_COUNTER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3449,7 +3401,7 @@ impl ::core::cmp::PartialEq for DOT11_JOIN_REQUEST {
     }
 }
 impl ::core::cmp::Eq for DOT11_JOIN_REQUEST {}
-unsafe impl ::windows::runtime::Abi for DOT11_JOIN_REQUEST {
+unsafe impl ::windows::core::Abi for DOT11_JOIN_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3477,7 +3429,7 @@ impl ::core::cmp::PartialEq for DOT11_KEY_ALGO_BIP {
     }
 }
 impl ::core::cmp::Eq for DOT11_KEY_ALGO_BIP {}
-unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_BIP {
+unsafe impl ::windows::core::Abi for DOT11_KEY_ALGO_BIP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3505,7 +3457,7 @@ impl ::core::cmp::PartialEq for DOT11_KEY_ALGO_BIP_GMAC_256 {
     }
 }
 impl ::core::cmp::Eq for DOT11_KEY_ALGO_BIP_GMAC_256 {}
-unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_BIP_GMAC_256 {
+unsafe impl ::windows::core::Abi for DOT11_KEY_ALGO_BIP_GMAC_256 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3533,7 +3485,7 @@ impl ::core::cmp::PartialEq for DOT11_KEY_ALGO_CCMP {
     }
 }
 impl ::core::cmp::Eq for DOT11_KEY_ALGO_CCMP {}
-unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_CCMP {
+unsafe impl ::windows::core::Abi for DOT11_KEY_ALGO_CCMP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3561,7 +3513,7 @@ impl ::core::cmp::PartialEq for DOT11_KEY_ALGO_GCMP {
     }
 }
 impl ::core::cmp::Eq for DOT11_KEY_ALGO_GCMP {}
-unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_GCMP {
+unsafe impl ::windows::core::Abi for DOT11_KEY_ALGO_GCMP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3589,7 +3541,7 @@ impl ::core::cmp::PartialEq for DOT11_KEY_ALGO_GCMP_256 {
     }
 }
 impl ::core::cmp::Eq for DOT11_KEY_ALGO_GCMP_256 {}
-unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_GCMP_256 {
+unsafe impl ::windows::core::Abi for DOT11_KEY_ALGO_GCMP_256 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3618,7 +3570,7 @@ impl ::core::cmp::PartialEq for DOT11_KEY_ALGO_TKIP_MIC {
     }
 }
 impl ::core::cmp::Eq for DOT11_KEY_ALGO_TKIP_MIC {}
-unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_TKIP_MIC {
+unsafe impl ::windows::core::Abi for DOT11_KEY_ALGO_TKIP_MIC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3633,7 +3585,7 @@ impl ::core::convert::From<i32> for DOT11_KEY_DIRECTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_KEY_DIRECTION {
+unsafe impl ::windows::core::Abi for DOT11_KEY_DIRECTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3660,7 +3612,7 @@ impl ::core::cmp::PartialEq for DOT11_LINK_QUALITY_ENTRY {
     }
 }
 impl ::core::cmp::Eq for DOT11_LINK_QUALITY_ENTRY {}
-unsafe impl ::windows::runtime::Abi for DOT11_LINK_QUALITY_ENTRY {
+unsafe impl ::windows::core::Abi for DOT11_LINK_QUALITY_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3695,7 +3647,7 @@ impl ::core::cmp::PartialEq for DOT11_LINK_QUALITY_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_LINK_QUALITY_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_LINK_QUALITY_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_LINK_QUALITY_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3733,7 +3685,7 @@ impl ::core::cmp::PartialEq for DOT11_MAC_ADDRESS_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_MAC_ADDRESS_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_MAC_ADDRESS_LIST {
+unsafe impl ::windows::core::Abi for DOT11_MAC_ADDRESS_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3802,7 +3754,7 @@ impl ::core::cmp::PartialEq for DOT11_MAC_FRAME_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for DOT11_MAC_FRAME_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for DOT11_MAC_FRAME_STATISTICS {
+unsafe impl ::windows::core::Abi for DOT11_MAC_FRAME_STATISTICS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3830,7 +3782,7 @@ impl ::core::cmp::PartialEq for DOT11_MAC_INFO {
     }
 }
 impl ::core::cmp::Eq for DOT11_MAC_INFO {}
-unsafe impl ::windows::runtime::Abi for DOT11_MAC_INFO {
+unsafe impl ::windows::core::Abi for DOT11_MAC_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3864,7 +3816,7 @@ impl ::core::cmp::PartialEq for DOT11_MAC_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_MAC_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_MAC_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_MAC_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3902,7 +3854,7 @@ impl ::core::cmp::PartialEq for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -3921,7 +3873,7 @@ impl ::core::convert::From<i32> for DOT11_MANUFACTURING_CALLBACK_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_CALLBACK_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_CALLBACK_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3949,7 +3901,7 @@ impl ::core::cmp::PartialEq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     }
 }
 impl ::core::cmp::Eq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {}
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3985,7 +3937,7 @@ impl ::core::cmp::PartialEq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4023,7 +3975,7 @@ impl ::core::cmp::PartialEq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4070,7 +4022,7 @@ impl ::core::cmp::PartialEq for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4108,7 +4060,7 @@ impl ::core::cmp::PartialEq for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     }
 }
 impl ::core::cmp::Eq for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {}
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4123,7 +4075,7 @@ impl ::core::convert::From<i32> for DOT11_MANUFACTURING_SELF_TEST_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_SELF_TEST_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_SELF_TEST_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4151,7 +4103,7 @@ impl ::core::cmp::PartialEq for DOT11_MANUFACTURING_TEST {
     }
 }
 impl ::core::cmp::Eq for DOT11_MANUFACTURING_TEST {}
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_TEST {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_TEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4181,7 +4133,7 @@ impl ::core::cmp::PartialEq for DOT11_MANUFACTURING_TEST_QUERY_DATA {
     }
 }
 impl ::core::cmp::Eq for DOT11_MANUFACTURING_TEST_QUERY_DATA {}
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_TEST_QUERY_DATA {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_TEST_QUERY_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4212,7 +4164,7 @@ impl ::core::cmp::PartialEq for DOT11_MANUFACTURING_TEST_SET_DATA {
     }
 }
 impl ::core::cmp::Eq for DOT11_MANUFACTURING_TEST_SET_DATA {}
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_TEST_SET_DATA {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_TEST_SET_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4239,7 +4191,7 @@ impl ::core::cmp::PartialEq for DOT11_MANUFACTURING_TEST_SLEEP {
     }
 }
 impl ::core::cmp::Eq for DOT11_MANUFACTURING_TEST_SLEEP {}
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_TEST_SLEEP {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_TEST_SLEEP {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4263,7 +4215,7 @@ impl ::core::convert::From<i32> for DOT11_MANUFACTURING_TEST_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_TEST_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_TEST_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4303,7 +4255,7 @@ impl ::core::cmp::PartialEq for DOT11_MD_CAPABILITY_ENTRY_LIST {
     }
 }
 impl ::core::cmp::Eq for DOT11_MD_CAPABILITY_ENTRY_LIST {}
-unsafe impl ::windows::runtime::Abi for DOT11_MD_CAPABILITY_ENTRY_LIST {
+unsafe impl ::windows::core::Abi for DOT11_MD_CAPABILITY_ENTRY_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4340,7 +4292,7 @@ impl ::core::cmp::PartialEq for DOT11_MPDU_MAX_LENGTH_INDICATION {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_MPDU_MAX_LENGTH_INDICATION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_MPDU_MAX_LENGTH_INDICATION {
+unsafe impl ::windows::core::Abi for DOT11_MPDU_MAX_LENGTH_INDICATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4376,7 +4328,7 @@ impl ::core::cmp::PartialEq for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     }
 }
 impl ::core::cmp::Eq for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {}
-unsafe impl ::windows::runtime::Abi for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
+unsafe impl ::windows::core::Abi for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4403,7 +4355,7 @@ impl ::core::cmp::PartialEq for DOT11_NETWORK {
     }
 }
 impl ::core::cmp::Eq for DOT11_NETWORK {}
-unsafe impl ::windows::runtime::Abi for DOT11_NETWORK {
+unsafe impl ::windows::core::Abi for DOT11_NETWORK {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4431,7 +4383,7 @@ impl ::core::cmp::PartialEq for DOT11_NETWORK_LIST {
     }
 }
 impl ::core::cmp::Eq for DOT11_NETWORK_LIST {}
-unsafe impl ::windows::runtime::Abi for DOT11_NETWORK_LIST {
+unsafe impl ::windows::core::Abi for DOT11_NETWORK_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4459,7 +4411,7 @@ impl ::core::cmp::PartialEq for DOT11_NIC_SPECIFIC_EXTENSION {
     }
 }
 impl ::core::cmp::Eq for DOT11_NIC_SPECIFIC_EXTENSION {}
-unsafe impl ::windows::runtime::Abi for DOT11_NIC_SPECIFIC_EXTENSION {
+unsafe impl ::windows::core::Abi for DOT11_NIC_SPECIFIC_EXTENSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4491,7 +4443,7 @@ impl ::core::cmp::PartialEq for DOT11_OFDM_PHY_ATTRIBUTES {
     }
 }
 impl ::core::cmp::Eq for DOT11_OFDM_PHY_ATTRIBUTES {}
-unsafe impl ::windows::runtime::Abi for DOT11_OFDM_PHY_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for DOT11_OFDM_PHY_ATTRIBUTES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4531,7 +4483,7 @@ impl ::core::cmp::PartialEq for DOT11_OFFLOAD_CAPABILITY {
     }
 }
 impl ::core::cmp::Eq for DOT11_OFFLOAD_CAPABILITY {}
-unsafe impl ::windows::runtime::Abi for DOT11_OFFLOAD_CAPABILITY {
+unsafe impl ::windows::core::Abi for DOT11_OFFLOAD_CAPABILITY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4560,7 +4512,7 @@ impl ::core::cmp::PartialEq for DOT11_OFFLOAD_NETWORK {
     }
 }
 impl ::core::cmp::Eq for DOT11_OFFLOAD_NETWORK {}
-unsafe impl ::windows::runtime::Abi for DOT11_OFFLOAD_NETWORK {
+unsafe impl ::windows::core::Abi for DOT11_OFFLOAD_NETWORK {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4607,7 +4559,7 @@ impl ::core::cmp::PartialEq for DOT11_OFFLOAD_NETWORK_LIST_INFO {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_OFFLOAD_NETWORK_LIST_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_OFFLOAD_NETWORK_LIST_INFO {
+unsafe impl ::windows::core::Abi for DOT11_OFFLOAD_NETWORK_LIST_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4643,7 +4595,7 @@ impl ::core::cmp::PartialEq for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4659,7 +4611,7 @@ impl ::core::convert::From<i32> for DOT11_OFFLOAD_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_OFFLOAD_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_OFFLOAD_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4686,7 +4638,7 @@ impl ::core::cmp::PartialEq for DOT11_OI {
     }
 }
 impl ::core::cmp::Eq for DOT11_OI {}
-unsafe impl ::windows::runtime::Abi for DOT11_OI {
+unsafe impl ::windows::core::Abi for DOT11_OI {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4730,7 +4682,7 @@ impl ::core::cmp::PartialEq for DOT11_OPERATION_MODE_CAPABILITY {
     }
 }
 impl ::core::cmp::Eq for DOT11_OPERATION_MODE_CAPABILITY {}
-unsafe impl ::windows::runtime::Abi for DOT11_OPERATION_MODE_CAPABILITY {
+unsafe impl ::windows::core::Abi for DOT11_OPERATION_MODE_CAPABILITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4784,7 +4736,7 @@ impl ::core::cmp::PartialEq for DOT11_OPTIONAL_CAPABILITY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_OPTIONAL_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_OPTIONAL_CAPABILITY {
+unsafe impl ::windows::core::Abi for DOT11_OPTIONAL_CAPABILITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4885,7 +4837,7 @@ impl ::core::cmp::PartialEq for DOT11_PEER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_PEER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_PEER_INFO {
+unsafe impl ::windows::core::Abi for DOT11_PEER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4921,7 +4873,7 @@ impl ::core::cmp::PartialEq for DOT11_PEER_INFO_LIST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_PEER_INFO_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_PEER_INFO_LIST {
+unsafe impl ::windows::core::Abi for DOT11_PEER_INFO_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -4961,7 +4913,7 @@ impl ::core::cmp::PartialEq for DOT11_PEER_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for DOT11_PEER_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for DOT11_PEER_STATISTICS {
+unsafe impl ::windows::core::Abi for DOT11_PEER_STATISTICS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4997,7 +4949,7 @@ impl ::core::cmp::PartialEq for DOT11_PER_MSDU_COUNTERS {
     }
 }
 impl ::core::cmp::Eq for DOT11_PER_MSDU_COUNTERS {}
-unsafe impl ::windows::runtime::Abi for DOT11_PER_MSDU_COUNTERS {
+unsafe impl ::windows::core::Abi for DOT11_PER_MSDU_COUNTERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5037,7 +4989,7 @@ impl ::core::cmp::PartialEq for DOT11_PHY_ATTRIBUTES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_PHY_ATTRIBUTES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_PHY_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for DOT11_PHY_ATTRIBUTES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5065,7 +5017,7 @@ impl ::core::cmp::PartialEq for DOT11_PHY_ATTRIBUTES_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_PHY_ATTRIBUTES_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_PHY_ATTRIBUTES_0 {
+unsafe impl ::windows::core::Abi for DOT11_PHY_ATTRIBUTES_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5146,7 +5098,7 @@ impl ::core::cmp::PartialEq for DOT11_PHY_FRAME_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for DOT11_PHY_FRAME_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for DOT11_PHY_FRAME_STATISTICS {
+unsafe impl ::windows::core::Abi for DOT11_PHY_FRAME_STATISTICS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5175,7 +5127,7 @@ impl ::core::cmp::PartialEq for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5202,7 +5154,7 @@ impl ::core::cmp::PartialEq for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
+unsafe impl ::windows::core::Abi for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5240,7 +5192,7 @@ impl ::core::cmp::PartialEq for DOT11_PHY_ID_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_PHY_ID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_PHY_ID_LIST {
+unsafe impl ::windows::core::Abi for DOT11_PHY_ID_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5278,7 +5230,7 @@ impl ::core::cmp::PartialEq for DOT11_PHY_STATE_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_PHY_STATE_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_PHY_STATE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_PHY_STATE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5306,7 +5258,7 @@ impl ::core::convert::From<i32> for DOT11_PHY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_PHY_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_PHY_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5355,7 +5307,7 @@ impl ::core::cmp::PartialEq for DOT11_PHY_TYPE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_PHY_TYPE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_PHY_TYPE_INFO {
+unsafe impl ::windows::core::Abi for DOT11_PHY_TYPE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5391,7 +5343,7 @@ impl ::core::cmp::PartialEq for DOT11_PHY_TYPE_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_PHY_TYPE_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_PHY_TYPE_LIST {
+unsafe impl ::windows::core::Abi for DOT11_PHY_TYPE_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5428,7 +5380,7 @@ impl ::core::cmp::PartialEq for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5458,7 +5410,7 @@ impl ::core::cmp::PartialEq for DOT11_PMKID_ENTRY {
     }
 }
 impl ::core::cmp::Eq for DOT11_PMKID_ENTRY {}
-unsafe impl ::windows::runtime::Abi for DOT11_PMKID_ENTRY {
+unsafe impl ::windows::core::Abi for DOT11_PMKID_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5494,7 +5446,7 @@ impl ::core::cmp::PartialEq for DOT11_PMKID_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_PMKID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_PMKID_LIST {
+unsafe impl ::windows::core::Abi for DOT11_PMKID_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5531,7 +5483,7 @@ impl ::core::cmp::PartialEq for DOT11_PORT_STATE_NOTIFICATION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_PORT_STATE_NOTIFICATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_PORT_STATE_NOTIFICATION {
+unsafe impl ::windows::core::Abi for DOT11_PORT_STATE_NOTIFICATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5567,7 +5519,7 @@ impl ::core::cmp::PartialEq for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
+unsafe impl ::windows::core::Abi for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5606,7 +5558,7 @@ impl ::core::cmp::PartialEq for DOT11_POWER_MGMT_MODE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_POWER_MGMT_MODE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_POWER_MGMT_MODE {
+unsafe impl ::windows::core::Abi for DOT11_POWER_MGMT_MODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5642,7 +5594,7 @@ impl ::core::cmp::PartialEq for DOT11_POWER_MGMT_MODE_STATUS_INFO {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_POWER_MGMT_MODE_STATUS_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_POWER_MGMT_MODE_STATUS_INFO {
+unsafe impl ::windows::core::Abi for DOT11_POWER_MGMT_MODE_STATUS_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5659,7 +5611,7 @@ impl ::core::convert::From<i32> for DOT11_POWER_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_POWER_MODE {
+unsafe impl ::windows::core::Abi for DOT11_POWER_MODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5677,7 +5629,7 @@ impl ::core::convert::From<i32> for DOT11_POWER_MODE_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_POWER_MODE_REASON {
+unsafe impl ::windows::core::Abi for DOT11_POWER_MODE_REASON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5721,7 +5673,7 @@ impl ::core::cmp::PartialEq for DOT11_PRIVACY_EXEMPTION {
     }
 }
 impl ::core::cmp::Eq for DOT11_PRIVACY_EXEMPTION {}
-unsafe impl ::windows::runtime::Abi for DOT11_PRIVACY_EXEMPTION {
+unsafe impl ::windows::core::Abi for DOT11_PRIVACY_EXEMPTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5757,7 +5709,7 @@ impl ::core::cmp::PartialEq for DOT11_PRIVACY_EXEMPTION_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_PRIVACY_EXEMPTION_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_PRIVACY_EXEMPTION_LIST {
+unsafe impl ::windows::core::Abi for DOT11_PRIVACY_EXEMPTION_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5806,7 +5758,7 @@ impl ::core::cmp::PartialEq for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5853,7 +5805,7 @@ impl ::core::cmp::PartialEq for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5893,7 +5845,7 @@ impl ::core::cmp::PartialEq for DOT11_QOS_PARAMS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_QOS_PARAMS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_QOS_PARAMS {
+unsafe impl ::windows::core::Abi for DOT11_QOS_PARAMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5923,7 +5875,7 @@ impl ::core::cmp::PartialEq for DOT11_QOS_TX_DURATION {
     }
 }
 impl ::core::cmp::Eq for DOT11_QOS_TX_DURATION {}
-unsafe impl ::windows::runtime::Abi for DOT11_QOS_TX_DURATION {
+unsafe impl ::windows::core::Abi for DOT11_QOS_TX_DURATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5951,7 +5903,7 @@ impl ::core::cmp::PartialEq for DOT11_QOS_TX_MEDIUM_TIME {
     }
 }
 impl ::core::cmp::Eq for DOT11_QOS_TX_MEDIUM_TIME {}
-unsafe impl ::windows::runtime::Abi for DOT11_QOS_TX_MEDIUM_TIME {
+unsafe impl ::windows::core::Abi for DOT11_QOS_TX_MEDIUM_TIME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -5966,7 +5918,7 @@ impl ::core::convert::From<i32> for DOT11_RADIO_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_RADIO_STATE {
+unsafe impl ::windows::core::Abi for DOT11_RADIO_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5993,7 +5945,7 @@ impl ::core::cmp::PartialEq for DOT11_RATE_SET {
     }
 }
 impl ::core::cmp::Eq for DOT11_RATE_SET {}
-unsafe impl ::windows::runtime::Abi for DOT11_RATE_SET {
+unsafe impl ::windows::core::Abi for DOT11_RATE_SET {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6032,7 +5984,7 @@ impl ::core::cmp::PartialEq for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAM
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6079,7 +6031,7 @@ impl ::core::cmp::PartialEq for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6126,7 +6078,7 @@ impl ::core::cmp::PartialEq for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETER
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6175,7 +6127,7 @@ impl ::core::cmp::PartialEq for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6222,7 +6174,7 @@ impl ::core::cmp::PartialEq for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6271,7 +6223,7 @@ impl ::core::cmp::PartialEq for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAM
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6318,7 +6270,7 @@ impl ::core::cmp::PartialEq for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARA
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6423,7 +6375,7 @@ impl ::core::cmp::PartialEq for DOT11_RECV_EXTENSION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_RECV_EXTENSION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_RECV_EXTENSION_INFO {
+unsafe impl ::windows::core::Abi for DOT11_RECV_EXTENSION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6518,7 +6470,7 @@ impl ::core::cmp::PartialEq for DOT11_RECV_EXTENSION_INFO_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_RECV_EXTENSION_INFO_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_RECV_EXTENSION_INFO_V2 {
+unsafe impl ::windows::core::Abi for DOT11_RECV_EXTENSION_INFO_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6546,7 +6498,7 @@ impl ::core::cmp::PartialEq for DOT11_RECV_SENSITIVITY {
     }
 }
 impl ::core::cmp::Eq for DOT11_RECV_SENSITIVITY {}
-unsafe impl ::windows::runtime::Abi for DOT11_RECV_SENSITIVITY {
+unsafe impl ::windows::core::Abi for DOT11_RECV_SENSITIVITY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6570,7 +6522,7 @@ impl ::core::cmp::PartialEq for DOT11_RECV_SENSITIVITY_LIST {
     }
 }
 impl ::core::cmp::Eq for DOT11_RECV_SENSITIVITY_LIST {}
-unsafe impl ::windows::runtime::Abi for DOT11_RECV_SENSITIVITY_LIST {
+unsafe impl ::windows::core::Abi for DOT11_RECV_SENSITIVITY_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6592,7 +6544,7 @@ impl ::core::cmp::PartialEq for DOT11_RECV_SENSITIVITY_LIST_0 {
     }
 }
 impl ::core::cmp::Eq for DOT11_RECV_SENSITIVITY_LIST_0 {}
-unsafe impl ::windows::runtime::Abi for DOT11_RECV_SENSITIVITY_LIST_0 {
+unsafe impl ::windows::core::Abi for DOT11_RECV_SENSITIVITY_LIST_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6620,7 +6572,7 @@ impl ::core::cmp::PartialEq for DOT11_REG_DOMAINS_SUPPORT_VALUE {
     }
 }
 impl ::core::cmp::Eq for DOT11_REG_DOMAINS_SUPPORT_VALUE {}
-unsafe impl ::windows::runtime::Abi for DOT11_REG_DOMAINS_SUPPORT_VALUE {
+unsafe impl ::windows::core::Abi for DOT11_REG_DOMAINS_SUPPORT_VALUE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6661,7 +6613,7 @@ impl ::core::cmp::PartialEq for DOT11_REG_DOMAIN_VALUE {
     }
 }
 impl ::core::cmp::Eq for DOT11_REG_DOMAIN_VALUE {}
-unsafe impl ::windows::runtime::Abi for DOT11_REG_DOMAIN_VALUE {
+unsafe impl ::windows::core::Abi for DOT11_REG_DOMAIN_VALUE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6696,7 +6648,7 @@ impl ::core::cmp::PartialEq for DOT11_RESET_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_RESET_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_RESET_REQUEST {
+unsafe impl ::windows::core::Abi for DOT11_RESET_REQUEST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6711,7 +6663,7 @@ impl ::core::convert::From<i32> for DOT11_RESET_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_RESET_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_RESET_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6745,7 +6697,7 @@ impl ::core::cmp::PartialEq for DOT11_ROAMING_COMPLETION_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_ROAMING_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_ROAMING_COMPLETION_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_ROAMING_COMPLETION_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6783,7 +6735,7 @@ impl ::core::cmp::PartialEq for DOT11_ROAMING_START_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_ROAMING_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_ROAMING_START_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_ROAMING_START_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6813,7 +6765,7 @@ impl ::core::cmp::PartialEq for DOT11_RSSI_RANGE {
     }
 }
 impl ::core::cmp::Eq for DOT11_RSSI_RANGE {}
-unsafe impl ::windows::runtime::Abi for DOT11_RSSI_RANGE {
+unsafe impl ::windows::core::Abi for DOT11_RSSI_RANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6884,7 +6836,7 @@ impl ::core::cmp::PartialEq for DOT11_SCAN_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_SCAN_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_SCAN_REQUEST {
+unsafe impl ::windows::core::Abi for DOT11_SCAN_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6958,7 +6910,7 @@ impl ::core::cmp::PartialEq for DOT11_SCAN_REQUEST_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_SCAN_REQUEST_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_SCAN_REQUEST_V2 {
+unsafe impl ::windows::core::Abi for DOT11_SCAN_REQUEST_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -6974,7 +6926,7 @@ impl ::core::convert::From<i32> for DOT11_SCAN_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_SCAN_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_SCAN_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7031,7 +6983,7 @@ impl ::core::cmp::PartialEq for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETER
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7086,7 +7038,7 @@ impl ::core::cmp::PartialEq for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7162,7 +7114,7 @@ impl ::core::cmp::PartialEq for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7238,7 +7190,7 @@ impl ::core::cmp::PartialEq for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7311,7 +7263,7 @@ impl ::core::cmp::PartialEq for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7364,7 +7316,7 @@ impl ::core::cmp::PartialEq for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETER
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7413,7 +7365,7 @@ impl ::core::cmp::PartialEq for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETE
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7446,7 +7398,7 @@ impl ::core::cmp::PartialEq for DOT11_SSID {
     }
 }
 impl ::core::cmp::Eq for DOT11_SSID {}
-unsafe impl ::windows::runtime::Abi for DOT11_SSID {
+unsafe impl ::windows::core::Abi for DOT11_SSID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7482,7 +7434,7 @@ impl ::core::cmp::PartialEq for DOT11_SSID_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_SSID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_SSID_LIST {
+unsafe impl ::windows::core::Abi for DOT11_SSID_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7515,7 +7467,7 @@ impl ::core::cmp::PartialEq for DOT11_START_REQUEST {
     }
 }
 impl ::core::cmp::Eq for DOT11_START_REQUEST {}
-unsafe impl ::windows::runtime::Abi for DOT11_START_REQUEST {
+unsafe impl ::windows::core::Abi for DOT11_START_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7562,7 +7514,7 @@ impl ::core::cmp::PartialEq for DOT11_STATISTICS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_STATISTICS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_STATISTICS {
+unsafe impl ::windows::core::Abi for DOT11_STATISTICS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7607,7 +7559,7 @@ impl ::core::cmp::PartialEq for DOT11_STATUS_INDICATION {
     }
 }
 impl ::core::cmp::Eq for DOT11_STATUS_INDICATION {}
-unsafe impl ::windows::runtime::Abi for DOT11_STATUS_INDICATION {
+unsafe impl ::windows::core::Abi for DOT11_STATUS_INDICATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7675,7 +7627,7 @@ impl ::core::cmp::PartialEq for DOT11_STOP_AP_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_STOP_AP_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_STOP_AP_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_STOP_AP_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7721,7 +7673,7 @@ impl ::core::cmp::PartialEq for DOT11_SUPPORTED_ANTENNA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_SUPPORTED_ANTENNA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_ANTENNA {
+unsafe impl ::windows::core::Abi for DOT11_SUPPORTED_ANTENNA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7756,7 +7708,7 @@ impl ::core::cmp::PartialEq for DOT11_SUPPORTED_ANTENNA_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_SUPPORTED_ANTENNA_LIST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_ANTENNA_LIST {
+unsafe impl ::windows::core::Abi for DOT11_SUPPORTED_ANTENNA_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7783,7 +7735,7 @@ impl ::core::cmp::PartialEq for DOT11_SUPPORTED_DATA_RATES_VALUE {
     }
 }
 impl ::core::cmp::Eq for DOT11_SUPPORTED_DATA_RATES_VALUE {}
-unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_DATA_RATES_VALUE {
+unsafe impl ::windows::core::Abi for DOT11_SUPPORTED_DATA_RATES_VALUE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7810,7 +7762,7 @@ impl ::core::cmp::PartialEq for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     }
 }
 impl ::core::cmp::Eq for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {}
-unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
+unsafe impl ::windows::core::Abi for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7836,7 +7788,7 @@ impl ::core::cmp::PartialEq for DOT11_SUPPORTED_DSSS_CHANNEL {
     }
 }
 impl ::core::cmp::Eq for DOT11_SUPPORTED_DSSS_CHANNEL {}
-unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_DSSS_CHANNEL {
+unsafe impl ::windows::core::Abi for DOT11_SUPPORTED_DSSS_CHANNEL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7864,7 +7816,7 @@ impl ::core::cmp::PartialEq for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     }
 }
 impl ::core::cmp::Eq for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {}
-unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
+unsafe impl ::windows::core::Abi for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7890,7 +7842,7 @@ impl ::core::cmp::PartialEq for DOT11_SUPPORTED_OFDM_FREQUENCY {
     }
 }
 impl ::core::cmp::Eq for DOT11_SUPPORTED_OFDM_FREQUENCY {}
-unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_OFDM_FREQUENCY {
+unsafe impl ::windows::core::Abi for DOT11_SUPPORTED_OFDM_FREQUENCY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7918,7 +7870,7 @@ impl ::core::cmp::PartialEq for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     }
 }
 impl ::core::cmp::Eq for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {}
-unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
+unsafe impl ::windows::core::Abi for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7946,7 +7898,7 @@ impl ::core::cmp::PartialEq for DOT11_SUPPORTED_PHY_TYPES {
     }
 }
 impl ::core::cmp::Eq for DOT11_SUPPORTED_PHY_TYPES {}
-unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_PHY_TYPES {
+unsafe impl ::windows::core::Abi for DOT11_SUPPORTED_PHY_TYPES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7973,7 +7925,7 @@ impl ::core::cmp::PartialEq for DOT11_SUPPORTED_POWER_LEVELS {
     }
 }
 impl ::core::cmp::Eq for DOT11_SUPPORTED_POWER_LEVELS {}
-unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_POWER_LEVELS {
+unsafe impl ::windows::core::Abi for DOT11_SUPPORTED_POWER_LEVELS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -7988,7 +7940,7 @@ impl ::core::convert::From<i32> for DOT11_TEMP_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_TEMP_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_TEMP_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8024,7 +7976,7 @@ impl ::core::cmp::PartialEq for DOT11_TKIPMIC_FAILURE_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_TKIPMIC_FAILURE_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_TKIPMIC_FAILURE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_TKIPMIC_FAILURE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8054,7 +8006,7 @@ impl ::core::cmp::PartialEq for DOT11_UPDATE_IE {
     }
 }
 impl ::core::cmp::Eq for DOT11_UPDATE_IE {}
-unsafe impl ::windows::runtime::Abi for DOT11_UPDATE_IE {
+unsafe impl ::windows::core::Abi for DOT11_UPDATE_IE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8068,7 +8020,7 @@ impl ::core::convert::From<i32> for DOT11_UPDATE_IE_OP {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_UPDATE_IE_OP {
+unsafe impl ::windows::core::Abi for DOT11_UPDATE_IE_OP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8095,7 +8047,7 @@ impl ::core::cmp::PartialEq for DOT11_VENUEINFO {
     }
 }
 impl ::core::cmp::Eq for DOT11_VENUEINFO {}
-unsafe impl ::windows::runtime::Abi for DOT11_VENUEINFO {
+unsafe impl ::windows::core::Abi for DOT11_VENUEINFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8130,7 +8082,7 @@ impl ::core::cmp::PartialEq for DOT11_VWIFI_ATTRIBUTES {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_VWIFI_ATTRIBUTES {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_VWIFI_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for DOT11_VWIFI_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8168,7 +8120,7 @@ impl ::core::cmp::PartialEq for DOT11_VWIFI_COMBINATION {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_VWIFI_COMBINATION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_VWIFI_COMBINATION {
+unsafe impl ::windows::core::Abi for DOT11_VWIFI_COMBINATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8211,7 +8163,7 @@ impl ::core::cmp::PartialEq for DOT11_VWIFI_COMBINATION_V2 {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_VWIFI_COMBINATION_V2 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_VWIFI_COMBINATION_V2 {
+unsafe impl ::windows::core::Abi for DOT11_VWIFI_COMBINATION_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8256,7 +8208,7 @@ impl ::core::cmp::PartialEq for DOT11_VWIFI_COMBINATION_V3 {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_VWIFI_COMBINATION_V3 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_VWIFI_COMBINATION_V3 {
+unsafe impl ::windows::core::Abi for DOT11_VWIFI_COMBINATION_V3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8333,7 +8285,7 @@ impl ::core::cmp::PartialEq for DOT11_WEP_OFFLOAD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_WEP_OFFLOAD {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_WEP_OFFLOAD {
+unsafe impl ::windows::core::Abi for DOT11_WEP_OFFLOAD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8378,7 +8330,7 @@ impl ::core::cmp::PartialEq for DOT11_WEP_UPLOAD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_WEP_UPLOAD {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_WEP_UPLOAD {
+unsafe impl ::windows::core::Abi for DOT11_WEP_UPLOAD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8425,7 +8377,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_ADDITIONAL_IE {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_WFD_ADDITIONAL_IE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_ADDITIONAL_IE {
+unsafe impl ::windows::core::Abi for DOT11_WFD_ADDITIONAL_IE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8456,7 +8408,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8483,7 +8435,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_ADVERTISED_SERVICE_LIST {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_ADVERTISED_SERVICE_LIST {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_ADVERTISED_SERVICE_LIST {
+unsafe impl ::windows::core::Abi for DOT11_WFD_ADVERTISED_SERVICE_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8510,7 +8462,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_ADVERTISEMENT_ID {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_ADVERTISEMENT_ID {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_ADVERTISEMENT_ID {
+unsafe impl ::windows::core::Abi for DOT11_WFD_ADVERTISEMENT_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8591,7 +8543,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_ATTRIBUTES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_WFD_ATTRIBUTES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for DOT11_WFD_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8621,7 +8573,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_CHANNEL {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_CHANNEL {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_CHANNEL {
+unsafe impl ::windows::core::Abi for DOT11_WFD_CHANNEL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8648,7 +8600,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_CONFIGURATION_TIMEOUT {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_CONFIGURATION_TIMEOUT {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_CONFIGURATION_TIMEOUT {
+unsafe impl ::windows::core::Abi for DOT11_WFD_CONFIGURATION_TIMEOUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8708,7 +8660,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
+unsafe impl ::windows::core::Abi for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8760,7 +8712,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_DEVICE_ENTRY {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_DEVICE_ENTRY {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_DEVICE_ENTRY {
+unsafe impl ::windows::core::Abi for DOT11_WFD_DEVICE_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8799,7 +8751,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_DEVICE_INFO {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_WFD_DEVICE_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_DEVICE_INFO {
+unsafe impl ::windows::core::Abi for DOT11_WFD_DEVICE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8835,7 +8787,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_WFD_DEVICE_LISTEN_CHANNEL {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
+unsafe impl ::windows::core::Abi for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8867,7 +8819,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_DEVICE_TYPE {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_DEVICE_TYPE {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_DEVICE_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_WFD_DEVICE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8914,7 +8866,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -8944,7 +8896,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_DISCOVER_DEVICE_FILTER {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_DISCOVER_DEVICE_FILTER {
+unsafe impl ::windows::core::Abi for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8995,7 +8947,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_DISCOVER_REQUEST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_WFD_DISCOVER_REQUEST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_DISCOVER_REQUEST {
+unsafe impl ::windows::core::Abi for DOT11_WFD_DISCOVER_REQUEST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9014,7 +8966,7 @@ impl ::core::convert::From<i32> for DOT11_WFD_DISCOVER_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_DISCOVER_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_WFD_DISCOVER_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9040,7 +8992,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_GO_INTENT {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_GO_INTENT {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_GO_INTENT {
+unsafe impl ::windows::core::Abi for DOT11_WFD_GO_INTENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9087,7 +9039,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_GROUP_ID {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_GROUP_ID {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_GROUP_ID {
+unsafe impl ::windows::core::Abi for DOT11_WFD_GROUP_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9124,7 +9076,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_GROUP_JOIN_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_WFD_GROUP_JOIN_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_GROUP_JOIN_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_WFD_GROUP_JOIN_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9173,7 +9125,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
+unsafe impl ::windows::core::Abi for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9233,7 +9185,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
+unsafe impl ::windows::core::Abi for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9267,7 +9219,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_GROUP_START_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_WFD_GROUP_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_GROUP_START_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_WFD_GROUP_START_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9295,7 +9247,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_INVITATION_FLAGS {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_INVITATION_FLAGS {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_INVITATION_FLAGS {
+unsafe impl ::windows::core::Abi for DOT11_WFD_INVITATION_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9320,7 +9272,7 @@ impl ::core::convert::From<i32> for DOT11_WFD_SCAN_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_SCAN_TYPE {
+unsafe impl ::windows::core::Abi for DOT11_WFD_SCAN_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9356,7 +9308,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::Eq for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
+unsafe impl ::windows::core::Abi for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9385,7 +9337,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_SERVICE_HASH_LIST {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_SERVICE_HASH_LIST {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_SERVICE_HASH_LIST {
+unsafe impl ::windows::core::Abi for DOT11_WFD_SERVICE_HASH_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9416,7 +9368,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_SESSION_ID {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_SESSION_ID {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_SESSION_ID {
+unsafe impl ::windows::core::Abi for DOT11_WFD_SESSION_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9443,7 +9395,7 @@ impl ::core::cmp::PartialEq for DOT11_WFD_SESSION_INFO {
     }
 }
 impl ::core::cmp::Eq for DOT11_WFD_SESSION_INFO {}
-unsafe impl ::windows::runtime::Abi for DOT11_WFD_SESSION_INFO {
+unsafe impl ::windows::core::Abi for DOT11_WFD_SESSION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9501,7 +9453,7 @@ impl ::core::cmp::PartialEq for DOT11_WME_AC_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for DOT11_WME_AC_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for DOT11_WME_AC_PARAMETERS {
+unsafe impl ::windows::core::Abi for DOT11_WME_AC_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9541,7 +9493,7 @@ impl ::core::cmp::PartialEq for DOT11_WME_UPDATE_IE {
     }
 }
 impl ::core::cmp::Eq for DOT11_WME_UPDATE_IE {}
-unsafe impl ::windows::runtime::Abi for DOT11_WME_UPDATE_IE {
+unsafe impl ::windows::core::Abi for DOT11_WME_UPDATE_IE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9577,7 +9529,7 @@ impl ::core::cmp::PartialEq for DOT11_WPA_TSC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11_WPA_TSC {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DOT11_WPA_TSC {
+unsafe impl ::windows::core::Abi for DOT11_WPA_TSC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9596,7 +9548,7 @@ impl ::core::convert::From<i32> for DOT11_WPS_CONFIG_METHOD {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_WPS_CONFIG_METHOD {
+unsafe impl ::windows::core::Abi for DOT11_WPS_CONFIG_METHOD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9623,7 +9575,7 @@ impl ::core::cmp::PartialEq for DOT11_WPS_DEVICE_NAME {
     }
 }
 impl ::core::cmp::Eq for DOT11_WPS_DEVICE_NAME {}
-unsafe impl ::windows::runtime::Abi for DOT11_WPS_DEVICE_NAME {
+unsafe impl ::windows::core::Abi for DOT11_WPS_DEVICE_NAME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9647,7 +9599,7 @@ impl ::core::convert::From<i32> for DOT11_WPS_DEVICE_PASSWORD_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DOT11_WPS_DEVICE_PASSWORD_ID {
+unsafe impl ::windows::core::Abi for DOT11_WPS_DEVICE_PASSWORD_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -9838,649 +9790,649 @@ pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_266Mhz: u32 = 16u32;
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_533Mhz: u32 = 32u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_66Mhz: u32 = 4u32;
-pub const Dot11AdHocManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xdd06a84f_83bd_4d01_8ab9_2389fea0869e);
-pub const GUID_AEPSERVICE_WIFIDIRECT_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xcc29827c_9caf_4928_99a9_18f7c2381389);
-pub const GUID_DEVINTERFACE_ASP_INFRA_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xff823995_7a72_4c80_8757_c67ee13d1a49);
-pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x439b20af_8955_405b_99f0_a62af0c68d43);
+pub const Dot11AdHocManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd06a84f_83bd_4d01_8ab9_2389fea0869e);
+pub const GUID_AEPSERVICE_WIFIDIRECT_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc29827c_9caf_4928_99a9_18f7c2381389);
+pub const GUID_DEVINTERFACE_ASP_INFRA_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff823995_7a72_4c80_8757_c67ee13d1a49);
+pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x439b20af_8955_405b_99f0_a62af0c68d43);
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDot11AdHocInterface(pub ::windows::runtime::IUnknown);
+pub struct IDot11AdHocInterface(pub ::windows::core::IUnknown);
 impl IDot11AdHocInterface {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetDeviceSignature(&self, psignature: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(psignature)).ok()
+    pub unsafe fn GetDeviceSignature(&self, psignature: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(psignature)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
-    pub unsafe fn GetFriendlyName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetFriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn IsDot11d(&self, pf11d: *mut u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pf11d)).ok()
+    pub unsafe fn IsDot11d(&self, pf11d: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pf11d)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn IsAdHocCapable(&self, pfadhoccapable: *mut u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfadhoccapable)).ok()
+    pub unsafe fn IsAdHocCapable(&self, pfadhoccapable: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfadhoccapable)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn IsRadioOn(&self, pfisradioon: *mut u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfisradioon)).ok()
+    pub unsafe fn IsRadioOn(&self, pfisradioon: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfisradioon)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetActiveNetwork(&self) -> ::windows::runtime::Result<IDot11AdHocNetwork> {
-        let mut result__: <IDot11AdHocNetwork as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDot11AdHocNetwork>(result__)
+    pub unsafe fn GetActiveNetwork(&self) -> ::windows::core::Result<IDot11AdHocNetwork> {
+        let mut result__: <IDot11AdHocNetwork as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDot11AdHocNetwork>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetIEnumSecuritySettings(&self) -> ::windows::runtime::Result<IEnumDot11AdHocSecuritySettings> {
-        let mut result__: <IEnumDot11AdHocSecuritySettings as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDot11AdHocSecuritySettings>(result__)
+    pub unsafe fn GetIEnumSecuritySettings(&self) -> ::windows::core::Result<IEnumDot11AdHocSecuritySettings> {
+        let mut result__: <IEnumDot11AdHocSecuritySettings as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDot11AdHocSecuritySettings>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pfilterguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IEnumDot11AdHocNetworks> {
-        let mut result__: <IEnumDot11AdHocNetworks as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilterguid), &mut result__).from_abi::<IEnumDot11AdHocNetworks>(result__)
+    pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pfilterguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks> {
+        let mut result__: <IEnumDot11AdHocNetworks as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilterguid), &mut result__).from_abi::<IEnumDot11AdHocNetworks>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetStatus(&self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstate)).ok()
+    pub unsafe fn GetStatus(&self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstate)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDot11AdHocInterface {
+unsafe impl ::windows::core::Interface for IDot11AdHocInterface {
     type Vtable = IDot11AdHocInterface_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2b_cf0d_42a0_acbe_e2de7007384d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2b_cf0d_42a0_acbe_e2de7007384d);
 }
-impl ::core::convert::From<IDot11AdHocInterface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDot11AdHocInterface> for ::windows::core::IUnknown {
     fn from(value: IDot11AdHocInterface) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDot11AdHocInterface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDot11AdHocInterface> for ::windows::core::IUnknown {
     fn from(value: &IDot11AdHocInterface) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocInterface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDot11AdHocInterface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDot11AdHocInterface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDot11AdHocInterface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocInterface_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psignature: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psignature: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pf11d: *mut u8) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfadhoccapable: *mut u8) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfisradioon: *mut u8) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppnetwork: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfilterguid: *const ::windows::runtime::GUID, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pf11d: *mut u8) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pfadhoccapable: *mut u8) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pfisradioon: *mut u8) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pfilterguid: *const ::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDot11AdHocInterfaceNotificationSink(pub ::windows::runtime::IUnknown);
+pub struct IDot11AdHocInterfaceNotificationSink(pub ::windows::core::IUnknown);
 impl IDot11AdHocInterfaceNotificationSink {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn OnConnectionStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
+    pub unsafe fn OnConnectionStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDot11AdHocInterfaceNotificationSink {
+unsafe impl ::windows::core::Interface for IDot11AdHocInterfaceNotificationSink {
     type Vtable = IDot11AdHocInterfaceNotificationSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2f_cf0d_42a0_acbe_e2de7007384d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2f_cf0d_42a0_acbe_e2de7007384d);
 }
-impl ::core::convert::From<IDot11AdHocInterfaceNotificationSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDot11AdHocInterfaceNotificationSink> for ::windows::core::IUnknown {
     fn from(value: IDot11AdHocInterfaceNotificationSink) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDot11AdHocInterfaceNotificationSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDot11AdHocInterfaceNotificationSink> for ::windows::core::IUnknown {
     fn from(value: &IDot11AdHocInterfaceNotificationSink) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocInterfaceNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDot11AdHocInterfaceNotificationSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDot11AdHocInterfaceNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDot11AdHocInterfaceNotificationSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocInterfaceNotificationSink_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDot11AdHocManager(pub ::windows::runtime::IUnknown);
+pub struct IDot11AdHocManager(pub ::windows::core::IUnknown);
 impl IDot11AdHocManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
-    pub unsafe fn CreateNetwork<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IDot11AdHocInterface>, Param4: ::windows::runtime::IntoParam<'a, IDot11AdHocSecuritySettings>>(
+    pub unsafe fn CreateNetwork<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IDot11AdHocInterface>, Param4: ::windows::core::IntoParam<'a, IDot11AdHocSecuritySettings>>(
         &self,
         name: Param0,
         password: Param1,
         geographicalid: i32,
         pinterface: Param3,
         psecurity: Param4,
-        pcontextguid: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<IDot11AdHocNetwork> {
-        let mut result__: <IDot11AdHocNetwork as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), name.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(geographicalid), pinterface.into_param().abi(), psecurity.into_param().abi(), ::core::mem::transmute(pcontextguid), &mut result__).from_abi::<IDot11AdHocNetwork>(result__)
+        pcontextguid: *const ::windows::core::GUID,
+    ) -> ::windows::core::Result<IDot11AdHocNetwork> {
+        let mut result__: <IDot11AdHocNetwork as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), name.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(geographicalid), pinterface.into_param().abi(), psecurity.into_param().abi(), ::core::mem::transmute(pcontextguid), &mut result__).from_abi::<IDot11AdHocNetwork>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
-    pub unsafe fn CommitCreatedNetwork<'a, Param0: ::windows::runtime::IntoParam<'a, IDot11AdHocNetwork>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(&self, piadhoc: Param0, fsaveprofile: Param1, fmakesavedprofileuserspecific: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), piadhoc.into_param().abi(), fsaveprofile.into_param().abi(), fmakesavedprofileuserspecific.into_param().abi()).ok()
+    pub unsafe fn CommitCreatedNetwork<'a, Param0: ::windows::core::IntoParam<'a, IDot11AdHocNetwork>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(&self, piadhoc: Param0, fsaveprofile: Param1, fmakesavedprofileuserspecific: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), piadhoc.into_param().abi(), fsaveprofile.into_param().abi(), fmakesavedprofileuserspecific.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pcontextguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IEnumDot11AdHocNetworks> {
-        let mut result__: <IEnumDot11AdHocNetworks as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcontextguid), &mut result__).from_abi::<IEnumDot11AdHocNetworks>(result__)
+    pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks> {
+        let mut result__: <IEnumDot11AdHocNetworks as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcontextguid), &mut result__).from_abi::<IEnumDot11AdHocNetworks>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetIEnumDot11AdHocInterfaces(&self) -> ::windows::runtime::Result<IEnumDot11AdHocInterfaces> {
-        let mut result__: <IEnumDot11AdHocInterfaces as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDot11AdHocInterfaces>(result__)
+    pub unsafe fn GetIEnumDot11AdHocInterfaces(&self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces> {
+        let mut result__: <IEnumDot11AdHocInterfaces as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDot11AdHocInterfaces>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetNetwork(&self, networksignature: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IDot11AdHocNetwork> {
-        let mut result__: <IDot11AdHocNetwork as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(networksignature), &mut result__).from_abi::<IDot11AdHocNetwork>(result__)
+    pub unsafe fn GetNetwork(&self, networksignature: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork> {
+        let mut result__: <IDot11AdHocNetwork as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(networksignature), &mut result__).from_abi::<IDot11AdHocNetwork>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IDot11AdHocManager {
+unsafe impl ::windows::core::Interface for IDot11AdHocManager {
     type Vtable = IDot11AdHocManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc26_cf0d_42a0_acbe_e2de7007384d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc26_cf0d_42a0_acbe_e2de7007384d);
 }
-impl ::core::convert::From<IDot11AdHocManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDot11AdHocManager> for ::windows::core::IUnknown {
     fn from(value: IDot11AdHocManager) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDot11AdHocManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDot11AdHocManager> for ::windows::core::IUnknown {
     fn from(value: &IDot11AdHocManager) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDot11AdHocManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDot11AdHocManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDot11AdHocManager {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocManager_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: ::windows::runtime::RawPtr, psecurity: ::windows::runtime::RawPtr, pcontextguid: *const ::windows::runtime::GUID, piadhoc: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: ::windows::core::RawPtr, psecurity: ::windows::core::RawPtr, pcontextguid: *const ::windows::core::GUID, piadhoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piadhoc: ::windows::runtime::RawPtr, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, piadhoc: ::windows::core::RawPtr, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcontextguid: *const ::windows::runtime::GUID, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, networksignature: *const ::windows::runtime::GUID, pnetwork: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcontextguid: *const ::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, networksignature: *const ::windows::core::GUID, pnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDot11AdHocManagerNotificationSink(pub ::windows::runtime::IUnknown);
+pub struct IDot11AdHocManagerNotificationSink(pub ::windows::core::IUnknown);
 impl IDot11AdHocManagerNotificationSink {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn OnNetworkAdd<'a, Param0: ::windows::runtime::IntoParam<'a, IDot11AdHocNetwork>>(&self, piadhocnetwork: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), piadhocnetwork.into_param().abi()).ok()
+    pub unsafe fn OnNetworkAdd<'a, Param0: ::windows::core::IntoParam<'a, IDot11AdHocNetwork>>(&self, piadhocnetwork: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), piadhocnetwork.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn OnNetworkRemove(&self, signature: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(signature)).ok()
+    pub unsafe fn OnNetworkRemove(&self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(signature)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn OnInterfaceAdd<'a, Param0: ::windows::runtime::IntoParam<'a, IDot11AdHocInterface>>(&self, piadhocinterface: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), piadhocinterface.into_param().abi()).ok()
+    pub unsafe fn OnInterfaceAdd<'a, Param0: ::windows::core::IntoParam<'a, IDot11AdHocInterface>>(&self, piadhocinterface: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), piadhocinterface.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn OnInterfaceRemove(&self, signature: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(signature)).ok()
+    pub unsafe fn OnInterfaceRemove(&self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(signature)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDot11AdHocManagerNotificationSink {
+unsafe impl ::windows::core::Interface for IDot11AdHocManagerNotificationSink {
     type Vtable = IDot11AdHocManagerNotificationSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc27_cf0d_42a0_acbe_e2de7007384d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc27_cf0d_42a0_acbe_e2de7007384d);
 }
-impl ::core::convert::From<IDot11AdHocManagerNotificationSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDot11AdHocManagerNotificationSink> for ::windows::core::IUnknown {
     fn from(value: IDot11AdHocManagerNotificationSink) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDot11AdHocManagerNotificationSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDot11AdHocManagerNotificationSink> for ::windows::core::IUnknown {
     fn from(value: &IDot11AdHocManagerNotificationSink) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocManagerNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDot11AdHocManagerNotificationSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDot11AdHocManagerNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDot11AdHocManagerNotificationSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocManagerNotificationSink_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piadhocnetwork: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signature: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piadhocinterface: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signature: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, piadhocnetwork: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signature: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, piadhocinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, signature: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDot11AdHocNetwork(pub ::windows::runtime::IUnknown);
+pub struct IDot11AdHocNetwork(pub ::windows::core::IUnknown);
 impl IDot11AdHocNetwork {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
+    pub unsafe fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
-    pub unsafe fn GetSSID(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetSSID(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn HasProfile(&self, pf11d: *mut u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pf11d)).ok()
+    pub unsafe fn HasProfile(&self, pf11d: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pf11d)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
-    pub unsafe fn GetProfileName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetProfileName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn DeleteProfile(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn DeleteProfile(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetSignalQuality(&self, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pustrengthvalue), ::core::mem::transmute(pustrengthmax)).ok()
+    pub unsafe fn GetSignalQuality(&self, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pustrengthvalue), ::core::mem::transmute(pustrengthmax)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetSecuritySetting(&self) -> ::windows::runtime::Result<IDot11AdHocSecuritySettings> {
-        let mut result__: <IDot11AdHocSecuritySettings as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDot11AdHocSecuritySettings>(result__)
+    pub unsafe fn GetSecuritySetting(&self) -> ::windows::core::Result<IDot11AdHocSecuritySettings> {
+        let mut result__: <IDot11AdHocSecuritySettings as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDot11AdHocSecuritySettings>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetContextGuid(&self, pcontextguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcontextguid)).ok()
+    pub unsafe fn GetContextGuid(&self, pcontextguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcontextguid)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetSignature(&self, psignature: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(psignature)).ok()
+    pub unsafe fn GetSignature(&self, psignature: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(psignature)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetInterface(&self) -> ::windows::runtime::Result<IDot11AdHocInterface> {
-        let mut result__: <IDot11AdHocInterface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDot11AdHocInterface>(result__)
+    pub unsafe fn GetInterface(&self) -> ::windows::core::Result<IDot11AdHocInterface> {
+        let mut result__: <IDot11AdHocInterface as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDot11AdHocInterface>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
-    pub unsafe fn Connect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(&self, passphrase: Param0, geographicalid: i32, fsaveprofile: Param2, fmakesavedprofileuserspecific: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), passphrase.into_param().abi(), ::core::mem::transmute(geographicalid), fsaveprofile.into_param().abi(), fmakesavedprofileuserspecific.into_param().abi()).ok()
+    pub unsafe fn Connect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(&self, passphrase: Param0, geographicalid: i32, fsaveprofile: Param2, fmakesavedprofileuserspecific: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), passphrase.into_param().abi(), ::core::mem::transmute(geographicalid), fsaveprofile.into_param().abi(), fmakesavedprofileuserspecific.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Disconnect(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDot11AdHocNetwork {
+unsafe impl ::windows::core::Interface for IDot11AdHocNetwork {
     type Vtable = IDot11AdHocNetwork_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc29_cf0d_42a0_acbe_e2de7007384d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc29_cf0d_42a0_acbe_e2de7007384d);
 }
-impl ::core::convert::From<IDot11AdHocNetwork> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDot11AdHocNetwork> for ::windows::core::IUnknown {
     fn from(value: IDot11AdHocNetwork) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDot11AdHocNetwork> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDot11AdHocNetwork> for ::windows::core::IUnknown {
     fn from(value: &IDot11AdHocNetwork) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocNetwork {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDot11AdHocNetwork {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDot11AdHocNetwork {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDot11AdHocNetwork {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocNetwork_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszwssid: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszwssid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pf11d: *mut u8) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszwprofilename: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pf11d: *mut u8) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszwprofilename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, padhocsecuritysetting: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcontextguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psignature: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, padhocinterface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, passphrase: super::super::Foundation::PWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, padhocsecuritysetting: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcontextguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psignature: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, padhocinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, passphrase: super::super::Foundation::PWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDot11AdHocNetworkNotificationSink(pub ::windows::runtime::IUnknown);
+pub struct IDot11AdHocNetworkNotificationSink(pub ::windows::core::IUnknown);
 impl IDot11AdHocNetworkNotificationSink {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn OnStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
+    pub unsafe fn OnStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(estatus)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn OnConnectFail(&self, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(efailreason)).ok()
+    pub unsafe fn OnConnectFail(&self, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(efailreason)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDot11AdHocNetworkNotificationSink {
+unsafe impl ::windows::core::Interface for IDot11AdHocNetworkNotificationSink {
     type Vtable = IDot11AdHocNetworkNotificationSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2a_cf0d_42a0_acbe_e2de7007384d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2a_cf0d_42a0_acbe_e2de7007384d);
 }
-impl ::core::convert::From<IDot11AdHocNetworkNotificationSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDot11AdHocNetworkNotificationSink> for ::windows::core::IUnknown {
     fn from(value: IDot11AdHocNetworkNotificationSink) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDot11AdHocNetworkNotificationSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDot11AdHocNetworkNotificationSink> for ::windows::core::IUnknown {
     fn from(value: &IDot11AdHocNetworkNotificationSink) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocNetworkNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDot11AdHocNetworkNotificationSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDot11AdHocNetworkNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDot11AdHocNetworkNotificationSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocNetworkNotificationSink_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDot11AdHocSecuritySettings(pub ::windows::runtime::IUnknown);
+pub struct IDot11AdHocSecuritySettings(pub ::windows::core::IUnknown);
 impl IDot11AdHocSecuritySettings {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetDot11AuthAlgorithm(&self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pauth)).ok()
+    pub unsafe fn GetDot11AuthAlgorithm(&self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pauth)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn GetDot11CipherAlgorithm(&self, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcipher)).ok()
+    pub unsafe fn GetDot11CipherAlgorithm(&self, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcipher)).ok()
     }
 }
-unsafe impl ::windows::runtime::Interface for IDot11AdHocSecuritySettings {
+unsafe impl ::windows::core::Interface for IDot11AdHocSecuritySettings {
     type Vtable = IDot11AdHocSecuritySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2e_cf0d_42a0_acbe_e2de7007384d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2e_cf0d_42a0_acbe_e2de7007384d);
 }
-impl ::core::convert::From<IDot11AdHocSecuritySettings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDot11AdHocSecuritySettings> for ::windows::core::IUnknown {
     fn from(value: IDot11AdHocSecuritySettings) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IDot11AdHocSecuritySettings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDot11AdHocSecuritySettings> for ::windows::core::IUnknown {
     fn from(value: &IDot11AdHocSecuritySettings) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDot11AdHocSecuritySettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDot11AdHocSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDot11AdHocSecuritySettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocSecuritySettings_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IEnumDot11AdHocInterfaces(pub ::windows::runtime::IUnknown);
+pub struct IEnumDot11AdHocInterfaces(pub ::windows::core::IUnknown);
 impl IEnumDot11AdHocInterfaces {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocInterface>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocInterface>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumDot11AdHocInterfaces> {
-        let mut result__: <IEnumDot11AdHocInterfaces as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDot11AdHocInterfaces>(result__)
+    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces> {
+        let mut result__: <IEnumDot11AdHocInterfaces as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDot11AdHocInterfaces>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IEnumDot11AdHocInterfaces {
+unsafe impl ::windows::core::Interface for IEnumDot11AdHocInterfaces {
     type Vtable = IEnumDot11AdHocInterfaces_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2c_cf0d_42a0_acbe_e2de7007384d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2c_cf0d_42a0_acbe_e2de7007384d);
 }
-impl ::core::convert::From<IEnumDot11AdHocInterfaces> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumDot11AdHocInterfaces> for ::windows::core::IUnknown {
     fn from(value: IEnumDot11AdHocInterfaces) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IEnumDot11AdHocInterfaces> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumDot11AdHocInterfaces> for ::windows::core::IUnknown {
     fn from(value: &IEnumDot11AdHocInterfaces) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDot11AdHocInterfaces {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumDot11AdHocInterfaces {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumDot11AdHocInterfaces {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumDot11AdHocInterfaces {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDot11AdHocInterfaces_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, rgelt: *mut ::windows::runtime::RawPtr, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IEnumDot11AdHocNetworks(pub ::windows::runtime::IUnknown);
+pub struct IEnumDot11AdHocNetworks(pub ::windows::core::IUnknown);
 impl IEnumDot11AdHocNetworks {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocNetwork>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocNetwork>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumDot11AdHocNetworks> {
-        let mut result__: <IEnumDot11AdHocNetworks as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDot11AdHocNetworks>(result__)
+    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocNetworks> {
+        let mut result__: <IEnumDot11AdHocNetworks as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDot11AdHocNetworks>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IEnumDot11AdHocNetworks {
+unsafe impl ::windows::core::Interface for IEnumDot11AdHocNetworks {
     type Vtable = IEnumDot11AdHocNetworks_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc28_cf0d_42a0_acbe_e2de7007384d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc28_cf0d_42a0_acbe_e2de7007384d);
 }
-impl ::core::convert::From<IEnumDot11AdHocNetworks> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumDot11AdHocNetworks> for ::windows::core::IUnknown {
     fn from(value: IEnumDot11AdHocNetworks) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IEnumDot11AdHocNetworks> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumDot11AdHocNetworks> for ::windows::core::IUnknown {
     fn from(value: &IEnumDot11AdHocNetworks) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDot11AdHocNetworks {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumDot11AdHocNetworks {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumDot11AdHocNetworks {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumDot11AdHocNetworks {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDot11AdHocNetworks_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, rgelt: *mut ::windows::runtime::RawPtr, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IEnumDot11AdHocSecuritySettings(pub ::windows::runtime::IUnknown);
+pub struct IEnumDot11AdHocSecuritySettings(pub ::windows::core::IUnknown);
 impl IEnumDot11AdHocSecuritySettings {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocSecuritySettings>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocSecuritySettings>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
-    pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumDot11AdHocSecuritySettings> {
-        let mut result__: <IEnumDot11AdHocSecuritySettings as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDot11AdHocSecuritySettings>(result__)
+    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocSecuritySettings> {
+        let mut result__: <IEnumDot11AdHocSecuritySettings as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDot11AdHocSecuritySettings>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IEnumDot11AdHocSecuritySettings {
+unsafe impl ::windows::core::Interface for IEnumDot11AdHocSecuritySettings {
     type Vtable = IEnumDot11AdHocSecuritySettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x8f10cc2d_cf0d_42a0_acbe_e2de7007384d);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2d_cf0d_42a0_acbe_e2de7007384d);
 }
-impl ::core::convert::From<IEnumDot11AdHocSecuritySettings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumDot11AdHocSecuritySettings> for ::windows::core::IUnknown {
     fn from(value: IEnumDot11AdHocSecuritySettings) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IEnumDot11AdHocSecuritySettings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumDot11AdHocSecuritySettings> for ::windows::core::IUnknown {
     fn from(value: &IEnumDot11AdHocSecuritySettings) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDot11AdHocSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumDot11AdHocSecuritySettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumDot11AdHocSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumDot11AdHocSecuritySettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDot11AdHocSecuritySettings_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, rgelt: *mut ::windows::runtime::RawPtr, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, celt: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const L2_NOTIFICATION_CODE_GROUP_SIZE: u32 = 4096u32;
@@ -10492,7 +10444,7 @@ pub const L2_NOTIFICATION_CODE_PUBLIC_BEGIN: u32 = 0u32;
 pub struct L2_NOTIFICATION_DATA {
     pub NotificationSource: u32,
     pub NotificationCode: u32,
-    pub InterfaceGuid: ::windows::runtime::GUID,
+    pub InterfaceGuid: ::windows::core::GUID,
     pub dwDataSize: u32,
     pub pData: *mut ::core::ffi::c_void,
 }
@@ -10513,7 +10465,7 @@ impl ::core::cmp::PartialEq for L2_NOTIFICATION_DATA {
     }
 }
 impl ::core::cmp::Eq for L2_NOTIFICATION_DATA {}
-unsafe impl ::windows::runtime::Abi for L2_NOTIFICATION_DATA {
+unsafe impl ::windows::core::Abi for L2_NOTIFICATION_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10839,7 +10791,7 @@ impl ::core::convert::From<i32> for ONEX_AUTH_IDENTITY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ONEX_AUTH_IDENTITY {
+unsafe impl ::windows::core::Abi for ONEX_AUTH_IDENTITY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10894,7 +10846,7 @@ impl ::core::cmp::PartialEq for ONEX_AUTH_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ONEX_AUTH_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ONEX_AUTH_PARAMS {
+unsafe impl ::windows::core::Abi for ONEX_AUTH_PARAMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10915,7 +10867,7 @@ impl ::core::convert::From<i32> for ONEX_AUTH_RESTART_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ONEX_AUTH_RESTART_REASON {
+unsafe impl ::windows::core::Abi for ONEX_AUTH_RESTART_REASON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10933,7 +10885,7 @@ impl ::core::convert::From<i32> for ONEX_AUTH_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ONEX_AUTH_STATUS {
+unsafe impl ::windows::core::Abi for ONEX_AUTH_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10944,9 +10896,9 @@ pub struct ONEX_EAP_ERROR {
     pub dwWinError: u32,
     pub r#type: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE,
     pub dwReasonCode: u32,
-    pub rootCauseGuid: ::windows::runtime::GUID,
-    pub repairGuid: ::windows::runtime::GUID,
-    pub helpLinkGuid: ::windows::runtime::GUID,
+    pub rootCauseGuid: ::windows::core::GUID,
+    pub repairGuid: ::windows::core::GUID,
+    pub helpLinkGuid: ::windows::core::GUID,
     pub _bitfield: u32,
     pub RootCauseString: ONEX_VARIABLE_BLOB,
     pub RepairString: ONEX_VARIABLE_BLOB,
@@ -10984,7 +10936,7 @@ impl ::core::cmp::PartialEq for ONEX_EAP_ERROR {
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl ::core::cmp::Eq for ONEX_EAP_ERROR {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-unsafe impl ::windows::runtime::Abi for ONEX_EAP_ERROR {
+unsafe impl ::windows::core::Abi for ONEX_EAP_ERROR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10999,7 +10951,7 @@ impl ::core::convert::From<i32> for ONEX_EAP_METHOD_BACKEND_SUPPORT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ONEX_EAP_METHOD_BACKEND_SUPPORT {
+unsafe impl ::windows::core::Abi for ONEX_EAP_METHOD_BACKEND_SUPPORT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -11016,7 +10968,7 @@ impl ::core::convert::From<i32> for ONEX_NOTIFICATION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ONEX_NOTIFICATION_TYPE {
+unsafe impl ::windows::core::Abi for ONEX_NOTIFICATION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -11050,7 +11002,7 @@ impl ::core::convert::From<i32> for ONEX_REASON_CODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ONEX_REASON_CODE {
+unsafe impl ::windows::core::Abi for ONEX_REASON_CODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11088,7 +11040,7 @@ impl ::core::cmp::PartialEq for ONEX_RESULT_UPDATE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ONEX_RESULT_UPDATE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ONEX_RESULT_UPDATE_DATA {
+unsafe impl ::windows::core::Abi for ONEX_RESULT_UPDATE_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11116,7 +11068,7 @@ impl ::core::cmp::PartialEq for ONEX_STATUS {
     }
 }
 impl ::core::cmp::Eq for ONEX_STATUS {}
-unsafe impl ::windows::runtime::Abi for ONEX_STATUS {
+unsafe impl ::windows::core::Abi for ONEX_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11145,7 +11097,7 @@ impl ::core::cmp::PartialEq for ONEX_USER_INFO {
     }
 }
 impl ::core::cmp::Eq for ONEX_USER_INFO {}
-unsafe impl ::windows::runtime::Abi for ONEX_USER_INFO {
+unsafe impl ::windows::core::Abi for ONEX_USER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11172,13 +11124,13 @@ impl ::core::cmp::PartialEq for ONEX_VARIABLE_BLOB {
     }
 }
 impl ::core::cmp::Eq for ONEX_VARIABLE_BLOB {}
-unsafe impl ::windows::runtime::Abi for ONEX_VARIABLE_BLOB {
+unsafe impl ::windows::core::Abi for ONEX_VARIABLE_BLOB {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WFDCancelOpenSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionhandle: Param0) -> u32 {
+pub unsafe fn WFDCancelOpenSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11193,7 +11145,7 @@ pub unsafe fn WFDCancelOpenSession<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WFDCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0) -> u32 {
+pub unsafe fn WFDCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11208,7 +11160,7 @@ pub unsafe fn WFDCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WFDCloseSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionhandle: Param0) -> u32 {
+pub unsafe fn WFDCloseSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11238,12 +11190,12 @@ pub unsafe fn WFDOpenHandle(dwclientversion: u32, pdwnegotiatedversion: *mut u32
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WFDOpenLegacySession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, plegacymacaddress: *const *const u8, phsessionhandle: *mut super::super::Foundation::HANDLE, pguidsessioninterface: *mut ::windows::runtime::GUID) -> u32 {
+pub unsafe fn WFDOpenLegacySession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, plegacymacaddress: *const *const u8, phsessionhandle: *mut super::super::Foundation::HANDLE, pguidsessioninterface: *mut ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WFDOpenLegacySession(hclienthandle: super::super::Foundation::HANDLE, plegacymacaddress: *const *const u8, phsessionhandle: *mut super::super::Foundation::HANDLE, pguidsessioninterface: *mut ::windows::runtime::GUID) -> u32;
+            fn WFDOpenLegacySession(hclienthandle: super::super::Foundation::HANDLE, plegacymacaddress: *const *const u8, phsessionhandle: *mut super::super::Foundation::HANDLE, pguidsessioninterface: *mut ::windows::core::GUID) -> u32;
         }
         ::core::mem::transmute(WFDOpenLegacySession(hclienthandle.into_param().abi(), ::core::mem::transmute(plegacymacaddress), ::core::mem::transmute(phsessionhandle), ::core::mem::transmute(pguidsessioninterface)))
     }
@@ -11282,7 +11234,7 @@ impl ::core::cmp::PartialEq for WFDSVC_CONNECTION_CAPABILITY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WFDSVC_CONNECTION_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WFDSVC_CONNECTION_CAPABILITY {
+unsafe impl ::windows::core::Abi for WFDSVC_CONNECTION_CAPABILITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -11294,12 +11246,12 @@ pub const WFDSVC_CONNECTION_CAPABILITY_NEW: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WFDStartOpenSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pdeviceaddress: *const *const u8, pvcontext: *const ::core::ffi::c_void, pfncallback: ::core::option::Option<WFD_OPEN_SESSION_COMPLETE_CALLBACK>, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn WFDStartOpenSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pdeviceaddress: *const *const u8, pvcontext: *const ::core::ffi::c_void, pfncallback: ::core::option::Option<WFD_OPEN_SESSION_COMPLETE_CALLBACK>, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WFDStartOpenSession(hclienthandle: super::super::Foundation::HANDLE, pdeviceaddress: *const *const u8, pvcontext: *const ::core::ffi::c_void, pfncallback: ::windows::runtime::RawPtr, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn WFDStartOpenSession(hclienthandle: super::super::Foundation::HANDLE, pdeviceaddress: *const *const u8, pvcontext: *const ::core::ffi::c_void, pfncallback: ::windows::core::RawPtr, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(WFDStartOpenSession(hclienthandle.into_param().abi(), ::core::mem::transmute(pdeviceaddress), ::core::mem::transmute(pvcontext), ::core::mem::transmute(pfncallback), ::core::mem::transmute(phsessionhandle)))
     }
@@ -11348,12 +11300,12 @@ impl ::core::cmp::PartialEq for WFD_GROUP_ID {
     }
 }
 impl ::core::cmp::Eq for WFD_GROUP_ID {}
-unsafe impl ::windows::runtime::Abi for WFD_GROUP_ID {
+unsafe impl ::windows::core::Abi for WFD_GROUP_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::core::ffi::c_void, guidsessioninterface: ::windows::runtime::GUID, dwerror: u32, dwreasoncode: u32);
+pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::core::ffi::c_void, guidsessioninterface: ::windows::core::GUID, dwerror: u32, dwreasoncode: u32);
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -11368,7 +11320,7 @@ impl ::core::convert::From<i32> for WFD_ROLE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WFD_ROLE_TYPE {
+unsafe impl ::windows::core::Abi for WFD_ROLE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -11382,7 +11334,7 @@ impl ::core::convert::From<i32> for WLAN_ADHOC_NETWORK_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_ADHOC_NETWORK_STATE {
+unsafe impl ::windows::core::Abi for WLAN_ADHOC_NETWORK_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -11430,7 +11382,7 @@ impl ::core::cmp::PartialEq for WLAN_ASSOCIATION_ATTRIBUTES {
     }
 }
 impl ::core::cmp::Eq for WLAN_ASSOCIATION_ATTRIBUTES {}
-unsafe impl ::windows::runtime::Abi for WLAN_ASSOCIATION_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for WLAN_ASSOCIATION_ATTRIBUTES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11457,7 +11409,7 @@ impl ::core::cmp::PartialEq for WLAN_AUTH_CIPHER_PAIR_LIST {
     }
 }
 impl ::core::cmp::Eq for WLAN_AUTH_CIPHER_PAIR_LIST {}
-unsafe impl ::windows::runtime::Abi for WLAN_AUTH_CIPHER_PAIR_LIST {
+unsafe impl ::windows::core::Abi for WLAN_AUTH_CIPHER_PAIR_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -11477,7 +11429,7 @@ impl ::core::convert::From<i32> for WLAN_AUTOCONF_OPCODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_AUTOCONF_OPCODE {
+unsafe impl ::windows::core::Abi for WLAN_AUTOCONF_OPCODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11554,7 +11506,7 @@ impl ::core::cmp::PartialEq for WLAN_AVAILABLE_NETWORK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLAN_AVAILABLE_NETWORK {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLAN_AVAILABLE_NETWORK {
+unsafe impl ::windows::core::Abi for WLAN_AVAILABLE_NETWORK {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -11611,7 +11563,7 @@ impl ::core::cmp::PartialEq for WLAN_AVAILABLE_NETWORK_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLAN_AVAILABLE_NETWORK_LIST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLAN_AVAILABLE_NETWORK_LIST {
+unsafe impl ::windows::core::Abi for WLAN_AVAILABLE_NETWORK_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11646,7 +11598,7 @@ impl ::core::cmp::PartialEq for WLAN_AVAILABLE_NETWORK_LIST_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLAN_AVAILABLE_NETWORK_LIST_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLAN_AVAILABLE_NETWORK_LIST_V2 {
+unsafe impl ::windows::core::Abi for WLAN_AVAILABLE_NETWORK_LIST_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11732,7 +11684,7 @@ impl ::core::cmp::PartialEq for WLAN_AVAILABLE_NETWORK_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLAN_AVAILABLE_NETWORK_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLAN_AVAILABLE_NETWORK_V2 {
+unsafe impl ::windows::core::Abi for WLAN_AVAILABLE_NETWORK_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11812,7 +11764,7 @@ impl ::core::cmp::PartialEq for WLAN_BSS_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLAN_BSS_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLAN_BSS_ENTRY {
+unsafe impl ::windows::core::Abi for WLAN_BSS_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11847,7 +11799,7 @@ impl ::core::cmp::PartialEq for WLAN_BSS_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLAN_BSS_LIST {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLAN_BSS_LIST {
+unsafe impl ::windows::core::Abi for WLAN_BSS_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -11892,7 +11844,7 @@ impl ::core::cmp::PartialEq for WLAN_CONNECTION_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLAN_CONNECTION_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for WLAN_CONNECTION_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -11916,7 +11868,7 @@ impl ::core::convert::From<i32> for WLAN_CONNECTION_MODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_MODE {
+unsafe impl ::windows::core::Abi for WLAN_CONNECTION_MODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11965,7 +11917,7 @@ impl ::core::cmp::PartialEq for WLAN_CONNECTION_NOTIFICATION_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLAN_CONNECTION_NOTIFICATION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_NOTIFICATION_DATA {
+unsafe impl ::windows::core::Abi for WLAN_CONNECTION_NOTIFICATION_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -11979,7 +11931,7 @@ impl ::core::convert::From<u32> for WLAN_CONNECTION_NOTIFICATION_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_NOTIFICATION_FLAGS {
+unsafe impl ::windows::core::Abi for WLAN_CONNECTION_NOTIFICATION_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for WLAN_CONNECTION_NOTIFICATION_FLAGS {
@@ -12052,7 +12004,7 @@ impl ::core::cmp::PartialEq for WLAN_CONNECTION_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for WLAN_CONNECTION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_PARAMETERS {
+unsafe impl ::windows::core::Abi for WLAN_CONNECTION_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12101,7 +12053,7 @@ impl ::core::cmp::PartialEq for WLAN_CONNECTION_PARAMETERS_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::Eq for WLAN_CONNECTION_PARAMETERS_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_PARAMETERS_V2 {
+unsafe impl ::windows::core::Abi for WLAN_CONNECTION_PARAMETERS_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12134,7 +12086,7 @@ impl ::core::cmp::PartialEq for WLAN_COUNTRY_OR_REGION_STRING_LIST {
     }
 }
 impl ::core::cmp::Eq for WLAN_COUNTRY_OR_REGION_STRING_LIST {}
-unsafe impl ::windows::runtime::Abi for WLAN_COUNTRY_OR_REGION_STRING_LIST {
+unsafe impl ::windows::core::Abi for WLAN_COUNTRY_OR_REGION_STRING_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12143,7 +12095,7 @@ unsafe impl ::windows::runtime::Abi for WLAN_COUNTRY_OR_REGION_STRING_LIST {
 pub struct WLAN_DEVICE_SERVICE_GUID_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
-    pub DeviceService: [::windows::runtime::GUID; 1],
+    pub DeviceService: [::windows::core::GUID; 1],
 }
 impl WLAN_DEVICE_SERVICE_GUID_LIST {}
 impl ::core::default::Default for WLAN_DEVICE_SERVICE_GUID_LIST {
@@ -12162,14 +12114,14 @@ impl ::core::cmp::PartialEq for WLAN_DEVICE_SERVICE_GUID_LIST {
     }
 }
 impl ::core::cmp::Eq for WLAN_DEVICE_SERVICE_GUID_LIST {}
-unsafe impl ::windows::runtime::Abi for WLAN_DEVICE_SERVICE_GUID_LIST {
+unsafe impl ::windows::core::Abi for WLAN_DEVICE_SERVICE_GUID_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
-    pub DeviceService: ::windows::runtime::GUID,
+    pub DeviceService: ::windows::core::GUID,
     pub dwOpCode: u32,
     pub dwDataSize: u32,
     pub DataBlob: [u8; 1],
@@ -12191,7 +12143,7 @@ impl ::core::cmp::PartialEq for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
     }
 }
 impl ::core::cmp::Eq for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {}
-unsafe impl ::windows::runtime::Abi for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
+unsafe impl ::windows::core::Abi for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12207,7 +12159,7 @@ impl ::core::convert::From<i32> for WLAN_FILTER_LIST_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_FILTER_LIST_TYPE {
+unsafe impl ::windows::core::Abi for WLAN_FILTER_LIST_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12234,7 +12186,7 @@ impl ::core::cmp::PartialEq for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     }
 }
 impl ::core::cmp::Eq for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {}
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12262,7 +12214,7 @@ impl ::core::cmp::PartialEq for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     }
 }
 impl ::core::cmp::Eq for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {}
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12277,7 +12229,7 @@ impl ::core::convert::From<i32> for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12293,7 +12245,7 @@ impl ::core::convert::From<i32> for WLAN_HOSTED_NETWORK_OPCODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_OPCODE {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_OPCODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12307,7 +12259,7 @@ impl ::core::convert::From<i32> for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12334,7 +12286,7 @@ impl ::core::cmp::PartialEq for WLAN_HOSTED_NETWORK_PEER_STATE {
     }
 }
 impl ::core::cmp::Eq for WLAN_HOSTED_NETWORK_PEER_STATE {}
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_PEER_STATE {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_PEER_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12361,7 +12313,7 @@ impl ::core::cmp::PartialEq for WLAN_HOSTED_NETWORK_RADIO_STATE {
     }
 }
 impl ::core::cmp::Eq for WLAN_HOSTED_NETWORK_RADIO_STATE {}
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_RADIO_STATE {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_RADIO_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12402,7 +12354,7 @@ impl ::core::convert::From<i32> for WLAN_HOSTED_NETWORK_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_REASON {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_REASON {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12429,7 +12381,7 @@ impl ::core::cmp::PartialEq for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     }
 }
 impl ::core::cmp::Eq for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {}
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12444,7 +12396,7 @@ impl ::core::convert::From<i32> for WLAN_HOSTED_NETWORK_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_STATE {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12472,7 +12424,7 @@ impl ::core::cmp::PartialEq for WLAN_HOSTED_NETWORK_STATE_CHANGE {
     }
 }
 impl ::core::cmp::Eq for WLAN_HOSTED_NETWORK_STATE_CHANGE {}
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_STATE_CHANGE {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_STATE_CHANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12480,7 +12432,7 @@ unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_STATE_CHANGE {
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub struct WLAN_HOSTED_NETWORK_STATUS {
     pub HostedNetworkState: WLAN_HOSTED_NETWORK_STATE,
-    pub IPDeviceID: ::windows::runtime::GUID,
+    pub IPDeviceID: ::windows::core::GUID,
     pub wlanHostedNetworkBSSID: [u8; 6],
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub ulChannelFrequency: u32,
@@ -12512,7 +12464,7 @@ impl ::core::cmp::PartialEq for WLAN_HOSTED_NETWORK_STATUS {
     }
 }
 impl ::core::cmp::Eq for WLAN_HOSTED_NETWORK_STATUS {}
-unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_STATUS {
+unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12526,7 +12478,7 @@ impl ::core::convert::From<i32> for WLAN_IHV_CONTROL_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_IHV_CONTROL_TYPE {
+unsafe impl ::windows::core::Abi for WLAN_IHV_CONTROL_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12571,14 +12523,14 @@ impl ::core::cmp::PartialEq for WLAN_INTERFACE_CAPABILITY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLAN_INTERFACE_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLAN_INTERFACE_CAPABILITY {
+unsafe impl ::windows::core::Abi for WLAN_INTERFACE_CAPABILITY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub struct WLAN_INTERFACE_INFO {
-    pub InterfaceGuid: ::windows::runtime::GUID,
+    pub InterfaceGuid: ::windows::core::GUID,
     pub strInterfaceDescription: [u16; 256],
     pub isState: WLAN_INTERFACE_STATE,
 }
@@ -12599,7 +12551,7 @@ impl ::core::cmp::PartialEq for WLAN_INTERFACE_INFO {
     }
 }
 impl ::core::cmp::Eq for WLAN_INTERFACE_INFO {}
-unsafe impl ::windows::runtime::Abi for WLAN_INTERFACE_INFO {
+unsafe impl ::windows::core::Abi for WLAN_INTERFACE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12627,7 +12579,7 @@ impl ::core::cmp::PartialEq for WLAN_INTERFACE_INFO_LIST {
     }
 }
 impl ::core::cmp::Eq for WLAN_INTERFACE_INFO_LIST {}
-unsafe impl ::windows::runtime::Abi for WLAN_INTERFACE_INFO_LIST {
+unsafe impl ::windows::core::Abi for WLAN_INTERFACE_INFO_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12647,7 +12599,7 @@ impl ::core::convert::From<i32> for WLAN_INTERFACE_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_INTERFACE_STATE {
+unsafe impl ::windows::core::Abi for WLAN_INTERFACE_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12662,7 +12614,7 @@ impl ::core::convert::From<i32> for WLAN_INTERFACE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_INTERFACE_TYPE {
+unsafe impl ::windows::core::Abi for WLAN_INTERFACE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12702,7 +12654,7 @@ impl ::core::convert::From<i32> for WLAN_INTF_OPCODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_INTF_OPCODE {
+unsafe impl ::windows::core::Abi for WLAN_INTF_OPCODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12763,7 +12715,7 @@ impl ::core::cmp::PartialEq for WLAN_MAC_FRAME_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for WLAN_MAC_FRAME_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for WLAN_MAC_FRAME_STATISTICS {
+unsafe impl ::windows::core::Abi for WLAN_MAC_FRAME_STATISTICS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12820,7 +12772,7 @@ impl ::core::cmp::PartialEq for WLAN_MSM_NOTIFICATION_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLAN_MSM_NOTIFICATION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLAN_MSM_NOTIFICATION_DATA {
+unsafe impl ::windows::core::Abi for WLAN_MSM_NOTIFICATION_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12861,7 +12813,7 @@ impl ::core::convert::From<i32> for WLAN_NOTIFICATION_ACM {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_NOTIFICATION_ACM {
+unsafe impl ::windows::core::Abi for WLAN_NOTIFICATION_ACM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12893,7 +12845,7 @@ impl ::core::convert::From<i32> for WLAN_NOTIFICATION_MSM {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_NOTIFICATION_MSM {
+unsafe impl ::windows::core::Abi for WLAN_NOTIFICATION_MSM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12907,7 +12859,7 @@ impl ::core::convert::From<i32> for WLAN_NOTIFICATION_SECURITY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_NOTIFICATION_SECURITY {
+unsafe impl ::windows::core::Abi for WLAN_NOTIFICATION_SECURITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12941,7 +12893,7 @@ impl ::core::convert::From<i32> for WLAN_OPCODE_VALUE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_OPCODE_VALUE_TYPE {
+unsafe impl ::windows::core::Abi for WLAN_OPCODE_VALUE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12958,7 +12910,7 @@ impl ::core::convert::From<i32> for WLAN_OPERATIONAL_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_OPERATIONAL_STATE {
+unsafe impl ::windows::core::Abi for WLAN_OPERATIONAL_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13037,7 +12989,7 @@ impl ::core::cmp::PartialEq for WLAN_PHY_FRAME_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for WLAN_PHY_FRAME_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for WLAN_PHY_FRAME_STATISTICS {
+unsafe impl ::windows::core::Abi for WLAN_PHY_FRAME_STATISTICS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13065,7 +13017,7 @@ impl ::core::cmp::PartialEq for WLAN_PHY_RADIO_STATE {
     }
 }
 impl ::core::cmp::Eq for WLAN_PHY_RADIO_STATE {}
-unsafe impl ::windows::runtime::Abi for WLAN_PHY_RADIO_STATE {
+unsafe impl ::windows::core::Abi for WLAN_PHY_RADIO_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -13082,7 +13034,7 @@ impl ::core::convert::From<i32> for WLAN_POWER_SETTING {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_POWER_SETTING {
+unsafe impl ::windows::core::Abi for WLAN_POWER_SETTING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -13117,7 +13069,7 @@ impl ::core::cmp::PartialEq for WLAN_PROFILE_INFO {
     }
 }
 impl ::core::cmp::Eq for WLAN_PROFILE_INFO {}
-unsafe impl ::windows::runtime::Abi for WLAN_PROFILE_INFO {
+unsafe impl ::windows::core::Abi for WLAN_PROFILE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13145,7 +13097,7 @@ impl ::core::cmp::PartialEq for WLAN_PROFILE_INFO_LIST {
     }
 }
 impl ::core::cmp::Eq for WLAN_PROFILE_INFO_LIST {}
-unsafe impl ::windows::runtime::Abi for WLAN_PROFILE_INFO_LIST {
+unsafe impl ::windows::core::Abi for WLAN_PROFILE_INFO_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -13174,7 +13126,7 @@ impl ::core::cmp::PartialEq for WLAN_RADIO_STATE {
     }
 }
 impl ::core::cmp::Eq for WLAN_RADIO_STATE {}
-unsafe impl ::windows::runtime::Abi for WLAN_RADIO_STATE {
+unsafe impl ::windows::core::Abi for WLAN_RADIO_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13201,7 +13153,7 @@ impl ::core::cmp::PartialEq for WLAN_RATE_SET {
     }
 }
 impl ::core::cmp::Eq for WLAN_RATE_SET {}
-unsafe impl ::windows::runtime::Abi for WLAN_RATE_SET {
+unsafe impl ::windows::core::Abi for WLAN_RATE_SET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13228,7 +13180,7 @@ impl ::core::cmp::PartialEq for WLAN_RAW_DATA {
     }
 }
 impl ::core::cmp::Eq for WLAN_RAW_DATA {}
-unsafe impl ::windows::runtime::Abi for WLAN_RAW_DATA {
+unsafe impl ::windows::core::Abi for WLAN_RAW_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13256,7 +13208,7 @@ impl ::core::cmp::PartialEq for WLAN_RAW_DATA_LIST {
     }
 }
 impl ::core::cmp::Eq for WLAN_RAW_DATA_LIST {}
-unsafe impl ::windows::runtime::Abi for WLAN_RAW_DATA_LIST {
+unsafe impl ::windows::core::Abi for WLAN_RAW_DATA_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13283,7 +13235,7 @@ impl ::core::cmp::PartialEq for WLAN_RAW_DATA_LIST_0 {
     }
 }
 impl ::core::cmp::Eq for WLAN_RAW_DATA_LIST_0 {}
-unsafe impl ::windows::runtime::Abi for WLAN_RAW_DATA_LIST_0 {
+unsafe impl ::windows::core::Abi for WLAN_RAW_DATA_LIST_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -13623,7 +13575,7 @@ impl ::core::convert::From<i32> for WLAN_SECURABLE_OBJECT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_SECURABLE_OBJECT {
+unsafe impl ::windows::core::Abi for WLAN_SECURABLE_OBJECT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13659,7 +13611,7 @@ impl ::core::cmp::PartialEq for WLAN_SECURITY_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLAN_SECURITY_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WLAN_SECURITY_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for WLAN_SECURITY_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -13672,7 +13624,7 @@ impl ::core::convert::From<u32> for WLAN_SET_EAPHOST_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WLAN_SET_EAPHOST_FLAGS {
+unsafe impl ::windows::core::Abi for WLAN_SET_EAPHOST_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for WLAN_SET_EAPHOST_FLAGS {
@@ -13740,7 +13692,7 @@ impl ::core::cmp::PartialEq for WLAN_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for WLAN_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for WLAN_STATISTICS {
+unsafe impl ::windows::core::Abi for WLAN_STATISTICS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -13759,7 +13711,7 @@ impl ::core::convert::From<i32> for WL_DISPLAY_PAGES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WL_DISPLAY_PAGES {
+unsafe impl ::windows::core::Abi for WL_DISPLAY_PAGES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -13779,7 +13731,7 @@ pub unsafe fn WlanAllocateMemory(dwmemorysize: u32) -> *mut ::core::ffi::c_void 
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13794,12 +13746,12 @@ pub unsafe fn WlanCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`, `Win32_NetworkManagement_Ndis`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
-pub unsafe fn WlanConnect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanConnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanConnect(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanConnect(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanConnect(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(pconnectionparameters), ::core::mem::transmute(preserved)))
     }
@@ -13809,12 +13761,12 @@ pub unsafe fn WlanConnect<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`, `Win32_NetworkManagement_Ndis`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
-pub unsafe fn WlanConnect2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS_V2, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanConnect2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS_V2, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanConnect2(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS_V2, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanConnect2(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS_V2, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanConnect2(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(pconnectionparameters), ::core::mem::transmute(preserved)))
     }
@@ -13824,12 +13776,12 @@ pub unsafe fn WlanConnect2<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanDeleteProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: Param2, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanDeleteProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanDeleteProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanDeleteProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanDeleteProfile(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), strprofilename.into_param().abi(), ::core::mem::transmute(preserved)))
     }
@@ -13839,12 +13791,12 @@ pub unsafe fn WlanDeleteProfile<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanDeviceServiceCommand<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, pdeviceserviceguid: *const ::windows::runtime::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32 {
+pub unsafe fn WlanDeviceServiceCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, pdeviceserviceguid: *const ::windows::core::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanDeviceServiceCommand(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, pdeviceserviceguid: *const ::windows::runtime::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
+            fn WlanDeviceServiceCommand(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pdeviceserviceguid: *const ::windows::core::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
         }
         ::core::mem::transmute(WlanDeviceServiceCommand(
             hclienthandle.into_param().abi(),
@@ -13864,12 +13816,12 @@ pub unsafe fn WlanDeviceServiceCommand<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanDisconnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanDisconnect(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanDisconnect(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanDisconnect(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(preserved)))
     }
@@ -13879,7 +13831,7 @@ pub unsafe fn WlanDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanEnumInterfaces<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, preserved: *mut ::core::ffi::c_void, ppinterfacelist: *mut *mut WLAN_INTERFACE_INFO_LIST) -> u32 {
+pub unsafe fn WlanEnumInterfaces<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, preserved: *mut ::core::ffi::c_void, ppinterfacelist: *mut *mut WLAN_INTERFACE_INFO_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13894,7 +13846,7 @@ pub unsafe fn WlanEnumInterfaces<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanExtractPsdIEDataList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, dwiedatasize: u32, prawiedata: *const u8, strformat: Param3, preserved: *mut ::core::ffi::c_void, pppsdiedatalist: *mut *mut WLAN_RAW_DATA_LIST) -> u32 {
+pub unsafe fn WlanExtractPsdIEDataList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, dwiedatasize: u32, prawiedata: *const u8, strformat: Param3, preserved: *mut ::core::ffi::c_void, pppsdiedatalist: *mut *mut WLAN_RAW_DATA_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13923,12 +13875,12 @@ pub unsafe fn WlanFreeMemory(pmemory: *const ::core::ffi::c_void) {
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanGetAvailableNetworkList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST) -> u32 {
+pub unsafe fn WlanGetAvailableNetworkList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanGetAvailableNetworkList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST) -> u32;
+            fn WlanGetAvailableNetworkList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST) -> u32;
         }
         ::core::mem::transmute(WlanGetAvailableNetworkList(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(dwflags), ::core::mem::transmute(preserved), ::core::mem::transmute(ppavailablenetworklist)))
     }
@@ -13938,12 +13890,12 @@ pub unsafe fn WlanGetAvailableNetworkList<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanGetAvailableNetworkList2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST_V2) -> u32 {
+pub unsafe fn WlanGetAvailableNetworkList2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST_V2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanGetAvailableNetworkList2(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST_V2) -> u32;
+            fn WlanGetAvailableNetworkList2(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST_V2) -> u32;
         }
         ::core::mem::transmute(WlanGetAvailableNetworkList2(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(dwflags), ::core::mem::transmute(preserved), ::core::mem::transmute(ppavailablenetworklist)))
     }
@@ -13953,7 +13905,7 @@ pub unsafe fn WlanGetAvailableNetworkList2<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanGetFilterList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, preserved: *mut ::core::ffi::c_void, ppnetworklist: *mut *mut DOT11_NETWORK_LIST) -> u32 {
+pub unsafe fn WlanGetFilterList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, preserved: *mut ::core::ffi::c_void, ppnetworklist: *mut *mut DOT11_NETWORK_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13968,12 +13920,12 @@ pub unsafe fn WlanGetFilterList<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanGetInterfaceCapability<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, preserved: *mut ::core::ffi::c_void, ppcapability: *mut *mut WLAN_INTERFACE_CAPABILITY) -> u32 {
+pub unsafe fn WlanGetInterfaceCapability<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void, ppcapability: *mut *mut WLAN_INTERFACE_CAPABILITY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanGetInterfaceCapability(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, preserved: *mut ::core::ffi::c_void, ppcapability: *mut *mut WLAN_INTERFACE_CAPABILITY) -> u32;
+            fn WlanGetInterfaceCapability(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void, ppcapability: *mut *mut WLAN_INTERFACE_CAPABILITY) -> u32;
         }
         ::core::mem::transmute(WlanGetInterfaceCapability(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(preserved), ::core::mem::transmute(ppcapability)))
     }
@@ -13983,12 +13935,12 @@ pub unsafe fn WlanGetInterfaceCapability<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanGetNetworkBssList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, pdot11ssid: *const DOT11_SSID, dot11bsstype: DOT11_BSS_TYPE, bsecurityenabled: Param4, preserved: *mut ::core::ffi::c_void, ppwlanbsslist: *mut *mut WLAN_BSS_LIST) -> u32 {
+pub unsafe fn WlanGetNetworkBssList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, pdot11ssid: *const DOT11_SSID, dot11bsstype: DOT11_BSS_TYPE, bsecurityenabled: Param4, preserved: *mut ::core::ffi::c_void, ppwlanbsslist: *mut *mut WLAN_BSS_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanGetNetworkBssList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, pdot11ssid: *const DOT11_SSID, dot11bsstype: DOT11_BSS_TYPE, bsecurityenabled: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void, ppwlanbsslist: *mut *mut WLAN_BSS_LIST) -> u32;
+            fn WlanGetNetworkBssList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pdot11ssid: *const DOT11_SSID, dot11bsstype: DOT11_BSS_TYPE, bsecurityenabled: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void, ppwlanbsslist: *mut *mut WLAN_BSS_LIST) -> u32;
         }
         ::core::mem::transmute(WlanGetNetworkBssList(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(pdot11ssid), ::core::mem::transmute(dot11bsstype), bsecurityenabled.into_param().abi(), ::core::mem::transmute(preserved), ::core::mem::transmute(ppwlanbsslist)))
     }
@@ -13998,12 +13950,12 @@ pub unsafe fn WlanGetNetworkBssList<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanGetProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: Param2, preserved: *mut ::core::ffi::c_void, pstrprofilexml: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32, pdwgrantedaccess: *mut u32) -> u32 {
+pub unsafe fn WlanGetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, preserved: *mut ::core::ffi::c_void, pstrprofilexml: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32, pdwgrantedaccess: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanGetProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void, pstrprofilexml: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32, pdwgrantedaccess: *mut u32) -> u32;
+            fn WlanGetProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void, pstrprofilexml: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32, pdwgrantedaccess: *mut u32) -> u32;
         }
         ::core::mem::transmute(WlanGetProfile(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), strprofilename.into_param().abi(), ::core::mem::transmute(preserved), ::core::mem::transmute(pstrprofilexml), ::core::mem::transmute(pdwflags), ::core::mem::transmute(pdwgrantedaccess)))
     }
@@ -14013,12 +13965,12 @@ pub unsafe fn WlanGetProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanGetProfileCustomUserData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: Param2, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32 {
+pub unsafe fn WlanGetProfileCustomUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanGetProfileCustomUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
+            fn WlanGetProfileCustomUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
         }
         ::core::mem::transmute(WlanGetProfileCustomUserData(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), strprofilename.into_param().abi(), ::core::mem::transmute(preserved), ::core::mem::transmute(pdwdatasize), ::core::mem::transmute(ppdata)))
     }
@@ -14028,12 +13980,12 @@ pub unsafe fn WlanGetProfileCustomUserData<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanGetProfileList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WLAN_PROFILE_INFO_LIST) -> u32 {
+pub unsafe fn WlanGetProfileList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WLAN_PROFILE_INFO_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanGetProfileList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WLAN_PROFILE_INFO_LIST) -> u32;
+            fn WlanGetProfileList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WLAN_PROFILE_INFO_LIST) -> u32;
         }
         ::core::mem::transmute(WlanGetProfileList(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(preserved), ::core::mem::transmute(ppprofilelist)))
     }
@@ -14043,7 +13995,7 @@ pub unsafe fn WlanGetProfileList<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanGetSecuritySettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, securableobject: WLAN_SECURABLE_OBJECT, pvaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pstrcurrentsddl: *mut super::super::Foundation::PWSTR, pdwgrantedaccess: *mut u32) -> u32 {
+pub unsafe fn WlanGetSecuritySettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, securableobject: WLAN_SECURABLE_OBJECT, pvaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pstrcurrentsddl: *mut super::super::Foundation::PWSTR, pdwgrantedaccess: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14058,12 +14010,12 @@ pub unsafe fn WlanGetSecuritySettings<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanGetSupportedDeviceServices<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, ppdevsvcguidlist: *mut *mut WLAN_DEVICE_SERVICE_GUID_LIST) -> u32 {
+pub unsafe fn WlanGetSupportedDeviceServices<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, ppdevsvcguidlist: *mut *mut WLAN_DEVICE_SERVICE_GUID_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanGetSupportedDeviceServices(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, ppdevsvcguidlist: *mut *mut WLAN_DEVICE_SERVICE_GUID_LIST) -> u32;
+            fn WlanGetSupportedDeviceServices(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, ppdevsvcguidlist: *mut *mut WLAN_DEVICE_SERVICE_GUID_LIST) -> u32;
         }
         ::core::mem::transmute(WlanGetSupportedDeviceServices(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(ppdevsvcguidlist)))
     }
@@ -14073,7 +14025,7 @@ pub unsafe fn WlanGetSupportedDeviceServices<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkForceStart<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanHostedNetworkForceStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14088,7 +14040,7 @@ pub unsafe fn WlanHostedNetworkForceStart<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkForceStop<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanHostedNetworkForceStop<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14103,7 +14055,7 @@ pub unsafe fn WlanHostedNetworkForceStop<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkInitSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanHostedNetworkInitSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14118,7 +14070,7 @@ pub unsafe fn WlanHostedNetworkInitSettings<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkQueryProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanHostedNetworkQueryProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14133,7 +14085,7 @@ pub unsafe fn WlanHostedNetworkQueryProperty<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkQuerySecondaryKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pdwkeylength: *mut u32, ppuckeydata: *mut *mut u8, pbispassphrase: *mut super::super::Foundation::BOOL, pbpersistent: *mut super::super::Foundation::BOOL, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanHostedNetworkQuerySecondaryKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pdwkeylength: *mut u32, ppuckeydata: *mut *mut u8, pbispassphrase: *mut super::super::Foundation::BOOL, pbpersistent: *mut super::super::Foundation::BOOL, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14148,7 +14100,7 @@ pub unsafe fn WlanHostedNetworkQuerySecondaryKey<'a, Param0: ::windows::runtime:
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkQueryStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, ppwlanhostednetworkstatus: *mut *mut WLAN_HOSTED_NETWORK_STATUS, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanHostedNetworkQueryStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, ppwlanhostednetworkstatus: *mut *mut WLAN_HOSTED_NETWORK_STATUS, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14163,7 +14115,7 @@ pub unsafe fn WlanHostedNetworkQueryStatus<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkRefreshSecuritySettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanHostedNetworkRefreshSecuritySettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14178,7 +14130,7 @@ pub unsafe fn WlanHostedNetworkRefreshSecuritySettings<'a, Param0: ::windows::ru
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkSetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_HOSTED_NETWORK_OPCODE, dwdatasize: u32, pvdata: *const ::core::ffi::c_void, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanHostedNetworkSetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_HOSTED_NETWORK_OPCODE, dwdatasize: u32, pvdata: *const ::core::ffi::c_void, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14193,7 +14145,7 @@ pub unsafe fn WlanHostedNetworkSetProperty<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkSetSecondaryKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, dwkeylength: u32, puckeydata: *const u8, bispassphrase: Param3, bpersistent: Param4, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanHostedNetworkSetSecondaryKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, dwkeylength: u32, puckeydata: *const u8, bispassphrase: Param3, bpersistent: Param4, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14208,7 +14160,7 @@ pub unsafe fn WlanHostedNetworkSetSecondaryKey<'a, Param0: ::windows::runtime::I
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkStartUsing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanHostedNetworkStartUsing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14223,7 +14175,7 @@ pub unsafe fn WlanHostedNetworkStartUsing<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanHostedNetworkStopUsing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanHostedNetworkStopUsing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14238,12 +14190,12 @@ pub unsafe fn WlanHostedNetworkStopUsing<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanIhvControl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32 {
+pub unsafe fn WlanIhvControl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanIhvControl(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
+            fn WlanIhvControl(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
         }
         ::core::mem::transmute(WlanIhvControl(
             hclienthandle.into_param().abi(),
@@ -14277,7 +14229,7 @@ pub unsafe fn WlanOpenHandle(dwclientversion: u32, preserved: *mut ::core::ffi::
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanQueryAutoConfigParameter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_AUTOCONF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32 {
+pub unsafe fn WlanQueryAutoConfigParameter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_AUTOCONF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14292,12 +14244,12 @@ pub unsafe fn WlanQueryAutoConfigParameter<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanQueryInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, opcode: WLAN_INTF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32 {
+pub unsafe fn WlanQueryInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, opcode: WLAN_INTF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanQueryInterface(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, opcode: WLAN_INTF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32;
+            fn WlanQueryInterface(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, opcode: WLAN_INTF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32;
         }
         ::core::mem::transmute(WlanQueryInterface(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(opcode), ::core::mem::transmute(preserved), ::core::mem::transmute(pdwdatasize), ::core::mem::transmute(ppdata), ::core::mem::transmute(pwlanopcodevaluetype)))
     }
@@ -14307,7 +14259,7 @@ pub unsafe fn WlanQueryInterface<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanReasonCodeToString<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwreasoncode: u32, dwbuffersize: u32, pstringbuffer: Param2, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanReasonCodeToString<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwreasoncode: u32, dwbuffersize: u32, pstringbuffer: Param2, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14322,7 +14274,7 @@ pub unsafe fn WlanReasonCodeToString<'a, Param2: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanRegisterDeviceServiceNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pdevsvcguidlist: *const WLAN_DEVICE_SERVICE_GUID_LIST) -> u32 {
+pub unsafe fn WlanRegisterDeviceServiceNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pdevsvcguidlist: *const WLAN_DEVICE_SERVICE_GUID_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14337,12 +14289,12 @@ pub unsafe fn WlanRegisterDeviceServiceNotification<'a, Param0: ::windows::runti
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanRegisterNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, dwnotifsource: u32, bignoreduplicate: Param2, funccallback: ::core::option::Option<WLAN_NOTIFICATION_CALLBACK>, pcallbackcontext: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void, pdwprevnotifsource: *mut u32) -> u32 {
+pub unsafe fn WlanRegisterNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, dwnotifsource: u32, bignoreduplicate: Param2, funccallback: ::core::option::Option<WLAN_NOTIFICATION_CALLBACK>, pcallbackcontext: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void, pdwprevnotifsource: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanRegisterNotification(hclienthandle: super::super::Foundation::HANDLE, dwnotifsource: u32, bignoreduplicate: super::super::Foundation::BOOL, funccallback: ::windows::runtime::RawPtr, pcallbackcontext: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void, pdwprevnotifsource: *mut u32) -> u32;
+            fn WlanRegisterNotification(hclienthandle: super::super::Foundation::HANDLE, dwnotifsource: u32, bignoreduplicate: super::super::Foundation::BOOL, funccallback: ::windows::core::RawPtr, pcallbackcontext: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void, pdwprevnotifsource: *mut u32) -> u32;
         }
         ::core::mem::transmute(WlanRegisterNotification(hclienthandle.into_param().abi(), ::core::mem::transmute(dwnotifsource), bignoreduplicate.into_param().abi(), ::core::mem::transmute(funccallback), ::core::mem::transmute(pcallbackcontext), ::core::mem::transmute(preserved), ::core::mem::transmute(pdwprevnotifsource)))
     }
@@ -14352,7 +14304,7 @@ pub unsafe fn WlanRegisterNotification<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanRegisterVirtualStationNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, bregister: Param1, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanRegisterVirtualStationNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, bregister: Param1, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14367,12 +14319,12 @@ pub unsafe fn WlanRegisterVirtualStationNotification<'a, Param0: ::windows::runt
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanRenameProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, stroldprofilename: Param2, strnewprofilename: Param3, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanRenameProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, stroldprofilename: Param2, strnewprofilename: Param3, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanRenameProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, stroldprofilename: super::super::Foundation::PWSTR, strnewprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanRenameProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, stroldprofilename: super::super::Foundation::PWSTR, strnewprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanRenameProfile(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), stroldprofilename.into_param().abi(), strnewprofilename.into_param().abi(), ::core::mem::transmute(preserved)))
     }
@@ -14382,9 +14334,9 @@ pub unsafe fn WlanRenameProfile<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSaveTemporaryProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
+pub unsafe fn WlanSaveTemporaryProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
     hclienthandle: Param0,
-    pinterfaceguid: *const ::windows::runtime::GUID,
+    pinterfaceguid: *const ::windows::core::GUID,
     strprofilename: Param2,
     stralluserprofilesecurity: Param3,
     dwflags: u32,
@@ -14395,7 +14347,7 @@ pub unsafe fn WlanSaveTemporaryProfile<'a, Param0: ::windows::runtime::IntoParam
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanSaveTemporaryProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, stralluserprofilesecurity: super::super::Foundation::PWSTR, dwflags: u32, boverwrite: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanSaveTemporaryProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, stralluserprofilesecurity: super::super::Foundation::PWSTR, dwflags: u32, boverwrite: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanSaveTemporaryProfile(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), strprofilename.into_param().abi(), stralluserprofilesecurity.into_param().abi(), ::core::mem::transmute(dwflags), boverwrite.into_param().abi(), ::core::mem::transmute(preserved)))
     }
@@ -14405,12 +14357,12 @@ pub unsafe fn WlanSaveTemporaryProfile<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanScan<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, pdot11ssid: *const DOT11_SSID, piedata: *const WLAN_RAW_DATA, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanScan<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, pdot11ssid: *const DOT11_SSID, piedata: *const WLAN_RAW_DATA, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanScan(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, pdot11ssid: *const DOT11_SSID, piedata: *const WLAN_RAW_DATA, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanScan(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pdot11ssid: *const DOT11_SSID, piedata: *const WLAN_RAW_DATA, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanScan(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(pdot11ssid), ::core::mem::transmute(piedata), ::core::mem::transmute(preserved)))
     }
@@ -14420,7 +14372,7 @@ pub unsafe fn WlanScan<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetAutoConfigParameter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_AUTOCONF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanSetAutoConfigParameter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_AUTOCONF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14435,7 +14387,7 @@ pub unsafe fn WlanSetAutoConfigParameter<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetFilterList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, pnetworklist: *const DOT11_NETWORK_LIST, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanSetFilterList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, pnetworklist: *const DOT11_NETWORK_LIST, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14450,12 +14402,12 @@ pub unsafe fn WlanSetFilterList<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, opcode: WLAN_INTF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanSetInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, opcode: WLAN_INTF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanSetInterface(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, opcode: WLAN_INTF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanSetInterface(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, opcode: WLAN_INTF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanSetInterface(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(opcode), ::core::mem::transmute(dwdatasize), ::core::mem::transmute(pdata), ::core::mem::transmute(preserved)))
     }
@@ -14465,9 +14417,9 @@ pub unsafe fn WlanSetInterface<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
+pub unsafe fn WlanSetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
     hclienthandle: Param0,
-    pinterfaceguid: *const ::windows::runtime::GUID,
+    pinterfaceguid: *const ::windows::core::GUID,
     dwflags: u32,
     strprofilexml: Param3,
     stralluserprofilesecurity: Param4,
@@ -14479,7 +14431,7 @@ pub unsafe fn WlanSetProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanSetProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, dwflags: u32, strprofilexml: super::super::Foundation::PWSTR, stralluserprofilesecurity: super::super::Foundation::PWSTR, boverwrite: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void, pdwreasoncode: *mut u32) -> u32;
+            fn WlanSetProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, strprofilexml: super::super::Foundation::PWSTR, stralluserprofilesecurity: super::super::Foundation::PWSTR, boverwrite: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void, pdwreasoncode: *mut u32) -> u32;
         }
         ::core::mem::transmute(WlanSetProfile(
             hclienthandle.into_param().abi(),
@@ -14498,12 +14450,12 @@ pub unsafe fn WlanSetProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetProfileCustomUserData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: Param2, dwdatasize: u32, pdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanSetProfileCustomUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, dwdatasize: u32, pdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanSetProfileCustomUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, dwdatasize: u32, pdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanSetProfileCustomUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, dwdatasize: u32, pdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanSetProfileCustomUserData(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), strprofilename.into_param().abi(), ::core::mem::transmute(dwdatasize), ::core::mem::transmute(pdata), ::core::mem::transmute(preserved)))
     }
@@ -14513,9 +14465,9 @@ pub unsafe fn WlanSetProfileCustomUserData<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 #[inline]
-pub unsafe fn WlanSetProfileEapUserData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE>>(
+pub unsafe fn WlanSetProfileEapUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE>>(
     hclienthandle: Param0,
-    pinterfaceguid: *const ::windows::runtime::GUID,
+    pinterfaceguid: *const ::windows::core::GUID,
     strprofilename: Param2,
     eaptype: Param3,
     dwflags: WLAN_SET_EAPHOST_FLAGS,
@@ -14527,7 +14479,7 @@ pub unsafe fn WlanSetProfileEapUserData<'a, Param0: ::windows::runtime::IntoPara
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanSetProfileEapUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, eaptype: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE, dwflags: WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize: u32, pbeapuserdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanSetProfileEapUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, eaptype: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE, dwflags: WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize: u32, pbeapuserdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanSetProfileEapUserData(
             hclienthandle.into_param().abi(),
@@ -14546,12 +14498,12 @@ pub unsafe fn WlanSetProfileEapUserData<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetProfileEapXmlUserData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: Param2, dwflags: WLAN_SET_EAPHOST_FLAGS, streapxmluserdata: Param4, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanSetProfileEapXmlUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, dwflags: WLAN_SET_EAPHOST_FLAGS, streapxmluserdata: Param4, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanSetProfileEapXmlUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, dwflags: WLAN_SET_EAPHOST_FLAGS, streapxmluserdata: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanSetProfileEapXmlUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, dwflags: WLAN_SET_EAPHOST_FLAGS, streapxmluserdata: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanSetProfileEapXmlUserData(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), strprofilename.into_param().abi(), ::core::mem::transmute(dwflags), streapxmluserdata.into_param().abi(), ::core::mem::transmute(preserved)))
     }
@@ -14561,12 +14513,12 @@ pub unsafe fn WlanSetProfileEapXmlUserData<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetProfileList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, dwitems: u32, strprofilenames: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanSetProfileList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, dwitems: u32, strprofilenames: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanSetProfileList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, dwitems: u32, strprofilenames: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanSetProfileList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, dwitems: u32, strprofilenames: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanSetProfileList(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(dwitems), ::core::mem::transmute(strprofilenames), ::core::mem::transmute(preserved)))
     }
@@ -14576,12 +14528,12 @@ pub unsafe fn WlanSetProfileList<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetProfilePosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: Param2, dwposition: u32, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanSetProfilePosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, dwposition: u32, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanSetProfilePosition(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, dwposition: u32, preserved: *mut ::core::ffi::c_void) -> u32;
+            fn WlanSetProfilePosition(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, dwposition: u32, preserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(WlanSetProfilePosition(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), strprofilename.into_param().abi(), ::core::mem::transmute(dwposition), ::core::mem::transmute(preserved)))
     }
@@ -14591,7 +14543,7 @@ pub unsafe fn WlanSetProfilePosition<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetPsdIEDataList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, strformat: Param1, ppsdiedatalist: *const WLAN_RAW_DATA_LIST, preserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn WlanSetPsdIEDataList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, strformat: Param1, ppsdiedatalist: *const WLAN_RAW_DATA_LIST, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14606,7 +14558,7 @@ pub unsafe fn WlanSetPsdIEDataList<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetSecuritySettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, securableobject: WLAN_SECURABLE_OBJECT, strmodifiedsddl: Param2) -> u32 {
+pub unsafe fn WlanSetSecuritySettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, securableobject: WLAN_SECURABLE_OBJECT, strmodifiedsddl: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14621,12 +14573,12 @@ pub unsafe fn WlanSetSecuritySettings<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanUIEditProfile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(dwclientversion: u32, wstrprofilename: Param1, pinterfaceguid: *const ::windows::runtime::GUID, hwnd: Param3, wlstartpage: WL_DISPLAY_PAGES, preserved: *mut ::core::ffi::c_void, pwlanreasoncode: *mut u32) -> u32 {
+pub unsafe fn WlanUIEditProfile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(dwclientversion: u32, wstrprofilename: Param1, pinterfaceguid: *const ::windows::core::GUID, hwnd: Param3, wlstartpage: WL_DISPLAY_PAGES, preserved: *mut ::core::ffi::c_void, pwlanreasoncode: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WlanUIEditProfile(dwclientversion: u32, wstrprofilename: super::super::Foundation::PWSTR, pinterfaceguid: *const ::windows::runtime::GUID, hwnd: super::super::Foundation::HWND, wlstartpage: WL_DISPLAY_PAGES, preserved: *mut ::core::ffi::c_void, pwlanreasoncode: *mut u32) -> u32;
+            fn WlanUIEditProfile(dwclientversion: u32, wstrprofilename: super::super::Foundation::PWSTR, pinterfaceguid: *const ::windows::core::GUID, hwnd: super::super::Foundation::HWND, wlstartpage: WL_DISPLAY_PAGES, preserved: *mut ::core::ffi::c_void, pwlanreasoncode: *mut u32) -> u32;
         }
         ::core::mem::transmute(WlanUIEditProfile(::core::mem::transmute(dwclientversion), wstrprofilename.into_param().abi(), ::core::mem::transmute(pinterfaceguid), hwnd.into_param().abi(), ::core::mem::transmute(wlstartpage), ::core::mem::transmute(preserved), ::core::mem::transmute(pwlanreasoncode)))
     }
@@ -14658,6 +14610,6 @@ impl ::core::cmp::PartialEq for _DOT11_WME_AC_PARAMTERS_LIST {
     }
 }
 impl ::core::cmp::Eq for _DOT11_WME_AC_PARAMTERS_LIST {}
-unsafe impl ::windows::runtime::Abi for _DOT11_WME_AC_PARAMTERS_LIST {
+unsafe impl ::windows::core::Abi for _DOT11_WME_AC_PARAMTERS_LIST {
     type Abi = Self;
 }

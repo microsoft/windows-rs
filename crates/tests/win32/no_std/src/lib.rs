@@ -1,7 +1,7 @@
 #![no_std]
 
 #[test]
-pub fn main() -> windows::runtime::Result<()> {
+pub fn main() -> windows::core::Result<()> {
     use windows::{
         Win32::Foundation::CloseHandle,
         Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject, WAIT_OBJECT_0},

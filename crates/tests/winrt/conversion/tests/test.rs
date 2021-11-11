@@ -1,5 +1,5 @@
 use test_winrt_conversion::*;
-use windows::runtime::*;
+use windows::core::*;
 use Component::Classes::Required;
 use Component::Conversion::*;
 use Component::Interfaces::IProperty;

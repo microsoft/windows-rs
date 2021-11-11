@@ -3,3 +3,5 @@
 pub mod DataProvider;
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 pub mod Provider;
+#[link(name = "windows")]
+extern "system" {}

@@ -2,7 +2,7 @@
 #![cfg(all(windows, target_arch = "x86_64", target_env = "msvc"))]
 
 use test_win32_static_simple::*;
-use windows::runtime::*;
+use windows::core::*;
 use StaticComponent::Win32::Simple::*;
 
 #[test]

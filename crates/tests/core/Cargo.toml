@@ -1,5 +1,5 @@
 [package]
-name = "test_runtime"
+name = "test_core"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"

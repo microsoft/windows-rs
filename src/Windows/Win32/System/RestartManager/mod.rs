@@ -23,7 +23,7 @@ impl ::core::convert::From<i32> for RM_APP_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RM_APP_STATUS {
+unsafe impl ::windows::core::Abi for RM_APP_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
@@ -42,7 +42,7 @@ impl ::core::convert::From<i32> for RM_APP_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RM_APP_TYPE {
+unsafe impl ::windows::core::Abi for RM_APP_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
@@ -57,7 +57,7 @@ impl ::core::convert::From<i32> for RM_FILTER_ACTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RM_FILTER_ACTION {
+unsafe impl ::windows::core::Abi for RM_FILTER_ACTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -87,7 +87,7 @@ impl ::core::cmp::PartialEq for RM_FILTER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RM_FILTER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RM_FILTER_INFO {
+unsafe impl ::windows::core::Abi for RM_FILTER_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -115,7 +115,7 @@ impl ::core::cmp::PartialEq for RM_FILTER_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RM_FILTER_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RM_FILTER_INFO_0 {
+unsafe impl ::windows::core::Abi for RM_FILTER_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
@@ -131,7 +131,7 @@ impl ::core::convert::From<i32> for RM_FILTER_TRIGGER {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RM_FILTER_TRIGGER {
+unsafe impl ::windows::core::Abi for RM_FILTER_TRIGGER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
@@ -182,7 +182,7 @@ impl ::core::cmp::PartialEq for RM_PROCESS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RM_PROCESS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RM_PROCESS_INFO {
+unsafe impl ::windows::core::Abi for RM_PROCESS_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
@@ -200,7 +200,7 @@ impl ::core::convert::From<i32> for RM_REBOOT_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RM_REBOOT_REASON {
+unsafe impl ::windows::core::Abi for RM_REBOOT_REASON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
@@ -214,7 +214,7 @@ impl ::core::convert::From<i32> for RM_SHUTDOWN_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for RM_SHUTDOWN_TYPE {
+unsafe impl ::windows::core::Abi for RM_SHUTDOWN_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -248,7 +248,7 @@ impl ::core::cmp::PartialEq for RM_UNIQUE_PROCESS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RM_UNIQUE_PROCESS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for RM_UNIQUE_PROCESS {
+unsafe impl ::windows::core::Abi for RM_UNIQUE_PROCESS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
@@ -256,7 +256,7 @@ pub type RM_WRITE_STATUS_CALLBACK = unsafe extern "system" fn(npercentcomplete: 
 #[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RmAddFilter<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwsessionhandle: u32, strmodulename: Param1, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: Param3, filteraction: RM_FILTER_ACTION) -> u32 {
+pub unsafe fn RmAddFilter<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwsessionhandle: u32, strmodulename: Param1, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: Param3, filteraction: RM_FILTER_ACTION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -328,7 +328,7 @@ pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnproc
 #[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RmJoinSession<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psessionhandle: *mut u32, strsessionkey: Param1) -> u32 {
+pub unsafe fn RmJoinSession<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(psessionhandle: *mut u32, strsessionkey: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -358,7 +358,7 @@ pub unsafe fn RmRegisterResources(dwsessionhandle: u32, nfiles: u32, rgsfilename
 #[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RmRemoveFilter<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwsessionhandle: u32, strmodulename: Param1, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: Param3) -> u32 {
+pub unsafe fn RmRemoveFilter<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwsessionhandle: u32, strmodulename: Param1, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -377,7 +377,7 @@ pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: ::c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: ::windows::runtime::RawPtr) -> u32;
+            fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: ::windows::core::RawPtr) -> u32;
         }
         ::core::mem::transmute(RmRestart(::core::mem::transmute(dwsessionhandle), ::core::mem::transmute(dwrestartflags), ::core::mem::transmute(fnstatus)))
     }
@@ -391,7 +391,7 @@ pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: ::co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: ::windows::runtime::RawPtr) -> u32;
+            fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: ::windows::core::RawPtr) -> u32;
         }
         ::core::mem::transmute(RmShutdown(::core::mem::transmute(dwsessionhandle), ::core::mem::transmute(lactionflags), ::core::mem::transmute(fnstatus)))
     }

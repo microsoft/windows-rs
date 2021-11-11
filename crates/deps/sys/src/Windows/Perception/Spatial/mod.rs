@@ -3,3 +3,5 @@
 pub mod Preview;
 #[cfg(feature = "Perception_Spatial_Surfaces")]
 pub mod Surfaces;
+#[link(name = "windows")]
+extern "system" {}

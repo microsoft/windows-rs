@@ -1,5 +1,5 @@
 use test_winrt_method_names::*;
-use windows::runtime::*;
+use windows::core::*;
 use Component::MethodNames::*;
 use Windows::Foundation::*;
 

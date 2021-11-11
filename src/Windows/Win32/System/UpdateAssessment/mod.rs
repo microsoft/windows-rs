@@ -2,46 +2,46 @@
 #[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IWaaSAssessor(pub ::windows::runtime::IUnknown);
+pub struct IWaaSAssessor(pub ::windows::core::IUnknown);
 impl IWaaSAssessor {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_UpdateAssessment`, `Win32_Foundation`*"]
-    pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::runtime::Result<OSUpdateAssessment> {
-        let mut result__: <OSUpdateAssessment as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<OSUpdateAssessment>(result__)
+    pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::core::Result<OSUpdateAssessment> {
+        let mut result__: <OSUpdateAssessment as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<OSUpdateAssessment>(result__)
     }
 }
-unsafe impl ::windows::runtime::Interface for IWaaSAssessor {
+unsafe impl ::windows::core::Interface for IWaaSAssessor {
     type Vtable = IWaaSAssessor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
 }
-impl ::core::convert::From<IWaaSAssessor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWaaSAssessor> for ::windows::core::IUnknown {
     fn from(value: IWaaSAssessor) -> Self {
         value.0
     }
 }
-impl ::core::convert::From<&IWaaSAssessor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWaaSAssessor> for ::windows::core::IUnknown {
     fn from(value: &IWaaSAssessor) -> Self {
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWaaSAssessor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWaaSAssessor {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWaaSAssessor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWaaSAssessor {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWaaSAssessor_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result: *mut OSUpdateAssessment) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result: *mut OSUpdateAssessment) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -103,7 +103,7 @@ impl ::core::cmp::PartialEq for OSUpdateAssessment {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OSUpdateAssessment {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for OSUpdateAssessment {
+unsafe impl ::windows::core::Abi for OSUpdateAssessment {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -131,7 +131,7 @@ impl ::core::cmp::PartialEq for UpdateAssessment {
     }
 }
 impl ::core::cmp::Eq for UpdateAssessment {}
-unsafe impl ::windows::runtime::Abi for UpdateAssessment {
+unsafe impl ::windows::core::Abi for UpdateAssessment {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
@@ -155,7 +155,7 @@ impl ::core::convert::From<i32> for UpdateAssessmentStatus {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for UpdateAssessmentStatus {
+unsafe impl ::windows::core::Abi for UpdateAssessmentStatus {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
@@ -171,7 +171,7 @@ impl ::core::convert::From<i32> for UpdateImpactLevel {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for UpdateImpactLevel {
+unsafe impl ::windows::core::Abi for UpdateImpactLevel {
     type Abi = Self;
 }
-pub const WaaSAssessor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x098ef871_fa9f_46af_8958_c083515d7c9c);
+pub const WaaSAssessor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x098ef871_fa9f_46af_8958_c083515d7c9c);

@@ -58,7 +58,7 @@ impl ::core::cmp::PartialEq for ATA_PASS_THROUGH_DIRECT {
     }
 }
 impl ::core::cmp::Eq for ATA_PASS_THROUGH_DIRECT {}
-unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_DIRECT {
+unsafe impl ::windows::core::Abi for ATA_PASS_THROUGH_DIRECT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -115,7 +115,7 @@ impl ::core::cmp::PartialEq for ATA_PASS_THROUGH_DIRECT32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for ATA_PASS_THROUGH_DIRECT32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_DIRECT32 {
+unsafe impl ::windows::core::Abi for ATA_PASS_THROUGH_DIRECT32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -176,7 +176,7 @@ impl ::core::cmp::PartialEq for ATA_PASS_THROUGH_EX {
     }
 }
 impl ::core::cmp::Eq for ATA_PASS_THROUGH_EX {}
-unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_EX {
+unsafe impl ::windows::core::Abi for ATA_PASS_THROUGH_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -244,13 +244,13 @@ impl ::core::cmp::PartialEq for ATA_PASS_THROUGH_EX32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for ATA_PASS_THROUGH_EX32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_EX32 {
+unsafe impl ::windows::core::Abi for ATA_PASS_THROUGH_EX32 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddISNSServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
+pub unsafe fn AddISNSServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -265,7 +265,7 @@ pub unsafe fn AddISNSServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddISNSServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
+pub unsafe fn AddISNSServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -280,7 +280,7 @@ pub unsafe fn AddISNSServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiConnectionA<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: Param7, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
+pub unsafe fn AddIScsiConnectionA<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: Param7, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -305,7 +305,7 @@ pub unsafe fn AddIScsiConnectionA<'a, Param7: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiConnectionW<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: Param7, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
+pub unsafe fn AddIScsiConnectionW<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: Param7, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -330,7 +330,7 @@ pub unsafe fn AddIScsiConnectionW<'a, Param7: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiSendTargetPortalA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
+pub unsafe fn AddIScsiSendTargetPortalA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -345,7 +345,7 @@ pub unsafe fn AddIScsiSendTargetPortalA<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiSendTargetPortalW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
+pub unsafe fn AddIScsiSendTargetPortalW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -360,7 +360,7 @@ pub unsafe fn AddIScsiSendTargetPortalW<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiStaticTargetA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(targetname: Param0, targetalias: Param1, targetflags: u32, persist: Param3, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32 {
+pub unsafe fn AddIScsiStaticTargetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(targetname: Param0, targetalias: Param1, targetflags: u32, persist: Param3, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -375,7 +375,7 @@ pub unsafe fn AddIScsiStaticTargetA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiStaticTargetW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(targetname: Param0, targetalias: Param1, targetflags: u32, persist: Param3, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32 {
+pub unsafe fn AddIScsiStaticTargetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(targetname: Param0, targetalias: Param1, targetflags: u32, persist: Param3, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -390,7 +390,7 @@ pub unsafe fn AddIScsiStaticTargetW<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPersistentIScsiDeviceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(devicepath: Param0) -> u32 {
+pub unsafe fn AddPersistentIScsiDeviceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -405,7 +405,7 @@ pub unsafe fn AddPersistentIScsiDeviceA<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPersistentIScsiDeviceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(devicepath: Param0) -> u32 {
+pub unsafe fn AddPersistentIScsiDeviceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -420,7 +420,7 @@ pub unsafe fn AddPersistentIScsiDeviceW<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddRadiusServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
+pub unsafe fn AddRadiusServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -435,7 +435,7 @@ pub unsafe fn AddRadiusServerA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddRadiusServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
+pub unsafe fn AddRadiusServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -498,7 +498,7 @@ impl ::core::cmp::PartialEq for DSM_NOTIFICATION_REQUEST_BLOCK {
     }
 }
 impl ::core::cmp::Eq for DSM_NOTIFICATION_REQUEST_BLOCK {}
-unsafe impl ::windows::runtime::Abi for DSM_NOTIFICATION_REQUEST_BLOCK {
+unsafe impl ::windows::core::Abi for DSM_NOTIFICATION_REQUEST_BLOCK {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -528,7 +528,7 @@ impl ::core::cmp::PartialEq for DUMP_DRIVER {
     }
 }
 impl ::core::cmp::Eq for DUMP_DRIVER {}
-unsafe impl ::windows::runtime::Abi for DUMP_DRIVER {
+unsafe impl ::windows::core::Abi for DUMP_DRIVER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -564,7 +564,7 @@ impl ::core::cmp::PartialEq for DUMP_DRIVER_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DUMP_DRIVER_EX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DUMP_DRIVER_EX {
+unsafe impl ::windows::core::Abi for DUMP_DRIVER_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -627,7 +627,7 @@ impl ::core::cmp::PartialEq for DUMP_POINTERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DUMP_POINTERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DUMP_POINTERS {
+unsafe impl ::windows::core::Abi for DUMP_POINTERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
@@ -706,7 +706,7 @@ impl ::core::cmp::PartialEq for DUMP_POINTERS_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DUMP_POINTERS_EX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DUMP_POINTERS_EX {
+unsafe impl ::windows::core::Abi for DUMP_POINTERS_EX {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -733,7 +733,7 @@ impl ::core::cmp::PartialEq for DUMP_POINTERS_VERSION {
     }
 }
 impl ::core::cmp::Eq for DUMP_POINTERS_VERSION {}
-unsafe impl ::windows::runtime::Abi for DUMP_POINTERS_VERSION {
+unsafe impl ::windows::core::Abi for DUMP_POINTERS_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -780,7 +780,7 @@ impl ::core::cmp::PartialEq for FIRMWARE_REQUEST_BLOCK {
     }
 }
 impl ::core::cmp::Eq for FIRMWARE_REQUEST_BLOCK {}
-unsafe impl ::windows::runtime::Abi for FIRMWARE_REQUEST_BLOCK {
+unsafe impl ::windows::core::Abi for FIRMWARE_REQUEST_BLOCK {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -864,7 +864,7 @@ pub unsafe fn GetDevicesForIScsiSessionW(uniquesessionid: *mut ISCSI_UNIQUE_SESS
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiIKEInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorname: Param0, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32 {
+pub unsafe fn GetIScsiIKEInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorname: Param0, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -879,7 +879,7 @@ pub unsafe fn GetIScsiIKEInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiIKEInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorname: Param0, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32 {
+pub unsafe fn GetIScsiIKEInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorname: Param0, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -969,7 +969,7 @@ pub unsafe fn GetIScsiSessionListW(buffersize: *mut u32, sessioncount: *mut u32,
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiTargetInformationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, discoverymechanism: Param1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn GetIScsiTargetInformationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, discoverymechanism: Param1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -984,7 +984,7 @@ pub unsafe fn GetIScsiTargetInformationA<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiTargetInformationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, discoverymechanism: Param1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn GetIScsiTargetInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, discoverymechanism: Param1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1047,7 +1047,7 @@ impl ::core::cmp::PartialEq for HYBRID_DEMOTE_BY_SIZE {
     }
 }
 impl ::core::cmp::Eq for HYBRID_DEMOTE_BY_SIZE {}
-unsafe impl ::windows::runtime::Abi for HYBRID_DEMOTE_BY_SIZE {
+unsafe impl ::windows::core::Abi for HYBRID_DEMOTE_BY_SIZE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1076,7 +1076,7 @@ impl ::core::cmp::PartialEq for HYBRID_DIRTY_THRESHOLDS {
     }
 }
 impl ::core::cmp::Eq for HYBRID_DIRTY_THRESHOLDS {}
-unsafe impl ::windows::runtime::Abi for HYBRID_DIRTY_THRESHOLDS {
+unsafe impl ::windows::core::Abi for HYBRID_DIRTY_THRESHOLDS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -1139,7 +1139,7 @@ impl ::core::cmp::PartialEq for HYBRID_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HYBRID_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION {
+unsafe impl ::windows::core::Abi for HYBRID_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1171,7 +1171,7 @@ impl ::core::cmp::PartialEq for HYBRID_INFORMATION_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HYBRID_INFORMATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION_0 {
+unsafe impl ::windows::core::Abi for HYBRID_INFORMATION_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1219,7 +1219,7 @@ impl ::core::cmp::PartialEq for HYBRID_INFORMATION_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HYBRID_INFORMATION_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION_1 {
+unsafe impl ::windows::core::Abi for HYBRID_INFORMATION_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1254,7 +1254,7 @@ impl ::core::cmp::PartialEq for HYBRID_INFORMATION_1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HYBRID_INFORMATION_1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION_1_0 {
+unsafe impl ::windows::core::Abi for HYBRID_INFORMATION_1_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1285,7 +1285,7 @@ impl ::core::cmp::PartialEq for HYBRID_REQUEST_BLOCK {
     }
 }
 impl ::core::cmp::Eq for HYBRID_REQUEST_BLOCK {}
-unsafe impl ::windows::runtime::Abi for HYBRID_REQUEST_BLOCK {
+unsafe impl ::windows::core::Abi for HYBRID_REQUEST_BLOCK {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -1330,7 +1330,7 @@ impl ::core::cmp::PartialEq for IDE_IO_CONTROL {
     }
 }
 impl ::core::cmp::Eq for IDE_IO_CONTROL {}
-unsafe impl ::windows::runtime::Abi for IDE_IO_CONTROL {
+unsafe impl ::windows::core::Abi for IDE_IO_CONTROL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -1360,7 +1360,7 @@ impl ::core::cmp::PartialEq for IKE_AUTHENTICATION_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for IKE_AUTHENTICATION_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for IKE_AUTHENTICATION_INFORMATION {
+unsafe impl ::windows::core::Abi for IKE_AUTHENTICATION_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1381,7 +1381,7 @@ impl ::core::cmp::PartialEq for IKE_AUTHENTICATION_INFORMATION_0 {
     }
 }
 impl ::core::cmp::Eq for IKE_AUTHENTICATION_INFORMATION_0 {}
-unsafe impl ::windows::runtime::Abi for IKE_AUTHENTICATION_INFORMATION_0 {
+unsafe impl ::windows::core::Abi for IKE_AUTHENTICATION_INFORMATION_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -1394,7 +1394,7 @@ impl ::core::convert::From<i32> for IKE_AUTHENTICATION_METHOD {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for IKE_AUTHENTICATION_METHOD {
+unsafe impl ::windows::core::Abi for IKE_AUTHENTICATION_METHOD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1425,7 +1425,7 @@ impl ::core::cmp::PartialEq for IKE_AUTHENTICATION_PRESHARED_KEY {
     }
 }
 impl ::core::cmp::Eq for IKE_AUTHENTICATION_PRESHARED_KEY {}
-unsafe impl ::windows::runtime::Abi for IKE_AUTHENTICATION_PRESHARED_KEY {
+unsafe impl ::windows::core::Abi for IKE_AUTHENTICATION_PRESHARED_KEY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -1516,7 +1516,7 @@ impl ::core::cmp::PartialEq for IO_SCSI_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IO_SCSI_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for IO_SCSI_CAPABILITIES {
+unsafe impl ::windows::core::Abi for IO_SCSI_CAPABILITIES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -1531,7 +1531,7 @@ impl ::core::convert::From<i32> for ISCSI_AUTH_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ISCSI_AUTH_TYPES {
+unsafe impl ::windows::core::Abi for ISCSI_AUTH_TYPES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1576,7 +1576,7 @@ impl ::core::cmp::PartialEq for ISCSI_CONNECTION_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_CONNECTION_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ISCSI_CONNECTION_INFOA {
+unsafe impl ::windows::core::Abi for ISCSI_CONNECTION_INFOA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1621,7 +1621,7 @@ impl ::core::cmp::PartialEq for ISCSI_CONNECTION_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_CONNECTION_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ISCSI_CONNECTION_INFOW {
+unsafe impl ::windows::core::Abi for ISCSI_CONNECTION_INFOW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1665,7 +1665,7 @@ impl ::core::cmp::PartialEq for ISCSI_CONNECTION_INFO_EX {
     }
 }
 impl ::core::cmp::Eq for ISCSI_CONNECTION_INFO_EX {}
-unsafe impl ::windows::runtime::Abi for ISCSI_CONNECTION_INFO_EX {
+unsafe impl ::windows::core::Abi for ISCSI_CONNECTION_INFO_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1676,7 +1676,7 @@ pub struct ISCSI_DEVICE_ON_SESSIONA {
     pub InitiatorName: [super::super::Foundation::CHAR; 256],
     pub TargetName: [super::super::Foundation::CHAR; 224],
     pub ScsiAddress: SCSI_ADDRESS,
-    pub DeviceInterfaceType: ::windows::runtime::GUID,
+    pub DeviceInterfaceType: ::windows::core::GUID,
     pub DeviceInterfaceName: [super::super::Foundation::CHAR; 260],
     pub LegacyName: [super::super::Foundation::CHAR; 260],
     pub StorageDeviceNumber: super::super::System::Ioctl::STORAGE_DEVICE_NUMBER,
@@ -1714,7 +1714,7 @@ impl ::core::cmp::PartialEq for ISCSI_DEVICE_ON_SESSIONA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 impl ::core::cmp::Eq for ISCSI_DEVICE_ON_SESSIONA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
-unsafe impl ::windows::runtime::Abi for ISCSI_DEVICE_ON_SESSIONA {
+unsafe impl ::windows::core::Abi for ISCSI_DEVICE_ON_SESSIONA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1725,7 +1725,7 @@ pub struct ISCSI_DEVICE_ON_SESSIONW {
     pub InitiatorName: [u16; 256],
     pub TargetName: [u16; 224],
     pub ScsiAddress: SCSI_ADDRESS,
-    pub DeviceInterfaceType: ::windows::runtime::GUID,
+    pub DeviceInterfaceType: ::windows::core::GUID,
     pub DeviceInterfaceName: [u16; 260],
     pub LegacyName: [u16; 260],
     pub StorageDeviceNumber: super::super::System::Ioctl::STORAGE_DEVICE_NUMBER,
@@ -1763,7 +1763,7 @@ impl ::core::cmp::PartialEq for ISCSI_DEVICE_ON_SESSIONW {
 #[cfg(feature = "Win32_System_Ioctl")]
 impl ::core::cmp::Eq for ISCSI_DEVICE_ON_SESSIONW {}
 #[cfg(feature = "Win32_System_Ioctl")]
-unsafe impl ::windows::runtime::Abi for ISCSI_DEVICE_ON_SESSIONW {
+unsafe impl ::windows::core::Abi for ISCSI_DEVICE_ON_SESSIONW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -1777,7 +1777,7 @@ impl ::core::convert::From<i32> for ISCSI_DIGEST_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ISCSI_DIGEST_TYPES {
+unsafe impl ::windows::core::Abi for ISCSI_DIGEST_TYPES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -1853,7 +1853,7 @@ impl ::core::cmp::PartialEq for ISCSI_LOGIN_OPTIONS {
     }
 }
 impl ::core::cmp::Eq for ISCSI_LOGIN_OPTIONS {}
-unsafe impl ::windows::runtime::Abi for ISCSI_LOGIN_OPTIONS {
+unsafe impl ::windows::core::Abi for ISCSI_LOGIN_OPTIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -1934,7 +1934,7 @@ impl ::core::cmp::PartialEq for ISCSI_SESSION_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_SESSION_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ISCSI_SESSION_INFOA {
+unsafe impl ::windows::core::Abi for ISCSI_SESSION_INFOA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1983,7 +1983,7 @@ impl ::core::cmp::PartialEq for ISCSI_SESSION_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_SESSION_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ISCSI_SESSION_INFOW {
+unsafe impl ::windows::core::Abi for ISCSI_SESSION_INFOW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2054,7 +2054,7 @@ impl ::core::cmp::PartialEq for ISCSI_SESSION_INFO_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_SESSION_INFO_EX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ISCSI_SESSION_INFO_EX {
+unsafe impl ::windows::core::Abi for ISCSI_SESSION_INFO_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -2107,7 +2107,7 @@ impl ::core::cmp::PartialEq for ISCSI_TARGET_MAPPINGA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_TARGET_MAPPINGA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_MAPPINGA {
+unsafe impl ::windows::core::Abi for ISCSI_TARGET_MAPPINGA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2149,7 +2149,7 @@ impl ::core::cmp::PartialEq for ISCSI_TARGET_MAPPINGW {
     }
 }
 impl ::core::cmp::Eq for ISCSI_TARGET_MAPPINGW {}
-unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_MAPPINGW {
+unsafe impl ::windows::core::Abi for ISCSI_TARGET_MAPPINGW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2184,7 +2184,7 @@ impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTALA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTALA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTALA {
+unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTALA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2212,7 +2212,7 @@ impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTALW {
     }
 }
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTALW {}
-unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTALW {
+unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTALW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2246,7 +2246,7 @@ impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTAL_GROUPA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTAL_GROUPA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_GROUPA {
+unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_GROUPA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2273,7 +2273,7 @@ impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTAL_GROUPW {
     }
 }
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTAL_GROUPW {}
-unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_GROUPW {
+unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_GROUPW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2310,7 +2310,7 @@ impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTAL_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_INFOA {
+unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_INFOA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2340,7 +2340,7 @@ impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFOW {
     }
 }
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTAL_INFOW {}
-unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_INFOW {
+unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_INFOW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2387,7 +2387,7 @@ impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFO_EXA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTAL_INFO_EXA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_INFO_EXA {
+unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_INFO_EXA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2427,7 +2427,7 @@ impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFO_EXW {
     }
 }
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTAL_INFO_EXW {}
-unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_INFO_EXW {
+unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_INFO_EXW {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2454,7 +2454,7 @@ impl ::core::cmp::PartialEq for ISCSI_UNIQUE_SESSION_ID {
     }
 }
 impl ::core::cmp::Eq for ISCSI_UNIQUE_SESSION_ID {}
-unsafe impl ::windows::runtime::Abi for ISCSI_UNIQUE_SESSION_ID {
+unsafe impl ::windows::core::Abi for ISCSI_UNIQUE_SESSION_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2482,13 +2482,13 @@ impl ::core::cmp::PartialEq for ISCSI_VERSION_INFO {
     }
 }
 impl ::core::cmp::Eq for ISCSI_VERSION_INFO {}
-unsafe impl ::windows::runtime::Abi for ISCSI_VERSION_INFO {
+unsafe impl ::windows::core::Abi for ISCSI_VERSION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoginIScsiTargetA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
+pub unsafe fn LoginIScsiTargetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
     targetname: Param0,
     isinformationalsession: Param1,
     initiatorinstance: Param2,
@@ -2545,7 +2545,7 @@ pub unsafe fn LoginIScsiTargetA<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoginIScsiTargetW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
+pub unsafe fn LoginIScsiTargetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
     targetname: Param0,
     isinformationalsession: Param1,
     initiatorinstance: Param2,
@@ -2681,7 +2681,7 @@ impl ::core::cmp::PartialEq for MPIO_PASS_THROUGH_PATH {
     }
 }
 impl ::core::cmp::Eq for MPIO_PASS_THROUGH_PATH {}
-unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH {
+unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2719,7 +2719,7 @@ impl ::core::cmp::PartialEq for MPIO_PASS_THROUGH_PATH32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for MPIO_PASS_THROUGH_PATH32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH32 {
+unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2757,7 +2757,7 @@ impl ::core::cmp::PartialEq for MPIO_PASS_THROUGH_PATH32_EX {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for MPIO_PASS_THROUGH_PATH32_EX {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH32_EX {
+unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH32_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2788,7 +2788,7 @@ impl ::core::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT {
     }
 }
 impl ::core::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT {}
-unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_DIRECT {
+unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH_DIRECT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2826,7 +2826,7 @@ impl ::core::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_DIRECT32 {
+unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH_DIRECT32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2864,7 +2864,7 @@ impl ::core::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
+unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2895,7 +2895,7 @@ impl ::core::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     }
 }
 impl ::core::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT_EX {}
-unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
+unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2926,7 +2926,7 @@ impl ::core::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_EX {
     }
 }
 impl ::core::cmp::Eq for MPIO_PASS_THROUGH_PATH_EX {}
-unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_EX {
+unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2953,7 +2953,7 @@ impl ::core::cmp::PartialEq for MP_DEVICE_DATA_SET_RANGE {
     }
 }
 impl ::core::cmp::Eq for MP_DEVICE_DATA_SET_RANGE {}
-unsafe impl ::windows::runtime::Abi for MP_DEVICE_DATA_SET_RANGE {
+unsafe impl ::windows::core::Abi for MP_DEVICE_DATA_SET_RANGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -2967,7 +2967,7 @@ impl ::core::convert::From<i32> for MP_STORAGE_DIAGNOSTIC_LEVEL {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MP_STORAGE_DIAGNOSTIC_LEVEL {
+unsafe impl ::windows::core::Abi for MP_STORAGE_DIAGNOSTIC_LEVEL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -2983,7 +2983,7 @@ impl ::core::convert::From<i32> for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
+unsafe impl ::windows::core::Abi for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -3064,7 +3064,7 @@ impl ::core::cmp::PartialEq for NTSCSI_UNICODE_STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTSCSI_UNICODE_STRING {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for NTSCSI_UNICODE_STRING {
+unsafe impl ::windows::core::Abi for NTSCSI_UNICODE_STRING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3116,7 +3116,7 @@ impl ::core::cmp::PartialEq for NVCACHE_HINT_PAYLOAD {
     }
 }
 impl ::core::cmp::Eq for NVCACHE_HINT_PAYLOAD {}
-unsafe impl ::windows::runtime::Abi for NVCACHE_HINT_PAYLOAD {
+unsafe impl ::windows::core::Abi for NVCACHE_HINT_PAYLOAD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3156,7 +3156,7 @@ impl ::core::cmp::PartialEq for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3200,7 +3200,7 @@ impl ::core::cmp::PartialEq for NVCACHE_REQUEST_BLOCK {
     }
 }
 impl ::core::cmp::Eq for NVCACHE_REQUEST_BLOCK {}
-unsafe impl ::windows::runtime::Abi for NVCACHE_REQUEST_BLOCK {
+unsafe impl ::windows::core::Abi for NVCACHE_REQUEST_BLOCK {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -3216,7 +3216,7 @@ impl ::core::convert::From<i32> for NVCACHE_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NVCACHE_STATUS {
+unsafe impl ::windows::core::Abi for NVCACHE_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -3232,7 +3232,7 @@ impl ::core::convert::From<i32> for NVCACHE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NVCACHE_TYPE {
+unsafe impl ::windows::core::Abi for NVCACHE_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3278,7 +3278,7 @@ impl ::core::cmp::PartialEq for NV_FEATURE_PARAMETER {
     }
 }
 impl ::core::cmp::Eq for NV_FEATURE_PARAMETER {}
-unsafe impl ::windows::runtime::Abi for NV_FEATURE_PARAMETER {
+unsafe impl ::windows::core::Abi for NV_FEATURE_PARAMETER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3304,7 +3304,7 @@ impl ::core::cmp::PartialEq for NV_SEP_CACHE_PARAMETER {
     }
 }
 impl ::core::cmp::Eq for NV_SEP_CACHE_PARAMETER {}
-unsafe impl ::windows::runtime::Abi for NV_SEP_CACHE_PARAMETER {
+unsafe impl ::windows::core::Abi for NV_SEP_CACHE_PARAMETER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3326,7 +3326,7 @@ impl ::core::cmp::PartialEq for NV_SEP_CACHE_PARAMETER_0 {
     }
 }
 impl ::core::cmp::Eq for NV_SEP_CACHE_PARAMETER_0 {}
-unsafe impl ::windows::runtime::Abi for NV_SEP_CACHE_PARAMETER_0 {
+unsafe impl ::windows::core::Abi for NV_SEP_CACHE_PARAMETER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3352,7 +3352,7 @@ impl ::core::cmp::PartialEq for NV_SEP_CACHE_PARAMETER_0_0 {
     }
 }
 impl ::core::cmp::Eq for NV_SEP_CACHE_PARAMETER_0_0 {}
-unsafe impl ::windows::runtime::Abi for NV_SEP_CACHE_PARAMETER_0_0 {
+unsafe impl ::windows::core::Abi for NV_SEP_CACHE_PARAMETER_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -3372,7 +3372,7 @@ impl ::core::convert::From<i32> for NV_SEP_WRITE_CACHE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for NV_SEP_WRITE_CACHE_TYPE {
+unsafe impl ::windows::core::Abi for NV_SEP_WRITE_CACHE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -3423,7 +3423,7 @@ impl ::core::cmp::PartialEq for PERSISTENT_ISCSI_LOGIN_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PERSISTENT_ISCSI_LOGIN_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PERSISTENT_ISCSI_LOGIN_INFOA {
+unsafe impl ::windows::core::Abi for PERSISTENT_ISCSI_LOGIN_INFOA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3472,13 +3472,13 @@ impl ::core::cmp::PartialEq for PERSISTENT_ISCSI_LOGIN_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PERSISTENT_ISCSI_LOGIN_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PERSISTENT_ISCSI_LOGIN_INFOW {
+unsafe impl ::windows::core::Abi for PERSISTENT_ISCSI_LOGIN_INFOW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RefreshISNSServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
+pub unsafe fn RefreshISNSServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3493,7 +3493,7 @@ pub unsafe fn RefreshISNSServerA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RefreshISNSServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
+pub unsafe fn RefreshISNSServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3508,7 +3508,7 @@ pub unsafe fn RefreshISNSServerW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RefreshIScsiSendTargetPortalA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
+pub unsafe fn RefreshIScsiSendTargetPortalA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3523,7 +3523,7 @@ pub unsafe fn RefreshIScsiSendTargetPortalA<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RefreshIScsiSendTargetPortalW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
+pub unsafe fn RefreshIScsiSendTargetPortalW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3538,7 +3538,7 @@ pub unsafe fn RefreshIScsiSendTargetPortalW<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveISNSServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
+pub unsafe fn RemoveISNSServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3553,7 +3553,7 @@ pub unsafe fn RemoveISNSServerA<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveISNSServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
+pub unsafe fn RemoveISNSServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3582,7 +3582,7 @@ pub unsafe fn RemoveIScsiConnection(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_I
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiPersistentTargetA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, targetname: Param2, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
+pub unsafe fn RemoveIScsiPersistentTargetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, targetname: Param2, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3597,7 +3597,7 @@ pub unsafe fn RemoveIScsiPersistentTargetA<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiPersistentTargetW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, targetname: Param2, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
+pub unsafe fn RemoveIScsiPersistentTargetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, targetname: Param2, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3612,7 +3612,7 @@ pub unsafe fn RemoveIScsiPersistentTargetW<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiSendTargetPortalA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
+pub unsafe fn RemoveIScsiSendTargetPortalA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3627,7 +3627,7 @@ pub unsafe fn RemoveIScsiSendTargetPortalA<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiSendTargetPortalW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
+pub unsafe fn RemoveIScsiSendTargetPortalW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3642,7 +3642,7 @@ pub unsafe fn RemoveIScsiSendTargetPortalW<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiStaticTargetA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0) -> u32 {
+pub unsafe fn RemoveIScsiStaticTargetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3657,7 +3657,7 @@ pub unsafe fn RemoveIScsiStaticTargetA<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiStaticTargetW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0) -> u32 {
+pub unsafe fn RemoveIScsiStaticTargetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3672,7 +3672,7 @@ pub unsafe fn RemoveIScsiStaticTargetW<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemovePersistentIScsiDeviceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(devicepath: Param0) -> u32 {
+pub unsafe fn RemovePersistentIScsiDeviceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3687,7 +3687,7 @@ pub unsafe fn RemovePersistentIScsiDeviceA<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemovePersistentIScsiDeviceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(devicepath: Param0) -> u32 {
+pub unsafe fn RemovePersistentIScsiDeviceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3702,7 +3702,7 @@ pub unsafe fn RemovePersistentIScsiDeviceW<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveRadiusServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
+pub unsafe fn RemoveRadiusServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3717,7 +3717,7 @@ pub unsafe fn RemoveRadiusServerA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveRadiusServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
+pub unsafe fn RemoveRadiusServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3791,7 +3791,7 @@ pub unsafe fn ReportISNSServerListW(buffersizeinchar: *mut u32, buffer: super::s
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiInitiatorListA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(buffersize: *mut u32, buffer: Param1) -> u32 {
+pub unsafe fn ReportIScsiInitiatorListA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(buffersize: *mut u32, buffer: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3806,7 +3806,7 @@ pub unsafe fn ReportIScsiInitiatorListA<'a, Param1: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiInitiatorListW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(buffersize: *mut u32, buffer: Param1) -> u32 {
+pub unsafe fn ReportIScsiInitiatorListW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(buffersize: *mut u32, buffer: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3909,7 +3909,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsW(portalcount: *mut u32, portalinfo: *
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiTargetPortalsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorname: Param0, targetname: Param1, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALA) -> u32 {
+pub unsafe fn ReportIScsiTargetPortalsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorname: Param0, targetname: Param1, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3924,7 +3924,7 @@ pub unsafe fn ReportIScsiTargetPortalsA<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiTargetPortalsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorname: Param0, targetname: Param1, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALW) -> u32 {
+pub unsafe fn ReportIScsiTargetPortalsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorname: Param0, targetname: Param1, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3939,7 +3939,7 @@ pub unsafe fn ReportIScsiTargetPortalsW<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiTargetsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(forceupdate: Param0, buffersize: *mut u32, buffer: Param2) -> u32 {
+pub unsafe fn ReportIScsiTargetsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(forceupdate: Param0, buffersize: *mut u32, buffer: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3954,7 +3954,7 @@ pub unsafe fn ReportIScsiTargetsA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiTargetsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(forceupdate: Param0, buffersize: *mut u32, buffer: Param2) -> u32 {
+pub unsafe fn ReportIScsiTargetsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(forceupdate: Param0, buffersize: *mut u32, buffer: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4050,7 +4050,7 @@ impl ::core::cmp::PartialEq for SCSI_ADAPTER_BUS_INFO {
     }
 }
 impl ::core::cmp::Eq for SCSI_ADAPTER_BUS_INFO {}
-unsafe impl ::windows::runtime::Abi for SCSI_ADAPTER_BUS_INFO {
+unsafe impl ::windows::core::Abi for SCSI_ADAPTER_BUS_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4080,7 +4080,7 @@ impl ::core::cmp::PartialEq for SCSI_ADDRESS {
     }
 }
 impl ::core::cmp::Eq for SCSI_ADDRESS {}
-unsafe impl ::windows::runtime::Abi for SCSI_ADDRESS {
+unsafe impl ::windows::core::Abi for SCSI_ADDRESS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4108,7 +4108,7 @@ impl ::core::cmp::PartialEq for SCSI_BUS_DATA {
     }
 }
 impl ::core::cmp::Eq for SCSI_BUS_DATA {}
-unsafe impl ::windows::runtime::Abi for SCSI_BUS_DATA {
+unsafe impl ::windows::core::Abi for SCSI_BUS_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4155,7 +4155,7 @@ impl ::core::cmp::PartialEq for SCSI_INQUIRY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCSI_INQUIRY_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SCSI_INQUIRY_DATA {
+unsafe impl ::windows::core::Abi for SCSI_INQUIRY_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -4190,7 +4190,7 @@ impl ::core::cmp::PartialEq for SCSI_LUN_LIST {
     }
 }
 impl ::core::cmp::Eq for SCSI_LUN_LIST {}
-unsafe impl ::windows::runtime::Abi for SCSI_LUN_LIST {
+unsafe impl ::windows::core::Abi for SCSI_LUN_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4254,7 +4254,7 @@ impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH {
     }
 }
 impl ::core::cmp::Eq for SCSI_PASS_THROUGH {}
-unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH {
+unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4325,7 +4325,7 @@ impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for SCSI_PASS_THROUGH32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH32 {
+unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4405,7 +4405,7 @@ impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH32_EX {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for SCSI_PASS_THROUGH32_EX {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH32_EX {
+unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH32_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4457,7 +4457,7 @@ impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT {
     }
 }
 impl ::core::cmp::Eq for SCSI_PASS_THROUGH_DIRECT {}
-unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_DIRECT {
+unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH_DIRECT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4516,7 +4516,7 @@ impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for SCSI_PASS_THROUGH_DIRECT32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_DIRECT32 {
+unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH_DIRECT32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4596,7 +4596,7 @@ impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT32_EX {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for SCSI_PASS_THROUGH_DIRECT32_EX {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_DIRECT32_EX {
+unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH_DIRECT32_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4669,7 +4669,7 @@ impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT_EX {
     }
 }
 impl ::core::cmp::Eq for SCSI_PASS_THROUGH_DIRECT_EX {}
-unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_DIRECT_EX {
+unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH_DIRECT_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4742,7 +4742,7 @@ impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH_EX {
     }
 }
 impl ::core::cmp::Eq for SCSI_PASS_THROUGH_EX {}
-unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_EX {
+unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4773,7 +4773,7 @@ impl ::core::cmp::PartialEq for SRB_IO_CONTROL {
     }
 }
 impl ::core::cmp::Eq for SRB_IO_CONTROL {}
-unsafe impl ::windows::runtime::Abi for SRB_IO_CONTROL {
+unsafe impl ::windows::core::Abi for SRB_IO_CONTROL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4784,7 +4784,7 @@ pub struct STORAGE_DIAGNOSTIC_MP_REQUEST {
     pub Size: u32,
     pub TargetType: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE,
     pub Level: MP_STORAGE_DIAGNOSTIC_LEVEL,
-    pub ProviderId: ::windows::runtime::GUID,
+    pub ProviderId: ::windows::core::GUID,
     pub BufferSize: u32,
     pub Reserved: u32,
     pub DataBuffer: [u8; 1],
@@ -4815,7 +4815,7 @@ impl ::core::cmp::PartialEq for STORAGE_DIAGNOSTIC_MP_REQUEST {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DIAGNOSTIC_MP_REQUEST {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_MP_REQUEST {
+unsafe impl ::windows::core::Abi for STORAGE_DIAGNOSTIC_MP_REQUEST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -4857,7 +4857,7 @@ impl ::core::cmp::PartialEq for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_ENDURANCE_DATA_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4888,7 +4888,7 @@ impl ::core::cmp::PartialEq for STORAGE_ENDURANCE_INFO {
     }
 }
 impl ::core::cmp::Eq for STORAGE_ENDURANCE_INFO {}
-unsafe impl ::windows::runtime::Abi for STORAGE_ENDURANCE_INFO {
+unsafe impl ::windows::core::Abi for STORAGE_ENDURANCE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4914,7 +4914,7 @@ impl ::core::cmp::PartialEq for STORAGE_ENDURANCE_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_ENDURANCE_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_ENDURANCE_INFO_0 {
+unsafe impl ::windows::core::Abi for STORAGE_ENDURANCE_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4943,7 +4943,7 @@ impl ::core::cmp::PartialEq for STORAGE_FIRMWARE_ACTIVATE {
     }
 }
 impl ::core::cmp::Eq for STORAGE_FIRMWARE_ACTIVATE {}
-unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_ACTIVATE {
+unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_ACTIVATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -4975,7 +4975,7 @@ impl ::core::cmp::PartialEq for STORAGE_FIRMWARE_DOWNLOAD {
     }
 }
 impl ::core::cmp::Eq for STORAGE_FIRMWARE_DOWNLOAD {}
-unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_DOWNLOAD {
+unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_DOWNLOAD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -5021,7 +5021,7 @@ impl ::core::cmp::PartialEq for STORAGE_FIRMWARE_DOWNLOAD_V2 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_FIRMWARE_DOWNLOAD_V2 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_DOWNLOAD_V2 {
+unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_DOWNLOAD_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5055,7 +5055,7 @@ impl ::core::cmp::PartialEq for STORAGE_FIRMWARE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_FIRMWARE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_INFO {
+unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -5116,7 +5116,7 @@ impl ::core::cmp::PartialEq for STORAGE_FIRMWARE_INFO_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_FIRMWARE_INFO_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_INFO_V2 {
+unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_INFO_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5146,7 +5146,7 @@ impl ::core::cmp::PartialEq for STORAGE_FIRMWARE_SLOT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_FIRMWARE_SLOT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_SLOT_INFO {
+unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_SLOT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5173,7 +5173,7 @@ impl ::core::cmp::PartialEq for STORAGE_FIRMWARE_SLOT_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_FIRMWARE_SLOT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_SLOT_INFO_0 {
+unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_SLOT_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5209,12 +5209,12 @@ impl ::core::cmp::PartialEq for STORAGE_FIRMWARE_SLOT_INFO_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_FIRMWARE_SLOT_INFO_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_SLOT_INFO_V2 {
+unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_SLOT_INFO_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16u32;
-pub const ScsiRawInterfaceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56309_b6bf_11d0_94f2_00a0c91efb8b);
+pub const ScsiRawInterfaceGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56309_b6bf_11d0_94f2_00a0c91efb8b);
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 #[inline]
 pub unsafe fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32 {
@@ -5270,7 +5270,7 @@ pub unsafe fn SendScsiReportLuns(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, 
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiGroupPresharedKey<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(keylength: u32, key: *mut u8, persist: Param2) -> u32 {
+pub unsafe fn SetIScsiGroupPresharedKey<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(keylength: u32, key: *mut u8, persist: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5285,7 +5285,7 @@ pub unsafe fn SetIScsiGroupPresharedKey<'a, Param2: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiIKEInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: Param3) -> u32 {
+pub unsafe fn SetIScsiIKEInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5300,7 +5300,7 @@ pub unsafe fn SetIScsiIKEInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiIKEInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: Param3) -> u32 {
+pub unsafe fn SetIScsiIKEInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5329,7 +5329,7 @@ pub unsafe fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: u32, shareds
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiInitiatorNodeNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatornodename: Param0) -> u32 {
+pub unsafe fn SetIScsiInitiatorNodeNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatornodename: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5344,7 +5344,7 @@ pub unsafe fn SetIScsiInitiatorNodeNameA<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiInitiatorNodeNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatornodename: Param0) -> u32 {
+pub unsafe fn SetIScsiInitiatorNodeNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatornodename: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5373,7 +5373,7 @@ pub unsafe fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: u32, share
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiTunnelModeOuterAddressA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, destinationaddress: Param2, outermodeaddress: Param3, persist: Param4) -> u32 {
+pub unsafe fn SetIScsiTunnelModeOuterAddressA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, destinationaddress: Param2, outermodeaddress: Param3, persist: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5388,7 +5388,7 @@ pub unsafe fn SetIScsiTunnelModeOuterAddressA<'a, Param0: ::windows::runtime::In
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiTunnelModeOuterAddressW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, destinationaddress: Param2, outermodeaddress: Param3, persist: Param4) -> u32 {
+pub unsafe fn SetIScsiTunnelModeOuterAddressW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, destinationaddress: Param2, outermodeaddress: Param3, persist: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5438,7 +5438,7 @@ impl ::core::convert::From<i32> for TARGETPROTOCOLTYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TARGETPROTOCOLTYPE {
+unsafe impl ::windows::core::Abi for TARGETPROTOCOLTYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -5458,10 +5458,10 @@ impl ::core::convert::From<i32> for TARGET_INFORMATION_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TARGET_INFORMATION_CLASS {
+unsafe impl ::windows::core::Abi for TARGET_INFORMATION_CLASS {
     type Abi = Self;
 }
-pub const WmiScsiAddressGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
+pub const WmiScsiAddressGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _ADAPTER_OBJECT(pub u8);

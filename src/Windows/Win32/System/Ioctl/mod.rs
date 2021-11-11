@@ -38,7 +38,7 @@ impl ::core::cmp::PartialEq for ASYNC_DUPLICATE_EXTENTS_STATUS {
     }
 }
 impl ::core::cmp::Eq for ASYNC_DUPLICATE_EXTENTS_STATUS {}
-unsafe impl ::windows::runtime::Abi for ASYNC_DUPLICATE_EXTENTS_STATUS {
+unsafe impl ::windows::core::Abi for ASYNC_DUPLICATE_EXTENTS_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -67,7 +67,7 @@ impl ::core::cmp::PartialEq for BIN_COUNT {
     }
 }
 impl ::core::cmp::Eq for BIN_COUNT {}
-unsafe impl ::windows::runtime::Abi for BIN_COUNT {
+unsafe impl ::windows::core::Abi for BIN_COUNT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -94,7 +94,7 @@ impl ::core::cmp::PartialEq for BIN_RANGE {
     }
 }
 impl ::core::cmp::Eq for BIN_RANGE {}
-unsafe impl ::windows::runtime::Abi for BIN_RANGE {
+unsafe impl ::windows::core::Abi for BIN_RANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -121,7 +121,7 @@ impl ::core::cmp::PartialEq for BIN_RESULTS {
     }
 }
 impl ::core::cmp::Eq for BIN_RESULTS {}
-unsafe impl ::windows::runtime::Abi for BIN_RESULTS {
+unsafe impl ::windows::core::Abi for BIN_RESULTS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -135,7 +135,7 @@ impl ::core::convert::From<i32> for BIN_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for BIN_TYPES {
+unsafe impl ::windows::core::Abi for BIN_TYPES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -162,7 +162,7 @@ impl ::core::cmp::PartialEq for BOOT_AREA_INFO {
     }
 }
 impl ::core::cmp::Eq for BOOT_AREA_INFO {}
-unsafe impl ::windows::runtime::Abi for BOOT_AREA_INFO {
+unsafe impl ::windows::core::Abi for BOOT_AREA_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -188,7 +188,7 @@ impl ::core::cmp::PartialEq for BOOT_AREA_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for BOOT_AREA_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for BOOT_AREA_INFO_0 {
+unsafe impl ::windows::core::Abi for BOOT_AREA_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -215,7 +215,7 @@ impl ::core::cmp::PartialEq for BULK_SECURITY_TEST_DATA {
     }
 }
 impl ::core::cmp::Eq for BULK_SECURITY_TEST_DATA {}
-unsafe impl ::windows::runtime::Abi for BULK_SECURITY_TEST_DATA {
+unsafe impl ::windows::core::Abi for BULK_SECURITY_TEST_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -249,7 +249,7 @@ impl ::core::convert::From<i32> for CHANGER_DEVICE_PROBLEM_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CHANGER_DEVICE_PROBLEM_TYPE {
+unsafe impl ::windows::core::Abi for CHANGER_DEVICE_PROBLEM_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -276,7 +276,7 @@ impl ::core::cmp::PartialEq for CHANGER_ELEMENT {
     }
 }
 impl ::core::cmp::Eq for CHANGER_ELEMENT {}
-unsafe impl ::windows::runtime::Abi for CHANGER_ELEMENT {
+unsafe impl ::windows::core::Abi for CHANGER_ELEMENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -303,7 +303,7 @@ impl ::core::cmp::PartialEq for CHANGER_ELEMENT_LIST {
     }
 }
 impl ::core::cmp::Eq for CHANGER_ELEMENT_LIST {}
-unsafe impl ::windows::runtime::Abi for CHANGER_ELEMENT_LIST {
+unsafe impl ::windows::core::Abi for CHANGER_ELEMENT_LIST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -347,7 +347,7 @@ impl ::core::cmp::PartialEq for CHANGER_ELEMENT_STATUS {
     }
 }
 impl ::core::cmp::Eq for CHANGER_ELEMENT_STATUS {}
-unsafe impl ::windows::runtime::Abi for CHANGER_ELEMENT_STATUS {
+unsafe impl ::windows::core::Abi for CHANGER_ELEMENT_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -408,7 +408,7 @@ impl ::core::cmp::PartialEq for CHANGER_ELEMENT_STATUS_EX {
     }
 }
 impl ::core::cmp::Eq for CHANGER_ELEMENT_STATUS_EX {}
-unsafe impl ::windows::runtime::Abi for CHANGER_ELEMENT_STATUS_EX {
+unsafe impl ::windows::core::Abi for CHANGER_ELEMENT_STATUS_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -434,7 +434,7 @@ impl ::core::convert::From<u32> for CHANGER_ELEMENT_STATUS_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CHANGER_ELEMENT_STATUS_FLAGS {
+unsafe impl ::windows::core::Abi for CHANGER_ELEMENT_STATUS_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CHANGER_ELEMENT_STATUS_FLAGS {
@@ -500,7 +500,7 @@ impl ::core::cmp::PartialEq for CHANGER_EXCHANGE_MEDIUM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHANGER_EXCHANGE_MEDIUM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CHANGER_EXCHANGE_MEDIUM {
+unsafe impl ::windows::core::Abi for CHANGER_EXCHANGE_MEDIUM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -541,7 +541,7 @@ impl ::core::convert::From<u32> for CHANGER_FEATURES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CHANGER_FEATURES {
+unsafe impl ::windows::core::Abi for CHANGER_FEATURES {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for CHANGER_FEATURES {
@@ -603,7 +603,7 @@ impl ::core::cmp::PartialEq for CHANGER_INITIALIZE_ELEMENT_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHANGER_INITIALIZE_ELEMENT_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CHANGER_INITIALIZE_ELEMENT_STATUS {
+unsafe impl ::windows::core::Abi for CHANGER_INITIALIZE_ELEMENT_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -639,7 +639,7 @@ impl ::core::cmp::PartialEq for CHANGER_MOVE_MEDIUM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHANGER_MOVE_MEDIUM {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CHANGER_MOVE_MEDIUM {
+unsafe impl ::windows::core::Abi for CHANGER_MOVE_MEDIUM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -669,7 +669,7 @@ impl ::core::cmp::PartialEq for CHANGER_PRODUCT_DATA {
     }
 }
 impl ::core::cmp::Eq for CHANGER_PRODUCT_DATA {}
-unsafe impl ::windows::runtime::Abi for CHANGER_PRODUCT_DATA {
+unsafe impl ::windows::core::Abi for CHANGER_PRODUCT_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -703,7 +703,7 @@ impl ::core::cmp::PartialEq for CHANGER_READ_ELEMENT_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHANGER_READ_ELEMENT_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CHANGER_READ_ELEMENT_STATUS {
+unsafe impl ::windows::core::Abi for CHANGER_READ_ELEMENT_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -733,7 +733,7 @@ impl ::core::cmp::PartialEq for CHANGER_SEND_VOLUME_TAG_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for CHANGER_SEND_VOLUME_TAG_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for CHANGER_SEND_VOLUME_TAG_INFORMATION {
+unsafe impl ::windows::core::Abi for CHANGER_SEND_VOLUME_TAG_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -760,7 +760,7 @@ impl ::core::cmp::PartialEq for CHANGER_SET_ACCESS {
     }
 }
 impl ::core::cmp::Eq for CHANGER_SET_ACCESS {}
-unsafe impl ::windows::runtime::Abi for CHANGER_SET_ACCESS {
+unsafe impl ::windows::core::Abi for CHANGER_SET_ACCESS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -795,7 +795,7 @@ impl ::core::cmp::PartialEq for CHANGER_SET_POSITION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHANGER_SET_POSITION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CHANGER_SET_POSITION {
+unsafe impl ::windows::core::Abi for CHANGER_SET_POSITION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -842,7 +842,7 @@ impl ::core::cmp::PartialEq for CLASS_MEDIA_CHANGE_CONTEXT {
     }
 }
 impl ::core::cmp::Eq for CLASS_MEDIA_CHANGE_CONTEXT {}
-unsafe impl ::windows::runtime::Abi for CLASS_MEDIA_CHANGE_CONTEXT {
+unsafe impl ::windows::core::Abi for CLASS_MEDIA_CHANGE_CONTEXT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -869,7 +869,7 @@ impl ::core::cmp::PartialEq for CLUSTER_RANGE {
     }
 }
 impl ::core::cmp::Eq for CLUSTER_RANGE {}
-unsafe impl ::windows::runtime::Abi for CLUSTER_RANGE {
+unsafe impl ::windows::core::Abi for CLUSTER_RANGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -915,7 +915,7 @@ impl ::core::cmp::PartialEq for CONTAINER_ROOT_INFO_INPUT {
     }
 }
 impl ::core::cmp::Eq for CONTAINER_ROOT_INFO_INPUT {}
-unsafe impl ::windows::runtime::Abi for CONTAINER_ROOT_INFO_INPUT {
+unsafe impl ::windows::core::Abi for CONTAINER_ROOT_INFO_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -942,7 +942,7 @@ impl ::core::cmp::PartialEq for CONTAINER_ROOT_INFO_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for CONTAINER_ROOT_INFO_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for CONTAINER_ROOT_INFO_OUTPUT {
+unsafe impl ::windows::core::Abi for CONTAINER_ROOT_INFO_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -970,7 +970,7 @@ impl ::core::cmp::PartialEq for CONTAINER_VOLUME_STATE {
     }
 }
 impl ::core::cmp::Eq for CONTAINER_VOLUME_STATE {}
-unsafe impl ::windows::runtime::Abi for CONTAINER_VOLUME_STATE {
+unsafe impl ::windows::core::Abi for CONTAINER_VOLUME_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -1000,7 +1000,7 @@ impl ::core::cmp::PartialEq for CREATE_DISK {
     }
 }
 impl ::core::cmp::Eq for CREATE_DISK {}
-unsafe impl ::windows::runtime::Abi for CREATE_DISK {
+unsafe impl ::windows::core::Abi for CREATE_DISK {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1022,14 +1022,14 @@ impl ::core::cmp::PartialEq for CREATE_DISK_0 {
     }
 }
 impl ::core::cmp::Eq for CREATE_DISK_0 {}
-unsafe impl ::windows::runtime::Abi for CREATE_DISK_0 {
+unsafe impl ::windows::core::Abi for CREATE_DISK_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CREATE_DISK_GPT {
-    pub DiskId: ::windows::runtime::GUID,
+    pub DiskId: ::windows::core::GUID,
     pub MaxPartitionCount: u32,
 }
 impl CREATE_DISK_GPT {}
@@ -1049,7 +1049,7 @@ impl ::core::cmp::PartialEq for CREATE_DISK_GPT {
     }
 }
 impl ::core::cmp::Eq for CREATE_DISK_GPT {}
-unsafe impl ::windows::runtime::Abi for CREATE_DISK_GPT {
+unsafe impl ::windows::core::Abi for CREATE_DISK_GPT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1075,7 +1075,7 @@ impl ::core::cmp::PartialEq for CREATE_DISK_MBR {
     }
 }
 impl ::core::cmp::Eq for CREATE_DISK_MBR {}
-unsafe impl ::windows::runtime::Abi for CREATE_DISK_MBR {
+unsafe impl ::windows::core::Abi for CREATE_DISK_MBR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1102,7 +1102,7 @@ impl ::core::cmp::PartialEq for CREATE_USN_JOURNAL_DATA {
     }
 }
 impl ::core::cmp::Eq for CREATE_USN_JOURNAL_DATA {}
-unsafe impl ::windows::runtime::Abi for CREATE_USN_JOURNAL_DATA {
+unsafe impl ::windows::core::Abi for CREATE_USN_JOURNAL_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -1118,7 +1118,7 @@ impl ::core::convert::From<i32> for CSVFS_DISK_CONNECTIVITY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CSVFS_DISK_CONNECTIVITY {
+unsafe impl ::windows::core::Abi for CSVFS_DISK_CONNECTIVITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -1148,7 +1148,7 @@ impl ::core::convert::From<i32> for CSV_CONTROL_OP {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for CSV_CONTROL_OP {
+unsafe impl ::windows::core::Abi for CSV_CONTROL_OP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1175,7 +1175,7 @@ impl ::core::cmp::PartialEq for CSV_CONTROL_PARAM {
     }
 }
 impl ::core::cmp::Eq for CSV_CONTROL_PARAM {}
-unsafe impl ::windows::runtime::Abi for CSV_CONTROL_PARAM {
+unsafe impl ::windows::core::Abi for CSV_CONTROL_PARAM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -1210,7 +1210,7 @@ impl ::core::cmp::PartialEq for CSV_IS_OWNED_BY_CSVFS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CSV_IS_OWNED_BY_CSVFS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CSV_IS_OWNED_BY_CSVFS {
+unsafe impl ::windows::core::Abi for CSV_IS_OWNED_BY_CSVFS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -1238,7 +1238,7 @@ impl ::core::cmp::PartialEq for CSV_MGMT_LOCK {
     }
 }
 impl ::core::cmp::Eq for CSV_MGMT_LOCK {}
-unsafe impl ::windows::runtime::Abi for CSV_MGMT_LOCK {
+unsafe impl ::windows::core::Abi for CSV_MGMT_LOCK {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1267,7 +1267,7 @@ impl ::core::cmp::PartialEq for CSV_NAMESPACE_INFO {
     }
 }
 impl ::core::cmp::Eq for CSV_NAMESPACE_INFO {}
-unsafe impl ::windows::runtime::Abi for CSV_NAMESPACE_INFO {
+unsafe impl ::windows::core::Abi for CSV_NAMESPACE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1294,7 +1294,7 @@ impl ::core::cmp::PartialEq for CSV_QUERY_FILE_REVISION {
     }
 }
 impl ::core::cmp::Eq for CSV_QUERY_FILE_REVISION {}
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_FILE_REVISION {
+unsafe impl ::windows::core::Abi for CSV_QUERY_FILE_REVISION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1328,7 +1328,7 @@ impl ::core::cmp::PartialEq for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for CSV_QUERY_FILE_REVISION_FILE_ID_128 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
+unsafe impl ::windows::core::Abi for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1357,7 +1357,7 @@ impl ::core::cmp::PartialEq for CSV_QUERY_MDS_PATH {
     }
 }
 impl ::core::cmp::Eq for CSV_QUERY_MDS_PATH {}
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_MDS_PATH {
+unsafe impl ::windows::core::Abi for CSV_QUERY_MDS_PATH {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -1376,7 +1376,7 @@ pub struct CSV_QUERY_MDS_PATH_V2 {
     pub DsNodeId: u32,
     pub Flags: u32,
     pub DiskConnectivity: CSVFS_DISK_CONNECTIVITY,
-    pub VolumeId: ::windows::runtime::GUID,
+    pub VolumeId: ::windows::core::GUID,
     pub IpAddressOffset: u32,
     pub IpAddressLength: u32,
     pub PathOffset: u32,
@@ -1411,7 +1411,7 @@ impl ::core::cmp::PartialEq for CSV_QUERY_MDS_PATH_V2 {
     }
 }
 impl ::core::cmp::Eq for CSV_QUERY_MDS_PATH_V2 {}
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_MDS_PATH_V2 {
+unsafe impl ::windows::core::Abi for CSV_QUERY_MDS_PATH_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -1448,7 +1448,7 @@ impl ::core::cmp::PartialEq for CSV_QUERY_REDIRECT_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CSV_QUERY_REDIRECT_STATE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_REDIRECT_STATE {
+unsafe impl ::windows::core::Abi for CSV_QUERY_REDIRECT_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1476,14 +1476,14 @@ impl ::core::cmp::PartialEq for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
+unsafe impl ::windows::core::Abi for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CSV_QUERY_VOLUME_ID {
-    pub VolumeId: ::windows::runtime::GUID,
+    pub VolumeId: ::windows::core::GUID,
 }
 impl CSV_QUERY_VOLUME_ID {}
 impl ::core::default::Default for CSV_QUERY_VOLUME_ID {
@@ -1502,7 +1502,7 @@ impl ::core::cmp::PartialEq for CSV_QUERY_VOLUME_ID {
     }
 }
 impl ::core::cmp::Eq for CSV_QUERY_VOLUME_ID {}
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_VOLUME_ID {
+unsafe impl ::windows::core::Abi for CSV_QUERY_VOLUME_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1539,14 +1539,14 @@ impl ::core::cmp::PartialEq for CSV_QUERY_VOLUME_REDIRECT_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CSV_QUERY_VOLUME_REDIRECT_STATE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_VOLUME_REDIRECT_STATE {
+unsafe impl ::windows::core::Abi for CSV_QUERY_VOLUME_REDIRECT_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CSV_SET_VOLUME_ID {
-    pub VolumeId: ::windows::runtime::GUID,
+    pub VolumeId: ::windows::core::GUID,
 }
 impl CSV_SET_VOLUME_ID {}
 impl ::core::default::Default for CSV_SET_VOLUME_ID {
@@ -1565,7 +1565,7 @@ impl ::core::cmp::PartialEq for CSV_SET_VOLUME_ID {
     }
 }
 impl ::core::cmp::Eq for CSV_SET_VOLUME_ID {}
-unsafe impl ::windows::runtime::Abi for CSV_SET_VOLUME_ID {
+unsafe impl ::windows::core::Abi for CSV_SET_VOLUME_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -1604,7 +1604,7 @@ impl ::core::cmp::PartialEq for DECRYPTION_STATUS_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DECRYPTION_STATUS_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DECRYPTION_STATUS_BUFFER {
+unsafe impl ::windows::core::Abi for DECRYPTION_STATUS_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1631,7 +1631,7 @@ impl ::core::cmp::PartialEq for DELETE_USN_JOURNAL_DATA {
     }
 }
 impl ::core::cmp::Eq for DELETE_USN_JOURNAL_DATA {}
-unsafe impl ::windows::runtime::Abi for DELETE_USN_JOURNAL_DATA {
+unsafe impl ::windows::core::Abi for DELETE_USN_JOURNAL_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -1646,7 +1646,7 @@ impl ::core::convert::From<i32> for DETECTION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DETECTION_TYPE {
+unsafe impl ::windows::core::Abi for DETECTION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -1675,7 +1675,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_PRIVATE_SUBSECTION {
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_PRIVATE_SUBSECTION {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_PRIVATE_SUBSECTION {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_PRIVATE_SUBSECTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1705,7 +1705,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_PUBLIC_SUBSECTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICEDUMP_PUBLIC_SUBSECTION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_PUBLIC_SUBSECTION {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_PUBLIC_SUBSECTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1731,14 +1731,14 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_RESTRICTED_SUBSECTION {
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_RESTRICTED_SUBSECTION {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_RESTRICTED_SUBSECTION {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_RESTRICTED_SUBSECTION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_SECTION_HEADER {
-    pub guidDeviceDataId: ::windows::runtime::GUID,
+    pub guidDeviceDataId: ::windows::core::GUID,
     pub sOrganizationID: [u8; 16],
     pub dwFirmwareRevision: u32,
     pub sModelNumber: [u8; 32],
@@ -1760,7 +1760,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_SECTION_HEADER {
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_SECTION_HEADER {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_SECTION_HEADER {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_SECTION_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1787,7 +1787,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_STORAGEDEVICE_DATA {
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_STORAGEDEVICE_DATA {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGEDEVICE_DATA {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_STORAGEDEVICE_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1812,7 +1812,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1839,7 +1839,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1862,7 +1862,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1883,7 +1883,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1904,7 +1904,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1925,7 +1925,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1948,7 +1948,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_STRUCTURE_VERSION {
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_STRUCTURE_VERSION {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STRUCTURE_VERSION {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_STRUCTURE_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -1973,7 +1973,7 @@ impl ::core::cmp::PartialEq for DEVICEDUMP_SUBSECTION_POINTER {
     }
 }
 impl ::core::cmp::Eq for DEVICEDUMP_SUBSECTION_POINTER {}
-unsafe impl ::windows::runtime::Abi for DEVICEDUMP_SUBSECTION_POINTER {
+unsafe impl ::windows::core::Abi for DEVICEDUMP_SUBSECTION_POINTER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2031,7 +2031,7 @@ impl ::core::cmp::PartialEq for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for DEVICE_COPY_OFFLOAD_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2060,7 +2060,7 @@ impl ::core::cmp::PartialEq for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -2102,7 +2102,7 @@ impl ::core::cmp::PartialEq for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DATA_SET_LB_PROVISIONING_STATE {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
+unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2142,7 +2142,7 @@ impl ::core::cmp::PartialEq for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
+unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2169,7 +2169,7 @@ impl ::core::cmp::PartialEq for DEVICE_DATA_SET_RANGE {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DATA_SET_RANGE {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_RANGE {
+unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_RANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2195,7 +2195,7 @@ impl ::core::cmp::PartialEq for DEVICE_DATA_SET_REPAIR_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DATA_SET_REPAIR_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_REPAIR_OUTPUT {
+unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_REPAIR_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2223,7 +2223,7 @@ impl ::core::cmp::PartialEq for DEVICE_DATA_SET_REPAIR_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DATA_SET_REPAIR_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_REPAIR_PARAMETERS {
+unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_REPAIR_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2253,7 +2253,7 @@ impl ::core::cmp::PartialEq for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
+unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2281,7 +2281,7 @@ impl ::core::cmp::PartialEq for DEVICE_DATA_SET_SCRUB_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DATA_SET_SCRUB_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_SCRUB_OUTPUT {
+unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_SCRUB_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2308,7 +2308,7 @@ impl ::core::cmp::PartialEq for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
+unsafe impl ::windows::core::Abi for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2316,7 +2316,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_CONVERSION_OUTPUT {
     pub Version: u32,
-    pub Source: ::windows::runtime::GUID,
+    pub Source: ::windows::core::GUID,
 }
 impl DEVICE_DSM_CONVERSION_OUTPUT {}
 impl ::core::default::Default for DEVICE_DSM_CONVERSION_OUTPUT {
@@ -2335,7 +2335,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_CONVERSION_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_CONVERSION_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_CONVERSION_OUTPUT {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_CONVERSION_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2382,7 +2382,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_DEFINITION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_DSM_DEFINITION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_DEFINITION {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_DEFINITION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -2427,7 +2427,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_FREE_SPACE_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_FREE_SPACE_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_FREE_SPACE_OUTPUT {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_FREE_SPACE_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2457,7 +2457,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_LOST_QUERY_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_LOST_QUERY_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_LOST_QUERY_OUTPUT {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_LOST_QUERY_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2484,7 +2484,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_LOST_QUERY_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_LOST_QUERY_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_LOST_QUERY_PARAMETERS {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_LOST_QUERY_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2494,7 +2494,7 @@ pub struct DEVICE_DSM_NOTIFICATION_PARAMETERS {
     pub Size: u32,
     pub Flags: u32,
     pub NumFileTypeIDs: u32,
-    pub FileTypeID: [::windows::runtime::GUID; 1],
+    pub FileTypeID: [::windows::core::GUID; 1],
 }
 impl DEVICE_DSM_NOTIFICATION_PARAMETERS {}
 impl ::core::default::Default for DEVICE_DSM_NOTIFICATION_PARAMETERS {
@@ -2513,7 +2513,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_NOTIFICATION_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_NOTIFICATION_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_NOTIFICATION_PARAMETERS {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_NOTIFICATION_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -2545,7 +2545,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2573,7 +2573,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2597,7 +2597,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -2629,7 +2629,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -2658,7 +2658,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_RANGE_ERROR_INFO {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_RANGE_ERROR_INFO {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_RANGE_ERROR_INFO {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_RANGE_ERROR_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -2699,7 +2699,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_REPORT_ZONES_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_DSM_REPORT_ZONES_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_REPORT_ZONES_DATA {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_REPORT_ZONES_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2728,7 +2728,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_REPORT_ZONES_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2739,7 +2739,7 @@ pub struct DEVICE_DSM_TIERING_QUERY_INPUT {
     pub Size: u32,
     pub Flags: u32,
     pub NumberOfTierIds: u32,
-    pub TierIds: [::windows::runtime::GUID; 1],
+    pub TierIds: [::windows::core::GUID; 1],
 }
 impl DEVICE_DSM_TIERING_QUERY_INPUT {}
 impl ::core::default::Default for DEVICE_DSM_TIERING_QUERY_INPUT {
@@ -2758,7 +2758,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_TIERING_QUERY_INPUT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_TIERING_QUERY_INPUT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_TIERING_QUERY_INPUT {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_TIERING_QUERY_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2800,7 +2800,7 @@ impl ::core::cmp::PartialEq for DEVICE_DSM_TIERING_QUERY_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_DSM_TIERING_QUERY_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_DSM_TIERING_QUERY_OUTPUT {
+unsafe impl ::windows::core::Abi for DEVICE_DSM_TIERING_QUERY_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2861,7 +2861,7 @@ impl ::core::cmp::PartialEq for DEVICE_INTERNAL_STATUS_DATA {
     }
 }
 impl ::core::cmp::Eq for DEVICE_INTERNAL_STATUS_DATA {}
-unsafe impl ::windows::runtime::Abi for DEVICE_INTERNAL_STATUS_DATA {
+unsafe impl ::windows::core::Abi for DEVICE_INTERNAL_STATUS_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -2878,7 +2878,7 @@ impl ::core::convert::From<i32> for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
+unsafe impl ::windows::core::Abi for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -2896,7 +2896,7 @@ impl ::core::convert::From<i32> for DEVICE_INTERNAL_STATUS_DATA_SET {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DEVICE_INTERNAL_STATUS_DATA_SET {
+unsafe impl ::windows::core::Abi for DEVICE_INTERNAL_STATUS_DATA_SET {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2938,7 +2938,7 @@ impl ::core::cmp::PartialEq for DEVICE_LB_PROVISIONING_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for DEVICE_LB_PROVISIONING_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for DEVICE_LB_PROVISIONING_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for DEVICE_LB_PROVISIONING_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2963,7 +2963,7 @@ impl ::core::cmp::PartialEq for DEVICE_LOCATION {
     }
 }
 impl ::core::cmp::Eq for DEVICE_LOCATION {}
-unsafe impl ::windows::runtime::Abi for DEVICE_LOCATION {
+unsafe impl ::windows::core::Abi for DEVICE_LOCATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -2985,7 +2985,7 @@ impl ::core::cmp::PartialEq for DEVICE_LOCATION_0 {
     }
 }
 impl ::core::cmp::Eq for DEVICE_LOCATION_0 {}
-unsafe impl ::windows::runtime::Abi for DEVICE_LOCATION_0 {
+unsafe impl ::windows::core::Abi for DEVICE_LOCATION_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3012,7 +3012,7 @@ impl ::core::cmp::PartialEq for DEVICE_LOCATION_0_0 {
     }
 }
 impl ::core::cmp::Eq for DEVICE_LOCATION_0_0 {}
-unsafe impl ::windows::runtime::Abi for DEVICE_LOCATION_0_0 {
+unsafe impl ::windows::core::Abi for DEVICE_LOCATION_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3039,7 +3039,7 @@ impl ::core::cmp::PartialEq for DEVICE_LOCATION_0_1 {
     }
 }
 impl ::core::cmp::Eq for DEVICE_LOCATION_0_1 {}
-unsafe impl ::windows::runtime::Abi for DEVICE_LOCATION_0_1 {
+unsafe impl ::windows::core::Abi for DEVICE_LOCATION_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3079,7 +3079,7 @@ impl ::core::cmp::PartialEq for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
     }
 }
 impl ::core::cmp::Eq for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {}
-unsafe impl ::windows::runtime::Abi for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3123,7 +3123,7 @@ impl ::core::cmp::PartialEq for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
+unsafe impl ::windows::core::Abi for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3150,7 +3150,7 @@ impl ::core::cmp::PartialEq for DEVICE_MEDIA_INFO {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for DEVICE_MEDIA_INFO {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO {
+unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3178,7 +3178,7 @@ impl ::core::cmp::PartialEq for DEVICE_MEDIA_INFO_0 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for DEVICE_MEDIA_INFO_0 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0 {
+unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3224,7 +3224,7 @@ impl ::core::cmp::PartialEq for DEVICE_MEDIA_INFO_0_0 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for DEVICE_MEDIA_INFO_0_0 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_0 {
+unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3270,7 +3270,7 @@ impl ::core::cmp::PartialEq for DEVICE_MEDIA_INFO_0_1 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for DEVICE_MEDIA_INFO_0_1 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_1 {
+unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3300,7 +3300,7 @@ impl ::core::cmp::PartialEq for DEVICE_MEDIA_INFO_0_2 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for DEVICE_MEDIA_INFO_0_2 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_2 {
+unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3326,7 +3326,7 @@ impl ::core::cmp::PartialEq for DEVICE_MEDIA_INFO_0_2_0 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for DEVICE_MEDIA_INFO_0_2_0 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_2_0 {
+unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0_2_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3359,7 +3359,7 @@ impl ::core::cmp::PartialEq for DEVICE_MEDIA_INFO_0_2_0_0 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for DEVICE_MEDIA_INFO_0_2_0_0 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_2_0_0 {
+unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0_2_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3421,7 +3421,7 @@ impl ::core::cmp::PartialEq for DEVICE_POWER_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_POWER_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVICE_POWER_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for DEVICE_POWER_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3456,7 +3456,7 @@ impl ::core::cmp::PartialEq for DEVICE_SEEK_PENALTY_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_SEEK_PENALTY_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVICE_SEEK_PENALTY_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3483,7 +3483,7 @@ impl ::core::cmp::PartialEq for DEVICE_STORAGE_ADDRESS_RANGE {
     }
 }
 impl ::core::cmp::Eq for DEVICE_STORAGE_ADDRESS_RANGE {}
-unsafe impl ::windows::runtime::Abi for DEVICE_STORAGE_ADDRESS_RANGE {
+unsafe impl ::windows::core::Abi for DEVICE_STORAGE_ADDRESS_RANGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -3508,7 +3508,7 @@ impl ::core::cmp::PartialEq for DEVICE_STORAGE_RANGE_ATTRIBUTES {
     }
 }
 impl ::core::cmp::Eq for DEVICE_STORAGE_RANGE_ATTRIBUTES {}
-unsafe impl ::windows::runtime::Abi for DEVICE_STORAGE_RANGE_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for DEVICE_STORAGE_RANGE_ATTRIBUTES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3530,7 +3530,7 @@ impl ::core::cmp::PartialEq for DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
     }
 }
 impl ::core::cmp::Eq for DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {}
-unsafe impl ::windows::runtime::Abi for DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
+unsafe impl ::windows::core::Abi for DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3556,7 +3556,7 @@ impl ::core::cmp::PartialEq for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     }
 }
 impl ::core::cmp::Eq for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {}
-unsafe impl ::windows::runtime::Abi for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
+unsafe impl ::windows::core::Abi for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3591,7 +3591,7 @@ impl ::core::cmp::PartialEq for DEVICE_TRIM_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_TRIM_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVICE_TRIM_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for DEVICE_TRIM_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3626,57 +3626,33 @@ impl ::core::cmp::PartialEq for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_Storage_Disk_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
-    pid: 5u32,
-};
+pub const DEVPKEY_Storage_Disk_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 5u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_Storage_Gpt_Name: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
-    pid: 9u32,
-};
+pub const DEVPKEY_Storage_Gpt_Name: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 9u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_Storage_Gpt_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
-    pid: 8u32,
-};
+pub const DEVPKEY_Storage_Gpt_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 8u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_Storage_Mbr_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
-    pid: 7u32,
-};
+pub const DEVPKEY_Storage_Mbr_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 7u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_Storage_Partition_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
-    pid: 6u32,
-};
+pub const DEVPKEY_Storage_Partition_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 6u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_Storage_Portable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
-    pid: 2u32,
-};
+pub const DEVPKEY_Storage_Portable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_Storage_Removable_Media: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
-    pid: 3u32,
-};
+pub const DEVPKEY_Storage_Removable_Media: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 3u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_System_Ioctl`, `Win32_UI_Shell_PropertiesSystem`*"]
-pub const DEVPKEY_Storage_System_Critical: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9),
-    pid: 4u32,
-};
+pub const DEVPKEY_Storage_System_Critical: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 4u32 };
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DISABLE_SMART: u32 = 217u32;
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -3716,7 +3692,7 @@ impl ::core::cmp::PartialEq for DISK_CACHE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISK_CACHE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION {
+unsafe impl ::windows::core::Abi for DISK_CACHE_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3743,7 +3719,7 @@ impl ::core::cmp::PartialEq for DISK_CACHE_INFORMATION_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISK_CACHE_INFORMATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0 {
+unsafe impl ::windows::core::Abi for DISK_CACHE_INFORMATION_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3776,7 +3752,7 @@ impl ::core::cmp::PartialEq for DISK_CACHE_INFORMATION_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISK_CACHE_INFORMATION_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0_0 {
+unsafe impl ::windows::core::Abi for DISK_CACHE_INFORMATION_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3810,7 +3786,7 @@ impl ::core::cmp::PartialEq for DISK_CACHE_INFORMATION_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISK_CACHE_INFORMATION_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0_1 {
+unsafe impl ::windows::core::Abi for DISK_CACHE_INFORMATION_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -3825,7 +3801,7 @@ impl ::core::convert::From<i32> for DISK_CACHE_RETENTION_PRIORITY {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DISK_CACHE_RETENTION_PRIORITY {
+unsafe impl ::windows::core::Abi for DISK_CACHE_RETENTION_PRIORITY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3852,7 +3828,7 @@ impl ::core::cmp::PartialEq for DISK_CONTROLLER_NUMBER {
     }
 }
 impl ::core::cmp::Eq for DISK_CONTROLLER_NUMBER {}
-unsafe impl ::windows::runtime::Abi for DISK_CONTROLLER_NUMBER {
+unsafe impl ::windows::core::Abi for DISK_CONTROLLER_NUMBER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3875,7 +3851,7 @@ impl ::core::cmp::PartialEq for DISK_DETECTION_INFO {
     }
 }
 impl ::core::cmp::Eq for DISK_DETECTION_INFO {}
-unsafe impl ::windows::runtime::Abi for DISK_DETECTION_INFO {
+unsafe impl ::windows::core::Abi for DISK_DETECTION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3896,7 +3872,7 @@ impl ::core::cmp::PartialEq for DISK_DETECTION_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for DISK_DETECTION_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for DISK_DETECTION_INFO_0 {
+unsafe impl ::windows::core::Abi for DISK_DETECTION_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3923,7 +3899,7 @@ impl ::core::cmp::PartialEq for DISK_DETECTION_INFO_0_0 {
     }
 }
 impl ::core::cmp::Eq for DISK_DETECTION_INFO_0_0 {}
-unsafe impl ::windows::runtime::Abi for DISK_DETECTION_INFO_0_0 {
+unsafe impl ::windows::core::Abi for DISK_DETECTION_INFO_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3951,7 +3927,7 @@ impl ::core::cmp::PartialEq for DISK_EXTENT {
     }
 }
 impl ::core::cmp::Eq for DISK_EXTENT {}
-unsafe impl ::windows::runtime::Abi for DISK_EXTENT {
+unsafe impl ::windows::core::Abi for DISK_EXTENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3993,7 +3969,7 @@ impl ::core::cmp::PartialEq for DISK_EX_INT13_INFO {
     }
 }
 impl ::core::cmp::Eq for DISK_EX_INT13_INFO {}
-unsafe impl ::windows::runtime::Abi for DISK_EX_INT13_INFO {
+unsafe impl ::windows::core::Abi for DISK_EX_INT13_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4023,7 +3999,7 @@ impl ::core::cmp::PartialEq for DISK_GEOMETRY {
     }
 }
 impl ::core::cmp::Eq for DISK_GEOMETRY {}
-unsafe impl ::windows::runtime::Abi for DISK_GEOMETRY {
+unsafe impl ::windows::core::Abi for DISK_GEOMETRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4051,7 +4027,7 @@ impl ::core::cmp::PartialEq for DISK_GEOMETRY_EX {
     }
 }
 impl ::core::cmp::Eq for DISK_GEOMETRY_EX {}
-unsafe impl ::windows::runtime::Abi for DISK_GEOMETRY_EX {
+unsafe impl ::windows::core::Abi for DISK_GEOMETRY_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4078,7 +4054,7 @@ impl ::core::cmp::PartialEq for DISK_GROW_PARTITION {
     }
 }
 impl ::core::cmp::Eq for DISK_GROW_PARTITION {}
-unsafe impl ::windows::runtime::Abi for DISK_GROW_PARTITION {
+unsafe impl ::windows::core::Abi for DISK_GROW_PARTITION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4126,7 +4102,7 @@ impl ::core::cmp::PartialEq for DISK_HISTOGRAM {
     }
 }
 impl ::core::cmp::Eq for DISK_HISTOGRAM {}
-unsafe impl ::windows::runtime::Abi for DISK_HISTOGRAM {
+unsafe impl ::windows::core::Abi for DISK_HISTOGRAM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4156,7 +4132,7 @@ impl ::core::cmp::PartialEq for DISK_INT13_INFO {
     }
 }
 impl ::core::cmp::Eq for DISK_INT13_INFO {}
-unsafe impl ::windows::runtime::Abi for DISK_INT13_INFO {
+unsafe impl ::windows::core::Abi for DISK_INT13_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4184,7 +4160,7 @@ impl ::core::cmp::PartialEq for DISK_LOGGING {
     }
 }
 impl ::core::cmp::Eq for DISK_LOGGING {}
-unsafe impl ::windows::runtime::Abi for DISK_LOGGING {
+unsafe impl ::windows::core::Abi for DISK_LOGGING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -4213,7 +4189,7 @@ impl ::core::cmp::PartialEq for DISK_PARTITION_INFO {
     }
 }
 impl ::core::cmp::Eq for DISK_PARTITION_INFO {}
-unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO {
+unsafe impl ::windows::core::Abi for DISK_PARTITION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4235,14 +4211,14 @@ impl ::core::cmp::PartialEq for DISK_PARTITION_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for DISK_PARTITION_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO_0 {
+unsafe impl ::windows::core::Abi for DISK_PARTITION_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_PARTITION_INFO_0_0 {
-    pub DiskId: ::windows::runtime::GUID,
+    pub DiskId: ::windows::core::GUID,
 }
 impl DISK_PARTITION_INFO_0_0 {}
 impl ::core::default::Default for DISK_PARTITION_INFO_0_0 {
@@ -4261,7 +4237,7 @@ impl ::core::cmp::PartialEq for DISK_PARTITION_INFO_0_0 {
     }
 }
 impl ::core::cmp::Eq for DISK_PARTITION_INFO_0_0 {}
-unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO_0_0 {
+unsafe impl ::windows::core::Abi for DISK_PARTITION_INFO_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4288,7 +4264,7 @@ impl ::core::cmp::PartialEq for DISK_PARTITION_INFO_0_1 {
     }
 }
 impl ::core::cmp::Eq for DISK_PARTITION_INFO_0_1 {}
-unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO_0_1 {
+unsafe impl ::windows::core::Abi for DISK_PARTITION_INFO_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4338,7 +4314,7 @@ impl ::core::cmp::PartialEq for DISK_PERFORMANCE {
     }
 }
 impl ::core::cmp::Eq for DISK_PERFORMANCE {}
-unsafe impl ::windows::runtime::Abi for DISK_PERFORMANCE {
+unsafe impl ::windows::core::Abi for DISK_PERFORMANCE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4385,7 +4361,7 @@ impl ::core::cmp::PartialEq for DISK_RECORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISK_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DISK_RECORD {
+unsafe impl ::windows::core::Abi for DISK_RECORD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4409,7 +4385,7 @@ impl ::core::cmp::PartialEq for DRIVERSTATUS {
     }
 }
 impl ::core::cmp::Eq for DRIVERSTATUS {}
-unsafe impl ::windows::runtime::Abi for DRIVERSTATUS {
+unsafe impl ::windows::core::Abi for DRIVERSTATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4444,7 +4420,7 @@ impl ::core::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRIVE_LAYOUT_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION {
+unsafe impl ::windows::core::Abi for DRIVE_LAYOUT_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4474,7 +4450,7 @@ impl ::core::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRIVE_LAYOUT_INFORMATION_EX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_EX {
+unsafe impl ::windows::core::Abi for DRIVE_LAYOUT_INFORMATION_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4501,14 +4477,14 @@ impl ::core::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_EX_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRIVE_LAYOUT_INFORMATION_EX_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_EX_0 {
+unsafe impl ::windows::core::Abi for DRIVE_LAYOUT_INFORMATION_EX_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DRIVE_LAYOUT_INFORMATION_GPT {
-    pub DiskId: ::windows::runtime::GUID,
+    pub DiskId: ::windows::core::GUID,
     pub StartingUsableOffset: i64,
     pub UsableLength: i64,
     pub MaxPartitionCount: u32,
@@ -4530,7 +4506,7 @@ impl ::core::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_GPT {
     }
 }
 impl ::core::cmp::Eq for DRIVE_LAYOUT_INFORMATION_GPT {}
-unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_GPT {
+unsafe impl ::windows::core::Abi for DRIVE_LAYOUT_INFORMATION_GPT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4557,7 +4533,7 @@ impl ::core::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_MBR {
     }
 }
 impl ::core::cmp::Eq for DRIVE_LAYOUT_INFORMATION_MBR {}
-unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_MBR {
+unsafe impl ::windows::core::Abi for DRIVE_LAYOUT_INFORMATION_MBR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4593,7 +4569,7 @@ impl ::core::cmp::PartialEq for DUPLICATE_EXTENTS_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DUPLICATE_EXTENTS_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA {
+unsafe impl ::windows::core::Abi for DUPLICATE_EXTENTS_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4629,7 +4605,7 @@ impl ::core::cmp::PartialEq for DUPLICATE_EXTENTS_DATA32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for DUPLICATE_EXTENTS_DATA32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA32 {
+unsafe impl ::windows::core::Abi for DUPLICATE_EXTENTS_DATA32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4667,7 +4643,7 @@ impl ::core::cmp::PartialEq for DUPLICATE_EXTENTS_DATA_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DUPLICATE_EXTENTS_DATA_EX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA_EX {
+unsafe impl ::windows::core::Abi for DUPLICATE_EXTENTS_DATA_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4705,7 +4681,7 @@ impl ::core::cmp::PartialEq for DUPLICATE_EXTENTS_DATA_EX32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for DUPLICATE_EXTENTS_DATA_EX32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA_EX32 {
+unsafe impl ::windows::core::Abi for DUPLICATE_EXTENTS_DATA_EX32 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -4724,7 +4700,7 @@ impl ::core::convert::From<i32> for DUPLICATE_EXTENTS_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_STATE {
+unsafe impl ::windows::core::Abi for DUPLICATE_EXTENTS_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -4748,7 +4724,7 @@ impl ::core::convert::From<i32> for ELEMENT_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for ELEMENT_TYPE {
+unsafe impl ::windows::core::Abi for ELEMENT_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -4812,7 +4788,7 @@ impl ::core::cmp::PartialEq for ENCRYPTED_DATA_INFO {
     }
 }
 impl ::core::cmp::Eq for ENCRYPTED_DATA_INFO {}
-unsafe impl ::windows::runtime::Abi for ENCRYPTED_DATA_INFO {
+unsafe impl ::windows::core::Abi for ENCRYPTED_DATA_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -4841,7 +4817,7 @@ impl ::core::cmp::PartialEq for ENCRYPTION_BUFFER {
     }
 }
 impl ::core::cmp::Eq for ENCRYPTION_BUFFER {}
-unsafe impl ::windows::runtime::Abi for ENCRYPTION_BUFFER {
+unsafe impl ::windows::core::Abi for ENCRYPTION_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -4883,7 +4859,7 @@ impl ::core::cmp::PartialEq for ENCRYPTION_KEY_CTRL_INPUT {
     }
 }
 impl ::core::cmp::Eq for ENCRYPTION_KEY_CTRL_INPUT {}
-unsafe impl ::windows::runtime::Abi for ENCRYPTION_KEY_CTRL_INPUT {
+unsafe impl ::windows::core::Abi for ENCRYPTION_KEY_CTRL_INPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -4945,7 +4921,7 @@ impl ::core::cmp::PartialEq for EXFAT_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for EXFAT_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for EXFAT_STATISTICS {
+unsafe impl ::windows::core::Abi for EXFAT_STATISTICS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4974,7 +4950,7 @@ impl ::core::cmp::PartialEq for EXTENDED_ENCRYPTED_DATA_INFO {
     }
 }
 impl ::core::cmp::Eq for EXTENDED_ENCRYPTED_DATA_INFO {}
-unsafe impl ::windows::runtime::Abi for EXTENDED_ENCRYPTED_DATA_INFO {
+unsafe impl ::windows::core::Abi for EXTENDED_ENCRYPTED_DATA_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -5020,7 +4996,7 @@ impl ::core::cmp::PartialEq for FAT_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for FAT_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for FAT_STATISTICS {
+unsafe impl ::windows::core::Abi for FAT_STATISTICS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5090,7 +5066,7 @@ impl ::core::cmp::PartialEq for FILESYSTEM_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for FILESYSTEM_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for FILESYSTEM_STATISTICS {
+unsafe impl ::windows::core::Abi for FILESYSTEM_STATISTICS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5160,7 +5136,7 @@ impl ::core::cmp::PartialEq for FILESYSTEM_STATISTICS_EX {
     }
 }
 impl ::core::cmp::Eq for FILESYSTEM_STATISTICS_EX {}
-unsafe impl ::windows::runtime::Abi for FILESYSTEM_STATISTICS_EX {
+unsafe impl ::windows::core::Abi for FILESYSTEM_STATISTICS_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -5175,7 +5151,7 @@ impl ::core::convert::From<u16> for FILESYSTEM_STATISTICS_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILESYSTEM_STATISTICS_TYPE {
+unsafe impl ::windows::core::Abi for FILESYSTEM_STATISTICS_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -5204,7 +5180,7 @@ impl ::core::cmp::PartialEq for FILE_ALLOCATED_RANGE_BUFFER {
     }
 }
 impl ::core::cmp::Eq for FILE_ALLOCATED_RANGE_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FILE_ALLOCATED_RANGE_BUFFER {
+unsafe impl ::windows::core::Abi for FILE_ALLOCATED_RANGE_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -5235,7 +5211,7 @@ impl ::core::cmp::PartialEq for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for FILE_DESIRED_STORAGE_CLASS_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
+unsafe impl ::windows::core::Abi for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -5432,7 +5408,7 @@ impl ::core::cmp::PartialEq for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for FILE_FS_PERSISTENT_VOLUME_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
+unsafe impl ::windows::core::Abi for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -5547,7 +5523,7 @@ impl ::core::cmp::PartialEq for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
     }
 }
 impl ::core::cmp::Eq for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
+unsafe impl ::windows::core::Abi for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5591,7 +5567,7 @@ impl ::core::cmp::PartialEq for FILE_LAYOUT_ENTRY {
     }
 }
 impl ::core::cmp::Eq for FILE_LAYOUT_ENTRY {}
-unsafe impl ::windows::runtime::Abi for FILE_LAYOUT_ENTRY {
+unsafe impl ::windows::core::Abi for FILE_LAYOUT_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5621,7 +5597,7 @@ impl ::core::cmp::PartialEq for FILE_LAYOUT_INFO_ENTRY {
     }
 }
 impl ::core::cmp::Eq for FILE_LAYOUT_INFO_ENTRY {}
-unsafe impl ::windows::runtime::Abi for FILE_LAYOUT_INFO_ENTRY {
+unsafe impl ::windows::core::Abi for FILE_LAYOUT_INFO_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5651,7 +5627,7 @@ impl ::core::cmp::PartialEq for FILE_LAYOUT_INFO_ENTRY_0 {
     }
 }
 impl ::core::cmp::Eq for FILE_LAYOUT_INFO_ENTRY_0 {}
-unsafe impl ::windows::runtime::Abi for FILE_LAYOUT_INFO_ENTRY_0 {
+unsafe impl ::windows::core::Abi for FILE_LAYOUT_INFO_ENTRY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5689,7 +5665,7 @@ impl ::core::cmp::PartialEq for FILE_LAYOUT_NAME_ENTRY {
     }
 }
 impl ::core::cmp::Eq for FILE_LAYOUT_NAME_ENTRY {}
-unsafe impl ::windows::runtime::Abi for FILE_LAYOUT_NAME_ENTRY {
+unsafe impl ::windows::core::Abi for FILE_LAYOUT_NAME_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -5721,7 +5697,7 @@ impl ::core::cmp::PartialEq for FILE_LEVEL_TRIM {
     }
 }
 impl ::core::cmp::Eq for FILE_LEVEL_TRIM {}
-unsafe impl ::windows::runtime::Abi for FILE_LEVEL_TRIM {
+unsafe impl ::windows::core::Abi for FILE_LEVEL_TRIM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5747,7 +5723,7 @@ impl ::core::cmp::PartialEq for FILE_LEVEL_TRIM_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for FILE_LEVEL_TRIM_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for FILE_LEVEL_TRIM_OUTPUT {
+unsafe impl ::windows::core::Abi for FILE_LEVEL_TRIM_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5774,7 +5750,7 @@ impl ::core::cmp::PartialEq for FILE_LEVEL_TRIM_RANGE {
     }
 }
 impl ::core::cmp::Eq for FILE_LEVEL_TRIM_RANGE {}
-unsafe impl ::windows::runtime::Abi for FILE_LEVEL_TRIM_RANGE {
+unsafe impl ::windows::core::Abi for FILE_LEVEL_TRIM_RANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5807,7 +5783,7 @@ impl ::core::cmp::PartialEq for FILE_MAKE_COMPATIBLE_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_MAKE_COMPATIBLE_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_MAKE_COMPATIBLE_BUFFER {
+unsafe impl ::windows::core::Abi for FILE_MAKE_COMPATIBLE_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5829,7 +5805,7 @@ impl ::core::cmp::PartialEq for FILE_OBJECTID_BUFFER {
     }
 }
 impl ::core::cmp::Eq for FILE_OBJECTID_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FILE_OBJECTID_BUFFER {
+unsafe impl ::windows::core::Abi for FILE_OBJECTID_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5851,7 +5827,7 @@ impl ::core::cmp::PartialEq for FILE_OBJECTID_BUFFER_0 {
     }
 }
 impl ::core::cmp::Eq for FILE_OBJECTID_BUFFER_0 {}
-unsafe impl ::windows::runtime::Abi for FILE_OBJECTID_BUFFER_0 {
+unsafe impl ::windows::core::Abi for FILE_OBJECTID_BUFFER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5879,7 +5855,7 @@ impl ::core::cmp::PartialEq for FILE_OBJECTID_BUFFER_0_0 {
     }
 }
 impl ::core::cmp::Eq for FILE_OBJECTID_BUFFER_0_0 {}
-unsafe impl ::windows::runtime::Abi for FILE_OBJECTID_BUFFER_0_0 {
+unsafe impl ::windows::core::Abi for FILE_OBJECTID_BUFFER_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5907,7 +5883,7 @@ impl ::core::cmp::PartialEq for FILE_PREFETCH {
     }
 }
 impl ::core::cmp::Eq for FILE_PREFETCH {}
-unsafe impl ::windows::runtime::Abi for FILE_PREFETCH {
+unsafe impl ::windows::core::Abi for FILE_PREFETCH {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -5936,7 +5912,7 @@ impl ::core::cmp::PartialEq for FILE_PREFETCH_EX {
     }
 }
 impl ::core::cmp::Eq for FILE_PREFETCH_EX {}
-unsafe impl ::windows::runtime::Abi for FILE_PREFETCH_EX {
+unsafe impl ::windows::core::Abi for FILE_PREFETCH_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -5977,7 +5953,7 @@ impl ::core::cmp::PartialEq for FILE_PROVIDER_EXTERNAL_INFO_V0 {
     }
 }
 impl ::core::cmp::Eq for FILE_PROVIDER_EXTERNAL_INFO_V0 {}
-unsafe impl ::windows::runtime::Abi for FILE_PROVIDER_EXTERNAL_INFO_V0 {
+unsafe impl ::windows::core::Abi for FILE_PROVIDER_EXTERNAL_INFO_V0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6005,7 +5981,7 @@ impl ::core::cmp::PartialEq for FILE_PROVIDER_EXTERNAL_INFO_V1 {
     }
 }
 impl ::core::cmp::Eq for FILE_PROVIDER_EXTERNAL_INFO_V1 {}
-unsafe impl ::windows::runtime::Abi for FILE_PROVIDER_EXTERNAL_INFO_V1 {
+unsafe impl ::windows::core::Abi for FILE_PROVIDER_EXTERNAL_INFO_V1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6067,7 +6043,7 @@ impl ::core::cmp::PartialEq for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     }
 }
 impl ::core::cmp::Eq for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
+unsafe impl ::windows::core::Abi for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6103,7 +6079,7 @@ impl ::core::cmp::PartialEq for FILE_QUERY_SPARING_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_QUERY_SPARING_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_QUERY_SPARING_BUFFER {
+unsafe impl ::windows::core::Abi for FILE_QUERY_SPARING_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6132,7 +6108,7 @@ impl ::core::cmp::PartialEq for FILE_REFERENCE_RANGE {
     }
 }
 impl ::core::cmp::Eq for FILE_REFERENCE_RANGE {}
-unsafe impl ::windows::runtime::Abi for FILE_REFERENCE_RANGE {
+unsafe impl ::windows::core::Abi for FILE_REFERENCE_RANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6161,7 +6137,7 @@ impl ::core::cmp::PartialEq for FILE_REGION_INFO {
     }
 }
 impl ::core::cmp::Eq for FILE_REGION_INFO {}
-unsafe impl ::windows::runtime::Abi for FILE_REGION_INFO {
+unsafe impl ::windows::core::Abi for FILE_REGION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6189,7 +6165,7 @@ impl ::core::cmp::PartialEq for FILE_REGION_INPUT {
     }
 }
 impl ::core::cmp::Eq for FILE_REGION_INPUT {}
-unsafe impl ::windows::runtime::Abi for FILE_REGION_INPUT {
+unsafe impl ::windows::core::Abi for FILE_REGION_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6219,7 +6195,7 @@ impl ::core::cmp::PartialEq for FILE_REGION_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for FILE_REGION_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for FILE_REGION_OUTPUT {
+unsafe impl ::windows::core::Abi for FILE_REGION_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6264,7 +6240,7 @@ impl ::core::cmp::PartialEq for FILE_SET_DEFECT_MGMT_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_SET_DEFECT_MGMT_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_SET_DEFECT_MGMT_BUFFER {
+unsafe impl ::windows::core::Abi for FILE_SET_DEFECT_MGMT_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6299,7 +6275,7 @@ impl ::core::cmp::PartialEq for FILE_SET_SPARSE_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_SET_SPARSE_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_SET_SPARSE_BUFFER {
+unsafe impl ::windows::core::Abi for FILE_SET_SPARSE_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6308,7 +6284,7 @@ pub const FILE_SPECIAL_ACCESS: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_STORAGE_TIER {
-    pub Id: ::windows::runtime::GUID,
+    pub Id: ::windows::core::GUID,
     pub Name: [u16; 256],
     pub Description: [u16; 256],
     pub Flags: FILE_STORAGE_TIER_FLAGS,
@@ -6333,7 +6309,7 @@ impl ::core::cmp::PartialEq for FILE_STORAGE_TIER {
     }
 }
 impl ::core::cmp::Eq for FILE_STORAGE_TIER {}
-unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER {
+unsafe impl ::windows::core::Abi for FILE_STORAGE_TIER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6349,7 +6325,7 @@ impl ::core::convert::From<i32> for FILE_STORAGE_TIER_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER_CLASS {
+unsafe impl ::windows::core::Abi for FILE_STORAGE_TIER_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6364,7 +6340,7 @@ impl ::core::convert::From<u32> for FILE_STORAGE_TIER_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER_FLAGS {
+unsafe impl ::windows::core::Abi for FILE_STORAGE_TIER_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for FILE_STORAGE_TIER_FLAGS {
@@ -6417,7 +6393,7 @@ impl ::core::convert::From<i32> for FILE_STORAGE_TIER_MEDIA_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER_MEDIA_TYPE {
+unsafe impl ::windows::core::Abi for FILE_STORAGE_TIER_MEDIA_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6426,7 +6402,7 @@ pub const FILE_STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_STORAGE_TIER_REGION {
-    pub TierId: ::windows::runtime::GUID,
+    pub TierId: ::windows::core::GUID,
     pub Offset: u64,
     pub Length: u64,
 }
@@ -6447,7 +6423,7 @@ impl ::core::cmp::PartialEq for FILE_STORAGE_TIER_REGION {
     }
 }
 impl ::core::cmp::Eq for FILE_STORAGE_TIER_REGION {}
-unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER_REGION {
+unsafe impl ::windows::core::Abi for FILE_STORAGE_TIER_REGION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6480,23 +6456,23 @@ impl ::core::cmp::PartialEq for FILE_SYSTEM_RECOGNITION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_SYSTEM_RECOGNITION_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_SYSTEM_RECOGNITION_INFORMATION {
+unsafe impl ::windows::core::Abi for FILE_SYSTEM_RECOGNITION_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: u32 = 2u32;
-pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9);
-pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7);
-pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c);
+pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9);
+pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7);
+pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_TYPE_NOTIFICATION_INPUT {
     pub Flags: u32,
     pub NumFileTypeIDs: u32,
-    pub FileTypeID: [::windows::runtime::GUID; 1],
+    pub FileTypeID: [::windows::core::GUID; 1],
 }
 impl FILE_TYPE_NOTIFICATION_INPUT {}
 impl ::core::default::Default for FILE_TYPE_NOTIFICATION_INPUT {
@@ -6515,7 +6491,7 @@ impl ::core::cmp::PartialEq for FILE_TYPE_NOTIFICATION_INPUT {
     }
 }
 impl ::core::cmp::Eq for FILE_TYPE_NOTIFICATION_INPUT {}
-unsafe impl ::windows::runtime::Abi for FILE_TYPE_NOTIFICATION_INPUT {
+unsafe impl ::windows::core::Abi for FILE_TYPE_NOTIFICATION_INPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6544,7 +6520,7 @@ impl ::core::cmp::PartialEq for FILE_ZERO_DATA_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for FILE_ZERO_DATA_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for FILE_ZERO_DATA_INFORMATION {
+unsafe impl ::windows::core::Abi for FILE_ZERO_DATA_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6572,7 +6548,7 @@ impl ::core::cmp::PartialEq for FILE_ZERO_DATA_INFORMATION_EX {
     }
 }
 impl ::core::cmp::Eq for FILE_ZERO_DATA_INFORMATION_EX {}
-unsafe impl ::windows::runtime::Abi for FILE_ZERO_DATA_INFORMATION_EX {
+unsafe impl ::windows::core::Abi for FILE_ZERO_DATA_INFORMATION_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6608,7 +6584,7 @@ impl ::core::cmp::PartialEq for FIND_BY_SID_DATA {
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::Eq for FIND_BY_SID_DATA {}
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::runtime::Abi for FIND_BY_SID_DATA {
+unsafe impl ::windows::core::Abi for FIND_BY_SID_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6637,7 +6613,7 @@ impl ::core::cmp::PartialEq for FIND_BY_SID_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for FIND_BY_SID_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for FIND_BY_SID_OUTPUT {
+unsafe impl ::windows::core::Abi for FIND_BY_SID_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6681,7 +6657,7 @@ impl ::core::cmp::PartialEq for FORMAT_EX_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for FORMAT_EX_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for FORMAT_EX_PARAMETERS {
+unsafe impl ::windows::core::Abi for FORMAT_EX_PARAMETERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6711,7 +6687,7 @@ impl ::core::cmp::PartialEq for FORMAT_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for FORMAT_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for FORMAT_PARAMETERS {
+unsafe impl ::windows::core::Abi for FORMAT_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6843,7 +6819,7 @@ impl ::core::cmp::PartialEq for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
     }
 }
 impl ::core::cmp::Eq for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
+unsafe impl ::windows::core::Abi for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -6948,7 +6924,7 @@ impl ::core::cmp::PartialEq for FSCTL_OFFLOAD_READ_INPUT {
     }
 }
 impl ::core::cmp::Eq for FSCTL_OFFLOAD_READ_INPUT {}
-unsafe impl ::windows::runtime::Abi for FSCTL_OFFLOAD_READ_INPUT {
+unsafe impl ::windows::core::Abi for FSCTL_OFFLOAD_READ_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6977,7 +6953,7 @@ impl ::core::cmp::PartialEq for FSCTL_OFFLOAD_READ_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for FSCTL_OFFLOAD_READ_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for FSCTL_OFFLOAD_READ_OUTPUT {
+unsafe impl ::windows::core::Abi for FSCTL_OFFLOAD_READ_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -7010,7 +6986,7 @@ impl ::core::cmp::PartialEq for FSCTL_OFFLOAD_WRITE_INPUT {
     }
 }
 impl ::core::cmp::Eq for FSCTL_OFFLOAD_WRITE_INPUT {}
-unsafe impl ::windows::runtime::Abi for FSCTL_OFFLOAD_WRITE_INPUT {
+unsafe impl ::windows::core::Abi for FSCTL_OFFLOAD_WRITE_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7038,7 +7014,7 @@ impl ::core::cmp::PartialEq for FSCTL_OFFLOAD_WRITE_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for FSCTL_OFFLOAD_WRITE_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for FSCTL_OFFLOAD_WRITE_OUTPUT {
+unsafe impl ::windows::core::Abi for FSCTL_OFFLOAD_WRITE_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -7088,7 +7064,7 @@ impl ::core::cmp::PartialEq for FSCTL_QUERY_FAT_BPB_BUFFER {
     }
 }
 impl ::core::cmp::Eq for FSCTL_QUERY_FAT_BPB_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FSCTL_QUERY_FAT_BPB_BUFFER {
+unsafe impl ::windows::core::Abi for FSCTL_QUERY_FAT_BPB_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -7121,7 +7097,7 @@ pub struct FSCTL_QUERY_REGION_INFO_INPUT {
     pub Size: u32,
     pub Flags: u32,
     pub NumberOfTierIds: u32,
-    pub TierIds: [::windows::runtime::GUID; 1],
+    pub TierIds: [::windows::core::GUID; 1],
 }
 impl FSCTL_QUERY_REGION_INFO_INPUT {}
 impl ::core::default::Default for FSCTL_QUERY_REGION_INFO_INPUT {
@@ -7140,7 +7116,7 @@ impl ::core::cmp::PartialEq for FSCTL_QUERY_REGION_INFO_INPUT {
     }
 }
 impl ::core::cmp::Eq for FSCTL_QUERY_REGION_INFO_INPUT {}
-unsafe impl ::windows::runtime::Abi for FSCTL_QUERY_REGION_INFO_INPUT {
+unsafe impl ::windows::core::Abi for FSCTL_QUERY_REGION_INFO_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7182,7 +7158,7 @@ impl ::core::cmp::PartialEq for FSCTL_QUERY_REGION_INFO_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for FSCTL_QUERY_REGION_INFO_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for FSCTL_QUERY_REGION_INFO_OUTPUT {
+unsafe impl ::windows::core::Abi for FSCTL_QUERY_REGION_INFO_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -7221,7 +7197,7 @@ impl ::core::cmp::PartialEq for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
+unsafe impl ::windows::core::Abi for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -7313,7 +7289,7 @@ impl ::core::cmp::PartialEq for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
     }
 }
 impl ::core::cmp::Eq for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
+unsafe impl ::windows::core::Abi for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7351,7 +7327,7 @@ impl ::core::cmp::PartialEq for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
     }
 }
 impl ::core::cmp::Eq for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {}
-unsafe impl ::windows::runtime::Abi for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
+unsafe impl ::windows::core::Abi for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -7489,7 +7465,7 @@ impl ::core::convert::From<i32> for FS_BPIO_INFLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FS_BPIO_INFLAGS {
+unsafe impl ::windows::core::Abi for FS_BPIO_INFLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7517,7 +7493,7 @@ impl ::core::cmp::PartialEq for FS_BPIO_INFO {
     }
 }
 impl ::core::cmp::Eq for FS_BPIO_INFO {}
-unsafe impl ::windows::runtime::Abi for FS_BPIO_INFO {
+unsafe impl ::windows::core::Abi for FS_BPIO_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7546,7 +7522,7 @@ impl ::core::cmp::PartialEq for FS_BPIO_INPUT {
     }
 }
 impl ::core::cmp::Eq for FS_BPIO_INPUT {}
-unsafe impl ::windows::runtime::Abi for FS_BPIO_INPUT {
+unsafe impl ::windows::core::Abi for FS_BPIO_INPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -7567,7 +7543,7 @@ impl ::core::convert::From<i32> for FS_BPIO_OPERATIONS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FS_BPIO_OPERATIONS {
+unsafe impl ::windows::core::Abi for FS_BPIO_OPERATIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -7584,7 +7560,7 @@ impl ::core::convert::From<i32> for FS_BPIO_OUTFLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for FS_BPIO_OUTFLAGS {
+unsafe impl ::windows::core::Abi for FS_BPIO_OUTFLAGS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7609,7 +7585,7 @@ impl ::core::cmp::PartialEq for FS_BPIO_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for FS_BPIO_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for FS_BPIO_OUTPUT {
+unsafe impl ::windows::core::Abi for FS_BPIO_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7634,7 +7610,7 @@ impl ::core::cmp::PartialEq for FS_BPIO_OUTPUT_0 {
     }
 }
 impl ::core::cmp::Eq for FS_BPIO_OUTPUT_0 {}
-unsafe impl ::windows::runtime::Abi for FS_BPIO_OUTPUT_0 {
+unsafe impl ::windows::core::Abi for FS_BPIO_OUTPUT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7664,7 +7640,7 @@ impl ::core::cmp::PartialEq for FS_BPIO_RESULTS {
     }
 }
 impl ::core::cmp::Eq for FS_BPIO_RESULTS {}
-unsafe impl ::windows::runtime::Abi for FS_BPIO_RESULTS {
+unsafe impl ::windows::core::Abi for FS_BPIO_RESULTS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -7694,7 +7670,7 @@ impl ::core::cmp::PartialEq for GETVERSIONINPARAMS {
     }
 }
 impl ::core::cmp::Eq for GETVERSIONINPARAMS {}
-unsafe impl ::windows::runtime::Abi for GETVERSIONINPARAMS {
+unsafe impl ::windows::core::Abi for GETVERSIONINPARAMS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7803,7 +7779,7 @@ impl ::core::cmp::PartialEq for GET_CHANGER_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for GET_CHANGER_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for GET_CHANGER_PARAMETERS {
+unsafe impl ::windows::core::Abi for GET_CHANGER_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -7826,7 +7802,7 @@ impl ::core::convert::From<u32> for GET_CHANGER_PARAMETERS_FEATURES1 {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GET_CHANGER_PARAMETERS_FEATURES1 {
+unsafe impl ::windows::core::Abi for GET_CHANGER_PARAMETERS_FEATURES1 {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for GET_CHANGER_PARAMETERS_FEATURES1 {
@@ -7883,7 +7859,7 @@ impl ::core::cmp::PartialEq for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
     }
 }
 impl ::core::cmp::Eq for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {}
-unsafe impl ::windows::runtime::Abi for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
+unsafe impl ::windows::core::Abi for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7911,7 +7887,7 @@ impl ::core::cmp::PartialEq for GET_DISK_ATTRIBUTES {
     }
 }
 impl ::core::cmp::Eq for GET_DISK_ATTRIBUTES {}
-unsafe impl ::windows::runtime::Abi for GET_DISK_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for GET_DISK_ATTRIBUTES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7938,7 +7914,7 @@ impl ::core::cmp::PartialEq for GET_FILTER_FILE_IDENTIFIER_INPUT {
     }
 }
 impl ::core::cmp::Eq for GET_FILTER_FILE_IDENTIFIER_INPUT {}
-unsafe impl ::windows::runtime::Abi for GET_FILTER_FILE_IDENTIFIER_INPUT {
+unsafe impl ::windows::core::Abi for GET_FILTER_FILE_IDENTIFIER_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7965,7 +7941,7 @@ impl ::core::cmp::PartialEq for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for GET_FILTER_FILE_IDENTIFIER_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
+unsafe impl ::windows::core::Abi for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7991,7 +7967,7 @@ impl ::core::cmp::PartialEq for GET_LENGTH_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for GET_LENGTH_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for GET_LENGTH_INFORMATION {
+unsafe impl ::windows::core::Abi for GET_LENGTH_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8020,7 +7996,7 @@ impl ::core::cmp::PartialEq for GET_MEDIA_TYPES {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for GET_MEDIA_TYPES {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for GET_MEDIA_TYPES {
+unsafe impl ::windows::core::Abi for GET_MEDIA_TYPES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -8039,7 +8015,7 @@ impl ::core::convert::From<u64> for GPT_ATTRIBUTES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for GPT_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for GPT_ATTRIBUTES {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for GPT_ATTRIBUTES {
@@ -8101,32 +8077,32 @@ impl ::core::cmp::PartialEq for GP_LOG_PAGE_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for GP_LOG_PAGE_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for GP_LOG_PAGE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for GP_LOG_PAGE_DESCRIPTOR {
     type Abi = Self;
 }
-pub const GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xda82441d_7142_4bc1_b844_0807c5a4b67f);
-pub const GUID_DEVICEDUMP_STORAGE_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xd8e2592f_1aab_4d56_a746_1f7585df40f4);
-pub const GUID_DEVINTERFACE_CDCHANGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56312_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_CDROM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56308_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_COMPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73);
-pub const GUID_DEVINTERFACE_DISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56307_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_FLOPPY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56311_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x7f108a28_9833_4b3b_b780_2c6b5fa5c062);
-pub const GUID_DEVINTERFACE_MEDIUMCHANGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f56310_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_PARTITION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f5630a_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4283609d_4dc2_43be_bbb4_4f15dfce2c61);
-pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVINTERFACE_SERVICE_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6ead3d82_25ec_46bc_b7fd_c1f0df8f5037);
-pub const GUID_DEVINTERFACE_SES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x1790c9ec_47d5_4df3_b5af_9adf3cf23e48);
-pub const GUID_DEVINTERFACE_STORAGEPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x2accfe60_c130_11d2_b082_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_TAPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f5630b_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x27447c21_bcc3_4d07_a05b_a3395bb4eee7);
-pub const GUID_DEVINTERFACE_VMLUN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x6f416619_9f29_42a5_b20b_37e219ca02b0);
-pub const GUID_DEVINTERFACE_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_WRITEONCEDISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_ZNSDISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0xb87941c5_ffdb_43c7_b6b1_20b632f0b109);
-pub const GUID_SCM_PD_HEALTH_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x9da2d386_72f5_4ee3_8155_eca0678e3b06);
-pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_u128(0x4309ac30_0d11_11e4_9191_0800200c9a66);
+pub const GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda82441d_7142_4bc1_b844_0807c5a4b67f);
+pub const GUID_DEVICEDUMP_STORAGE_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8e2592f_1aab_4d56_a746_1f7585df40f4);
+pub const GUID_DEVINTERFACE_CDCHANGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56312_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_CDROM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56308_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_COMPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73);
+pub const GUID_DEVINTERFACE_DISK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56307_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_FLOPPY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56311_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f108a28_9833_4b3b_b780_2c6b5fa5c062);
+pub const GUID_DEVINTERFACE_MEDIUMCHANGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f56310_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_PARTITION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630a_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4283609d_4dc2_43be_bbb4_4f15dfce2c61);
+pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVINTERFACE_SERVICE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ead3d82_25ec_46bc_b7fd_c1f0df8f5037);
+pub const GUID_DEVINTERFACE_SES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1790c9ec_47d5_4df3_b5af_9adf3cf23e48);
+pub const GUID_DEVINTERFACE_STORAGEPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2accfe60_c130_11d2_b082_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_TAPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630b_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27447c21_bcc3_4d07_a05b_a3395bb4eee7);
+pub const GUID_DEVINTERFACE_VMLUN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f416619_9f29_42a5_b20b_37e219ca02b0);
+pub const GUID_DEVINTERFACE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_WRITEONCEDISK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_ZNSDISK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb87941c5_ffdb_43c7_b6b1_20b632f0b109);
+pub const GUID_SCM_PD_HEALTH_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9da2d386_72f5_4ee3_8155_eca0678e3b06);
+pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4309ac30_0d11_11e4_9191_0800200c9a66);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -8151,7 +8127,7 @@ impl ::core::cmp::PartialEq for HISTOGRAM_BUCKET {
     }
 }
 impl ::core::cmp::Eq for HISTOGRAM_BUCKET {}
-unsafe impl ::windows::runtime::Abi for HISTOGRAM_BUCKET {
+unsafe impl ::windows::core::Abi for HISTOGRAM_BUCKET {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -8197,7 +8173,7 @@ impl ::core::cmp::PartialEq for IDEREGS {
     }
 }
 impl ::core::cmp::Eq for IDEREGS {}
-unsafe impl ::windows::runtime::Abi for IDEREGS {
+unsafe impl ::windows::core::Abi for IDEREGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -8517,7 +8493,7 @@ impl ::core::cmp::PartialEq for IO_IRP_EXT_TRACK_OFFSET_HEADER {
     }
 }
 impl ::core::cmp::Eq for IO_IRP_EXT_TRACK_OFFSET_HEADER {}
-unsafe impl ::windows::runtime::Abi for IO_IRP_EXT_TRACK_OFFSET_HEADER {
+unsafe impl ::windows::core::Abi for IO_IRP_EXT_TRACK_OFFSET_HEADER {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -8555,7 +8531,7 @@ impl ::core::cmp::PartialEq for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     }
 }
 impl ::core::cmp::Eq for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {}
-unsafe impl ::windows::runtime::Abi for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
+unsafe impl ::windows::core::Abi for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -8599,7 +8575,7 @@ impl ::core::cmp::PartialEq for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
     }
 }
 impl ::core::cmp::Eq for LOOKUP_STREAM_FROM_CLUSTER_INPUT {}
-unsafe impl ::windows::runtime::Abi for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
+unsafe impl ::windows::core::Abi for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8627,7 +8603,7 @@ impl ::core::cmp::PartialEq for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
+unsafe impl ::windows::core::Abi for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -8666,7 +8642,7 @@ impl ::core::cmp::PartialEq for MARK_HANDLE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MARK_HANDLE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO {
+unsafe impl ::windows::core::Abi for MARK_HANDLE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8693,7 +8669,7 @@ impl ::core::cmp::PartialEq for MARK_HANDLE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MARK_HANDLE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO_0 {
+unsafe impl ::windows::core::Abi for MARK_HANDLE_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8722,7 +8698,7 @@ impl ::core::cmp::PartialEq for MARK_HANDLE_INFO32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for MARK_HANDLE_INFO32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO32 {
+unsafe impl ::windows::core::Abi for MARK_HANDLE_INFO32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8749,7 +8725,7 @@ impl ::core::cmp::PartialEq for MARK_HANDLE_INFO32_0 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for MARK_HANDLE_INFO32_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO32_0 {
+unsafe impl ::windows::core::Abi for MARK_HANDLE_INFO32_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -8825,7 +8801,7 @@ impl ::core::convert::From<i32> for MEDIA_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for MEDIA_TYPE {
+unsafe impl ::windows::core::Abi for MEDIA_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -8869,7 +8845,7 @@ impl ::core::cmp::PartialEq for MFT_ENUM_DATA_V0 {
     }
 }
 impl ::core::cmp::Eq for MFT_ENUM_DATA_V0 {}
-unsafe impl ::windows::runtime::Abi for MFT_ENUM_DATA_V0 {
+unsafe impl ::windows::core::Abi for MFT_ENUM_DATA_V0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8899,7 +8875,7 @@ impl ::core::cmp::PartialEq for MFT_ENUM_DATA_V1 {
     }
 }
 impl ::core::cmp::Eq for MFT_ENUM_DATA_V1 {}
-unsafe impl ::windows::runtime::Abi for MFT_ENUM_DATA_V1 {
+unsafe impl ::windows::core::Abi for MFT_ENUM_DATA_V1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8935,7 +8911,7 @@ impl ::core::cmp::PartialEq for MOVE_FILE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MOVE_FILE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MOVE_FILE_DATA {
+unsafe impl ::windows::core::Abi for MOVE_FILE_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8971,7 +8947,7 @@ impl ::core::cmp::PartialEq for MOVE_FILE_DATA32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::Eq for MOVE_FILE_DATA32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for MOVE_FILE_DATA32 {
+unsafe impl ::windows::core::Abi for MOVE_FILE_DATA32 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9006,7 +8982,7 @@ impl ::core::cmp::PartialEq for MOVE_FILE_RECORD_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MOVE_FILE_RECORD_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MOVE_FILE_RECORD_DATA {
+unsafe impl ::windows::core::Abi for MOVE_FILE_RECORD_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9061,7 +9037,7 @@ impl ::core::cmp::PartialEq for NTFS_EXTENDED_VOLUME_DATA {
     }
 }
 impl ::core::cmp::Eq for NTFS_EXTENDED_VOLUME_DATA {}
-unsafe impl ::windows::runtime::Abi for NTFS_EXTENDED_VOLUME_DATA {
+unsafe impl ::windows::core::Abi for NTFS_EXTENDED_VOLUME_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9087,7 +9063,7 @@ impl ::core::cmp::PartialEq for NTFS_FILE_RECORD_INPUT_BUFFER {
     }
 }
 impl ::core::cmp::Eq for NTFS_FILE_RECORD_INPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for NTFS_FILE_RECORD_INPUT_BUFFER {
+unsafe impl ::windows::core::Abi for NTFS_FILE_RECORD_INPUT_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9115,7 +9091,7 @@ impl ::core::cmp::PartialEq for NTFS_FILE_RECORD_OUTPUT_BUFFER {
     }
 }
 impl ::core::cmp::Eq for NTFS_FILE_RECORD_OUTPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for NTFS_FILE_RECORD_OUTPUT_BUFFER {
+unsafe impl ::windows::core::Abi for NTFS_FILE_RECORD_OUTPUT_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9278,7 +9254,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9324,7 +9300,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS_0 {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS_0 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_0 {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9352,7 +9328,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS_1 {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS_1 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_1 {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9381,7 +9357,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS_2 {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS_2 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_2 {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9410,7 +9386,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS_3 {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS_3 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_3 {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9439,7 +9415,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS_4 {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS_4 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_4 {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS_4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9635,7 +9611,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS_EX {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS_EX {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9681,7 +9657,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS_EX_0 {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS_EX_0 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_0 {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9710,7 +9686,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS_EX_1 {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS_EX_1 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_1 {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9739,7 +9715,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS_EX_2 {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS_EX_2 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_2 {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9768,7 +9744,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS_EX_3 {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS_EX_3 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_3 {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9797,7 +9773,7 @@ impl ::core::cmp::PartialEq for NTFS_STATISTICS_EX_4 {
     }
 }
 impl ::core::cmp::Eq for NTFS_STATISTICS_EX_4 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_4 {
+unsafe impl ::windows::core::Abi for NTFS_STATISTICS_EX_4 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9864,7 +9840,7 @@ impl ::core::cmp::PartialEq for NTFS_VOLUME_DATA_BUFFER {
     }
 }
 impl ::core::cmp::Eq for NTFS_VOLUME_DATA_BUFFER {}
-unsafe impl ::windows::runtime::Abi for NTFS_VOLUME_DATA_BUFFER {
+unsafe impl ::windows::core::Abi for NTFS_VOLUME_DATA_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -9955,7 +9931,7 @@ impl ::core::cmp::PartialEq for PARTITION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PARTITION_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION {
+unsafe impl ::windows::core::Abi for PARTITION_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -9988,7 +9964,7 @@ impl ::core::cmp::PartialEq for PARTITION_INFORMATION_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PARTITION_INFORMATION_EX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_EX {
+unsafe impl ::windows::core::Abi for PARTITION_INFORMATION_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10015,15 +9991,15 @@ impl ::core::cmp::PartialEq for PARTITION_INFORMATION_EX_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PARTITION_INFORMATION_EX_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_EX_0 {
+unsafe impl ::windows::core::Abi for PARTITION_INFORMATION_EX_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct PARTITION_INFORMATION_GPT {
-    pub PartitionType: ::windows::runtime::GUID,
-    pub PartitionId: ::windows::runtime::GUID,
+    pub PartitionType: ::windows::core::GUID,
+    pub PartitionId: ::windows::core::GUID,
     pub Attributes: GPT_ATTRIBUTES,
     pub Name: [u16; 36],
 }
@@ -10044,7 +10020,7 @@ impl ::core::cmp::PartialEq for PARTITION_INFORMATION_GPT {
     }
 }
 impl ::core::cmp::Eq for PARTITION_INFORMATION_GPT {}
-unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_GPT {
+unsafe impl ::windows::core::Abi for PARTITION_INFORMATION_GPT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10056,7 +10032,7 @@ pub struct PARTITION_INFORMATION_MBR {
     pub BootIndicator: super::super::Foundation::BOOLEAN,
     pub RecognizedPartition: super::super::Foundation::BOOLEAN,
     pub HiddenSectors: u32,
-    pub PartitionId: ::windows::runtime::GUID,
+    pub PartitionId: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl PARTITION_INFORMATION_MBR {}
@@ -10081,7 +10057,7 @@ impl ::core::cmp::PartialEq for PARTITION_INFORMATION_MBR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PARTITION_INFORMATION_MBR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_MBR {
+unsafe impl ::windows::core::Abi for PARTITION_INFORMATION_MBR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -10114,7 +10090,7 @@ impl ::core::convert::From<i32> for PARTITION_STYLE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for PARTITION_STYLE {
+unsafe impl ::windows::core::Abi for PARTITION_STYLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -10155,7 +10131,7 @@ impl ::core::cmp::PartialEq for PATHNAME_BUFFER {
     }
 }
 impl ::core::cmp::Eq for PATHNAME_BUFFER {}
-unsafe impl ::windows::runtime::Abi for PATHNAME_BUFFER {
+unsafe impl ::windows::core::Abi for PATHNAME_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10183,7 +10159,7 @@ impl ::core::cmp::PartialEq for PERF_BIN {
     }
 }
 impl ::core::cmp::Eq for PERF_BIN {}
-unsafe impl ::windows::runtime::Abi for PERF_BIN {
+unsafe impl ::windows::core::Abi for PERF_BIN {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10206,7 +10182,7 @@ impl ::core::cmp::PartialEq for PERSISTENT_RESERVE_COMMAND {
     }
 }
 impl ::core::cmp::Eq for PERSISTENT_RESERVE_COMMAND {}
-unsafe impl ::windows::runtime::Abi for PERSISTENT_RESERVE_COMMAND {
+unsafe impl ::windows::core::Abi for PERSISTENT_RESERVE_COMMAND {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10228,7 +10204,7 @@ impl ::core::cmp::PartialEq for PERSISTENT_RESERVE_COMMAND_0 {
     }
 }
 impl ::core::cmp::Eq for PERSISTENT_RESERVE_COMMAND_0 {}
-unsafe impl ::windows::runtime::Abi for PERSISTENT_RESERVE_COMMAND_0 {
+unsafe impl ::windows::core::Abi for PERSISTENT_RESERVE_COMMAND_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10255,7 +10231,7 @@ impl ::core::cmp::PartialEq for PERSISTENT_RESERVE_COMMAND_0_0 {
     }
 }
 impl ::core::cmp::Eq for PERSISTENT_RESERVE_COMMAND_0_0 {}
-unsafe impl ::windows::runtime::Abi for PERSISTENT_RESERVE_COMMAND_0_0 {
+unsafe impl ::windows::core::Abi for PERSISTENT_RESERVE_COMMAND_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10283,7 +10259,7 @@ impl ::core::cmp::PartialEq for PERSISTENT_RESERVE_COMMAND_0_1 {
     }
 }
 impl ::core::cmp::Eq for PERSISTENT_RESERVE_COMMAND_0_1 {}
-unsafe impl ::windows::runtime::Abi for PERSISTENT_RESERVE_COMMAND_0_1 {
+unsafe impl ::windows::core::Abi for PERSISTENT_RESERVE_COMMAND_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -10349,7 +10325,7 @@ impl ::core::cmp::PartialEq for PHYSICAL_ELEMENT_STATUS {
     }
 }
 impl ::core::cmp::Eq for PHYSICAL_ELEMENT_STATUS {}
-unsafe impl ::windows::runtime::Abi for PHYSICAL_ELEMENT_STATUS {
+unsafe impl ::windows::core::Abi for PHYSICAL_ELEMENT_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10391,7 +10367,7 @@ impl ::core::cmp::PartialEq for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10422,7 +10398,7 @@ impl ::core::cmp::PartialEq for PHYSICAL_ELEMENT_STATUS_REQUEST {
     }
 }
 impl ::core::cmp::Eq for PHYSICAL_ELEMENT_STATUS_REQUEST {}
-unsafe impl ::windows::runtime::Abi for PHYSICAL_ELEMENT_STATUS_REQUEST {
+unsafe impl ::windows::core::Abi for PHYSICAL_ELEMENT_STATUS_REQUEST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -10452,7 +10428,7 @@ impl ::core::cmp::PartialEq for PLEX_READ_DATA_REQUEST {
     }
 }
 impl ::core::cmp::Eq for PLEX_READ_DATA_REQUEST {}
-unsafe impl ::windows::runtime::Abi for PLEX_READ_DATA_REQUEST {
+unsafe impl ::windows::core::Abi for PLEX_READ_DATA_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10485,7 +10461,7 @@ impl ::core::cmp::PartialEq for PREVENT_MEDIA_REMOVAL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PREVENT_MEDIA_REMOVAL {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PREVENT_MEDIA_REMOVAL {
+unsafe impl ::windows::core::Abi for PREVENT_MEDIA_REMOVAL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -10517,7 +10493,7 @@ impl ::core::cmp::PartialEq for QUERY_BAD_RANGES_INPUT {
     }
 }
 impl ::core::cmp::Eq for QUERY_BAD_RANGES_INPUT {}
-unsafe impl ::windows::runtime::Abi for QUERY_BAD_RANGES_INPUT {
+unsafe impl ::windows::core::Abi for QUERY_BAD_RANGES_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10544,7 +10520,7 @@ impl ::core::cmp::PartialEq for QUERY_BAD_RANGES_INPUT_RANGE {
     }
 }
 impl ::core::cmp::Eq for QUERY_BAD_RANGES_INPUT_RANGE {}
-unsafe impl ::windows::runtime::Abi for QUERY_BAD_RANGES_INPUT_RANGE {
+unsafe impl ::windows::core::Abi for QUERY_BAD_RANGES_INPUT_RANGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10573,7 +10549,7 @@ impl ::core::cmp::PartialEq for QUERY_BAD_RANGES_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for QUERY_BAD_RANGES_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for QUERY_BAD_RANGES_OUTPUT {
+unsafe impl ::windows::core::Abi for QUERY_BAD_RANGES_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10602,7 +10578,7 @@ impl ::core::cmp::PartialEq for QUERY_BAD_RANGES_OUTPUT_RANGE {
     }
 }
 impl ::core::cmp::Eq for QUERY_BAD_RANGES_OUTPUT_RANGE {}
-unsafe impl ::windows::runtime::Abi for QUERY_BAD_RANGES_OUTPUT_RANGE {
+unsafe impl ::windows::core::Abi for QUERY_BAD_RANGES_OUTPUT_RANGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -10623,7 +10599,7 @@ impl ::core::convert::From<i32> for QUERY_FILE_LAYOUT_FILTER_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for QUERY_FILE_LAYOUT_FILTER_TYPE {
+unsafe impl ::windows::core::Abi for QUERY_FILE_LAYOUT_FILTER_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -10678,7 +10654,7 @@ impl ::core::cmp::PartialEq for QUERY_FILE_LAYOUT_INPUT {
     }
 }
 impl ::core::cmp::Eq for QUERY_FILE_LAYOUT_INPUT {}
-unsafe impl ::windows::runtime::Abi for QUERY_FILE_LAYOUT_INPUT {
+unsafe impl ::windows::core::Abi for QUERY_FILE_LAYOUT_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10700,7 +10676,7 @@ impl ::core::cmp::PartialEq for QUERY_FILE_LAYOUT_INPUT_0 {
     }
 }
 impl ::core::cmp::Eq for QUERY_FILE_LAYOUT_INPUT_0 {}
-unsafe impl ::windows::runtime::Abi for QUERY_FILE_LAYOUT_INPUT_0 {
+unsafe impl ::windows::core::Abi for QUERY_FILE_LAYOUT_INPUT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10723,7 +10699,7 @@ impl ::core::cmp::PartialEq for QUERY_FILE_LAYOUT_INPUT_1 {
     }
 }
 impl ::core::cmp::Eq for QUERY_FILE_LAYOUT_INPUT_1 {}
-unsafe impl ::windows::runtime::Abi for QUERY_FILE_LAYOUT_INPUT_1 {
+unsafe impl ::windows::core::Abi for QUERY_FILE_LAYOUT_INPUT_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10752,7 +10728,7 @@ impl ::core::cmp::PartialEq for QUERY_FILE_LAYOUT_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for QUERY_FILE_LAYOUT_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for QUERY_FILE_LAYOUT_OUTPUT {
+unsafe impl ::windows::core::Abi for QUERY_FILE_LAYOUT_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -10803,7 +10779,7 @@ impl ::core::cmp::PartialEq for READ_ELEMENT_ADDRESS_INFO {
     }
 }
 impl ::core::cmp::Eq for READ_ELEMENT_ADDRESS_INFO {}
-unsafe impl ::windows::runtime::Abi for READ_ELEMENT_ADDRESS_INFO {
+unsafe impl ::windows::core::Abi for READ_ELEMENT_ADDRESS_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10830,7 +10806,7 @@ impl ::core::cmp::PartialEq for READ_FILE_USN_DATA {
     }
 }
 impl ::core::cmp::Eq for READ_FILE_USN_DATA {}
-unsafe impl ::windows::runtime::Abi for READ_FILE_USN_DATA {
+unsafe impl ::windows::core::Abi for READ_FILE_USN_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -10865,7 +10841,7 @@ impl ::core::cmp::PartialEq for READ_USN_JOURNAL_DATA_V0 {
     }
 }
 impl ::core::cmp::Eq for READ_USN_JOURNAL_DATA_V0 {}
-unsafe impl ::windows::runtime::Abi for READ_USN_JOURNAL_DATA_V0 {
+unsafe impl ::windows::core::Abi for READ_USN_JOURNAL_DATA_V0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10907,7 +10883,7 @@ impl ::core::cmp::PartialEq for READ_USN_JOURNAL_DATA_V1 {
     }
 }
 impl ::core::cmp::Eq for READ_USN_JOURNAL_DATA_V1 {}
-unsafe impl ::windows::runtime::Abi for READ_USN_JOURNAL_DATA_V1 {
+unsafe impl ::windows::core::Abi for READ_USN_JOURNAL_DATA_V1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10935,7 +10911,7 @@ impl ::core::cmp::PartialEq for REASSIGN_BLOCKS {
     }
 }
 impl ::core::cmp::Eq for REASSIGN_BLOCKS {}
-unsafe impl ::windows::runtime::Abi for REASSIGN_BLOCKS {
+unsafe impl ::windows::core::Abi for REASSIGN_BLOCKS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -10958,7 +10934,7 @@ impl ::core::cmp::PartialEq for REASSIGN_BLOCKS_EX {
     }
 }
 impl ::core::cmp::Eq for REASSIGN_BLOCKS_EX {}
-unsafe impl ::windows::runtime::Abi for REASSIGN_BLOCKS_EX {
+unsafe impl ::windows::core::Abi for REASSIGN_BLOCKS_EX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -10978,7 +10954,7 @@ impl ::core::convert::From<i32> for REFS_SMR_VOLUME_GC_ACTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_GC_ACTION {
+unsafe impl ::windows::core::Abi for REFS_SMR_VOLUME_GC_ACTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -10993,7 +10969,7 @@ impl ::core::convert::From<i32> for REFS_SMR_VOLUME_GC_METHOD {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_GC_METHOD {
+unsafe impl ::windows::core::Abi for REFS_SMR_VOLUME_GC_METHOD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11033,7 +11009,7 @@ impl ::core::cmp::PartialEq for REFS_SMR_VOLUME_GC_PARAMETERS {
     }
 }
 impl ::core::cmp::Eq for REFS_SMR_VOLUME_GC_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_GC_PARAMETERS {
+unsafe impl ::windows::core::Abi for REFS_SMR_VOLUME_GC_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -11051,7 +11027,7 @@ impl ::core::convert::From<i32> for REFS_SMR_VOLUME_GC_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_GC_STATE {
+unsafe impl ::windows::core::Abi for REFS_SMR_VOLUME_GC_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11109,7 +11085,7 @@ impl ::core::cmp::PartialEq for REFS_SMR_VOLUME_INFO_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for REFS_SMR_VOLUME_INFO_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_INFO_OUTPUT {
+unsafe impl ::windows::core::Abi for REFS_SMR_VOLUME_INFO_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -11186,7 +11162,7 @@ impl ::core::cmp::PartialEq for REFS_VOLUME_DATA_BUFFER {
     }
 }
 impl ::core::cmp::Eq for REFS_VOLUME_DATA_BUFFER {}
-unsafe impl ::windows::runtime::Abi for REFS_VOLUME_DATA_BUFFER {
+unsafe impl ::windows::core::Abi for REFS_VOLUME_DATA_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11216,7 +11192,7 @@ impl ::core::cmp::PartialEq for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
     }
 }
 impl ::core::cmp::Eq for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {}
-unsafe impl ::windows::runtime::Abi for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
+unsafe impl ::windows::core::Abi for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11256,7 +11232,7 @@ impl ::core::cmp::PartialEq for REPAIR_COPIES_INPUT {
     }
 }
 impl ::core::cmp::Eq for REPAIR_COPIES_INPUT {}
-unsafe impl ::windows::runtime::Abi for REPAIR_COPIES_INPUT {
+unsafe impl ::windows::core::Abi for REPAIR_COPIES_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11284,7 +11260,7 @@ impl ::core::cmp::PartialEq for REPAIR_COPIES_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for REPAIR_COPIES_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for REPAIR_COPIES_OUTPUT {
+unsafe impl ::windows::core::Abi for REPAIR_COPIES_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -11319,7 +11295,7 @@ impl ::core::cmp::PartialEq for REQUEST_OPLOCK_INPUT_BUFFER {
     }
 }
 impl ::core::cmp::Eq for REQUEST_OPLOCK_INPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for REQUEST_OPLOCK_INPUT_BUFFER {
+unsafe impl ::windows::core::Abi for REQUEST_OPLOCK_INPUT_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -11365,7 +11341,7 @@ impl ::core::cmp::PartialEq for REQUEST_OPLOCK_OUTPUT_BUFFER {
     }
 }
 impl ::core::cmp::Eq for REQUEST_OPLOCK_OUTPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for REQUEST_OPLOCK_OUTPUT_BUFFER {
+unsafe impl ::windows::core::Abi for REQUEST_OPLOCK_OUTPUT_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -11396,7 +11372,7 @@ impl ::core::cmp::PartialEq for REQUEST_RAW_ENCRYPTED_DATA {
     }
 }
 impl ::core::cmp::Eq for REQUEST_RAW_ENCRYPTED_DATA {}
-unsafe impl ::windows::runtime::Abi for REQUEST_RAW_ENCRYPTED_DATA {
+unsafe impl ::windows::core::Abi for REQUEST_RAW_ENCRYPTED_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -11426,7 +11402,7 @@ impl ::core::cmp::PartialEq for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     }
 }
 impl ::core::cmp::Eq for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
+unsafe impl ::windows::core::Abi for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11454,7 +11430,7 @@ impl ::core::cmp::PartialEq for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     }
 }
 impl ::core::cmp::Eq for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {}
-unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
+unsafe impl ::windows::core::Abi for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11482,7 +11458,7 @@ impl ::core::cmp::PartialEq for RETRIEVAL_POINTERS_BUFFER {
     }
 }
 impl ::core::cmp::Eq for RETRIEVAL_POINTERS_BUFFER {}
-unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTERS_BUFFER {
+unsafe impl ::windows::core::Abi for RETRIEVAL_POINTERS_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11509,7 +11485,7 @@ impl ::core::cmp::PartialEq for RETRIEVAL_POINTERS_BUFFER_0 {
     }
 }
 impl ::core::cmp::Eq for RETRIEVAL_POINTERS_BUFFER_0 {}
-unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTERS_BUFFER_0 {
+unsafe impl ::windows::core::Abi for RETRIEVAL_POINTERS_BUFFER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11535,7 +11511,7 @@ impl ::core::cmp::PartialEq for RETRIEVAL_POINTER_BASE {
     }
 }
 impl ::core::cmp::Eq for RETRIEVAL_POINTER_BASE {}
-unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTER_BASE {
+unsafe impl ::windows::core::Abi for RETRIEVAL_POINTER_BASE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11561,7 +11537,7 @@ impl ::core::cmp::PartialEq for RETRIEVAL_POINTER_COUNT {
     }
 }
 impl ::core::cmp::Eq for RETRIEVAL_POINTER_COUNT {}
-unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTER_COUNT {
+unsafe impl ::windows::core::Abi for RETRIEVAL_POINTER_COUNT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -11596,14 +11572,14 @@ impl ::core::cmp::PartialEq for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
     }
 }
 impl ::core::cmp::Eq for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {}
-unsafe impl ::windows::runtime::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
+unsafe impl ::windows::core::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
-    pub DeviceGuid: ::windows::runtime::GUID,
+    pub DeviceGuid: ::windows::core::GUID,
     pub DeviceNumber: u32,
     pub Flags: SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0,
     pub DeviceSize: u64,
@@ -11625,7 +11601,7 @@ impl ::core::cmp::PartialEq for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
     }
 }
 impl ::core::cmp::Eq for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {}
-unsafe impl ::windows::runtime::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
+unsafe impl ::windows::core::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11651,7 +11627,7 @@ impl ::core::cmp::PartialEq for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
+unsafe impl ::windows::core::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11684,7 +11660,7 @@ impl ::core::cmp::PartialEq for SCM_BUS_DEDICATED_MEMORY_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCM_BUS_DEDICATED_MEMORY_STATE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SCM_BUS_DEDICATED_MEMORY_STATE {
+unsafe impl ::windows::core::Abi for SCM_BUS_DEDICATED_MEMORY_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -11699,7 +11675,7 @@ impl ::core::convert::From<i32> for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
+unsafe impl ::windows::core::Abi for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -11715,7 +11691,7 @@ impl ::core::convert::From<i32> for SCM_BUS_PROPERTY_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_BUS_PROPERTY_ID {
+unsafe impl ::windows::core::Abi for SCM_BUS_PROPERTY_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11745,7 +11721,7 @@ impl ::core::cmp::PartialEq for SCM_BUS_PROPERTY_QUERY {
     }
 }
 impl ::core::cmp::Eq for SCM_BUS_PROPERTY_QUERY {}
-unsafe impl ::windows::runtime::Abi for SCM_BUS_PROPERTY_QUERY {
+unsafe impl ::windows::core::Abi for SCM_BUS_PROPERTY_QUERY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11775,7 +11751,7 @@ impl ::core::cmp::PartialEq for SCM_BUS_PROPERTY_SET {
     }
 }
 impl ::core::cmp::Eq for SCM_BUS_PROPERTY_SET {}
-unsafe impl ::windows::runtime::Abi for SCM_BUS_PROPERTY_SET {
+unsafe impl ::windows::core::Abi for SCM_BUS_PROPERTY_SET {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -11790,7 +11766,7 @@ impl ::core::convert::From<i32> for SCM_BUS_QUERY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_BUS_QUERY_TYPE {
+unsafe impl ::windows::core::Abi for SCM_BUS_QUERY_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11849,7 +11825,7 @@ impl ::core::cmp::PartialEq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
+unsafe impl ::windows::core::Abi for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11881,7 +11857,7 @@ impl ::core::cmp::PartialEq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
+unsafe impl ::windows::core::Abi for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -11896,7 +11872,7 @@ impl ::core::convert::From<i32> for SCM_BUS_SET_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_BUS_SET_TYPE {
+unsafe impl ::windows::core::Abi for SCM_BUS_SET_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11904,7 +11880,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_SET_TYPE {
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_INTERLEAVED_PD_INFO {
     pub DeviceHandle: u32,
-    pub DeviceGuid: ::windows::runtime::GUID,
+    pub DeviceGuid: ::windows::core::GUID,
 }
 impl SCM_INTERLEAVED_PD_INFO {}
 impl ::core::default::Default for SCM_INTERLEAVED_PD_INFO {
@@ -11923,7 +11899,7 @@ impl ::core::cmp::PartialEq for SCM_INTERLEAVED_PD_INFO {
     }
 }
 impl ::core::cmp::Eq for SCM_INTERLEAVED_PD_INFO {}
-unsafe impl ::windows::runtime::Abi for SCM_INTERLEAVED_PD_INFO {
+unsafe impl ::windows::core::Abi for SCM_INTERLEAVED_PD_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11952,7 +11928,7 @@ impl ::core::cmp::PartialEq for SCM_LD_INTERLEAVE_SET_INFO {
     }
 }
 impl ::core::cmp::Eq for SCM_LD_INTERLEAVE_SET_INFO {}
-unsafe impl ::windows::runtime::Abi for SCM_LD_INTERLEAVE_SET_INFO {
+unsafe impl ::windows::core::Abi for SCM_LD_INTERLEAVE_SET_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11981,7 +11957,7 @@ impl ::core::cmp::PartialEq for SCM_LOGICAL_DEVICES {
     }
 }
 impl ::core::cmp::Eq for SCM_LOGICAL_DEVICES {}
-unsafe impl ::windows::runtime::Abi for SCM_LOGICAL_DEVICES {
+unsafe impl ::windows::core::Abi for SCM_LOGICAL_DEVICES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11990,7 +11966,7 @@ unsafe impl ::windows::runtime::Abi for SCM_LOGICAL_DEVICES {
 pub struct SCM_LOGICAL_DEVICE_INSTANCE {
     pub Version: u32,
     pub Size: u32,
-    pub DeviceGuid: ::windows::runtime::GUID,
+    pub DeviceGuid: ::windows::core::GUID,
     pub SymbolicLink: [u16; 256],
 }
 impl SCM_LOGICAL_DEVICE_INSTANCE {}
@@ -12010,7 +11986,7 @@ impl ::core::cmp::PartialEq for SCM_LOGICAL_DEVICE_INSTANCE {
     }
 }
 impl ::core::cmp::Eq for SCM_LOGICAL_DEVICE_INSTANCE {}
-unsafe impl ::windows::runtime::Abi for SCM_LOGICAL_DEVICE_INSTANCE {
+unsafe impl ::windows::core::Abi for SCM_LOGICAL_DEVICE_INSTANCE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12039,7 +12015,7 @@ impl ::core::cmp::PartialEq for SCM_PD_DESCRIPTOR_HEADER {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_DESCRIPTOR_HEADER {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_DESCRIPTOR_HEADER {
+unsafe impl ::windows::core::Abi for SCM_PD_DESCRIPTOR_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12048,7 +12024,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_DESCRIPTOR_HEADER {
 pub struct SCM_PD_DEVICE_HANDLE {
     pub Version: u32,
     pub Size: u32,
-    pub DeviceGuid: ::windows::runtime::GUID,
+    pub DeviceGuid: ::windows::core::GUID,
     pub DeviceHandle: u32,
 }
 impl SCM_PD_DEVICE_HANDLE {}
@@ -12068,7 +12044,7 @@ impl ::core::cmp::PartialEq for SCM_PD_DEVICE_HANDLE {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_DEVICE_HANDLE {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_DEVICE_HANDLE {
+unsafe impl ::windows::core::Abi for SCM_PD_DEVICE_HANDLE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12078,7 +12054,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_DEVICE_HANDLE {
 pub struct SCM_PD_DEVICE_INFO {
     pub Version: u32,
     pub Size: u32,
-    pub DeviceGuid: ::windows::runtime::GUID,
+    pub DeviceGuid: ::windows::core::GUID,
     pub UnsafeShutdownCount: u32,
     pub PersistentMemorySizeInBytes: u64,
     pub VolatileMemorySizeInBytes: u64,
@@ -12166,7 +12142,7 @@ impl ::core::cmp::PartialEq for SCM_PD_DEVICE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCM_PD_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SCM_PD_DEVICE_INFO {
+unsafe impl ::windows::core::Abi for SCM_PD_DEVICE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12195,7 +12171,7 @@ impl ::core::cmp::PartialEq for SCM_PD_DEVICE_SPECIFIC_INFO {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_DEVICE_SPECIFIC_INFO {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_DEVICE_SPECIFIC_INFO {
+unsafe impl ::windows::core::Abi for SCM_PD_DEVICE_SPECIFIC_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12222,7 +12198,7 @@ impl ::core::cmp::PartialEq for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_DEVICE_SPECIFIC_PROPERTY {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
+unsafe impl ::windows::core::Abi for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12251,7 +12227,7 @@ impl ::core::cmp::PartialEq for SCM_PD_FIRMWARE_ACTIVATE {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_FIRMWARE_ACTIVATE {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_FIRMWARE_ACTIVATE {
+unsafe impl ::windows::core::Abi for SCM_PD_FIRMWARE_ACTIVATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12266,7 +12242,7 @@ impl ::core::convert::From<i32> for SCM_PD_FIRMWARE_ACTIVATION_STATE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_PD_FIRMWARE_ACTIVATION_STATE {
+unsafe impl ::windows::core::Abi for SCM_PD_FIRMWARE_ACTIVATION_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12308,7 +12284,7 @@ impl ::core::cmp::PartialEq for SCM_PD_FIRMWARE_DOWNLOAD {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_FIRMWARE_DOWNLOAD {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_FIRMWARE_DOWNLOAD {
+unsafe impl ::windows::core::Abi for SCM_PD_FIRMWARE_DOWNLOAD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12339,7 +12315,7 @@ impl ::core::cmp::PartialEq for SCM_PD_FIRMWARE_INFO {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_FIRMWARE_INFO {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_FIRMWARE_INFO {
+unsafe impl ::windows::core::Abi for SCM_PD_FIRMWARE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12374,7 +12350,7 @@ impl ::core::cmp::PartialEq for SCM_PD_FIRMWARE_SLOT_INFO {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_FIRMWARE_SLOT_INFO {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_FIRMWARE_SLOT_INFO {
+unsafe impl ::windows::core::Abi for SCM_PD_FIRMWARE_SLOT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12403,14 +12379,14 @@ impl ::core::cmp::PartialEq for SCM_PD_FRU_ID_STRING {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_FRU_ID_STRING {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_FRU_ID_STRING {
+unsafe impl ::windows::core::Abi for SCM_PD_FRU_ID_STRING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_HEALTH_NOTIFICATION_DATA {
-    pub DeviceGuid: ::windows::runtime::GUID,
+    pub DeviceGuid: ::windows::core::GUID,
 }
 impl SCM_PD_HEALTH_NOTIFICATION_DATA {}
 impl ::core::default::Default for SCM_PD_HEALTH_NOTIFICATION_DATA {
@@ -12429,7 +12405,7 @@ impl ::core::cmp::PartialEq for SCM_PD_HEALTH_NOTIFICATION_DATA {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_HEALTH_NOTIFICATION_DATA {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_HEALTH_NOTIFICATION_DATA {
+unsafe impl ::windows::core::Abi for SCM_PD_HEALTH_NOTIFICATION_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12446,7 +12422,7 @@ impl ::core::convert::From<i32> for SCM_PD_HEALTH_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_PD_HEALTH_STATUS {
+unsafe impl ::windows::core::Abi for SCM_PD_HEALTH_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12466,7 +12442,7 @@ impl ::core::convert::From<i32> for SCM_PD_LAST_FW_ACTIVATION_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_PD_LAST_FW_ACTIVATION_STATUS {
+unsafe impl ::windows::core::Abi for SCM_PD_LAST_FW_ACTIVATION_STATUS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12494,7 +12470,7 @@ impl ::core::cmp::PartialEq for SCM_PD_LOCATION_STRING {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_LOCATION_STRING {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_LOCATION_STRING {
+unsafe impl ::windows::core::Abi for SCM_PD_LOCATION_STRING {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12534,7 +12510,7 @@ impl ::core::cmp::PartialEq for SCM_PD_MANAGEMENT_STATUS {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_MANAGEMENT_STATUS {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_MANAGEMENT_STATUS {
+unsafe impl ::windows::core::Abi for SCM_PD_MANAGEMENT_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12552,7 +12528,7 @@ impl ::core::convert::From<i32> for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
+unsafe impl ::windows::core::Abi for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12573,7 +12549,7 @@ impl ::core::convert::From<i32> for SCM_PD_OPERATIONAL_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_PD_OPERATIONAL_STATUS {
+unsafe impl ::windows::core::Abi for SCM_PD_OPERATIONAL_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12609,7 +12585,7 @@ impl ::core::convert::From<i32> for SCM_PD_OPERATIONAL_STATUS_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_PD_OPERATIONAL_STATUS_REASON {
+unsafe impl ::windows::core::Abi for SCM_PD_OPERATIONAL_STATUS_REASON {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12618,7 +12594,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_OPERATIONAL_STATUS_REASON {
 pub struct SCM_PD_PASSTHROUGH_INPUT {
     pub Version: u32,
     pub Size: u32,
-    pub ProtocolGuid: ::windows::runtime::GUID,
+    pub ProtocolGuid: ::windows::core::GUID,
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
@@ -12639,7 +12615,7 @@ impl ::core::cmp::PartialEq for SCM_PD_PASSTHROUGH_INPUT {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_PASSTHROUGH_INPUT {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_PASSTHROUGH_INPUT {
+unsafe impl ::windows::core::Abi for SCM_PD_PASSTHROUGH_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12667,7 +12643,7 @@ impl ::core::cmp::PartialEq for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
+unsafe impl ::windows::core::Abi for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12696,7 +12672,7 @@ impl ::core::cmp::PartialEq for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
+unsafe impl ::windows::core::Abi for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12705,7 +12681,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
 pub struct SCM_PD_PASSTHROUGH_OUTPUT {
     pub Version: u32,
     pub Size: u32,
-    pub ProtocolGuid: ::windows::runtime::GUID,
+    pub ProtocolGuid: ::windows::core::GUID,
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
@@ -12726,7 +12702,7 @@ impl ::core::cmp::PartialEq for SCM_PD_PASSTHROUGH_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_PASSTHROUGH_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_PASSTHROUGH_OUTPUT {
+unsafe impl ::windows::core::Abi for SCM_PD_PASSTHROUGH_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12748,7 +12724,7 @@ impl ::core::convert::From<i32> for SCM_PD_PROPERTY_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_PD_PROPERTY_ID {
+unsafe impl ::windows::core::Abi for SCM_PD_PROPERTY_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12780,7 +12756,7 @@ impl ::core::cmp::PartialEq for SCM_PD_PROPERTY_QUERY {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_PROPERTY_QUERY {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_PROPERTY_QUERY {
+unsafe impl ::windows::core::Abi for SCM_PD_PROPERTY_QUERY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12810,7 +12786,7 @@ impl ::core::cmp::PartialEq for SCM_PD_PROPERTY_SET {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_PROPERTY_SET {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_PROPERTY_SET {
+unsafe impl ::windows::core::Abi for SCM_PD_PROPERTY_SET {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12825,7 +12801,7 @@ impl ::core::convert::From<i32> for SCM_PD_QUERY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_PD_QUERY_TYPE {
+unsafe impl ::windows::core::Abi for SCM_PD_QUERY_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12853,7 +12829,7 @@ impl ::core::cmp::PartialEq for SCM_PD_REINITIALIZE_MEDIA_INPUT {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_REINITIALIZE_MEDIA_INPUT {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_REINITIALIZE_MEDIA_INPUT {
+unsafe impl ::windows::core::Abi for SCM_PD_REINITIALIZE_MEDIA_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12879,7 +12855,7 @@ impl ::core::cmp::PartialEq for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
+unsafe impl ::windows::core::Abi for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12907,7 +12883,7 @@ impl ::core::cmp::PartialEq for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
+unsafe impl ::windows::core::Abi for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12940,7 +12916,7 @@ impl ::core::cmp::PartialEq for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
+unsafe impl ::windows::core::Abi for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -12969,7 +12945,7 @@ impl ::core::cmp::PartialEq for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
     }
 }
 impl ::core::cmp::Eq for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {}
-unsafe impl ::windows::runtime::Abi for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
+unsafe impl ::windows::core::Abi for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -12984,7 +12960,7 @@ impl ::core::convert::From<i32> for SCM_PD_SET_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_PD_SET_TYPE {
+unsafe impl ::windows::core::Abi for SCM_PD_SET_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13013,7 +12989,7 @@ impl ::core::cmp::PartialEq for SCM_PHYSICAL_DEVICES {
     }
 }
 impl ::core::cmp::Eq for SCM_PHYSICAL_DEVICES {}
-unsafe impl ::windows::runtime::Abi for SCM_PHYSICAL_DEVICES {
+unsafe impl ::windows::core::Abi for SCM_PHYSICAL_DEVICES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13042,7 +13018,7 @@ impl ::core::cmp::PartialEq for SCM_PHYSICAL_DEVICE_INSTANCE {
     }
 }
 impl ::core::cmp::Eq for SCM_PHYSICAL_DEVICE_INSTANCE {}
-unsafe impl ::windows::runtime::Abi for SCM_PHYSICAL_DEVICE_INSTANCE {
+unsafe impl ::windows::core::Abi for SCM_PHYSICAL_DEVICE_INSTANCE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13053,8 +13029,8 @@ pub struct SCM_REGION {
     pub Size: u32,
     pub Flags: u32,
     pub NfitHandle: u32,
-    pub LogicalDeviceGuid: ::windows::runtime::GUID,
-    pub AddressRangeType: ::windows::runtime::GUID,
+    pub LogicalDeviceGuid: ::windows::core::GUID,
+    pub AddressRangeType: ::windows::core::GUID,
     pub AssociatedId: u32,
     pub Length: u64,
     pub StartingDPA: u64,
@@ -13092,7 +13068,7 @@ impl ::core::cmp::PartialEq for SCM_REGION {
     }
 }
 impl ::core::cmp::Eq for SCM_REGION {}
-unsafe impl ::windows::runtime::Abi for SCM_REGION {
+unsafe impl ::windows::core::Abi for SCM_REGION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13121,7 +13097,7 @@ impl ::core::cmp::PartialEq for SCM_REGIONS {
     }
 }
 impl ::core::cmp::Eq for SCM_REGIONS {}
-unsafe impl ::windows::runtime::Abi for SCM_REGIONS {
+unsafe impl ::windows::core::Abi for SCM_REGIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -13135,7 +13111,7 @@ impl ::core::convert::From<i32> for SCM_REGION_FLAG {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SCM_REGION_FLAG {
+unsafe impl ::windows::core::Abi for SCM_REGION_FLAG {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13164,7 +13140,7 @@ impl ::core::cmp::PartialEq for SD_CHANGE_MACHINE_SID_INPUT {
     }
 }
 impl ::core::cmp::Eq for SD_CHANGE_MACHINE_SID_INPUT {}
-unsafe impl ::windows::runtime::Abi for SD_CHANGE_MACHINE_SID_INPUT {
+unsafe impl ::windows::core::Abi for SD_CHANGE_MACHINE_SID_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13204,7 +13180,7 @@ impl ::core::cmp::PartialEq for SD_CHANGE_MACHINE_SID_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for SD_CHANGE_MACHINE_SID_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for SD_CHANGE_MACHINE_SID_OUTPUT {
+unsafe impl ::windows::core::Abi for SD_CHANGE_MACHINE_SID_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13234,7 +13210,7 @@ impl ::core::cmp::PartialEq for SD_ENUM_SDS_ENTRY {
     }
 }
 impl ::core::cmp::Eq for SD_ENUM_SDS_ENTRY {}
-unsafe impl ::windows::runtime::Abi for SD_ENUM_SDS_ENTRY {
+unsafe impl ::windows::core::Abi for SD_ENUM_SDS_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13261,7 +13237,7 @@ impl ::core::cmp::PartialEq for SD_ENUM_SDS_INPUT {
     }
 }
 impl ::core::cmp::Eq for SD_ENUM_SDS_INPUT {}
-unsafe impl ::windows::runtime::Abi for SD_ENUM_SDS_INPUT {
+unsafe impl ::windows::core::Abi for SD_ENUM_SDS_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13290,7 +13266,7 @@ impl ::core::cmp::PartialEq for SD_ENUM_SDS_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for SD_ENUM_SDS_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for SD_ENUM_SDS_OUTPUT {
+unsafe impl ::windows::core::Abi for SD_ENUM_SDS_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13313,7 +13289,7 @@ impl ::core::cmp::PartialEq for SD_GLOBAL_CHANGE_INPUT {
     }
 }
 impl ::core::cmp::Eq for SD_GLOBAL_CHANGE_INPUT {}
-unsafe impl ::windows::runtime::Abi for SD_GLOBAL_CHANGE_INPUT {
+unsafe impl ::windows::core::Abi for SD_GLOBAL_CHANGE_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13336,7 +13312,7 @@ impl ::core::cmp::PartialEq for SD_GLOBAL_CHANGE_INPUT_0 {
     }
 }
 impl ::core::cmp::Eq for SD_GLOBAL_CHANGE_INPUT_0 {}
-unsafe impl ::windows::runtime::Abi for SD_GLOBAL_CHANGE_INPUT_0 {
+unsafe impl ::windows::core::Abi for SD_GLOBAL_CHANGE_INPUT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13359,7 +13335,7 @@ impl ::core::cmp::PartialEq for SD_GLOBAL_CHANGE_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for SD_GLOBAL_CHANGE_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for SD_GLOBAL_CHANGE_OUTPUT {
+unsafe impl ::windows::core::Abi for SD_GLOBAL_CHANGE_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13382,7 +13358,7 @@ impl ::core::cmp::PartialEq for SD_GLOBAL_CHANGE_OUTPUT_0 {
     }
 }
 impl ::core::cmp::Eq for SD_GLOBAL_CHANGE_OUTPUT_0 {}
-unsafe impl ::windows::runtime::Abi for SD_GLOBAL_CHANGE_OUTPUT_0 {
+unsafe impl ::windows::core::Abi for SD_GLOBAL_CHANGE_OUTPUT_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -13414,7 +13390,7 @@ impl ::core::cmp::PartialEq for SD_QUERY_STATS_INPUT {
     }
 }
 impl ::core::cmp::Eq for SD_QUERY_STATS_INPUT {}
-unsafe impl ::windows::runtime::Abi for SD_QUERY_STATS_INPUT {
+unsafe impl ::windows::core::Abi for SD_QUERY_STATS_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13456,7 +13432,7 @@ impl ::core::cmp::PartialEq for SD_QUERY_STATS_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for SD_QUERY_STATS_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for SD_QUERY_STATS_OUTPUT {
+unsafe impl ::windows::core::Abi for SD_QUERY_STATS_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -13494,7 +13470,7 @@ impl ::core::cmp::PartialEq for SENDCMDINPARAMS {
     }
 }
 impl ::core::cmp::Eq for SENDCMDINPARAMS {}
-unsafe impl ::windows::runtime::Abi for SENDCMDINPARAMS {
+unsafe impl ::windows::core::Abi for SENDCMDINPARAMS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13517,7 +13493,7 @@ impl ::core::cmp::PartialEq for SENDCMDOUTPARAMS {
     }
 }
 impl ::core::cmp::Eq for SENDCMDOUTPARAMS {}
-unsafe impl ::windows::runtime::Abi for SENDCMDOUTPARAMS {
+unsafe impl ::windows::core::Abi for SENDCMDOUTPARAMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -13548,7 +13524,7 @@ impl ::core::cmp::PartialEq for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     }
 }
 impl ::core::cmp::Eq for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {}
-unsafe impl ::windows::runtime::Abi for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
+unsafe impl ::windows::core::Abi for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13586,7 +13562,7 @@ impl ::core::cmp::PartialEq for SET_DISK_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SET_DISK_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SET_DISK_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for SET_DISK_ATTRIBUTES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13612,7 +13588,7 @@ impl ::core::cmp::PartialEq for SET_PARTITION_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for SET_PARTITION_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for SET_PARTITION_INFORMATION {
+unsafe impl ::windows::core::Abi for SET_PARTITION_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13634,7 +13610,7 @@ impl ::core::cmp::PartialEq for SET_PARTITION_INFORMATION_EX {
     }
 }
 impl ::core::cmp::Eq for SET_PARTITION_INFORMATION_EX {}
-unsafe impl ::windows::runtime::Abi for SET_PARTITION_INFORMATION_EX {
+unsafe impl ::windows::core::Abi for SET_PARTITION_INFORMATION_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13656,7 +13632,7 @@ impl ::core::cmp::PartialEq for SET_PARTITION_INFORMATION_EX_0 {
     }
 }
 impl ::core::cmp::Eq for SET_PARTITION_INFORMATION_EX_0 {}
-unsafe impl ::windows::runtime::Abi for SET_PARTITION_INFORMATION_EX_0 {
+unsafe impl ::windows::core::Abi for SET_PARTITION_INFORMATION_EX_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -13686,7 +13662,7 @@ impl ::core::cmp::PartialEq for SET_PURGE_FAILURE_MODE_INPUT {
     }
 }
 impl ::core::cmp::Eq for SET_PURGE_FAILURE_MODE_INPUT {}
-unsafe impl ::windows::runtime::Abi for SET_PURGE_FAILURE_MODE_INPUT {
+unsafe impl ::windows::core::Abi for SET_PURGE_FAILURE_MODE_INPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -13722,7 +13698,7 @@ impl ::core::cmp::PartialEq for SHRINK_VOLUME_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for SHRINK_VOLUME_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for SHRINK_VOLUME_INFORMATION {
+unsafe impl ::windows::core::Abi for SHRINK_VOLUME_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -13737,7 +13713,7 @@ impl ::core::convert::From<i32> for SHRINK_VOLUME_REQUEST_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for SHRINK_VOLUME_REQUEST_TYPES {
+unsafe impl ::windows::core::Abi for SHRINK_VOLUME_REQUEST_TYPES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13766,7 +13742,7 @@ impl ::core::cmp::PartialEq for SI_COPYFILE {
     }
 }
 impl ::core::cmp::Eq for SI_COPYFILE {}
-unsafe impl ::windows::runtime::Abi for SI_COPYFILE {
+unsafe impl ::windows::core::Abi for SI_COPYFILE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -13846,7 +13822,7 @@ impl ::core::cmp::PartialEq for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
     }
 }
 impl ::core::cmp::Eq for SMB_SHARE_FLUSH_AND_PURGE_INPUT {}
-unsafe impl ::windows::runtime::Abi for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
+unsafe impl ::windows::core::Abi for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13872,7 +13848,7 @@ impl ::core::cmp::PartialEq for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
+unsafe impl ::windows::core::Abi for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -13904,7 +13880,7 @@ impl ::core::cmp::PartialEq for STARTING_LCN_INPUT_BUFFER {
     }
 }
 impl ::core::cmp::Eq for STARTING_LCN_INPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for STARTING_LCN_INPUT_BUFFER {
+unsafe impl ::windows::core::Abi for STARTING_LCN_INPUT_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13931,7 +13907,7 @@ impl ::core::cmp::PartialEq for STARTING_LCN_INPUT_BUFFER_EX {
     }
 }
 impl ::core::cmp::Eq for STARTING_LCN_INPUT_BUFFER_EX {}
-unsafe impl ::windows::runtime::Abi for STARTING_LCN_INPUT_BUFFER_EX {
+unsafe impl ::windows::core::Abi for STARTING_LCN_INPUT_BUFFER_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13957,7 +13933,7 @@ impl ::core::cmp::PartialEq for STARTING_VCN_INPUT_BUFFER {
     }
 }
 impl ::core::cmp::Eq for STARTING_VCN_INPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for STARTING_VCN_INPUT_BUFFER {
+unsafe impl ::windows::core::Abi for STARTING_VCN_INPUT_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -13997,7 +13973,7 @@ impl ::core::cmp::PartialEq for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14071,7 +14047,7 @@ impl ::core::cmp::PartialEq for STORAGE_ADAPTER_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ADAPTER_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_ADAPTER_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_ADAPTER_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14099,7 +14075,7 @@ impl ::core::cmp::PartialEq for STORAGE_ADAPTER_SERIAL_NUMBER {
     }
 }
 impl ::core::cmp::Eq for STORAGE_ADAPTER_SERIAL_NUMBER {}
-unsafe impl ::windows::runtime::Abi for STORAGE_ADAPTER_SERIAL_NUMBER {
+unsafe impl ::windows::core::Abi for STORAGE_ADAPTER_SERIAL_NUMBER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14152,7 +14128,7 @@ impl ::core::cmp::PartialEq for STORAGE_ALLOCATE_BC_STREAM_INPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ALLOCATE_BC_STREAM_INPUT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_ALLOCATE_BC_STREAM_INPUT {
+unsafe impl ::windows::core::Abi for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14179,7 +14155,7 @@ impl ::core::cmp::PartialEq for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
+unsafe impl ::windows::core::Abi for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14194,7 +14170,7 @@ impl ::core::convert::From<i32> for STORAGE_ASSOCIATION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_ASSOCIATION_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_ASSOCIATION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14231,7 +14207,7 @@ impl ::core::cmp::PartialEq for STORAGE_ATTRIBUTE_MGMT {
     }
 }
 impl ::core::cmp::Eq for STORAGE_ATTRIBUTE_MGMT {}
-unsafe impl ::windows::runtime::Abi for STORAGE_ATTRIBUTE_MGMT {
+unsafe impl ::windows::core::Abi for STORAGE_ATTRIBUTE_MGMT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14246,7 +14222,7 @@ impl ::core::convert::From<i32> for STORAGE_ATTRIBUTE_MGMT_ACTION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_ATTRIBUTE_MGMT_ACTION {
+unsafe impl ::windows::core::Abi for STORAGE_ATTRIBUTE_MGMT_ACTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14280,7 +14256,7 @@ impl ::core::cmp::PartialEq for STORAGE_BREAK_RESERVATION_REQUEST {
     }
 }
 impl ::core::cmp::Eq for STORAGE_BREAK_RESERVATION_REQUEST {}
-unsafe impl ::windows::runtime::Abi for STORAGE_BREAK_RESERVATION_REQUEST {
+unsafe impl ::windows::core::Abi for STORAGE_BREAK_RESERVATION_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14306,7 +14282,7 @@ impl ::core::cmp::PartialEq for STORAGE_BUS_RESET_REQUEST {
     }
 }
 impl ::core::cmp::Eq for STORAGE_BUS_RESET_REQUEST {}
-unsafe impl ::windows::runtime::Abi for STORAGE_BUS_RESET_REQUEST {
+unsafe impl ::windows::core::Abi for STORAGE_BUS_RESET_REQUEST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14324,7 +14300,7 @@ impl ::core::convert::From<i32> for STORAGE_COMPONENT_HEALTH_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_COMPONENT_HEALTH_STATUS {
+unsafe impl ::windows::core::Abi for STORAGE_COMPONENT_HEALTH_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14352,7 +14328,7 @@ impl ::core::cmp::PartialEq for STORAGE_COUNTER {
     }
 }
 impl ::core::cmp::Eq for STORAGE_COUNTER {}
-unsafe impl ::windows::runtime::Abi for STORAGE_COUNTER {
+unsafe impl ::windows::core::Abi for STORAGE_COUNTER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14374,7 +14350,7 @@ impl ::core::cmp::PartialEq for STORAGE_COUNTER_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_COUNTER_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_COUNTER_0 {
+unsafe impl ::windows::core::Abi for STORAGE_COUNTER_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14401,7 +14377,7 @@ impl ::core::cmp::PartialEq for STORAGE_COUNTER_0_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_COUNTER_0_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_COUNTER_0_0 {
+unsafe impl ::windows::core::Abi for STORAGE_COUNTER_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14425,7 +14401,7 @@ impl ::core::cmp::PartialEq for STORAGE_COUNTERS {
     }
 }
 impl ::core::cmp::Eq for STORAGE_COUNTERS {}
-unsafe impl ::windows::runtime::Abi for STORAGE_COUNTERS {
+unsafe impl ::windows::core::Abi for STORAGE_COUNTERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14459,7 +14435,7 @@ impl ::core::convert::From<i32> for STORAGE_COUNTER_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_COUNTER_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_COUNTER_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14477,7 +14453,7 @@ impl ::core::convert::From<i32> for STORAGE_CRYPTO_ALGORITHM_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_CRYPTO_ALGORITHM_ID {
+unsafe impl ::windows::core::Abi for STORAGE_CRYPTO_ALGORITHM_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14508,7 +14484,7 @@ impl ::core::cmp::PartialEq for STORAGE_CRYPTO_CAPABILITY {
     }
 }
 impl ::core::cmp::Eq for STORAGE_CRYPTO_CAPABILITY {}
-unsafe impl ::windows::runtime::Abi for STORAGE_CRYPTO_CAPABILITY {
+unsafe impl ::windows::core::Abi for STORAGE_CRYPTO_CAPABILITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14540,7 +14516,7 @@ impl ::core::cmp::PartialEq for STORAGE_CRYPTO_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_CRYPTO_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_CRYPTO_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_CRYPTO_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14559,7 +14535,7 @@ impl ::core::convert::From<i32> for STORAGE_CRYPTO_KEY_SIZE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_CRYPTO_KEY_SIZE {
+unsafe impl ::windows::core::Abi for STORAGE_CRYPTO_KEY_SIZE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14586,7 +14562,7 @@ impl ::core::cmp::PartialEq for STORAGE_DESCRIPTOR_HEADER {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DESCRIPTOR_HEADER {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DESCRIPTOR_HEADER {
+unsafe impl ::windows::core::Abi for STORAGE_DESCRIPTOR_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14614,7 +14590,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14685,7 +14661,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_DESCRIPTOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::Eq for STORAGE_DEVICE_DESCRIPTOR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14695,7 +14671,7 @@ pub struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub NumberOfFaultDomains: u32,
-    pub FaultDomainIds: [::windows::runtime::GUID; 1],
+    pub FaultDomainIds: [::windows::core::GUID; 1],
 }
 impl STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {}
 impl ::core::default::Default for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
@@ -14714,7 +14690,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14743,7 +14719,7 @@ impl ::core::convert::From<i32> for STORAGE_DEVICE_FORM_FACTOR {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_FORM_FACTOR {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_FORM_FACTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14772,7 +14748,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_ID_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_ID_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_ID_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_ID_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14801,7 +14777,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14829,7 +14805,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14853,7 +14829,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_LOCATION_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_LOCATION_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_LOCATION_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_LOCATION_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14880,7 +14856,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_MANAGEMENT_STATUS {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_MANAGEMENT_STATUS {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_MANAGEMENT_STATUS {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_MANAGEMENT_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -14912,7 +14888,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_NUMA_PROPERTY {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_NUMA_PROPERTY {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_NUMA_PROPERTY {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_NUMA_PROPERTY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14940,7 +14916,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_NUMBER {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_NUMBER {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_NUMBER {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_NUMBER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14969,7 +14945,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_NUMBERS {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_NUMBERS {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_NUMBERS {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_NUMBERS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -14981,7 +14957,7 @@ pub struct STORAGE_DEVICE_NUMBER_EX {
     pub Flags: u32,
     pub DeviceType: u32,
     pub DeviceNumber: u32,
-    pub DeviceGuid: ::windows::runtime::GUID,
+    pub DeviceGuid: ::windows::core::GUID,
     pub PartitionNumber: u32,
 }
 impl STORAGE_DEVICE_NUMBER_EX {}
@@ -15009,7 +14985,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_NUMBER_EX {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_NUMBER_EX {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_NUMBER_EX {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_NUMBER_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15038,7 +15014,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_POWER_CAP {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_POWER_CAP {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_POWER_CAP {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_POWER_CAP {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15052,7 +15028,7 @@ impl ::core::convert::From<i32> for STORAGE_DEVICE_POWER_CAP_UNITS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_POWER_CAP_UNITS {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_POWER_CAP_UNITS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15096,7 +15072,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15131,7 +15107,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15162,7 +15138,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_TIERING_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_TIERING_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_TIERING_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_TIERING_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15190,7 +15166,7 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
+unsafe impl ::windows::core::Abi for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15199,7 +15175,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
 pub struct STORAGE_DIAGNOSTIC_DATA {
     pub Version: u32,
     pub Size: u32,
-    pub ProviderId: ::windows::runtime::GUID,
+    pub ProviderId: ::windows::core::GUID,
     pub BufferSize: u32,
     pub Reserved: u32,
     pub DiagnosticDataBuffer: [u8; 1],
@@ -15221,7 +15197,7 @@ impl ::core::cmp::PartialEq for STORAGE_DIAGNOSTIC_DATA {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DIAGNOSTIC_DATA {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_DATA {
+unsafe impl ::windows::core::Abi for STORAGE_DIAGNOSTIC_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15237,7 +15213,7 @@ impl ::core::convert::From<i32> for STORAGE_DIAGNOSTIC_LEVEL {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_LEVEL {
+unsafe impl ::windows::core::Abi for STORAGE_DIAGNOSTIC_LEVEL {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15267,7 +15243,7 @@ impl ::core::cmp::PartialEq for STORAGE_DIAGNOSTIC_REQUEST {
     }
 }
 impl ::core::cmp::Eq for STORAGE_DIAGNOSTIC_REQUEST {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_REQUEST {
+unsafe impl ::windows::core::Abi for STORAGE_DIAGNOSTIC_REQUEST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15284,7 +15260,7 @@ impl ::core::convert::From<i32> for STORAGE_DIAGNOSTIC_TARGET_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_TARGET_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_DIAGNOSTIC_TARGET_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15301,7 +15277,7 @@ impl ::core::convert::From<i32> for STORAGE_DISK_HEALTH_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_DISK_HEALTH_STATUS {
+unsafe impl ::windows::core::Abi for STORAGE_DISK_HEALTH_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15322,7 +15298,7 @@ impl ::core::convert::From<i32> for STORAGE_DISK_OPERATIONAL_STATUS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_DISK_OPERATIONAL_STATUS {
+unsafe impl ::windows::core::Abi for STORAGE_DISK_OPERATIONAL_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15356,7 +15332,7 @@ impl ::core::cmp::PartialEq for STORAGE_EVENT_NOTIFICATION {
     }
 }
 impl ::core::cmp::Eq for STORAGE_EVENT_NOTIFICATION {}
-unsafe impl ::windows::runtime::Abi for STORAGE_EVENT_NOTIFICATION {
+unsafe impl ::windows::core::Abi for STORAGE_EVENT_NOTIFICATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15395,7 +15371,7 @@ impl ::core::cmp::PartialEq for STORAGE_FAILURE_PREDICTION_CONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_FAILURE_PREDICTION_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_FAILURE_PREDICTION_CONFIG {
+unsafe impl ::windows::core::Abi for STORAGE_FAILURE_PREDICTION_CONFIG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15426,7 +15402,7 @@ impl ::core::cmp::PartialEq for STORAGE_FRU_ID_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_FRU_ID_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_FRU_ID_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_FRU_ID_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15464,7 +15440,7 @@ impl ::core::cmp::PartialEq for STORAGE_GET_BC_PROPERTIES_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for STORAGE_GET_BC_PROPERTIES_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for STORAGE_GET_BC_PROPERTIES_OUTPUT {
+unsafe impl ::windows::core::Abi for STORAGE_GET_BC_PROPERTIES_OUTPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15501,7 +15477,7 @@ impl ::core::cmp::PartialEq for STORAGE_HOTPLUG_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_HOTPLUG_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_HOTPLUG_INFO {
+unsafe impl ::windows::core::Abi for STORAGE_HOTPLUG_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15529,7 +15505,7 @@ impl ::core::cmp::PartialEq for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15560,7 +15536,7 @@ impl ::core::cmp::PartialEq for STORAGE_HW_ENDURANCE_INFO {
     }
 }
 impl ::core::cmp::Eq for STORAGE_HW_ENDURANCE_INFO {}
-unsafe impl ::windows::runtime::Abi for STORAGE_HW_ENDURANCE_INFO {
+unsafe impl ::windows::core::Abi for STORAGE_HW_ENDURANCE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15586,7 +15562,7 @@ impl ::core::cmp::PartialEq for STORAGE_HW_ENDURANCE_INFO_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_HW_ENDURANCE_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_HW_ENDURANCE_INFO_0 {
+unsafe impl ::windows::core::Abi for STORAGE_HW_ENDURANCE_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15616,7 +15592,7 @@ impl ::core::cmp::PartialEq for STORAGE_HW_FIRMWARE_ACTIVATE {
     }
 }
 impl ::core::cmp::Eq for STORAGE_HW_FIRMWARE_ACTIVATE {}
-unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_ACTIVATE {
+unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_ACTIVATE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15658,7 +15634,7 @@ impl ::core::cmp::PartialEq for STORAGE_HW_FIRMWARE_DOWNLOAD {
     }
 }
 impl ::core::cmp::Eq for STORAGE_HW_FIRMWARE_DOWNLOAD {}
-unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_DOWNLOAD {
+unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_DOWNLOAD {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15704,7 +15680,7 @@ impl ::core::cmp::PartialEq for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
+unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15759,7 +15735,7 @@ impl ::core::cmp::PartialEq for STORAGE_HW_FIRMWARE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_HW_FIRMWARE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_INFO {
+unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15788,7 +15764,7 @@ impl ::core::cmp::PartialEq for STORAGE_HW_FIRMWARE_INFO_QUERY {
     }
 }
 impl ::core::cmp::Eq for STORAGE_HW_FIRMWARE_INFO_QUERY {}
-unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_INFO_QUERY {
+unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_INFO_QUERY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15831,7 +15807,7 @@ impl ::core::cmp::PartialEq for STORAGE_HW_FIRMWARE_SLOT_INFO {
     }
 }
 impl ::core::cmp::Eq for STORAGE_HW_FIRMWARE_SLOT_INFO {}
-unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_SLOT_INFO {
+unsafe impl ::windows::core::Abi for STORAGE_HW_FIRMWARE_SLOT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15862,7 +15838,7 @@ impl ::core::cmp::PartialEq for STORAGE_IDENTIFIER {
     }
 }
 impl ::core::cmp::Eq for STORAGE_IDENTIFIER {}
-unsafe impl ::windows::runtime::Abi for STORAGE_IDENTIFIER {
+unsafe impl ::windows::core::Abi for STORAGE_IDENTIFIER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15878,7 +15854,7 @@ impl ::core::convert::From<i32> for STORAGE_IDENTIFIER_CODE_SET {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_IDENTIFIER_CODE_SET {
+unsafe impl ::windows::core::Abi for STORAGE_IDENTIFIER_CODE_SET {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15899,7 +15875,7 @@ impl ::core::convert::From<i32> for STORAGE_IDENTIFIER_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_IDENTIFIER_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_IDENTIFIER_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15928,7 +15904,7 @@ impl ::core::cmp::PartialEq for STORAGE_IDLE_POWER {
     }
 }
 impl ::core::cmp::Eq for STORAGE_IDLE_POWER {}
-unsafe impl ::windows::runtime::Abi for STORAGE_IDLE_POWER {
+unsafe impl ::windows::core::Abi for STORAGE_IDLE_POWER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -15956,7 +15932,7 @@ impl ::core::cmp::PartialEq for STORAGE_IDLE_POWERUP_REASON {
     }
 }
 impl ::core::cmp::Eq for STORAGE_IDLE_POWERUP_REASON {}
-unsafe impl ::windows::runtime::Abi for STORAGE_IDLE_POWERUP_REASON {
+unsafe impl ::windows::core::Abi for STORAGE_IDLE_POWERUP_REASON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -15973,7 +15949,7 @@ impl ::core::convert::From<i32> for STORAGE_ID_NAA_FORMAT {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_ID_NAA_FORMAT {
+unsafe impl ::windows::core::Abi for STORAGE_ID_NAA_FORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16015,7 +15991,7 @@ impl ::core::cmp::PartialEq for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     }
 }
 impl ::core::cmp::Eq for STORAGE_LB_PROVISIONING_MAP_RESOURCES {}
-unsafe impl ::windows::runtime::Abi for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
+unsafe impl ::windows::core::Abi for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16043,7 +16019,7 @@ impl ::core::cmp::PartialEq for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     }
 }
 impl ::core::cmp::Eq for STORAGE_MEDIA_SERIAL_NUMBER_DATA {}
-unsafe impl ::windows::runtime::Abi for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
+unsafe impl ::windows::core::Abi for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -16118,7 +16094,7 @@ impl ::core::convert::From<i32> for STORAGE_MEDIA_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_MEDIA_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_MEDIA_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16146,7 +16122,7 @@ impl ::core::cmp::PartialEq for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16182,7 +16158,7 @@ impl ::core::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_MINIPORT_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_MINIPORT_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16209,7 +16185,7 @@ impl ::core::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_MINIPORT_DESCRIPTOR_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for STORAGE_MINIPORT_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16241,7 +16217,7 @@ impl ::core::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_MINIPORT_DESCRIPTOR_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
+unsafe impl ::windows::core::Abi for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -16268,7 +16244,7 @@ impl ::core::cmp::PartialEq for STORAGE_OFFLOAD_READ_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for STORAGE_OFFLOAD_READ_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for STORAGE_OFFLOAD_READ_OUTPUT {
+unsafe impl ::windows::core::Abi for STORAGE_OFFLOAD_READ_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -16294,7 +16270,7 @@ impl ::core::cmp::PartialEq for STORAGE_OFFLOAD_TOKEN {
     }
 }
 impl ::core::cmp::Eq for STORAGE_OFFLOAD_TOKEN {}
-unsafe impl ::windows::runtime::Abi for STORAGE_OFFLOAD_TOKEN {
+unsafe impl ::windows::core::Abi for STORAGE_OFFLOAD_TOKEN {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16316,7 +16292,7 @@ impl ::core::cmp::PartialEq for STORAGE_OFFLOAD_TOKEN_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_OFFLOAD_TOKEN_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_OFFLOAD_TOKEN_0 {
+unsafe impl ::windows::core::Abi for STORAGE_OFFLOAD_TOKEN_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16342,7 +16318,7 @@ impl ::core::cmp::PartialEq for STORAGE_OFFLOAD_TOKEN_0_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_OFFLOAD_TOKEN_0_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_OFFLOAD_TOKEN_0_0 {
+unsafe impl ::windows::core::Abi for STORAGE_OFFLOAD_TOKEN_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -16376,7 +16352,7 @@ impl ::core::cmp::PartialEq for STORAGE_OFFLOAD_WRITE_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for STORAGE_OFFLOAD_WRITE_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for STORAGE_OFFLOAD_WRITE_OUTPUT {
+unsafe impl ::windows::core::Abi for STORAGE_OFFLOAD_WRITE_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -16402,7 +16378,7 @@ impl ::core::cmp::PartialEq for STORAGE_OPERATIONAL_REASON {
     }
 }
 impl ::core::cmp::Eq for STORAGE_OPERATIONAL_REASON {}
-unsafe impl ::windows::runtime::Abi for STORAGE_OPERATIONAL_REASON {
+unsafe impl ::windows::core::Abi for STORAGE_OPERATIONAL_REASON {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16425,7 +16401,7 @@ impl ::core::cmp::PartialEq for STORAGE_OPERATIONAL_REASON_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_OPERATIONAL_REASON_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_OPERATIONAL_REASON_0 {
+unsafe impl ::windows::core::Abi for STORAGE_OPERATIONAL_REASON_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16453,7 +16429,7 @@ impl ::core::cmp::PartialEq for STORAGE_OPERATIONAL_REASON_0_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_OPERATIONAL_REASON_0_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_OPERATIONAL_REASON_0_0 {
+unsafe impl ::windows::core::Abi for STORAGE_OPERATIONAL_REASON_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16482,7 +16458,7 @@ impl ::core::cmp::PartialEq for STORAGE_OPERATIONAL_REASON_0_1 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_OPERATIONAL_REASON_0_1 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_OPERATIONAL_REASON_0_1 {
+unsafe impl ::windows::core::Abi for STORAGE_OPERATIONAL_REASON_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -16515,7 +16491,7 @@ impl ::core::convert::From<i32> for STORAGE_OPERATIONAL_STATUS_REASON {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_OPERATIONAL_STATUS_REASON {
+unsafe impl ::windows::core::Abi for STORAGE_OPERATIONAL_STATUS_REASON {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16552,7 +16528,7 @@ impl ::core::cmp::PartialEq for STORAGE_PHYSICAL_ADAPTER_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_PHYSICAL_ADAPTER_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_ADAPTER_DATA {
+unsafe impl ::windows::core::Abi for STORAGE_PHYSICAL_ADAPTER_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16584,7 +16560,7 @@ impl ::core::cmp::PartialEq for STORAGE_PHYSICAL_DEVICE_DATA {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PHYSICAL_DEVICE_DATA {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_DEVICE_DATA {
+unsafe impl ::windows::core::Abi for STORAGE_PHYSICAL_DEVICE_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16626,7 +16602,7 @@ impl ::core::cmp::PartialEq for STORAGE_PHYSICAL_NODE_DATA {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PHYSICAL_NODE_DATA {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_NODE_DATA {
+unsafe impl ::windows::core::Abi for STORAGE_PHYSICAL_NODE_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16656,7 +16632,7 @@ impl ::core::cmp::PartialEq for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -16676,7 +16652,7 @@ impl ::core::convert::From<i32> for STORAGE_PORT_CODE_SET {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_PORT_CODE_SET {
+unsafe impl ::windows::core::Abi for STORAGE_PORT_CODE_SET {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -16691,7 +16667,7 @@ impl ::core::convert::From<i32> for STORAGE_POWERUP_REASON_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_POWERUP_REASON_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_POWERUP_REASON_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16718,7 +16694,7 @@ impl ::core::cmp::PartialEq for STORAGE_PREDICT_FAILURE {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PREDICT_FAILURE {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PREDICT_FAILURE {
+unsafe impl ::windows::core::Abi for STORAGE_PREDICT_FAILURE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16744,7 +16720,7 @@ impl ::core::cmp::PartialEq for STORAGE_PRIORITY_HINT_SUPPORT {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PRIORITY_HINT_SUPPORT {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PRIORITY_HINT_SUPPORT {
+unsafe impl ::windows::core::Abi for STORAGE_PRIORITY_HINT_SUPPORT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -16794,7 +16770,7 @@ impl ::core::convert::From<i32> for STORAGE_PROPERTY_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_PROPERTY_ID {
+unsafe impl ::windows::core::Abi for STORAGE_PROPERTY_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16822,7 +16798,7 @@ impl ::core::cmp::PartialEq for STORAGE_PROPERTY_QUERY {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PROPERTY_QUERY {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROPERTY_QUERY {
+unsafe impl ::windows::core::Abi for STORAGE_PROPERTY_QUERY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16850,7 +16826,7 @@ impl ::core::cmp::PartialEq for STORAGE_PROPERTY_SET {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PROPERTY_SET {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROPERTY_SET {
+unsafe impl ::windows::core::Abi for STORAGE_PROPERTY_SET {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -16865,7 +16841,7 @@ impl ::core::convert::From<i32> for STORAGE_PROTOCOL_ATA_DATA_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_ATA_DATA_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_ATA_DATA_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -16947,7 +16923,7 @@ impl ::core::cmp::PartialEq for STORAGE_PROTOCOL_COMMAND {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PROTOCOL_COMMAND {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_COMMAND {
+unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_COMMAND {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -16979,7 +16955,7 @@ impl ::core::cmp::PartialEq for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PROTOCOL_DATA_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17007,7 +16983,7 @@ impl ::core::cmp::PartialEq for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
+unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17029,7 +17005,7 @@ impl ::core::cmp::PartialEq for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
+unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17055,7 +17031,7 @@ impl ::core::cmp::PartialEq for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
+unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17071,7 +17047,7 @@ impl ::core::convert::From<i32> for STORAGE_PROTOCOL_NVME_DATA_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_NVME_DATA_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_NVME_DATA_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17126,7 +17102,7 @@ impl ::core::cmp::PartialEq for STORAGE_PROTOCOL_SPECIFIC_DATA {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PROTOCOL_SPECIFIC_DATA {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_SPECIFIC_DATA {
+unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_SPECIFIC_DATA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17187,7 +17163,7 @@ impl ::core::cmp::PartialEq for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     }
 }
 impl ::core::cmp::Eq for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
+unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17233,7 +17209,7 @@ impl ::core::convert::From<i32> for STORAGE_PROTOCOL_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17252,7 +17228,7 @@ impl ::core::convert::From<i32> for STORAGE_PROTOCOL_UFS_DATA_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_UFS_DATA_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_UFS_DATA_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17288,7 +17264,7 @@ impl ::core::cmp::PartialEq for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl ::core::cmp::Eq for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {}
 #[cfg(feature = "Win32_Storage_Vhd")]
-unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
+unsafe impl ::windows::core::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17359,7 +17335,7 @@ impl ::core::cmp::PartialEq for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl ::core::cmp::Eq for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {}
 #[cfg(feature = "Win32_Storage_Vhd")]
-unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
+unsafe impl ::windows::core::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17386,7 +17362,7 @@ impl ::core::cmp::PartialEq for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
     }
 }
 impl ::core::cmp::Eq for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {}
-unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
+unsafe impl ::windows::core::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17415,7 +17391,7 @@ impl ::core::cmp::PartialEq for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl ::core::cmp::Eq for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {}
 #[cfg(feature = "Win32_Storage_Vhd")]
-unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
+unsafe impl ::windows::core::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17442,7 +17418,7 @@ impl ::core::cmp::PartialEq for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl ::core::cmp::Eq for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {}
 #[cfg(feature = "Win32_Storage_Vhd")]
-unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
+unsafe impl ::windows::core::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17458,7 +17434,7 @@ impl ::core::convert::From<i32> for STORAGE_QUERY_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_QUERY_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17488,7 +17464,7 @@ impl ::core::cmp::PartialEq for STORAGE_READ_CAPACITY {
     }
 }
 impl ::core::cmp::Eq for STORAGE_READ_CAPACITY {}
-unsafe impl ::windows::runtime::Abi for STORAGE_READ_CAPACITY {
+unsafe impl ::windows::core::Abi for STORAGE_READ_CAPACITY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17517,7 +17493,7 @@ impl ::core::cmp::PartialEq for STORAGE_REINITIALIZE_MEDIA {
     }
 }
 impl ::core::cmp::Eq for STORAGE_REINITIALIZE_MEDIA {}
-unsafe impl ::windows::runtime::Abi for STORAGE_REINITIALIZE_MEDIA {
+unsafe impl ::windows::core::Abi for STORAGE_REINITIALIZE_MEDIA {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17543,7 +17519,7 @@ impl ::core::cmp::PartialEq for STORAGE_REINITIALIZE_MEDIA_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_REINITIALIZE_MEDIA_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_REINITIALIZE_MEDIA_0 {
+unsafe impl ::windows::core::Abi for STORAGE_REINITIALIZE_MEDIA_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17560,7 +17536,7 @@ impl ::core::convert::From<i32> for STORAGE_RESERVE_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_RESERVE_ID {
+unsafe impl ::windows::core::Abi for STORAGE_RESERVE_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17579,7 +17555,7 @@ impl ::core::convert::From<i32> for STORAGE_RPMB_COMMAND_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_RPMB_COMMAND_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_RPMB_COMMAND_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17623,7 +17599,7 @@ impl ::core::cmp::PartialEq for STORAGE_RPMB_DATA_FRAME {
     }
 }
 impl ::core::cmp::Eq for STORAGE_RPMB_DATA_FRAME {}
-unsafe impl ::windows::runtime::Abi for STORAGE_RPMB_DATA_FRAME {
+unsafe impl ::windows::core::Abi for STORAGE_RPMB_DATA_FRAME {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17653,7 +17629,7 @@ impl ::core::cmp::PartialEq for STORAGE_RPMB_DESCRIPTOR {
     }
 }
 impl ::core::cmp::Eq for STORAGE_RPMB_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_RPMB_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_RPMB_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17670,7 +17646,7 @@ impl ::core::convert::From<i32> for STORAGE_RPMB_FRAME_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_RPMB_FRAME_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_RPMB_FRAME_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17687,7 +17663,7 @@ impl ::core::convert::From<i32> for STORAGE_SANITIZE_METHOD {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_SANITIZE_METHOD {
+unsafe impl ::windows::core::Abi for STORAGE_SANITIZE_METHOD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17702,7 +17678,7 @@ impl ::core::convert::From<i32> for STORAGE_SET_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_SET_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_SET_TYPE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17724,7 +17700,7 @@ impl ::core::cmp::PartialEq for STORAGE_SPEC_VERSION {
     }
 }
 impl ::core::cmp::Eq for STORAGE_SPEC_VERSION {}
-unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION {
+unsafe impl ::windows::core::Abi for STORAGE_SPEC_VERSION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17746,7 +17722,7 @@ impl ::core::cmp::PartialEq for STORAGE_SPEC_VERSION_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_SPEC_VERSION_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION_0 {
+unsafe impl ::windows::core::Abi for STORAGE_SPEC_VERSION_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17768,7 +17744,7 @@ impl ::core::cmp::PartialEq for STORAGE_SPEC_VERSION_0_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_SPEC_VERSION_0_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION_0_0 {
+unsafe impl ::windows::core::Abi for STORAGE_SPEC_VERSION_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17795,7 +17771,7 @@ impl ::core::cmp::PartialEq for STORAGE_SPEC_VERSION_0_0_0 {
     }
 }
 impl ::core::cmp::Eq for STORAGE_SPEC_VERSION_0_0_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION_0_0_0 {
+unsafe impl ::windows::core::Abi for STORAGE_SPEC_VERSION_0_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17848,7 +17824,7 @@ impl ::core::cmp::PartialEq for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17899,7 +17875,7 @@ impl ::core::cmp::PartialEq for STORAGE_TEMPERATURE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_TEMPERATURE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_TEMPERATURE_INFO {
+unsafe impl ::windows::core::Abi for STORAGE_TEMPERATURE_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -17938,7 +17914,7 @@ impl ::core::cmp::PartialEq for STORAGE_TEMPERATURE_THRESHOLD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_TEMPERATURE_THRESHOLD {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_TEMPERATURE_THRESHOLD {
+unsafe impl ::windows::core::Abi for STORAGE_TEMPERATURE_THRESHOLD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17949,7 +17925,7 @@ pub const STORAGE_TEMPERATURE_VALUE_NOT_REPORTED: u32 = 32768u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_TIER {
-    pub Id: ::windows::runtime::GUID,
+    pub Id: ::windows::core::GUID,
     pub Name: [u16; 256],
     pub Description: [u16; 256],
     pub Flags: u64,
@@ -17974,7 +17950,7 @@ impl ::core::cmp::PartialEq for STORAGE_TIER {
     }
 }
 impl ::core::cmp::Eq for STORAGE_TIER {}
-unsafe impl ::windows::runtime::Abi for STORAGE_TIER {
+unsafe impl ::windows::core::Abi for STORAGE_TIER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -17990,7 +17966,7 @@ impl ::core::convert::From<i32> for STORAGE_TIER_CLASS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_TIER_CLASS {
+unsafe impl ::windows::core::Abi for STORAGE_TIER_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18019,7 +17995,7 @@ impl ::core::convert::From<i32> for STORAGE_TIER_MEDIA_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_TIER_MEDIA_TYPE {
+unsafe impl ::windows::core::Abi for STORAGE_TIER_MEDIA_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18028,7 +18004,7 @@ pub const STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_TIER_REGION {
-    pub TierId: ::windows::runtime::GUID,
+    pub TierId: ::windows::core::GUID,
     pub Offset: u64,
     pub Length: u64,
 }
@@ -18049,7 +18025,7 @@ impl ::core::cmp::PartialEq for STORAGE_TIER_REGION {
     }
 }
 impl ::core::cmp::Eq for STORAGE_TIER_REGION {}
-unsafe impl ::windows::runtime::Abi for STORAGE_TIER_REGION {
+unsafe impl ::windows::core::Abi for STORAGE_TIER_REGION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18100,7 +18076,7 @@ impl ::core::cmp::PartialEq for STORAGE_WRITE_CACHE_PROPERTY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_WRITE_CACHE_PROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_WRITE_CACHE_PROPERTY {
+unsafe impl ::windows::core::Abi for STORAGE_WRITE_CACHE_PROPERTY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18133,7 +18109,7 @@ impl ::core::cmp::PartialEq for STORAGE_ZONED_DEVICE_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ZONED_DEVICE_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18160,7 +18136,7 @@ impl ::core::cmp::PartialEq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
+unsafe impl ::windows::core::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18193,7 +18169,7 @@ impl ::core::cmp::PartialEq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
+unsafe impl ::windows::core::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18227,7 +18203,7 @@ impl ::core::cmp::PartialEq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
+unsafe impl ::windows::core::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18243,7 +18219,7 @@ impl ::core::convert::From<i32> for STORAGE_ZONED_DEVICE_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_TYPES {
+unsafe impl ::windows::core::Abi for STORAGE_ZONED_DEVICE_TYPES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18259,7 +18235,7 @@ impl ::core::convert::From<i32> for STORAGE_ZONES_ATTRIBUTES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_ZONES_ATTRIBUTES {
+unsafe impl ::windows::core::Abi for STORAGE_ZONES_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18279,7 +18255,7 @@ impl ::core::convert::From<i32> for STORAGE_ZONE_CONDITION {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_ZONE_CONDITION {
+unsafe impl ::windows::core::Abi for STORAGE_ZONE_CONDITION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18326,7 +18302,7 @@ impl ::core::cmp::PartialEq for STORAGE_ZONE_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ZONE_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_ZONE_DESCRIPTOR {
+unsafe impl ::windows::core::Abi for STORAGE_ZONE_DESCRIPTOR {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18354,7 +18330,7 @@ impl ::core::cmp::PartialEq for STORAGE_ZONE_GROUP {
     }
 }
 impl ::core::cmp::Eq for STORAGE_ZONE_GROUP {}
-unsafe impl ::windows::runtime::Abi for STORAGE_ZONE_GROUP {
+unsafe impl ::windows::core::Abi for STORAGE_ZONE_GROUP {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18371,7 +18347,7 @@ impl ::core::convert::From<i32> for STORAGE_ZONE_TYPES {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_ZONE_TYPES {
+unsafe impl ::windows::core::Abi for STORAGE_ZONE_TYPES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18404,7 +18380,7 @@ impl ::core::cmp::PartialEq for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
     }
 }
 impl ::core::cmp::Eq for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
+unsafe impl ::windows::core::Abi for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18436,7 +18412,7 @@ impl ::core::cmp::PartialEq for STREAMS_QUERY_ID_OUTPUT_BUFFER {
     }
 }
 impl ::core::cmp::Eq for STREAMS_QUERY_ID_OUTPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for STREAMS_QUERY_ID_OUTPUT_BUFFER {
+unsafe impl ::windows::core::Abi for STREAMS_QUERY_ID_OUTPUT_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18465,7 +18441,7 @@ impl ::core::cmp::PartialEq for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
     }
 }
 impl ::core::cmp::Eq for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
+unsafe impl ::windows::core::Abi for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18489,7 +18465,7 @@ impl ::core::cmp::PartialEq for STREAM_EXTENT_ENTRY {
     }
 }
 impl ::core::cmp::Eq for STREAM_EXTENT_ENTRY {}
-unsafe impl ::windows::runtime::Abi for STREAM_EXTENT_ENTRY {
+unsafe impl ::windows::core::Abi for STREAM_EXTENT_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18510,7 +18486,7 @@ impl ::core::cmp::PartialEq for STREAM_EXTENT_ENTRY_0 {
     }
 }
 impl ::core::cmp::Eq for STREAM_EXTENT_ENTRY_0 {}
-unsafe impl ::windows::runtime::Abi for STREAM_EXTENT_ENTRY_0 {
+unsafe impl ::windows::core::Abi for STREAM_EXTENT_ENTRY_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18537,7 +18513,7 @@ impl ::core::cmp::PartialEq for STREAM_INFORMATION_ENTRY {
     }
 }
 impl ::core::cmp::Eq for STREAM_INFORMATION_ENTRY {}
-unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY {
+unsafe impl ::windows::core::Abi for STREAM_INFORMATION_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18561,7 +18537,7 @@ impl ::core::cmp::PartialEq for STREAM_INFORMATION_ENTRY_0 {
     }
 }
 impl ::core::cmp::Eq for STREAM_INFORMATION_ENTRY_0 {}
-unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY_0 {
+unsafe impl ::windows::core::Abi for STREAM_INFORMATION_ENTRY_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18590,7 +18566,7 @@ impl ::core::cmp::PartialEq for STREAM_INFORMATION_ENTRY_0_0 {
     }
 }
 impl ::core::cmp::Eq for STREAM_INFORMATION_ENTRY_0_0 {}
-unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY_0_0 {
+unsafe impl ::windows::core::Abi for STREAM_INFORMATION_ENTRY_0_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18617,7 +18593,7 @@ impl ::core::cmp::PartialEq for STREAM_INFORMATION_ENTRY_0_1 {
     }
 }
 impl ::core::cmp::Eq for STREAM_INFORMATION_ENTRY_0_1 {}
-unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY_0_1 {
+unsafe impl ::windows::core::Abi for STREAM_INFORMATION_ENTRY_0_1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18646,7 +18622,7 @@ impl ::core::cmp::PartialEq for STREAM_INFORMATION_ENTRY_0_2 {
     }
 }
 impl ::core::cmp::Eq for STREAM_INFORMATION_ENTRY_0_2 {}
-unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY_0_2 {
+unsafe impl ::windows::core::Abi for STREAM_INFORMATION_ENTRY_0_2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18675,7 +18651,7 @@ impl ::core::cmp::PartialEq for STREAM_INFORMATION_ENTRY_0_3 {
     }
 }
 impl ::core::cmp::Eq for STREAM_INFORMATION_ENTRY_0_3 {}
-unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY_0_3 {
+unsafe impl ::windows::core::Abi for STREAM_INFORMATION_ENTRY_0_3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18733,7 +18709,7 @@ impl ::core::cmp::PartialEq for STREAM_LAYOUT_ENTRY {
     }
 }
 impl ::core::cmp::Eq for STREAM_LAYOUT_ENTRY {}
-unsafe impl ::windows::runtime::Abi for STREAM_LAYOUT_ENTRY {
+unsafe impl ::windows::core::Abi for STREAM_LAYOUT_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18771,7 +18747,7 @@ impl ::core::cmp::PartialEq for TAPE_GET_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for TAPE_GET_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for TAPE_GET_STATISTICS {
+unsafe impl ::windows::core::Abi for TAPE_GET_STATISTICS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18819,7 +18795,7 @@ impl ::core::cmp::PartialEq for TAPE_STATISTICS {
     }
 }
 impl ::core::cmp::Eq for TAPE_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for TAPE_STATISTICS {
+unsafe impl ::windows::core::Abi for TAPE_STATISTICS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -18858,7 +18834,7 @@ impl ::core::cmp::PartialEq for TXFS_CREATE_MINIVERSION_INFO {
     }
 }
 impl ::core::cmp::Eq for TXFS_CREATE_MINIVERSION_INFO {}
-unsafe impl ::windows::runtime::Abi for TXFS_CREATE_MINIVERSION_INFO {
+unsafe impl ::windows::core::Abi for TXFS_CREATE_MINIVERSION_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18866,7 +18842,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_CREATE_MINIVERSION_INFO {
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_GET_METADATA_INFO_OUT {
     pub TxfFileId: TXFS_GET_METADATA_INFO_OUT_0,
-    pub LockingTransaction: ::windows::runtime::GUID,
+    pub LockingTransaction: ::windows::core::GUID,
     pub LastLsn: u64,
     pub TransactionState: u32,
 }
@@ -18887,7 +18863,7 @@ impl ::core::cmp::PartialEq for TXFS_GET_METADATA_INFO_OUT {
     }
 }
 impl ::core::cmp::Eq for TXFS_GET_METADATA_INFO_OUT {}
-unsafe impl ::windows::runtime::Abi for TXFS_GET_METADATA_INFO_OUT {
+unsafe impl ::windows::core::Abi for TXFS_GET_METADATA_INFO_OUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18914,7 +18890,7 @@ impl ::core::cmp::PartialEq for TXFS_GET_METADATA_INFO_OUT_0 {
     }
 }
 impl ::core::cmp::Eq for TXFS_GET_METADATA_INFO_OUT_0 {}
-unsafe impl ::windows::runtime::Abi for TXFS_GET_METADATA_INFO_OUT_0 {
+unsafe impl ::windows::core::Abi for TXFS_GET_METADATA_INFO_OUT_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18944,7 +18920,7 @@ impl ::core::cmp::PartialEq for TXFS_GET_TRANSACTED_VERSION {
     }
 }
 impl ::core::cmp::Eq for TXFS_GET_TRANSACTED_VERSION {}
-unsafe impl ::windows::runtime::Abi for TXFS_GET_TRANSACTED_VERSION {
+unsafe impl ::windows::core::Abi for TXFS_GET_TRANSACTED_VERSION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -18971,14 +18947,14 @@ impl ::core::cmp::PartialEq for TXFS_LIST_TRANSACTIONS {
     }
 }
 impl ::core::cmp::Eq for TXFS_LIST_TRANSACTIONS {}
-unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTIONS {
+unsafe impl ::windows::core::Abi for TXFS_LIST_TRANSACTIONS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_LIST_TRANSACTIONS_ENTRY {
-    pub TransactionId: ::windows::runtime::GUID,
+    pub TransactionId: ::windows::core::GUID,
     pub TransactionState: u32,
     pub Reserved1: u32,
     pub Reserved2: u32,
@@ -19001,14 +18977,14 @@ impl ::core::cmp::PartialEq for TXFS_LIST_TRANSACTIONS_ENTRY {
     }
 }
 impl ::core::cmp::Eq for TXFS_LIST_TRANSACTIONS_ENTRY {}
-unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTIONS_ENTRY {
+unsafe impl ::windows::core::Abi for TXFS_LIST_TRANSACTIONS_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES {
-    pub KtmTransaction: ::windows::runtime::GUID,
+    pub KtmTransaction: ::windows::core::GUID,
     pub NumberOfFiles: u64,
     pub BufferSizeRequired: u64,
     pub Offset: u64,
@@ -19030,7 +19006,7 @@ impl ::core::cmp::PartialEq for TXFS_LIST_TRANSACTION_LOCKED_FILES {
     }
 }
 impl ::core::cmp::Eq for TXFS_LIST_TRANSACTION_LOCKED_FILES {}
-unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTION_LOCKED_FILES {
+unsafe impl ::windows::core::Abi for TXFS_LIST_TRANSACTION_LOCKED_FILES {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19070,7 +19046,7 @@ impl ::core::cmp::PartialEq for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     }
 }
 impl ::core::cmp::Eq for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {}
-unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
+unsafe impl ::windows::core::Abi for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -19120,7 +19096,7 @@ impl ::core::cmp::PartialEq for TXFS_MODIFY_RM {
     }
 }
 impl ::core::cmp::Eq for TXFS_MODIFY_RM {}
-unsafe impl ::windows::runtime::Abi for TXFS_MODIFY_RM {
+unsafe impl ::windows::core::Abi for TXFS_MODIFY_RM {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19151,7 +19127,7 @@ pub struct TXFS_QUERY_RM_INFORMATION {
     pub TwoPCCount: u64,
     pub NumberLogFileFull: u64,
     pub OldestTransactionAge: u64,
-    pub RMName: ::windows::runtime::GUID,
+    pub RMName: ::windows::core::GUID,
     pub TmLogPathOffset: u32,
 }
 impl TXFS_QUERY_RM_INFORMATION {}
@@ -19223,7 +19199,7 @@ impl ::core::cmp::PartialEq for TXFS_QUERY_RM_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TXFS_QUERY_RM_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TXFS_QUERY_RM_INFORMATION {
+unsafe impl ::windows::core::Abi for TXFS_QUERY_RM_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19244,7 +19220,7 @@ impl ::core::cmp::PartialEq for TXFS_READ_BACKUP_INFORMATION_OUT {
     }
 }
 impl ::core::cmp::Eq for TXFS_READ_BACKUP_INFORMATION_OUT {}
-unsafe impl ::windows::runtime::Abi for TXFS_READ_BACKUP_INFORMATION_OUT {
+unsafe impl ::windows::core::Abi for TXFS_READ_BACKUP_INFORMATION_OUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19266,7 +19242,7 @@ impl ::core::cmp::PartialEq for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
     }
 }
 impl ::core::cmp::Eq for TXFS_READ_BACKUP_INFORMATION_OUT_0 {}
-unsafe impl ::windows::runtime::Abi for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
+unsafe impl ::windows::core::Abi for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -19295,7 +19271,7 @@ impl ::core::convert::From<u32> for TXFS_RMF_LAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for TXFS_RMF_LAGS {
+unsafe impl ::windows::core::Abi for TXFS_RMF_LAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for TXFS_RMF_LAGS {
@@ -19364,7 +19340,7 @@ impl ::core::cmp::PartialEq for TXFS_ROLLFORWARD_REDO_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TXFS_ROLLFORWARD_REDO_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TXFS_ROLLFORWARD_REDO_INFORMATION {
+unsafe impl ::windows::core::Abi for TXFS_ROLLFORWARD_REDO_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -19403,7 +19379,7 @@ impl ::core::cmp::PartialEq for TXFS_SAVEPOINT_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TXFS_SAVEPOINT_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TXFS_SAVEPOINT_INFORMATION {
+unsafe impl ::windows::core::Abi for TXFS_SAVEPOINT_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -19494,7 +19470,7 @@ impl ::core::cmp::PartialEq for TXFS_START_RM_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TXFS_START_RM_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TXFS_START_RM_INFORMATION {
+unsafe impl ::windows::core::Abi for TXFS_START_RM_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -19531,7 +19507,7 @@ impl ::core::cmp::PartialEq for TXFS_TRANSACTION_ACTIVE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TXFS_TRANSACTION_ACTIVE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TXFS_TRANSACTION_ACTIVE_INFO {
+unsafe impl ::windows::core::Abi for TXFS_TRANSACTION_ACTIVE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -19565,7 +19541,7 @@ impl ::core::cmp::PartialEq for TXFS_WRITE_BACKUP_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for TXFS_WRITE_BACKUP_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TXFS_WRITE_BACKUP_INFORMATION {
+unsafe impl ::windows::core::Abi for TXFS_WRITE_BACKUP_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -19589,7 +19565,7 @@ impl ::core::convert::From<u32> for USN_DELETE_FLAGS {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USN_DELETE_FLAGS {
+unsafe impl ::windows::core::Abi for USN_DELETE_FLAGS {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for USN_DELETE_FLAGS {
@@ -19659,7 +19635,7 @@ impl ::core::cmp::PartialEq for USN_JOURNAL_DATA_V0 {
     }
 }
 impl ::core::cmp::Eq for USN_JOURNAL_DATA_V0 {}
-unsafe impl ::windows::runtime::Abi for USN_JOURNAL_DATA_V0 {
+unsafe impl ::windows::core::Abi for USN_JOURNAL_DATA_V0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19703,7 +19679,7 @@ impl ::core::cmp::PartialEq for USN_JOURNAL_DATA_V1 {
     }
 }
 impl ::core::cmp::Eq for USN_JOURNAL_DATA_V1 {}
-unsafe impl ::windows::runtime::Abi for USN_JOURNAL_DATA_V1 {
+unsafe impl ::windows::core::Abi for USN_JOURNAL_DATA_V1 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19764,7 +19740,7 @@ impl ::core::cmp::PartialEq for USN_JOURNAL_DATA_V2 {
     }
 }
 impl ::core::cmp::Eq for USN_JOURNAL_DATA_V2 {}
-unsafe impl ::windows::runtime::Abi for USN_JOURNAL_DATA_V2 {
+unsafe impl ::windows::core::Abi for USN_JOURNAL_DATA_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -19792,7 +19768,7 @@ impl ::core::cmp::PartialEq for USN_RANGE_TRACK_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for USN_RANGE_TRACK_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for USN_RANGE_TRACK_OUTPUT {
+unsafe impl ::windows::core::Abi for USN_RANGE_TRACK_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -19868,7 +19844,7 @@ impl ::core::cmp::PartialEq for USN_RECORD_COMMON_HEADER {
     }
 }
 impl ::core::cmp::Eq for USN_RECORD_COMMON_HEADER {}
-unsafe impl ::windows::runtime::Abi for USN_RECORD_COMMON_HEADER {
+unsafe impl ::windows::core::Abi for USN_RECORD_COMMON_HEADER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19895,7 +19871,7 @@ impl ::core::cmp::PartialEq for USN_RECORD_EXTENT {
     }
 }
 impl ::core::cmp::Eq for USN_RECORD_EXTENT {}
-unsafe impl ::windows::runtime::Abi for USN_RECORD_EXTENT {
+unsafe impl ::windows::core::Abi for USN_RECORD_EXTENT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19925,7 +19901,7 @@ impl ::core::cmp::PartialEq for USN_RECORD_UNION {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for USN_RECORD_UNION {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for USN_RECORD_UNION {
+unsafe impl ::windows::core::Abi for USN_RECORD_UNION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -19992,7 +19968,7 @@ impl ::core::cmp::PartialEq for USN_RECORD_V2 {
     }
 }
 impl ::core::cmp::Eq for USN_RECORD_V2 {}
-unsafe impl ::windows::runtime::Abi for USN_RECORD_V2 {
+unsafe impl ::windows::core::Abi for USN_RECORD_V2 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20066,7 +20042,7 @@ impl ::core::cmp::PartialEq for USN_RECORD_V3 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for USN_RECORD_V3 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for USN_RECORD_V3 {
+unsafe impl ::windows::core::Abi for USN_RECORD_V3 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20119,7 +20095,7 @@ impl ::core::cmp::PartialEq for USN_RECORD_V4 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for USN_RECORD_V4 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for USN_RECORD_V4 {
+unsafe impl ::windows::core::Abi for USN_RECORD_V4 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20135,7 +20111,7 @@ impl ::core::convert::From<u32> for USN_SOURCE_INFO_ID {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for USN_SOURCE_INFO_ID {
+unsafe impl ::windows::core::Abi for USN_SOURCE_INFO_ID {
     type Abi = Self;
 }
 impl ::core::ops::BitOr for USN_SOURCE_INFO_ID {
@@ -20192,7 +20168,7 @@ impl ::core::cmp::PartialEq for USN_TRACK_MODIFIED_RANGES {
     }
 }
 impl ::core::cmp::Eq for USN_TRACK_MODIFIED_RANGES {}
-unsafe impl ::windows::runtime::Abi for USN_TRACK_MODIFIED_RANGES {
+unsafe impl ::windows::core::Abi for USN_TRACK_MODIFIED_RANGES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20223,7 +20199,7 @@ impl ::core::cmp::PartialEq for VERIFY_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for VERIFY_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for VERIFY_INFORMATION {
+unsafe impl ::windows::core::Abi for VERIFY_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20250,7 +20226,7 @@ impl ::core::cmp::PartialEq for VIRTUALIZATION_INSTANCE_INFO_INPUT {
     }
 }
 impl ::core::cmp::Eq for VIRTUALIZATION_INSTANCE_INFO_INPUT {}
-unsafe impl ::windows::runtime::Abi for VIRTUALIZATION_INSTANCE_INFO_INPUT {
+unsafe impl ::windows::core::Abi for VIRTUALIZATION_INSTANCE_INFO_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20286,14 +20262,14 @@ impl ::core::cmp::PartialEq for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
     }
 }
 impl ::core::cmp::Eq for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {}
-unsafe impl ::windows::runtime::Abi for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
+unsafe impl ::windows::core::Abi for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
-    pub VirtualizationInstanceID: ::windows::runtime::GUID,
+    pub VirtualizationInstanceID: ::windows::core::GUID,
 }
 impl VIRTUALIZATION_INSTANCE_INFO_OUTPUT {}
 impl ::core::default::Default for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
@@ -20312,7 +20288,7 @@ impl ::core::cmp::PartialEq for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
     }
 }
 impl ::core::cmp::Eq for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
+unsafe impl ::windows::core::Abi for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20329,7 +20305,7 @@ impl ::core::convert::From<i32> for VIRTUAL_STORAGE_BEHAVIOR_CODE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for VIRTUAL_STORAGE_BEHAVIOR_CODE {
+unsafe impl ::windows::core::Abi for VIRTUAL_STORAGE_BEHAVIOR_CODE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20356,7 +20332,7 @@ impl ::core::cmp::PartialEq for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
     }
 }
 impl ::core::cmp::Eq for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {}
-unsafe impl ::windows::runtime::Abi for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
+unsafe impl ::windows::core::Abi for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20384,7 +20360,7 @@ impl ::core::cmp::PartialEq for VOLUME_BITMAP_BUFFER {
     }
 }
 impl ::core::cmp::Eq for VOLUME_BITMAP_BUFFER {}
-unsafe impl ::windows::runtime::Abi for VOLUME_BITMAP_BUFFER {
+unsafe impl ::windows::core::Abi for VOLUME_BITMAP_BUFFER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20411,7 +20387,7 @@ impl ::core::cmp::PartialEq for VOLUME_DISK_EXTENTS {
     }
 }
 impl ::core::cmp::Eq for VOLUME_DISK_EXTENTS {}
-unsafe impl ::windows::runtime::Abi for VOLUME_DISK_EXTENTS {
+unsafe impl ::windows::core::Abi for VOLUME_DISK_EXTENTS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20437,7 +20413,7 @@ impl ::core::cmp::PartialEq for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
     }
 }
 impl ::core::cmp::Eq for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
+unsafe impl ::windows::core::Abi for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20472,7 +20448,7 @@ impl ::core::cmp::PartialEq for WIM_PROVIDER_ADD_OVERLAY_INPUT {
     }
 }
 impl ::core::cmp::Eq for WIM_PROVIDER_ADD_OVERLAY_INPUT {}
-unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_ADD_OVERLAY_INPUT {
+unsafe impl ::windows::core::Abi for WIM_PROVIDER_ADD_OVERLAY_INPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20507,7 +20483,7 @@ impl ::core::cmp::PartialEq for WIM_PROVIDER_EXTERNAL_INFO {
     }
 }
 impl ::core::cmp::Eq for WIM_PROVIDER_EXTERNAL_INFO {}
-unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_EXTERNAL_INFO {
+unsafe impl ::windows::core::Abi for WIM_PROVIDER_EXTERNAL_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20516,7 +20492,7 @@ unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_EXTERNAL_INFO {
 pub struct WIM_PROVIDER_OVERLAY_ENTRY {
     pub NextEntryOffset: u32,
     pub DataSourceId: i64,
-    pub WimGuid: ::windows::runtime::GUID,
+    pub WimGuid: ::windows::core::GUID,
     pub WimFileNameOffset: u32,
     pub WimType: u32,
     pub WimIndex: u32,
@@ -20547,7 +20523,7 @@ impl ::core::cmp::PartialEq for WIM_PROVIDER_OVERLAY_ENTRY {
     }
 }
 impl ::core::cmp::Eq for WIM_PROVIDER_OVERLAY_ENTRY {}
-unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_OVERLAY_ENTRY {
+unsafe impl ::windows::core::Abi for WIM_PROVIDER_OVERLAY_ENTRY {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20573,7 +20549,7 @@ impl ::core::cmp::PartialEq for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
     }
 }
 impl ::core::cmp::Eq for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {}
-unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
+unsafe impl ::windows::core::Abi for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20599,7 +20575,7 @@ impl ::core::cmp::PartialEq for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
     }
 }
 impl ::core::cmp::Eq for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {}
-unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
+unsafe impl ::windows::core::Abi for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20627,7 +20603,7 @@ impl ::core::cmp::PartialEq for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     }
 }
 impl ::core::cmp::Eq for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {}
-unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
+unsafe impl ::windows::core::Abi for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20662,7 +20638,7 @@ impl ::core::cmp::PartialEq for WOF_EXTERNAL_FILE_ID {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for WOF_EXTERNAL_FILE_ID {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
-unsafe impl ::windows::runtime::Abi for WOF_EXTERNAL_FILE_ID {
+unsafe impl ::windows::core::Abi for WOF_EXTERNAL_FILE_ID {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20689,7 +20665,7 @@ impl ::core::cmp::PartialEq for WOF_EXTERNAL_INFO {
     }
 }
 impl ::core::cmp::Eq for WOF_EXTERNAL_INFO {}
-unsafe impl ::windows::runtime::Abi for WOF_EXTERNAL_INFO {
+unsafe impl ::windows::core::Abi for WOF_EXTERNAL_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20717,7 +20693,7 @@ impl ::core::cmp::PartialEq for WOF_VERSION_INFO {
     }
 }
 impl ::core::cmp::Eq for WOF_VERSION_INFO {}
-unsafe impl ::windows::runtime::Abi for WOF_VERSION_INFO {
+unsafe impl ::windows::core::Abi for WOF_VERSION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20732,7 +20708,7 @@ impl ::core::convert::From<i32> for WRITE_CACHE_CHANGE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WRITE_CACHE_CHANGE {
+unsafe impl ::windows::core::Abi for WRITE_CACHE_CHANGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20747,7 +20723,7 @@ impl ::core::convert::From<i32> for WRITE_CACHE_ENABLE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WRITE_CACHE_ENABLE {
+unsafe impl ::windows::core::Abi for WRITE_CACHE_ENABLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20763,7 +20739,7 @@ impl ::core::convert::From<i32> for WRITE_CACHE_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WRITE_CACHE_TYPE {
+unsafe impl ::windows::core::Abi for WRITE_CACHE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20780,7 +20756,7 @@ impl ::core::convert::From<i32> for WRITE_THROUGH {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for WRITE_THROUGH {
+unsafe impl ::windows::core::Abi for WRITE_THROUGH {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -20807,7 +20783,7 @@ impl ::core::cmp::PartialEq for WRITE_USN_REASON_INPUT {
     }
 }
 impl ::core::cmp::Eq for WRITE_USN_REASON_INPUT {}
-unsafe impl ::windows::runtime::Abi for WRITE_USN_REASON_INPUT {
+unsafe impl ::windows::core::Abi for WRITE_USN_REASON_INPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
@@ -20822,6 +20798,6 @@ impl ::core::convert::From<i32> for _DEVICEDUMP_COLLECTION_TYPE {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for _DEVICEDUMP_COLLECTION_TYPE {
+unsafe impl ::windows::core::Abi for _DEVICEDUMP_COLLECTION_TYPE {
     type Abi = Self;
 }

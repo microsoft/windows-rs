@@ -3,3 +3,5 @@
 pub mod AnimationMetrics;
 #[cfg(feature = "UI_Core_Preview")]
 pub mod Preview;
+#[link(name = "windows")]
+extern "system" {}

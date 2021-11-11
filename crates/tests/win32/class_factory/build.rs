@@ -1,5 +1,5 @@
 fn main() {
-    windows::runtime::build!(
+    windows::core::build!(
         Windows::Foundation::{IClosable, IStringable},
         Windows::Win32::System::Com::IClassFactory
     );

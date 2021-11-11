@@ -24,7 +24,7 @@ pub unsafe fn RegisterWaitUntilOOBECompleted(oobecompletedcallback: ::core::opti
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterWaitUntilOOBECompleted(oobecompletedcallback: ::windows::runtime::RawPtr, callbackcontext: *const ::core::ffi::c_void, waithandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn RegisterWaitUntilOOBECompleted(oobecompletedcallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void, waithandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(RegisterWaitUntilOOBECompleted(::core::mem::transmute(oobecompletedcallback), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(waithandle)))
     }

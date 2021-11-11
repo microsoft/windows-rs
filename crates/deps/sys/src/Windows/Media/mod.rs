@@ -53,3 +53,5 @@ pub mod SpeechSynthesis;
 pub mod Streaming;
 #[cfg(feature = "Media_Transcoding")]
 pub mod Transcoding;
+#[link(name = "windows")]
+extern "system" {}

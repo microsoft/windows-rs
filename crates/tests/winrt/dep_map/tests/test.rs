@@ -1,5 +1,5 @@
 use test_winrt_dep_map::*;
-use windows::runtime::*;
+use windows::core::*;
 use Windows::Foundation::Collections::*;
 
 // This test ensures that all interfaces required by IMap can be both called and implemented
