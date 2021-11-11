@@ -5,640 +5,640 @@ pub mod PrintTicket;
 extern "system" {
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AbortPrinter();
+    pub fn AbortPrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddFormA();
+    pub fn AddFormA(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddFormW();
+    pub fn AddFormW(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddJobA();
+    pub fn AddJobA(hprinter: super::super::Foundation::HANDLE, level: u32, pdata: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddJobW();
+    pub fn AddJobW(hprinter: super::super::Foundation::HANDLE, level: u32, pdata: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddMonitorA();
+    pub fn AddMonitorA(pname: super::super::Foundation::PSTR, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddMonitorW();
+    pub fn AddMonitorW(pname: super::super::Foundation::PWSTR, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPortA();
+    pub fn AddPortA(pname: super::super::Foundation::PSTR, hwnd: super::super::Foundation::HWND, pmonitorname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPortW();
+    pub fn AddPortW(pname: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND, pmonitorname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrintDeviceObject();
+    pub fn AddPrintDeviceObject(hprinter: super::super::Foundation::HANDLE, phdeviceobject: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrintProcessorA();
+    pub fn AddPrintProcessorA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, ppathname: super::super::Foundation::PSTR, pprintprocessorname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrintProcessorW();
+    pub fn AddPrintProcessorW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, ppathname: super::super::Foundation::PWSTR, pprintprocessorname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrintProvidorA();
+    pub fn AddPrintProvidorA(pname: super::super::Foundation::PSTR, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrintProvidorW();
+    pub fn AddPrintProvidorW(pname: super::super::Foundation::PWSTR, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrinterA();
+    pub fn AddPrinterA(pname: super::super::Foundation::PSTR, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrinterConnection2A();
+    pub fn AddPrinterConnection2A(hwnd: super::super::Foundation::HWND, pszname: super::super::Foundation::PSTR, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrinterConnection2W();
+    pub fn AddPrinterConnection2W(hwnd: super::super::Foundation::HWND, pszname: super::super::Foundation::PWSTR, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrinterConnectionA();
+    pub fn AddPrinterConnectionA(pname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrinterConnectionW();
+    pub fn AddPrinterConnectionW(pname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrinterDriverA();
+    pub fn AddPrinterDriverA(pname: super::super::Foundation::PSTR, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrinterDriverExA();
+    pub fn AddPrinterDriverExA(pname: super::super::Foundation::PSTR, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrinterDriverExW();
+    pub fn AddPrinterDriverExW(pname: super::super::Foundation::PWSTR, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrinterDriverW();
+    pub fn AddPrinterDriverW(pname: super::super::Foundation::PWSTR, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPrinterW();
+    pub fn AddPrinterW(pname: super::super::Foundation::PWSTR, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn AdvancedDocumentPropertiesA();
+    pub fn AdvancedDocumentPropertiesA(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: super::super::Foundation::PSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA) -> i32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn AdvancedDocumentPropertiesW();
+    pub fn AdvancedDocumentPropertiesW(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: super::super::Foundation::PWSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW) -> i32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AppendPrinterNotifyInfoData();
+    pub fn AppendPrinterNotifyInfoData(pinfodest: *const PRINTER_NOTIFY_INFO, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA, fdwflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CallRouterFindFirstPrinterChangeNotification();
+    pub fn CallRouterFindFirstPrinterChangeNotification(hprinterrpc: super::super::Foundation::HANDLE, fdwfilterflags: u32, fdwoptions: u32, hnotify: super::super::Foundation::HANDLE, pprinternotifyoptions: *const PRINTER_NOTIFY_OPTIONS) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ClosePrinter();
+    pub fn ClosePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CloseSpoolFileHandle();
+    pub fn CloseSpoolFileHandle(hprinter: super::super::Foundation::HANDLE, hspoolfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CommitSpoolData();
+    pub fn CommitSpoolData(hprinter: super::super::Foundation::HANDLE, hspoolfile: super::super::Foundation::HANDLE, cbcommit: u32) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CommonPropertySheetUIA();
+    pub fn CommonPropertySheetUIA(hwndowner: super::super::Foundation::HWND, pfnpropsheetui: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM, presult: *mut u32) -> i32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CommonPropertySheetUIW();
+    pub fn CommonPropertySheetUIW(hwndowner: super::super::Foundation::HWND, pfnpropsheetui: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM, presult: *mut u32) -> i32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ConfigurePortA();
+    pub fn ConfigurePortA(pname: super::super::Foundation::PSTR, hwnd: super::super::Foundation::HWND, pportname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ConfigurePortW();
+    pub fn ConfigurePortW(pname: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND, pportname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ConnectToPrinterDlg();
+    pub fn ConnectToPrinterDlg(hwnd: super::super::Foundation::HWND, flags: u32) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CorePrinterDriverInstalledA();
+    pub fn CorePrinterDriverInstalledA(pszserver: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR, coredriverguid: ::windows::runtime::GUID, ftdriverdate: super::super::Foundation::FILETIME, dwldriverversion: u64, pbdriverinstalled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CorePrinterDriverInstalledW();
+    pub fn CorePrinterDriverInstalledW(pszserver: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR, coredriverguid: ::windows::runtime::GUID, ftdriverdate: super::super::Foundation::FILETIME, dwldriverversion: u64, pbdriverinstalled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreatePrintAsyncNotifyChannel();
+    pub fn CreatePrintAsyncNotifyChannel(pszname: super::super::Foundation::PWSTR, pnotificationtype: *const ::windows::runtime::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: ::windows::runtime::RawPtr, ppiasynchnotification: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn CreatePrinterIC();
+    pub fn CreatePrinterIC(hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEW) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteFormA();
+    pub fn DeleteFormA(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteFormW();
+    pub fn DeleteFormW(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteJobNamedProperty();
+    pub fn DeleteJobNamedProperty(hprinter: super::super::Foundation::HANDLE, jobid: u32, pszname: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteMonitorA();
+    pub fn DeleteMonitorA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, pmonitorname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteMonitorW();
+    pub fn DeleteMonitorW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, pmonitorname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePortA();
+    pub fn DeletePortA(pname: super::super::Foundation::PSTR, hwnd: super::super::Foundation::HWND, pportname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePortW();
+    pub fn DeletePortW(pname: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND, pportname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrintProcessorA();
+    pub fn DeletePrintProcessorA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, pprintprocessorname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrintProcessorW();
+    pub fn DeletePrintProcessorW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, pprintprocessorname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrintProvidorA();
+    pub fn DeletePrintProvidorA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, pprintprovidorname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrintProvidorW();
+    pub fn DeletePrintProvidorW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, pprintprovidorname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinter();
+    pub fn DeletePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterConnectionA();
+    pub fn DeletePrinterConnectionA(pname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterConnectionW();
+    pub fn DeletePrinterConnectionW(pname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterDataA();
+    pub fn DeletePrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterDataExA();
+    pub fn DeletePrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR, pvaluename: super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterDataExW();
+    pub fn DeletePrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterDataW();
+    pub fn DeletePrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterDriverA();
+    pub fn DeletePrinterDriverA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, pdrivername: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterDriverExA();
+    pub fn DeletePrinterDriverExA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, pdrivername: super::super::Foundation::PSTR, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterDriverExW();
+    pub fn DeletePrinterDriverExW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, pdrivername: super::super::Foundation::PWSTR, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterDriverPackageA();
+    pub fn DeletePrinterDriverPackageA(pszserver: super::super::Foundation::PSTR, pszinfpath: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterDriverPackageW();
+    pub fn DeletePrinterDriverPackageW(pszserver: super::super::Foundation::PWSTR, pszinfpath: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterDriverW();
+    pub fn DeletePrinterDriverW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, pdrivername: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterIC();
+    pub fn DeletePrinterIC(hprinteric: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterKeyA();
+    pub fn DeletePrinterKeyA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePrinterKeyW();
+    pub fn DeletePrinterKeyW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DevQueryPrint();
+    pub fn DevQueryPrint(hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEA, presid: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DevQueryPrintEx();
+    pub fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DocumentPropertiesA();
+    pub fn DocumentPropertiesA(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: super::super::Foundation::PSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA, fmode: u32) -> i32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DocumentPropertiesW();
+    pub fn DocumentPropertiesW(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: super::super::Foundation::PWSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW, fmode: u32) -> i32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EndDocPrinter();
+    pub fn EndDocPrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EndPagePrinter();
+    pub fn EndPagePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumFormsA();
+    pub fn EnumFormsA(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumFormsW();
+    pub fn EnumFormsW(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumJobNamedProperties();
+    pub fn EnumJobNamedProperties(hprinter: super::super::Foundation::HANDLE, jobid: u32, pcproperties: *mut u32, ppproperties: *mut *mut PrintNamedProperty) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumJobsA();
+    pub fn EnumJobsA(hprinter: super::super::Foundation::HANDLE, firstjob: u32, nojobs: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumJobsW();
+    pub fn EnumJobsW(hprinter: super::super::Foundation::HANDLE, firstjob: u32, nojobs: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumMonitorsA();
+    pub fn EnumMonitorsA(pname: super::super::Foundation::PSTR, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumMonitorsW();
+    pub fn EnumMonitorsW(pname: super::super::Foundation::PWSTR, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPortsA();
+    pub fn EnumPortsA(pname: super::super::Foundation::PSTR, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPortsW();
+    pub fn EnumPortsW(pname: super::super::Foundation::PWSTR, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrintProcessorDatatypesA();
+    pub fn EnumPrintProcessorDatatypesA(pname: super::super::Foundation::PSTR, pprintprocessorname: super::super::Foundation::PSTR, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrintProcessorDatatypesW();
+    pub fn EnumPrintProcessorDatatypesW(pname: super::super::Foundation::PWSTR, pprintprocessorname: super::super::Foundation::PWSTR, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrintProcessorsA();
+    pub fn EnumPrintProcessorsA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrintProcessorsW();
+    pub fn EnumPrintProcessorsW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrinterDataA();
+    pub fn EnumPrinterDataA(hprinter: super::super::Foundation::HANDLE, dwindex: u32, pvaluename: super::super::Foundation::PSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrinterDataExA();
+    pub fn EnumPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrinterDataExW();
+    pub fn EnumPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrinterDataW();
+    pub fn EnumPrinterDataW(hprinter: super::super::Foundation::HANDLE, dwindex: u32, pvaluename: super::super::Foundation::PWSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrinterDriversA();
+    pub fn EnumPrinterDriversA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrinterDriversW();
+    pub fn EnumPrinterDriversW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrinterKeyA();
+    pub fn EnumPrinterKeyA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR, psubkey: super::super::Foundation::PSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrinterKeyW();
+    pub fn EnumPrinterKeyW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR, psubkey: super::super::Foundation::PWSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrintersA();
+    pub fn EnumPrintersA(flags: u32, name: super::super::Foundation::PSTR, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPrintersW();
+    pub fn EnumPrintersW(flags: u32, name: super::super::Foundation::PWSTR, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ExtDeviceMode();
+    pub fn ExtDeviceMode(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HANDLE, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevicename: super::super::Foundation::PSTR, pport: super::super::Foundation::PSTR, pdevmodeinput: *const super::Gdi::DEVMODEA, pprofile: super::super::Foundation::PSTR, fmode: u32) -> i32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindClosePrinterChangeNotification();
+    pub fn FindClosePrinterChangeNotification(hchange: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstPrinterChangeNotification();
+    pub fn FindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwfilter: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNextPrinterChangeNotification();
+    pub fn FindNextPrinterChangeNotification(hchange: super::super::Foundation::HANDLE, pdwchange: *mut u32, pvreserved: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FlushPrinter();
+    pub fn FlushPrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *const ::core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32, csleep: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FreePrintNamedPropertyArray();
+    pub fn FreePrintNamedPropertyArray(cproperties: u32, ppproperties: *mut *mut PrintNamedProperty);
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FreePrintPropertyValue();
+    pub fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue);
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FreePrinterNotifyInfo();
+    pub fn FreePrinterNotifyInfo(pprinternotifyinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GdiDeleteSpoolFileHandle();
+    pub fn GdiDeleteSpoolFileHandle(spoolfilehandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GdiEndDocEMF();
+    pub fn GdiEndDocEMF(spoolfilehandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GdiEndPageEMF();
+    pub fn GdiEndPageEMF(spoolfilehandle: super::super::Foundation::HANDLE, dwoptimization: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GdiGetDC();
+    pub fn GdiGetDC(spoolfilehandle: super::super::Foundation::HANDLE) -> super::Gdi::HDC;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GdiGetDevmodeForPage();
+    pub fn GdiGetDevmodeForPage(spoolfilehandle: super::super::Foundation::HANDLE, dwpagenumber: u32, pcurrdm: *mut *mut super::Gdi::DEVMODEW, plastdm: *mut *mut super::Gdi::DEVMODEW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GdiGetPageCount();
+    pub fn GdiGetPageCount(spoolfilehandle: super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GdiGetPageHandle();
+    pub fn GdiGetPageHandle(spoolfilehandle: super::super::Foundation::HANDLE, page: u32, pdwpagetype: *mut u32) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GdiGetSpoolFileHandle();
+    pub fn GdiGetSpoolFileHandle(pwszprintername: super::super::Foundation::PWSTR, pdevmode: *mut super::Gdi::DEVMODEW, pwszdocname: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GdiPlayPageEMF();
+    pub fn GdiPlayPageEMF(spoolfilehandle: super::super::Foundation::HANDLE, hemf: super::super::Foundation::HANDLE, prectdocument: *mut super::super::Foundation::RECT, prectborder: *mut super::super::Foundation::RECT, prectclip: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GdiResetDCEMF();
+    pub fn GdiResetDCEMF(spoolfilehandle: super::super::Foundation::HANDLE, pcurrdm: *mut super::Gdi::DEVMODEW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Storage_Xps`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
-    pub fn GdiStartDocEMF();
+    pub fn GdiStartDocEMF(spoolfilehandle: super::super::Foundation::HANDLE, pdocinfo: *mut super::super::Storage::Xps::DOCINFOW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GdiStartPageEMF();
+    pub fn GdiStartPageEMF(spoolfilehandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GenerateCopyFilePaths();
+    pub fn GenerateCopyFilePaths(pszprintername: super::super::Foundation::PWSTR, pszdirectory: super::super::Foundation::PWSTR, psplclientinfo: *const u8, dwlevel: u32, pszsourcedir: super::super::Foundation::PWSTR, pcchsourcedirsize: *mut u32, psztargetdir: super::super::Foundation::PWSTR, pcchtargetdirsize: *mut u32, dwflags: u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCPSUIUserData();
+    pub fn GetCPSUIUserData(hdlg: super::super::Foundation::HWND) -> usize;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCorePrinterDriversA();
+    pub fn GetCorePrinterDriversA(pszserver: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR, pszzcoredriverdependencies: super::super::Foundation::PSTR, ccoreprinterdrivers: u32, pcoreprinterdrivers: *mut CORE_PRINTER_DRIVERA) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCorePrinterDriversW();
+    pub fn GetCorePrinterDriversW(pszserver: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR, pszzcoredriverdependencies: super::super::Foundation::PWSTR, ccoreprinterdrivers: u32, pcoreprinterdrivers: *mut CORE_PRINTER_DRIVERW) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDefaultPrinterA();
+    pub fn GetDefaultPrinterA(pszbuffer: super::super::Foundation::PSTR, pcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDefaultPrinterW();
+    pub fn GetDefaultPrinterW(pszbuffer: super::super::Foundation::PWSTR, pcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFormA();
+    pub fn GetFormA(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PSTR, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFormW();
+    pub fn GetFormW(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PWSTR, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetJobA();
+    pub fn GetJobA(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetJobAttributes();
+    pub fn GetJobAttributes(pprintername: super::super::Foundation::PWSTR, pdevmode: *const super::Gdi::DEVMODEW, pattributeinfo: *mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetJobAttributesEx();
+    pub fn GetJobAttributesEx(pprintername: super::super::Foundation::PWSTR, pdevmode: *const super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: *mut u8, nsize: u32, dwflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetJobNamedPropertyValue();
+    pub fn GetJobNamedPropertyValue(hprinter: super::super::Foundation::HANDLE, jobid: u32, pszname: super::super::Foundation::PWSTR, pvalue: *mut PrintPropertyValue) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetJobW();
+    pub fn GetJobW(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrintExecutionData();
+    pub fn GetPrintExecutionData(pdata: *mut PRINT_EXECUTION_DATA) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrintOutputInfo();
+    pub fn GetPrintOutputInfo(hwnd: super::super::Foundation::HWND, pszprinter: super::super::Foundation::PWSTR, phfile: *mut super::super::Foundation::HANDLE, ppszoutputfile: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrintProcessorDirectoryA();
+    pub fn GetPrintProcessorDirectoryA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrintProcessorDirectoryW();
+    pub fn GetPrintProcessorDirectoryW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterA();
+    pub fn GetPrinterA(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDataA();
+    pub fn GetPrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDataExA();
+    pub fn GetPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR, pvaluename: super::super::Foundation::PSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDataExW();
+    pub fn GetPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDataW();
+    pub fn GetPrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PWSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDriver2A();
+    pub fn GetPrinterDriver2A(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, penvironment: super::super::Foundation::PSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDriver2W();
+    pub fn GetPrinterDriver2W(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, penvironment: super::super::Foundation::PWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDriverA();
+    pub fn GetPrinterDriverA(hprinter: super::super::Foundation::HANDLE, penvironment: super::super::Foundation::PSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDriverDirectoryA();
+    pub fn GetPrinterDriverDirectoryA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDriverDirectoryW();
+    pub fn GetPrinterDriverDirectoryW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDriverPackagePathA();
+    pub fn GetPrinterDriverPackagePathA(pszserver: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR, pszlanguage: super::super::Foundation::PSTR, pszpackageid: super::super::Foundation::PSTR, pszdriverpackagecab: super::super::Foundation::PSTR, cchdriverpackagecab: u32, pcchrequiredsize: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDriverPackagePathW();
+    pub fn GetPrinterDriverPackagePathW(pszserver: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR, pszlanguage: super::super::Foundation::PWSTR, pszpackageid: super::super::Foundation::PWSTR, pszdriverpackagecab: super::super::Foundation::PWSTR, cchdriverpackagecab: u32, pcchrequiredsize: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterDriverW();
+    pub fn GetPrinterDriverW(hprinter: super::super::Foundation::HANDLE, penvironment: super::super::Foundation::PWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPrinterW();
+    pub fn GetPrinterW(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSpoolFileHandle();
+    pub fn GetSpoolFileHandle(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ImpersonatePrinterClient();
+    pub fn ImpersonatePrinterClient(htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InstallPrinterDriverFromPackageA();
+    pub fn InstallPrinterDriverFromPackageA(pszserver: super::super::Foundation::PSTR, pszinfpath: super::super::Foundation::PSTR, pszdrivername: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR, dwflags: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InstallPrinterDriverFromPackageW();
+    pub fn InstallPrinterDriverFromPackageW(pszserver: super::super::Foundation::PWSTR, pszinfpath: super::super::Foundation::PWSTR, pszdrivername: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn IsValidDevmodeA();
+    pub fn IsValidDevmodeA(pdevmode: *const super::Gdi::DEVMODEA, devmodesize: usize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn IsValidDevmodeW();
+    pub fn IsValidDevmodeW(pdevmode: *const super::Gdi::DEVMODEW, devmodesize: usize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn OpenPrinter2A();
+    pub fn OpenPrinter2A(pprintername: super::super::Foundation::PSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA, poptions: *const PRINTER_OPTIONSA) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn OpenPrinter2W();
+    pub fn OpenPrinter2W(pprintername: super::super::Foundation::PWSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW, poptions: *const PRINTER_OPTIONSW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn OpenPrinterA();
+    pub fn OpenPrinterA(pprintername: super::super::Foundation::PSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn OpenPrinterW();
+    pub fn OpenPrinterW(pprintername: super::super::Foundation::PWSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PartialReplyPrinterChangeNotification();
+    pub fn PartialReplyPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PlayGdiScriptOnPrinterIC();
+    pub fn PlayGdiScriptOnPrinterIC(hprinteric: super::super::Foundation::HANDLE, pin: *const u8, cin: u32, pout: *mut u8, cout: u32, ul: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PrinterMessageBoxA();
+    pub fn PrinterMessageBoxA(hprinter: super::super::Foundation::HANDLE, error: u32, hwnd: super::super::Foundation::HWND, ptext: super::super::Foundation::PSTR, pcaption: super::super::Foundation::PSTR, dwtype: u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PrinterMessageBoxW();
+    pub fn PrinterMessageBoxW(hprinter: super::super::Foundation::HANDLE, error: u32, hwnd: super::super::Foundation::HWND, ptext: super::super::Foundation::PWSTR, pcaption: super::super::Foundation::PWSTR, dwtype: u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PrinterProperties();
+    pub fn PrinterProperties(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ProvidorFindClosePrinterChangeNotification();
+    pub fn ProvidorFindClosePrinterChangeNotification(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ProvidorFindFirstPrinterChangeNotification();
+    pub fn ProvidorFindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwflags: u32, fdwoptions: u32, hnotify: super::super::Foundation::HANDLE, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReadPrinter();
+    pub fn ReadPrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *mut ::core::ffi::c_void, cbbuf: u32, pnobytesread: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterForPrintAsyncNotifications();
+    pub fn RegisterForPrintAsyncNotifications(pszname: super::super::Foundation::PWSTR, pnotificationtype: *const ::windows::runtime::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: ::windows::runtime::RawPtr, phnotify: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemovePrintDeviceObject();
+    pub fn RemovePrintDeviceObject(hdeviceobject: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReplyPrinterChangeNotification();
+    pub fn ReplyPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwchangeflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReplyPrinterChangeNotificationEx();
+    pub fn ReplyPrinterChangeNotificationEx(hnotify: super::super::Foundation::HANDLE, dwcolor: u32, fdwflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportJobProcessingProgress();
+    pub fn ReportJobProcessingProgress(printerhandle: super::super::Foundation::HANDLE, jobid: u32, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ResetPrinterA();
+    pub fn ResetPrinterA(hprinter: super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ResetPrinterW();
+    pub fn ResetPrinterW(hprinter: super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RevertToPrinterSelf();
+    pub fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
-    pub fn RouterAllocBidiMem();
+    pub fn RouterAllocBidiMem(numbytes: usize) -> *mut ::core::ffi::c_void;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterAllocBidiResponseContainer();
+    pub fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER;
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
-    pub fn RouterAllocPrinterNotifyInfo();
+    pub fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: u32) -> *mut PRINTER_NOTIFY_INFO;
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
-    pub fn RouterFreeBidiMem();
+    pub fn RouterFreeBidiMem(pmempointer: *const ::core::ffi::c_void);
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterFreeBidiResponseContainer();
+    pub fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAINER) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterFreePrinterNotifyInfo();
+    pub fn RouterFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ScheduleJob();
+    pub fn ScheduleJob(hprinter: super::super::Foundation::HANDLE, jobid: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetCPSUIUserData();
+    pub fn SetCPSUIUserData(hdlg: super::super::Foundation::HWND, cpsuiuserdata: usize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDefaultPrinterA();
+    pub fn SetDefaultPrinterA(pszprinter: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDefaultPrinterW();
+    pub fn SetDefaultPrinterW(pszprinter: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFormA();
+    pub fn SetFormA(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PSTR, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFormW();
+    pub fn SetFormW(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PWSTR, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetJobA();
+    pub fn SetJobA(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetJobNamedProperty();
+    pub fn SetJobNamedProperty(hprinter: super::super::Foundation::HANDLE, jobid: u32, pproperty: *const PrintNamedProperty) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetJobW();
+    pub fn SetJobW(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetPortA();
+    pub fn SetPortA(pname: super::super::Foundation::PSTR, pportname: super::super::Foundation::PSTR, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetPortW();
+    pub fn SetPortW(pname: super::super::Foundation::PWSTR, pportname: super::super::Foundation::PWSTR, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetPrinterA();
+    pub fn SetPrinterA(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *const u8, command: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetPrinterDataA();
+    pub fn SetPrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetPrinterDataExA();
+    pub fn SetPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR, pvaluename: super::super::Foundation::PSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetPrinterDataExW();
+    pub fn SetPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetPrinterDataW();
+    pub fn SetPrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetPrinterW();
+    pub fn SetPrinterW(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *const u8, command: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SplIsSessionZero();
+    pub fn SplIsSessionZero(hprinter: super::super::Foundation::HANDLE, jobid: u32, pissessionzero: *mut super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SplPromptUIInUsersSession();
+    pub fn SplPromptUIInUsersSession(hprinter: super::super::Foundation::HANDLE, jobid: u32, puiparams: *const SHOWUIPARAMS, presponse: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SpoolerCopyFileEvent();
+    pub fn SpoolerCopyFileEvent(pszprintername: super::super::Foundation::PWSTR, pszkey: super::super::Foundation::PWSTR, dwcopyfileevent: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SpoolerFindClosePrinterChangeNotification();
+    pub fn SpoolerFindClosePrinterChangeNotification(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SpoolerFindFirstPrinterChangeNotification();
+    pub fn SpoolerFindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void, pnotificationconfig: *const ::core::ffi::c_void, phnotify: *mut super::super::Foundation::HANDLE, phevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SpoolerFindNextPrinterChangeNotification();
+    pub fn SpoolerFindNextPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, pfdwchange: *mut u32, pprinternotifyoptions: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
-    pub fn SpoolerFreePrinterNotifyInfo();
+    pub fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO);
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SpoolerRefreshPrinterChangeNotification();
+    pub fn SpoolerRefreshPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, dwcolor: u32, poptions: *const PRINTER_NOTIFY_OPTIONS, ppinfo: *mut *mut PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StartDocPrinterA();
+    pub fn StartDocPrinterA(hprinter: super::super::Foundation::HANDLE, level: u32, pdocinfo: *const DOC_INFO_1A) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StartDocPrinterW();
+    pub fn StartDocPrinterW(hprinter: super::super::Foundation::HANDLE, level: u32, pdocinfo: *const DOC_INFO_1W) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StartPagePrinter();
+    pub fn StartPagePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UnRegisterForPrintAsyncNotifications();
+    pub fn UnRegisterForPrintAsyncNotifications(param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdatePrintDeviceObject();
+    pub fn UpdatePrintDeviceObject(hprinter: super::super::Foundation::HANDLE, hdeviceobject: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UploadPrinterDriverPackageA();
+    pub fn UploadPrinterDriverPackageA(pszserver: super::super::Foundation::PSTR, pszinfpath: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, pszdestinfpath: super::super::Foundation::PSTR, pcchdestinfpath: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UploadPrinterDriverPackageW();
+    pub fn UploadPrinterDriverPackageW(pszserver: super::super::Foundation::PWSTR, pszinfpath: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, pszdestinfpath: super::super::Foundation::PWSTR, pcchdestinfpath: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitForPrinterChange();
+    pub fn WaitForPrinterChange(hprinter: super::super::Foundation::HANDLE, flags: u32) -> u32;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WritePrinter();
+    pub fn WritePrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *const ::core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn XcvDataW();
+    pub fn XcvDataW(hxcv: super::super::Foundation::HANDLE, pszdataname: super::super::Foundation::PWSTR, pinputdata: *const u8, cbinputdata: u32, poutputdata: *mut u8, cboutputdata: u32, pcboutputneeded: *mut u32, pdwstatus: *mut u32) -> super::super::Foundation::BOOL;
 }

@@ -3,8 +3,8 @@
 extern "system" {
     #[doc = "*Required features: `Win32_System_Restore`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SRSetRestorePointA();
+    pub fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_System_Restore`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SRSetRestorePointW();
+    pub fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL;
 }

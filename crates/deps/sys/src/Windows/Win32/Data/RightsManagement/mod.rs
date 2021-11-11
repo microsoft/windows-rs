@@ -3,233 +3,264 @@
 extern "system" {
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMAcquireAdvisories();
+    pub fn DRMAcquireAdvisories(hlicensestorage: u32, wszlicense: super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMAcquireIssuanceLicenseTemplate();
+    pub fn DRMAcquireIssuanceLicenseTemplate(hclient: u32, uflags: u32, pvreserved: *mut ::core::ffi::c_void, ctemplates: u32, pwsztemplateids: *const super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMAcquireLicense();
+    pub fn DRMAcquireLicense(hsession: u32, uflags: u32, wszgroupidentitycredential: super::super::Foundation::PWSTR, wszrequestedrights: super::super::Foundation::PWSTR, wszcustomdata: super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMActivate();
+    pub fn DRMActivate(hclient: u32, uflags: u32, ulangid: u32, pactservinfo: *mut DRM_ACTSERV_INFO, pvcontext: *mut ::core::ffi::c_void, hparentwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMAddLicense();
+    pub fn DRMAddLicense(hlicensestorage: u32, uflags: u32, wszlicense: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMAddRightWithUser();
+    pub fn DRMAddRightWithUser(hissuancelicense: u32, hright: u32, huser: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMAttest();
+    pub fn DRMAttest(henablingprincipal: u32, wszdata: super::super::Foundation::PWSTR, etype: DRMATTESTTYPE, pcattestedblob: *mut u32, wszattestedblob: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMCheckSecurity();
+    pub fn DRMCheckSecurity(henv: u32, clevel: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMClearAllRights();
+    pub fn DRMClearAllRights(hissuancelicense: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMCloseEnvironmentHandle();
+    pub fn DRMCloseEnvironmentHandle(henv: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMCloseHandle();
+    pub fn DRMCloseHandle(handle: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMClosePubHandle();
+    pub fn DRMClosePubHandle(hpub: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMCloseQueryHandle();
+    pub fn DRMCloseQueryHandle(hquery: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMCloseSession();
+    pub fn DRMCloseSession(hsession: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMConstructCertificateChain();
+    pub fn DRMConstructCertificateChain(ccertificates: u32, rgwszcertificates: *const super::super::Foundation::PWSTR, pcchain: *mut u32, wszchain: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMCreateBoundLicense();
+    pub fn DRMCreateBoundLicense(henv: u32, pparams: *mut DRMBOUNDLICENSEPARAMS, wszlicensechain: super::super::Foundation::PWSTR, phboundlicense: *mut u32, pherrorlog: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMCreateClientSession();
+    pub fn DRMCreateClientSession(pfncallback: ::windows::runtime::RawPtr, ucallbackversion: u32, wszgroupidprovidertype: super::super::Foundation::PWSTR, wszgroupid: super::super::Foundation::PWSTR, phclient: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMCreateEnablingBitsDecryptor();
+    pub fn DRMCreateEnablingBitsDecryptor(hboundlicense: u32, wszright: super::super::Foundation::PWSTR, hauxlib: u32, wszauxplug: super::super::Foundation::PWSTR, phdecryptor: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMCreateEnablingBitsEncryptor();
+    pub fn DRMCreateEnablingBitsEncryptor(hboundlicense: u32, wszright: super::super::Foundation::PWSTR, hauxlib: u32, wszauxplug: super::super::Foundation::PWSTR, phencryptor: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMCreateEnablingPrincipal();
+    pub fn DRMCreateEnablingPrincipal(henv: u32, hlibrary: u32, wszobject: super::super::Foundation::PWSTR, pidprincipal: *mut DRMID, wszcredentials: super::super::Foundation::PWSTR, phenablingprincipal: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMCreateIssuanceLicense();
+    pub fn DRMCreateIssuanceLicense(psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, wszreferralinfoname: super::super::Foundation::PWSTR, wszreferralinfourl: super::super::Foundation::PWSTR, howner: u32, wszissuancelicense: super::super::Foundation::PWSTR, hboundlicense: u32, phissuancelicense: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMCreateLicenseStorageSession();
+    pub fn DRMCreateLicenseStorageSession(henv: u32, hdefaultlibrary: u32, hclient: u32, uflags: u32, wszissuancelicense: super::super::Foundation::PWSTR, phlicensestorage: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMCreateRight();
+    pub fn DRMCreateRight(wszrightname: super::super::Foundation::PWSTR, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: *const super::super::Foundation::PWSTR, pwszextendedinfovalue: *const super::super::Foundation::PWSTR, phright: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMCreateUser();
+    pub fn DRMCreateUser(wszusername: super::super::Foundation::PWSTR, wszuserid: super::super::Foundation::PWSTR, wszuseridtype: super::super::Foundation::PWSTR, phuser: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMDecode();
+    pub fn DRMDecode(wszalgid: super::super::Foundation::PWSTR, wszencodedstring: super::super::Foundation::PWSTR, pudecodeddatalen: *mut u32, pbdecodeddata: *mut u8) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMDeconstructCertificateChain();
+    pub fn DRMDeconstructCertificateChain(wszchain: super::super::Foundation::PWSTR, iwhich: u32, pccert: *mut u32, wszcert: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMDecrypt();
+    pub fn DRMDecrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMDeleteLicense();
+    pub fn DRMDeleteLicense(hsession: u32, wszlicenseid: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMDuplicateEnvironmentHandle();
+    pub fn DRMDuplicateEnvironmentHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMDuplicateHandle();
+    pub fn DRMDuplicateHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMDuplicatePubHandle();
+    pub fn DRMDuplicatePubHandle(hpubin: u32, phpubout: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMDuplicateSession();
+    pub fn DRMDuplicateSession(hsessionin: u32, phsessionout: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMEncode();
+    pub fn DRMEncode(wszalgid: super::super::Foundation::PWSTR, udatalen: u32, pbdecodeddata: *mut u8, puencodedstringlen: *mut u32, wszencodedstring: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMEncrypt();
+    pub fn DRMEncrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMEnumerateLicense();
+    pub fn DRMEnumerateLicense(hsession: u32, uflags: u32, uindex: u32, pfsharedflag: *mut super::super::Foundation::BOOL, pucertificatedatalen: *mut u32, wszcertificatedata: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetApplicationSpecificData();
+    pub fn DRMGetApplicationSpecificData(hissuancelicense: u32, uindex: u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, puvaluelength: *mut u32, wszvalue: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetBoundLicenseAttribute();
+    pub fn DRMGetBoundLicenseAttribute(hqueryroot: u32, wszattribute: super::super::Foundation::PWSTR, iwhich: u32, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetBoundLicenseAttributeCount();
+    pub fn DRMGetBoundLicenseAttributeCount(hqueryroot: u32, wszattribute: super::super::Foundation::PWSTR, pcattributes: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetBoundLicenseObject();
+    pub fn DRMGetBoundLicenseObject(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, iwhich: u32, phsubobject: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetBoundLicenseObjectCount();
+    pub fn DRMGetBoundLicenseObjectCount(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, pcsubobjects: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetCertificateChainCount();
+    pub fn DRMGetCertificateChainCount(wszchain: super::super::Foundation::PWSTR, pccertcount: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMGetClientVersion();
+    pub fn DRMGetClientVersion(pdrmclientversioninfo: *mut DRM_CLIENT_VERSION_INFO) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetEnvironmentInfo();
+    pub fn DRMGetEnvironmentInfo(handle: u32, wszattribute: super::super::Foundation::PWSTR, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetInfo();
+    pub fn DRMGetInfo(handle: u32, wszattribute: super::super::Foundation::PWSTR, peencoding: *const DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMGetIntervalTime();
+    pub fn DRMGetIntervalTime(hissuancelicense: u32, pcdays: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetIssuanceLicenseInfo();
+    pub fn DRMGetIssuanceLicenseInfo(hissuancelicense: u32, psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, uflags: u32, pudistributionpointnamelength: *mut u32, wszdistributionpointname: super::super::Foundation::PWSTR, pudistributionpointurllength: *mut u32, wszdistributionpointurl: super::super::Foundation::PWSTR, phowner: *mut u32, pfofficial: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetIssuanceLicenseTemplate();
+    pub fn DRMGetIssuanceLicenseTemplate(hissuancelicense: u32, puissuancelicensetemplatelength: *mut u32, wszissuancelicensetemplate: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetMetaData();
+    pub fn DRMGetMetaData(
+        hissuancelicense: u32,
+        pucontentidlength: *mut u32,
+        wszcontentid: super::super::Foundation::PWSTR,
+        pucontentidtypelength: *mut u32,
+        wszcontentidtype: super::super::Foundation::PWSTR,
+        puskuidlength: *mut u32,
+        wszskuid: super::super::Foundation::PWSTR,
+        puskuidtypelength: *mut u32,
+        wszskuidtype: super::super::Foundation::PWSTR,
+        pucontenttypelength: *mut u32,
+        wszcontenttype: super::super::Foundation::PWSTR,
+        pucontentnamelength: *mut u32,
+        wszcontentname: super::super::Foundation::PWSTR,
+    ) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetNameAndDescription();
+    pub fn DRMGetNameAndDescription(hissuancelicense: u32, uindex: u32, pulcid: *mut u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pudescriptionlength: *mut u32, wszdescription: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetOwnerLicense();
+    pub fn DRMGetOwnerLicense(hissuancelicense: u32, puownerlicenselength: *mut u32, wszownerlicense: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetProcAddress();
+    pub fn DRMGetProcAddress(hlibrary: u32, wszprocname: super::super::Foundation::PWSTR, ppfnprocaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetRevocationPoint();
+    pub fn DRMGetRevocationPoint(hissuancelicense: u32, puidlength: *mut u32, wszid: super::super::Foundation::PWSTR, puidtypelength: *mut u32, wszidtype: super::super::Foundation::PWSTR, puurllength: *mut u32, wszrl: super::super::Foundation::PWSTR, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pupublickeylength: *mut u32, wszpublickey: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetRightExtendedInfo();
+    pub fn DRMGetRightExtendedInfo(hright: u32, uindex: u32, puextendedinfonamelength: *mut u32, wszextendedinfoname: super::super::Foundation::PWSTR, puextendedinfovaluelength: *mut u32, wszextendedinfovalue: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetRightInfo();
+    pub fn DRMGetRightInfo(hright: u32, purightnamelength: *mut u32, wszrightname: super::super::Foundation::PWSTR, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetSecurityProvider();
+    pub fn DRMGetSecurityProvider(uflags: u32, putypelen: *mut u32, wsztype: super::super::Foundation::PWSTR, pupathlen: *mut u32, wszpath: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetServiceLocation();
+    pub fn DRMGetServiceLocation(hclient: u32, uservicetype: u32, uservicelocation: u32, wszissuancelicense: super::super::Foundation::PWSTR, puserviceurllength: *mut u32, wszserviceurl: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetSignedIssuanceLicense();
+    pub fn DRMGetSignedIssuanceLicense(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *mut u8, cbsymkey: u32, wszsymkeytype: super::super::Foundation::PWSTR, wszclientlicensorcertificate: super::super::Foundation::PWSTR, pfncallback: ::windows::runtime::RawPtr, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetSignedIssuanceLicenseEx();
+    pub fn DRMGetSignedIssuanceLicenseEx(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *const u8, cbsymkey: u32, wszsymkeytype: super::super::Foundation::PWSTR, pvreserved: *const ::core::ffi::c_void, henablingprincipal: u32, hboundlicenseclc: u32, pfncallback: ::windows::runtime::RawPtr, pvcontext: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetTime();
+    pub fn DRMGetTime(henv: u32, etimeridtype: DRMTIMETYPE, potimeobject: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetUnboundLicenseAttribute();
+    pub fn DRMGetUnboundLicenseAttribute(hqueryroot: u32, wszattributetype: super::super::Foundation::PWSTR, iwhich: u32, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetUnboundLicenseAttributeCount();
+    pub fn DRMGetUnboundLicenseAttributeCount(hqueryroot: u32, wszattributetype: super::super::Foundation::PWSTR, pcattributes: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetUnboundLicenseObject();
+    pub fn DRMGetUnboundLicenseObject(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, iindex: u32, phsubquery: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetUnboundLicenseObjectCount();
+    pub fn DRMGetUnboundLicenseObjectCount(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, pcsubobjects: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetUsagePolicy();
+    pub fn DRMGetUsagePolicy(
+        hissuancelicense: u32,
+        uindex: u32,
+        peusagepolicytype: *mut DRM_USAGEPOLICY_TYPE,
+        pfexclusion: *mut super::super::Foundation::BOOL,
+        punamelength: *mut u32,
+        wszname: super::super::Foundation::PWSTR,
+        puminversionlength: *mut u32,
+        wszminversion: super::super::Foundation::PWSTR,
+        pumaxversionlength: *mut u32,
+        wszmaxversion: super::super::Foundation::PWSTR,
+        pupublickeylength: *mut u32,
+        wszpublickey: super::super::Foundation::PWSTR,
+        pudigestalgorithmlength: *mut u32,
+        wszdigestalgorithm: super::super::Foundation::PWSTR,
+        pcbdigest: *mut u32,
+        pbdigest: *mut u8,
+    ) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetUserInfo();
+    pub fn DRMGetUserInfo(huser: u32, puusernamelength: *mut u32, wszusername: super::super::Foundation::PWSTR, puuseridlength: *mut u32, wszuserid: super::super::Foundation::PWSTR, puuseridtypelength: *mut u32, wszuseridtype: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMGetUserRights();
+    pub fn DRMGetUserRights(hissuancelicense: u32, huser: u32, uindex: u32, phright: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMGetUsers();
+    pub fn DRMGetUsers(hissuancelicense: u32, uindex: u32, phuser: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMInitEnvironment();
+    pub fn DRMInitEnvironment(esecurityprovidertype: DRMSECURITYPROVIDERTYPE, especification: DRMSPECTYPE, wszsecurityprovider: super::super::Foundation::PWSTR, wszmanifestcredentials: super::super::Foundation::PWSTR, wszmachinecredentials: super::super::Foundation::PWSTR, phenv: *mut u32, phdefaultlibrary: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMIsActivated();
+    pub fn DRMIsActivated(hclient: u32, uflags: u32, pactservinfo: *mut DRM_ACTSERV_INFO) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMIsWindowProtected();
+    pub fn DRMIsWindowProtected(hwnd: super::super::Foundation::HWND, pfprotected: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMLoadLibrary();
+    pub fn DRMLoadLibrary(henv: u32, especification: DRMSPECTYPE, wszlibraryprovider: super::super::Foundation::PWSTR, wszcredentials: super::super::Foundation::PWSTR, phlibrary: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMParseUnboundLicense();
+    pub fn DRMParseUnboundLicense(wszcertificate: super::super::Foundation::PWSTR, phqueryroot: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMRegisterContent();
+    pub fn DRMRegisterContent(fregister: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMRegisterProtectedWindow();
+    pub fn DRMRegisterProtectedWindow(henv: u32, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMRegisterRevocationList();
+    pub fn DRMRegisterRevocationList(henv: u32, wszrevocationlist: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMRepair();
+    pub fn DRMRepair() -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMSetApplicationSpecificData();
+    pub fn DRMSetApplicationSpecificData(hissuancelicense: u32, fdelete: super::super::Foundation::BOOL, wszname: super::super::Foundation::PWSTR, wszvalue: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMSetGlobalOptions();
+    pub fn DRMSetGlobalOptions(eglobaloptions: DRMGLOBALOPTIONS, pvdata: *mut ::core::ffi::c_void, dwlen: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
-    pub fn DRMSetIntervalTime();
+    pub fn DRMSetIntervalTime(hissuancelicense: u32, cdays: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMSetMetaData();
+    pub fn DRMSetMetaData(hissuancelicense: u32, wszcontentid: super::super::Foundation::PWSTR, wszcontentidtype: super::super::Foundation::PWSTR, wszskuid: super::super::Foundation::PWSTR, wszskuidtype: super::super::Foundation::PWSTR, wszcontenttype: super::super::Foundation::PWSTR, wszcontentname: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMSetNameAndDescription();
+    pub fn DRMSetNameAndDescription(hissuancelicense: u32, fdelete: super::super::Foundation::BOOL, lcid: u32, wszname: super::super::Foundation::PWSTR, wszdescription: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMSetRevocationPoint();
+    pub fn DRMSetRevocationPoint(hissuancelicense: u32, fdelete: super::super::Foundation::BOOL, wszid: super::super::Foundation::PWSTR, wszidtype: super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, wszname: super::super::Foundation::PWSTR, wszpublickey: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMSetUsagePolicy();
+    pub fn DRMSetUsagePolicy(hissuancelicense: u32, eusagepolicytype: DRM_USAGEPOLICY_TYPE, fdelete: super::super::Foundation::BOOL, fexclusion: super::super::Foundation::BOOL, wszname: super::super::Foundation::PWSTR, wszminversion: super::super::Foundation::PWSTR, wszmaxversion: super::super::Foundation::PWSTR, wszpublickey: super::super::Foundation::PWSTR, wszdigestalgorithm: super::super::Foundation::PWSTR, pbdigest: *mut u8, cbdigest: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMVerify();
+    pub fn DRMVerify(wszdata: super::super::Foundation::PWSTR, pcattesteddata: *mut u32, wszattesteddata: super::super::Foundation::PWSTR, petype: *mut DRMATTESTTYPE, pcprincipal: *mut u32, wszprincipal: super::super::Foundation::PWSTR, pcmanifest: *mut u32, wszmanifest: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
 }

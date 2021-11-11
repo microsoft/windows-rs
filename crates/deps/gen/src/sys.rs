@@ -38,20 +38,17 @@ fn gen_function_if(entry: &TypeEntry, gen: &Gen) -> TokenStream {
 fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     let name = to_ident(def.name());
     let signature = def.signature(&[]);
+    let return_type = gen_win32_return_sig(&signature, gen);
+    let cfg = gen.gen_function_cfg(def.attributes(), &signature);
 
-    let abi_params = signature.params.iter().map(|p| {
+    let params = signature.params.iter().map(|p| {
         let name = gen_param_name(&p.param);
         let tokens = gen_win32_abi_param(p, gen);
         quote! { #name: #tokens }
     });
 
-    let abi_return_type = gen_win32_return_sig(&signature, gen);
-
-    let cfg = gen.gen_function_cfg(def.attributes(), &signature);
-
-
     quote! {
         #cfg
-        pub fn #name();
+        pub fn #name(#(#params),*) #return_type;
     }
 }

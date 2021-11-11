@@ -2,5 +2,5 @@
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Mapi`*"]
-    pub fn MAPIFreeBuffer();
+    pub fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32;
 }

@@ -32,157 +32,157 @@ pub mod Xaml;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn CoDecodeProxy();
+    pub fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64, pserverinformation: *mut ServerInformation) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `System`*"]
     #[cfg(feature = "System")]
-    pub fn CreateDispatcherQueueController();
+    pub fn CreateDispatcherQueueController(options: DispatcherQueueOptions, dispatcherqueuecontroller: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateRandomAccessStreamOnFile();
+    pub fn CreateRandomAccessStreamOnFile(filepath: super::super::Foundation::PWSTR, accessmode: u32, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn CreateRandomAccessStreamOverStream();
+    pub fn CreateRandomAccessStreamOverStream(stream: ::windows::runtime::RawPtr, options: BSOS_OPTIONS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn CreateStreamOverRandomAccessStream();
+    pub fn CreateStreamOverRandomAccessStream(randomaccessstream: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn GetRestrictedErrorInfo();
+    pub fn GetRestrictedErrorInfo(pprestrictederrorinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn HSTRING_UserFree();
+    pub fn HSTRING_UserFree(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>);
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn HSTRING_UserFree64();
+    pub fn HSTRING_UserFree64(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>);
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn HSTRING_UserMarshal();
+    pub fn HSTRING_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> *mut u8;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn HSTRING_UserMarshal64();
+    pub fn HSTRING_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> *mut u8;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn HSTRING_UserSize();
+    pub fn HSTRING_UserSize(param0: *const u32, param1: u32, param2: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> u32;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn HSTRING_UserSize64();
+    pub fn HSTRING_UserSize64(param0: *const u32, param1: u32, param2: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> u32;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn HSTRING_UserUnmarshal();
+    pub fn HSTRING_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> *mut u8;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn HSTRING_UserUnmarshal64();
+    pub fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> *mut u8;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsErrorPropagationEnabled();
+    pub fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn MetaDataGetDispenser();
+    pub fn MetaDataGetDispenser(rclsid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoActivateInstance();
+    pub fn RoActivateInstance(activatableclassid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, instance: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoCaptureErrorContext();
+    pub fn RoCaptureErrorContext(hr: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub fn RoClearError();
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoFailFastWithErrorContext();
+    pub fn RoFailFastWithErrorContext(hrerror: ::windows::runtime::HRESULT);
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoFreeParameterizedTypeExtra();
+    pub fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE);
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoGetActivationFactory();
+    pub fn RoGetActivationFactory(activatableclassid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, iid: *const ::windows::runtime::GUID, factory: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoGetAgileReference();
+    pub fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::runtime::GUID, punk: ::windows::runtime::RawPtr, ppagilereference: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoGetApartmentIdentifier();
+    pub fn RoGetApartmentIdentifier(apartmentidentifier: *mut u64) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_System_Com_Marshal`*"]
     #[cfg(feature = "Win32_System_Com_Marshal")]
-    pub fn RoGetBufferMarshaler();
+    pub fn RoGetBufferMarshaler(buffermarshaler: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoGetErrorReportingFlags();
+    pub fn RoGetErrorReportingFlags(pflags: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoGetMatchingRestrictedErrorInfo();
+    pub fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::runtime::HRESULT, pprestrictederrorinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RoGetParameterizedTypeInstanceIID();
+    pub fn RoGetParameterizedTypeInstanceIID(nameelementcount: u32, nameelements: *const super::super::Foundation::PWSTR, metadatalocator: ::windows::runtime::RawPtr, iid: *mut ::windows::runtime::GUID, pextra: *mut ROPARAMIIDHANDLE) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoGetServerActivatableClasses();
+    pub fn RoGetServerActivatableClasses(servername: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, activatableclassids: *mut *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, count: *mut u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoInitialize();
+    pub fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoInspectCapturedStackBackTrace();
+    pub fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoInspectThreadErrorInfo();
+    pub fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, targeterrorinfoaddress: *mut usize) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RoOriginateError();
+    pub fn RoOriginateError(error: ::windows::runtime::HRESULT, message: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RoOriginateErrorW();
+    pub fn RoOriginateErrorW(error: ::windows::runtime::HRESULT, cchmax: u32, message: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RoOriginateLanguageException();
+    pub fn RoOriginateLanguageException(error: ::windows::runtime::HRESULT, message: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, languageexception: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RoParameterizedTypeExtraGetTypeSignature();
+    pub fn RoParameterizedTypeExtraGetTypeSignature(extra: ROPARAMIIDHANDLE) -> super::super::Foundation::PSTR;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoRegisterActivationFactories();
+    pub fn RoRegisterActivationFactories(activatableclassids: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, activationfactorycallbacks: *const isize, count: u32, cookie: *mut isize) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoRegisterForApartmentShutdown();
+    pub fn RoRegisterForApartmentShutdown(callbackobject: ::windows::runtime::RawPtr, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoReportFailedDelegate();
+    pub fn RoReportFailedDelegate(punkdelegate: ::windows::runtime::RawPtr, prestrictederrorinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoReportUnhandledError();
+    pub fn RoReportUnhandledError(prestrictederrorinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RoResolveRestrictedErrorInfoReference();
+    pub fn RoResolveRestrictedErrorInfoReference(reference: super::super::Foundation::PWSTR, pprestrictederrorinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoRevokeActivationFactories();
+    pub fn RoRevokeActivationFactories(cookie: isize);
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoSetErrorReportingFlags();
+    pub fn RoSetErrorReportingFlags(flags: u32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RoTransformError();
+    pub fn RoTransformError(olderror: ::windows::runtime::HRESULT, newerror: ::windows::runtime::HRESULT, message: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RoTransformErrorW();
+    pub fn RoTransformErrorW(olderror: ::windows::runtime::HRESULT, newerror: ::windows::runtime::HRESULT, cchmax: u32, message: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub fn RoUninitialize();
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn RoUnregisterForApartmentShutdown();
+    pub fn RoUnregisterForApartmentShutdown(regcookie: APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn SetRestrictedErrorInfo();
+    pub fn SetRestrictedErrorInfo(prestrictederrorinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsCompareStringOrdinal();
+    pub fn WindowsCompareStringOrdinal(string1: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result: *mut i32) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsConcatString();
+    pub fn WindowsConcatString(string1: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WindowsCreateString();
+    pub fn WindowsCreateString(sourcestring: super::super::Foundation::PWSTR, length: u32, string: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WindowsCreateStringReference();
+    pub fn WindowsCreateStringReference(sourcestring: super::super::Foundation::PWSTR, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsDeleteString();
+    pub fn WindowsDeleteString(string: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsDeleteStringBuffer();
+    pub fn WindowsDeleteStringBuffer(bufferhandle: HSTRING_BUFFER) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsDuplicateString();
+    pub fn WindowsDuplicateString(string: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsGetStringLen();
+    pub fn WindowsGetStringLen(string: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> u32;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WindowsGetStringRawBuffer();
+    pub fn WindowsGetStringRawBuffer(string: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, length: *mut u32) -> super::super::Foundation::PWSTR;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsInspectString();
+    pub fn WindowsInspectString(targethstring: usize, machine: u16, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut usize) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsInspectString2();
+    pub fn WindowsInspectString2(targethstring: u64, machine: u16, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut u64) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WindowsIsStringEmpty();
+    pub fn WindowsIsStringEmpty(string: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsPreallocateStringBuffer();
+    pub fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut u16, bufferhandle: *mut HSTRING_BUFFER) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsPromoteStringBuffer();
+    pub fn WindowsPromoteStringBuffer(bufferhandle: HSTRING_BUFFER, string: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsReplaceString();
+    pub fn WindowsReplaceString(string: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, stringreplaced: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, stringreplacewith: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WindowsStringHasEmbeddedNull();
+    pub fn WindowsStringHasEmbeddedNull(string: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, hasembednull: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsSubstring();
+    pub fn WindowsSubstring(string: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, startindex: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsSubstringWithSpecifiedLength();
+    pub fn WindowsSubstringWithSpecifiedLength(string: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, startindex: u32, length: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsTrimStringEnd();
+    pub fn WindowsTrimStringEnd(string: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT;
     #[doc = "*Required features: `Win32_System_WinRT`*"]
-    pub fn WindowsTrimStringStart();
+    pub fn WindowsTrimStringStart(string: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT;
 }
