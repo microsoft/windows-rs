@@ -1,418 +1,1219 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn AdjustWindowRect();
-    fn AdjustWindowRectEx();
-    fn AllowSetForegroundWindow();
-    fn AnimateWindow();
-    fn AnyPopup();
-    fn AppendMenuA();
-    fn AppendMenuW();
-    fn ArrangeIconicWindows();
-    fn BeginDeferWindowPos();
-    fn BringWindowToTop();
-    fn CalculatePopupWindowPosition();
-    fn CallMsgFilterA();
-    fn CallMsgFilterW();
-    fn CallNextHookEx();
-    fn CallWindowProcA();
-    fn CallWindowProcW();
-    fn CancelShutdown();
-    fn CascadeWindows();
-    fn ChangeMenuA();
-    fn ChangeMenuW();
-    fn ChangeWindowMessageFilter();
-    fn ChangeWindowMessageFilterEx();
-    fn CharLowerA();
-    fn CharLowerBuffA();
-    fn CharLowerBuffW();
-    fn CharLowerW();
-    fn CharNextA();
-    fn CharNextExA();
-    fn CharNextW();
-    fn CharPrevA();
-    fn CharPrevExA();
-    fn CharPrevW();
-    fn CharToOemA();
-    fn CharToOemBuffA();
-    fn CharToOemBuffW();
-    fn CharToOemW();
-    fn CharUpperA();
-    fn CharUpperBuffA();
-    fn CharUpperBuffW();
-    fn CharUpperW();
-    fn CheckMenuItem();
-    fn CheckMenuRadioItem();
-    fn ChildWindowFromPoint();
-    fn ChildWindowFromPointEx();
-    fn ClipCursor();
-    fn CloseWindow();
-    fn CopyAcceleratorTableA();
-    fn CopyAcceleratorTableW();
-    fn CopyIcon();
-    fn CopyImage();
-    fn CreateAcceleratorTableA();
-    fn CreateAcceleratorTableW();
-    fn CreateCaret();
-    fn CreateCursor();
-    fn CreateDialogIndirectParamA();
-    fn CreateDialogIndirectParamW();
-    fn CreateDialogParamA();
-    fn CreateDialogParamW();
-    fn CreateIcon();
-    fn CreateIconFromResource();
-    fn CreateIconFromResourceEx();
-    fn CreateIconIndirect();
-    fn CreateMDIWindowA();
-    fn CreateMDIWindowW();
-    fn CreateMenu();
-    fn CreatePopupMenu();
-    fn CreateResourceIndexer();
-    fn CreateWindowExA();
-    fn CreateWindowExW();
-    fn DefDlgProcA();
-    fn DefDlgProcW();
-    fn DefFrameProcA();
-    fn DefFrameProcW();
-    fn DefMDIChildProcA();
-    fn DefMDIChildProcW();
-    fn DefWindowProcA();
-    fn DefWindowProcW();
-    fn DeferWindowPos();
-    fn DeleteMenu();
-    fn DeregisterShellHookWindow();
-    fn DestroyAcceleratorTable();
-    fn DestroyCaret();
-    fn DestroyCursor();
-    fn DestroyIcon();
-    fn DestroyIndexedResults();
-    fn DestroyMenu();
-    fn DestroyResourceIndexer();
-    fn DestroyWindow();
-    fn DialogBoxIndirectParamA();
-    fn DialogBoxIndirectParamW();
-    fn DialogBoxParamA();
-    fn DialogBoxParamW();
-    fn DisableProcessWindowsGhosting();
-    fn DispatchMessageA();
-    fn DispatchMessageW();
-    fn DragObject();
-    fn DrawIcon();
-    fn DrawIconEx();
-    fn DrawMenuBar();
-    fn EnableMenuItem();
-    fn EndDeferWindowPos();
-    fn EndDialog();
-    fn EndMenu();
-    fn EnumChildWindows();
-    fn EnumPropsA();
-    fn EnumPropsExA();
-    fn EnumPropsExW();
-    fn EnumPropsW();
-    fn EnumThreadWindows();
-    fn EnumWindows();
-    fn FindWindowA();
-    fn FindWindowExA();
-    fn FindWindowExW();
-    fn FindWindowW();
-    fn FlashWindow();
-    fn FlashWindowEx();
-    fn GetAltTabInfoA();
-    fn GetAltTabInfoW();
-    fn GetAncestor();
-    fn GetCaretBlinkTime();
-    fn GetCaretPos();
-    fn GetClassInfoA();
-    fn GetClassInfoExA();
-    fn GetClassInfoExW();
-    fn GetClassInfoW();
-    fn GetClassLongA();
-    fn GetClassLongPtrA();
-    fn GetClassLongPtrW();
-    fn GetClassLongW();
-    fn GetClassNameA();
-    fn GetClassNameW();
-    fn GetClassWord();
-    fn GetClientRect();
-    fn GetClipCursor();
-    fn GetCursor();
-    fn GetCursorInfo();
-    fn GetCursorPos();
-    fn GetDesktopWindow();
-    fn GetDialogBaseUnits();
-    fn GetDlgCtrlID();
-    fn GetDlgItem();
-    fn GetDlgItemInt();
-    fn GetDlgItemTextA();
-    fn GetDlgItemTextW();
-    fn GetForegroundWindow();
-    fn GetGUIThreadInfo();
-    fn GetIconInfo();
-    fn GetIconInfoExA();
-    fn GetIconInfoExW();
-    fn GetInputState();
-    fn GetLastActivePopup();
-    fn GetLayeredWindowAttributes();
-    fn GetMenu();
-    fn GetMenuBarInfo();
-    fn GetMenuCheckMarkDimensions();
-    fn GetMenuDefaultItem();
-    fn GetMenuInfo();
-    fn GetMenuItemCount();
-    fn GetMenuItemID();
-    fn GetMenuItemInfoA();
-    fn GetMenuItemInfoW();
-    fn GetMenuItemRect();
-    fn GetMenuState();
-    fn GetMenuStringA();
-    fn GetMenuStringW();
-    fn GetMessageA();
-    fn GetMessageExtraInfo();
-    fn GetMessagePos();
-    fn GetMessageTime();
-    fn GetMessageW();
-    fn GetNextDlgGroupItem();
-    fn GetNextDlgTabItem();
-    fn GetParent();
-    fn GetPhysicalCursorPos();
-    fn GetProcessDefaultLayout();
-    fn GetPropA();
-    fn GetPropW();
-    fn GetQueueStatus();
-    fn GetScrollBarInfo();
-    fn GetScrollInfo();
-    fn GetScrollPos();
-    fn GetScrollRange();
-    fn GetShellWindow();
-    fn GetSubMenu();
-    fn GetSysColor();
-    fn GetSystemMenu();
-    fn GetSystemMetrics();
-    fn GetTitleBarInfo();
-    fn GetTopWindow();
-    fn GetWindow();
-    fn GetWindowDisplayAffinity();
-    fn GetWindowInfo();
-    fn GetWindowLongA();
-    fn GetWindowLongPtrA();
-    fn GetWindowLongPtrW();
-    fn GetWindowLongW();
-    fn GetWindowModuleFileNameA();
-    fn GetWindowModuleFileNameW();
-    fn GetWindowPlacement();
-    fn GetWindowRect();
-    fn GetWindowTextA();
-    fn GetWindowTextLengthA();
-    fn GetWindowTextLengthW();
-    fn GetWindowTextW();
-    fn GetWindowThreadProcessId();
-    fn GetWindowWord();
-    fn HideCaret();
-    fn HiliteMenuItem();
-    fn InSendMessage();
-    fn InSendMessageEx();
-    fn IndexFilePath();
-    fn InheritWindowMonitor();
-    fn InsertMenuA();
-    fn InsertMenuItemA();
-    fn InsertMenuItemW();
-    fn InsertMenuW();
-    fn InternalGetWindowText();
-    fn IsCharAlphaA();
-    fn IsCharAlphaNumericA();
-    fn IsCharAlphaNumericW();
-    fn IsCharAlphaW();
-    fn IsCharLowerA();
-    fn IsCharUpperA();
-    fn IsCharUpperW();
-    fn IsChild();
-    fn IsDialogMessageA();
-    fn IsDialogMessageW();
-    fn IsGUIThread();
-    fn IsHungAppWindow();
-    fn IsIconic();
-    fn IsMenu();
-    fn IsProcessDPIAware();
-    fn IsWindow();
-    fn IsWindowUnicode();
-    fn IsWindowVisible();
-    fn IsWow64Message();
-    fn IsZoomed();
-    fn KillTimer();
-    fn LoadAcceleratorsA();
-    fn LoadAcceleratorsW();
-    fn LoadCursorA();
-    fn LoadCursorFromFileA();
-    fn LoadCursorFromFileW();
-    fn LoadCursorW();
-    fn LoadIconA();
-    fn LoadIconW();
-    fn LoadImageA();
-    fn LoadImageW();
-    fn LoadMenuA();
-    fn LoadMenuIndirectA();
-    fn LoadMenuIndirectW();
-    fn LoadMenuW();
-    fn LoadStringA();
-    fn LoadStringW();
-    fn LockSetForegroundWindow();
-    fn LogicalToPhysicalPoint();
-    fn LookupIconIdFromDirectory();
-    fn LookupIconIdFromDirectoryEx();
-    fn MapDialogRect();
-    fn MenuItemFromPoint();
-    fn MessageBoxA();
-    fn MessageBoxExA();
-    fn MessageBoxExW();
-    fn MessageBoxIndirectA();
-    fn MessageBoxIndirectW();
-    fn MessageBoxW();
-    fn ModifyMenuA();
-    fn ModifyMenuW();
-    fn MoveWindow();
-    fn MrmCreateConfig();
-    fn MrmCreateConfigInMemory();
-    fn MrmCreateResourceFile();
-    fn MrmCreateResourceFileInMemory();
-    fn MrmCreateResourceFileWithChecksum();
-    fn MrmCreateResourceIndexer();
-    fn MrmCreateResourceIndexerFromPreviousPriData();
-    fn MrmCreateResourceIndexerFromPreviousPriFile();
-    fn MrmCreateResourceIndexerFromPreviousSchemaData();
-    fn MrmCreateResourceIndexerFromPreviousSchemaFile();
-    fn MrmCreateResourceIndexerWithFlags();
-    fn MrmDestroyIndexerAndMessages();
-    fn MrmDumpPriDataInMemory();
-    fn MrmDumpPriFile();
-    fn MrmDumpPriFileInMemory();
-    fn MrmFreeMemory();
-    fn MrmGetPriFileContentChecksum();
-    fn MrmIndexEmbeddedData();
-    fn MrmIndexFile();
-    fn MrmIndexFileAutoQualifiers();
-    fn MrmIndexResourceContainerAutoQualifiers();
-    fn MrmIndexString();
-    fn MrmPeekResourceIndexerMessages();
-    fn MsgWaitForMultipleObjects();
-    fn MsgWaitForMultipleObjectsEx();
-    fn OemToCharA();
-    fn OemToCharBuffA();
-    fn OemToCharBuffW();
-    fn OemToCharW();
-    fn OpenIcon();
-    fn PeekMessageA();
-    fn PeekMessageW();
-    fn PhysicalToLogicalPoint();
-    fn PostMessageA();
-    fn PostMessageW();
-    fn PostQuitMessage();
-    fn PostThreadMessageA();
-    fn PostThreadMessageW();
-    fn PrivateExtractIconsA();
-    fn PrivateExtractIconsW();
-    fn RealChildWindowFromPoint();
-    fn RealGetWindowClassA();
-    fn RealGetWindowClassW();
-    fn RegisterClassA();
-    fn RegisterClassExA();
-    fn RegisterClassExW();
-    fn RegisterClassW();
-    fn RegisterDeviceNotificationA();
-    fn RegisterDeviceNotificationW();
-    fn RegisterShellHookWindow();
-    fn RegisterWindowMessageA();
-    fn RegisterWindowMessageW();
-    fn RemoveMenu();
-    fn RemovePropA();
-    fn RemovePropW();
-    fn ReplyMessage();
-    fn ScrollDC();
-    fn ScrollWindow();
-    fn ScrollWindowEx();
-    fn SendDlgItemMessageA();
-    fn SendDlgItemMessageW();
-    fn SendMessageA();
-    fn SendMessageCallbackA();
-    fn SendMessageCallbackW();
-    fn SendMessageTimeoutA();
-    fn SendMessageTimeoutW();
-    fn SendMessageW();
-    fn SendNotifyMessageA();
-    fn SendNotifyMessageW();
-    fn SetCaretBlinkTime();
-    fn SetCaretPos();
-    fn SetClassLongA();
-    fn SetClassLongPtrA();
-    fn SetClassLongPtrW();
-    fn SetClassLongW();
-    fn SetClassWord();
-    fn SetCoalescableTimer();
-    fn SetCursor();
-    fn SetCursorPos();
-    fn SetDebugErrorLevel();
-    fn SetDlgItemInt();
-    fn SetDlgItemTextA();
-    fn SetDlgItemTextW();
-    fn SetForegroundWindow();
-    fn SetLayeredWindowAttributes();
-    fn SetMenu();
-    fn SetMenuDefaultItem();
-    fn SetMenuInfo();
-    fn SetMenuItemBitmaps();
-    fn SetMenuItemInfoA();
-    fn SetMenuItemInfoW();
-    fn SetMessageExtraInfo();
-    fn SetMessageQueue();
-    fn SetParent();
-    fn SetPhysicalCursorPos();
-    fn SetProcessDPIAware();
-    fn SetProcessDefaultLayout();
-    fn SetPropA();
-    fn SetPropW();
-    fn SetSysColors();
-    fn SetSystemCursor();
-    fn SetTimer();
-    fn SetWindowDisplayAffinity();
-    fn SetWindowLongA();
-    fn SetWindowLongPtrA();
-    fn SetWindowLongPtrW();
-    fn SetWindowLongW();
-    fn SetWindowPlacement();
-    fn SetWindowPos();
-    fn SetWindowTextA();
-    fn SetWindowTextW();
-    fn SetWindowWord();
-    fn SetWindowsHookA();
-    fn SetWindowsHookExA();
-    fn SetWindowsHookExW();
-    fn SetWindowsHookW();
-    fn ShowCaret();
-    fn ShowCursor();
-    fn ShowOwnedPopups();
-    fn ShowWindow();
-    fn ShowWindowAsync();
-    fn SoundSentry();
-    fn SwitchToThisWindow();
-    fn SystemParametersInfoA();
-    fn SystemParametersInfoW();
-    fn TileWindows();
-    fn TrackPopupMenu();
-    fn TrackPopupMenuEx();
-    fn TranslateAcceleratorA();
-    fn TranslateAcceleratorW();
-    fn TranslateMDISysAccel();
-    fn TranslateMessage();
-    fn UnhookWindowsHook();
-    fn UnhookWindowsHookEx();
-    fn UnregisterClassA();
-    fn UnregisterClassW();
-    fn UpdateLayeredWindow();
-    fn UpdateLayeredWindowIndirect();
-    fn WaitMessage();
-    fn WindowFromPhysicalPoint();
-    fn WindowFromPoint();
-    fn wsprintfA();
-    fn wsprintfW();
-    fn wvsprintfA();
-    fn wvsprintfW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AdjustWindowRect();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AdjustWindowRectEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AllowSetForegroundWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AnimateWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AnyPopup();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AppendMenuA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AppendMenuW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ArrangeIconicWindows();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn BeginDeferWindowPos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BringWindowToTop();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CalculatePopupWindowPosition();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CallMsgFilterA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CallMsgFilterW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CallNextHookEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CallWindowProcA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CallWindowProcW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CancelShutdown();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CascadeWindows();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ChangeMenuA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ChangeMenuW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ChangeWindowMessageFilter();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ChangeWindowMessageFilterEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharLowerA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharLowerBuffA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharLowerBuffW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharLowerW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharNextA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharNextExA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharNextW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharPrevA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharPrevExA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharPrevW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharToOemA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharToOemBuffA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharToOemBuffW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharToOemW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharUpperA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharUpperBuffA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharUpperBuffW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CharUpperW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn CheckMenuItem();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CheckMenuRadioItem();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ChildWindowFromPoint();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ChildWindowFromPointEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClipCursor();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CloseWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn CopyAcceleratorTableA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn CopyAcceleratorTableW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn CopyIcon();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CopyImage();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn CreateAcceleratorTableA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn CreateAcceleratorTableW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn CreateCaret();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateCursor();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateDialogIndirectParamA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateDialogIndirectParamW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateDialogParamA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateDialogParamW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateIcon();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateIconFromResource();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateIconFromResourceEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn CreateIconIndirect();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateMDIWindowA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateMDIWindowW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn CreateMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn CreatePopupMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateResourceIndexer();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateWindowExA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateWindowExW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DefDlgProcA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DefDlgProcW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DefFrameProcA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DefFrameProcW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DefMDIChildProcA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DefMDIChildProcW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DefWindowProcA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DefWindowProcW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DeferWindowPos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DeleteMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DeregisterShellHookWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DestroyAcceleratorTable();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DestroyCaret();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DestroyCursor();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DestroyIcon();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DestroyIndexedResults();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DestroyMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn DestroyResourceIndexer();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DestroyWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DialogBoxIndirectParamA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DialogBoxIndirectParamW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DialogBoxParamA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DialogBoxParamW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn DisableProcessWindowsGhosting();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DispatchMessageA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DispatchMessageW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DragObject();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn DrawIcon();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn DrawIconEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawMenuBar();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnableMenuItem();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EndDeferWindowPos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EndDialog();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EndMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumChildWindows();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumPropsA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumPropsExA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumPropsExW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumPropsW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumThreadWindows();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumWindows();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindWindowA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindWindowExA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindWindowExW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindWindowW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FlashWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FlashWindowEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetAltTabInfoA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetAltTabInfoW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetAncestor();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetCaretBlinkTime();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCaretPos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetClassInfoA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetClassInfoExA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetClassInfoExW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetClassInfoW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetClassLongA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetClassLongPtrA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetClassLongPtrW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetClassLongW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetClassNameA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetClassNameW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetClassWord();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetClientRect();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetClipCursor();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetCursor();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCursorInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCursorPos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDesktopWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetDialogBaseUnits();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDlgCtrlID();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDlgItem();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDlgItemInt();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDlgItemTextA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDlgItemTextW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetForegroundWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetGUIThreadInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetIconInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetIconInfoExA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetIconInfoExW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetInputState();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetLastActivePopup();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetLayeredWindowAttributes();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMenuBarInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetMenuCheckMarkDimensions();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetMenuDefaultItem();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetMenuInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetMenuItemCount();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetMenuItemID();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetMenuItemInfoA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetMenuItemInfoW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMenuItemRect();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetMenuState();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMenuStringA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMenuStringW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMessageA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMessageExtraInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetMessagePos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetMessageTime();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMessageW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetNextDlgGroupItem();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetNextDlgTabItem();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetParent();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetPhysicalCursorPos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetProcessDefaultLayout();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetPropA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetPropW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetQueueStatus();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetScrollBarInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetScrollInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetScrollPos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetScrollRange();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetShellWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetSubMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetSysColor();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetSystemMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn GetSystemMetrics();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetTitleBarInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetTopWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowDisplayAffinity();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowLongA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowLongPtrA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowLongPtrW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowLongW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowModuleFileNameA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowModuleFileNameW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowPlacement();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowRect();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowTextA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowTextLengthA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowTextLengthW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowTextW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowThreadProcessId();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowWord();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HideCaret();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HiliteMenuItem();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InSendMessage();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn InSendMessageEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IndexFilePath();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InheritWindowMonitor();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InsertMenuA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn InsertMenuItemA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn InsertMenuItemW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InsertMenuW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InternalGetWindowText();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsCharAlphaA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsCharAlphaNumericA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsCharAlphaNumericW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsCharAlphaW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsCharLowerA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsCharUpperA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsCharUpperW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsChild();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsDialogMessageA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsDialogMessageW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsGUIThread();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsHungAppWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsIconic();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsProcessDPIAware();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsWindowUnicode();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsWindowVisible();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsWow64Message();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsZoomed();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn KillTimer();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadAcceleratorsA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadAcceleratorsW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadCursorA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadCursorFromFileA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadCursorFromFileW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadCursorW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadIconA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadIconW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadImageA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadImageW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadMenuA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn LoadMenuIndirectA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn LoadMenuIndirectW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadMenuW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadStringA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadStringW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LockSetForegroundWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LogicalToPhysicalPoint();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LookupIconIdFromDirectory();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LookupIconIdFromDirectoryEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MapDialogRect();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MenuItemFromPoint();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MessageBoxA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MessageBoxExA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MessageBoxExW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_UI_Shell`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+    pub fn MessageBoxIndirectA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_UI_Shell`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+    pub fn MessageBoxIndirectW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MessageBoxW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ModifyMenuA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ModifyMenuW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MoveWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateConfig();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateConfigInMemory();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceFile();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn MrmCreateResourceFileInMemory();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceFileWithChecksum();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexer();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexerFromPreviousPriData();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexerFromPreviousPriFile();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexerFromPreviousSchemaData();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexerFromPreviousSchemaFile();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexerWithFlags();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn MrmDestroyIndexerAndMessages();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn MrmDumpPriDataInMemory();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmDumpPriFile();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmDumpPriFileInMemory();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn MrmFreeMemory();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmGetPriFileContentChecksum();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmIndexEmbeddedData();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmIndexFile();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmIndexFileAutoQualifiers();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmIndexResourceContainerAutoQualifiers();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmIndexString();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmPeekResourceIndexerMessages();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MsgWaitForMultipleObjects();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MsgWaitForMultipleObjectsEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OemToCharA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OemToCharBuffA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OemToCharBuffW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OemToCharW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OpenIcon();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PeekMessageA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PeekMessageW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PhysicalToLogicalPoint();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PostMessageA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PostMessageW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn PostQuitMessage();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PostThreadMessageA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PostThreadMessageW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PrivateExtractIconsA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PrivateExtractIconsW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RealChildWindowFromPoint();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RealGetWindowClassA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RealGetWindowClassW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn RegisterClassA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn RegisterClassExA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn RegisterClassExW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn RegisterClassW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_System_Power`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+    pub fn RegisterDeviceNotificationA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_System_Power`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+    pub fn RegisterDeviceNotificationW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegisterShellHookWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegisterWindowMessageA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegisterWindowMessageW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RemoveMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RemovePropA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RemovePropW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ReplyMessage();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn ScrollDC();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ScrollWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn ScrollWindowEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendDlgItemMessageA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendDlgItemMessageW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendMessageA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendMessageCallbackA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendMessageCallbackW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendMessageTimeoutA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendMessageTimeoutW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendMessageW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendNotifyMessageA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendNotifyMessageW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetCaretBlinkTime();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetCaretPos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClassLongA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClassLongPtrA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClassLongPtrW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClassLongW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClassWord();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetCoalescableTimer();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn SetCursor();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetCursorPos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
+    pub fn SetDebugErrorLevel();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetDlgItemInt();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetDlgItemTextA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetDlgItemTextW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetForegroundWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetLayeredWindowAttributes();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetMenuDefaultItem();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn SetMenuInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn SetMenuItemBitmaps();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn SetMenuItemInfoA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn SetMenuItemInfoW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetMessageExtraInfo();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetMessageQueue();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetParent();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetPhysicalCursorPos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetProcessDPIAware();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetProcessDefaultLayout();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetPropA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetPropW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetSysColors();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetSystemCursor();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetTimer();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowDisplayAffinity();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowLongA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowLongPtrA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowLongPtrW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowLongW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowPlacement();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowPos();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowTextA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowTextW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowWord();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowsHookA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowsHookExA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowsHookExW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowsHookW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ShowCaret();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ShowCursor();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ShowOwnedPopups();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ShowWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ShowWindowAsync();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SoundSentry();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SwitchToThisWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SystemParametersInfoA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SystemParametersInfoW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TileWindows();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TrackPopupMenu();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TrackPopupMenuEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TranslateAcceleratorA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TranslateAcceleratorW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TranslateMDISysAccel();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TranslateMessage();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UnhookWindowsHook();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UnhookWindowsHookEx();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UnregisterClassA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UnregisterClassW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn UpdateLayeredWindow();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn UpdateLayeredWindowIndirect();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WaitMessage();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WindowFromPhysicalPoint();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WindowFromPoint();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn wsprintfA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn wsprintfW();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn wvsprintfA();
+    #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn wvsprintfW();
 }

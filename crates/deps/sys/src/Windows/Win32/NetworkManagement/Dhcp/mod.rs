@@ -1,214 +1,623 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn DhcpAddFilterV4();
-    fn DhcpAddSecurityGroup();
-    fn DhcpAddServer();
-    fn DhcpAddSubnetElement();
-    fn DhcpAddSubnetElementV4();
-    fn DhcpAddSubnetElementV5();
-    fn DhcpAddSubnetElementV6();
-    fn DhcpAuditLogGetParams();
-    fn DhcpAuditLogSetParams();
-    fn DhcpCApiCleanup();
-    fn DhcpCApiInitialize();
-    fn DhcpCreateClass();
-    fn DhcpCreateClassV6();
-    fn DhcpCreateClientInfo();
-    fn DhcpCreateClientInfoV4();
-    fn DhcpCreateClientInfoVQ();
-    fn DhcpCreateOption();
-    fn DhcpCreateOptionV5();
-    fn DhcpCreateOptionV6();
-    fn DhcpCreateSubnet();
-    fn DhcpCreateSubnetV6();
-    fn DhcpCreateSubnetVQ();
-    fn DhcpDeRegisterParamChange();
-    fn DhcpDeleteClass();
-    fn DhcpDeleteClassV6();
-    fn DhcpDeleteClientInfo();
-    fn DhcpDeleteClientInfoV6();
-    fn DhcpDeleteFilterV4();
-    fn DhcpDeleteServer();
-    fn DhcpDeleteSubnet();
-    fn DhcpDeleteSubnetV6();
-    fn DhcpDeleteSuperScopeV4();
-    fn DhcpDsCleanup();
-    fn DhcpDsInit();
-    fn DhcpEnumClasses();
-    fn DhcpEnumClassesV6();
-    fn DhcpEnumFilterV4();
-    fn DhcpEnumOptionValues();
-    fn DhcpEnumOptionValuesV5();
-    fn DhcpEnumOptionValuesV6();
-    fn DhcpEnumOptions();
-    fn DhcpEnumOptionsV5();
-    fn DhcpEnumOptionsV6();
-    fn DhcpEnumServers();
-    fn DhcpEnumSubnetClients();
-    fn DhcpEnumSubnetClientsFilterStatusInfo();
-    fn DhcpEnumSubnetClientsV4();
-    fn DhcpEnumSubnetClientsV5();
-    fn DhcpEnumSubnetClientsV6();
-    fn DhcpEnumSubnetClientsVQ();
-    fn DhcpEnumSubnetElements();
-    fn DhcpEnumSubnetElementsV4();
-    fn DhcpEnumSubnetElementsV5();
-    fn DhcpEnumSubnetElementsV6();
-    fn DhcpEnumSubnets();
-    fn DhcpEnumSubnetsV6();
-    fn DhcpGetAllOptionValues();
-    fn DhcpGetAllOptionValuesV6();
-    fn DhcpGetAllOptions();
-    fn DhcpGetAllOptionsV6();
-    fn DhcpGetClassInfo();
-    fn DhcpGetClientInfo();
-    fn DhcpGetClientInfoV4();
-    fn DhcpGetClientInfoV6();
-    fn DhcpGetClientInfoVQ();
-    fn DhcpGetClientOptions();
-    fn DhcpGetFilterV4();
-    fn DhcpGetMibInfo();
-    fn DhcpGetMibInfoV5();
-    fn DhcpGetMibInfoV6();
-    fn DhcpGetOptionInfo();
-    fn DhcpGetOptionInfoV5();
-    fn DhcpGetOptionInfoV6();
-    fn DhcpGetOptionValue();
-    fn DhcpGetOptionValueV5();
-    fn DhcpGetOptionValueV6();
-    fn DhcpGetOriginalSubnetMask();
-    fn DhcpGetServerBindingInfo();
-    fn DhcpGetServerBindingInfoV6();
-    fn DhcpGetServerSpecificStrings();
-    fn DhcpGetSubnetDelayOffer();
-    fn DhcpGetSubnetInfo();
-    fn DhcpGetSubnetInfoV6();
-    fn DhcpGetSubnetInfoVQ();
-    fn DhcpGetSuperScopeInfoV4();
-    fn DhcpGetThreadOptions();
-    fn DhcpGetVersion();
-    fn DhcpHlprAddV4PolicyCondition();
-    fn DhcpHlprAddV4PolicyExpr();
-    fn DhcpHlprAddV4PolicyRange();
-    fn DhcpHlprCreateV4Policy();
-    fn DhcpHlprCreateV4PolicyEx();
-    fn DhcpHlprFindV4DhcpProperty();
-    fn DhcpHlprFreeV4DhcpProperty();
-    fn DhcpHlprFreeV4DhcpPropertyArray();
-    fn DhcpHlprFreeV4Policy();
-    fn DhcpHlprFreeV4PolicyArray();
-    fn DhcpHlprFreeV4PolicyEx();
-    fn DhcpHlprFreeV4PolicyExArray();
-    fn DhcpHlprIsV4PolicySingleUC();
-    fn DhcpHlprIsV4PolicyValid();
-    fn DhcpHlprIsV4PolicyWellFormed();
-    fn DhcpHlprModifyV4PolicyExpr();
-    fn DhcpHlprResetV4PolicyExpr();
-    fn DhcpModifyClass();
-    fn DhcpModifyClassV6();
-    fn DhcpRegisterParamChange();
-    fn DhcpRemoveDNSRegistrations();
-    fn DhcpRemoveOption();
-    fn DhcpRemoveOptionV5();
-    fn DhcpRemoveOptionV6();
-    fn DhcpRemoveOptionValue();
-    fn DhcpRemoveOptionValueV5();
-    fn DhcpRemoveOptionValueV6();
-    fn DhcpRemoveSubnetElement();
-    fn DhcpRemoveSubnetElementV4();
-    fn DhcpRemoveSubnetElementV5();
-    fn DhcpRemoveSubnetElementV6();
-    fn DhcpRequestParams();
-    fn DhcpRpcFreeMemory();
-    fn DhcpScanDatabase();
-    fn DhcpServerAuditlogParamsFree();
-    fn DhcpServerBackupDatabase();
-    fn DhcpServerGetConfig();
-    fn DhcpServerGetConfigV4();
-    fn DhcpServerGetConfigV6();
-    fn DhcpServerGetConfigVQ();
-    fn DhcpServerQueryAttribute();
-    fn DhcpServerQueryAttributes();
-    fn DhcpServerQueryDnsRegCredentials();
-    fn DhcpServerRedoAuthorization();
-    fn DhcpServerRestoreDatabase();
-    fn DhcpServerSetConfig();
-    fn DhcpServerSetConfigV4();
-    fn DhcpServerSetConfigV6();
-    fn DhcpServerSetConfigVQ();
-    fn DhcpServerSetDnsRegCredentials();
-    fn DhcpServerSetDnsRegCredentialsV5();
-    fn DhcpSetClientInfo();
-    fn DhcpSetClientInfoV4();
-    fn DhcpSetClientInfoV6();
-    fn DhcpSetClientInfoVQ();
-    fn DhcpSetFilterV4();
-    fn DhcpSetOptionInfo();
-    fn DhcpSetOptionInfoV5();
-    fn DhcpSetOptionInfoV6();
-    fn DhcpSetOptionValue();
-    fn DhcpSetOptionValueV5();
-    fn DhcpSetOptionValueV6();
-    fn DhcpSetOptionValues();
-    fn DhcpSetOptionValuesV5();
-    fn DhcpSetServerBindingInfo();
-    fn DhcpSetServerBindingInfoV6();
-    fn DhcpSetSubnetDelayOffer();
-    fn DhcpSetSubnetInfo();
-    fn DhcpSetSubnetInfoV6();
-    fn DhcpSetSubnetInfoVQ();
-    fn DhcpSetSuperScopeV4();
-    fn DhcpSetThreadOptions();
-    fn DhcpUndoRequestParams();
-    fn DhcpV4AddPolicyRange();
-    fn DhcpV4CreateClientInfo();
-    fn DhcpV4CreateClientInfoEx();
-    fn DhcpV4CreatePolicy();
-    fn DhcpV4CreatePolicyEx();
-    fn DhcpV4DeletePolicy();
-    fn DhcpV4EnumPolicies();
-    fn DhcpV4EnumPoliciesEx();
-    fn DhcpV4EnumSubnetClients();
-    fn DhcpV4EnumSubnetClientsEx();
-    fn DhcpV4EnumSubnetReservations();
-    fn DhcpV4FailoverAddScopeToRelationship();
-    fn DhcpV4FailoverCreateRelationship();
-    fn DhcpV4FailoverDeleteRelationship();
-    fn DhcpV4FailoverDeleteScopeFromRelationship();
-    fn DhcpV4FailoverEnumRelationship();
-    fn DhcpV4FailoverGetAddressStatus();
-    fn DhcpV4FailoverGetClientInfo();
-    fn DhcpV4FailoverGetRelationship();
-    fn DhcpV4FailoverGetScopeRelationship();
-    fn DhcpV4FailoverGetScopeStatistics();
-    fn DhcpV4FailoverGetSystemTime();
-    fn DhcpV4FailoverSetRelationship();
-    fn DhcpV4FailoverTriggerAddrAllocation();
-    fn DhcpV4GetAllOptionValues();
-    fn DhcpV4GetClientInfo();
-    fn DhcpV4GetClientInfoEx();
-    fn DhcpV4GetFreeIPAddress();
-    fn DhcpV4GetOptionValue();
-    fn DhcpV4GetPolicy();
-    fn DhcpV4GetPolicyEx();
-    fn DhcpV4QueryPolicyEnforcement();
-    fn DhcpV4RemoveOptionValue();
-    fn DhcpV4RemovePolicyRange();
-    fn DhcpV4SetOptionValue();
-    fn DhcpV4SetOptionValues();
-    fn DhcpV4SetPolicy();
-    fn DhcpV4SetPolicyEnforcement();
-    fn DhcpV4SetPolicyEx();
-    fn DhcpV6CreateClientInfo();
-    fn DhcpV6GetFreeIPAddress();
-    fn DhcpV6GetStatelessStatistics();
-    fn DhcpV6GetStatelessStoreParams();
-    fn DhcpV6SetStatelessStoreParams();
-    fn Dhcpv6CApiCleanup();
-    fn Dhcpv6CApiInitialize();
-    fn Dhcpv6ReleasePrefix();
-    fn Dhcpv6RenewPrefix();
-    fn Dhcpv6RequestParams();
-    fn Dhcpv6RequestPrefix();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpAddFilterV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpAddSecurityGroup();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpAddServer();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpAddSubnetElement();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpAddSubnetElementV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpAddSubnetElementV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpAddSubnetElementV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpAuditLogGetParams();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpAuditLogSetParams();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
+    pub fn DhcpCApiCleanup();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
+    pub fn DhcpCApiInitialize();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpCreateClass();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpCreateClassV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpCreateClientInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpCreateClientInfoV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpCreateClientInfoVQ();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpCreateOption();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpCreateOptionV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpCreateOptionV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpCreateSubnet();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpCreateSubnetV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpCreateSubnetVQ();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
+    pub fn DhcpDeRegisterParamChange();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpDeleteClass();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpDeleteClassV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpDeleteClientInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpDeleteClientInfoV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpDeleteFilterV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpDeleteServer();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpDeleteSubnet();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpDeleteSubnetV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpDeleteSuperScopeV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
+    pub fn DhcpDsCleanup();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
+    pub fn DhcpDsInit();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumClasses();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumClassesV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumFilterV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumOptionValues();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumOptionValuesV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumOptionValuesV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumOptions();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumOptionsV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumOptionsV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumServers();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnetClients();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnetClientsFilterStatusInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnetClientsV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnetClientsV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnetClientsV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnetClientsVQ();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnetElements();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnetElementsV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnetElementsV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnetElementsV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnets();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpEnumSubnetsV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetAllOptionValues();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetAllOptionValuesV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetAllOptions();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetAllOptionsV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetClassInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetClientInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetClientInfoV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetClientInfoV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetClientInfoVQ();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetClientOptions();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetFilterV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetMibInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetMibInfoV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetMibInfoV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetOptionInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetOptionInfoV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetOptionInfoV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetOptionValue();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetOptionValueV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetOptionValueV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetOriginalSubnetMask();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetServerBindingInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetServerBindingInfoV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetServerSpecificStrings();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetSubnetDelayOffer();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetSubnetInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetSubnetInfoV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetSubnetInfoVQ();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetSuperScopeInfoV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
+    pub fn DhcpGetThreadOptions();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetVersion();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprAddV4PolicyCondition();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprAddV4PolicyExpr();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprAddV4PolicyRange();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprCreateV4Policy();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprCreateV4PolicyEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprFindV4DhcpProperty();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprFreeV4DhcpProperty();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprFreeV4DhcpPropertyArray();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprFreeV4Policy();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprFreeV4PolicyArray();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprFreeV4PolicyEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprFreeV4PolicyExArray();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprIsV4PolicySingleUC();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprIsV4PolicyValid();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprIsV4PolicyWellFormed();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprModifyV4PolicyExpr();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpHlprResetV4PolicyExpr();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpModifyClass();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpModifyClassV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRegisterParamChange();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
+    pub fn DhcpRemoveDNSRegistrations();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRemoveOption();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRemoveOptionV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRemoveOptionV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRemoveOptionValue();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRemoveOptionValueV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRemoveOptionValueV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRemoveSubnetElement();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRemoveSubnetElementV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRemoveSubnetElementV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRemoveSubnetElementV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRequestParams();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
+    pub fn DhcpRpcFreeMemory();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpScanDatabase();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerAuditlogParamsFree();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerBackupDatabase();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerGetConfig();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerGetConfigV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerGetConfigV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerGetConfigVQ();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerQueryAttribute();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerQueryAttributes();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerQueryDnsRegCredentials();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerRedoAuthorization();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerRestoreDatabase();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerSetConfig();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerSetConfigV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerSetConfigV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerSetConfigVQ();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerSetDnsRegCredentials();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpServerSetDnsRegCredentialsV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetClientInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetClientInfoV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetClientInfoV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetClientInfoVQ();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetFilterV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetOptionInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetOptionInfoV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetOptionInfoV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetOptionValue();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetOptionValueV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetOptionValueV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetOptionValues();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetOptionValuesV5();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetServerBindingInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetServerBindingInfoV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetSubnetDelayOffer();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetSubnetInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetSubnetInfoV6();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetSubnetInfoVQ();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpSetSuperScopeV4();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
+    pub fn DhcpSetThreadOptions();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpUndoRequestParams();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4AddPolicyRange();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4CreateClientInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4CreateClientInfoEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4CreatePolicy();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4CreatePolicyEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4DeletePolicy();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4EnumPolicies();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4EnumPoliciesEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4EnumSubnetClients();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4EnumSubnetClientsEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4EnumSubnetReservations();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverAddScopeToRelationship();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverCreateRelationship();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverDeleteRelationship();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverDeleteScopeFromRelationship();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverEnumRelationship();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverGetAddressStatus();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverGetClientInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverGetRelationship();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverGetScopeRelationship();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverGetScopeStatistics();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverGetSystemTime();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverSetRelationship();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4FailoverTriggerAddrAllocation();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4GetAllOptionValues();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4GetClientInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4GetClientInfoEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4GetFreeIPAddress();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4GetOptionValue();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4GetPolicy();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4GetPolicyEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4QueryPolicyEnforcement();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4RemoveOptionValue();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4RemovePolicyRange();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4SetOptionValue();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4SetOptionValues();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4SetPolicy();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4SetPolicyEnforcement();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV4SetPolicyEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV6CreateClientInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV6GetFreeIPAddress();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV6GetStatelessStatistics();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV6GetStatelessStoreParams();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpV6SetStatelessStoreParams();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
+    pub fn Dhcpv6CApiCleanup();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
+    pub fn Dhcpv6CApiInitialize();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Dhcpv6ReleasePrefix();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Dhcpv6RenewPrefix();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Dhcpv6RequestParams();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Dhcpv6RequestPrefix();
 }

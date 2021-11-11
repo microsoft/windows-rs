@@ -1,33 +1,80 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn D3D10CompileEffectFromMemory();
-    fn D3D10CompileShader();
-    fn D3D10CreateBlob();
-    fn D3D10CreateDevice();
-    fn D3D10CreateDevice1();
-    fn D3D10CreateDeviceAndSwapChain();
-    fn D3D10CreateDeviceAndSwapChain1();
-    fn D3D10CreateEffectFromMemory();
-    fn D3D10CreateEffectPoolFromMemory();
-    fn D3D10CreateStateBlock();
-    fn D3D10DisassembleEffect();
-    fn D3D10DisassembleShader();
-    fn D3D10GetGeometryShaderProfile();
-    fn D3D10GetInputAndOutputSignatureBlob();
-    fn D3D10GetInputSignatureBlob();
-    fn D3D10GetOutputSignatureBlob();
-    fn D3D10GetPixelShaderProfile();
-    fn D3D10GetShaderDebugInfo();
-    fn D3D10GetVertexShaderProfile();
-    fn D3D10PreprocessShader();
-    fn D3D10ReflectShader();
-    fn D3D10StateBlockMaskDifference();
-    fn D3D10StateBlockMaskDisableAll();
-    fn D3D10StateBlockMaskDisableCapture();
-    fn D3D10StateBlockMaskEnableAll();
-    fn D3D10StateBlockMaskEnableCapture();
-    fn D3D10StateBlockMaskGetSetting();
-    fn D3D10StateBlockMaskIntersect();
-    fn D3D10StateBlockMaskUnion();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    pub fn D3D10CompileEffectFromMemory();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    pub fn D3D10CompileShader();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub fn D3D10CreateBlob();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+    pub fn D3D10CreateDevice();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+    pub fn D3D10CreateDevice1();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub fn D3D10CreateDeviceAndSwapChain();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub fn D3D10CreateDeviceAndSwapChain1();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
+    pub fn D3D10CreateEffectFromMemory();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
+    pub fn D3D10CreateEffectPoolFromMemory();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
+    pub fn D3D10CreateStateBlock();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    pub fn D3D10DisassembleEffect();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    pub fn D3D10DisassembleShader();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn D3D10GetGeometryShaderProfile();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub fn D3D10GetInputAndOutputSignatureBlob();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub fn D3D10GetInputSignatureBlob();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub fn D3D10GetOutputSignatureBlob();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn D3D10GetPixelShaderProfile();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub fn D3D10GetShaderDebugInfo();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn D3D10GetVertexShaderProfile();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    pub fn D3D10PreprocessShader();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
+    pub fn D3D10ReflectShader();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
+    pub fn D3D10StateBlockMaskDifference();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
+    pub fn D3D10StateBlockMaskDisableAll();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
+    pub fn D3D10StateBlockMaskDisableCapture();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
+    pub fn D3D10StateBlockMaskEnableAll();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
+    pub fn D3D10StateBlockMaskEnableCapture();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn D3D10StateBlockMaskGetSetting();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
+    pub fn D3D10StateBlockMaskIntersect();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
+    pub fn D3D10StateBlockMaskUnion();
 }

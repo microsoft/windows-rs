@@ -1,12 +1,28 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn KsCreateAllocator();
-    fn KsCreateAllocator2();
-    fn KsCreateClock();
-    fn KsCreateClock2();
-    fn KsCreatePin();
-    fn KsCreatePin2();
-    fn KsCreateTopologyNode();
-    fn KsCreateTopologyNode2();
+    #[doc = "*Required features: `Win32_Media_KernelStreaming`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn KsCreateAllocator();
+    #[doc = "*Required features: `Win32_Media_KernelStreaming`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn KsCreateAllocator2();
+    #[doc = "*Required features: `Win32_Media_KernelStreaming`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn KsCreateClock();
+    #[doc = "*Required features: `Win32_Media_KernelStreaming`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn KsCreateClock2();
+    #[doc = "*Required features: `Win32_Media_KernelStreaming`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn KsCreatePin();
+    #[doc = "*Required features: `Win32_Media_KernelStreaming`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn KsCreatePin2();
+    #[doc = "*Required features: `Win32_Media_KernelStreaming`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn KsCreateTopologyNode();
+    #[doc = "*Required features: `Win32_Media_KernelStreaming`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn KsCreateTopologyNode2();
 }

@@ -1,512 +1,1200 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn DceErrorInqTextA();
-    fn DceErrorInqTextW();
-    fn IUnknown_AddRef_Proxy();
-    fn IUnknown_QueryInterface_Proxy();
-    fn IUnknown_Release_Proxy();
-    fn I_RpcAllocate();
-    fn I_RpcAsyncAbortCall();
-    fn I_RpcAsyncSetHandle();
-    fn I_RpcBindingCopy();
-    fn I_RpcBindingCreateNP();
-    fn I_RpcBindingHandleToAsyncHandle();
-    fn I_RpcBindingInqClientTokenAttributes();
-    fn I_RpcBindingInqDynamicEndpointA();
-    fn I_RpcBindingInqDynamicEndpointW();
-    fn I_RpcBindingInqLocalClientPID();
-    fn I_RpcBindingInqMarshalledTargetInfo();
-    fn I_RpcBindingInqSecurityContext();
-    fn I_RpcBindingInqSecurityContextKeyInfo();
-    fn I_RpcBindingInqTransportType();
-    fn I_RpcBindingInqWireIdForSnego();
-    fn I_RpcBindingIsClientLocal();
-    fn I_RpcBindingIsServerLocal();
-    fn I_RpcBindingSetPrivateOption();
-    fn I_RpcBindingToStaticStringBindingW();
-    fn I_RpcClearMutex();
-    fn I_RpcDeleteMutex();
-    fn I_RpcExceptionFilter();
-    fn I_RpcFree();
-    fn I_RpcFreeBuffer();
-    fn I_RpcFreePipeBuffer();
-    fn I_RpcGetBuffer();
-    fn I_RpcGetBufferWithObject();
-    fn I_RpcGetCurrentCallHandle();
-    fn I_RpcGetDefaultSD();
-    fn I_RpcGetExtendedError();
-    fn I_RpcIfInqTransferSyntaxes();
-    fn I_RpcMapWin32Status();
-    fn I_RpcMgmtEnableDedicatedThreadPool();
-    fn I_RpcNegotiateTransferSyntax();
-    fn I_RpcNsBindingSetEntryNameA();
-    fn I_RpcNsBindingSetEntryNameW();
-    fn I_RpcNsGetBuffer();
-    fn I_RpcNsInterfaceExported();
-    fn I_RpcNsInterfaceUnexported();
-    fn I_RpcNsRaiseException();
-    fn I_RpcNsSendReceive();
-    fn I_RpcOpenClientProcess();
-    fn I_RpcPauseExecution();
-    fn I_RpcReBindBuffer();
-    fn I_RpcReallocPipeBuffer();
-    fn I_RpcReceive();
-    fn I_RpcRecordCalloutFailure();
-    fn I_RpcRequestMutex();
-    fn I_RpcSend();
-    fn I_RpcSendReceive();
-    fn I_RpcServerCheckClientRestriction();
-    fn I_RpcServerDisableExceptionFilter();
-    fn I_RpcServerGetAssociationID();
-    fn I_RpcServerInqAddressChangeFn();
-    fn I_RpcServerInqLocalConnAddress();
-    fn I_RpcServerInqRemoteConnAddress();
-    fn I_RpcServerInqTransportType();
-    fn I_RpcServerRegisterForwardFunction();
-    fn I_RpcServerSetAddressChangeFn();
-    fn I_RpcServerStartService();
-    fn I_RpcServerSubscribeForDisconnectNotification();
-    fn I_RpcServerSubscribeForDisconnectNotification2();
-    fn I_RpcServerUnsubscribeForDisconnectNotification();
-    fn I_RpcServerUseProtseq2A();
-    fn I_RpcServerUseProtseq2W();
-    fn I_RpcServerUseProtseqEp2A();
-    fn I_RpcServerUseProtseqEp2W();
-    fn I_RpcSessionStrictContextHandle();
-    fn I_RpcSsDontSerializeContext();
-    fn I_RpcSystemHandleTypeSpecificWork();
-    fn I_RpcTurnOnEEInfoPropagation();
-    fn I_UuidCreate();
-    fn MesBufferHandleReset();
-    fn MesDecodeBufferHandleCreate();
-    fn MesDecodeIncrementalHandleCreate();
-    fn MesEncodeDynBufferHandleCreate();
-    fn MesEncodeFixedBufferHandleCreate();
-    fn MesEncodeIncrementalHandleCreate();
-    fn MesHandleFree();
-    fn MesIncrementalHandleReset();
-    fn MesInqProcEncodingId();
-    fn NDRCContextBinding();
-    fn NDRCContextMarshall();
-    fn NDRCContextUnmarshall();
-    fn NDRSContextMarshall();
-    fn NDRSContextMarshall2();
-    fn NDRSContextMarshallEx();
-    fn NDRSContextUnmarshall();
-    fn NDRSContextUnmarshall2();
-    fn NDRSContextUnmarshallEx();
-    fn Ndr64AsyncClientCall();
-    fn Ndr64AsyncServerCall64();
-    fn Ndr64AsyncServerCallAll();
-    fn Ndr64DcomAsyncClientCall();
-    fn Ndr64DcomAsyncStubCall();
-    fn NdrAllocate();
-    fn NdrAsyncClientCall();
-    fn NdrAsyncServerCall();
-    fn NdrByteCountPointerBufferSize();
-    fn NdrByteCountPointerFree();
-    fn NdrByteCountPointerMarshall();
-    fn NdrByteCountPointerUnmarshall();
-    fn NdrClearOutParameters();
-    fn NdrClientCall2();
-    fn NdrClientCall3();
-    fn NdrClientContextMarshall();
-    fn NdrClientContextUnmarshall();
-    fn NdrClientInitialize();
-    fn NdrClientInitializeNew();
-    fn NdrComplexArrayBufferSize();
-    fn NdrComplexArrayFree();
-    fn NdrComplexArrayMarshall();
-    fn NdrComplexArrayMemorySize();
-    fn NdrComplexArrayUnmarshall();
-    fn NdrComplexStructBufferSize();
-    fn NdrComplexStructFree();
-    fn NdrComplexStructMarshall();
-    fn NdrComplexStructMemorySize();
-    fn NdrComplexStructUnmarshall();
-    fn NdrConformantArrayBufferSize();
-    fn NdrConformantArrayFree();
-    fn NdrConformantArrayMarshall();
-    fn NdrConformantArrayMemorySize();
-    fn NdrConformantArrayUnmarshall();
-    fn NdrConformantStringBufferSize();
-    fn NdrConformantStringMarshall();
-    fn NdrConformantStringMemorySize();
-    fn NdrConformantStringUnmarshall();
-    fn NdrConformantStructBufferSize();
-    fn NdrConformantStructFree();
-    fn NdrConformantStructMarshall();
-    fn NdrConformantStructMemorySize();
-    fn NdrConformantStructUnmarshall();
-    fn NdrConformantVaryingArrayBufferSize();
-    fn NdrConformantVaryingArrayFree();
-    fn NdrConformantVaryingArrayMarshall();
-    fn NdrConformantVaryingArrayMemorySize();
-    fn NdrConformantVaryingArrayUnmarshall();
-    fn NdrConformantVaryingStructBufferSize();
-    fn NdrConformantVaryingStructFree();
-    fn NdrConformantVaryingStructMarshall();
-    fn NdrConformantVaryingStructMemorySize();
-    fn NdrConformantVaryingStructUnmarshall();
-    fn NdrContextHandleInitialize();
-    fn NdrContextHandleSize();
-    fn NdrConvert();
-    fn NdrConvert2();
-    fn NdrCorrelationFree();
-    fn NdrCorrelationInitialize();
-    fn NdrCorrelationPass();
-    fn NdrCreateServerInterfaceFromStub();
-    fn NdrDcomAsyncClientCall();
-    fn NdrDcomAsyncStubCall();
-    fn NdrEncapsulatedUnionBufferSize();
-    fn NdrEncapsulatedUnionFree();
-    fn NdrEncapsulatedUnionMarshall();
-    fn NdrEncapsulatedUnionMemorySize();
-    fn NdrEncapsulatedUnionUnmarshall();
-    fn NdrFixedArrayBufferSize();
-    fn NdrFixedArrayFree();
-    fn NdrFixedArrayMarshall();
-    fn NdrFixedArrayMemorySize();
-    fn NdrFixedArrayUnmarshall();
-    fn NdrFreeBuffer();
-    fn NdrFullPointerXlatFree();
-    fn NdrFullPointerXlatInit();
-    fn NdrGetBuffer();
-    fn NdrGetDcomProtocolVersion();
-    fn NdrGetUserMarshalInfo();
-    fn NdrInterfacePointerBufferSize();
-    fn NdrInterfacePointerFree();
-    fn NdrInterfacePointerMarshall();
-    fn NdrInterfacePointerMemorySize();
-    fn NdrInterfacePointerUnmarshall();
-    fn NdrMapCommAndFaultStatus();
-    fn NdrMesProcEncodeDecode();
-    fn NdrMesProcEncodeDecode2();
-    fn NdrMesProcEncodeDecode3();
-    fn NdrMesSimpleTypeAlignSize();
-    fn NdrMesSimpleTypeAlignSizeAll();
-    fn NdrMesSimpleTypeDecode();
-    fn NdrMesSimpleTypeDecodeAll();
-    fn NdrMesSimpleTypeEncode();
-    fn NdrMesSimpleTypeEncodeAll();
-    fn NdrMesTypeAlignSize();
-    fn NdrMesTypeAlignSize2();
-    fn NdrMesTypeAlignSize3();
-    fn NdrMesTypeDecode();
-    fn NdrMesTypeDecode2();
-    fn NdrMesTypeDecode3();
-    fn NdrMesTypeEncode();
-    fn NdrMesTypeEncode2();
-    fn NdrMesTypeEncode3();
-    fn NdrMesTypeFree2();
-    fn NdrMesTypeFree3();
-    fn NdrNonConformantStringBufferSize();
-    fn NdrNonConformantStringMarshall();
-    fn NdrNonConformantStringMemorySize();
-    fn NdrNonConformantStringUnmarshall();
-    fn NdrNonEncapsulatedUnionBufferSize();
-    fn NdrNonEncapsulatedUnionFree();
-    fn NdrNonEncapsulatedUnionMarshall();
-    fn NdrNonEncapsulatedUnionMemorySize();
-    fn NdrNonEncapsulatedUnionUnmarshall();
-    fn NdrNsGetBuffer();
-    fn NdrNsSendReceive();
-    fn NdrOleAllocate();
-    fn NdrOleFree();
-    fn NdrPartialIgnoreClientBufferSize();
-    fn NdrPartialIgnoreClientMarshall();
-    fn NdrPartialIgnoreServerInitialize();
-    fn NdrPartialIgnoreServerUnmarshall();
-    fn NdrPointerBufferSize();
-    fn NdrPointerFree();
-    fn NdrPointerMarshall();
-    fn NdrPointerMemorySize();
-    fn NdrPointerUnmarshall();
-    fn NdrRangeUnmarshall();
-    fn NdrRpcSmClientAllocate();
-    fn NdrRpcSmClientFree();
-    fn NdrRpcSmSetClientToOsf();
-    fn NdrRpcSsDefaultAllocate();
-    fn NdrRpcSsDefaultFree();
-    fn NdrRpcSsDisableAllocate();
-    fn NdrRpcSsEnableAllocate();
-    fn NdrSendReceive();
-    fn NdrServerCall2();
-    fn NdrServerCallAll();
-    fn NdrServerCallNdr64();
-    fn NdrServerContextMarshall();
-    fn NdrServerContextNewMarshall();
-    fn NdrServerContextNewUnmarshall();
-    fn NdrServerContextUnmarshall();
-    fn NdrServerInitialize();
-    fn NdrServerInitializeMarshall();
-    fn NdrServerInitializeNew();
-    fn NdrServerInitializePartial();
-    fn NdrServerInitializeUnmarshall();
-    fn NdrSimpleStructBufferSize();
-    fn NdrSimpleStructFree();
-    fn NdrSimpleStructMarshall();
-    fn NdrSimpleStructMemorySize();
-    fn NdrSimpleStructUnmarshall();
-    fn NdrSimpleTypeMarshall();
-    fn NdrSimpleTypeUnmarshall();
-    fn NdrStubCall2();
-    fn NdrStubCall3();
-    fn NdrUserMarshalBufferSize();
-    fn NdrUserMarshalFree();
-    fn NdrUserMarshalMarshall();
-    fn NdrUserMarshalMemorySize();
-    fn NdrUserMarshalSimpleTypeConvert();
-    fn NdrUserMarshalUnmarshall();
-    fn NdrVaryingArrayBufferSize();
-    fn NdrVaryingArrayFree();
-    fn NdrVaryingArrayMarshall();
-    fn NdrVaryingArrayMemorySize();
-    fn NdrVaryingArrayUnmarshall();
-    fn NdrXmitOrRepAsBufferSize();
-    fn NdrXmitOrRepAsFree();
-    fn NdrXmitOrRepAsMarshall();
-    fn NdrXmitOrRepAsMemorySize();
-    fn NdrXmitOrRepAsUnmarshall();
-    fn RpcAsyncAbortCall();
-    fn RpcAsyncCancelCall();
-    fn RpcAsyncCompleteCall();
-    fn RpcAsyncGetCallStatus();
-    fn RpcAsyncInitializeHandle();
-    fn RpcAsyncRegisterInfo();
-    fn RpcBindingBind();
-    fn RpcBindingCopy();
-    fn RpcBindingCreateA();
-    fn RpcBindingCreateW();
-    fn RpcBindingFree();
-    fn RpcBindingFromStringBindingA();
-    fn RpcBindingFromStringBindingW();
-    fn RpcBindingInqAuthClientA();
-    fn RpcBindingInqAuthClientExA();
-    fn RpcBindingInqAuthClientExW();
-    fn RpcBindingInqAuthClientW();
-    fn RpcBindingInqAuthInfoA();
-    fn RpcBindingInqAuthInfoExA();
-    fn RpcBindingInqAuthInfoExW();
-    fn RpcBindingInqAuthInfoW();
-    fn RpcBindingInqMaxCalls();
-    fn RpcBindingInqObject();
-    fn RpcBindingInqOption();
-    fn RpcBindingReset();
-    fn RpcBindingServerFromClient();
-    fn RpcBindingSetAuthInfoA();
-    fn RpcBindingSetAuthInfoExA();
-    fn RpcBindingSetAuthInfoExW();
-    fn RpcBindingSetAuthInfoW();
-    fn RpcBindingSetObject();
-    fn RpcBindingSetOption();
-    fn RpcBindingToStringBindingA();
-    fn RpcBindingToStringBindingW();
-    fn RpcBindingUnbind();
-    fn RpcBindingVectorFree();
-    fn RpcCancelThread();
-    fn RpcCancelThreadEx();
-    fn RpcCertGeneratePrincipalNameA();
-    fn RpcCertGeneratePrincipalNameW();
-    fn RpcEpRegisterA();
-    fn RpcEpRegisterNoReplaceA();
-    fn RpcEpRegisterNoReplaceW();
-    fn RpcEpRegisterW();
-    fn RpcEpResolveBinding();
-    fn RpcEpUnregister();
-    fn RpcErrorAddRecord();
-    fn RpcErrorClearInformation();
-    fn RpcErrorEndEnumeration();
-    fn RpcErrorGetNextRecord();
-    fn RpcErrorGetNumberOfRecords();
-    fn RpcErrorLoadErrorInfo();
-    fn RpcErrorResetEnumeration();
-    fn RpcErrorSaveErrorInfo();
-    fn RpcErrorStartEnumeration();
-    fn RpcExceptionFilter();
-    fn RpcFreeAuthorizationContext();
-    fn RpcGetAuthorizationContextForClient();
-    fn RpcIfIdVectorFree();
-    fn RpcIfInqId();
-    fn RpcImpersonateClient();
-    fn RpcImpersonateClient2();
-    fn RpcImpersonateClientContainer();
-    fn RpcMgmtEnableIdleCleanup();
-    fn RpcMgmtEpEltInqBegin();
-    fn RpcMgmtEpEltInqDone();
-    fn RpcMgmtEpEltInqNextA();
-    fn RpcMgmtEpEltInqNextW();
-    fn RpcMgmtEpUnregister();
-    fn RpcMgmtInqComTimeout();
-    fn RpcMgmtInqDefaultProtectLevel();
-    fn RpcMgmtInqIfIds();
-    fn RpcMgmtInqServerPrincNameA();
-    fn RpcMgmtInqServerPrincNameW();
-    fn RpcMgmtInqStats();
-    fn RpcMgmtIsServerListening();
-    fn RpcMgmtSetAuthorizationFn();
-    fn RpcMgmtSetCancelTimeout();
-    fn RpcMgmtSetComTimeout();
-    fn RpcMgmtSetServerStackSize();
-    fn RpcMgmtStatsVectorFree();
-    fn RpcMgmtStopServerListening();
-    fn RpcMgmtWaitServerListen();
-    fn RpcNetworkInqProtseqsA();
-    fn RpcNetworkInqProtseqsW();
-    fn RpcNetworkIsProtseqValidA();
-    fn RpcNetworkIsProtseqValidW();
-    fn RpcNsBindingExportA();
-    fn RpcNsBindingExportPnPA();
-    fn RpcNsBindingExportPnPW();
-    fn RpcNsBindingExportW();
-    fn RpcNsBindingImportBeginA();
-    fn RpcNsBindingImportBeginW();
-    fn RpcNsBindingImportDone();
-    fn RpcNsBindingImportNext();
-    fn RpcNsBindingInqEntryNameA();
-    fn RpcNsBindingInqEntryNameW();
-    fn RpcNsBindingLookupBeginA();
-    fn RpcNsBindingLookupBeginW();
-    fn RpcNsBindingLookupDone();
-    fn RpcNsBindingLookupNext();
-    fn RpcNsBindingSelect();
-    fn RpcNsBindingUnexportA();
-    fn RpcNsBindingUnexportPnPA();
-    fn RpcNsBindingUnexportPnPW();
-    fn RpcNsBindingUnexportW();
-    fn RpcNsEntryExpandNameA();
-    fn RpcNsEntryExpandNameW();
-    fn RpcNsEntryObjectInqBeginA();
-    fn RpcNsEntryObjectInqBeginW();
-    fn RpcNsEntryObjectInqDone();
-    fn RpcNsEntryObjectInqNext();
-    fn RpcNsGroupDeleteA();
-    fn RpcNsGroupDeleteW();
-    fn RpcNsGroupMbrAddA();
-    fn RpcNsGroupMbrAddW();
-    fn RpcNsGroupMbrInqBeginA();
-    fn RpcNsGroupMbrInqBeginW();
-    fn RpcNsGroupMbrInqDone();
-    fn RpcNsGroupMbrInqNextA();
-    fn RpcNsGroupMbrInqNextW();
-    fn RpcNsGroupMbrRemoveA();
-    fn RpcNsGroupMbrRemoveW();
-    fn RpcNsMgmtBindingUnexportA();
-    fn RpcNsMgmtBindingUnexportW();
-    fn RpcNsMgmtEntryCreateA();
-    fn RpcNsMgmtEntryCreateW();
-    fn RpcNsMgmtEntryDeleteA();
-    fn RpcNsMgmtEntryDeleteW();
-    fn RpcNsMgmtEntryInqIfIdsA();
-    fn RpcNsMgmtEntryInqIfIdsW();
-    fn RpcNsMgmtHandleSetExpAge();
-    fn RpcNsMgmtInqExpAge();
-    fn RpcNsMgmtSetExpAge();
-    fn RpcNsProfileDeleteA();
-    fn RpcNsProfileDeleteW();
-    fn RpcNsProfileEltAddA();
-    fn RpcNsProfileEltAddW();
-    fn RpcNsProfileEltInqBeginA();
-    fn RpcNsProfileEltInqBeginW();
-    fn RpcNsProfileEltInqDone();
-    fn RpcNsProfileEltInqNextA();
-    fn RpcNsProfileEltInqNextW();
-    fn RpcNsProfileEltRemoveA();
-    fn RpcNsProfileEltRemoveW();
-    fn RpcObjectInqType();
-    fn RpcObjectSetInqFn();
-    fn RpcObjectSetType();
-    fn RpcProtseqVectorFreeA();
-    fn RpcProtseqVectorFreeW();
-    fn RpcRaiseException();
-    fn RpcRevertContainerImpersonation();
-    fn RpcRevertToSelf();
-    fn RpcRevertToSelfEx();
-    fn RpcServerCompleteSecurityCallback();
-    fn RpcServerInqBindingHandle();
-    fn RpcServerInqBindings();
-    fn RpcServerInqBindingsEx();
-    fn RpcServerInqCallAttributesA();
-    fn RpcServerInqCallAttributesW();
-    fn RpcServerInqDefaultPrincNameA();
-    fn RpcServerInqDefaultPrincNameW();
-    fn RpcServerInqIf();
-    fn RpcServerInterfaceGroupActivate();
-    fn RpcServerInterfaceGroupClose();
-    fn RpcServerInterfaceGroupCreateA();
-    fn RpcServerInterfaceGroupCreateW();
-    fn RpcServerInterfaceGroupDeactivate();
-    fn RpcServerInterfaceGroupInqBindings();
-    fn RpcServerListen();
-    fn RpcServerRegisterAuthInfoA();
-    fn RpcServerRegisterAuthInfoW();
-    fn RpcServerRegisterIf();
-    fn RpcServerRegisterIf2();
-    fn RpcServerRegisterIf3();
-    fn RpcServerRegisterIfEx();
-    fn RpcServerSubscribeForNotification();
-    fn RpcServerTestCancel();
-    fn RpcServerUnregisterIf();
-    fn RpcServerUnregisterIfEx();
-    fn RpcServerUnsubscribeForNotification();
-    fn RpcServerUseAllProtseqs();
-    fn RpcServerUseAllProtseqsEx();
-    fn RpcServerUseAllProtseqsIf();
-    fn RpcServerUseAllProtseqsIfEx();
-    fn RpcServerUseProtseqA();
-    fn RpcServerUseProtseqEpA();
-    fn RpcServerUseProtseqEpExA();
-    fn RpcServerUseProtseqEpExW();
-    fn RpcServerUseProtseqEpW();
-    fn RpcServerUseProtseqExA();
-    fn RpcServerUseProtseqExW();
-    fn RpcServerUseProtseqIfA();
-    fn RpcServerUseProtseqIfExA();
-    fn RpcServerUseProtseqIfExW();
-    fn RpcServerUseProtseqIfW();
-    fn RpcServerUseProtseqW();
-    fn RpcServerYield();
-    fn RpcSmAllocate();
-    fn RpcSmClientFree();
-    fn RpcSmDestroyClientContext();
-    fn RpcSmDisableAllocate();
-    fn RpcSmEnableAllocate();
-    fn RpcSmFree();
-    fn RpcSmGetThreadHandle();
-    fn RpcSmSetClientAllocFree();
-    fn RpcSmSetThreadHandle();
-    fn RpcSmSwapClientAllocFree();
-    fn RpcSsAllocate();
-    fn RpcSsContextLockExclusive();
-    fn RpcSsContextLockShared();
-    fn RpcSsDestroyClientContext();
-    fn RpcSsDisableAllocate();
-    fn RpcSsDontSerializeContext();
-    fn RpcSsEnableAllocate();
-    fn RpcSsFree();
-    fn RpcSsGetContextBinding();
-    fn RpcSsGetThreadHandle();
-    fn RpcSsSetClientAllocFree();
-    fn RpcSsSetThreadHandle();
-    fn RpcSsSwapClientAllocFree();
-    fn RpcStringBindingComposeA();
-    fn RpcStringBindingComposeW();
-    fn RpcStringBindingParseA();
-    fn RpcStringBindingParseW();
-    fn RpcStringFreeA();
-    fn RpcStringFreeW();
-    fn RpcTestCancel();
-    fn RpcUserFree();
-    fn UuidCompare();
-    fn UuidCreate();
-    fn UuidCreateNil();
-    fn UuidCreateSequential();
-    fn UuidEqual();
-    fn UuidFromStringA();
-    fn UuidFromStringW();
-    fn UuidHash();
-    fn UuidIsNil();
-    fn UuidToStringA();
-    fn UuidToStringW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn DceErrorInqTextA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn DceErrorInqTextW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn IUnknown_AddRef_Proxy();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn IUnknown_QueryInterface_Proxy();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn IUnknown_Release_Proxy();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn I_RpcAsyncAbortCall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn I_RpcAsyncSetHandle();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingCopy();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingCreateNP();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingHandleToAsyncHandle();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn I_RpcBindingInqClientTokenAttributes();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingInqDynamicEndpointA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingInqDynamicEndpointW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingInqLocalClientPID();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingInqMarshalledTargetInfo();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingInqSecurityContext();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingInqSecurityContextKeyInfo();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingInqTransportType();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingInqWireIdForSnego();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingIsClientLocal();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingIsServerLocal();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingSetPrivateOption();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcBindingToStaticStringBindingW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcClearMutex();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcDeleteMutex();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcExceptionFilter();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcFreeBuffer();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcFreePipeBuffer();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcGetBuffer();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcGetBufferWithObject();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcGetCurrentCallHandle();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcGetDefaultSD();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcGetExtendedError();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcIfInqTransferSyntaxes();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcMapWin32Status();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcMgmtEnableDedicatedThreadPool();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcNegotiateTransferSyntax();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcNsBindingSetEntryNameA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcNsBindingSetEntryNameW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcNsGetBuffer();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcNsInterfaceExported();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcNsInterfaceUnexported();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcNsRaiseException();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcNsSendReceive();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcOpenClientProcess();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcPauseExecution();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcReBindBuffer();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcReallocPipeBuffer();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcReceive();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcRecordCalloutFailure();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcRequestMutex();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcSend();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcSendReceive();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerCheckClientRestriction();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerDisableExceptionFilter();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerGetAssociationID();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerInqAddressChangeFn();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerInqLocalConnAddress();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerInqRemoteConnAddress();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerInqTransportType();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerRegisterForwardFunction();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerSetAddressChangeFn();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerStartService();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerSubscribeForDisconnectNotification();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerSubscribeForDisconnectNotification2();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerUnsubscribeForDisconnectNotification();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerUseProtseq2A();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerUseProtseq2W();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerUseProtseqEp2A();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcServerUseProtseqEp2W();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcSessionStrictContextHandle();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcSsDontSerializeContext();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcSystemHandleTypeSpecificWork();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_RpcTurnOnEEInfoPropagation();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn I_UuidCreate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn MesBufferHandleReset();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MesDecodeBufferHandleCreate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn MesDecodeIncrementalHandleCreate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn MesEncodeDynBufferHandleCreate();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MesEncodeFixedBufferHandleCreate();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MesEncodeIncrementalHandleCreate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn MesHandleFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MesIncrementalHandleReset();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn MesInqProcEncodingId();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NDRCContextBinding();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NDRCContextMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NDRCContextUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NDRSContextMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NDRSContextMarshall2();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NDRSContextMarshallEx();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NDRSContextUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NDRSContextUnmarshall2();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NDRSContextUnmarshallEx();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn Ndr64AsyncClientCall();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn Ndr64AsyncServerCall64();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn Ndr64AsyncServerCallAll();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn Ndr64DcomAsyncClientCall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn Ndr64DcomAsyncStubCall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrAsyncClientCall();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrAsyncServerCall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrByteCountPointerBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrByteCountPointerFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrByteCountPointerMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrByteCountPointerUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrClearOutParameters();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrClientCall2();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrClientCall3();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrClientContextMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrClientContextUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrClientInitialize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrClientInitializeNew();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrComplexArrayBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrComplexArrayFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrComplexArrayMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrComplexArrayMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrComplexArrayUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrComplexStructBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrComplexStructFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrComplexStructMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrComplexStructMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrComplexStructUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantArrayBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantArrayFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantArrayMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantArrayMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantArrayUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantStringBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantStringMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantStringMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantStringUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantStructBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantStructFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantStructMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantStructMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantStructUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantVaryingArrayBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantVaryingArrayFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantVaryingArrayMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantVaryingArrayMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantVaryingArrayUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantVaryingStructBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantVaryingStructFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantVaryingStructMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantVaryingStructMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConformantVaryingStructUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrContextHandleInitialize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrContextHandleSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConvert();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrConvert2();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrCorrelationFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrCorrelationInitialize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrCorrelationPass();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrCreateServerInterfaceFromStub();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrDcomAsyncClientCall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrDcomAsyncStubCall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrEncapsulatedUnionBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrEncapsulatedUnionFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrEncapsulatedUnionMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrEncapsulatedUnionMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrEncapsulatedUnionUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrFixedArrayBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrFixedArrayFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrFixedArrayMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrFixedArrayMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrFixedArrayUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrFreeBuffer();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrFullPointerXlatFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrFullPointerXlatInit();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrGetBuffer();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrGetDcomProtocolVersion();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrGetUserMarshalInfo();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrInterfacePointerBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrInterfacePointerFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrInterfacePointerMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrInterfacePointerMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrInterfacePointerUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMapCommAndFaultStatus();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesProcEncodeDecode();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesProcEncodeDecode2();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesProcEncodeDecode3();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrMesSimpleTypeAlignSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesSimpleTypeAlignSizeAll();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrMesSimpleTypeDecode();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesSimpleTypeDecodeAll();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesSimpleTypeEncode();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesSimpleTypeEncodeAll();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesTypeAlignSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesTypeAlignSize2();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesTypeAlignSize3();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesTypeDecode();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesTypeDecode2();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesTypeDecode3();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesTypeEncode();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesTypeEncode2();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesTypeEncode3();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesTypeFree2();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrMesTypeFree3();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrNonConformantStringBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrNonConformantStringMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrNonConformantStringMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrNonConformantStringUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrNonEncapsulatedUnionBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrNonEncapsulatedUnionFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrNonEncapsulatedUnionMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrNonEncapsulatedUnionMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrNonEncapsulatedUnionUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrNsGetBuffer();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrNsSendReceive();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrOleAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrOleFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrPartialIgnoreClientBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrPartialIgnoreClientMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrPartialIgnoreServerInitialize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrPartialIgnoreServerUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrPointerBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrPointerFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrPointerMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrPointerMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrPointerUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrRangeUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrRpcSmClientAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrRpcSmClientFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrRpcSmSetClientToOsf();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrRpcSsDefaultAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrRpcSsDefaultFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrRpcSsDisableAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrRpcSsEnableAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrSendReceive();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrServerCall2();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrServerCallAll();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrServerCallNdr64();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrServerContextMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrServerContextNewMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrServerContextNewUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrServerContextUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrServerInitialize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrServerInitializeMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrServerInitializeNew();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrServerInitializePartial();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrServerInitializeUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrSimpleStructBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrSimpleStructFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrSimpleStructMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrSimpleStructMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrSimpleStructUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrSimpleTypeMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrSimpleTypeUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrStubCall2();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrStubCall3();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrUserMarshalBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrUserMarshalFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrUserMarshalMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrUserMarshalMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn NdrUserMarshalSimpleTypeConvert();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrUserMarshalUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrVaryingArrayBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrVaryingArrayFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrVaryingArrayMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrVaryingArrayMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrVaryingArrayUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrXmitOrRepAsBufferSize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrXmitOrRepAsFree();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrXmitOrRepAsMarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrXmitOrRepAsMemorySize();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn NdrXmitOrRepAsUnmarshall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn RpcAsyncAbortCall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn RpcAsyncCancelCall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn RpcAsyncCompleteCall();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn RpcAsyncGetCallStatus();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn RpcAsyncInitializeHandle();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn RpcAsyncRegisterInfo();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn RpcBindingBind();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingCopy();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn RpcBindingCreateA();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn RpcBindingCreateW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingFromStringBindingA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingFromStringBindingW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingInqAuthClientA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingInqAuthClientExA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingInqAuthClientExW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingInqAuthClientW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingInqAuthInfoA();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn RpcBindingInqAuthInfoExA();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn RpcBindingInqAuthInfoExW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingInqAuthInfoW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingInqMaxCalls();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingInqObject();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingInqOption();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingReset();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingServerFromClient();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingSetAuthInfoA();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn RpcBindingSetAuthInfoExA();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn RpcBindingSetAuthInfoExW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingSetAuthInfoW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingSetObject();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingSetOption();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingToStringBindingA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingToStringBindingW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingUnbind();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcBindingVectorFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcCancelThread();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcCancelThreadEx();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+    pub fn RpcCertGeneratePrincipalNameA();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+    pub fn RpcCertGeneratePrincipalNameW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcEpRegisterA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcEpRegisterNoReplaceA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcEpRegisterNoReplaceW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcEpRegisterW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcEpResolveBinding();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcEpUnregister();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RpcErrorAddRecord();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcErrorClearInformation();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcErrorEndEnumeration();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RpcErrorGetNextRecord();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcErrorGetNumberOfRecords();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcErrorLoadErrorInfo();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcErrorResetEnumeration();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcErrorSaveErrorInfo();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcErrorStartEnumeration();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcExceptionFilter();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcFreeAuthorizationContext();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RpcGetAuthorizationContextForClient();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcIfIdVectorFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcIfInqId();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcImpersonateClient();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcImpersonateClient2();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcImpersonateClientContainer();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtEnableIdleCleanup();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtEpEltInqBegin();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtEpEltInqDone();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtEpEltInqNextA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtEpEltInqNextW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtEpUnregister();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtInqComTimeout();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtInqDefaultProtectLevel();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtInqIfIds();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtInqServerPrincNameA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtInqServerPrincNameW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtInqStats();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtIsServerListening();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtSetAuthorizationFn();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtSetCancelTimeout();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtSetComTimeout();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtSetServerStackSize();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtStatsVectorFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtStopServerListening();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcMgmtWaitServerListen();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNetworkInqProtseqsA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNetworkInqProtseqsW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNetworkIsProtseqValidA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNetworkIsProtseqValidW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingExportA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingExportPnPA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingExportPnPW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingExportW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingImportBeginA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingImportBeginW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingImportDone();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingImportNext();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingInqEntryNameA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingInqEntryNameW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingLookupBeginA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingLookupBeginW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingLookupDone();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingLookupNext();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingSelect();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingUnexportA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingUnexportPnPA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingUnexportPnPW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsBindingUnexportW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsEntryExpandNameA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsEntryExpandNameW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsEntryObjectInqBeginA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsEntryObjectInqBeginW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsEntryObjectInqDone();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsEntryObjectInqNext();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsGroupDeleteA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsGroupDeleteW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsGroupMbrAddA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsGroupMbrAddW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsGroupMbrInqBeginA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsGroupMbrInqBeginW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsGroupMbrInqDone();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsGroupMbrInqNextA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsGroupMbrInqNextW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsGroupMbrRemoveA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsGroupMbrRemoveW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsMgmtBindingUnexportA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsMgmtBindingUnexportW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsMgmtEntryCreateA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsMgmtEntryCreateW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsMgmtEntryDeleteA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsMgmtEntryDeleteW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsMgmtEntryInqIfIdsA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsMgmtEntryInqIfIdsW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsMgmtHandleSetExpAge();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsMgmtInqExpAge();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsMgmtSetExpAge();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsProfileDeleteA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsProfileDeleteW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsProfileEltAddA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsProfileEltAddW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsProfileEltInqBeginA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsProfileEltInqBeginW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsProfileEltInqDone();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsProfileEltInqNextA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsProfileEltInqNextW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsProfileEltRemoveA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcNsProfileEltRemoveW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcObjectInqType();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcObjectSetInqFn();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcObjectSetType();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcProtseqVectorFreeA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcProtseqVectorFreeW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcRaiseException();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcRevertContainerImpersonation();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcRevertToSelf();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcRevertToSelfEx();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerCompleteSecurityCallback();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInqBindingHandle();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInqBindings();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInqBindingsEx();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInqCallAttributesA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInqCallAttributesW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInqDefaultPrincNameA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInqDefaultPrincNameW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInqIf();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInterfaceGroupActivate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInterfaceGroupClose();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInterfaceGroupCreateA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInterfaceGroupCreateW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInterfaceGroupDeactivate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerInterfaceGroupInqBindings();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerListen();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerRegisterAuthInfoA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerRegisterAuthInfoW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerRegisterIf();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerRegisterIf2();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerRegisterIf3();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerRegisterIfEx();
+    #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn RpcServerSubscribeForNotification();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerTestCancel();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUnregisterIf();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUnregisterIfEx();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUnsubscribeForNotification();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseAllProtseqs();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseAllProtseqsEx();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseAllProtseqsIf();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseAllProtseqsIfEx();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqEpA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqEpExA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqEpExW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqEpW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqExA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqExW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqIfA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqIfExA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqIfExW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqIfW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerUseProtseqW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcServerYield();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSmAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSmClientFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSmDestroyClientContext();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSmDisableAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSmEnableAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSmFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSmGetThreadHandle();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSmSetClientAllocFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSmSetThreadHandle();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSmSwapClientAllocFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsContextLockExclusive();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsContextLockShared();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsDestroyClientContext();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsDisableAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsDontSerializeContext();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsEnableAllocate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsGetContextBinding();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsGetThreadHandle();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsSetClientAllocFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsSetThreadHandle();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcSsSwapClientAllocFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcStringBindingComposeA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcStringBindingComposeW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcStringBindingParseA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcStringBindingParseW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcStringFreeA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcStringFreeW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcTestCancel();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn RpcUserFree();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn UuidCompare();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn UuidCreate();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn UuidCreateNil();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn UuidCreateSequential();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn UuidEqual();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn UuidFromStringA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn UuidFromStringW();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn UuidHash();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn UuidIsNil();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn UuidToStringA();
+    #[doc = "*Required features: `Win32_System_Rpc`*"]
+    pub fn UuidToStringW();
 }

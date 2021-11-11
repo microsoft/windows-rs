@@ -1,247 +1,730 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn LdapGetLastError();
-    fn LdapMapErrorToWin32();
-    fn LdapUTF8ToUnicode();
-    fn LdapUnicodeToUTF8();
-    fn ber_alloc_t();
-    fn ber_bvdup();
-    fn ber_bvecfree();
-    fn ber_bvfree();
-    fn ber_first_element();
-    fn ber_flatten();
-    fn ber_free();
-    fn ber_init();
-    fn ber_next_element();
-    fn ber_peek_tag();
-    fn ber_printf();
-    fn ber_scanf();
-    fn ber_skip_tag();
-    fn cldap_open();
-    fn cldap_openA();
-    fn cldap_openW();
-    fn ldap_abandon();
-    fn ldap_add();
-    fn ldap_addA();
-    fn ldap_addW();
-    fn ldap_add_ext();
-    fn ldap_add_extA();
-    fn ldap_add_extW();
-    fn ldap_add_ext_s();
-    fn ldap_add_ext_sA();
-    fn ldap_add_ext_sW();
-    fn ldap_add_s();
-    fn ldap_add_sA();
-    fn ldap_add_sW();
-    fn ldap_bind();
-    fn ldap_bindA();
-    fn ldap_bindW();
-    fn ldap_bind_s();
-    fn ldap_bind_sA();
-    fn ldap_bind_sW();
-    fn ldap_check_filterA();
-    fn ldap_check_filterW();
-    fn ldap_cleanup();
-    fn ldap_close_extended_op();
-    fn ldap_compare();
-    fn ldap_compareA();
-    fn ldap_compareW();
-    fn ldap_compare_ext();
-    fn ldap_compare_extA();
-    fn ldap_compare_extW();
-    fn ldap_compare_ext_s();
-    fn ldap_compare_ext_sA();
-    fn ldap_compare_ext_sW();
-    fn ldap_compare_s();
-    fn ldap_compare_sA();
-    fn ldap_compare_sW();
-    fn ldap_conn_from_msg();
-    fn ldap_connect();
-    fn ldap_control_free();
-    fn ldap_control_freeA();
-    fn ldap_control_freeW();
-    fn ldap_controls_free();
-    fn ldap_controls_freeA();
-    fn ldap_controls_freeW();
-    fn ldap_count_entries();
-    fn ldap_count_references();
-    fn ldap_count_values();
-    fn ldap_count_valuesA();
-    fn ldap_count_valuesW();
-    fn ldap_count_values_len();
-    fn ldap_create_page_control();
-    fn ldap_create_page_controlA();
-    fn ldap_create_page_controlW();
-    fn ldap_create_sort_control();
-    fn ldap_create_sort_controlA();
-    fn ldap_create_sort_controlW();
-    fn ldap_create_vlv_controlA();
-    fn ldap_create_vlv_controlW();
-    fn ldap_delete();
-    fn ldap_deleteA();
-    fn ldap_deleteW();
-    fn ldap_delete_ext();
-    fn ldap_delete_extA();
-    fn ldap_delete_extW();
-    fn ldap_delete_ext_s();
-    fn ldap_delete_ext_sA();
-    fn ldap_delete_ext_sW();
-    fn ldap_delete_s();
-    fn ldap_delete_sA();
-    fn ldap_delete_sW();
-    fn ldap_dn2ufn();
-    fn ldap_dn2ufnA();
-    fn ldap_dn2ufnW();
-    fn ldap_encode_sort_controlA();
-    fn ldap_encode_sort_controlW();
-    fn ldap_err2string();
-    fn ldap_err2stringA();
-    fn ldap_err2stringW();
-    fn ldap_escape_filter_element();
-    fn ldap_escape_filter_elementA();
-    fn ldap_escape_filter_elementW();
-    fn ldap_explode_dn();
-    fn ldap_explode_dnA();
-    fn ldap_explode_dnW();
-    fn ldap_extended_operation();
-    fn ldap_extended_operationA();
-    fn ldap_extended_operationW();
-    fn ldap_extended_operation_sA();
-    fn ldap_extended_operation_sW();
-    fn ldap_first_attribute();
-    fn ldap_first_attributeA();
-    fn ldap_first_attributeW();
-    fn ldap_first_entry();
-    fn ldap_first_reference();
-    fn ldap_free_controls();
-    fn ldap_free_controlsA();
-    fn ldap_free_controlsW();
-    fn ldap_get_dn();
-    fn ldap_get_dnA();
-    fn ldap_get_dnW();
-    fn ldap_get_next_page();
-    fn ldap_get_next_page_s();
-    fn ldap_get_option();
-    fn ldap_get_optionW();
-    fn ldap_get_paged_count();
-    fn ldap_get_values();
-    fn ldap_get_valuesA();
-    fn ldap_get_valuesW();
-    fn ldap_get_values_len();
-    fn ldap_get_values_lenA();
-    fn ldap_get_values_lenW();
-    fn ldap_init();
-    fn ldap_initA();
-    fn ldap_initW();
-    fn ldap_memfree();
-    fn ldap_memfreeA();
-    fn ldap_memfreeW();
-    fn ldap_modify();
-    fn ldap_modifyA();
-    fn ldap_modifyW();
-    fn ldap_modify_ext();
-    fn ldap_modify_extA();
-    fn ldap_modify_extW();
-    fn ldap_modify_ext_s();
-    fn ldap_modify_ext_sA();
-    fn ldap_modify_ext_sW();
-    fn ldap_modify_s();
-    fn ldap_modify_sA();
-    fn ldap_modify_sW();
-    fn ldap_modrdn();
-    fn ldap_modrdn2();
-    fn ldap_modrdn2A();
-    fn ldap_modrdn2W();
-    fn ldap_modrdn2_s();
-    fn ldap_modrdn2_sA();
-    fn ldap_modrdn2_sW();
-    fn ldap_modrdnA();
-    fn ldap_modrdnW();
-    fn ldap_modrdn_s();
-    fn ldap_modrdn_sA();
-    fn ldap_modrdn_sW();
-    fn ldap_msgfree();
-    fn ldap_next_attribute();
-    fn ldap_next_attributeA();
-    fn ldap_next_attributeW();
-    fn ldap_next_entry();
-    fn ldap_next_reference();
-    fn ldap_open();
-    fn ldap_openA();
-    fn ldap_openW();
-    fn ldap_parse_extended_resultA();
-    fn ldap_parse_extended_resultW();
-    fn ldap_parse_page_control();
-    fn ldap_parse_page_controlA();
-    fn ldap_parse_page_controlW();
-    fn ldap_parse_reference();
-    fn ldap_parse_referenceA();
-    fn ldap_parse_referenceW();
-    fn ldap_parse_result();
-    fn ldap_parse_resultA();
-    fn ldap_parse_resultW();
-    fn ldap_parse_sort_control();
-    fn ldap_parse_sort_controlA();
-    fn ldap_parse_sort_controlW();
-    fn ldap_parse_vlv_controlA();
-    fn ldap_parse_vlv_controlW();
-    fn ldap_perror();
-    fn ldap_rename_ext();
-    fn ldap_rename_extA();
-    fn ldap_rename_extW();
-    fn ldap_rename_ext_s();
-    fn ldap_rename_ext_sA();
-    fn ldap_rename_ext_sW();
-    fn ldap_result();
-    fn ldap_result2error();
-    fn ldap_sasl_bindA();
-    fn ldap_sasl_bindW();
-    fn ldap_sasl_bind_sA();
-    fn ldap_sasl_bind_sW();
-    fn ldap_search();
-    fn ldap_searchA();
-    fn ldap_searchW();
-    fn ldap_search_abandon_page();
-    fn ldap_search_ext();
-    fn ldap_search_extA();
-    fn ldap_search_extW();
-    fn ldap_search_ext_s();
-    fn ldap_search_ext_sA();
-    fn ldap_search_ext_sW();
-    fn ldap_search_init_page();
-    fn ldap_search_init_pageA();
-    fn ldap_search_init_pageW();
-    fn ldap_search_s();
-    fn ldap_search_sA();
-    fn ldap_search_sW();
-    fn ldap_search_st();
-    fn ldap_search_stA();
-    fn ldap_search_stW();
-    fn ldap_set_dbg_flags();
-    fn ldap_set_dbg_routine();
-    fn ldap_set_option();
-    fn ldap_set_optionW();
-    fn ldap_simple_bind();
-    fn ldap_simple_bindA();
-    fn ldap_simple_bindW();
-    fn ldap_simple_bind_s();
-    fn ldap_simple_bind_sA();
-    fn ldap_simple_bind_sW();
-    fn ldap_sslinit();
-    fn ldap_sslinitA();
-    fn ldap_sslinitW();
-    fn ldap_start_tls_sA();
-    fn ldap_start_tls_sW();
-    fn ldap_startup();
-    fn ldap_stop_tls_s();
-    fn ldap_ufn2dn();
-    fn ldap_ufn2dnA();
-    fn ldap_ufn2dnW();
-    fn ldap_unbind();
-    fn ldap_unbind_s();
-    fn ldap_value_free();
-    fn ldap_value_freeA();
-    fn ldap_value_freeW();
-    fn ldap_value_free_len();
+    #[doc = "*Required features: `Win32_Networking_Ldap`*"]
+    pub fn LdapGetLastError();
+    #[doc = "*Required features: `Win32_Networking_Ldap`*"]
+    pub fn LdapMapErrorToWin32();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LdapUTF8ToUnicode();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LdapUnicodeToUTF8();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_alloc_t();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_bvdup();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_bvecfree();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_bvfree();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_first_element();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_flatten();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_free();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_init();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_next_element();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_peek_tag();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_printf();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_scanf();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ber_skip_tag();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn cldap_open();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn cldap_openA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn cldap_openW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_abandon();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_add();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_addA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_addW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_add_ext();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_add_extA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_add_extW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_add_ext_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_add_ext_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_add_ext_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_add_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_add_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_add_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_bind();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_bindA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_bindW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_bind_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_bind_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_bind_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_check_filterA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_check_filterW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_cleanup();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_close_extended_op();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compare();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compareA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compareW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compare_ext();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compare_extA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compare_extW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compare_ext_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compare_ext_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compare_ext_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compare_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compare_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_compare_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_conn_from_msg();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_connect();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_control_free();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_control_freeA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_control_freeW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_controls_free();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_controls_freeA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_controls_freeW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_count_entries();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_count_references();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_count_values();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_count_valuesA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_count_valuesW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_count_values_len();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_create_page_control();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_create_page_controlA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_create_page_controlW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_create_sort_control();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_create_sort_controlA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_create_sort_controlW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_create_vlv_controlA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_create_vlv_controlW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_delete();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_deleteA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_deleteW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_delete_ext();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_delete_extA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_delete_extW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_delete_ext_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_delete_ext_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_delete_ext_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_delete_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_delete_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_delete_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_dn2ufn();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_dn2ufnA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_dn2ufnW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_encode_sort_controlA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_encode_sort_controlW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_err2string();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_err2stringA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_err2stringW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_escape_filter_element();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_escape_filter_elementA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_escape_filter_elementW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_explode_dn();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_explode_dnA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_explode_dnW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_extended_operation();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_extended_operationA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_extended_operationW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_extended_operation_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_extended_operation_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_first_attribute();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_first_attributeA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_first_attributeW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_first_entry();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_first_reference();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_free_controls();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_free_controlsA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_free_controlsW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_dn();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_dnA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_dnW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_next_page();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_next_page_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_option();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_optionW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_paged_count();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_values();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_valuesA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_valuesW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_values_len();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_values_lenA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_get_values_lenW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_init();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_initA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_initW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_memfree();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_memfreeA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_memfreeW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modify();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modifyA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modifyW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modify_ext();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modify_extA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modify_extW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modify_ext_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modify_ext_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modify_ext_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modify_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modify_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modify_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdn();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdn2();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdn2A();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdn2W();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdn2_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdn2_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdn2_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdnA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdnW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdn_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdn_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_modrdn_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_msgfree();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_next_attribute();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_next_attributeA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_next_attributeW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_next_entry();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_next_reference();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_open();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_openA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_openW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_extended_resultA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_extended_resultW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_page_control();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_page_controlA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_page_controlW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_reference();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_referenceA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_referenceW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_result();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_resultA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_resultW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_sort_control();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_sort_controlA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_sort_controlW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_vlv_controlA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_parse_vlv_controlW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_perror();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_rename_ext();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_rename_extA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_rename_extW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_rename_ext_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_rename_ext_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_rename_ext_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_result();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_result2error();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_sasl_bindA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_sasl_bindW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_sasl_bind_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_sasl_bind_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_searchA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_searchW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_abandon_page();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_ext();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_extA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_extW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_ext_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_ext_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_ext_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_init_page();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_init_pageA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_init_pageW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_st();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_stA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_search_stW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`*"]
+    pub fn ldap_set_dbg_flags();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_set_dbg_routine();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_set_option();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_set_optionW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_simple_bind();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_simple_bindA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_simple_bindW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_simple_bind_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_simple_bind_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_simple_bind_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_sslinit();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_sslinitA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_sslinitW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_start_tls_sA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_start_tls_sW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_startup();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_stop_tls_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_ufn2dn();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_ufn2dnA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_ufn2dnW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_unbind();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_unbind_s();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_value_free();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_value_freeA();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_value_freeW();
+    #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ldap_value_free_len();
 }

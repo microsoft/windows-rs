@@ -1,6 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn SRSetRestorePointA();
-    fn SRSetRestorePointW();
+    #[doc = "*Required features: `Win32_System_Restore`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SRSetRestorePointA();
+    #[doc = "*Required features: `Win32_System_Restore`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SRSetRestorePointW();
 }

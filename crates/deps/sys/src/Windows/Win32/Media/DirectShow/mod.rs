@@ -3,6 +3,10 @@
 pub mod Xml;
 #[link(name = "windows")]
 extern "system" {
-    fn AMGetErrorTextA();
-    fn AMGetErrorTextW();
+    #[doc = "*Required features: `Win32_Media_DirectShow`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AMGetErrorTextA();
+    #[doc = "*Required features: `Win32_Media_DirectShow`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AMGetErrorTextW();
 }

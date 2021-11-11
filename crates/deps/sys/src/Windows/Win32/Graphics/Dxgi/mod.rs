@@ -3,9 +3,14 @@
 pub mod Common;
 #[link(name = "windows")]
 extern "system" {
-    fn CreateDXGIFactory();
-    fn CreateDXGIFactory1();
-    fn CreateDXGIFactory2();
-    fn DXGIDeclareAdapterRemovalSupport();
-    fn DXGIGetDebugInterface1();
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
+    pub fn CreateDXGIFactory();
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
+    pub fn CreateDXGIFactory1();
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
+    pub fn CreateDXGIFactory2();
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
+    pub fn DXGIDeclareAdapterRemovalSupport();
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
+    pub fn DXGIGetDebugInterface1();
 }

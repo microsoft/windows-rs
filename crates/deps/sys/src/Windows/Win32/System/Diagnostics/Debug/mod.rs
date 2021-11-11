@@ -3,332 +3,997 @@
 pub mod WebApp;
 #[link(name = "windows")]
 extern "system" {
-    fn AddVectoredContinueHandler();
-    fn AddVectoredExceptionHandler();
-    fn Beep();
-    fn BindImage();
-    fn BindImageEx();
-    fn CheckRemoteDebuggerPresent();
-    fn CheckSumMappedFile();
-    fn CheckSumMappedFile();
-    fn CloseThreadWaitChainSession();
-    fn ContinueDebugEvent();
-    fn CopyContext();
-    fn CreateDataModelManager();
-    fn DbgHelpCreateUserDump();
-    fn DbgHelpCreateUserDumpW();
-    fn DebugActiveProcess();
-    fn DebugActiveProcessStop();
-    fn DebugBreak();
-    fn DebugBreakProcess();
-    fn DebugConnect();
-    fn DebugConnectWide();
-    fn DebugCreate();
-    fn DebugCreateEx();
-    fn DebugSetProcessKillOnExit();
-    fn DecodePointer();
-    fn DecodeRemotePointer();
-    fn DecodeSystemPointer();
-    fn EncodePointer();
-    fn EncodeRemotePointer();
-    fn EncodeSystemPointer();
-    fn EnumDirTree();
-    fn EnumDirTreeW();
-    fn EnumerateLoadedModules();
-    fn EnumerateLoadedModules64();
-    fn EnumerateLoadedModulesEx();
-    fn EnumerateLoadedModulesExW();
-    fn EnumerateLoadedModulesW64();
-    fn FatalAppExitA();
-    fn FatalAppExitW();
-    fn FatalExit();
-    fn FindDebugInfoFile();
-    fn FindDebugInfoFileEx();
-    fn FindDebugInfoFileExW();
-    fn FindExecutableImage();
-    fn FindExecutableImageEx();
-    fn FindExecutableImageExW();
-    fn FindFileInPath();
-    fn FindFileInSearchPath();
-    fn FlushInstructionCache();
-    fn FormatMessageA();
-    fn FormatMessageW();
-    fn GetEnabledXStateFeatures();
-    fn GetErrorMode();
-    fn GetImageConfigInformation();
-    fn GetImageConfigInformation();
-    fn GetImageUnusedHeaderBytes();
-    fn GetSymLoadError();
-    fn GetThreadContext();
-    fn GetThreadErrorMode();
-    fn GetThreadSelectorEntry();
-    fn GetThreadWaitChain();
-    fn GetTimestampForLoadedLibrary();
-    fn GetXStateFeaturesMask();
-    fn ImageAddCertificate();
-    fn ImageDirectoryEntryToData();
-    fn ImageDirectoryEntryToDataEx();
-    fn ImageEnumerateCertificates();
-    fn ImageGetCertificateData();
-    fn ImageGetCertificateHeader();
-    fn ImageGetDigestStream();
-    fn ImageLoad();
-    fn ImageNtHeader();
-    fn ImageNtHeader();
-    fn ImageRemoveCertificate();
-    fn ImageRvaToSection();
-    fn ImageRvaToSection();
-    fn ImageRvaToVa();
-    fn ImageRvaToVa();
-    fn ImageUnload();
-    fn ImagehlpApiVersion();
-    fn ImagehlpApiVersionEx();
-    fn InitializeContext();
-    fn InitializeContext2();
-    fn IsDebuggerPresent();
-    fn LocateXStateFeature();
-    fn MakeSureDirectoryPathExists();
-    fn MapAndLoad();
-    fn MapFileAndCheckSumA();
-    fn MapFileAndCheckSumW();
-    fn MessageBeep();
-    fn MiniDumpReadDumpStream();
-    fn MiniDumpWriteDump();
-    fn OpenThreadWaitChainSession();
-    fn OutputDebugStringA();
-    fn OutputDebugStringW();
-    fn RaiseException();
-    fn RaiseFailFastException();
-    fn RangeMapAddPeImageSections();
-    fn RangeMapCreate();
-    fn RangeMapFree();
-    fn RangeMapRead();
-    fn RangeMapRemove();
-    fn RangeMapWrite();
-    fn ReBaseImage();
-    fn ReBaseImage64();
-    fn ReadProcessMemory();
-    fn RegisterWaitChainCOMCallback();
-    fn RemoveInvalidModuleList();
-    fn RemoveVectoredContinueHandler();
-    fn RemoveVectoredExceptionHandler();
-    fn ReportSymbolLoadSummary();
-    fn RtlAddFunctionTable();
-    fn RtlAddFunctionTable();
-    fn RtlAddGrowableFunctionTable();
-    fn RtlAddGrowableFunctionTable();
-    fn RtlCaptureContext();
-    fn RtlCaptureContext2();
-    fn RtlCaptureStackBackTrace();
-    fn RtlDeleteFunctionTable();
-    fn RtlDeleteFunctionTable();
-    fn RtlDeleteGrowableFunctionTable();
-    fn RtlGrowFunctionTable();
-    fn RtlInstallFunctionTableCallback();
-    fn RtlLookupFunctionEntry();
-    fn RtlLookupFunctionEntry();
-    fn RtlPcToFileHeader();
-    fn RtlRaiseException();
-    fn RtlRestoreContext();
-    fn RtlUnwind();
-    fn RtlUnwindEx();
-    fn RtlVirtualUnwind();
-    fn RtlVirtualUnwind();
-    fn SearchTreeForFile();
-    fn SearchTreeForFileW();
-    fn SetCheckUserInterruptShared();
-    fn SetErrorMode();
-    fn SetImageConfigInformation();
-    fn SetImageConfigInformation();
-    fn SetSymLoadError();
-    fn SetThreadContext();
-    fn SetThreadErrorMode();
-    fn SetUnhandledExceptionFilter();
-    fn SetXStateFeaturesMask();
-    fn StackWalk();
-    fn StackWalk64();
-    fn StackWalkEx();
-    fn SymAddSourceStream();
-    fn SymAddSourceStreamA();
-    fn SymAddSourceStreamW();
-    fn SymAddSymbol();
-    fn SymAddSymbolW();
-    fn SymAddrIncludeInlineTrace();
-    fn SymCleanup();
-    fn SymCompareInlineTrace();
-    fn SymDeleteSymbol();
-    fn SymDeleteSymbolW();
-    fn SymEnumLines();
-    fn SymEnumLinesW();
-    fn SymEnumProcesses();
-    fn SymEnumSourceFileTokens();
-    fn SymEnumSourceFiles();
-    fn SymEnumSourceFilesW();
-    fn SymEnumSourceLines();
-    fn SymEnumSourceLinesW();
-    fn SymEnumSym();
-    fn SymEnumSymbols();
-    fn SymEnumSymbolsEx();
-    fn SymEnumSymbolsExW();
-    fn SymEnumSymbolsForAddr();
-    fn SymEnumSymbolsForAddrW();
-    fn SymEnumSymbolsW();
-    fn SymEnumTypes();
-    fn SymEnumTypesByName();
-    fn SymEnumTypesByNameW();
-    fn SymEnumTypesW();
-    fn SymEnumerateModules();
-    fn SymEnumerateModules64();
-    fn SymEnumerateModulesW64();
-    fn SymEnumerateSymbols();
-    fn SymEnumerateSymbols64();
-    fn SymEnumerateSymbolsW();
-    fn SymEnumerateSymbolsW64();
-    fn SymFindDebugInfoFile();
-    fn SymFindDebugInfoFileW();
-    fn SymFindExecutableImage();
-    fn SymFindExecutableImageW();
-    fn SymFindFileInPath();
-    fn SymFindFileInPathW();
-    fn SymFromAddr();
-    fn SymFromAddrW();
-    fn SymFromIndex();
-    fn SymFromIndexW();
-    fn SymFromInlineContext();
-    fn SymFromInlineContextW();
-    fn SymFromName();
-    fn SymFromNameW();
-    fn SymFromToken();
-    fn SymFromTokenW();
-    fn SymFunctionTableAccess();
-    fn SymFunctionTableAccess64();
-    fn SymFunctionTableAccess64AccessRoutines();
-    fn SymGetExtendedOption();
-    fn SymGetFileLineOffsets64();
-    fn SymGetHomeDirectory();
-    fn SymGetHomeDirectoryW();
-    fn SymGetLineFromAddr();
-    fn SymGetLineFromAddr64();
-    fn SymGetLineFromAddrW64();
-    fn SymGetLineFromInlineContext();
-    fn SymGetLineFromInlineContextW();
-    fn SymGetLineFromName();
-    fn SymGetLineFromName64();
-    fn SymGetLineFromNameW64();
-    fn SymGetLineNext();
-    fn SymGetLineNext64();
-    fn SymGetLineNextW64();
-    fn SymGetLinePrev();
-    fn SymGetLinePrev64();
-    fn SymGetLinePrevW64();
-    fn SymGetModuleBase();
-    fn SymGetModuleBase64();
-    fn SymGetModuleInfo();
-    fn SymGetModuleInfo64();
-    fn SymGetModuleInfoW();
-    fn SymGetModuleInfoW64();
-    fn SymGetOmaps();
-    fn SymGetOptions();
-    fn SymGetScope();
-    fn SymGetScopeW();
-    fn SymGetSearchPath();
-    fn SymGetSearchPathW();
-    fn SymGetSourceFile();
-    fn SymGetSourceFileChecksum();
-    fn SymGetSourceFileChecksumW();
-    fn SymGetSourceFileFromToken();
-    fn SymGetSourceFileFromTokenByTokenName();
-    fn SymGetSourceFileFromTokenByTokenNameW();
-    fn SymGetSourceFileFromTokenW();
-    fn SymGetSourceFileToken();
-    fn SymGetSourceFileTokenByTokenName();
-    fn SymGetSourceFileTokenByTokenNameW();
-    fn SymGetSourceFileTokenW();
-    fn SymGetSourceFileW();
-    fn SymGetSourceVarFromToken();
-    fn SymGetSourceVarFromTokenW();
-    fn SymGetSymFromAddr();
-    fn SymGetSymFromAddr64();
-    fn SymGetSymFromName();
-    fn SymGetSymFromName64();
-    fn SymGetSymNext();
-    fn SymGetSymNext64();
-    fn SymGetSymPrev();
-    fn SymGetSymPrev64();
-    fn SymGetSymbolFile();
-    fn SymGetSymbolFileW();
-    fn SymGetTypeFromName();
-    fn SymGetTypeFromNameW();
-    fn SymGetTypeInfo();
-    fn SymGetTypeInfoEx();
-    fn SymGetUnwindInfo();
-    fn SymInitialize();
-    fn SymInitializeW();
-    fn SymLoadModule();
-    fn SymLoadModule64();
-    fn SymLoadModuleEx();
-    fn SymLoadModuleExW();
-    fn SymMatchFileName();
-    fn SymMatchFileNameW();
-    fn SymMatchString();
-    fn SymMatchStringA();
-    fn SymMatchStringW();
-    fn SymNext();
-    fn SymNextW();
-    fn SymPrev();
-    fn SymPrevW();
-    fn SymQueryInlineTrace();
-    fn SymRefreshModuleList();
-    fn SymRegisterCallback();
-    fn SymRegisterCallback64();
-    fn SymRegisterCallbackW64();
-    fn SymRegisterFunctionEntryCallback();
-    fn SymRegisterFunctionEntryCallback64();
-    fn SymSearch();
-    fn SymSearchW();
-    fn SymSetContext();
-    fn SymSetExtendedOption();
-    fn SymSetHomeDirectory();
-    fn SymSetHomeDirectoryW();
-    fn SymSetOptions();
-    fn SymSetParentWindow();
-    fn SymSetScopeFromAddr();
-    fn SymSetScopeFromIndex();
-    fn SymSetScopeFromInlineContext();
-    fn SymSetSearchPath();
-    fn SymSetSearchPathW();
-    fn SymSrvDeltaName();
-    fn SymSrvDeltaNameW();
-    fn SymSrvGetFileIndexInfo();
-    fn SymSrvGetFileIndexInfoW();
-    fn SymSrvGetFileIndexString();
-    fn SymSrvGetFileIndexStringW();
-    fn SymSrvGetFileIndexes();
-    fn SymSrvGetFileIndexesW();
-    fn SymSrvGetSupplement();
-    fn SymSrvGetSupplementW();
-    fn SymSrvIsStore();
-    fn SymSrvIsStoreW();
-    fn SymSrvStoreFile();
-    fn SymSrvStoreFileW();
-    fn SymSrvStoreSupplement();
-    fn SymSrvStoreSupplementW();
-    fn SymUnDName();
-    fn SymUnDName64();
-    fn SymUnloadModule();
-    fn SymUnloadModule64();
-    fn TerminateProcessOnMemoryExhaustion();
-    fn TouchFileTimes();
-    fn UnDecorateSymbolName();
-    fn UnDecorateSymbolNameW();
-    fn UnMapAndLoad();
-    fn UnhandledExceptionFilter();
-    fn UpdateDebugInfoFile();
-    fn UpdateDebugInfoFileEx();
-    fn WaitForDebugEvent();
-    fn WaitForDebugEventEx();
-    fn Wow64GetThreadContext();
-    fn Wow64GetThreadSelectorEntry();
-    fn Wow64SetThreadContext();
-    fn WriteProcessMemory();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn AddVectoredContinueHandler();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn AddVectoredExceptionHandler();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Beep();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BindImage();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BindImageEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CheckRemoteDebuggerPresent();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    pub fn CheckSumMappedFile();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86",))]
+    pub fn CheckSumMappedFile();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn CloseThreadWaitChainSession();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ContinueDebugEvent();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn CopyContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn CreateDataModelManager();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DbgHelpCreateUserDump();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DbgHelpCreateUserDumpW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DebugActiveProcess();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DebugActiveProcessStop();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn DebugBreak();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DebugBreakProcess();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DebugConnect();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DebugConnectWide();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn DebugCreate();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn DebugCreateEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DebugSetProcessKillOnExit();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn DecodePointer();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DecodeRemotePointer();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn DecodeSystemPointer();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn EncodePointer();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EncodeRemotePointer();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn EncodeSystemPointer();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDirTree();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDirTreeW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumerateLoadedModules();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumerateLoadedModules64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumerateLoadedModulesEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumerateLoadedModulesExW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumerateLoadedModulesW64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FatalAppExitA();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FatalAppExitW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn FatalExit();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindDebugInfoFile();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindDebugInfoFileEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindDebugInfoFileExW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindExecutableImage();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindExecutableImageEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindExecutableImageExW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindFileInPath();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindFileInSearchPath();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FlushInstructionCache();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FormatMessageA();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FormatMessageW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+    pub fn GetEnabledXStateFeatures();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn GetErrorMode();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn GetImageConfigInformation();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn GetImageConfigInformation();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn GetImageUnusedHeaderBytes();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn GetSymLoadError();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn GetThreadContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn GetThreadErrorMode();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetThreadSelectorEntry();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetThreadWaitChain();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetTimestampForLoadedLibrary();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn GetXStateFeaturesMask();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_Security_WinTrust`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
+    pub fn ImageAddCertificate();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImageDirectoryEntryToData();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImageDirectoryEntryToDataEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImageEnumerateCertificates();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_Security_WinTrust`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
+    pub fn ImageGetCertificateData();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_Security_WinTrust`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
+    pub fn ImageGetCertificateHeader();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImageGetDigestStream();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn ImageLoad();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    pub fn ImageNtHeader();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86",))]
+    pub fn ImageNtHeader();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImageRemoveCertificate();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    pub fn ImageRvaToSection();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86",))]
+    pub fn ImageRvaToSection();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    pub fn ImageRvaToVa();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86",))]
+    pub fn ImageRvaToVa();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn ImageUnload();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn ImagehlpApiVersion();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn ImagehlpApiVersionEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn InitializeContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn InitializeContext2();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsDebuggerPresent();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
+    #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+    #[cfg(feature = "Win32_System_Kernel")]
+    pub fn LocateXStateFeature();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MakeSureDirectoryPathExists();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn MapAndLoad();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MapFileAndCheckSumA();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MapFileAndCheckSumW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MessageBeep();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MiniDumpReadDumpStream();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_Storage_FileSystem`, `Win32_System_Kernel`, `Win32_System_Memory`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+    pub fn MiniDumpWriteDump();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OpenThreadWaitChainSession();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OutputDebugStringA();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OutputDebugStringW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn RaiseException();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn RaiseFailFastException();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RangeMapAddPeImageSections();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn RangeMapCreate();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn RangeMapFree();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RangeMapRead();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RangeMapRemove();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RangeMapWrite();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ReBaseImage();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ReBaseImage64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ReadProcessMemory();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn RegisterWaitChainCOMCallback();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RemoveInvalidModuleList();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn RemoveVectoredContinueHandler();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn RemoveVectoredExceptionHandler();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ReportSymbolLoadSummary();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "aarch64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlAddFunctionTable();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86_64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlAddFunctionTable();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "aarch64",))]
+    pub fn RtlAddGrowableFunctionTable();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86_64",))]
+    pub fn RtlAddGrowableFunctionTable();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
+    #[cfg(feature = "Win32_System_Kernel")]
+    pub fn RtlCaptureContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
+    #[cfg(any(target_arch = "x86_64",))]
+    #[cfg(feature = "Win32_System_Kernel")]
+    pub fn RtlCaptureContext2();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn RtlCaptureStackBackTrace();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "aarch64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlDeleteFunctionTable();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86_64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlDeleteFunctionTable();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    pub fn RtlDeleteGrowableFunctionTable();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    pub fn RtlGrowFunctionTable();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlInstallFunctionTableCallback();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "aarch64",))]
+    pub fn RtlLookupFunctionEntry();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    #[cfg(any(target_arch = "x86_64",))]
+    pub fn RtlLookupFunctionEntry();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn RtlPcToFileHeader();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlRaiseException();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn RtlRestoreContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlUnwind();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn RtlUnwindEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(any(target_arch = "aarch64",))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn RtlVirtualUnwind();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(any(target_arch = "x86_64",))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn RtlVirtualUnwind();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SearchTreeForFile();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SearchTreeForFileW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn SetCheckUserInterruptShared();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn SetErrorMode();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn SetImageConfigInformation();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn SetImageConfigInformation();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn SetSymLoadError();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn SetThreadContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetThreadErrorMode();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn SetUnhandledExceptionFilter();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn SetXStateFeaturesMask();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StackWalk();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StackWalk64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StackWalkEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymAddSourceStream();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymAddSourceStreamA();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymAddSourceStreamW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymAddSymbol();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymAddSymbolW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymAddrIncludeInlineTrace();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymCleanup();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymCompareInlineTrace();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymDeleteSymbol();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymDeleteSymbolW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumLines();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumLinesW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumProcesses();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSourceFileTokens();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSourceFiles();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSourceFilesW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSourceLines();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSourceLinesW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSym();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSymbols();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSymbolsEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSymbolsExW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSymbolsForAddr();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSymbolsForAddrW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumSymbolsW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumTypes();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumTypesByName();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumTypesByNameW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumTypesW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumerateModules();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumerateModules64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumerateModulesW64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumerateSymbols();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumerateSymbols64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumerateSymbolsW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymEnumerateSymbolsW64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFindDebugInfoFile();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFindDebugInfoFileW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFindExecutableImage();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFindExecutableImageW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFindFileInPath();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFindFileInPathW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFromAddr();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFromAddrW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFromIndex();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFromIndexW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFromInlineContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFromInlineContextW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFromName();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFromNameW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFromToken();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFromTokenW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFunctionTableAccess();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFunctionTableAccess64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymFunctionTableAccess64AccessRoutines();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetExtendedOption();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetFileLineOffsets64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetHomeDirectory();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetHomeDirectoryW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLineFromAddr();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLineFromAddr64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLineFromAddrW64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLineFromInlineContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLineFromInlineContextW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLineFromName();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLineFromName64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLineFromNameW64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLineNext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLineNext64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLineNextW64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLinePrev();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLinePrev64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetLinePrevW64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetModuleBase();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetModuleBase64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetModuleInfo();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetModuleInfo64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetModuleInfoW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetModuleInfoW64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetOmaps();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn SymGetOptions();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetScope();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetScopeW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSearchPath();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSearchPathW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFile();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFileChecksum();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFileChecksumW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFileFromToken();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFileFromTokenByTokenName();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFileFromTokenByTokenNameW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFileFromTokenW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFileToken();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFileTokenByTokenName();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFileTokenByTokenNameW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFileTokenW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceFileW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceVarFromToken();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSourceVarFromTokenW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSymFromAddr();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSymFromAddr64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSymFromName();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSymFromName64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSymNext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSymNext64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSymPrev();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSymPrev64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSymbolFile();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetSymbolFileW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetTypeFromName();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetTypeFromNameW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetTypeInfo();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetTypeInfoEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymGetUnwindInfo();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymInitialize();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymInitializeW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymLoadModule();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymLoadModule64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymLoadModuleEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymLoadModuleExW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymMatchFileName();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymMatchFileNameW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymMatchString();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymMatchStringA();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymMatchStringW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymNext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymNextW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymPrev();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymPrevW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymQueryInlineTrace();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymRefreshModuleList();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymRegisterCallback();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymRegisterCallback64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymRegisterCallbackW64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymRegisterFunctionEntryCallback();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymRegisterFunctionEntryCallback64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSearch();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSearchW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSetContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSetExtendedOption();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSetHomeDirectory();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSetHomeDirectoryW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn SymSetOptions();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSetParentWindow();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSetScopeFromAddr();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSetScopeFromIndex();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSetScopeFromInlineContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSetSearchPath();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSetSearchPathW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvDeltaName();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvDeltaNameW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvGetFileIndexInfo();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvGetFileIndexInfoW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvGetFileIndexString();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvGetFileIndexStringW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvGetFileIndexes();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvGetFileIndexesW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvGetSupplement();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvGetSupplementW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvIsStore();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvIsStoreW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvStoreFile();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvStoreFileW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvStoreSupplement();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymSrvStoreSupplementW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymUnDName();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymUnDName64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(any(target_arch = "x86",))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymUnloadModule();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SymUnloadModule64();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
+    pub fn TerminateProcessOnMemoryExhaustion();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TouchFileTimes();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UnDecorateSymbolName();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UnDecorateSymbolNameW();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn UnMapAndLoad();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Kernel`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    pub fn UnhandledExceptionFilter();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UpdateDebugInfoFile();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UpdateDebugInfoFileEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Threading`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
+    pub fn WaitForDebugEvent();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`, `Win32_System_Threading`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
+    pub fn WaitForDebugEventEx();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Wow64GetThreadContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Wow64GetThreadSelectorEntry();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Wow64SetThreadContext();
+    #[doc = "*Required features: `Win32_System_Diagnostics_Debug`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WriteProcessMemory();
 }

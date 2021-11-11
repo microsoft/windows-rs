@@ -1,64 +1,174 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn DnsAcquireContextHandle_A();
-    fn DnsAcquireContextHandle_W();
-    fn DnsCancelQuery();
-    fn DnsConnectionDeletePolicyEntries();
-    fn DnsConnectionDeleteProxyInfo();
-    fn DnsConnectionFreeNameList();
-    fn DnsConnectionFreeProxyInfo();
-    fn DnsConnectionFreeProxyInfoEx();
-    fn DnsConnectionFreeProxyList();
-    fn DnsConnectionGetNameList();
-    fn DnsConnectionGetProxyInfo();
-    fn DnsConnectionGetProxyInfoForHostUrl();
-    fn DnsConnectionGetProxyList();
-    fn DnsConnectionSetPolicyEntries();
-    fn DnsConnectionSetProxyInfo();
-    fn DnsConnectionUpdateIfIndexTable();
-    fn DnsExtractRecordsFromMessage_UTF8();
-    fn DnsExtractRecordsFromMessage_W();
-    fn DnsFree();
-    fn DnsFreeCustomServers();
-    fn DnsFreeProxyName();
-    fn DnsGetApplicationSettings();
-    fn DnsGetProxyInformation();
-    fn DnsModifyRecordsInSet_A();
-    fn DnsModifyRecordsInSet_UTF8();
-    fn DnsModifyRecordsInSet_W();
-    fn DnsNameCompare_A();
-    fn DnsNameCompare_W();
-    fn DnsQueryConfig();
-    fn DnsQueryEx();
-    fn DnsQuery_A();
-    fn DnsQuery_UTF8();
-    fn DnsQuery_W();
-    fn DnsRecordCompare();
-    fn DnsRecordCopyEx();
-    fn DnsRecordSetCompare();
-    fn DnsRecordSetCopyEx();
-    fn DnsRecordSetDetach();
-    fn DnsReleaseContextHandle();
-    fn DnsReplaceRecordSetA();
-    fn DnsReplaceRecordSetUTF8();
-    fn DnsReplaceRecordSetW();
-    fn DnsServiceBrowse();
-    fn DnsServiceBrowseCancel();
-    fn DnsServiceConstructInstance();
-    fn DnsServiceCopyInstance();
-    fn DnsServiceDeRegister();
-    fn DnsServiceFreeInstance();
-    fn DnsServiceRegister();
-    fn DnsServiceRegisterCancel();
-    fn DnsServiceResolve();
-    fn DnsServiceResolveCancel();
-    fn DnsSetApplicationSettings();
-    fn DnsStartMulticastQuery();
-    fn DnsStopMulticastQuery();
-    fn DnsValidateName_A();
-    fn DnsValidateName_UTF8();
-    fn DnsValidateName_W();
-    fn DnsWriteQuestionToBuffer_UTF8();
-    fn DnsWriteQuestionToBuffer_W();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+    pub fn DnsAcquireContextHandle_A();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+    pub fn DnsAcquireContextHandle_W();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsCancelQuery();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+    pub fn DnsConnectionDeletePolicyEntries();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsConnectionDeleteProxyInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+    pub fn DnsConnectionFreeNameList();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsConnectionFreeProxyInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsConnectionFreeProxyInfoEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsConnectionFreeProxyList();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+    pub fn DnsConnectionGetNameList();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsConnectionGetProxyInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsConnectionGetProxyInfoForHostUrl();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsConnectionGetProxyList();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsConnectionSetPolicyEntries();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsConnectionSetProxyInfo();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsConnectionUpdateIfIndexTable();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsExtractRecordsFromMessage_UTF8();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsExtractRecordsFromMessage_W();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+    pub fn DnsFree();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsFreeCustomServers();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsFreeProxyName();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsGetApplicationSettings();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsGetProxyInformation();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsModifyRecordsInSet_A();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsModifyRecordsInSet_UTF8();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsModifyRecordsInSet_W();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsNameCompare_A();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsNameCompare_W();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsQueryConfig();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsQueryEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsQuery_A();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsQuery_UTF8();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsQuery_W();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsRecordCompare();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsRecordCopyEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsRecordSetCompare();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsRecordSetCopyEx();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsRecordSetDetach();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsReleaseContextHandle();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsReplaceRecordSetA();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsReplaceRecordSetUTF8();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsReplaceRecordSetW();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsServiceBrowse();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+    pub fn DnsServiceBrowseCancel();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsServiceConstructInstance();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsServiceCopyInstance();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsServiceDeRegister();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsServiceFreeInstance();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsServiceRegister();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+    pub fn DnsServiceRegisterCancel();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsServiceResolve();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+    pub fn DnsServiceResolveCancel();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsSetApplicationSettings();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsStartMulticastQuery();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+    pub fn DnsStopMulticastQuery();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsValidateName_A();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsValidateName_UTF8();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsValidateName_W();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsWriteQuestionToBuffer_UTF8();
+    #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsWriteQuestionToBuffer_W();
 }

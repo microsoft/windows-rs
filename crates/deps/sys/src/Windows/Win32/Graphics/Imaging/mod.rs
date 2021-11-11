@@ -3,13 +3,29 @@
 pub mod D2D;
 #[link(name = "windows")]
 extern "system" {
-    fn WICConvertBitmapSource();
-    fn WICCreateBitmapFromSection();
-    fn WICCreateBitmapFromSectionEx();
-    fn WICGetMetadataContentSize();
-    fn WICMapGuidToShortName();
-    fn WICMapSchemaToName();
-    fn WICMapShortNameToGuid();
-    fn WICMatchMetadataContent();
-    fn WICSerializeMetadataContent();
+    #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
+    pub fn WICConvertBitmapSource();
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WICCreateBitmapFromSection();
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WICCreateBitmapFromSectionEx();
+    #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
+    pub fn WICGetMetadataContentSize();
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WICMapGuidToShortName();
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WICMapSchemaToName();
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WICMapShortNameToGuid();
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn WICMatchMetadataContent();
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn WICSerializeMetadataContent();
 }

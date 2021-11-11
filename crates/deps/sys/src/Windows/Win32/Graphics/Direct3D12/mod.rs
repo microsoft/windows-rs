@@ -1,12 +1,23 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    fn D3D12CreateDevice();
-    fn D3D12CreateRootSignatureDeserializer();
-    fn D3D12CreateVersionedRootSignatureDeserializer();
-    fn D3D12EnableExperimentalFeatures();
-    fn D3D12GetDebugInterface();
-    fn D3D12GetInterface();
-    fn D3D12SerializeRootSignature();
-    fn D3D12SerializeVersionedRootSignature();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub fn D3D12CreateDevice();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+    pub fn D3D12CreateRootSignatureDeserializer();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+    pub fn D3D12CreateVersionedRootSignatureDeserializer();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+    pub fn D3D12EnableExperimentalFeatures();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+    pub fn D3D12GetDebugInterface();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+    pub fn D3D12GetInterface();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub fn D3D12SerializeRootSignature();
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub fn D3D12SerializeVersionedRootSignature();
 }

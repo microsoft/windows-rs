@@ -27,11 +27,18 @@ pub mod Streaming;
 pub mod WindowsMediaFormat;
 #[link(name = "windows")]
 extern "system" {
-    fn timeBeginPeriod();
-    fn timeEndPeriod();
-    fn timeGetDevCaps();
-    fn timeGetSystemTime();
-    fn timeGetTime();
-    fn timeKillEvent();
-    fn timeSetEvent();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeBeginPeriod();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeEndPeriod();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeGetDevCaps();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeGetSystemTime();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeGetTime();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeKillEvent();
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeSetEvent();
 }
