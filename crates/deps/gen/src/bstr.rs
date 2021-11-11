@@ -48,40 +48,34 @@ pub fn gen_bstr() -> TokenStream {
                 Self::from_wide(self.as_wide())
             }
         }
-        // TODO: these str traits should work with no_std
-        #[cfg(feature = "std")]
         impl ::core::convert::From<&str> for BSTR {
             fn from(value: &str) -> Self {
-                let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
+                let value: ::windows::runtime::alloc::vec::Vec<u16> = value.encode_utf16().collect();
                 Self::from_wide(&value)
             }
         }
-        #[cfg(feature = "std")]
-        impl ::core::convert::From<::std::string::String> for BSTR {
-            fn from(value: ::std::string::String) -> Self {
+        impl ::core::convert::From<::windows::runtime::alloc::string::String> for BSTR {
+            fn from(value: ::windows::runtime::alloc::string::String) -> Self {
                 value.as_str().into()
             }
         }
-        #[cfg(feature = "std")]
-        impl  ::core::convert::From<&::std::string::String> for BSTR {
-            fn from(value: &::std::string::String) -> Self {
+        impl  ::core::convert::From<&::windows::runtime::alloc::string::String> for BSTR {
+            fn from(value: &::windows::runtime::alloc::string::String) -> Self {
                 value.as_str().into()
             }
         }
-        #[cfg(feature = "std")]
-        impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::std::string::String {
-            type Error = ::std::string::FromUtf16Error;
+        impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::windows::runtime::alloc::string::String {
+            type Error = ::windows::runtime::alloc::string::FromUtf16Error;
 
             fn try_from(value: &BSTR) -> ::core::result::Result<Self, Self::Error> {
-                ::std::string::String::from_utf16(value.as_wide())
+                ::windows::runtime::alloc::string::String::from_utf16(value.as_wide())
             }
         }
-        #[cfg(feature = "std")]
-        impl ::core::convert::TryFrom<BSTR> for ::std::string::String {
-            type Error = ::std::string::FromUtf16Error;
+        impl ::core::convert::TryFrom<BSTR> for ::windows::runtime::alloc::string::String {
+            type Error = ::windows::runtime::alloc::string::FromUtf16Error;
 
             fn try_from(value: BSTR) -> ::core::result::Result<Self, Self::Error> {
-                ::std::string::String::try_from(&value)
+                ::windows::runtime::alloc::string::String::try_from(&value)
             }
         }
         impl ::core::default::Default for BSTR {
@@ -108,9 +102,8 @@ pub fn gen_bstr() -> TokenStream {
                 self.as_wide() == other.as_wide()
             }
         }
-        #[cfg(feature = "std")]
-        impl ::core::cmp::PartialEq<::std::string::String> for BSTR {
-            fn eq(&self, other: &::std::string::String) -> bool {
+        impl ::core::cmp::PartialEq<::windows::runtime::alloc::string::String> for BSTR {
+            fn eq(&self, other: &::windows::runtime::alloc::string::String) -> bool {
                 self == other.as_str()
             }
         }
@@ -141,14 +134,14 @@ pub fn gen_bstr() -> TokenStream {
             type Abi = ::core::mem::ManuallyDrop<Self>;
         }
         pub type BSTR_abi = *mut u16;
-        #[cfg(feature = "std")]
+        #[cfg(feature = "alloc")]
         impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for &str {
             fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
                 ::windows::runtime::Param::Owned(self.into())
             }
         }
-        #[cfg(feature = "std")]
-        impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for ::std::string::String {
+        #[cfg(feature = "alloc")]
+        impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for ::windows::runtime::alloc::string::String {
             fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
                 ::windows::runtime::Param::Owned(self.into())
             }

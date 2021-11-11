@@ -46,9 +46,8 @@ impl HSTRING {
     }
 
     /// Get the contents of this `HSTRING` as a String lossily.
-    #[cfg(feature = "std")]
-    pub fn to_string_lossy(&self) -> String {
-        String::from_utf16_lossy(self.as_wide())
+    pub fn to_string_lossy(&self) -> alloc::string::String {
+        alloc::string::String::from_utf16_lossy(self.as_wide())
     }
 
     /// Clear the contents of the string and free the memory if `self` holds the
@@ -155,16 +154,14 @@ impl From<&str> for HSTRING {
     }
 }
 
-#[cfg(feature = "std")]
-impl From<String> for HSTRING {
-    fn from(value: String) -> Self {
+impl From<alloc::string::String> for HSTRING {
+    fn from(value: alloc::string::String) -> Self {
         value.as_str().into()
     }
 }
 
-#[cfg(feature = "std")]
-impl From<&String> for HSTRING {
-    fn from(value: &String) -> Self {
+impl From<&alloc::string::String> for HSTRING {
+    fn from(value: &alloc::string::String) -> Self {
         value.as_str().into()
     }
 }
@@ -175,23 +172,20 @@ impl PartialEq for HSTRING {
     }
 }
 
-#[cfg(feature = "std")]
-impl PartialEq<String> for HSTRING {
-    fn eq(&self, other: &String) -> bool {
+impl PartialEq<alloc::string::String> for HSTRING {
+    fn eq(&self, other: &alloc::string::String) -> bool {
         *self == **other
     }
 }
 
-#[cfg(feature = "std")]
-impl PartialEq<String> for &HSTRING {
-    fn eq(&self, other: &String) -> bool {
+impl PartialEq<alloc::string::String> for &HSTRING {
+    fn eq(&self, other: &alloc::string::String) -> bool {
         **self == **other
     }
 }
 
-#[cfg(feature = "std")]
-impl PartialEq<&String> for HSTRING {
-    fn eq(&self, other: &&String) -> bool {
+impl PartialEq<&alloc::string::String> for HSTRING {
+    fn eq(&self, other: &&alloc::string::String) -> bool {
         *self == ***other
     }
 }
@@ -232,42 +226,51 @@ impl PartialEq<&HSTRING> for str {
     }
 }
 
-#[cfg(feature = "std")]
-impl PartialEq<HSTRING> for String {
+impl PartialEq<HSTRING> for alloc::string::String {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == **self
     }
 }
 
-#[cfg(feature = "std")]
-impl PartialEq<HSTRING> for &String {
+impl PartialEq<HSTRING> for &alloc::string::String {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == ***self
     }
 }
 
-#[cfg(feature = "std")]
-impl PartialEq<&HSTRING> for String {
+impl PartialEq<&HSTRING> for alloc::string::String {
     fn eq(&self, other: &&HSTRING) -> bool {
         **other == **self
     }
 }
 
-#[cfg(feature = "std")]
-impl<'a> core::convert::TryFrom<&'a HSTRING> for String {
+impl<'a> core::convert::TryFrom<&'a HSTRING> for alloc::string::String {
     type Error = alloc::string::FromUtf16Error;
 
     fn try_from(hstring: &HSTRING) -> core::result::Result<Self, Self::Error> {
-        String::from_utf16(hstring.as_wide())
+        alloc::string::String::from_utf16(hstring.as_wide())
     }
 }
 
-#[cfg(feature = "std")]
-impl core::convert::TryFrom<HSTRING> for String {
+impl core::convert::TryFrom<HSTRING> for alloc::string::String {
     type Error = alloc::string::FromUtf16Error;
 
     fn try_from(hstring: HSTRING) -> core::result::Result<Self, Self::Error> {
-        String::try_from(&hstring)
+        alloc::string::String::try_from(&hstring)
+    }
+}
+
+#[cfg(feature = "alloc")]
+impl<'a> IntoParam<'a, HSTRING> for &str {
+    fn into_param(self) -> Param<'a, HSTRING> {
+        Param::Owned(self.into())
+    }
+}
+
+#[cfg(feature = "alloc")]
+impl<'a> IntoParam<'a, HSTRING> for alloc::string::String {
+    fn into_param(self) -> Param<'a, HSTRING> {
+        Param::Owned(self.into())
     }
 }
 

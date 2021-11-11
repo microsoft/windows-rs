@@ -5,11 +5,12 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
-windows = { path = "../../../.." }
+windows = { path = "../../../..", features = ["build", "alloc"] }
 
 [build-dependencies]
-windows = { path = "../../../..", features = ["build"] }
+windows = { path = "../../../..", features = ["build", "alloc"] }
 
 [features]
-default = ["std"]
+default = ["alloc", "std"]
+alloc = []
 std = []
