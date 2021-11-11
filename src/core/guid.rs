@@ -76,7 +76,7 @@ impl core::fmt::Debug for GUID {
     }
 }
 
-impl From<&str> for GUID {
+impl core::convert::From<&str> for GUID {
     fn from(value: &str) -> Self {
         assert!(value.len() == 36, "Invalid GUID string");
         let mut bytes = value.bytes();

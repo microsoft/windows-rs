@@ -110,6 +110,12 @@ impl<T> core::convert::From<Result<T>> for HRESULT {
     }
 }
 
+impl core::convert::From<windows_sys::core::HRESULT> for HRESULT {
+    fn from(value: windows_sys::core::HRESULT) -> Self {
+        Self(value.0)
+    }
+}
+
 struct HeapString(*mut u16);
 
 impl Drop for HeapString {
