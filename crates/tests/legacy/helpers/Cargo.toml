@@ -11,5 +11,5 @@ windows = { path = "../../../.." }
 windows = { path = "../../../..", features = ["build"] }
 
 [features]
-default = ["std"]
-std = []
+default = ["alloc"]
+alloc = []

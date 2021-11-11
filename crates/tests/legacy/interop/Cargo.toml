@@ -8,4 +8,8 @@ edition = "2018"
 windows = { path = "../../../.." }
 
 [build-dependencies]
-windows = { path = "../../../..", features = ["build"] }
+windows = { path = "../../../..", features = ["build", "alloc"] }
+
+[features]
+default = ["alloc"]
+alloc = []

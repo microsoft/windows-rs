@@ -15,5 +15,5 @@ helpers = { package = "test_helpers", path = "../helpers" }
 windows = { path = "../../../..", features = ["build"] }
 
 [features]
-default = ["std"]
-std = []
+default = ["alloc"]
+alloc = []
