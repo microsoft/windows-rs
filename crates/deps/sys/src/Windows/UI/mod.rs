@@ -1,1 +1,31 @@
-
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[cfg(feature = "UI_Accessibility")]
+pub mod Accessibility;
+#[cfg(feature = "UI_ApplicationSettings")]
+pub mod ApplicationSettings;
+#[cfg(feature = "UI_Composition")]
+pub mod Composition;
+#[cfg(feature = "UI_Core")]
+pub mod Core;
+#[cfg(feature = "UI_Input")]
+pub mod Input;
+#[cfg(feature = "UI_Notifications")]
+pub mod Notifications;
+#[cfg(feature = "UI_Popups")]
+pub mod Popups;
+#[cfg(feature = "UI_Shell")]
+pub mod Shell;
+#[cfg(feature = "UI_StartScreen")]
+pub mod StartScreen;
+#[cfg(feature = "UI_Text")]
+pub mod Text;
+#[cfg(feature = "UI_UIAutomation")]
+pub mod UIAutomation;
+#[cfg(feature = "UI_ViewManagement")]
+pub mod ViewManagement;
+#[cfg(feature = "UI_WebUI")]
+pub mod WebUI;
+#[cfg(feature = "UI_WindowManagement")]
+pub mod WindowManagement;
+#[cfg(feature = "UI_Xaml")]
+pub mod Xaml;

@@ -1,1 +1,29 @@
-
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[cfg(feature = "UI_Xaml_Automation")]
+pub mod Automation;
+#[cfg(feature = "UI_Xaml_Controls")]
+pub mod Controls;
+#[cfg(feature = "UI_Xaml_Core")]
+pub mod Core;
+#[cfg(feature = "UI_Xaml_Data")]
+pub mod Data;
+#[cfg(feature = "UI_Xaml_Documents")]
+pub mod Documents;
+#[cfg(feature = "UI_Xaml_Hosting")]
+pub mod Hosting;
+#[cfg(feature = "UI_Xaml_Input")]
+pub mod Input;
+#[cfg(feature = "UI_Xaml_Interop")]
+pub mod Interop;
+#[cfg(feature = "UI_Xaml_Markup")]
+pub mod Markup;
+#[cfg(feature = "UI_Xaml_Media")]
+pub mod Media;
+#[cfg(feature = "UI_Xaml_Navigation")]
+pub mod Navigation;
+#[cfg(feature = "UI_Xaml_Printing")]
+pub mod Printing;
+#[cfg(feature = "UI_Xaml_Resources")]
+pub mod Resources;
+#[cfg(feature = "UI_Xaml_Shapes")]
+pub mod Shapes;

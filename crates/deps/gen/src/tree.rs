@@ -1,5 +1,29 @@
 use super::*;
 
+pub fn gen_sys_file(root: &'static str, tree: &TypeTree, ignore_windows_features: bool) -> TokenStream {
+    let _gen = Gen { relative: tree.namespace, root, ignore_windows_features };
+
+    //let types = tree.types.values().map(move |t| gen_type_entry(t, &gen));
+
+    let namespaces = tree.namespaces.iter().filter_map(move |(name, tree)| {
+        if !tree.include {
+            return None;
+        }
+
+        let name = to_ident(name);
+        let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
+        Some(quote! {
+            #[cfg(feature = #namespace)] pub mod #name;
+        })
+    });
+
+    quote! {
+        #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+        #(#namespaces)*
+        //#(#types)*
+    }
+}
+
 pub fn gen_source_file(root: &'static str, tree: &TypeTree, ignore_windows_features: bool) -> TokenStream {
     let gen = Gen { relative: tree.namespace, root, ignore_windows_features };
 

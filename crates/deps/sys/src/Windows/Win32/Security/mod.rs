@@ -1,1 +1,33 @@
-
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[cfg(feature = "Win32_Security_AppLocker")]
+pub mod AppLocker;
+#[cfg(feature = "Win32_Security_Authentication")]
+pub mod Authentication;
+#[cfg(feature = "Win32_Security_Authorization")]
+pub mod Authorization;
+#[cfg(feature = "Win32_Security_ConfigurationSnapin")]
+pub mod ConfigurationSnapin;
+#[cfg(feature = "Win32_Security_Credentials")]
+pub mod Credentials;
+#[cfg(feature = "Win32_Security_Cryptography")]
+pub mod Cryptography;
+#[cfg(feature = "Win32_Security_DiagnosticDataQuery")]
+pub mod DiagnosticDataQuery;
+#[cfg(feature = "Win32_Security_DirectoryServices")]
+pub mod DirectoryServices;
+#[cfg(feature = "Win32_Security_EnterpriseData")]
+pub mod EnterpriseData;
+#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+pub mod ExtensibleAuthenticationProtocol;
+#[cfg(feature = "Win32_Security_Isolation")]
+pub mod Isolation;
+#[cfg(feature = "Win32_Security_LicenseProtection")]
+pub mod LicenseProtection;
+#[cfg(feature = "Win32_Security_NetworkAccessProtection")]
+pub mod NetworkAccessProtection;
+#[cfg(feature = "Win32_Security_Tpm")]
+pub mod Tpm;
+#[cfg(feature = "Win32_Security_WinTrust")]
+pub mod WinTrust;
+#[cfg(feature = "Win32_Security_WinWlx")]
+pub mod WinWlx;
