@@ -60,7 +60,7 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies]
-windows_sys = { path = "crates/deps/sys",  version = "0.26.0" }
+windows-sys = { path = "crates/deps/sys",  version = "0.26.0" }
 windows_macros = { path = "crates/deps/macros",  version = "0.26.0", optional = true }
 windows_reader = { path = "crates/deps/reader", version = "0.26.0", optional = true }
 windows_gen = { path = "crates/deps/gen",  version = "0.26.0", optional = true }
