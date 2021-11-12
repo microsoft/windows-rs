@@ -173,8 +173,6 @@ pub struct NT_TIB {
     pub Self_: *mut NT_TIB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-impl ::core::marker::Copy for NT_TIB {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::clone::Clone for NT_TIB {
     fn clone(&self) -> Self {
         *self
@@ -262,7 +260,6 @@ impl ::core::clone::Clone for PROCESSOR_NUMBER {
 pub struct QUAD {
     pub Anonymous: QUAD_0,
 }
-impl ::core::marker::Copy for QUAD {}
 impl ::core::clone::Clone for QUAD {
     fn clone(&self) -> Self {
         *self
@@ -283,7 +280,6 @@ pub struct RTL_BALANCED_NODE {
     pub Anonymous1: RTL_BALANCED_NODE_0,
     pub Anonymous2: RTL_BALANCED_NODE_1,
 }
-impl ::core::marker::Copy for RTL_BALANCED_NODE {}
 impl ::core::clone::Clone for RTL_BALANCED_NODE {
     fn clone(&self) -> Self {
         *self

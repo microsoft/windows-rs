@@ -191,8 +191,6 @@ pub struct CHARFORMAT2A {
     pub bUnderlineColor: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CHARFORMAT2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHARFORMAT2A {
     fn clone(&self) -> Self {
         *self
@@ -225,7 +223,6 @@ pub struct CHARFORMAT2W {
     pub bRevAuthor: u8,
     pub bUnderlineColor: u8,
 }
-impl ::core::marker::Copy for CHARFORMAT2W {}
 impl ::core::clone::Clone for CHARFORMAT2W {
     fn clone(&self) -> Self {
         *self
@@ -1064,7 +1061,6 @@ pub struct PARAFORMAT {
     pub cTabCount: i16,
     pub rgxTabs: [u32; 32],
 }
-impl ::core::marker::Copy for PARAFORMAT {}
 impl ::core::clone::Clone for PARAFORMAT {
     fn clone(&self) -> Self {
         *self
@@ -1098,7 +1094,6 @@ pub struct PARAFORMAT2 {
     pub wBorderWidth: u16,
     pub wBorders: PARAFORMAT_BORDERS,
 }
-impl ::core::marker::Copy for PARAFORMAT2 {}
 impl ::core::clone::Clone for PARAFORMAT2 {
     fn clone(&self) -> Self {
         *self

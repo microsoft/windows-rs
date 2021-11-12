@@ -211,8 +211,6 @@ pub struct CF_CALLBACK_PARAMETERS {
     pub Anonymous: CF_CALLBACK_PARAMETERS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
@@ -246,8 +244,6 @@ pub struct CF_CALLBACK_PARAMETERS_0_0 {
     pub Flags: CF_CALLBACK_CANCEL_FLAGS,
     pub Anonymous: CF_CALLBACK_PARAMETERS_0_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
@@ -768,8 +764,6 @@ pub struct CF_OPERATION_PARAMETERS {
     pub ParamSize: u32,
     pub Anonymous: CF_OPERATION_PARAMETERS_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::marker::Copy for CF_OPERATION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS {
     fn clone(&self) -> Self {

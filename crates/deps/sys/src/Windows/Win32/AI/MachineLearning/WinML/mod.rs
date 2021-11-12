@@ -60,8 +60,6 @@ pub struct MLOperatorAttributeNameValue {
     pub Anonymous: MLOperatorAttributeNameValue_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MLOperatorAttributeNameValue {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorAttributeNameValue {
     fn clone(&self) -> Self {
         *self
@@ -103,7 +101,6 @@ pub struct MLOperatorEdgeDescription {
     pub edgeType: MLOperatorEdgeType,
     pub Anonymous: MLOperatorEdgeDescription_0,
 }
-impl ::core::marker::Copy for MLOperatorEdgeDescription {}
 impl ::core::clone::Clone for MLOperatorEdgeDescription {
     fn clone(&self) -> Self {
         *self
@@ -238,8 +235,6 @@ pub struct MLOperatorSchemaEdgeDescription {
     pub Anonymous: MLOperatorSchemaEdgeDescription_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MLOperatorSchemaEdgeDescription {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription {
     fn clone(&self) -> Self {
         *self
@@ -317,8 +312,6 @@ pub struct WINML_BINDING_DESC {
     pub BindType: WINML_BINDING_TYPE,
     pub Anonymous: WINML_BINDING_DESC_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-impl ::core::marker::Copy for WINML_BINDING_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl ::core::clone::Clone for WINML_BINDING_DESC {
     fn clone(&self) -> Self {
@@ -402,8 +395,6 @@ pub struct WINML_MAP_BINDING_DESC {
     pub Fields: WINML_TENSOR_DATA_TYPE,
     pub Anonymous2: WINML_MAP_BINDING_DESC_1,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINML_MAP_BINDING_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINML_MAP_BINDING_DESC {
     fn clone(&self) -> Self {
@@ -497,8 +488,6 @@ pub struct WINML_SEQUENCE_BINDING_DESC {
     pub Anonymous: WINML_SEQUENCE_BINDING_DESC_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINML_SEQUENCE_BINDING_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC {
     fn clone(&self) -> Self {
         *self
@@ -588,8 +577,6 @@ pub struct WINML_VARIABLE_DESC {
     pub Required: super::super::super::Foundation::BOOL,
     pub Anonymous: WINML_VARIABLE_DESC_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINML_VARIABLE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINML_VARIABLE_DESC {
     fn clone(&self) -> Self {

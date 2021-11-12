@@ -87,8 +87,6 @@ pub struct INET_FIREWALL_AC_CHANGE {
     pub Anonymous: INET_FIREWALL_AC_CHANGE_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for INET_FIREWALL_AC_CHANGE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE {
     fn clone(&self) -> Self {
         *self

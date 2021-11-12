@@ -115,8 +115,6 @@ pub struct NS_CONTEXT_ATTRIBUTES {
     pub pfnOsVersionCheck: ::core::option::Option<PNS_OSVERSIONCHECK>,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
@@ -168,7 +166,6 @@ pub struct NS_HELPER_ATTRIBUTES {
     pub pfnStart: ::core::option::Option<PNS_HELPER_START_FN>,
     pub pfnStop: ::core::option::Option<PNS_HELPER_STOP_FN>,
 }
-impl ::core::marker::Copy for NS_HELPER_ATTRIBUTES {}
 impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self

@@ -226,7 +226,6 @@ pub struct PSAPI_WORKING_SET_EX_INFORMATION {
     pub VirtualAddress: *mut ::core::ffi::c_void,
     pub VirtualAttributes: PSAPI_WORKING_SET_EX_BLOCK,
 }
-impl ::core::marker::Copy for PSAPI_WORKING_SET_EX_INFORMATION {}
 impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -237,7 +236,6 @@ pub struct PSAPI_WORKING_SET_INFORMATION {
     pub NumberOfEntries: usize,
     pub WorkingSetInfo: [PSAPI_WORKING_SET_BLOCK; 1],
 }
-impl ::core::marker::Copy for PSAPI_WORKING_SET_INFORMATION {}
 impl ::core::clone::Clone for PSAPI_WORKING_SET_INFORMATION {
     fn clone(&self) -> Self {
         *self

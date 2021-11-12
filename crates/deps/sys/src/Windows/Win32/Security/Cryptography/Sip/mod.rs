@@ -123,8 +123,6 @@ pub struct SIP_CAP_SET_V3 {
     pub Anonymous: SIP_CAP_SET_V3_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SIP_CAP_SET_V3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SIP_CAP_SET_V3 {
     fn clone(&self) -> Self {
         *self
@@ -201,8 +199,6 @@ pub struct SIP_SUBJECTINFO {
     pub Anonymous: SIP_SUBJECTINFO_0,
     pub pClientData: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::marker::Copy for SIP_SUBJECTINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::core::clone::Clone for SIP_SUBJECTINFO {
     fn clone(&self) -> Self {

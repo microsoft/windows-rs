@@ -290,8 +290,6 @@ pub struct HTTP_DATA_CHUNK {
     pub Anonymous: HTTP_DATA_CHUNK_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HTTP_DATA_CHUNK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_DATA_CHUNK {
     fn clone(&self) -> Self {
         *self
@@ -1582,8 +1580,6 @@ pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     fn clone(&self) -> Self {
         *self
@@ -1659,8 +1655,6 @@ pub struct HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     pub Anonymous: HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     fn clone(&self) -> Self {
         *self
@@ -1734,8 +1728,6 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX {
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SET_EX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     fn clone(&self) -> Self {
         *self
@@ -1806,8 +1798,6 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     fn clone(&self) -> Self {

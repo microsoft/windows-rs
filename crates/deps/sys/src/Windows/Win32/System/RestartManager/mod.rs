@@ -74,8 +74,6 @@ pub struct RM_FILTER_INFO {
     pub Anonymous: RM_FILTER_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RM_FILTER_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RM_FILTER_INFO {
     fn clone(&self) -> Self {
         *self

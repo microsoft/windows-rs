@@ -1232,8 +1232,6 @@ pub struct DEVMODEA {
     pub dmPanningHeight: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DEVMODEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEA {
     fn clone(&self) -> Self {
         *self
@@ -1329,8 +1327,6 @@ pub struct DEVMODEW {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DEVMODEW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEW {
     fn clone(&self) -> Self {

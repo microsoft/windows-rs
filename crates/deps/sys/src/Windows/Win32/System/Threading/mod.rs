@@ -1175,8 +1175,6 @@ pub struct REASON_CONTEXT {
     pub Reason: REASON_CONTEXT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for REASON_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REASON_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -1544,7 +1542,6 @@ pub struct TP_CALLBACK_ENVIRON_V3 {
     pub CallbackPriority: TP_CALLBACK_PRIORITY,
     pub Size: u32,
 }
-impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3 {}
 impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3 {
     fn clone(&self) -> Self {
         *self
@@ -1637,7 +1634,6 @@ pub struct UMS_SYSTEM_THREAD_INFORMATION {
     pub UmsVersion: u32,
     pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0,
 }
-impl ::core::marker::Copy for UMS_SYSTEM_THREAD_INFORMATION {}
 impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION {
     fn clone(&self) -> Self {
         *self

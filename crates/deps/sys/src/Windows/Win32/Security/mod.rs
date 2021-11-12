@@ -627,8 +627,6 @@ pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     pub Attribute: CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -693,7 +691,6 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     pub ValueCount: u32,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0,
 }
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {}
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     fn clone(&self) -> Self {
         *self
@@ -722,8 +719,6 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
     pub ValueCount: u32,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_V1_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_V1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1 {
     fn clone(&self) -> Self {
@@ -867,8 +862,6 @@ impl ::core::clone::Clone for HDIAGNOSTIC_REPORT {
 pub struct LLFILETIME {
     pub Anonymous: LLFILETIME_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for LLFILETIME {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LLFILETIME {
     fn clone(&self) -> Self {

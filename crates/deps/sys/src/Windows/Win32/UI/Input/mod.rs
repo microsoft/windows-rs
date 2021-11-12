@@ -101,8 +101,6 @@ pub struct RAWINPUT {
     pub data: RAWINPUT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RAWINPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RAWINPUT {
     fn clone(&self) -> Self {
         *self
@@ -209,7 +207,6 @@ pub struct RAWMOUSE {
     pub lLastY: i32,
     pub ulExtraInformation: u32,
 }
-impl ::core::marker::Copy for RAWMOUSE {}
 impl ::core::clone::Clone for RAWMOUSE {
     fn clone(&self) -> Self {
         *self
@@ -264,8 +261,6 @@ pub struct RID_DEVICE_INFO {
     pub dwType: RID_DEVICE_INFO_TYPE,
     pub Anonymous: RID_DEVICE_INFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RID_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RID_DEVICE_INFO {
     fn clone(&self) -> Self {

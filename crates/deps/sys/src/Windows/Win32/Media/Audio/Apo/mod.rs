@@ -180,8 +180,6 @@ pub struct APO_NOTIFICATION {
     pub Anonymous: APO_NOTIFICATION_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::marker::Copy for APO_NOTIFICATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for APO_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
@@ -205,7 +203,6 @@ pub struct APO_NOTIFICATION_DESCRIPTOR {
     pub r#type: APO_NOTIFICATION_TYPE,
     pub Anonymous: APO_NOTIFICATION_DESCRIPTOR_0,
 }
-impl ::core::marker::Copy for APO_NOTIFICATION_DESCRIPTOR {}
 impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self

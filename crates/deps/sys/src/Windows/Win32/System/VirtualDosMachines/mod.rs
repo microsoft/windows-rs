@@ -322,8 +322,6 @@ pub struct VDMLDT_ENTRY {
     pub HighWord: VDMLDT_ENTRY_0,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::marker::Copy for VDMLDT_ENTRY {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::clone::Clone for VDMLDT_ENTRY {
     fn clone(&self) -> Self {
         *self

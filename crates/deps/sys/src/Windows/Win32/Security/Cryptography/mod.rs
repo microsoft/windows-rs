@@ -1583,8 +1583,6 @@ pub struct CERT_ACCESS_DESCRIPTION {
     pub AccessLocation: CERT_ALT_NAME_ENTRY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CERT_ACCESS_DESCRIPTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CERT_ACCESS_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
@@ -1604,8 +1602,6 @@ pub struct CERT_ALT_NAME_ENTRY {
     pub dwAltNameChoice: u32,
     pub Anonymous: CERT_ALT_NAME_ENTRY_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CERT_ALT_NAME_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CERT_ALT_NAME_ENTRY {
     fn clone(&self) -> Self {
@@ -1738,8 +1734,6 @@ pub struct CERT_BIOMETRIC_DATA {
     pub Anonymous: CERT_BIOMETRIC_DATA_0,
     pub HashedUrl: CERT_HASHED_URL,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CERT_BIOMETRIC_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CERT_BIOMETRIC_DATA {
     fn clone(&self) -> Self {
@@ -2334,8 +2328,6 @@ pub struct CERT_GENERAL_SUBTREE {
     pub dwMaximum: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CERT_GENERAL_SUBTREE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CERT_GENERAL_SUBTREE {
     fn clone(&self) -> Self {
         *self
@@ -2364,7 +2356,6 @@ pub struct CERT_ID {
     pub dwIdChoice: CERT_ID_OPTION,
     pub Anonymous: CERT_ID_0,
 }
-impl ::core::marker::Copy for CERT_ID {}
 impl ::core::clone::Clone for CERT_ID {
     fn clone(&self) -> Self {
         *self
@@ -2485,7 +2476,6 @@ pub struct CERT_KEY_CONTEXT {
     pub Anonymous: CERT_KEY_CONTEXT_0,
     pub dwKeySpec: u32,
 }
-impl ::core::marker::Copy for CERT_KEY_CONTEXT {}
 impl ::core::clone::Clone for CERT_KEY_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -2671,8 +2661,6 @@ pub struct CERT_LOGOTYPE_IMAGE_INFO {
     pub pwszLanguage: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CERT_LOGOTYPE_IMAGE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CERT_LOGOTYPE_IMAGE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2706,8 +2694,6 @@ pub struct CERT_LOGOTYPE_INFO {
     pub dwLogotypeInfoChoice: CERT_LOGOTYPE_OPTION,
     pub Anonymous: CERT_LOGOTYPE_INFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CERT_LOGOTYPE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CERT_LOGOTYPE_INFO {
     fn clone(&self) -> Self {
@@ -2879,8 +2865,6 @@ pub struct CERT_OTHER_LOGOTYPE_INFO {
     pub pszObjId: super::super::Foundation::PSTR,
     pub LogotypeInfo: CERT_LOGOTYPE_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CERT_OTHER_LOGOTYPE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CERT_OTHER_LOGOTYPE_INFO {
     fn clone(&self) -> Self {
@@ -3786,8 +3770,6 @@ pub struct CERT_STRONG_SIGN_PARA {
     pub Anonymous: CERT_STRONG_SIGN_PARA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CERT_STRONG_SIGN_PARA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CERT_STRONG_SIGN_PARA {
     fn clone(&self) -> Self {
         *self
@@ -3879,8 +3861,6 @@ pub struct CERT_SYSTEM_STORE_RELOCATE_PARA {
     pub Anonymous1: CERT_SYSTEM_STORE_RELOCATE_PARA_0,
     pub Anonymous2: CERT_SYSTEM_STORE_RELOCATE_PARA_1,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::marker::Copy for CERT_SYSTEM_STORE_RELOCATE_PARA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::clone::Clone for CERT_SYSTEM_STORE_RELOCATE_PARA {
     fn clone(&self) -> Self {
@@ -4234,8 +4214,6 @@ pub struct CMC_STATUS_INFO {
     pub Anonymous: CMC_STATUS_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMC_STATUS_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMC_STATUS_INFO {
     fn clone(&self) -> Self {
         *self
@@ -4313,7 +4291,6 @@ pub struct CMC_TAGGED_REQUEST {
     pub dwTaggedRequestChoice: u32,
     pub Anonymous: CMC_TAGGED_REQUEST_0,
 }
-impl ::core::marker::Copy for CMC_TAGGED_REQUEST {}
 impl ::core::clone::Clone for CMC_TAGGED_REQUEST {
     fn clone(&self) -> Self {
         *self
@@ -4353,8 +4330,6 @@ pub struct CMSG_CMS_RECIPIENT_INFO {
     pub Anonymous: CMSG_CMS_RECIPIENT_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_CMS_RECIPIENT_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_CMS_RECIPIENT_INFO {
     fn clone(&self) -> Self {
         *self
@@ -4385,8 +4360,6 @@ pub struct CMSG_CMS_SIGNER_INFO {
     pub AuthAttrs: CRYPT_ATTRIBUTES,
     pub UnauthAttrs: CRYPT_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_CMS_SIGNER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_CMS_SIGNER_INFO {
     fn clone(&self) -> Self {
@@ -4439,8 +4412,6 @@ pub struct CMSG_CONTENT_ENCRYPT_INFO {
     pub cbContentEncryptKey: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_CONTENT_ENCRYPT_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_CONTENT_ENCRYPT_INFO {
     fn clone(&self) -> Self {
         *self
@@ -4490,7 +4461,6 @@ pub struct CMSG_CTRL_DECRYPT_PARA {
     pub dwKeySpec: u32,
     pub dwRecipientIndex: u32,
 }
-impl ::core::marker::Copy for CMSG_CTRL_DECRYPT_PARA {}
 impl ::core::clone::Clone for CMSG_CTRL_DECRYPT_PARA {
     fn clone(&self) -> Self {
         *self
@@ -4537,8 +4507,6 @@ pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     pub OriginatorPublicKey: CRYPT_BIT_BLOB,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     fn clone(&self) -> Self {
         *self
@@ -4566,8 +4534,6 @@ pub struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_INFO,
     pub dwRecipientIndex: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     fn clone(&self) -> Self {
@@ -4597,8 +4563,6 @@ pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     pub dwKeyChoice: u32,
     pub Anonymous: CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     fn clone(&self) -> Self {
@@ -4729,8 +4693,6 @@ pub struct CMSG_KEY_AGREE_ENCRYPT_INFO {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_KEY_AGREE_ENCRYPT_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_KEY_AGREE_ENCRYPT_INFO {
     fn clone(&self) -> Self {
         *self
@@ -4797,8 +4759,6 @@ pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     pub rgpRecipientEncryptedKeys: *mut *mut CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -4827,8 +4787,6 @@ pub struct CMSG_KEY_AGREE_RECIPIENT_INFO {
     pub cRecipientEncryptedKeys: u32,
     pub rgpRecipientEncryptedKeys: *mut *mut CMSG_RECIPIENT_ENCRYPTED_KEY_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_KEY_AGREE_RECIPIENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_KEY_AGREE_RECIPIENT_INFO {
     fn clone(&self) -> Self {
@@ -4881,8 +4839,6 @@ pub struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     pub RecipientId: CERT_ID,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -4896,8 +4852,6 @@ pub struct CMSG_KEY_TRANS_RECIPIENT_INFO {
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EncryptedKey: CRYPTOAPI_BLOB,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_KEY_TRANS_RECIPIENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_KEY_TRANS_RECIPIENT_INFO {
     fn clone(&self) -> Self {
@@ -4939,8 +4893,6 @@ pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     fn clone(&self) -> Self {
@@ -5010,8 +4962,6 @@ pub struct CMSG_RECIPIENT_ENCODE_INFO {
     pub Anonymous: CMSG_RECIPIENT_ENCODE_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_RECIPIENT_ENCODE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_RECIPIENT_ENCODE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -5040,8 +4990,6 @@ pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -5055,8 +5003,6 @@ pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     fn clone(&self) -> Self {
@@ -5122,8 +5068,6 @@ pub struct CMSG_SIGNER_ENCODE_INFO {
     pub cUnauthAttr: u32,
     pub rgUnauthAttr: *mut CRYPT_ATTRIBUTE,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CMSG_SIGNER_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMSG_SIGNER_ENCODE_INFO {
     fn clone(&self) -> Self {
@@ -5277,8 +5221,6 @@ pub struct CRL_DIST_POINT {
     pub CRLIssuer: CERT_ALT_NAME_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRL_DIST_POINT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRL_DIST_POINT {
     fn clone(&self) -> Self {
         *self
@@ -5309,8 +5251,6 @@ pub struct CRL_DIST_POINT_NAME {
     pub dwDistPointNameChoice: u32,
     pub Anonymous: CRL_DIST_POINT_NAME_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRL_DIST_POINT_NAME {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRL_DIST_POINT_NAME {
     fn clone(&self) -> Self {
@@ -5398,8 +5338,6 @@ pub struct CRL_ISSUING_DIST_POINT {
     pub OnlySomeReasonFlags: CRYPT_BIT_BLOB,
     pub fIndirectCRL: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRL_ISSUING_DIST_POINT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRL_ISSUING_DIST_POINT {
     fn clone(&self) -> Self {
@@ -6342,8 +6280,6 @@ pub struct CRYPT_KEY_SIGN_MESSAGE_PARA {
     pub PubKeyAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRYPT_KEY_SIGN_MESSAGE_PARA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPT_KEY_SIGN_MESSAGE_PARA {
     fn clone(&self) -> Self {
         *self
@@ -6508,8 +6444,6 @@ pub struct CRYPT_OID_INFO {
     pub Anonymous: CRYPT_OID_INFO_0,
     pub ExtraInfo: CRYPTOAPI_BLOB,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRYPT_OID_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPT_OID_INFO {
     fn clone(&self) -> Self {
@@ -7545,8 +7479,6 @@ pub struct CRYPT_XML_KEY_INFO_ITEM {
     pub Anonymous: CRYPT_XML_KEY_INFO_ITEM_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRYPT_XML_KEY_INFO_ITEM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPT_XML_KEY_INFO_ITEM {
     fn clone(&self) -> Self {
         *self
@@ -7584,8 +7516,6 @@ pub struct CRYPT_XML_KEY_VALUE {
     pub dwType: CRYPT_XML_KEY_VALUE_TYPE,
     pub Anonymous: CRYPT_XML_KEY_VALUE_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRYPT_XML_KEY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPT_XML_KEY_VALUE {
     fn clone(&self) -> Self {
@@ -7845,8 +7775,6 @@ pub struct CRYPT_XML_X509DATA_ITEM {
     pub dwType: CRYPT_XML_X509DATA_TYPE,
     pub Anonymous: CRYPT_XML_X509DATA_ITEM_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRYPT_XML_X509DATA_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPT_XML_X509DATA_ITEM {
     fn clone(&self) -> Self {
@@ -8307,8 +8235,6 @@ pub struct HTTPSPolicyCallbackData {
     pub fdwChecks: u32,
     pub pwszServerName: super::super::Foundation::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HTTPSPolicyCallbackData {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTPSPolicyCallbackData {
     fn clone(&self) -> Self {
@@ -9032,8 +8958,6 @@ pub struct OCSP_BASIC_RESPONSE_ENTRY {
     pub rgExtension: *mut CERT_EXTENSION,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OCSP_BASIC_RESPONSE_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OCSP_BASIC_RESPONSE_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -9062,8 +8986,6 @@ pub struct OCSP_BASIC_RESPONSE_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OCSP_BASIC_RESPONSE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OCSP_BASIC_RESPONSE_INFO {
     fn clone(&self) -> Self {

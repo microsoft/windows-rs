@@ -700,8 +700,6 @@ pub struct PACKAGE_ID {
     pub publisherId: super::super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PACKAGE_ID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PACKAGE_ID {
     fn clone(&self) -> Self {
         *self
@@ -717,8 +715,6 @@ pub struct PACKAGE_INFO {
     pub packageFamilyName: super::super::super::Foundation::PWSTR,
     pub packageId: PACKAGE_ID,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PACKAGE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PACKAGE_INFO {
     fn clone(&self) -> Self {
@@ -740,7 +736,6 @@ pub const PACKAGE_PROPERTY_STATIC: u32 = 524288u32;
 pub struct PACKAGE_VERSION {
     pub Anonymous: PACKAGE_VERSION_0,
 }
-impl ::core::marker::Copy for PACKAGE_VERSION {}
 impl ::core::clone::Clone for PACKAGE_VERSION {
     fn clone(&self) -> Self {
         *self

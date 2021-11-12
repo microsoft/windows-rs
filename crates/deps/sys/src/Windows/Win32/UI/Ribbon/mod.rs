@@ -108,8 +108,6 @@ pub struct UI_EVENTPARAMS {
     pub Anonymous: UI_EVENTPARAMS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for UI_EVENTPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UI_EVENTPARAMS {
     fn clone(&self) -> Self {
         *self

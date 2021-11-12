@@ -1209,8 +1209,6 @@ pub struct WRDS_CONNECTION_SETTINGS {
     pub WRdsConnectionSetting: WRDS_CONNECTION_SETTING,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WRDS_CONNECTION_SETTINGS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WRDS_CONNECTION_SETTINGS {
     fn clone(&self) -> Self {
         *self
@@ -1286,8 +1284,6 @@ pub struct WRDS_CONNECTION_SETTINGS_1 {
     pub ContextData: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WRDS_CONNECTION_SETTINGS_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WRDS_CONNECTION_SETTINGS_1 {
     fn clone(&self) -> Self {
         *self
@@ -1345,7 +1341,6 @@ pub struct WRDS_LISTENER_SETTINGS {
     pub WRdsListenerSettingLevel: WRDS_LISTENER_SETTING_LEVEL,
     pub WRdsListenerSetting: WRDS_LISTENER_SETTING,
 }
-impl ::core::marker::Copy for WRDS_LISTENER_SETTINGS {}
 impl ::core::clone::Clone for WRDS_LISTENER_SETTINGS {
     fn clone(&self) -> Self {
         *self
@@ -1409,8 +1404,6 @@ pub struct WRDS_SETTINGS {
     pub WRdsSettingLevel: WRDS_SETTING_LEVEL,
     pub WRdsSetting: WRDS_SETTING,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WRDS_SETTINGS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WRDS_SETTINGS {
     fn clone(&self) -> Self {
@@ -1647,8 +1640,6 @@ pub struct WTSINFOEXA {
     pub Data: WTSINFOEX_LEVEL_A,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WTSINFOEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSINFOEXA {
     fn clone(&self) -> Self {
         *self
@@ -1659,7 +1650,6 @@ pub struct WTSINFOEXW {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_W,
 }
-impl ::core::marker::Copy for WTSINFOEXW {}
 impl ::core::clone::Clone for WTSINFOEXW {
     fn clone(&self) -> Self {
         *self
@@ -2054,7 +2044,6 @@ pub struct WTS_CACHE_STATS {
     pub ProtocolType: u16,
     pub Length: u16,
 }
-impl ::core::marker::Copy for WTS_CACHE_STATS {}
 impl ::core::clone::Clone for WTS_CACHE_STATS {
     fn clone(&self) -> Self {
         *self
@@ -2160,8 +2149,6 @@ pub struct WTS_CLIENT_DATA {
     pub fDisableClip: super::super::Foundation::BOOLEAN,
     pub fDisablePNP: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WTS_CLIENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTS_CLIENT_DATA {
     fn clone(&self) -> Self {
@@ -2471,8 +2458,6 @@ pub struct WTS_PROPERTY_VALUE {
     pub u: WTS_PROPERTY_VALUE_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WTS_PROPERTY_VALUE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTS_PROPERTY_VALUE {
     fn clone(&self) -> Self {
         *self
@@ -2568,7 +2553,6 @@ pub struct WTS_PROTOCOL_STATUS {
     pub AsyncSignalMask: u32,
     pub Counters: [i64; 100],
 }
-impl ::core::marker::Copy for WTS_PROTOCOL_STATUS {}
 impl ::core::clone::Clone for WTS_PROTOCOL_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -2774,7 +2758,6 @@ pub struct WTS_SOCKADDR {
     pub sin_family: u16,
     pub u: WTS_SOCKADDR_0,
 }
-impl ::core::marker::Copy for WTS_SOCKADDR {}
 impl ::core::clone::Clone for WTS_SOCKADDR {
     fn clone(&self) -> Self {
         *self

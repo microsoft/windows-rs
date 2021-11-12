@@ -539,8 +539,6 @@ pub struct WINHTTP_EXTENDED_HEADER {
     pub Anonymous2: WINHTTP_EXTENDED_HEADER_1,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINHTTP_EXTENDED_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINHTTP_EXTENDED_HEADER {
     fn clone(&self) -> Self {
         *self

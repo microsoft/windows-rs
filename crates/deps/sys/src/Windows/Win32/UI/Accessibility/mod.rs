@@ -3539,8 +3539,6 @@ pub struct UiaChangeInfo {
     pub extraInfo: super::super::System::Com::VARIANT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for UiaChangeInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for UiaChangeInfo {
     fn clone(&self) -> Self {
         *self
@@ -3633,8 +3631,6 @@ pub struct UiaPropertyChangedEventArgs {
     pub NewValue: super::super::System::Com::VARIANT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for UiaPropertyChangedEventArgs {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for UiaPropertyChangedEventArgs {
     fn clone(&self) -> Self {
         *self
@@ -3648,8 +3644,6 @@ pub struct UiaPropertyCondition {
     pub Value: super::super::System::Com::VARIANT,
     pub Flags: PropertyConditionFlags,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for UiaPropertyCondition {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for UiaPropertyCondition {
     fn clone(&self) -> Self {

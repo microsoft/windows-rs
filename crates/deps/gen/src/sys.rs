@@ -179,7 +179,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     };
 
     let is_union = def.is_explicit();
-    let has_union = fields.iter().any(|(_, signature, _)| signature.has_explicit());
+    //let has_union = fields.iter().any(|(_, signature, _)| signature.has_explicit());
 
     let fields = fields.iter().map(|(_, signature, name)| {
         let kind = gen_sys_sig(signature, gen);
@@ -193,15 +193,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         quote! { union }
     } else {
         quote! { struct }
-    };
-
-    let copy = if is_union || has_union {
-        quote! {}
-    } else {
-        quote! {
-            #cfg
-            impl ::core::marker::Copy for #name {}
-        }
     };
 
     let nested_structs = gen_nested_structs(struct_name, def, gen, &cfg);
@@ -219,6 +210,8 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
             #(#fields),*
         }
         #copy
+        #cfg
+        impl ::core::marker::Copy for #name {}
         #cfg
         impl ::core::clone::Clone for #name {
             fn clone(&self) -> Self {

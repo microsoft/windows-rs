@@ -950,7 +950,6 @@ pub struct CLFS_MGMT_POLICY {
     pub PolicyType: CLFS_MGMT_POLICY_TYPE,
     pub PolicyParameters: CLFS_MGMT_POLICY_0,
 }
-impl ::core::marker::Copy for CLFS_MGMT_POLICY {}
 impl ::core::clone::Clone for CLFS_MGMT_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -1390,8 +1389,6 @@ pub struct COPYFILE2_MESSAGE {
     pub dwPadding: u32,
     pub Info: COPYFILE2_MESSAGE_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for COPYFILE2_MESSAGE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COPYFILE2_MESSAGE {
     fn clone(&self) -> Self {
@@ -2224,7 +2221,6 @@ pub struct FILE_ID_DESCRIPTOR {
     pub Type: FILE_ID_TYPE,
     pub Anonymous: FILE_ID_DESCRIPTOR_0,
 }
-impl ::core::marker::Copy for FILE_ID_DESCRIPTOR {}
 impl ::core::clone::Clone for FILE_ID_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -2459,7 +2455,6 @@ pub struct FILE_REMOTE_PROTOCOL_INFO {
     pub GenericReserved: FILE_REMOTE_PROTOCOL_INFO_0,
     pub ProtocolSpecific: FILE_REMOTE_PROTOCOL_INFO_1,
 }
-impl ::core::marker::Copy for FILE_REMOTE_PROTOCOL_INFO {}
 impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2525,8 +2520,6 @@ pub struct FILE_RENAME_INFO {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for FILE_RENAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_RENAME_INFO {
     fn clone(&self) -> Self {
@@ -2823,7 +2816,6 @@ pub struct IORING_BUFFER_REF {
     pub Kind: IORING_REF_KIND,
     pub Buffer: IORING_BUFFER_REF_0,
 }
-impl ::core::marker::Copy for IORING_BUFFER_REF {}
 impl ::core::clone::Clone for IORING_BUFFER_REF {
     fn clone(&self) -> Self {
         *self
@@ -2910,8 +2902,6 @@ pub struct IORING_HANDLE_REF {
     pub Kind: IORING_REF_KIND,
     pub Handle: IORING_HANDLE_REF_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for IORING_HANDLE_REF {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IORING_HANDLE_REF {
     fn clone(&self) -> Self {
@@ -3470,8 +3460,6 @@ pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub Info: NTMS_I1_OBJECTINFORMATIONA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NTMS_I1_OBJECTINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONA {
     fn clone(&self) -> Self {
         *self
@@ -3516,8 +3504,6 @@ pub struct NTMS_I1_OBJECTINFORMATIONW {
     pub szDescription: [u16; 127],
     pub Info: NTMS_I1_OBJECTINFORMATIONW_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NTMS_I1_OBJECTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONW {
     fn clone(&self) -> Self {
@@ -3879,8 +3865,6 @@ pub struct NTMS_OBJECTINFORMATIONA {
     pub Info: NTMS_OBJECTINFORMATIONA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NTMS_OBJECTINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONA {
     fn clone(&self) -> Self {
         *self
@@ -3926,8 +3910,6 @@ pub struct NTMS_OBJECTINFORMATIONW {
     pub szDescription: [u16; 127],
     pub Info: NTMS_OBJECTINFORMATIONW_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NTMS_OBJECTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONW {
     fn clone(&self) -> Self {

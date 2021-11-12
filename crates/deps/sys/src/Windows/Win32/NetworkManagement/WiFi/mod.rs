@@ -809,8 +809,6 @@ pub struct DOT11_BSS_ENTRY {
     pub ucBuffer: [u8; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DOT11_BSS_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DOT11_BSS_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -2481,8 +2479,6 @@ pub struct DOT11_PHY_ATTRIBUTES {
     pub SupportedDataRatesValue: DOT11_SUPPORTED_DATA_RATES_VALUE_V2,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-impl ::core::marker::Copy for DOT11_PHY_ATTRIBUTES {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::clone::Clone for DOT11_PHY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
@@ -2536,8 +2532,6 @@ pub struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     pub ulPhyId: u32,
     pub Anonymous: DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::clone::Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     fn clone(&self) -> Self {
@@ -3147,7 +3141,6 @@ pub struct DOT11_RECV_SENSITIVITY_LIST {
     pub uTotalNumOfEntries: u32,
     pub dot11RecvSensitivity: [DOT11_RECV_SENSITIVITY; 1],
 }
-impl ::core::marker::Copy for DOT11_RECV_SENSITIVITY_LIST {}
 impl ::core::clone::Clone for DOT11_RECV_SENSITIVITY_LIST {
     fn clone(&self) -> Self {
         *self
@@ -4067,7 +4060,6 @@ pub struct DOT11_WFD_DEVICE_ENTRY {
     pub uProbeResponseIEsOffset: u32,
     pub uProbeResponseIEsLength: u32,
 }
-impl ::core::marker::Copy for DOT11_WFD_DEVICE_ENTRY {}
 impl ::core::clone::Clone for DOT11_WFD_DEVICE_ENTRY {
     fn clone(&self) -> Self {
         *self

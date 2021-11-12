@@ -93,7 +93,6 @@ pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     pub CommandType: PRJ_COMPLETE_COMMAND_TYPE,
     pub Anonymous: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0,
 }
-impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {}
 impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     fn clone(&self) -> Self {
         *self
@@ -158,8 +157,6 @@ pub struct PRJ_EXTENDED_INFO {
     pub NextInfoOffset: u32,
     pub Anonymous: PRJ_EXTENDED_INFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PRJ_EXTENDED_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PRJ_EXTENDED_INFO {
     fn clone(&self) -> Self {

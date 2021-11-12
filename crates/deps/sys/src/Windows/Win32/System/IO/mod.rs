@@ -35,8 +35,6 @@ pub struct OVERLAPPED {
     pub hEvent: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OVERLAPPED {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OVERLAPPED {
     fn clone(&self) -> Self {
         *self

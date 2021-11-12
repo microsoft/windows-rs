@@ -184,7 +184,6 @@ pub struct INPUT {
     pub r#type: INPUT_TYPE,
     pub Anonymous: INPUT_0,
 }
-impl ::core::marker::Copy for INPUT {}
 impl ::core::clone::Clone for INPUT {
     fn clone(&self) -> Self {
         *self

@@ -58,7 +58,6 @@ pub struct TBS_CONTEXT_PARAMS2 {
     pub version: u32,
     pub Anonymous: TBS_CONTEXT_PARAMS2_0,
 }
-impl ::core::marker::Copy for TBS_CONTEXT_PARAMS2 {}
 impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2 {
     fn clone(&self) -> Self {
         *self

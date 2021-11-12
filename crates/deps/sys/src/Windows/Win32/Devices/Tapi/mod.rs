@@ -1474,8 +1474,6 @@ pub struct LINEAGENTINFO {
     pub dwTotalACDWrapUpTime: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for LINEAGENTINFO {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEAGENTINFO {
     fn clone(&self) -> Self {
         *self
@@ -1530,8 +1528,6 @@ pub struct LINEAGENTSESSIONINFO {
     pub dwLongestTimeToAnswer: u32,
     pub dwAverageTimeToAnswer: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for LINEAGENTSESSIONINFO {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEAGENTSESSIONINFO {
     fn clone(&self) -> Self {
@@ -2432,8 +2428,6 @@ pub struct LINEINITIALIZEEXPARAMS {
     pub dwCompletionKey: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for LINEINITIALIZEEXPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LINEINITIALIZEEXPARAMS {
     fn clone(&self) -> Self {
         *self
@@ -2630,8 +2624,6 @@ pub struct LINEPROXYREQUEST {
     pub Anonymous: LINEPROXYREQUEST_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for LINEPROXYREQUEST {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST {
     fn clone(&self) -> Self {
         *self
@@ -2767,8 +2759,6 @@ pub struct LINEPROXYREQUEST_0_6 {
     pub AgentInfo: LINEAGENTINFO,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for LINEPROXYREQUEST_0_6 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_6 {
     fn clone(&self) -> Self {
         *self
@@ -2780,8 +2770,6 @@ pub struct LINEPROXYREQUEST_0_7 {
     pub hAgentSession: u32,
     pub SessionInfo: LINEAGENTSESSIONINFO,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for LINEPROXYREQUEST_0_7 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_7 {
     fn clone(&self) -> Self {
@@ -3296,8 +3284,6 @@ pub struct MSP_EVENT_INFO {
     pub Anonymous: MSP_EVENT_INFO_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for MSP_EVENT_INFO {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO {
     fn clone(&self) -> Self {
         *self
@@ -3449,8 +3435,6 @@ pub struct NSID {
     pub lTime: i32,
     pub address: NSID_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NSID {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NSID {
     fn clone(&self) -> Self {
@@ -3739,8 +3723,6 @@ pub struct PHONEINITIALIZEEXPARAMS {
     pub Handles: PHONEINITIALIZEEXPARAMS_0,
     pub dwCompletionKey: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PHONEINITIALIZEEXPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PHONEINITIALIZEEXPARAMS {
     fn clone(&self) -> Self {

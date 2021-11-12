@@ -11,8 +11,6 @@ pub struct BG_AUTH_CREDENTIALS {
     pub Credentials: BG_AUTH_CREDENTIALS_UNION,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for BG_AUTH_CREDENTIALS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BG_AUTH_CREDENTIALS {
     fn clone(&self) -> Self {
         *self

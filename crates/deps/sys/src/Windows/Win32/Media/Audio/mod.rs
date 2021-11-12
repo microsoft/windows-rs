@@ -925,7 +925,6 @@ pub struct AUDIOCLIENT_ACTIVATION_PARAMS {
     pub ActivationType: AUDIOCLIENT_ACTIVATION_TYPE,
     pub Anonymous: AUDIOCLIENT_ACTIVATION_PARAMS_0,
 }
-impl ::core::marker::Copy for AUDIOCLIENT_ACTIVATION_PARAMS {}
 impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_PARAMS {
     fn clone(&self) -> Self {
         *self
@@ -2001,8 +2000,6 @@ pub struct MIXERCONTROLA {
     pub Metrics: MIXERCONTROLA_1,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MIXERCONTROLA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA {
     fn clone(&self) -> Self {
         *self
@@ -2072,8 +2069,6 @@ pub struct MIXERCONTROLDETAILS {
     pub cbDetails: u32,
     pub paDetails: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MIXERCONTROLDETAILS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLDETAILS {
     fn clone(&self) -> Self {
@@ -2161,7 +2156,6 @@ pub struct MIXERCONTROLW {
     pub Bounds: MIXERCONTROLW_0,
     pub Metrics: MIXERCONTROLW_1,
 }
-impl ::core::marker::Copy for MIXERCONTROLW {}
 impl ::core::clone::Clone for MIXERCONTROLW {
     fn clone(&self) -> Self {
         *self
@@ -2323,8 +2317,6 @@ pub struct MIXERLINECONTROLSA {
     pub pamxctrl: *mut MIXERCONTROLA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MIXERLINECONTROLSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERLINECONTROLSA {
     fn clone(&self) -> Self {
         *self
@@ -2351,7 +2343,6 @@ pub struct MIXERLINECONTROLSW {
     pub cbmxctrl: u32,
     pub pamxctrl: *mut MIXERCONTROLW,
 }
-impl ::core::marker::Copy for MIXERLINECONTROLSW {}
 impl ::core::clone::Clone for MIXERLINECONTROLSW {
     fn clone(&self) -> Self {
         *self
@@ -3076,7 +3067,6 @@ pub struct WAVEFORMATEXTENSIBLE {
     pub dwChannelMask: u32,
     pub SubFormat: ::windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for WAVEFORMATEXTENSIBLE {}
 impl ::core::clone::Clone for WAVEFORMATEXTENSIBLE {
     fn clone(&self) -> Self {
         *self

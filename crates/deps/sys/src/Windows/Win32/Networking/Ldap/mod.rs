@@ -951,8 +951,6 @@ pub struct ldapmodA {
     pub mod_vals: ldapmodA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ldapmodA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapmodA {
     fn clone(&self) -> Self {
         *self
@@ -977,8 +975,6 @@ pub struct ldapmodW {
     pub mod_type: super::super::Foundation::PWSTR,
     pub mod_vals: ldapmodW_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ldapmodW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapmodW {
     fn clone(&self) -> Self {

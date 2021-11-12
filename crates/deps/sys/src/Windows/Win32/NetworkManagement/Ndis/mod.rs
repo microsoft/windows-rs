@@ -1347,7 +1347,6 @@ pub struct NDIS_802_11_TEST {
     pub Type: u32,
     pub Anonymous: NDIS_802_11_TEST_0,
 }
-impl ::core::marker::Copy for NDIS_802_11_TEST {}
 impl ::core::clone::Clone for NDIS_802_11_TEST {
     fn clone(&self) -> Self {
         *self
@@ -1750,7 +1749,6 @@ pub struct NDIS_GUID {
     pub Size: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for NDIS_GUID {}
 impl ::core::clone::Clone for NDIS_GUID {
     fn clone(&self) -> Self {
         *self
@@ -3329,8 +3327,6 @@ pub struct NDIS_WMI_ENUM_ADAPTER {
     pub DeviceName: [super::super::Foundation::CHAR; 1],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
-impl ::core::marker::Copy for NDIS_WMI_ENUM_ADAPTER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
 impl ::core::clone::Clone for NDIS_WMI_ENUM_ADAPTER {
     fn clone(&self) -> Self {
         *self
@@ -3349,8 +3345,6 @@ pub struct NDIS_WMI_EVENT_HEADER {
     pub DeviceNameOffset: u32,
     pub Padding: [u8; 4],
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-impl ::core::marker::Copy for NDIS_WMI_EVENT_HEADER {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_WMI_EVENT_HEADER {
     fn clone(&self) -> Self {
@@ -3427,8 +3421,6 @@ pub struct NDIS_WMI_METHOD_HEADER {
     pub Padding: [u8; 4],
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-impl ::core::marker::Copy for NDIS_WMI_METHOD_HEADER {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_WMI_METHOD_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -3482,8 +3474,6 @@ pub struct NDIS_WMI_SET_HEADER {
     pub Timeout: u32,
     pub Padding: [u8; 4],
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-impl ::core::marker::Copy for NDIS_WMI_SET_HEADER {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_WMI_SET_HEADER {
     fn clone(&self) -> Self {

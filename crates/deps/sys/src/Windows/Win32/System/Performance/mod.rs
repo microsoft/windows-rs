@@ -609,8 +609,6 @@ pub struct PDH_COUNTER_INFO_A {
     pub DataBuffer: [u32; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PDH_COUNTER_INFO_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_COUNTER_INFO_A {
     fn clone(&self) -> Self {
         *self
@@ -663,8 +661,6 @@ pub struct PDH_COUNTER_INFO_W {
     pub szExplainText: super::super::Foundation::PWSTR,
     pub DataBuffer: [u32; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PDH_COUNTER_INFO_W {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_COUNTER_INFO_W {
     fn clone(&self) -> Self {
@@ -815,8 +811,6 @@ pub struct PDH_FMT_COUNTERVALUE {
     pub Anonymous: PDH_FMT_COUNTERVALUE_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PDH_FMT_COUNTERVALUE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_FMT_COUNTERVALUE {
     fn clone(&self) -> Self {
         *self
@@ -844,8 +838,6 @@ pub struct PDH_FMT_COUNTERVALUE_ITEM_A {
     pub FmtValue: PDH_FMT_COUNTERVALUE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PDH_FMT_COUNTERVALUE_ITEM_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_FMT_COUNTERVALUE_ITEM_A {
     fn clone(&self) -> Self {
         *self
@@ -857,8 +849,6 @@ pub struct PDH_FMT_COUNTERVALUE_ITEM_W {
     pub szName: super::super::Foundation::PWSTR,
     pub FmtValue: PDH_FMT_COUNTERVALUE,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PDH_FMT_COUNTERVALUE_ITEM_W {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_FMT_COUNTERVALUE_ITEM_W {
     fn clone(&self) -> Self {
@@ -907,8 +897,6 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_A_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PDH_LOG_SERVICE_QUERY_INFO_A {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_LOG_SERVICE_QUERY_INFO_A {
     fn clone(&self) -> Self {
@@ -982,8 +970,6 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_W_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PDH_LOG_SERVICE_QUERY_INFO_W {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_LOG_SERVICE_QUERY_INFO_W {
     fn clone(&self) -> Self {
@@ -1191,8 +1177,6 @@ pub struct PDH_STATISTICS {
     pub max: PDH_FMT_COUNTERVALUE,
     pub mean: PDH_FMT_COUNTERVALUE,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PDH_STATISTICS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_STATISTICS {
     fn clone(&self) -> Self {

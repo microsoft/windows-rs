@@ -438,7 +438,6 @@ pub struct CREATE_DISK {
     pub PartitionStyle: PARTITION_STYLE,
     pub Anonymous: CREATE_DISK_0,
 }
-impl ::core::marker::Copy for CREATE_DISK {}
 impl ::core::clone::Clone for CREATE_DISK {
     fn clone(&self) -> Self {
         *self
@@ -820,7 +819,6 @@ pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     pub uiNumRecords: u32,
     pub RecordArray: [DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD; 1],
 }
-impl ::core::marker::Copy for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {}
 impl ::core::clone::Clone for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     fn clone(&self) -> Self {
         *self
@@ -836,7 +834,6 @@ pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
     pub OperationError: u32,
     pub StackSpecific: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0,
 }
-impl ::core::marker::Copy for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {}
 impl ::core::clone::Clone for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
     fn clone(&self) -> Self {
         *self
@@ -1165,7 +1162,6 @@ pub struct DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     pub TokenOffset: u64,
     pub Token: STORAGE_OFFLOAD_TOKEN,
 }
-impl ::core::marker::Copy for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {}
 impl ::core::clone::Clone for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
@@ -1196,7 +1192,6 @@ pub struct DEVICE_DSM_RANGE_ERROR_INFO {
     pub NumberOfRangesReturned: u32,
     pub Ranges: [DEVICE_STORAGE_RANGE_ATTRIBUTES; 1],
 }
-impl ::core::marker::Copy for DEVICE_DSM_RANGE_ERROR_INFO {}
 impl ::core::clone::Clone for DEVICE_DSM_RANGE_ERROR_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1338,7 +1333,6 @@ pub struct DEVICE_LOCATION {
     pub Port: u32,
     pub Anonymous: DEVICE_LOCATION_0,
 }
-impl ::core::marker::Copy for DEVICE_LOCATION {}
 impl ::core::clone::Clone for DEVICE_LOCATION {
     fn clone(&self) -> Self {
         *self
@@ -1416,8 +1410,6 @@ pub struct DEVICE_MEDIA_INFO {
     pub DeviceSpecific: DEVICE_MEDIA_INFO_0,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl ::core::marker::Copy for DEVICE_MEDIA_INFO {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for DEVICE_MEDIA_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1483,8 +1475,6 @@ pub struct DEVICE_MEDIA_INFO_0_2 {
     pub BusType: super::super::Storage::FileSystem::STORAGE_BUS_TYPE,
     pub BusSpecificData: DEVICE_MEDIA_INFO_0_2_0,
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl ::core::marker::Copy for DEVICE_MEDIA_INFO_0_2 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for DEVICE_MEDIA_INFO_0_2 {
     fn clone(&self) -> Self {
@@ -1571,7 +1561,6 @@ pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES {
     pub Anonymous: DEVICE_STORAGE_RANGE_ATTRIBUTES_0,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for DEVICE_STORAGE_RANGE_ATTRIBUTES {}
 impl ::core::clone::Clone for DEVICE_STORAGE_RANGE_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
@@ -1684,8 +1673,6 @@ pub struct DISK_CACHE_INFORMATION {
     pub Anonymous: DISK_CACHE_INFORMATION_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISK_CACHE_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -1760,7 +1747,6 @@ pub struct DISK_DETECTION_INFO {
     pub DetectionType: DETECTION_TYPE,
     pub Anonymous: DISK_DETECTION_INFO_0,
 }
-impl ::core::marker::Copy for DISK_DETECTION_INFO {}
 impl ::core::clone::Clone for DISK_DETECTION_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1907,7 +1893,6 @@ pub struct DISK_PARTITION_INFO {
     pub PartitionStyle: PARTITION_STYLE,
     pub Anonymous: DISK_PARTITION_INFO_0,
 }
-impl ::core::marker::Copy for DISK_PARTITION_INFO {}
 impl ::core::clone::Clone for DISK_PARTITION_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2020,8 +2005,6 @@ pub struct DRIVE_LAYOUT_INFORMATION_EX {
     pub Anonymous: DRIVE_LAYOUT_INFORMATION_EX_0,
     pub PartitionEntry: [PARTITION_INFORMATION_EX; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION_EX {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION_EX {
     fn clone(&self) -> Self {
@@ -2625,7 +2608,6 @@ pub struct FILE_OBJECTID_BUFFER {
     pub ObjectId: [u8; 16],
     pub Anonymous: FILE_OBJECTID_BUFFER_0,
 }
-impl ::core::marker::Copy for FILE_OBJECTID_BUFFER {}
 impl ::core::clone::Clone for FILE_OBJECTID_BUFFER {
     fn clone(&self) -> Self {
         *self
@@ -3455,7 +3437,6 @@ pub struct FS_BPIO_OUTPUT {
     pub Reserved2: u64,
     pub Anonymous: FS_BPIO_OUTPUT_0,
 }
-impl ::core::marker::Copy for FS_BPIO_OUTPUT {}
 impl ::core::clone::Clone for FS_BPIO_OUTPUT {
     fn clone(&self) -> Self {
         *self
@@ -3625,8 +3606,6 @@ pub struct GET_MEDIA_TYPES {
     pub MediaInfoCount: u32,
     pub MediaInfo: [DEVICE_MEDIA_INFO; 1],
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl ::core::marker::Copy for GET_MEDIA_TYPES {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for GET_MEDIA_TYPES {
     fn clone(&self) -> Self {
@@ -3948,8 +3927,6 @@ pub struct MARK_HANDLE_INFO {
     pub HandleInfo: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MARK_HANDLE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MARK_HANDLE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -3974,8 +3951,6 @@ pub struct MARK_HANDLE_INFO32 {
     pub VolumeHandle: u32,
     pub HandleInfo: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::marker::Copy for MARK_HANDLE_INFO32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::clone::Clone for MARK_HANDLE_INFO32 {
     fn clone(&self) -> Self {
@@ -4507,8 +4482,6 @@ pub struct PARTITION_INFORMATION_EX {
     pub Anonymous: PARTITION_INFORMATION_EX_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PARTITION_INFORMATION_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PARTITION_INFORMATION_EX {
     fn clone(&self) -> Self {
         *self
@@ -4612,7 +4585,6 @@ pub struct PERSISTENT_RESERVE_COMMAND {
     pub Size: u32,
     pub Anonymous: PERSISTENT_RESERVE_COMMAND_0,
 }
-impl ::core::marker::Copy for PERSISTENT_RESERVE_COMMAND {}
 impl ::core::clone::Clone for PERSISTENT_RESERVE_COMMAND {
     fn clone(&self) -> Self {
         *self
@@ -4827,7 +4799,6 @@ pub struct QUERY_FILE_LAYOUT_INPUT {
     pub Reserved: u32,
     pub Filter: QUERY_FILE_LAYOUT_INPUT_1,
 }
-impl ::core::marker::Copy for QUERY_FILE_LAYOUT_INPUT {}
 impl ::core::clone::Clone for QUERY_FILE_LAYOUT_INPUT {
     fn clone(&self) -> Self {
         *self
@@ -6050,7 +6021,6 @@ pub struct SD_GLOBAL_CHANGE_INPUT {
     pub ChangeType: u32,
     pub Anonymous: SD_GLOBAL_CHANGE_INPUT_0,
 }
-impl ::core::marker::Copy for SD_GLOBAL_CHANGE_INPUT {}
 impl ::core::clone::Clone for SD_GLOBAL_CHANGE_INPUT {
     fn clone(&self) -> Self {
         *self
@@ -6073,7 +6043,6 @@ pub struct SD_GLOBAL_CHANGE_OUTPUT {
     pub ChangeType: u32,
     pub Anonymous: SD_GLOBAL_CHANGE_OUTPUT_0,
 }
-impl ::core::marker::Copy for SD_GLOBAL_CHANGE_OUTPUT {}
 impl ::core::clone::Clone for SD_GLOBAL_CHANGE_OUTPUT {
     fn clone(&self) -> Self {
         *self
@@ -6200,7 +6169,6 @@ pub struct SET_PARTITION_INFORMATION_EX {
     pub PartitionStyle: PARTITION_STYLE,
     pub Anonymous: SET_PARTITION_INFORMATION_EX_0,
 }
-impl ::core::marker::Copy for SET_PARTITION_INFORMATION_EX {}
 impl ::core::clone::Clone for SET_PARTITION_INFORMATION_EX {
     fn clone(&self) -> Self {
         *self
@@ -6523,7 +6491,6 @@ pub struct STORAGE_COUNTER {
     pub Type: STORAGE_COUNTER_TYPE,
     pub Value: STORAGE_COUNTER_0,
 }
-impl ::core::marker::Copy for STORAGE_COUNTER {}
 impl ::core::clone::Clone for STORAGE_COUNTER {
     fn clone(&self) -> Self {
         *self
@@ -6557,7 +6524,6 @@ pub struct STORAGE_COUNTERS {
     pub NumberOfCounters: u32,
     pub Counters: [STORAGE_COUNTER; 1],
 }
-impl ::core::marker::Copy for STORAGE_COUNTERS {}
 impl ::core::clone::Clone for STORAGE_COUNTERS {
     fn clone(&self) -> Self {
         *self
@@ -6779,7 +6745,6 @@ pub struct STORAGE_DEVICE_LOCATION_DESCRIPTOR {
     pub Location: DEVICE_LOCATION,
     pub StringOffset: u32,
 }
-impl ::core::marker::Copy for STORAGE_DEVICE_LOCATION_DESCRIPTOR {}
 impl ::core::clone::Clone for STORAGE_DEVICE_LOCATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -6795,7 +6760,6 @@ pub struct STORAGE_DEVICE_MANAGEMENT_STATUS {
     pub OperationalStatus: [STORAGE_DISK_OPERATIONAL_STATUS; 16],
     pub AdditionalReasons: [STORAGE_OPERATIONAL_REASON; 1],
 }
-impl ::core::marker::Copy for STORAGE_DEVICE_MANAGEMENT_STATUS {}
 impl ::core::clone::Clone for STORAGE_DEVICE_MANAGEMENT_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -7453,8 +7417,6 @@ pub struct STORAGE_MINIPORT_DESCRIPTOR {
     pub Reserved1: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for STORAGE_MINIPORT_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_MINIPORT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -7494,7 +7456,6 @@ pub struct STORAGE_OFFLOAD_READ_OUTPUT {
     pub TokenLength: u32,
     pub Token: STORAGE_OFFLOAD_TOKEN,
 }
-impl ::core::marker::Copy for STORAGE_OFFLOAD_READ_OUTPUT {}
 impl ::core::clone::Clone for STORAGE_OFFLOAD_READ_OUTPUT {
     fn clone(&self) -> Self {
         *self
@@ -7508,7 +7469,6 @@ pub struct STORAGE_OFFLOAD_TOKEN {
     pub TokenIdLength: [u8; 2],
     pub Anonymous: STORAGE_OFFLOAD_TOKEN_0,
 }
-impl ::core::marker::Copy for STORAGE_OFFLOAD_TOKEN {}
 impl ::core::clone::Clone for STORAGE_OFFLOAD_TOKEN {
     fn clone(&self) -> Self {
         *self
@@ -7557,7 +7517,6 @@ pub struct STORAGE_OPERATIONAL_REASON {
     pub Reason: STORAGE_OPERATIONAL_STATUS_REASON,
     pub RawBytes: STORAGE_OPERATIONAL_REASON_0,
 }
-impl ::core::marker::Copy for STORAGE_OPERATIONAL_REASON {}
 impl ::core::clone::Clone for STORAGE_OPERATIONAL_REASON {
     fn clone(&self) -> Self {
         *self
@@ -7644,8 +7603,6 @@ pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub Reserved1: [u32; 3],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for STORAGE_PHYSICAL_ADAPTER_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_PHYSICAL_ADAPTER_DATA {
     fn clone(&self) -> Self {
         *self
@@ -7666,7 +7623,6 @@ pub struct STORAGE_PHYSICAL_DEVICE_DATA {
     pub PhysicalLocation: [u8; 32],
     pub Reserved: [u32; 2],
 }
-impl ::core::marker::Copy for STORAGE_PHYSICAL_DEVICE_DATA {}
 impl ::core::clone::Clone for STORAGE_PHYSICAL_DEVICE_DATA {
     fn clone(&self) -> Self {
         *self
@@ -8061,8 +8017,6 @@ pub struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
     pub Anonymous: STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0,
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
-impl ::core::marker::Copy for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {}
-#[cfg(feature = "Win32_Storage_Vhd")]
 impl ::core::clone::Clone for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
     fn clone(&self) -> Self {
         *self
@@ -8239,7 +8193,6 @@ pub struct STORAGE_SPEC_VERSION_0 {
     pub MinorVersion: STORAGE_SPEC_VERSION_0_0,
     pub MajorVersion: u16,
 }
-impl ::core::marker::Copy for STORAGE_SPEC_VERSION_0 {}
 impl ::core::clone::Clone for STORAGE_SPEC_VERSION_0 {
     fn clone(&self) -> Self {
         *self
@@ -8423,8 +8376,6 @@ pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
     pub ZoneGroup: [STORAGE_ZONE_GROUP; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -8601,7 +8552,6 @@ pub struct STREAM_EXTENT_ENTRY {
     pub Flags: u32,
     pub ExtentInformation: STREAM_EXTENT_ENTRY_0,
 }
-impl ::core::marker::Copy for STREAM_EXTENT_ENTRY {}
 impl ::core::clone::Clone for STREAM_EXTENT_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -8624,7 +8574,6 @@ pub struct STREAM_INFORMATION_ENTRY {
     pub Flags: u32,
     pub StreamInformation: STREAM_INFORMATION_ENTRY_0,
 }
-impl ::core::marker::Copy for STREAM_INFORMATION_ENTRY {}
 impl ::core::clone::Clone for STREAM_INFORMATION_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -8918,7 +8867,6 @@ impl ::core::clone::Clone for TXFS_QUERY_RM_INFORMATION {
 pub struct TXFS_READ_BACKUP_INFORMATION_OUT {
     pub Anonymous: TXFS_READ_BACKUP_INFORMATION_OUT_0,
 }
-impl ::core::marker::Copy for TXFS_READ_BACKUP_INFORMATION_OUT {}
 impl ::core::clone::Clone for TXFS_READ_BACKUP_INFORMATION_OUT {
     fn clone(&self) -> Self {
         *self

@@ -684,7 +684,6 @@ pub struct DECIMAL {
     pub Hi32: u32,
     pub Anonymous2: DECIMAL_1,
 }
-impl ::core::marker::Copy for DECIMAL {}
 impl ::core::clone::Clone for DECIMAL {
     fn clone(&self) -> Self {
         *self

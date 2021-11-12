@@ -58,7 +58,6 @@ pub struct FILTER_AGGREGATE_BASIC_INFORMATION {
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_BASIC_INFORMATION_0,
 }
-impl ::core::marker::Copy for FILTER_AGGREGATE_BASIC_INFORMATION {}
 impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -106,7 +105,6 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION {
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_STANDARD_INFORMATION_0,
 }
-impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION {}
 impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -354,7 +352,6 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     pub Flags: u32,
     pub Type: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0,
 }
-impl ::core::marker::Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
 impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     fn clone(&self) -> Self {
         *self

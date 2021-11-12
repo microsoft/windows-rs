@@ -520,8 +520,6 @@ pub struct EVT_VARIANT {
     pub Type: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for EVT_VARIANT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVT_VARIANT {
     fn clone(&self) -> Self {
         *self

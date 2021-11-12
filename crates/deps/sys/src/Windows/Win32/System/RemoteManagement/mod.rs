@@ -606,8 +606,6 @@ pub struct WSMAN_AUTHENTICATION_CREDENTIALS {
     pub Anonymous: WSMAN_AUTHENTICATION_CREDENTIALS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WSMAN_AUTHENTICATION_CREDENTIALS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSMAN_AUTHENTICATION_CREDENTIALS {
     fn clone(&self) -> Self {
         *self
@@ -676,8 +674,6 @@ pub struct WSMAN_CONNECT_DATA {
     pub data: WSMAN_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WSMAN_CONNECT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSMAN_CONNECT_DATA {
     fn clone(&self) -> Self {
         *self
@@ -688,8 +684,6 @@ impl ::core::clone::Clone for WSMAN_CONNECT_DATA {
 pub struct WSMAN_CREATE_SHELL_DATA {
     pub data: WSMAN_DATA,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WSMAN_CREATE_SHELL_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSMAN_CREATE_SHELL_DATA {
     fn clone(&self) -> Self {
@@ -702,8 +696,6 @@ pub struct WSMAN_DATA {
     pub r#type: WSManDataType,
     pub Anonymous: WSMAN_DATA_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WSMAN_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSMAN_DATA {
     fn clone(&self) -> Self {
@@ -997,8 +989,6 @@ pub struct WSMAN_PROXY_INFO {
     pub authenticationCredentials: WSMAN_AUTHENTICATION_CREDENTIALS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WSMAN_PROXY_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSMAN_PROXY_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1012,8 +1002,6 @@ pub struct WSMAN_RECEIVE_DATA_RESULT {
     pub commandState: super::super::Foundation::PWSTR,
     pub exitCode: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WSMAN_RECEIVE_DATA_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSMAN_RECEIVE_DATA_RESULT {
     fn clone(&self) -> Self {

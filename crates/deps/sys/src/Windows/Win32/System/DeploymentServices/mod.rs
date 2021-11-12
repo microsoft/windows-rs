@@ -291,7 +291,6 @@ pub struct PXE_ADDRESS {
     pub uAddrLen: u32,
     pub uPort: u16,
 }
-impl ::core::marker::Copy for PXE_ADDRESS {}
 impl ::core::clone::Clone for PXE_ADDRESS {
     fn clone(&self) -> Self {
         *self
@@ -409,7 +408,6 @@ pub struct PXE_DHCP_MESSAGE {
     pub Anonymous: PXE_DHCP_MESSAGE_0,
     pub Option: PXE_DHCP_OPTION,
 }
-impl ::core::marker::Copy for PXE_DHCP_MESSAGE {}
 impl ::core::clone::Clone for PXE_DHCP_MESSAGE {
     fn clone(&self) -> Self {
         *self

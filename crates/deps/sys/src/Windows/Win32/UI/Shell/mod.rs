@@ -3386,8 +3386,6 @@ pub struct DETAILSINFO {
     pub iImage: i32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-impl ::core::marker::Copy for DETAILSINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 impl ::core::clone::Clone for DETAILSINFO {
     fn clone(&self) -> Self {
         *self
@@ -6700,9 +6698,6 @@ pub struct NOTIFYICONDATAA {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for NOTIFYICONDATAA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for NOTIFYICONDATAA {
     fn clone(&self) -> Self {
         *self
@@ -6744,9 +6739,6 @@ pub struct NOTIFYICONDATAA {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for NOTIFYICONDATAA {}
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for NOTIFYICONDATAA {
     fn clone(&self) -> Self {
         *self
@@ -6788,9 +6780,6 @@ pub struct NOTIFYICONDATAW {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for NOTIFYICONDATAW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for NOTIFYICONDATAW {
     fn clone(&self) -> Self {
         *self
@@ -6830,9 +6819,6 @@ pub struct NOTIFYICONDATAW {
     pub guidItem: ::windows_sys::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for NOTIFYICONDATAW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for NOTIFYICONDATAW {
@@ -8657,9 +8643,6 @@ pub struct SHELLEXECUTEINFOA {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::marker::Copy for SHELLEXECUTEINFOA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::clone::Clone for SHELLEXECUTEINFOA {
     fn clone(&self) -> Self {
         *self
@@ -8701,9 +8684,6 @@ pub struct SHELLEXECUTEINFOA {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::marker::Copy for SHELLEXECUTEINFOA {}
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::clone::Clone for SHELLEXECUTEINFOA {
     fn clone(&self) -> Self {
         *self
@@ -8745,9 +8725,6 @@ pub struct SHELLEXECUTEINFOW {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::marker::Copy for SHELLEXECUTEINFOW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::clone::Clone for SHELLEXECUTEINFOW {
     fn clone(&self) -> Self {
         *self
@@ -8787,9 +8764,6 @@ pub struct SHELLEXECUTEINFOW {
     pub Anonymous: SHELLEXECUTEINFOW_0,
     pub hProcess: super::super::Foundation::HANDLE,
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::marker::Copy for SHELLEXECUTEINFOW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::clone::Clone for SHELLEXECUTEINFOW {

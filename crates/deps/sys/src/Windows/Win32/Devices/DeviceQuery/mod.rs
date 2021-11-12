@@ -203,8 +203,6 @@ pub struct DEV_QUERY_RESULT_ACTION_DATA {
     pub Data: DEV_QUERY_RESULT_ACTION_DATA_0,
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::marker::Copy for DEV_QUERY_RESULT_ACTION_DATA {}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 impl ::core::clone::Clone for DEV_QUERY_RESULT_ACTION_DATA {
     fn clone(&self) -> Self {
         *self

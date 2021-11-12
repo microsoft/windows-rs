@@ -1325,7 +1325,6 @@ pub struct CM_NOTIFY_EVENT_DATA {
     pub Reserved: u32,
     pub u: CM_NOTIFY_EVENT_DATA_0,
 }
-impl ::core::marker::Copy for CM_NOTIFY_EVENT_DATA {}
 impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
@@ -1385,8 +1384,6 @@ pub struct CM_NOTIFY_FILTER {
     pub Reserved: u32,
     pub u: CM_NOTIFY_FILTER_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CM_NOTIFY_FILTER {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CM_NOTIFY_FILTER {
     fn clone(&self) -> Self {
@@ -3738,9 +3735,6 @@ pub struct SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
     fn clone(&self) -> Self {
         *self
@@ -3775,9 +3769,6 @@ pub struct SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2 {}
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
     fn clone(&self) -> Self {
         *self
@@ -3813,8 +3804,6 @@ pub struct SP_ALTPLATFORM_INFO_V3 {
     pub BuildNumber: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
     fn clone(&self) -> Self {
         *self
@@ -3847,8 +3836,6 @@ pub struct SP_ALTPLATFORM_INFO_V3 {
     pub SuiteMask: u16,
     pub BuildNumber: u32,
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3 {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
     fn clone(&self) -> Self {

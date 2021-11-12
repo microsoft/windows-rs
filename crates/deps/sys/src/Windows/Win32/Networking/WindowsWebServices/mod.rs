@@ -1413,8 +1413,6 @@ pub struct WS_DECIMAL_DESCRIPTION {
     pub maxValue: super::super::Foundation::DECIMAL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WS_DECIMAL_DESCRIPTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_DECIMAL_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
@@ -5198,8 +5196,6 @@ pub struct WS_XML_DECIMAL_TEXT {
     pub text: WS_XML_TEXT,
     pub value: super::super::Foundation::DECIMAL,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WS_XML_DECIMAL_TEXT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_XML_DECIMAL_TEXT {
     fn clone(&self) -> Self {

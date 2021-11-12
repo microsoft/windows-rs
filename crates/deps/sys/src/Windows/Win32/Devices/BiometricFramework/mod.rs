@@ -328,7 +328,6 @@ pub struct WINBIO_ACCOUNT_POLICY {
     pub Identity: WINBIO_IDENTITY,
     pub AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION,
 }
-impl ::core::marker::Copy for WINBIO_ACCOUNT_POLICY {}
 impl ::core::clone::Clone for WINBIO_ACCOUNT_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -391,8 +390,6 @@ pub struct WINBIO_ASYNC_RESULT {
     pub UserData: *mut ::core::ffi::c_void,
     pub Parameters: WINBIO_ASYNC_RESULT_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_ASYNC_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT {
     fn clone(&self) -> Self {
@@ -472,8 +469,6 @@ pub struct WINBIO_ASYNC_RESULT_0_2 {
     pub SubFactor: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_2 {
     fn clone(&self) -> Self {
         *self
@@ -511,8 +506,6 @@ pub struct WINBIO_ASYNC_RESULT_0_5 {
     pub Identity: WINBIO_IDENTITY,
     pub IsNewTemplate: super::super::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_5 {
     fn clone(&self) -> Self {
@@ -568,8 +561,6 @@ pub struct WINBIO_ASYNC_RESULT_0_9 {
     pub SubFactorArray: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_9 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_9 {
     fn clone(&self) -> Self {
         *self
@@ -595,8 +586,6 @@ pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub Event: WINBIO_EVENT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_11 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_11 {
     fn clone(&self) -> Self {
         *self
@@ -613,8 +602,6 @@ pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub PropertyBuffer: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_12 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_12 {
     fn clone(&self) -> Self {
         *self
@@ -626,8 +613,6 @@ pub struct WINBIO_ASYNC_RESULT_0_13 {
     pub Identity: WINBIO_IDENTITY,
     pub Policy: WINBIO_PROTECTION_POLICY,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_13 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_13 {
     fn clone(&self) -> Self {
@@ -643,8 +628,6 @@ pub struct WINBIO_ASYNC_RESULT_0_14 {
     pub Ticket: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_14 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_14 {
     fn clone(&self) -> Self {
         *self
@@ -657,8 +640,6 @@ pub struct WINBIO_ASYNC_RESULT_0_15 {
     pub SubFactor: u8,
     pub RejectDetail: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_15 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_15 {
     fn clone(&self) -> Self {
@@ -703,8 +684,6 @@ pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub PropertyBufferSize: usize,
     pub PropertyBuffer: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_18 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_18 {
     fn clone(&self) -> Self {
@@ -1048,7 +1027,6 @@ pub struct WINBIO_EVENT {
     pub Type: u32,
     pub Parameters: WINBIO_EVENT_0,
 }
-impl ::core::marker::Copy for WINBIO_EVENT {}
 impl ::core::clone::Clone for WINBIO_EVENT {
     fn clone(&self) -> Self {
         *self
@@ -1082,7 +1060,6 @@ pub struct WINBIO_EVENT_0_1 {
     pub SubFactor: u8,
     pub RejectDetail: u32,
 }
-impl ::core::marker::Copy for WINBIO_EVENT_0_1 {}
 impl ::core::clone::Clone for WINBIO_EVENT_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -1105,7 +1082,6 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO {
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_ENGINE_INFO_0,
 }
-impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1235,8 +1211,6 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
     pub Specific: WINBIO_EXTENDED_ENROLLMENT_STATUS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -1361,8 +1335,6 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO {
     pub Specific: WINBIO_EXTENDED_SENSOR_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1461,7 +1433,6 @@ pub struct WINBIO_EXTENDED_STORAGE_INFO {
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_STORAGE_INFO_0,
 }
-impl ::core::marker::Copy for WINBIO_EXTENDED_STORAGE_INFO {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1719,7 +1690,6 @@ pub struct WINBIO_IDENTITY {
     pub Type: u32,
     pub Value: WINBIO_IDENTITY_0,
 }
-impl ::core::marker::Copy for WINBIO_IDENTITY {}
 impl ::core::clone::Clone for WINBIO_IDENTITY {
     fn clone(&self) -> Self {
         *self
@@ -1822,8 +1792,6 @@ pub struct WINBIO_PRESENCE {
     pub Authorization: WINBIO_PRESENCE_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WINBIO_PRESENCE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_PRESENCE {
     fn clone(&self) -> Self {
         *self
@@ -1922,7 +1890,6 @@ pub struct WINBIO_PROTECTION_POLICY {
     pub PolicySize: usize,
     pub Policy: [u8; 128],
 }
-impl ::core::marker::Copy for WINBIO_PROTECTION_POLICY {}
 impl ::core::clone::Clone for WINBIO_PROTECTION_POLICY {
     fn clone(&self) -> Self {
         *self

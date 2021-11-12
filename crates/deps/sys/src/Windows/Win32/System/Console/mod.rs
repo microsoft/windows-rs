@@ -197,8 +197,6 @@ pub struct CHAR_INFO {
     pub Attributes: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CHAR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHAR_INFO {
     fn clone(&self) -> Self {
         *self
@@ -428,8 +426,6 @@ pub struct INPUT_RECORD {
     pub Event: INPUT_RECORD_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for INPUT_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INPUT_RECORD {
     fn clone(&self) -> Self {
         *self
@@ -461,8 +457,6 @@ pub struct KEY_EVENT_RECORD {
     pub uChar: KEY_EVENT_RECORD_0,
     pub dwControlKeyState: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for KEY_EVENT_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KEY_EVENT_RECORD {
     fn clone(&self) -> Self {

@@ -154,7 +154,6 @@ pub const BDIF_VISIBLE: u32 = 128u32;
 pub struct BLUETOOTH_ADDRESS {
     pub Anonymous: BLUETOOTH_ADDRESS_0,
 }
-impl ::core::marker::Copy for BLUETOOTH_ADDRESS {}
 impl ::core::clone::Clone for BLUETOOTH_ADDRESS {
     fn clone(&self) -> Self {
         *self
@@ -177,7 +176,6 @@ pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
     pub Anonymous: BLUETOOTH_AUTHENTICATE_RESPONSE_0,
     pub negativeResponse: u8,
 }
-impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATE_RESPONSE {}
 impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE {
     fn clone(&self) -> Self {
         *self
@@ -204,8 +202,6 @@ pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     pub authenticationRequirements: BLUETOOTH_AUTHENTICATION_REQUIREMENTS,
     pub Anonymous: BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     fn clone(&self) -> Self {
@@ -280,8 +276,6 @@ pub struct BLUETOOTH_DEVICE_INFO {
     pub szName: [u16; 248],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for BLUETOOTH_DEVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BLUETOOTH_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -348,8 +342,6 @@ pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
     pub szDeviceString: [u16; 256],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for BLUETOOTH_LOCAL_SERVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BLUETOOTH_LOCAL_SERVICE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -410,7 +402,6 @@ pub struct BLUETOOTH_RADIO_INFO {
     pub lmpSubversion: u16,
     pub manufacturer: u16,
 }
-impl ::core::marker::Copy for BLUETOOTH_RADIO_INFO {}
 impl ::core::clone::Clone for BLUETOOTH_RADIO_INFO {
     fn clone(&self) -> Self {
         *self
@@ -595,7 +586,6 @@ pub struct BTH_INFO_RSP {
     pub dataLen: u8,
     pub Anonymous: BTH_INFO_RSP_0,
 }
-impl ::core::marker::Copy for BTH_INFO_RSP {}
 impl ::core::clone::Clone for BTH_INFO_RSP {
     fn clone(&self) -> Self {
         *self
@@ -817,7 +807,6 @@ pub struct BTH_QUERY_SERVICE {
     pub numRange: u32,
     pub pRange: [SdpAttributeRange; 1],
 }
-impl ::core::marker::Copy for BTH_QUERY_SERVICE {}
 impl ::core::clone::Clone for BTH_QUERY_SERVICE {
     fn clone(&self) -> Self {
         *self
@@ -1186,7 +1175,6 @@ pub struct RFCOMM_COMMAND {
     pub CmdType: u32,
     pub Data: RFCOMM_COMMAND_0,
 }
-impl ::core::marker::Copy for RFCOMM_COMMAND {}
 impl ::core::clone::Clone for RFCOMM_COMMAND {
     fn clone(&self) -> Self {
         *self
@@ -1365,8 +1353,6 @@ pub struct SDP_ELEMENT_DATA {
     pub specificType: SDP_SPECIFICTYPE,
     pub data: SDP_ELEMENT_DATA_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SDP_ELEMENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SDP_ELEMENT_DATA {
     fn clone(&self) -> Self {
@@ -1603,7 +1589,6 @@ pub struct SdpQueryUuid {
     pub u: SdpQueryUuidUnion,
     pub uuidType: u16,
 }
-impl ::core::marker::Copy for SdpQueryUuid {}
 impl ::core::clone::Clone for SdpQueryUuid {
     fn clone(&self) -> Self {
         *self

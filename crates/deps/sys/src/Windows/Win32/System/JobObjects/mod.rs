@@ -175,7 +175,6 @@ pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     pub ControlFlags: JOB_OBJECT_CPU_RATE_CONTROL,
     pub Anonymous: JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0,
 }
-impl ::core::marker::Copy for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -411,7 +410,6 @@ pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     pub NetRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub NetRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
-impl ::core::marker::Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {}
 impl ::core::clone::Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     fn clone(&self) -> Self {
         *self
@@ -490,7 +488,6 @@ pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     pub NetRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub NetRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
 }
-impl ::core::marker::Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {}
 impl ::core::clone::Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     fn clone(&self) -> Self {
         *self

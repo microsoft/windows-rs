@@ -205,7 +205,6 @@ impl ::core::clone::Clone for D2D_COLOR_F {
 pub struct D2D_MATRIX_3X2_F {
     pub Anonymous: D2D_MATRIX_3X2_F_0,
 }
-impl ::core::marker::Copy for D2D_MATRIX_3X2_F {}
 impl ::core::clone::Clone for D2D_MATRIX_3X2_F {
     fn clone(&self) -> Self {
         *self
@@ -256,7 +255,6 @@ impl ::core::clone::Clone for D2D_MATRIX_3X2_F_0_1 {
 pub struct D2D_MATRIX_4X3_F {
     pub Anonymous: D2D_MATRIX_4X3_F_0,
 }
-impl ::core::marker::Copy for D2D_MATRIX_4X3_F {}
 impl ::core::clone::Clone for D2D_MATRIX_4X3_F {
     fn clone(&self) -> Self {
         *self
@@ -297,7 +295,6 @@ impl ::core::clone::Clone for D2D_MATRIX_4X3_F_0_0 {
 pub struct D2D_MATRIX_4X4_F {
     pub Anonymous: D2D_MATRIX_4X4_F_0,
 }
-impl ::core::marker::Copy for D2D_MATRIX_4X4_F {}
 impl ::core::clone::Clone for D2D_MATRIX_4X4_F {
     fn clone(&self) -> Self {
         *self
@@ -342,7 +339,6 @@ impl ::core::clone::Clone for D2D_MATRIX_4X4_F_0_0 {
 pub struct D2D_MATRIX_5X4_F {
     pub Anonymous: D2D_MATRIX_5X4_F_0,
 }
-impl ::core::marker::Copy for D2D_MATRIX_5X4_F {}
 impl ::core::clone::Clone for D2D_MATRIX_5X4_F {
     fn clone(&self) -> Self {
         *self

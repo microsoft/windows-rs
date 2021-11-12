@@ -403,8 +403,6 @@ pub struct ACTRL_OVERLAPPED {
     pub hEvent: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ACTRL_OVERLAPPED {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACTRL_OVERLAPPED {
     fn clone(&self) -> Self {
         *self
@@ -555,8 +553,6 @@ pub struct AUDIT_PARAM {
     pub Anonymous1: AUDIT_PARAM_0,
     pub Anonymous2: AUDIT_PARAM_1,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AUDIT_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUDIT_PARAM {
     fn clone(&self) -> Self {
@@ -739,8 +735,6 @@ pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
     pub u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_OLD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_OLD {
     fn clone(&self) -> Self {
         *self
@@ -909,8 +903,6 @@ pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     pub Attribute: AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -996,8 +988,6 @@ pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
     pub Values: AUTHZ_SECURITY_ATTRIBUTE_V1_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_V1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1 {
     fn clone(&self) -> Self {
         *self
@@ -1055,8 +1045,6 @@ pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     pub dwObjectTypeNameCount: u32,
     pub ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     fn clone(&self) -> Self {

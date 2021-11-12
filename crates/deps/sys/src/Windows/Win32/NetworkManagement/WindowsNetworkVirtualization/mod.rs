@@ -32,8 +32,6 @@ pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     pub NotificationReason: WNV_CA_NOTIFICATION_TYPE,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {}
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     fn clone(&self) -> Self {
         *self
@@ -44,8 +42,6 @@ impl ::core::clone::Clone for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
 pub struct WNV_IP_ADDRESS {
     pub IP: WNV_IP_ADDRESS_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for WNV_IP_ADDRESS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for WNV_IP_ADDRESS {
     fn clone(&self) -> Self {
@@ -97,8 +93,6 @@ pub struct WNV_OBJECT_CHANGE_PARAM {
     pub ObjectParam: WNV_OBJECT_CHANGE_PARAM_0,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for WNV_OBJECT_CHANGE_PARAM {}
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for WNV_OBJECT_CHANGE_PARAM {
     fn clone(&self) -> Self {
         *self
@@ -149,8 +143,6 @@ pub struct WNV_POLICY_MISMATCH_PARAM {
     pub PA: WNV_IP_ADDRESS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for WNV_POLICY_MISMATCH_PARAM {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for WNV_POLICY_MISMATCH_PARAM {
     fn clone(&self) -> Self {
         *self
@@ -163,8 +155,6 @@ pub struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     pub PA: WNV_IP_ADDRESS,
     pub AddressState: super::super::Networking::WinSock::NL_DAD_STATE,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     fn clone(&self) -> Self {
@@ -182,8 +172,6 @@ pub struct WNV_REDIRECT_PARAM {
     pub PA: WNV_IP_ADDRESS,
     pub NewPA: WNV_IP_ADDRESS,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for WNV_REDIRECT_PARAM {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for WNV_REDIRECT_PARAM {
     fn clone(&self) -> Self {

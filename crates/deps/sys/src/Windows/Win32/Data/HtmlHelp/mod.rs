@@ -36,8 +36,6 @@ pub struct CProperty {
     pub fPersist: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CProperty {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CProperty {
     fn clone(&self) -> Self {
         *self
@@ -338,8 +336,6 @@ pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
     pub var: super::super::System::Com::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for HH_GLOBAL_PROPERTY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
     fn clone(&self) -> Self {

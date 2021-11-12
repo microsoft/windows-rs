@@ -974,9 +974,6 @@ pub struct DELAYLOAD_INFO {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DELAYLOAD_INFO {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DELAYLOAD_INFO {
     fn clone(&self) -> Self {
         *self
@@ -997,9 +994,6 @@ pub struct DELAYLOAD_INFO {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DELAYLOAD_INFO {}
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DELAYLOAD_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1011,8 +1005,6 @@ pub struct DELAYLOAD_PROC_DESCRIPTOR {
     pub ImportDescribedByName: u32,
     pub Description: DELAYLOAD_PROC_DESCRIPTOR_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DELAYLOAD_PROC_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DELAYLOAD_PROC_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -1343,7 +1335,6 @@ pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
     pub UnloadInformationTableRVA: u32,
     pub TimeDateStamp: u32,
 }
-impl ::core::marker::Copy for IMAGE_DELAYLOAD_DESCRIPTOR {}
 impl ::core::clone::Clone for IMAGE_DELAYLOAD_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -1373,7 +1364,6 @@ impl ::core::clone::Clone for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
 pub struct IMAGE_THUNK_DATA32 {
     pub u1: IMAGE_THUNK_DATA32_0,
 }
-impl ::core::marker::Copy for IMAGE_THUNK_DATA32 {}
 impl ::core::clone::Clone for IMAGE_THUNK_DATA32 {
     fn clone(&self) -> Self {
         *self
@@ -1395,7 +1385,6 @@ impl ::core::clone::Clone for IMAGE_THUNK_DATA32_0 {
 pub struct IMAGE_THUNK_DATA64 {
     pub u1: IMAGE_THUNK_DATA64_0,
 }
-impl ::core::marker::Copy for IMAGE_THUNK_DATA64 {}
 impl ::core::clone::Clone for IMAGE_THUNK_DATA64 {
     fn clone(&self) -> Self {
         *self
@@ -1528,8 +1517,6 @@ pub struct IO_STATUS_BLOCK {
     pub Information: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for IO_STATUS_BLOCK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IO_STATUS_BLOCK {
     fn clone(&self) -> Self {
         *self
@@ -1646,8 +1633,6 @@ pub struct LDR_DATA_TABLE_ENTRY {
     pub Anonymous: LDR_DATA_TABLE_ENTRY_0,
     pub TimeDateStamp: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for LDR_DATA_TABLE_ENTRY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for LDR_DATA_TABLE_ENTRY {
     fn clone(&self) -> Self {
@@ -2264,7 +2249,6 @@ pub struct TDI_TL_IO_CONTROL_ENDPOINT {
     pub OutputBuffer: *mut ::core::ffi::c_void,
     pub OutputBufferLength: u32,
 }
-impl ::core::marker::Copy for TDI_TL_IO_CONTROL_ENDPOINT {}
 impl ::core::clone::Clone for TDI_TL_IO_CONTROL_ENDPOINT {
     fn clone(&self) -> Self {
         *self

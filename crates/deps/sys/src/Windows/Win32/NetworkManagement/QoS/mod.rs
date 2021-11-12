@@ -132,7 +132,6 @@ pub struct CONTROL_SERVICE {
     pub Overrides: AD_GENERAL_PARAMS,
     pub Anonymous: CONTROL_SERVICE_0,
 }
-impl ::core::marker::Copy for CONTROL_SERVICE {}
 impl ::core::clone::Clone for CONTROL_SERVICE {
     fn clone(&self) -> Self {
         *self
@@ -209,8 +208,6 @@ pub struct ERROR_SPEC {
     pub errs_u: ERROR_SPEC_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for ERROR_SPEC {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for ERROR_SPEC {
     fn clone(&self) -> Self {
         *self
@@ -248,8 +245,6 @@ pub struct Error_Spec_IPv4 {
     pub errs_value: u16,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Error_Spec_IPv4 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for Error_Spec_IPv4 {
     fn clone(&self) -> Self {
         *self
@@ -261,8 +256,6 @@ pub struct FILTER_SPEC {
     pub filt_header: RsvpObjHdr,
     pub filt_u: FILTER_SPEC_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for FILTER_SPEC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for FILTER_SPEC {
     fn clone(&self) -> Self {
@@ -345,8 +338,6 @@ pub struct Filter_Spec_IPv4 {
     pub filt_port: u16,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Filter_Spec_IPv4 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for Filter_Spec_IPv4 {
     fn clone(&self) -> Self {
         *self
@@ -358,8 +349,6 @@ pub struct Filter_Spec_IPv4GPI {
     pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
     pub filt_gpi: u32,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Filter_Spec_IPv4GPI {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for Filter_Spec_IPv4GPI {
     fn clone(&self) -> Self {
@@ -587,7 +576,6 @@ pub struct IP_PATTERN {
     pub ProtocolId: u8,
     pub Reserved3: [u8; 3],
 }
-impl ::core::marker::Copy for IP_PATTERN {}
 impl ::core::clone::Clone for IP_PATTERN {
     fn clone(&self) -> Self {
         *self
@@ -645,7 +633,6 @@ pub struct IS_FLOWSPEC {
     pub flow_header: RsvpObjHdr,
     pub flow_body: IntServFlowSpec,
 }
-impl ::core::marker::Copy for IS_FLOWSPEC {}
 impl ::core::clone::Clone for IS_FLOWSPEC {
     fn clone(&self) -> Self {
         *self
@@ -657,7 +644,6 @@ pub struct IntServFlowSpec {
     pub spec_mh: IntServMainHdr,
     pub spec_u: IntServFlowSpec_0,
 }
-impl ::core::marker::Copy for IntServFlowSpec {}
 impl ::core::clone::Clone for IntServFlowSpec {
     fn clone(&self) -> Self {
         *self
@@ -715,7 +701,6 @@ pub struct IntServTspecBody {
     pub st_mh: IntServMainHdr,
     pub tspec_u: IntServTspecBody_0,
 }
-impl ::core::marker::Copy for IntServTspecBody {}
 impl ::core::clone::Clone for IntServTspecBody {
     fn clone(&self) -> Self {
         *self
@@ -1239,7 +1224,6 @@ pub struct RSVP_ADSPEC {
     pub NumberOfServices: u32,
     pub Services: [CONTROL_SERVICE; 1],
 }
-impl ::core::marker::Copy for RSVP_ADSPEC {}
 impl ::core::clone::Clone for RSVP_ADSPEC {
     fn clone(&self) -> Self {
         *self
@@ -1283,7 +1267,6 @@ pub struct RSVP_FILTERSPEC {
     pub Type: FilterType,
     pub Anonymous: RSVP_FILTERSPEC_0,
 }
-impl ::core::marker::Copy for RSVP_FILTERSPEC {}
 impl ::core::clone::Clone for RSVP_FILTERSPEC {
     fn clone(&self) -> Self {
         *self
@@ -1308,7 +1291,6 @@ pub struct RSVP_FILTERSPEC_V4 {
     pub Unused: u16,
     pub Port: u16,
 }
-impl ::core::marker::Copy for RSVP_FILTERSPEC_V4 {}
 impl ::core::clone::Clone for RSVP_FILTERSPEC_V4 {
     fn clone(&self) -> Self {
         *self
@@ -1319,7 +1301,6 @@ pub struct RSVP_FILTERSPEC_V4_GPI {
     pub Address: IN_ADDR_IPV4,
     pub GeneralPortId: u32,
 }
-impl ::core::marker::Copy for RSVP_FILTERSPEC_V4_GPI {}
 impl ::core::clone::Clone for RSVP_FILTERSPEC_V4_GPI {
     fn clone(&self) -> Self {
         *self
@@ -1367,8 +1348,6 @@ pub struct RSVP_HOP {
     pub hop_header: RsvpObjHdr,
     pub hop_u: RSVP_HOP_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RSVP_HOP {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RSVP_HOP {
     fn clone(&self) -> Self {
@@ -1463,8 +1442,6 @@ pub struct RSVP_SCOPE {
     pub scope_u: RSVP_SCOPE_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RSVP_SCOPE {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RSVP_SCOPE {
     fn clone(&self) -> Self {
         *self
@@ -1487,8 +1464,6 @@ pub struct RSVP_SESSION {
     pub sess_header: RsvpObjHdr,
     pub sess_u: RSVP_SESSION_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RSVP_SESSION {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RSVP_SESSION {
     fn clone(&self) -> Self {
@@ -1540,8 +1515,6 @@ pub struct Rsvp_Hop_IPv4 {
     pub hop_LIH: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Rsvp_Hop_IPv4 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for Rsvp_Hop_IPv4 {
     fn clone(&self) -> Self {
         *self
@@ -1552,7 +1525,6 @@ pub struct SENDER_TSPEC {
     pub stspec_header: RsvpObjHdr,
     pub stspec_body: IntServTspecBody,
 }
-impl ::core::marker::Copy for SENDER_TSPEC {}
 impl ::core::clone::Clone for SENDER_TSPEC {
     fn clone(&self) -> Self {
         *self
@@ -1744,8 +1716,6 @@ pub struct Scope_list_ipv4 {
     pub scopl_ipaddr: [super::super::Networking::WinSock::IN_ADDR; 1],
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Scope_list_ipv4 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for Scope_list_ipv4 {
     fn clone(&self) -> Self {
         *self
@@ -1759,8 +1729,6 @@ pub struct Session_IPv4 {
     pub sess_flags: u8,
     pub sess_destport: u16,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for Session_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for Session_IPv4 {
     fn clone(&self) -> Self {
@@ -1942,8 +1910,6 @@ pub struct flow_desc {
     pub u2: flow_desc_1,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for flow_desc {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for flow_desc {
     fn clone(&self) -> Self {
         *self
@@ -1995,8 +1961,6 @@ pub struct lpmiptable {
     pub IfIpAddr: super::super::Networking::WinSock::IN_ADDR,
     pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for lpmiptable {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for lpmiptable {
     fn clone(&self) -> Self {
@@ -2075,7 +2039,6 @@ pub struct tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     pub KeyAlgID: u32,
     pub Anonymous: tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
 }
-impl ::core::marker::Copy for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
 impl ::core::clone::Clone for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     fn clone(&self) -> Self {
         *self

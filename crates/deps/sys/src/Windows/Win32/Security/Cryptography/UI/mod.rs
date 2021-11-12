@@ -404,8 +404,6 @@ pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     pub nStartPage: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for CRYPTUI_VIEWCERTIFICATE_STRUCTA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     fn clone(&self) -> Self {
         *self
@@ -445,8 +443,6 @@ pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTW {
     pub rgPropSheetPages: *mut super::super::super::UI::Controls::PROPSHEETPAGEW,
     pub nStartPage: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for CRYPTUI_VIEWCERTIFICATE_STRUCTW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for CRYPTUI_VIEWCERTIFICATE_STRUCTW {
     fn clone(&self) -> Self {
@@ -514,8 +510,6 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     pub Anonymous: CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     fn clone(&self) -> Self {
         *self
@@ -580,8 +574,6 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
     pub dwAdditionalCertChoice: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE,
     pub pSignExtInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
     fn clone(&self) -> Self {
@@ -721,8 +713,6 @@ pub struct CRYPTUI_WIZ_EXPORT_INFO {
     pub rghStores: *mut *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRYPTUI_WIZ_EXPORT_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPTUI_WIZ_EXPORT_INFO {
     fn clone(&self) -> Self {
         *self
@@ -784,8 +774,6 @@ pub struct CRYPTUI_WIZ_IMPORT_SRC_INFO {
     pub dwFlags: super::CRYPT_KEY_FLAGS,
     pub pwszPassword: super::super::super::Foundation::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CRYPTUI_WIZ_IMPORT_SRC_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPTUI_WIZ_IMPORT_SRC_INFO {
     fn clone(&self) -> Self {

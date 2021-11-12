@@ -3787,7 +3787,6 @@ pub struct UCPTrie {
     pub dataNullOffset: i32,
     pub nullValue: u32,
 }
-impl ::core::marker::Copy for UCPTrie {}
 impl ::core::clone::Clone for UCPTrie {
     fn clone(&self) -> Self {
         *self

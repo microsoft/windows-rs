@@ -827,8 +827,6 @@ pub struct CLRES_FUNCTION_TABLE {
     pub Anonymous: CLRES_FUNCTION_TABLE_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::marker::Copy for CLRES_FUNCTION_TABLE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::clone::Clone for CLRES_FUNCTION_TABLE {
     fn clone(&self) -> Self {
         *self
@@ -1496,7 +1494,6 @@ pub struct CLUSPROP_BINARY {
     pub __AnonymousBase_clusapi_L5129_C41: CLUSPROP_VALUE,
     pub rgb: [u8; 1],
 }
-impl ::core::marker::Copy for CLUSPROP_BINARY {}
 impl ::core::clone::Clone for CLUSPROP_BINARY {
     fn clone(&self) -> Self {
         *self
@@ -1545,7 +1542,6 @@ pub struct CLUSPROP_DWORD {
     pub __AnonymousBase_clusapi_L5149_C40: CLUSPROP_VALUE,
     pub dw: u32,
 }
-impl ::core::marker::Copy for CLUSPROP_DWORD {}
 impl ::core::clone::Clone for CLUSPROP_DWORD {
     fn clone(&self) -> Self {
         *self
@@ -1558,8 +1554,6 @@ pub struct CLUSPROP_FILETIME {
     pub ft: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CLUSPROP_FILETIME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CLUSPROP_FILETIME {
     fn clone(&self) -> Self {
         *self
@@ -1570,7 +1564,6 @@ pub struct CLUSPROP_FTSET_INFO {
     pub __AnonymousBase_clusapi_L5555_C14: CLUSPROP_VALUE,
     pub __AnonymousBase_clusapi_L5556_C14: CLUS_FTSET_INFO,
 }
-impl ::core::marker::Copy for CLUSPROP_FTSET_INFO {}
 impl ::core::clone::Clone for CLUSPROP_FTSET_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1592,7 +1585,6 @@ pub struct CLUSPROP_LARGE_INTEGER {
     pub __AnonymousBase_clusapi_L5199_C14: CLUSPROP_VALUE,
     pub li: i64,
 }
-impl ::core::marker::Copy for CLUSPROP_LARGE_INTEGER {}
 impl ::core::clone::Clone for CLUSPROP_LARGE_INTEGER {
     fn clone(&self) -> Self {
         *self
@@ -1603,7 +1595,6 @@ pub struct CLUSPROP_LIST {
     pub nPropertyCount: u32,
     pub PropertyName: CLUSPROP_SZ,
 }
-impl ::core::marker::Copy for CLUSPROP_LIST {}
 impl ::core::clone::Clone for CLUSPROP_LIST {
     fn clone(&self) -> Self {
         *self
@@ -1614,7 +1605,6 @@ pub struct CLUSPROP_LONG {
     pub __AnonymousBase_clusapi_L5159_C39: CLUSPROP_VALUE,
     pub l: i32,
 }
-impl ::core::marker::Copy for CLUSPROP_LONG {}
 impl ::core::clone::Clone for CLUSPROP_LONG {
     fn clone(&self) -> Self {
         *self
@@ -1625,7 +1615,6 @@ pub struct CLUSPROP_PARTITION_INFO {
     pub __AnonymousBase_clusapi_L5507_C14: CLUSPROP_VALUE,
     pub __AnonymousBase_clusapi_L5508_C14: CLUS_PARTITION_INFO,
 }
-impl ::core::marker::Copy for CLUSPROP_PARTITION_INFO {}
 impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1636,7 +1625,6 @@ pub struct CLUSPROP_PARTITION_INFO_EX {
     pub __AnonymousBase_clusapi_L5519_C14: CLUSPROP_VALUE,
     pub __AnonymousBase_clusapi_L5520_C14: CLUS_PARTITION_INFO_EX,
 }
-impl ::core::marker::Copy for CLUSPROP_PARTITION_INFO_EX {}
 impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO_EX {
     fn clone(&self) -> Self {
         *self
@@ -1647,7 +1635,6 @@ pub struct CLUSPROP_PARTITION_INFO_EX2 {
     pub __AnonymousBase_clusapi_L5533_C14: CLUSPROP_PARTITION_INFO_EX,
     pub __AnonymousBase_clusapi_L5534_C14: CLUS_PARTITION_INFO_EX2,
 }
-impl ::core::marker::Copy for CLUSPROP_PARTITION_INFO_EX2 {}
 impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO_EX2 {
     fn clone(&self) -> Self {
         *self
@@ -1685,7 +1672,6 @@ pub struct CLUSPROP_RESOURCE_CLASS {
     pub __AnonymousBase_clusapi_L5250_C14: CLUSPROP_VALUE,
     pub rc: CLUSTER_RESOURCE_CLASS,
 }
-impl ::core::marker::Copy for CLUSPROP_RESOURCE_CLASS {}
 impl ::core::clone::Clone for CLUSPROP_RESOURCE_CLASS {
     fn clone(&self) -> Self {
         *self
@@ -1696,7 +1682,6 @@ pub struct CLUSPROP_RESOURCE_CLASS_INFO {
     pub __AnonymousBase_clusapi_L5261_C14: CLUSPROP_VALUE,
     pub __AnonymousBase_clusapi_L5262_C14: CLUS_RESOURCE_CLASS_INFO,
 }
-impl ::core::marker::Copy for CLUSPROP_RESOURCE_CLASS_INFO {}
 impl ::core::clone::Clone for CLUSPROP_RESOURCE_CLASS_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1707,7 +1692,6 @@ pub struct CLUSPROP_SCSI_ADDRESS {
     pub __AnonymousBase_clusapi_L5583_C14: CLUSPROP_VALUE,
     pub __AnonymousBase_clusapi_L5584_C14: CLUS_SCSI_ADDRESS,
 }
-impl ::core::marker::Copy for CLUSPROP_SCSI_ADDRESS {}
 impl ::core::clone::Clone for CLUSPROP_SCSI_ADDRESS {
     fn clone(&self) -> Self {
         *self
@@ -1719,8 +1703,6 @@ pub struct CLUSPROP_SECURITY_DESCRIPTOR {
     pub __AnonymousBase_clusapi_L5211_C54: CLUSPROP_VALUE,
     pub Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::core::marker::Copy for CLUSPROP_SECURITY_DESCRIPTOR {}
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::core::clone::Clone for CLUSPROP_SECURITY_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -1765,7 +1747,6 @@ pub struct CLUSPROP_SZ {
     pub __AnonymousBase_clusapi_L5169_C37: CLUSPROP_VALUE,
     pub sz: [u16; 1],
 }
-impl ::core::marker::Copy for CLUSPROP_SZ {}
 impl ::core::clone::Clone for CLUSPROP_SZ {
     fn clone(&self) -> Self {
         *self
@@ -1776,7 +1757,6 @@ pub struct CLUSPROP_ULARGE_INTEGER {
     pub __AnonymousBase_clusapi_L5186_C14: CLUSPROP_VALUE,
     pub li: u64,
 }
-impl ::core::marker::Copy for CLUSPROP_ULARGE_INTEGER {}
 impl ::core::clone::Clone for CLUSPROP_ULARGE_INTEGER {
     fn clone(&self) -> Self {
         *self
@@ -1787,7 +1767,6 @@ pub struct CLUSPROP_VALUE {
     pub Syntax: CLUSPROP_SYNTAX,
     pub cbLength: u32,
 }
-impl ::core::marker::Copy for CLUSPROP_VALUE {}
 impl ::core::clone::Clone for CLUSPROP_VALUE {
     fn clone(&self) -> Self {
         *self
@@ -1798,7 +1777,6 @@ pub struct CLUSPROP_WORD {
     pub __AnonymousBase_clusapi_L5139_C39: CLUSPROP_VALUE,
     pub w: u16,
 }
-impl ::core::marker::Copy for CLUSPROP_WORD {}
 impl ::core::clone::Clone for CLUSPROP_WORD {
     fn clone(&self) -> Self {
         *self
@@ -2987,7 +2965,6 @@ pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     pub __AnonymousBase_clusapi_L5475_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
     pub __AnonymousBase_clusapi_L5476_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
 }
-impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {}
 impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     fn clone(&self) -> Self {
         *self
@@ -2998,7 +2975,6 @@ pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     pub __AnonymousBase_clusapi_L5464_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
     pub __AnonymousBase_clusapi_L5465_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
 }
-impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT {}
 impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     fn clone(&self) -> Self {
         *self
@@ -3043,7 +3019,6 @@ pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     pub InputType: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE,
     pub Anonymous: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0,
 }
-impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {}
 impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     fn clone(&self) -> Self {
         *self
@@ -3565,7 +3540,6 @@ pub const CLUS_RESDLL_OPEN_RECOVER_MONITOR_STATE: u32 = 1u32;
 pub struct CLUS_RESOURCE_CLASS_INFO {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0,
 }
-impl ::core::marker::Copy for CLUS_RESOURCE_CLASS_INFO {}
 impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO {
     fn clone(&self) -> Self {
         *self
@@ -3586,7 +3560,6 @@ pub struct CLUS_RESOURCE_CLASS_INFO_0_0 {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0_0,
     pub SubClass: u32,
 }
-impl ::core::marker::Copy for CLUS_RESOURCE_CLASS_INFO_0_0 {}
 impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -3635,7 +3608,6 @@ impl ::core::clone::Clone for CLUS_RESSUBCLASS_STORAGE {
 pub struct CLUS_SCSI_ADDRESS {
     pub Anonymous: CLUS_SCSI_ADDRESS_0,
 }
-impl ::core::marker::Copy for CLUS_SCSI_ADDRESS {}
 impl ::core::clone::Clone for CLUS_SCSI_ADDRESS {
     fn clone(&self) -> Self {
         *self
@@ -4950,8 +4922,6 @@ pub struct RESUTIL_PROPERTY_ITEM {
     pub Flags: u32,
     pub Offset: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RESUTIL_PROPERTY_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RESUTIL_PROPERTY_ITEM {
     fn clone(&self) -> Self {

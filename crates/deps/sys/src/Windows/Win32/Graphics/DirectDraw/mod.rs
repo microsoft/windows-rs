@@ -186,7 +186,6 @@ pub struct DDBLTFX {
     pub ddckDestColorkey: DDCOLORKEY,
     pub ddckSrcColorkey: DDCOLORKEY,
 }
-impl ::core::marker::Copy for DDBLTFX {}
 impl ::core::clone::Clone for DDBLTFX {
     fn clone(&self) -> Self {
         *self
@@ -574,7 +573,6 @@ pub struct DDCAPS_DX6 {
     pub dwNLVBRops: [u32; 8],
     pub ddsCaps: DDSCAPS2,
 }
-impl ::core::marker::Copy for DDCAPS_DX6 {}
 impl ::core::clone::Clone for DDCAPS_DX6 {
     fn clone(&self) -> Self {
         *self
@@ -640,7 +638,6 @@ pub struct DDCAPS_DX7 {
     pub dwNLVBRops: [u32; 8],
     pub ddsCaps: DDSCAPS2,
 }
-impl ::core::marker::Copy for DDCAPS_DX7 {}
 impl ::core::clone::Clone for DDCAPS_DX7 {
     fn clone(&self) -> Self {
         *self
@@ -730,7 +727,6 @@ pub struct DDCOMPBUFFERINFO {
     pub ddCompCaps: DDSCAPS2,
     pub ddPixelFormat: DDPIXELFORMAT,
 }
-impl ::core::marker::Copy for DDCOMPBUFFERINFO {}
 impl ::core::clone::Clone for DDCOMPBUFFERINFO {
     fn clone(&self) -> Self {
         *self
@@ -1084,8 +1080,6 @@ pub struct DDHALINFO {
     pub lpDDExeBufCallbacks: *mut DDHAL_DDEXEBUFCALLBACKS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDHALINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDHALINFO {
     fn clone(&self) -> Self {
         *self
@@ -1171,8 +1165,6 @@ pub struct DDHAL_BLTDATA {
     pub dwRectCnt: u32,
     pub prDestRects: *mut super::super::Foundation::RECT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDHAL_BLTDATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDHAL_BLTDATA {
     fn clone(&self) -> Self {
@@ -1290,8 +1282,6 @@ pub struct DDHAL_CREATEMOCOMPDATA {
     pub ddRVal: ::windows_sys::core::HRESULT,
     pub CreateMoComp: ::core::option::Option<LPDDHALMOCOMPCB_CREATE>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDHAL_CREATEMOCOMPDATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDHAL_CREATEMOCOMPDATA {
     fn clone(&self) -> Self {
@@ -1785,8 +1775,6 @@ pub struct DDHAL_GETAVAILDRIVERMEMORYDATA {
     pub ddsCapsEx: DDSCAPSEX,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDHAL_GETAVAILDRIVERMEMORYDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDHAL_GETAVAILDRIVERMEMORYDATA {
     fn clone(&self) -> Self {
         *self
@@ -1834,7 +1822,6 @@ pub struct DDHAL_GETDRIVERSTATEDATA {
     pub dwLength: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for DDHAL_GETDRIVERSTATEDATA {}
 impl ::core::clone::Clone for DDHAL_GETDRIVERSTATEDATA {
     fn clone(&self) -> Self {
         *self
@@ -1874,7 +1861,6 @@ pub struct DDHAL_GETHEAPALIGNMENTDATA {
     pub GetHeapAlignment: ::core::option::Option<LPDDHAL_GETHEAPALIGNMENT>,
     pub Alignment: HEAPALIGNMENT,
 }
-impl ::core::marker::Copy for DDHAL_GETHEAPALIGNMENTDATA {}
 impl ::core::clone::Clone for DDHAL_GETHEAPALIGNMENTDATA {
     fn clone(&self) -> Self {
         *self
@@ -1892,8 +1878,6 @@ pub struct DDHAL_GETINTERNALMOCOMPDATA {
     pub ddRVal: ::windows_sys::core::HRESULT,
     pub GetInternalMoCompInfo: ::core::option::Option<LPDDHALMOCOMPCB_GETINTERNALINFO>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDHAL_GETINTERNALMOCOMPDATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDHAL_GETINTERNALMOCOMPDATA {
     fn clone(&self) -> Self {
@@ -1913,8 +1897,6 @@ pub struct DDHAL_GETMOCOMPCOMPBUFFDATA {
     pub ddRVal: ::windows_sys::core::HRESULT,
     pub GetMoCompBuffInfo: ::core::option::Option<LPDDHALMOCOMPCB_GETCOMPBUFFINFO>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDHAL_GETMOCOMPCOMPBUFFDATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDHAL_GETMOCOMPCOMPBUFFDATA {
     fn clone(&self) -> Self {
@@ -2446,8 +2428,6 @@ pub struct DDHAL_UPDATEOVERLAYDATA {
     pub UpdateOverlay: ::core::option::Option<LPDDHALSURFCB_UPDATEOVERLAY>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDHAL_UPDATEOVERLAYDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDHAL_UPDATEOVERLAYDATA {
     fn clone(&self) -> Self {
         *self
@@ -2650,7 +2630,6 @@ pub struct DDMCCOMPBUFFERINFO {
     pub ddCompCaps: DDSCAPS2,
     pub ddPixelFormat: DDPIXELFORMAT,
 }
-impl ::core::marker::Copy for DDMCCOMPBUFFERINFO {}
 impl ::core::clone::Clone for DDMCCOMPBUFFERINFO {
     fn clone(&self) -> Self {
         *self
@@ -2707,7 +2686,6 @@ pub struct DDMORESURFACECAPS {
     pub ddsCapsMore: DDSCAPSEX,
     pub ddsExtendedHeapRestrictions: [DDMORESURFACECAPS_0; 1],
 }
-impl ::core::marker::Copy for DDMORESURFACECAPS {}
 impl ::core::clone::Clone for DDMORESURFACECAPS {
     fn clone(&self) -> Self {
         *self
@@ -2718,7 +2696,6 @@ pub struct DDMORESURFACECAPS_0 {
     pub ddsCapsEx: DDSCAPSEX,
     pub ddsCapsExAlt: DDSCAPSEX,
 }
-impl ::core::marker::Copy for DDMORESURFACECAPS_0 {}
 impl ::core::clone::Clone for DDMORESURFACECAPS_0 {
     fn clone(&self) -> Self {
         *self
@@ -2809,7 +2786,6 @@ pub struct DDOPTSURFACEDESC {
     pub guid: ::windows_sys::core::GUID,
     pub dwCompressionRatio: u32,
 }
-impl ::core::marker::Copy for DDOPTSURFACEDESC {}
 impl ::core::clone::Clone for DDOPTSURFACEDESC {
     fn clone(&self) -> Self {
         *self
@@ -2854,7 +2830,6 @@ pub struct DDOVERLAYFX {
     pub dwDDFX: u32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for DDOVERLAYFX {}
 impl ::core::clone::Clone for DDOVERLAYFX {
     fn clone(&self) -> Self {
         *self
@@ -2955,7 +2930,6 @@ pub struct DDPIXELFORMAT {
     pub Anonymous4: DDPIXELFORMAT_3,
     pub Anonymous5: DDPIXELFORMAT_4,
 }
-impl ::core::marker::Copy for DDPIXELFORMAT {}
 impl ::core::clone::Clone for DDPIXELFORMAT {
     fn clone(&self) -> Self {
         *self
@@ -3179,8 +3153,6 @@ pub struct DDRAWI_DDMOTIONCOMP_LCL {
     pub lpDriverReserved3: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDRAWI_DDMOTIONCOMP_LCL {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDMOTIONCOMP_LCL {
     fn clone(&self) -> Self {
         *self
@@ -3257,8 +3229,6 @@ pub struct DDRAWI_DDRAWPALETTE_GBL {
     pub dwHandle: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDRAWI_DDRAWPALETTE_GBL {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDRAWPALETTE_GBL {
     fn clone(&self) -> Self {
         *self
@@ -3330,8 +3300,6 @@ pub struct DDRAWI_DDRAWSURFACE_GBL {
     pub dwReserved1: usize,
     pub ddpfSurface: DDPIXELFORMAT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDRAWI_DDRAWSURFACE_GBL {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL {
     fn clone(&self) -> Self {
@@ -3409,7 +3377,6 @@ pub struct DDRAWI_DDRAWSURFACE_GBL_MORE {
     pub dwDDRAWReserved2: u32,
     pub fpAliasOfVidMem: usize,
 }
-impl ::core::marker::Copy for DDRAWI_DDRAWSURFACE_GBL_MORE {}
 impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_MORE {
     fn clone(&self) -> Self {
         *self
@@ -3472,8 +3439,6 @@ pub struct DDRAWI_DDRAWSURFACE_LCL {
     pub lOverlayX: i32,
     pub lOverlayY: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDRAWI_DDRAWSURFACE_LCL {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_LCL {
     fn clone(&self) -> Self {
@@ -3539,8 +3504,6 @@ pub struct DDRAWI_DDRAWSURFACE_MORE {
     pub dwFVF: u32,
     pub lpVB: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDRAWI_DDRAWSURFACE_MORE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_MORE {
     fn clone(&self) -> Self {
@@ -3673,8 +3636,6 @@ pub struct DDRAWI_DIRECTDRAW_GBL {
     pub ddsCapsMore: DDSCAPSEX,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DDRAWI_DIRECTDRAW_GBL {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DIRECTDRAW_GBL {
     fn clone(&self) -> Self {
         *self
@@ -3797,7 +3758,6 @@ pub struct DDSCAPS2 {
     pub dwCaps3: u32,
     pub Anonymous: DDSCAPS2_0,
 }
-impl ::core::marker::Copy for DDSCAPS2 {}
 impl ::core::clone::Clone for DDSCAPS2 {
     fn clone(&self) -> Self {
         *self
@@ -3864,7 +3824,6 @@ pub struct DDSCAPSEX {
     pub dwCaps3: u32,
     pub Anonymous: DDSCAPSEX_0,
 }
-impl ::core::marker::Copy for DDSCAPSEX {}
 impl ::core::clone::Clone for DDSCAPSEX {
     fn clone(&self) -> Self {
         *self
@@ -4061,7 +4020,6 @@ pub struct DDSURFACEDESC {
     pub ddpfPixelFormat: DDPIXELFORMAT,
     pub ddsCaps: DDSCAPS,
 }
-impl ::core::marker::Copy for DDSURFACEDESC {}
 impl ::core::clone::Clone for DDSURFACEDESC {
     fn clone(&self) -> Self {
         *self
@@ -4108,7 +4066,6 @@ pub struct DDSURFACEDESC2 {
     pub ddsCaps: DDSCAPS2,
     pub dwTextureStage: u32,
 }
-impl ::core::marker::Copy for DDSURFACEDESC2 {}
 impl ::core::clone::Clone for DDSURFACEDESC2 {
     fn clone(&self) -> Self {
         *self
@@ -4539,8 +4496,6 @@ pub struct DD_BLTDATA {
     pub ddargbScaleFactors: DDARGB,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DD_BLTDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_BLTDATA {
     fn clone(&self) -> Self {
         *self
@@ -4661,7 +4616,6 @@ pub struct DD_CREATEMOCOMPDATA {
     pub dwDataSize: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for DD_CREATEMOCOMPDATA {}
 impl ::core::clone::Clone for DD_CREATEMOCOMPDATA {
     fn clone(&self) -> Self {
         *self
@@ -5003,7 +4957,6 @@ pub struct DD_GETDRIVERSTATEDATA {
     pub dwLength: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for DD_GETDRIVERSTATEDATA {}
 impl ::core::clone::Clone for DD_GETDRIVERSTATEDATA {
     fn clone(&self) -> Self {
         *self
@@ -5044,7 +4997,6 @@ pub struct DD_GETHEAPALIGNMENTDATA {
     pub GetHeapAlignment: *mut ::core::ffi::c_void,
     pub Alignment: HEAPALIGNMENT,
 }
-impl ::core::marker::Copy for DD_GETHEAPALIGNMENTDATA {}
 impl ::core::clone::Clone for DD_GETHEAPALIGNMENTDATA {
     fn clone(&self) -> Self {
         *self
@@ -5060,7 +5012,6 @@ pub struct DD_GETINTERNALMOCOMPDATA {
     pub dwScratchMemAlloc: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for DD_GETINTERNALMOCOMPDATA {}
 impl ::core::clone::Clone for DD_GETINTERNALMOCOMPDATA {
     fn clone(&self) -> Self {
         *self
@@ -5077,7 +5028,6 @@ pub struct DD_GETMOCOMPCOMPBUFFDATA {
     pub lpCompBuffInfo: *mut DDCOMPBUFFERINFO,
     pub ddRVal: ::windows_sys::core::HRESULT,
 }
-impl ::core::marker::Copy for DD_GETMOCOMPCOMPBUFFDATA {}
 impl ::core::clone::Clone for DD_GETMOCOMPCOMPBUFFDATA {
     fn clone(&self) -> Self {
         *self
@@ -5275,8 +5225,6 @@ pub struct DD_HALINFO {
     pub lpD3DBufCallbacks: *mut DD_D3DBUFCALLBACKS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DD_HALINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_HALINFO {
     fn clone(&self) -> Self {
         *self
@@ -5290,7 +5238,6 @@ pub struct DD_HALINFO_V4 {
     pub GetDriverInfo: ::core::option::Option<PDD_GETDRIVERINFO>,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for DD_HALINFO_V4 {}
 impl ::core::clone::Clone for DD_HALINFO_V4 {
     fn clone(&self) -> Self {
         *self
@@ -5405,7 +5352,6 @@ pub struct DD_MORESURFACECAPS {
     pub ddsCapsMore: DDSCAPSEX,
     pub ddsExtendedHeapRestrictions: [DD_MORESURFACECAPS_0; 1],
 }
-impl ::core::marker::Copy for DD_MORESURFACECAPS {}
 impl ::core::clone::Clone for DD_MORESURFACECAPS {
     fn clone(&self) -> Self {
         *self
@@ -5416,7 +5362,6 @@ pub struct DD_MORESURFACECAPS_0 {
     pub ddsCapsEx: DDSCAPSEX,
     pub ddsCapsExAlt: DDSCAPSEX,
 }
-impl ::core::marker::Copy for DD_MORESURFACECAPS_0 {}
 impl ::core::clone::Clone for DD_MORESURFACECAPS_0 {
     fn clone(&self) -> Self {
         *self
@@ -5460,7 +5405,6 @@ pub struct DD_MOTIONCOMP_LOCAL {
     pub lpDriverReserved2: *mut ::core::ffi::c_void,
     pub lpDriverReserved3: *mut ::core::ffi::c_void,
 }
-impl ::core::marker::Copy for DD_MOTIONCOMP_LOCAL {}
 impl ::core::clone::Clone for DD_MOTIONCOMP_LOCAL {
     fn clone(&self) -> Self {
         *self
@@ -5753,8 +5697,6 @@ pub struct DD_SURFACE_GLOBAL {
     pub hCreatorProcess: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DD_SURFACE_GLOBAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_SURFACE_GLOBAL {
     fn clone(&self) -> Self {
         *self
@@ -5825,8 +5767,6 @@ pub struct DD_SURFACE_LOCAL {
     pub rcOverlaySrc: super::super::Foundation::RECT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DD_SURFACE_LOCAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_SURFACE_LOCAL {
     fn clone(&self) -> Self {
         *self
@@ -5865,8 +5805,6 @@ pub struct DD_SURFACE_MORE {
     pub ddsCapsEx: DDSCAPSEX,
     pub dwSurfaceHandle: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DD_SURFACE_MORE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_SURFACE_MORE {
     fn clone(&self) -> Self {
@@ -5962,8 +5900,6 @@ pub struct DD_UPDATEOVERLAYDATA {
     pub ddRVal: ::windows_sys::core::HRESULT,
     pub UpdateOverlay: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DD_UPDATEOVERLAYDATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_UPDATEOVERLAYDATA {
     fn clone(&self) -> Self {
@@ -6230,7 +6166,6 @@ pub struct HEAPALIGNMENT {
     pub Offscreen: SURFACEALIGNMENT,
     pub FlipTarget: SURFACEALIGNMENT,
 }
-impl ::core::marker::Copy for HEAPALIGNMENT {}
 impl ::core::clone::Clone for HEAPALIGNMENT {
     fn clone(&self) -> Self {
         *self
@@ -6656,7 +6591,6 @@ pub const ROP_HAS_SOURCE: i32 = 1i32;
 pub struct SURFACEALIGNMENT {
     pub Anonymous: SURFACEALIGNMENT_0,
 }
-impl ::core::marker::Copy for SURFACEALIGNMENT {}
 impl ::core::clone::Clone for SURFACEALIGNMENT {
     fn clone(&self) -> Self {
         *self
@@ -6710,8 +6644,6 @@ pub struct VIDEOMEMORY {
     pub Anonymous2: VIDEOMEMORY_1,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for VIDEOMEMORY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VIDEOMEMORY {
     fn clone(&self) -> Self {
         *self
@@ -6756,7 +6688,6 @@ pub struct VIDEOMEMORYINFO {
     pub dwAlphaAlign: u32,
     pub pvPrimary: *mut ::core::ffi::c_void,
 }
-impl ::core::marker::Copy for VIDEOMEMORYINFO {}
 impl ::core::clone::Clone for VIDEOMEMORYINFO {
     fn clone(&self) -> Self {
         *self
@@ -6772,8 +6703,6 @@ pub struct VIDMEM {
     pub ddsCapsAlt: DDSCAPS,
     pub Anonymous2: VIDMEM_1,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for VIDMEM {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VIDMEM {
     fn clone(&self) -> Self {
@@ -6822,8 +6751,6 @@ pub struct VIDMEMINFO {
     pub pvmList: *mut VIDMEM,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for VIDMEMINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VIDMEMINFO {
     fn clone(&self) -> Self {
         *self
@@ -6856,8 +6783,6 @@ pub struct VMEMHEAP {
     pub pAgpCommitMask: *mut u8,
     pub dwAgpCommitMaskSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for VMEMHEAP {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VMEMHEAP {
     fn clone(&self) -> Self {

@@ -991,8 +991,6 @@ pub struct DELTA_INPUT {
     pub Editable: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DELTA_INPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DELTA_INPUT {
     fn clone(&self) -> Self {
         *self
@@ -1939,8 +1937,6 @@ pub struct PATCH_OLD_FILE_INFO {
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PATCH_OLD_FILE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PATCH_OLD_FILE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2274,8 +2270,6 @@ pub struct PM_ENUM_FILTER {
     pub FilterType: i32,
     pub FilterParameter: PM_ENUM_FILTER_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PM_ENUM_FILTER {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_ENUM_FILTER {
     fn clone(&self) -> Self {

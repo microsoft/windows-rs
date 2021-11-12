@@ -5085,8 +5085,6 @@ pub struct POINTER_TYPE_INFO {
     pub Anonymous: POINTER_TYPE_INFO_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for POINTER_TYPE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for POINTER_TYPE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -5134,8 +5132,6 @@ pub struct PROPSHEETHEADERA_V1 {
     pub Anonymous3: PROPSHEETHEADERA_V1_2,
     pub pfnCallback: ::core::option::Option<PFNPROPSHEETCALLBACK>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETHEADERA_V1 {
     fn clone(&self) -> Self {
@@ -5195,8 +5191,6 @@ pub struct PROPSHEETHEADERA_V2 {
     pub hplWatermark: super::super::Graphics::Gdi::HPALETTE,
     pub Anonymous5: PROPSHEETHEADERA_V2_4,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERA_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETHEADERA_V2 {
     fn clone(&self) -> Self {
@@ -5278,8 +5272,6 @@ pub struct PROPSHEETHEADERW_V1 {
     pub pfnCallback: ::core::option::Option<PFNPROPSHEETCALLBACK>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETHEADERW_V1 {
     fn clone(&self) -> Self {
         *self
@@ -5338,8 +5330,6 @@ pub struct PROPSHEETHEADERW_V2 {
     pub hplWatermark: super::super::Graphics::Gdi::HPALETTE,
     pub Anonymous5: PROPSHEETHEADERW_V2_4,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETHEADERW_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETHEADERW_V2 {
     fn clone(&self) -> Self {
@@ -5425,8 +5415,6 @@ pub struct PROPSHEETPAGEA {
     pub Anonymous3: PROPSHEETPAGEA_2,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA {
     fn clone(&self) -> Self {
         *self
@@ -5483,8 +5471,6 @@ pub struct PROPSHEETPAGEA_V1 {
     pub pcRefParent: *mut u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_V1 {
     fn clone(&self) -> Self {
         *self
@@ -5530,8 +5516,6 @@ pub struct PROPSHEETPAGEA_V2 {
     pub pszHeaderTitle: super::super::Foundation::PSTR,
     pub pszHeaderSubTitle: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_V2 {
     fn clone(&self) -> Self {
@@ -5580,8 +5564,6 @@ pub struct PROPSHEETPAGEA_V3 {
     pub hActCtx: super::super::Foundation::HANDLE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEA_V3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_V3 {
     fn clone(&self) -> Self {
         *self
@@ -5629,8 +5611,6 @@ pub struct PROPSHEETPAGEW {
     pub hActCtx: super::super::Foundation::HANDLE,
     pub Anonymous3: PROPSHEETPAGEW_2,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW {
     fn clone(&self) -> Self {
@@ -5688,8 +5668,6 @@ pub struct PROPSHEETPAGEW_V1 {
     pub pcRefParent: *mut u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_V1 {
     fn clone(&self) -> Self {
         *self
@@ -5735,8 +5713,6 @@ pub struct PROPSHEETPAGEW_V2 {
     pub pszHeaderTitle: super::super::Foundation::PWSTR,
     pub pszHeaderSubTitle: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_V2 {
     fn clone(&self) -> Self {
@@ -5784,8 +5760,6 @@ pub struct PROPSHEETPAGEW_V3 {
     pub pszHeaderSubTitle: super::super::Foundation::PWSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for PROPSHEETPAGEW_V3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_V3 {
     fn clone(&self) -> Self {
@@ -6309,8 +6283,6 @@ pub struct TASKDIALOGCONFIG {
     pub lpCallbackData: isize,
     pub cxWidth: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for TASKDIALOGCONFIG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for TASKDIALOGCONFIG {
     fn clone(&self) -> Self {
@@ -7819,8 +7791,6 @@ pub struct TVINSERTSTRUCTA {
     pub Anonymous: TVINSERTSTRUCTA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TVINSERTSTRUCTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TVINSERTSTRUCTA {
     fn clone(&self) -> Self {
         *self
@@ -7845,8 +7815,6 @@ pub struct TVINSERTSTRUCTW {
     pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTW_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TVINSERTSTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TVINSERTSTRUCTW {
     fn clone(&self) -> Self {

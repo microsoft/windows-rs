@@ -3382,8 +3382,6 @@ pub struct Matrix4x3F {
     pub __AnonymousBase_d2d1_1helper_L45_C31: Common::D2D_MATRIX_4X3_F,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::marker::Copy for Matrix4x3F {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::clone::Clone for Matrix4x3F {
     fn clone(&self) -> Self {
         *self
@@ -3395,8 +3393,6 @@ pub struct Matrix4x4F {
     pub __AnonymousBase_d2d1_1helper_L97_C31: Common::D2D_MATRIX_4X4_F,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::marker::Copy for Matrix4x4F {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::clone::Clone for Matrix4x4F {
     fn clone(&self) -> Self {
         *self
@@ -3407,8 +3403,6 @@ impl ::core::clone::Clone for Matrix4x4F {
 pub struct Matrix5x4F {
     pub __AnonymousBase_d2d1_1helper_L472_C31: Common::D2D_MATRIX_5X4_F,
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::marker::Copy for Matrix5x4F {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::clone::Clone for Matrix5x4F {
     fn clone(&self) -> Self {

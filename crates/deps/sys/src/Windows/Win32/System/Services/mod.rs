@@ -527,7 +527,6 @@ pub const SERVICE_CONTROL_TRIGGEREVENT: u32 = 32u32;
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     pub u: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0,
 }
-impl ::core::marker::Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {}
 impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     fn clone(&self) -> Self {
         *self

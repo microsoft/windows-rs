@@ -1509,7 +1509,6 @@ pub struct DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     pub ValueDataType: DML_TENSOR_DATA_TYPE,
     pub Value: DML_SCALAR_UNION,
 }
-impl ::core::marker::Copy for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
@@ -1522,7 +1521,6 @@ pub struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     pub ValueStart: DML_SCALAR_UNION,
     pub ValueDelta: DML_SCALAR_UNION,
 }
-impl ::core::marker::Copy for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self

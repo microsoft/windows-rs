@@ -9,7 +9,6 @@ extern "system" {}
 pub struct D3DMATRIX {
     pub Anonymous: D3DMATRIX_0,
 }
-impl ::core::marker::Copy for D3DMATRIX {}
 impl ::core::clone::Clone for D3DMATRIX {
     fn clone(&self) -> Self {
         *self

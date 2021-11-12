@@ -647,8 +647,6 @@ pub struct INSTALLDATA {
     pub Spec: INSTALLSPEC,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for INSTALLDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INSTALLDATA {
     fn clone(&self) -> Self {
         *self

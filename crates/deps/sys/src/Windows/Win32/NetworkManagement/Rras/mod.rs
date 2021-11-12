@@ -1470,8 +1470,6 @@ pub struct MPR_INTERFACE_3 {
     pub ipv6addr: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for MPR_INTERFACE_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MPR_INTERFACE_3 {
     fn clone(&self) -> Self {
         *self
@@ -2039,7 +2037,6 @@ pub struct PROJECTION_INFO {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO_0,
 }
-impl ::core::marker::Copy for PROJECTION_INFO {}
 impl ::core::clone::Clone for PROJECTION_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2060,7 +2057,6 @@ pub struct PROJECTION_INFO2 {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO2_0,
 }
-impl ::core::marker::Copy for PROJECTION_INFO2 {}
 impl ::core::clone::Clone for PROJECTION_INFO2 {
     fn clone(&self) -> Self {
         *self
@@ -2291,8 +2287,6 @@ pub struct RASCONNSTATUSA {
     pub rasconnsubstate: RASCONNSUBSTATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for RASCONNSTATUSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for RASCONNSTATUSA {
     fn clone(&self) -> Self {
         *self
@@ -2311,8 +2305,6 @@ pub struct RASCONNSTATUSW {
     pub remoteEndPoint: RASTUNNELENDPOINT,
     pub rasconnsubstate: RASCONNSUBSTATE,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RASCONNSTATUSW {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RASCONNSTATUSW {
     fn clone(&self) -> Self {
@@ -2667,8 +2659,6 @@ pub struct RASENTRYA {
     pub fDisableIKEv2Fragmentation: super::super::Foundation::BOOL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for RASENTRYA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for RASENTRYA {
     fn clone(&self) -> Self {
         *self
@@ -2811,8 +2801,6 @@ pub struct RASENTRYW {
     pub fDisableIKEv2Fragmentation: super::super::Foundation::BOOL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for RASENTRYW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for RASENTRYW {
     fn clone(&self) -> Self {
         *self
@@ -2920,8 +2908,6 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub numIPv6ServerAddresses: u32,
     pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RASIKEV2_PROJECTION_INFO {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RASIKEV2_PROJECTION_INFO {
     fn clone(&self) -> Self {
@@ -3270,8 +3256,6 @@ pub struct RASPPP_PROJECTION_INFO {
     pub dwCcpServerOptions: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for RASPPP_PROJECTION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for RASPPP_PROJECTION_INFO {
     fn clone(&self) -> Self {
         *self
@@ -3371,8 +3355,6 @@ pub struct RASTUNNELENDPOINT {
     pub Anonymous: RASTUNNELENDPOINT_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RASTUNNELENDPOINT {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RASTUNNELENDPOINT {
     fn clone(&self) -> Self {
         *self
@@ -3403,8 +3385,6 @@ pub struct RASUPDATECONN {
     pub localEndPoint: RASTUNNELENDPOINT,
     pub remoteEndPoint: RASTUNNELENDPOINT,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for RASUPDATECONN {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RASUPDATECONN {
     fn clone(&self) -> Self {
@@ -3532,8 +3512,6 @@ pub struct RAS_CONNECTION_4 {
     pub dwDeviceType: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RAS_CONNECTION_4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RAS_CONNECTION_4 {
     fn clone(&self) -> Self {
         *self
@@ -3572,8 +3550,6 @@ pub struct RAS_CONNECTION_EX {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RAS_CONNECTION_EX {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RAS_CONNECTION_EX {
     fn clone(&self) -> Self {
@@ -3730,8 +3706,6 @@ pub struct RAS_PROJECTION_INFO {
     pub r#type: RASPROJECTION_INFO_TYPE,
     pub Anonymous: RAS_PROJECTION_INFO_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::marker::Copy for RAS_PROJECTION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for RAS_PROJECTION_INFO {
     fn clone(&self) -> Self {
@@ -4036,7 +4010,6 @@ impl ::core::clone::Clone for RTM_ENTITY_EXPORT_METHODS {
 pub struct RTM_ENTITY_ID {
     pub Anonymous: RTM_ENTITY_ID_0,
 }
-impl ::core::marker::Copy for RTM_ENTITY_ID {}
 impl ::core::clone::Clone for RTM_ENTITY_ID {
     fn clone(&self) -> Self {
         *self
@@ -4069,7 +4042,6 @@ pub struct RTM_ENTITY_INFO {
     pub AddressFamily: u16,
     pub EntityId: RTM_ENTITY_ID,
 }
-impl ::core::marker::Copy for RTM_ENTITY_INFO {}
 impl ::core::clone::Clone for RTM_ENTITY_INFO {
     fn clone(&self) -> Self {
         *self
@@ -4339,8 +4311,6 @@ pub struct VPN_TS_IP_ADDRESS {
     pub Anonymous: VPN_TS_IP_ADDRESS_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for VPN_TS_IP_ADDRESS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for VPN_TS_IP_ADDRESS {
     fn clone(&self) -> Self {
         *self
@@ -4385,8 +4355,6 @@ pub struct _MPR_VPN_SELECTOR {
     pub addrStart: VPN_TS_IP_ADDRESS,
     pub addrEnd: VPN_TS_IP_ADDRESS,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for _MPR_VPN_SELECTOR {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for _MPR_VPN_SELECTOR {
     fn clone(&self) -> Self {

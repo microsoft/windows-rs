@@ -186,8 +186,6 @@ pub struct D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
     pub Protections: D3D11_AUTHENTICATED_PROTECTION_FLAGS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
     fn clone(&self) -> Self {
         *self
@@ -520,8 +518,6 @@ pub struct D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     pub ProtectionFlags: D3D11_AUTHENTICATED_PROTECTION_FLAGS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     fn clone(&self) -> Self {
         *self
@@ -735,7 +731,6 @@ pub struct D3D11_BUFFER_RTV {
     pub Anonymous1: D3D11_BUFFER_RTV_0,
     pub Anonymous2: D3D11_BUFFER_RTV_1,
 }
-impl ::core::marker::Copy for D3D11_BUFFER_RTV {}
 impl ::core::clone::Clone for D3D11_BUFFER_RTV {
     fn clone(&self) -> Self {
         *self
@@ -766,7 +761,6 @@ pub struct D3D11_BUFFER_SRV {
     pub Anonymous1: D3D11_BUFFER_SRV_0,
     pub Anonymous2: D3D11_BUFFER_SRV_1,
 }
-impl ::core::marker::Copy for D3D11_BUFFER_SRV {}
 impl ::core::clone::Clone for D3D11_BUFFER_SRV {
     fn clone(&self) -> Self {
         *self
@@ -1378,8 +1372,6 @@ pub struct D3D11_DEPTH_STENCIL_VIEW_DESC {
     pub Flags: u32,
     pub Anonymous: D3D11_DEPTH_STENCIL_VIEW_DESC_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::marker::Copy for D3D11_DEPTH_STENCIL_VIEW_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D11_DEPTH_STENCIL_VIEW_DESC {
     fn clone(&self) -> Self {
@@ -4073,8 +4065,6 @@ pub struct D3D11_RENDER_TARGET_VIEW_DESC {
     pub Anonymous: D3D11_RENDER_TARGET_VIEW_DESC_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::marker::Copy for D3D11_RENDER_TARGET_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -4105,8 +4095,6 @@ pub struct D3D11_RENDER_TARGET_VIEW_DESC1 {
     pub ViewDimension: D3D11_RTV_DIMENSION,
     pub Anonymous: D3D11_RENDER_TARGET_VIEW_DESC1_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::marker::Copy for D3D11_RENDER_TARGET_VIEW_DESC1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC1 {
     fn clone(&self) -> Self {
@@ -4368,8 +4356,6 @@ pub struct D3D11_SHADER_RESOURCE_VIEW_DESC {
     pub Anonymous: D3D11_SHADER_RESOURCE_VIEW_DESC_0,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::marker::Copy for D3D11_SHADER_RESOURCE_VIEW_DESC {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -4404,8 +4390,6 @@ pub struct D3D11_SHADER_RESOURCE_VIEW_DESC1 {
     pub Anonymous: D3D11_SHADER_RESOURCE_VIEW_DESC1_0,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::marker::Copy for D3D11_SHADER_RESOURCE_VIEW_DESC1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
     fn clone(&self) -> Self {
         *self
@@ -4438,7 +4422,6 @@ pub struct D3D11_SHADER_TRACE_DESC {
     pub Flags: u32,
     pub Anonymous: D3D11_SHADER_TRACE_DESC_0,
 }
-impl ::core::marker::Copy for D3D11_SHADER_TRACE_DESC {}
 impl ::core::clone::Clone for D3D11_SHADER_TRACE_DESC {
     fn clone(&self) -> Self {
         *self
@@ -5392,7 +5375,6 @@ pub struct D3D11_TRACE_REGISTER {
     pub OperandIndex: u8,
     pub Flags: u8,
 }
-impl ::core::marker::Copy for D3D11_TRACE_REGISTER {}
 impl ::core::clone::Clone for D3D11_TRACE_REGISTER {
     fn clone(&self) -> Self {
         *self
@@ -5481,8 +5463,6 @@ pub struct D3D11_TRACE_STATS {
     pub DSInputPatchConstantMask: [u8; 32],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for D3D11_TRACE_STATS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D11_TRACE_STATS {
     fn clone(&self) -> Self {
         *self
@@ -5542,8 +5522,6 @@ pub struct D3D11_UNORDERED_ACCESS_VIEW_DESC {
     pub Anonymous: D3D11_UNORDERED_ACCESS_VIEW_DESC_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::marker::Copy for D3D11_UNORDERED_ACCESS_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -5572,8 +5550,6 @@ pub struct D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
     pub ViewDimension: D3D11_UAV_DIMENSION,
     pub Anonymous: D3D11_UNORDERED_ACCESS_VIEW_DESC1_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::marker::Copy for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
     fn clone(&self) -> Self {
@@ -5632,7 +5608,6 @@ impl ::core::clone::Clone for D3D11_VERTEX_SHADER_TRACE_DESC {
 pub struct D3D11_VIDEO_COLOR {
     pub Anonymous: D3D11_VIDEO_COLOR_0,
 }
-impl ::core::marker::Copy for D3D11_VIDEO_COLOR {}
 impl ::core::clone::Clone for D3D11_VIDEO_COLOR {
     fn clone(&self) -> Self {
         *self
@@ -5887,7 +5862,6 @@ pub struct D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
     pub ViewDimension: D3D11_VDOV_DIMENSION,
     pub Anonymous: D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0,
 }
-impl ::core::marker::Copy for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {}
 impl ::core::clone::Clone for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -6134,7 +6108,6 @@ pub struct D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
     pub ViewDimension: D3D11_VPIV_DIMENSION,
     pub Anonymous: D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0,
 }
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {}
 impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -6194,7 +6167,6 @@ pub struct D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
     pub ViewDimension: D3D11_VPOV_DIMENSION,
     pub Anonymous: D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0,
 }
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {}
 impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
     fn clone(&self) -> Self {
         *self

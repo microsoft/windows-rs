@@ -813,7 +813,6 @@ pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,
     pub Anonymous: TF_DA_COLOR_0,
 }
-impl ::core::marker::Copy for TF_DA_COLOR {}
 impl ::core::clone::Clone for TF_DA_COLOR {
     fn clone(&self) -> Self {
         *self
@@ -869,8 +868,6 @@ pub struct TF_DISPLAYATTRIBUTE {
     pub crLine: TF_DA_COLOR,
     pub bAttr: TF_DA_ATTR_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TF_DISPLAYATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
     fn clone(&self) -> Self {
@@ -1031,8 +1028,6 @@ pub struct TF_LMLATTELEMENT {
     pub bstrText: super::super::Foundation::BSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TF_LMLATTELEMENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TF_LMLATTELEMENT {
     fn clone(&self) -> Self {
         *self
@@ -1150,8 +1145,6 @@ pub struct TF_PROPERTYVAL {
     pub guidId: ::windows_sys::core::GUID,
     pub varValue: super::super::System::Com::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for TF_PROPERTYVAL {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for TF_PROPERTYVAL {
     fn clone(&self) -> Self {
@@ -1614,8 +1607,6 @@ pub struct TS_ATTRVAL {
     pub dwOverlapId: u32,
     pub varValue: super::super::System::Com::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for TS_ATTRVAL {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for TS_ATTRVAL {
     fn clone(&self) -> Self {

@@ -449,8 +449,6 @@ pub struct CHAR_IMAGE_INFO {
     pub FontImageInfo: FONT_IMAGE_INFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
-impl ::core::marker::Copy for CHAR_IMAGE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 impl ::core::clone::Clone for CHAR_IMAGE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -544,7 +542,6 @@ pub struct COLORSPACE_TRANSFORM {
     pub Type: COLORSPACE_TRANSFORM_TYPE,
     pub Data: COLORSPACE_TRANSFORM_0,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM {
     fn clone(&self) -> Self {
         *self
@@ -567,7 +564,6 @@ pub struct COLORSPACE_TRANSFORM_1DLUT_CAP {
     pub NumberOfLUTEntries: u32,
     pub DataCap: COLORSPACE_TRANSFORM_DATA_CAP,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_1DLUT_CAP {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_1DLUT_CAP {
     fn clone(&self) -> Self {
         *self
@@ -592,7 +588,6 @@ pub struct COLORSPACE_TRANSFORM_DATA_CAP {
     pub NumericRangeMin: f32,
     pub NumericRangeMax: f32,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_CAP {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP {
     fn clone(&self) -> Self {
         *self
@@ -644,7 +639,6 @@ pub struct COLORSPACE_TRANSFORM_MATRIX_CAP {
     pub Anonymous: COLORSPACE_TRANSFORM_MATRIX_CAP_0,
     pub DataCap: COLORSPACE_TRANSFORM_DATA_CAP,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_MATRIX_CAP {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_CAP {
     fn clone(&self) -> Self {
         *self
@@ -691,7 +685,6 @@ pub struct COLORSPACE_TRANSFORM_SET_INPUT {
     pub OutputWireFormatExpected: OUTPUT_WIRE_FORMAT,
     pub ColorSpaceTransform: COLORSPACE_TRANSFORM,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_SET_INPUT {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_SET_INPUT {
     fn clone(&self) -> Self {
         *self
@@ -715,7 +708,6 @@ pub struct COLORSPACE_TRANSFORM_TARGET_CAPS {
     pub ColorMatrix3x3Cap: COLORSPACE_TRANSFORM_MATRIX_CAP,
     pub LookupTable1DRegammaCap: COLORSPACE_TRANSFORM_1DLUT_CAP,
 }
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_TARGET_CAPS {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TARGET_CAPS {
     fn clone(&self) -> Self {
         *self
@@ -957,8 +949,6 @@ pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     pub bitsPerColorChannel: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     fn clone(&self) -> Self {
         *self
@@ -995,8 +985,6 @@ pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     fn clone(&self) -> Self {
@@ -1037,8 +1025,6 @@ pub struct DISPLAYCONFIG_MODE_INFO {
     pub Anonymous: DISPLAYCONFIG_MODE_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISPLAYCONFIG_MODE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_MODE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1077,8 +1063,6 @@ pub struct DISPLAYCONFIG_PATH_INFO {
     pub flags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISPLAYCONFIG_PATH_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_PATH_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1092,8 +1076,6 @@ pub struct DISPLAYCONFIG_PATH_SOURCE_INFO {
     pub Anonymous: DISPLAYCONFIG_PATH_SOURCE_INFO_0,
     pub statusFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISPLAYCONFIG_PATH_SOURCE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO {
     fn clone(&self) -> Self {
@@ -1139,8 +1121,6 @@ pub struct DISPLAYCONFIG_PATH_TARGET_INFO {
     pub targetAvailable: super::super::Foundation::BOOL,
     pub statusFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISPLAYCONFIG_PATH_TARGET_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO {
     fn clone(&self) -> Self {
@@ -1260,8 +1240,6 @@ pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     fn clone(&self) -> Self {
         *self
@@ -1302,8 +1280,6 @@ pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     pub specializationApplicationName: [u16; 128],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     fn clone(&self) -> Self {
         *self
@@ -1340,8 +1316,6 @@ pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     fn clone(&self) -> Self {
@@ -1410,8 +1384,6 @@ pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     pub Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     fn clone(&self) -> Self {
         *self
@@ -1469,8 +1441,6 @@ pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME {
     pub monitorDevicePath: [u16; 128],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME {
     fn clone(&self) -> Self {
         *self
@@ -1480,7 +1450,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME {
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
     pub Anonymous: DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {}
 impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
     fn clone(&self) -> Self {
         *self
@@ -1510,7 +1479,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
 pub struct DISPLAYCONFIG_TARGET_MODE {
     pub targetVideoSignalInfo: DISPLAYCONFIG_VIDEO_SIGNAL_INFO,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_MODE {}
 impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_MODE {
     fn clone(&self) -> Self {
         *self
@@ -1524,8 +1492,6 @@ pub struct DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     pub height: u32,
     pub targetMode: DISPLAYCONFIG_TARGET_MODE,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_PREFERRED_MODE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     fn clone(&self) -> Self {
@@ -1584,7 +1550,6 @@ pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
     pub Anonymous: DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0,
     pub scanLineOrdering: DISPLAYCONFIG_SCANLINE_ORDERING,
 }
-impl ::core::marker::Copy for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {}
 impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1748,8 +1713,6 @@ pub struct DisplayMode {
     pub devMode: super::super::Graphics::Gdi::DEVMODEW,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DisplayMode {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DisplayMode {
     fn clone(&self) -> Self {
         *self
@@ -1761,8 +1724,6 @@ pub struct DisplayModes {
     pub numDisplayModes: i32,
     pub displayMode: [DisplayMode; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for DisplayModes {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DisplayModes {
     fn clone(&self) -> Self {
@@ -2513,8 +2474,6 @@ pub struct GLYPHDATA {
     pub ptqD: POINTQF,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for GLYPHDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GLYPHDATA {
     fn clone(&self) -> Self {
         *self
@@ -3110,8 +3069,6 @@ pub struct LINEATTRS {
     pub elStyleState: FLOAT_LONG,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::marker::Copy for LINEATTRS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::clone::Clone for LINEATTRS {
     fn clone(&self) -> Self {
         *self
@@ -3129,8 +3086,6 @@ pub struct LINEATTRS {
     pub pstyle: *mut FLOAT_LONG,
     pub elStyleState: FLOAT_LONG,
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::marker::Copy for LINEATTRS {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::clone::Clone for LINEATTRS {
     fn clone(&self) -> Self {
@@ -3293,7 +3248,6 @@ pub struct MIPI_DSI_PACKET {
     pub EccFiller: u8,
     pub Payload: [u8; 8],
 }
-impl ::core::marker::Copy for MIPI_DSI_PACKET {}
 impl ::core::clone::Clone for MIPI_DSI_PACKET {
     fn clone(&self) -> Self {
         *self
@@ -3345,7 +3299,6 @@ pub struct MIPI_DSI_RESET {
     pub Flags: u32,
     pub Anonymous: MIPI_DSI_RESET_0,
 }
-impl ::core::marker::Copy for MIPI_DSI_RESET {}
 impl ::core::clone::Clone for MIPI_DSI_RESET {
     fn clone(&self) -> Self {
         *self
@@ -3383,7 +3336,6 @@ pub struct MIPI_DSI_TRANSMISSION {
     pub HostErrors: u16,
     pub Packets: [MIPI_DSI_PACKET; 1],
 }
-impl ::core::marker::Copy for MIPI_DSI_TRANSMISSION {}
 impl ::core::clone::Clone for MIPI_DSI_TRANSMISSION {
     fn clone(&self) -> Self {
         *self
@@ -3481,7 +3433,6 @@ pub struct PANEL_BRIGHTNESS_SENSOR_DATA {
     pub ChromaticityCoordinate: CHROMATICITY_COORDINATE,
     pub ColorTemperature: f32,
 }
-impl ::core::marker::Copy for PANEL_BRIGHTNESS_SENSOR_DATA {}
 impl ::core::clone::Clone for PANEL_BRIGHTNESS_SENSOR_DATA {
     fn clone(&self) -> Self {
         *self
@@ -3524,7 +3475,6 @@ pub struct PANEL_GET_BRIGHTNESS {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_GET_BRIGHTNESS_0,
 }
-impl ::core::marker::Copy for PANEL_GET_BRIGHTNESS {}
 impl ::core::clone::Clone for PANEL_GET_BRIGHTNESS {
     fn clone(&self) -> Self {
         *self
@@ -3556,7 +3506,6 @@ pub struct PANEL_QUERY_BRIGHTNESS_CAPS {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_QUERY_BRIGHTNESS_CAPS_0,
 }
-impl ::core::marker::Copy for PANEL_QUERY_BRIGHTNESS_CAPS {}
 impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_CAPS {
     fn clone(&self) -> Self {
         *self
@@ -3587,7 +3536,6 @@ pub struct PANEL_QUERY_BRIGHTNESS_RANGES {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_QUERY_BRIGHTNESS_RANGES_0,
 }
-impl ::core::marker::Copy for PANEL_QUERY_BRIGHTNESS_RANGES {}
 impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_RANGES {
     fn clone(&self) -> Self {
         *self
@@ -3618,7 +3566,6 @@ pub struct PANEL_SET_BRIGHTNESS {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_SET_BRIGHTNESS_0,
 }
-impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS {}
 impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS {
     fn clone(&self) -> Self {
         *self
@@ -3640,7 +3587,6 @@ pub struct PANEL_SET_BRIGHTNESS_0_0 {
     pub TransitionTimeInMs: u32,
     pub SensorData: PANEL_BRIGHTNESS_SENSOR_DATA,
 }
-impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS_0_0 {}
 impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -3650,7 +3596,6 @@ impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_0_0 {
 pub struct PANEL_SET_BRIGHTNESS_STATE {
     pub Anonymous: PANEL_SET_BRIGHTNESS_STATE_0,
 }
-impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS_STATE {}
 impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_STATE {
     fn clone(&self) -> Self {
         *self
@@ -4270,7 +4215,6 @@ pub struct VIDEO_CLUT {
     pub FirstEntry: u16,
     pub LookupTable: [VIDEO_CLUT_0; 1],
 }
-impl ::core::marker::Copy for VIDEO_CLUT {}
 impl ::core::clone::Clone for VIDEO_CLUT {
     fn clone(&self) -> Self {
         *self

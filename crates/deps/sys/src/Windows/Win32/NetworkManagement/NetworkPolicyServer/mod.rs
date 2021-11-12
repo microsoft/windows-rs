@@ -700,7 +700,6 @@ pub struct RADIUS_ATTRIBUTE {
     pub cbDataLength: u32,
     pub Anonymous: RADIUS_ATTRIBUTE_0,
 }
-impl ::core::marker::Copy for RADIUS_ATTRIBUTE {}
 impl ::core::clone::Clone for RADIUS_ATTRIBUTE {
     fn clone(&self) -> Self {
         *self

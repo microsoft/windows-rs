@@ -204,8 +204,6 @@ pub struct INTERACTION_CONTEXT_OUTPUT {
     pub arguments: INTERACTION_CONTEXT_OUTPUT_0,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT {
     fn clone(&self) -> Self {
         *self
@@ -236,8 +234,6 @@ pub struct INTERACTION_CONTEXT_OUTPUT2 {
     pub y: f32,
     pub arguments: INTERACTION_CONTEXT_OUTPUT2_0,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT2 {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT2 {
     fn clone(&self) -> Self {

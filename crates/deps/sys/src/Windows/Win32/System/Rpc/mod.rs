@@ -1041,8 +1041,6 @@ pub struct MIDL_STUB_DESC {
     pub pExprInfo: *mut NDR_EXPR_DESC,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for MIDL_STUB_DESC {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MIDL_STUB_DESC {
     fn clone(&self) -> Self {
         *self
@@ -2082,8 +2080,6 @@ pub struct NDR_USER_MARSHAL_INFO {
     pub Anonymous: NDR_USER_MARSHAL_INFO_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for NDR_USER_MARSHAL_INFO {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2274,8 +2270,6 @@ pub struct RPC_ASYNC_STATE {
     pub Reserved: [isize; 4],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::marker::Copy for RPC_ASYNC_STATE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::clone::Clone for RPC_ASYNC_STATE {
     fn clone(&self) -> Self {
         *self
@@ -2353,7 +2347,6 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_A_0,
     pub ObjectUuid: ::windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_A {}
 impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     fn clone(&self) -> Self {
         *self
@@ -2378,7 +2371,6 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_W_0,
     pub ObjectUuid: ::windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_W {}
 impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     fn clone(&self) -> Self {
         *self
@@ -2835,8 +2827,6 @@ pub struct RPC_EE_INFO_PARAM {
     pub u: RPC_EE_INFO_PARAM_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RPC_EE_INFO_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_EE_INFO_PARAM {
     fn clone(&self) -> Self {
         *self
@@ -2912,8 +2902,6 @@ pub struct RPC_EXTENDED_ERROR_INFO {
     pub NumberOfParameters: i32,
     pub Parameters: [RPC_EE_INFO_PARAM; 4],
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RPC_EXTENDED_ERROR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_EXTENDED_ERROR_INFO {
     fn clone(&self) -> Self {
@@ -3278,8 +3266,6 @@ pub struct RPC_SECURITY_QOS_V2_A {
     pub u: RPC_SECURITY_QOS_V2_A_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_A {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_A {
     fn clone(&self) -> Self {
         *self
@@ -3306,8 +3292,6 @@ pub struct RPC_SECURITY_QOS_V2_W {
     pub AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE,
     pub u: RPC_SECURITY_QOS_V2_W_0,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_W {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_W {
     fn clone(&self) -> Self {
@@ -3337,8 +3321,6 @@ pub struct RPC_SECURITY_QOS_V3_A {
     pub Sid: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_A {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_A {
     fn clone(&self) -> Self {
         *self
@@ -3366,8 +3348,6 @@ pub struct RPC_SECURITY_QOS_V3_W {
     pub u: RPC_SECURITY_QOS_V3_W_0,
     pub Sid: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_W {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_W {
     fn clone(&self) -> Self {
@@ -3398,8 +3378,6 @@ pub struct RPC_SECURITY_QOS_V4_A {
     pub EffectiveOnly: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_A {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_A {
     fn clone(&self) -> Self {
         *self
@@ -3428,8 +3406,6 @@ pub struct RPC_SECURITY_QOS_V4_W {
     pub Sid: *mut ::core::ffi::c_void,
     pub EffectiveOnly: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_W {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_W {
     fn clone(&self) -> Self {
@@ -3461,8 +3437,6 @@ pub struct RPC_SECURITY_QOS_V5_A {
     pub ServerSecurityDescriptor: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_A {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_A {
     fn clone(&self) -> Self {
         *self
@@ -3492,8 +3466,6 @@ pub struct RPC_SECURITY_QOS_V5_W {
     pub EffectiveOnly: u32,
     pub ServerSecurityDescriptor: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_W {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_W {
     fn clone(&self) -> Self {

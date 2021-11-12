@@ -453,8 +453,6 @@ pub struct WIAS_CHANGED_VALUE_INFO {
     pub Current: WIAS_CHANGED_VALUE_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WIAS_CHANGED_VALUE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1578,8 +1576,6 @@ pub struct WIA_PROPERTY_INFO {
     pub vt: u16,
     pub ValidVal: WIA_PROPERTY_INFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WIA_PROPERTY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO {
     fn clone(&self) -> Self {

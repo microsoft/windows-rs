@@ -393,8 +393,6 @@ pub struct MEM_EXTENDED_PARAMETER {
     pub Anonymous2: MEM_EXTENDED_PARAMETER_1,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MEM_EXTENDED_PARAMETER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER {
     fn clone(&self) -> Self {
         *self
@@ -525,8 +523,6 @@ pub struct PROCESS_HEAP_ENTRY {
     pub wFlags: u16,
     pub Anonymous: PROCESS_HEAP_ENTRY_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PROCESS_HEAP_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROCESS_HEAP_ENTRY {
     fn clone(&self) -> Self {
@@ -678,7 +674,6 @@ pub struct WIN32_MEMORY_REGION_INFORMATION {
     pub RegionSize: usize,
     pub CommitSize: usize,
 }
-impl ::core::marker::Copy for WIN32_MEMORY_REGION_INFORMATION {}
 impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION {
     fn clone(&self) -> Self {
         *self

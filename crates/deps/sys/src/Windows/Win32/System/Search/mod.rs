@@ -402,8 +402,6 @@ pub struct CATEGORIZATION {
     pub csColumns: COLUMNSET,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for CATEGORIZATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for CATEGORIZATION {
     fn clone(&self) -> Self {
         *self
@@ -558,8 +556,6 @@ pub struct CONTENTRESTRICTION {
     pub lcid: u32,
     pub ulGenerateMethod: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for CONTENTRESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for CONTENTRESTRICTION {
     fn clone(&self) -> Self {
@@ -913,9 +909,6 @@ pub struct DBCOLUMNACCESS {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
-impl ::core::marker::Copy for DBCOLUMNACCESS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::core::clone::Clone for DBCOLUMNACCESS {
     fn clone(&self) -> Self {
         *self
@@ -935,9 +928,6 @@ pub struct DBCOLUMNACCESS {
     pub bPrecision: u8,
     pub bScale: u8,
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
-impl ::core::marker::Copy for DBCOLUMNACCESS {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::core::clone::Clone for DBCOLUMNACCESS {
@@ -962,9 +952,6 @@ pub struct DBCOLUMNDESC {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for DBCOLUMNDESC {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for DBCOLUMNDESC {
     fn clone(&self) -> Self {
         *self
@@ -985,9 +972,6 @@ pub struct DBCOLUMNDESC {
     pub bPrecision: u8,
     pub bScale: u8,
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for DBCOLUMNDESC {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for DBCOLUMNDESC {
@@ -1089,9 +1073,6 @@ pub struct DBCOLUMNINFO {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl ::core::marker::Copy for DBCOLUMNINFO {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for DBCOLUMNINFO {
     fn clone(&self) -> Self {
         *self
@@ -1111,9 +1092,6 @@ pub struct DBCOLUMNINFO {
     pub bScale: u8,
     pub columnid: super::super::Storage::IndexServer::DBID,
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl ::core::marker::Copy for DBCOLUMNINFO {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for DBCOLUMNINFO {
@@ -1903,9 +1881,6 @@ pub struct DBPROP {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for DBPROP {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for DBPROP {
     fn clone(&self) -> Self {
         *self
@@ -1921,9 +1896,6 @@ pub struct DBPROP {
     pub colid: super::super::Storage::IndexServer::DBID,
     pub vValue: super::Com::VARIANT,
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for DBPROP {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for DBPROP {
@@ -2345,9 +2317,6 @@ pub struct DBPROPINFO {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for DBPROPINFO {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for DBPROPINFO {
     fn clone(&self) -> Self {
         *self
@@ -2363,9 +2332,6 @@ pub struct DBPROPINFO {
     pub vtType: u16,
     pub vValues: super::Com::VARIANT,
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for DBPROPINFO {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for DBPROPINFO {
@@ -3403,8 +3369,6 @@ pub struct DCINFO {
     pub vData: super::Com::VARIANT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for DCINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for DCINFO {
     fn clone(&self) -> Self {
         *self
@@ -4431,8 +4395,6 @@ pub struct ITEMPROP {
     pub pwszName: super::super::Foundation::PWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for ITEMPROP {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for ITEMPROP {
     fn clone(&self) -> Self {
         *self
@@ -4530,8 +4492,6 @@ pub struct KAGGETDIAG {
     pub vDiagInfo: super::Com::VARIANT,
     pub sDiagField: i16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for KAGGETDIAG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for KAGGETDIAG {
     fn clone(&self) -> Self {
@@ -4890,8 +4850,6 @@ pub struct NATLANGUAGERESTRICTION {
     pub lcid: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for NATLANGUAGERESTRICTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for NATLANGUAGERESTRICTION {
     fn clone(&self) -> Self {
         *self
@@ -4997,8 +4955,6 @@ pub struct ODBC_VS_ARGS {
     pub Anonymous2: ODBC_VS_ARGS_1,
     pub RetCode: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ODBC_VS_ARGS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ODBC_VS_ARGS {
     fn clone(&self) -> Self {
@@ -5158,8 +5114,6 @@ pub struct PROPERTYRESTRICTION {
     pub prval: super::Com::StructuredStorage::PROPVARIANT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for PROPERTYRESTRICTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for PROPERTYRESTRICTION {
     fn clone(&self) -> Self {
         *self
@@ -5307,8 +5261,6 @@ pub struct RESTRICTION {
     pub weight: u32,
     pub res: RESTRICTION_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for RESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for RESTRICTION {
     fn clone(&self) -> Self {
@@ -5475,8 +5427,6 @@ pub struct SEARCH_COLUMN_PROPERTIES {
     pub lcid: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for SEARCH_COLUMN_PROPERTIES {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for SEARCH_COLUMN_PROPERTIES {
     fn clone(&self) -> Self {
         *self
@@ -5640,9 +5590,6 @@ pub struct SEC_OBJECT_ELEMENT {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
-impl ::core::marker::Copy for SEC_OBJECT_ELEMENT {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::core::clone::Clone for SEC_OBJECT_ELEMENT {
     fn clone(&self) -> Self {
         *self
@@ -5655,9 +5602,6 @@ pub struct SEC_OBJECT_ELEMENT {
     pub guidObjectType: ::windows_sys::core::GUID,
     pub ObjectID: super::super::Storage::IndexServer::DBID,
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
-impl ::core::marker::Copy for SEC_OBJECT_ELEMENT {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::core::clone::Clone for SEC_OBJECT_ELEMENT {
@@ -5673,8 +5617,6 @@ pub struct SORTKEY {
     pub dwOrder: u32,
     pub locale: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for SORTKEY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for SORTKEY {
     fn clone(&self) -> Self {
@@ -6777,7 +6719,6 @@ pub struct SQL_INTERVAL_STRUCT {
     pub interval_sign: i16,
     pub intval: SQL_INTERVAL_STRUCT_0,
 }
-impl ::core::marker::Copy for SQL_INTERVAL_STRUCT {}
 impl ::core::clone::Clone for SQL_INTERVAL_STRUCT {
     fn clone(&self) -> Self {
         *self
@@ -7465,8 +7406,6 @@ pub struct SSVARIANT {
     pub dwReserved2: u32,
     pub Anonymous: SSVARIANT_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::marker::Copy for SSVARIANT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for SSVARIANT {
     fn clone(&self) -> Self {

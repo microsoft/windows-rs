@@ -464,8 +464,6 @@ pub struct EAP_INTERACTIVE_UI_DATA {
     pub pbUiData: EAP_UI_DATA_FORMAT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for EAP_INTERACTIVE_UI_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EAP_INTERACTIVE_UI_DATA {
     fn clone(&self) -> Self {
         *self
@@ -593,8 +591,6 @@ pub struct EAP_METHOD_PROPERTY {
     pub eapMethodPropertyValueType: EAP_METHOD_PROPERTY_VALUE_TYPE,
     pub eapMethodPropertyValue: EAP_METHOD_PROPERTY_VALUE,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for EAP_METHOD_PROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EAP_METHOD_PROPERTY {
     fn clone(&self) -> Self {
@@ -814,8 +810,6 @@ pub struct EapCredential {
     pub credType: EapCredentialType,
     pub credData: EapCredentialTypeData,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for EapCredential {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EapCredential {
     fn clone(&self) -> Self {

@@ -2433,8 +2433,6 @@ pub struct LSA_FOREST_TRUST_RECORD {
     pub ForestTrustData: LSA_FOREST_TRUST_RECORD_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for LSA_FOREST_TRUST_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD {
     fn clone(&self) -> Self {
         *self
@@ -4975,8 +4973,6 @@ pub struct SECPKG_EXTENDED_INFORMATION {
     pub Class: SECPKG_EXTENDED_INFORMATION_CLASS,
     pub Info: SECPKG_EXTENDED_INFORMATION_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SECPKG_EXTENDED_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION {
     fn clone(&self) -> Self {

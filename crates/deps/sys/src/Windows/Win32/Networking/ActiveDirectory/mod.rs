@@ -412,8 +412,6 @@ pub struct ADSVALUE {
     pub Anonymous: ADSVALUE_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ADSVALUE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ADSVALUE {
     fn clone(&self) -> Self {
         *self
@@ -3481,8 +3479,6 @@ pub struct OPENQUERYWINDOW {
     pub Anonymous: OPENQUERYWINDOW_0,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::marker::Copy for OPENQUERYWINDOW {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for OPENQUERYWINDOW {
     fn clone(&self) -> Self {
         *self
@@ -3588,8 +3584,6 @@ pub struct ads_searchpref_info {
     pub vValue: ADSVALUE,
     pub dwStatus: ADS_STATUSENUM,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ads_searchpref_info {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ads_searchpref_info {
     fn clone(&self) -> Self {

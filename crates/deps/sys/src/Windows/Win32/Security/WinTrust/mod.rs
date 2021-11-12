@@ -175,8 +175,6 @@ pub struct CRYPT_PROVIDER_DATA {
     pub pSigSettings: *mut WINTRUST_SIGNATURE_SETTINGS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::marker::Copy for CRYPT_PROVIDER_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::clone::Clone for CRYPT_PROVIDER_DATA {
     fn clone(&self) -> Self {
         *self
@@ -571,8 +569,6 @@ pub struct SPC_LINK {
     pub Anonymous: SPC_LINK_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::marker::Copy for SPC_LINK {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for SPC_LINK {
     fn clone(&self) -> Self {
         *self
@@ -785,8 +781,6 @@ pub struct WINTRUST_DATA {
     pub dwUIContext: WINTRUST_DATA_UICONTEXT,
     pub pSignatureSettings: *mut WINTRUST_SIGNATURE_SETTINGS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::marker::Copy for WINTRUST_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for WINTRUST_DATA {
     fn clone(&self) -> Self {
@@ -1065,8 +1059,6 @@ pub struct WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     pub pvReserved: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::marker::Copy for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1093,8 +1085,6 @@ pub struct WTD_GENERIC_CHAIN_POLICY_DATA {
     pub pfnPolicyCallback: ::core::option::Option<PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK>,
     pub pvPolicyArg: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::marker::Copy for WTD_GENERIC_CHAIN_POLICY_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_DATA {
     fn clone(&self) -> Self {
@@ -1124,8 +1114,6 @@ pub struct WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
     pub cCounterSigner: u32,
     pub rgpCounterSigner: *mut *mut WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::marker::Copy for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
     fn clone(&self) -> Self {

@@ -102,8 +102,6 @@ pub struct HELPER_ATTRIBUTE {
     pub Anonymous: HELPER_ATTRIBUTE_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HELPER_ATTRIBUTE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HELPER_ATTRIBUTE {
     fn clone(&self) -> Self {
         *self
@@ -306,8 +304,6 @@ pub struct RepairInfo {
     pub rootCauseIndex: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RepairInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RepairInfo {
     fn clone(&self) -> Self {
         *self
@@ -319,8 +315,6 @@ pub struct RepairInfoEx {
     pub repair: RepairInfo,
     pub repairRank: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RepairInfoEx {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RepairInfoEx {
     fn clone(&self) -> Self {
@@ -381,8 +375,6 @@ pub struct UiInfo {
     pub r#type: UI_INFO_TYPE,
     pub Anonymous: UiInfo_0,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for UiInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UiInfo {
     fn clone(&self) -> Self {

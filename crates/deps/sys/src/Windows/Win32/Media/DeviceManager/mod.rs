@@ -626,8 +626,6 @@ pub struct WMDM_PROP_DESC {
     pub ValidValues: WMDM_PROP_DESC_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for WMDM_PROP_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for WMDM_PROP_DESC {
     fn clone(&self) -> Self {
         *self
@@ -666,8 +664,6 @@ pub struct WMDM_PROP_VALUES_RANGE {
     pub rangeMax: super::super::System::Com::StructuredStorage::PROPVARIANT,
     pub rangeStep: super::super::System::Com::StructuredStorage::PROPVARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::marker::Copy for WMDM_PROP_VALUES_RANGE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for WMDM_PROP_VALUES_RANGE {
     fn clone(&self) -> Self {

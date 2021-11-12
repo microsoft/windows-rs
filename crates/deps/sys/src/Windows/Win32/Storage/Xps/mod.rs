@@ -357,7 +357,6 @@ pub struct XPS_COLOR {
     pub colorType: XPS_COLOR_TYPE,
     pub value: XPS_COLOR_0,
 }
-impl ::core::marker::Copy for XPS_COLOR {}
 impl ::core::clone::Clone for XPS_COLOR {
     fn clone(&self) -> Self {
         *self

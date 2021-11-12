@@ -135,8 +135,6 @@ pub struct PSS_HANDLE_ENTRY {
     pub TypeSpecificInformation: PSS_HANDLE_ENTRY_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PSS_HANDLE_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PSS_HANDLE_ENTRY {
     fn clone(&self) -> Self {
         *self

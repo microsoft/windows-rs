@@ -340,7 +340,6 @@ pub struct TASK_TRIGGER {
     pub Reserved2: u16,
     pub wRandomMinutesInterval: u16,
 }
-impl ::core::marker::Copy for TASK_TRIGGER {}
 impl ::core::clone::Clone for TASK_TRIGGER {
     fn clone(&self) -> Self {
         *self

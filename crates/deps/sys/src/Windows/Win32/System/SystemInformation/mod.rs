@@ -138,7 +138,6 @@ pub struct CACHE_RELATIONSHIP {
     pub GroupCount: u16,
     pub Anonymous: CACHE_RELATIONSHIP_0,
 }
-impl ::core::marker::Copy for CACHE_RELATIONSHIP {}
 impl ::core::clone::Clone for CACHE_RELATIONSHIP {
     fn clone(&self) -> Self {
         *self
@@ -440,7 +439,6 @@ pub struct NUMA_NODE_RELATIONSHIP {
     pub GroupCount: u16,
     pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
 }
-impl ::core::marker::Copy for NUMA_NODE_RELATIONSHIP {}
 impl ::core::clone::Clone for NUMA_NODE_RELATIONSHIP {
     fn clone(&self) -> Self {
         *self
@@ -721,7 +719,6 @@ pub struct SYSTEM_CPU_SET_INFORMATION {
     pub Type: CPU_SET_INFORMATION_TYPE,
     pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0,
 }
-impl ::core::marker::Copy for SYSTEM_CPU_SET_INFORMATION {}
 impl ::core::clone::Clone for SYSTEM_CPU_SET_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -749,7 +746,6 @@ pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
     pub Anonymous2: SYSTEM_CPU_SET_INFORMATION_0_0_1,
     pub AllocationTag: u64,
 }
-impl ::core::marker::Copy for SYSTEM_CPU_SET_INFORMATION_0_0 {}
 impl ::core::clone::Clone for SYSTEM_CPU_SET_INFORMATION_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -804,8 +800,6 @@ pub struct SYSTEM_INFO {
     pub wProcessorRevision: u16,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::marker::Copy for SYSTEM_INFO {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SYSTEM_INFO {
     fn clone(&self) -> Self {
         *self
@@ -843,7 +837,6 @@ pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
     pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0,
 }
-impl ::core::marker::Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {}
 impl ::core::clone::Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -887,7 +880,6 @@ pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     pub Size: u32,
     pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
 }
-impl ::core::marker::Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {}
 impl ::core::clone::Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     fn clone(&self) -> Self {
         *self
