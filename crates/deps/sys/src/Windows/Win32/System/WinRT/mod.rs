@@ -252,6 +252,8 @@ pub struct HSTRING_HEADER {
     pub Reserved: HSTRING_HEADER_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HSTRING_HEADER {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HSTRING_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -263,6 +265,8 @@ pub union HSTRING_HEADER_0 {
     pub Reserved1: *mut ::core::ffi::c_void,
     pub Reserved2: [super::super::Foundation::CHAR; 24],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HSTRING_HEADER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HSTRING_HEADER_0 {
     fn clone(&self) -> Self {

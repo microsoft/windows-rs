@@ -58,6 +58,7 @@ pub struct FILTER_AGGREGATE_BASIC_INFORMATION {
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_BASIC_INFORMATION_0,
 }
+impl ::core::marker::Copy for FILTER_AGGREGATE_BASIC_INFORMATION {}
 impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -68,6 +69,7 @@ pub union FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_1,
     pub LegacyFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_0,
 }
+impl ::core::marker::Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0 {}
 impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
@@ -105,6 +107,7 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION {
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_STANDARD_INFORMATION_0,
 }
+impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION {}
 impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -115,6 +118,7 @@ pub union FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_1,
     pub LegacyFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_0,
 }
+impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {}
 impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
@@ -352,6 +356,7 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     pub Flags: u32,
     pub Type: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0,
 }
+impl ::core::marker::Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
 impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -362,6 +367,7 @@ pub union INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1,
     pub LegacyFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0,
 }
+impl ::core::marker::Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {}
 impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self

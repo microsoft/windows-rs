@@ -74,6 +74,7 @@ impl ::core::clone::Clone for INPUT_INJECTION_VALUE {
 pub struct INPUT_TRANSFORM {
     pub Anonymous: INPUT_TRANSFORM_0,
 }
+impl ::core::marker::Copy for INPUT_TRANSFORM {}
 impl ::core::clone::Clone for INPUT_TRANSFORM {
     fn clone(&self) -> Self {
         *self
@@ -84,6 +85,7 @@ pub union INPUT_TRANSFORM_0 {
     pub Anonymous: INPUT_TRANSFORM_0_0,
     pub m: [f32; 16],
 }
+impl ::core::marker::Copy for INPUT_TRANSFORM_0 {}
 impl ::core::clone::Clone for INPUT_TRANSFORM_0 {
     fn clone(&self) -> Self {
         *self

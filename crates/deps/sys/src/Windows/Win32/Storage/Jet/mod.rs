@@ -448,6 +448,8 @@ pub struct CONVERT_A {
     pub Anonymous: CONVERT_A_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CONVERT_A {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_A {
     fn clone(&self) -> Self {
         *self
@@ -459,6 +461,8 @@ pub union CONVERT_A_0 {
     pub fFlags: u32,
     pub Anonymous: CONVERT_A_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CONVERT_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_A_0 {
     fn clone(&self) -> Self {
@@ -485,6 +489,8 @@ pub struct CONVERT_W {
     pub Anonymous: CONVERT_W_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CONVERT_W {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_W {
     fn clone(&self) -> Self {
         *self
@@ -496,6 +502,8 @@ pub union CONVERT_W_0 {
     pub fFlags: u32,
     pub Anonymous: CONVERT_W_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CONVERT_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_W_0 {
     fn clone(&self) -> Self {
@@ -525,6 +533,8 @@ pub struct JET_BKINFO {
     pub genHigh: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_BKINFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_BKINFO {
     fn clone(&self) -> Self {
         *self
@@ -536,6 +546,8 @@ pub union JET_BKINFO_0 {
     pub logtimeMark: JET_LOGTIME,
     pub bklogtimeMark: JET_BKLOGTIME,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_BKINFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_BKINFO_0 {
     fn clone(&self) -> Self {
@@ -555,6 +567,8 @@ pub struct JET_BKLOGTIME {
     pub Anonymous2: JET_BKLOGTIME_1,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_BKLOGTIME {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_BKLOGTIME {
     fn clone(&self) -> Self {
         *self
@@ -566,6 +580,8 @@ pub union JET_BKLOGTIME_0 {
     pub bFiller1: super::super::Foundation::CHAR,
     pub Anonymous: JET_BKLOGTIME_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_BKLOGTIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_BKLOGTIME_0 {
     fn clone(&self) -> Self {
@@ -591,6 +607,8 @@ pub union JET_BKLOGTIME_1 {
     pub bFiller2: super::super::Foundation::CHAR,
     pub Anonymous: JET_BKLOGTIME_1_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_BKLOGTIME_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_BKLOGTIME_1 {
     fn clone(&self) -> Self {
@@ -756,6 +774,9 @@ pub struct JET_COMMIT_ID {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_COMMIT_ID {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_COMMIT_ID {
     fn clone(&self) -> Self {
         *self
@@ -769,6 +790,9 @@ pub struct JET_COMMIT_ID {
     pub reserved: i32,
     pub commitId: i64,
 }
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_COMMIT_ID {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_COMMIT_ID {
@@ -835,6 +859,8 @@ pub struct JET_DBINFOMISC {
     pub cbPageSize: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_DBINFOMISC {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_DBINFOMISC {
     fn clone(&self) -> Self {
         *self
@@ -880,6 +906,8 @@ pub struct JET_DBINFOMISC2 {
     pub logtimeBadChecksum: JET_LOGTIME,
     pub ulBadChecksumOld: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_DBINFOMISC2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_DBINFOMISC2 {
     fn clone(&self) -> Self {
@@ -927,6 +955,8 @@ pub struct JET_DBINFOMISC3 {
     pub ulBadChecksumOld: u32,
     pub genCommitted: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_DBINFOMISC3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_DBINFOMISC3 {
     fn clone(&self) -> Self {
@@ -977,6 +1007,8 @@ pub struct JET_DBINFOMISC4 {
     pub bkinfoDiffPrev: JET_BKINFO,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_DBINFOMISC4 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_DBINFOMISC4 {
     fn clone(&self) -> Self {
         *self
@@ -992,6 +1024,7 @@ pub struct JET_DBINFOUPGRADE {
     pub csecToUpgrade: u32,
     pub Anonymous: JET_DBINFOUPGRADE_0,
 }
+impl ::core::marker::Copy for JET_DBINFOUPGRADE {}
 impl ::core::clone::Clone for JET_DBINFOUPGRADE {
     fn clone(&self) -> Self {
         *self
@@ -1002,6 +1035,7 @@ pub union JET_DBINFOUPGRADE_0 {
     pub ulFlags: u32,
     pub Anonymous: JET_DBINFOUPGRADE_0_0,
 }
+impl ::core::marker::Copy for JET_DBINFOUPGRADE_0 {}
 impl ::core::clone::Clone for JET_DBINFOUPGRADE_0 {
     fn clone(&self) -> Self {
         *self
@@ -1043,6 +1077,7 @@ pub struct JET_ENUMCOLUMN {
     pub err: i32,
     pub Anonymous: JET_ENUMCOLUMN_0,
 }
+impl ::core::marker::Copy for JET_ENUMCOLUMN {}
 impl ::core::clone::Clone for JET_ENUMCOLUMN {
     fn clone(&self) -> Self {
         *self
@@ -1053,6 +1088,7 @@ pub union JET_ENUMCOLUMN_0 {
     pub Anonymous1: JET_ENUMCOLUMN_0_0,
     pub Anonymous2: JET_ENUMCOLUMN_0_1,
 }
+impl ::core::marker::Copy for JET_ENUMCOLUMN_0 {}
 impl ::core::clone::Clone for JET_ENUMCOLUMN_0 {
     fn clone(&self) -> Self {
         *self
@@ -1185,6 +1221,8 @@ pub struct JET_INDEXCREATE2_A {
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE2_A {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_A {
     fn clone(&self) -> Self {
         *self
@@ -1197,6 +1235,8 @@ pub union JET_INDEXCREATE2_A_0 {
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE2_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_A_0 {
     fn clone(&self) -> Self {
         *self
@@ -1208,6 +1248,8 @@ pub union JET_INDEXCREATE2_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE2_A_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_A_1 {
     fn clone(&self) -> Self {
@@ -1232,6 +1274,8 @@ pub struct JET_INDEXCREATE2_W {
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE2_W {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_W {
     fn clone(&self) -> Self {
         *self
@@ -1244,6 +1288,8 @@ pub union JET_INDEXCREATE2_W_0 {
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE2_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_W_0 {
     fn clone(&self) -> Self {
         *self
@@ -1255,6 +1301,8 @@ pub union JET_INDEXCREATE2_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE2_W_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_W_1 {
     fn clone(&self) -> Self {
@@ -1279,6 +1327,8 @@ pub struct JET_INDEXCREATE3_A {
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE3_A {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_A {
     fn clone(&self) -> Self {
         *self
@@ -1290,6 +1340,8 @@ pub union JET_INDEXCREATE3_A_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE3_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_A_0 {
     fn clone(&self) -> Self {
@@ -1314,6 +1366,8 @@ pub struct JET_INDEXCREATE3_W {
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE3_W {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_W {
     fn clone(&self) -> Self {
         *self
@@ -1325,6 +1379,8 @@ pub union JET_INDEXCREATE3_W_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE3_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_W_0 {
     fn clone(&self) -> Self {
@@ -1348,6 +1404,8 @@ pub struct JET_INDEXCREATE_A {
     pub cbKeyMost: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE_A {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_A {
     fn clone(&self) -> Self {
         *self
@@ -1360,6 +1418,8 @@ pub union JET_INDEXCREATE_A_0 {
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_A_0 {
     fn clone(&self) -> Self {
         *self
@@ -1371,6 +1431,8 @@ pub union JET_INDEXCREATE_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE_A_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_A_1 {
     fn clone(&self) -> Self {
@@ -1394,6 +1456,8 @@ pub struct JET_INDEXCREATE_W {
     pub cbKeyMost: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE_W {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_W {
     fn clone(&self) -> Self {
         *self
@@ -1406,6 +1470,8 @@ pub union JET_INDEXCREATE_W_0 {
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_W_0 {
     fn clone(&self) -> Self {
         *self
@@ -1417,6 +1483,8 @@ pub union JET_INDEXCREATE_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_INDEXCREATE_W_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_W_1 {
     fn clone(&self) -> Self {
@@ -1616,6 +1684,8 @@ pub struct JET_LOGTIME {
     pub Anonymous2: JET_LOGTIME_1,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_LOGTIME {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_LOGTIME {
     fn clone(&self) -> Self {
         *self
@@ -1627,6 +1697,8 @@ pub union JET_LOGTIME_0 {
     pub bFiller1: super::super::Foundation::CHAR,
     pub Anonymous: JET_LOGTIME_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_LOGTIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_LOGTIME_0 {
     fn clone(&self) -> Self {
@@ -1652,6 +1724,8 @@ pub union JET_LOGTIME_1 {
     pub bFiller2: super::super::Foundation::CHAR,
     pub Anonymous: JET_LOGTIME_1_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_LOGTIME_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_LOGTIME_1 {
     fn clone(&self) -> Self {
@@ -1838,6 +1912,9 @@ pub struct JET_RBSINFOMISC {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_RBSINFOMISC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_RBSINFOMISC {
     fn clone(&self) -> Self {
         *self
@@ -1854,6 +1931,9 @@ pub struct JET_RBSINFOMISC {
     pub ulMinor: u32,
     pub cbLogicalFileSize: u64,
 }
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_RBSINFOMISC {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_RBSINFOMISC {
@@ -1875,6 +1955,9 @@ pub struct JET_RBSREVERTINFOMISC {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_RBSREVERTINFOMISC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_RBSREVERTINFOMISC {
     fn clone(&self) -> Self {
         *self
@@ -1892,6 +1975,9 @@ pub struct JET_RBSREVERTINFOMISC {
     pub cSecRevert: u64,
     pub cPagesReverted: u64,
 }
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_RBSREVERTINFOMISC {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_RBSREVERTINFOMISC {
@@ -2073,6 +2159,8 @@ pub struct JET_RSTINFO_A {
     pub pfnStatus: ::core::option::Option<JET_PFNSTATUS>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::marker::Copy for JET_RSTINFO_A {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::clone::Clone for JET_RSTINFO_A {
     fn clone(&self) -> Self {
         *self
@@ -2088,6 +2176,8 @@ pub struct JET_RSTINFO_W {
     pub logtimeStop: JET_LOGTIME,
     pub pfnStatus: ::core::option::Option<JET_PFNSTATUS>,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+impl ::core::marker::Copy for JET_RSTINFO_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::clone::Clone for JET_RSTINFO_W {
     fn clone(&self) -> Self {
@@ -2189,6 +2279,8 @@ pub struct JET_SIGNATURE {
     pub logtimeCreate: JET_LOGTIME,
     pub szComputerName: [super::super::Foundation::CHAR; 16],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JET_SIGNATURE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_SIGNATURE {
     fn clone(&self) -> Self {

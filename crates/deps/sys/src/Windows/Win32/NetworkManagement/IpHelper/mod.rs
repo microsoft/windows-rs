@@ -454,6 +454,8 @@ pub struct DNS_SERVER_PROPERTY {
     pub Property: DNS_SERVER_PROPERTY_TYPES,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_SERVER_PROPERTY {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_SERVER_PROPERTY {
     fn clone(&self) -> Self {
         *self
@@ -474,6 +476,8 @@ impl ::core::clone::Clone for DNS_SERVER_PROPERTY_TYPE {
 pub union DNS_SERVER_PROPERTY_TYPES {
     pub DohSettings: *mut DNS_DOH_SERVER_SETTINGS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_SERVER_PROPERTY_TYPES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_SERVER_PROPERTY_TYPES {
     fn clone(&self) -> Self {
@@ -1067,6 +1071,8 @@ pub struct IP_ADAPTER_ADDRESSES_LH {
     pub FirstDnsSuffix: *mut IP_ADAPTER_DNS_SUFFIX,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_LH {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH {
     fn clone(&self) -> Self {
         *self
@@ -1078,6 +1084,8 @@ pub union IP_ADAPTER_ADDRESSES_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_LH_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH_0 {
     fn clone(&self) -> Self {
@@ -1104,6 +1112,8 @@ pub union IP_ADAPTER_ADDRESSES_LH_1 {
     pub Flags: u32,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_1_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_LH_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH_1 {
     fn clone(&self) -> Self {
@@ -1147,6 +1157,8 @@ pub struct IP_ADAPTER_ADDRESSES_XP {
     pub FirstPrefix: *mut IP_ADAPTER_PREFIX_XP,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_XP {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_XP {
     fn clone(&self) -> Self {
         *self
@@ -1158,6 +1170,8 @@ pub union IP_ADAPTER_ADDRESSES_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_XP_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_XP_0 {
     fn clone(&self) -> Self {
@@ -1188,6 +1202,8 @@ pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP {
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_ANYCAST_ADDRESS_XP {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP {
     fn clone(&self) -> Self {
         *self
@@ -1199,6 +1215,8 @@ pub union IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     fn clone(&self) -> Self {
@@ -1229,6 +1247,8 @@ pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     fn clone(&self) -> Self {
         *self
@@ -1240,6 +1260,8 @@ pub union IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     fn clone(&self) -> Self {
@@ -1279,6 +1301,8 @@ pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH {
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_GATEWAY_ADDRESS_LH {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH {
     fn clone(&self) -> Self {
         *self
@@ -1290,6 +1314,8 @@ pub union IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     fn clone(&self) -> Self {
@@ -1363,6 +1389,8 @@ pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP {
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_MULTICAST_ADDRESS_XP {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP {
     fn clone(&self) -> Self {
         *self
@@ -1374,6 +1402,8 @@ pub union IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     fn clone(&self) -> Self {
@@ -1416,6 +1446,8 @@ pub struct IP_ADAPTER_PREFIX_XP {
     pub PrefixLength: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_PREFIX_XP {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_PREFIX_XP {
     fn clone(&self) -> Self {
         *self
@@ -1427,6 +1459,8 @@ pub union IP_ADAPTER_PREFIX_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_PREFIX_XP_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_PREFIX_XP_0 {
     fn clone(&self) -> Self {
@@ -1464,6 +1498,8 @@ pub struct IP_ADAPTER_UNICAST_ADDRESS_LH {
     pub OnLinkPrefixLength: u8,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_UNICAST_ADDRESS_LH {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_LH {
     fn clone(&self) -> Self {
         *self
@@ -1475,6 +1511,8 @@ pub union IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     fn clone(&self) -> Self {
@@ -1509,6 +1547,8 @@ pub struct IP_ADAPTER_UNICAST_ADDRESS_XP {
     pub LeaseLifetime: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_UNICAST_ADDRESS_XP {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_XP {
     fn clone(&self) -> Self {
         *self
@@ -1520,6 +1560,8 @@ pub union IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     fn clone(&self) -> Self {
@@ -1548,6 +1590,8 @@ pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     fn clone(&self) -> Self {
         *self
@@ -1559,6 +1603,8 @@ pub union IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     fn clone(&self) -> Self {
@@ -1585,6 +1631,8 @@ pub struct IP_ADDRESS_PREFIX {
     pub Prefix: super::super::Networking::WinSock::SOCKADDR_INET,
     pub PrefixLength: u8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for IP_ADDRESS_PREFIX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADDRESS_PREFIX {
     fn clone(&self) -> Self {
@@ -1848,6 +1896,8 @@ pub struct MIB_ANYCASTIPADDRESS_ROW {
     pub ScopeId: super::super::Networking::WinSock::SCOPE_ID,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_ANYCASTIPADDRESS_ROW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_ANYCASTIPADDRESS_ROW {
     fn clone(&self) -> Self {
         *self
@@ -1859,6 +1909,8 @@ pub struct MIB_ANYCASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_ANYCASTIPADDRESS_ROW; 1],
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_ANYCASTIPADDRESS_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_ANYCASTIPADDRESS_TABLE {
     fn clone(&self) -> Self {
@@ -2060,6 +2112,8 @@ pub struct MIB_IF_ROW2 {
     pub OutQLen: u64,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for MIB_IF_ROW2 {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::clone::Clone for MIB_IF_ROW2 {
     fn clone(&self) -> Self {
         *self
@@ -2084,6 +2138,8 @@ pub struct MIB_IF_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IF_ROW2; 1],
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for MIB_IF_TABLE2 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::clone::Clone for MIB_IF_TABLE2 {
     fn clone(&self) -> Self {
@@ -2188,6 +2244,8 @@ pub struct MIB_IPDESTROW {
     pub dwForwardViewSet: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_IPDESTROW {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_IPDESTROW {
     fn clone(&self) -> Self {
         *self
@@ -2199,6 +2257,8 @@ pub struct MIB_IPDESTTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPDESTROW; 1],
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_IPDESTTABLE {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_IPDESTTABLE {
     fn clone(&self) -> Self {
@@ -2234,6 +2294,8 @@ pub struct MIB_IPFORWARDROW {
     pub dwForwardMetric5: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_IPFORWARDROW {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_IPFORWARDROW {
     fn clone(&self) -> Self {
         *self
@@ -2245,6 +2307,8 @@ pub union MIB_IPFORWARDROW_0 {
     pub dwForwardType: u32,
     pub ForwardType: MIB_IPFORWARD_TYPE,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_IPFORWARDROW_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_IPFORWARDROW_0 {
     fn clone(&self) -> Self {
@@ -2258,6 +2322,8 @@ pub union MIB_IPFORWARDROW_1 {
     pub ForwardProto: super::super::Networking::WinSock::NL_ROUTE_PROTOCOL,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_IPFORWARDROW_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_IPFORWARDROW_1 {
     fn clone(&self) -> Self {
         *self
@@ -2269,6 +2335,8 @@ pub struct MIB_IPFORWARDTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPFORWARDROW; 1],
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_IPFORWARDTABLE {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_IPFORWARDTABLE {
     fn clone(&self) -> Self {
@@ -2295,6 +2363,8 @@ pub struct MIB_IPFORWARD_ROW2 {
     pub Origin: super::super::Networking::WinSock::NL_ROUTE_ORIGIN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_IPFORWARD_ROW2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPFORWARD_ROW2 {
     fn clone(&self) -> Self {
         *self
@@ -2306,6 +2376,8 @@ pub struct MIB_IPFORWARD_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPFORWARD_ROW2; 1],
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_IPFORWARD_TABLE2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPFORWARD_TABLE2 {
     fn clone(&self) -> Self {
@@ -2364,6 +2436,8 @@ pub struct MIB_IPINTERFACE_ROW {
     pub DisableDefaultRoutes: super::super::Foundation::BOOLEAN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_IPINTERFACE_ROW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPINTERFACE_ROW {
     fn clone(&self) -> Self {
         *self
@@ -2375,6 +2449,8 @@ pub struct MIB_IPINTERFACE_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IPINTERFACE_ROW; 1],
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_IPINTERFACE_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPINTERFACE_TABLE {
     fn clone(&self) -> Self {
@@ -2602,6 +2678,7 @@ pub struct MIB_IPNETROW_LH {
     pub dwAddr: u32,
     pub Anonymous: MIB_IPNETROW_LH_0,
 }
+impl ::core::marker::Copy for MIB_IPNETROW_LH {}
 impl ::core::clone::Clone for MIB_IPNETROW_LH {
     fn clone(&self) -> Self {
         *self
@@ -2612,6 +2689,7 @@ pub union MIB_IPNETROW_LH_0 {
     pub dwType: u32,
     pub Type: MIB_IPNET_TYPE,
 }
+impl ::core::marker::Copy for MIB_IPNETROW_LH_0 {}
 impl ::core::clone::Clone for MIB_IPNETROW_LH_0 {
     fn clone(&self) -> Self {
         *self
@@ -2636,6 +2714,7 @@ pub struct MIB_IPNETTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPNETROW_LH; 1],
 }
+impl ::core::marker::Copy for MIB_IPNETTABLE {}
 impl ::core::clone::Clone for MIB_IPNETTABLE {
     fn clone(&self) -> Self {
         *self
@@ -2654,6 +2733,8 @@ pub struct MIB_IPNET_ROW2 {
     pub ReachabilityTime: MIB_IPNET_ROW2_1,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_IPNET_ROW2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPNET_ROW2 {
     fn clone(&self) -> Self {
         *self
@@ -2665,6 +2746,8 @@ pub union MIB_IPNET_ROW2_0 {
     pub Anonymous: MIB_IPNET_ROW2_0_0,
     pub Flags: u8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_IPNET_ROW2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPNET_ROW2_0 {
     fn clone(&self) -> Self {
@@ -2691,6 +2774,8 @@ pub union MIB_IPNET_ROW2_1 {
     pub LastUnreachable: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_IPNET_ROW2_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPNET_ROW2_1 {
     fn clone(&self) -> Self {
         *self
@@ -2702,6 +2787,8 @@ pub struct MIB_IPNET_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPNET_ROW2; 1],
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_IPNET_TABLE2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPNET_TABLE2 {
     fn clone(&self) -> Self {
@@ -2737,6 +2824,8 @@ pub struct MIB_IPPATH_ROW {
     pub LinkReceiveSpeed: u64,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_IPPATH_ROW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPPATH_ROW {
     fn clone(&self) -> Self {
         *self
@@ -2749,6 +2838,8 @@ pub union MIB_IPPATH_ROW_0 {
     pub LastUnreachable: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_IPPATH_ROW_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPPATH_ROW_0 {
     fn clone(&self) -> Self {
         *self
@@ -2760,6 +2851,8 @@ pub struct MIB_IPPATH_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IPPATH_ROW; 1],
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_IPPATH_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPPATH_TABLE {
     fn clone(&self) -> Self {
@@ -2803,6 +2896,7 @@ pub struct MIB_IPSTATS_LH {
     pub dwNumAddr: u32,
     pub dwNumRoutes: u32,
 }
+impl ::core::marker::Copy for MIB_IPSTATS_LH {}
 impl ::core::clone::Clone for MIB_IPSTATS_LH {
     fn clone(&self) -> Self {
         *self
@@ -2813,6 +2907,7 @@ pub union MIB_IPSTATS_LH_0 {
     pub dwForwarding: u32,
     pub Forwarding: MIB_IPSTATS_FORWARDING,
 }
+impl ::core::marker::Copy for MIB_IPSTATS_LH_0 {}
 impl ::core::clone::Clone for MIB_IPSTATS_LH_0 {
     fn clone(&self) -> Self {
         *self
@@ -2917,6 +3012,8 @@ pub struct MIB_MULTICASTIPADDRESS_ROW {
     pub ScopeId: super::super::Networking::WinSock::SCOPE_ID,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_MULTICASTIPADDRESS_ROW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_MULTICASTIPADDRESS_ROW {
     fn clone(&self) -> Self {
         *self
@@ -2928,6 +3025,8 @@ pub struct MIB_MULTICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_MULTICASTIPADDRESS_ROW; 1],
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_MULTICASTIPADDRESS_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_MULTICASTIPADDRESS_TABLE {
     fn clone(&self) -> Self {
@@ -2951,6 +3050,7 @@ pub struct MIB_OPAQUE_INFO {
     pub dwId: u32,
     pub Anonymous: MIB_OPAQUE_INFO_0,
 }
+impl ::core::marker::Copy for MIB_OPAQUE_INFO {}
 impl ::core::clone::Clone for MIB_OPAQUE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2961,6 +3061,7 @@ pub union MIB_OPAQUE_INFO_0 {
     pub ullAlign: u64,
     pub rgbyData: [u8; 1],
 }
+impl ::core::marker::Copy for MIB_OPAQUE_INFO_0 {}
 impl ::core::clone::Clone for MIB_OPAQUE_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -3014,6 +3115,8 @@ pub struct MIB_TCP6ROW {
     pub dwRemotePort: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_TCP6ROW {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_TCP6ROW {
     fn clone(&self) -> Self {
         *self
@@ -3032,6 +3135,8 @@ pub struct MIB_TCP6ROW2 {
     pub dwOwningPid: u32,
     pub dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_TCP6ROW2 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_TCP6ROW2 {
     fn clone(&self) -> Self {
@@ -3081,6 +3186,8 @@ pub struct MIB_TCP6TABLE {
     pub table: [MIB_TCP6ROW; 1],
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_TCP6TABLE {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_TCP6TABLE {
     fn clone(&self) -> Self {
         *self
@@ -3092,6 +3199,8 @@ pub struct MIB_TCP6TABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW2; 1],
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_TCP6TABLE2 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_TCP6TABLE2 {
     fn clone(&self) -> Self {
@@ -3144,6 +3253,7 @@ pub struct MIB_TCPROW_LH {
     pub dwRemoteAddr: u32,
     pub dwRemotePort: u32,
 }
+impl ::core::marker::Copy for MIB_TCPROW_LH {}
 impl ::core::clone::Clone for MIB_TCPROW_LH {
     fn clone(&self) -> Self {
         *self
@@ -3154,6 +3264,7 @@ pub union MIB_TCPROW_LH_0 {
     pub dwState: u32,
     pub State: MIB_TCP_STATE,
 }
+impl ::core::marker::Copy for MIB_TCPROW_LH_0 {}
 impl ::core::clone::Clone for MIB_TCPROW_LH_0 {
     fn clone(&self) -> Self {
         *self
@@ -3247,6 +3358,7 @@ pub struct MIB_TCPSTATS_LH {
     pub dwOutRsts: u32,
     pub dwNumConns: u32,
 }
+impl ::core::marker::Copy for MIB_TCPSTATS_LH {}
 impl ::core::clone::Clone for MIB_TCPSTATS_LH {
     fn clone(&self) -> Self {
         *self
@@ -3257,6 +3369,7 @@ pub union MIB_TCPSTATS_LH_0 {
     pub dwRtoAlgorithm: u32,
     pub RtoAlgorithm: TCP_RTO_ALGORITHM,
 }
+impl ::core::marker::Copy for MIB_TCPSTATS_LH_0 {}
 impl ::core::clone::Clone for MIB_TCPSTATS_LH_0 {
     fn clone(&self) -> Self {
         *self
@@ -3291,6 +3404,7 @@ pub struct MIB_TCPTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_LH; 1],
 }
+impl ::core::marker::Copy for MIB_TCPTABLE {}
 impl ::core::clone::Clone for MIB_TCPTABLE {
     fn clone(&self) -> Self {
         *self
@@ -3358,6 +3472,8 @@ pub struct MIB_UDP6ROW {
     pub dwLocalPort: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_UDP6ROW {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_UDP6ROW {
     fn clone(&self) -> Self {
         *self
@@ -3376,6 +3492,7 @@ pub struct MIB_UDP6ROW2 {
     pub dwRemoteScopeId: u32,
     pub dwRemotePort: u32,
 }
+impl ::core::marker::Copy for MIB_UDP6ROW2 {}
 impl ::core::clone::Clone for MIB_UDP6ROW2 {
     fn clone(&self) -> Self {
         *self
@@ -3386,6 +3503,7 @@ pub union MIB_UDP6ROW2_0 {
     pub Anonymous: MIB_UDP6ROW2_0_0,
     pub dwFlags: i32,
 }
+impl ::core::marker::Copy for MIB_UDP6ROW2_0 {}
 impl ::core::clone::Clone for MIB_UDP6ROW2_0 {
     fn clone(&self) -> Self {
         *self
@@ -3411,6 +3529,7 @@ pub struct MIB_UDP6ROW_OWNER_MODULE {
     pub Anonymous: MIB_UDP6ROW_OWNER_MODULE_0,
     pub OwningModuleInfo: [u64; 16],
 }
+impl ::core::marker::Copy for MIB_UDP6ROW_OWNER_MODULE {}
 impl ::core::clone::Clone for MIB_UDP6ROW_OWNER_MODULE {
     fn clone(&self) -> Self {
         *self
@@ -3421,6 +3540,7 @@ pub union MIB_UDP6ROW_OWNER_MODULE_0 {
     pub Anonymous: MIB_UDP6ROW_OWNER_MODULE_0_0,
     pub dwFlags: i32,
 }
+impl ::core::marker::Copy for MIB_UDP6ROW_OWNER_MODULE_0 {}
 impl ::core::clone::Clone for MIB_UDP6ROW_OWNER_MODULE_0 {
     fn clone(&self) -> Self {
         *self
@@ -3456,6 +3576,8 @@ pub struct MIB_UDP6TABLE {
     pub table: [MIB_UDP6ROW; 1],
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MIB_UDP6TABLE {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_UDP6TABLE {
     fn clone(&self) -> Self {
         *self
@@ -3466,6 +3588,7 @@ pub struct MIB_UDP6TABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW2; 1],
 }
+impl ::core::marker::Copy for MIB_UDP6TABLE2 {}
 impl ::core::clone::Clone for MIB_UDP6TABLE2 {
     fn clone(&self) -> Self {
         *self
@@ -3476,6 +3599,7 @@ pub struct MIB_UDP6TABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW_OWNER_MODULE; 1],
 }
+impl ::core::marker::Copy for MIB_UDP6TABLE_OWNER_MODULE {}
 impl ::core::clone::Clone for MIB_UDP6TABLE_OWNER_MODULE {
     fn clone(&self) -> Self {
         *self
@@ -3514,6 +3638,7 @@ pub struct MIB_UDPROW2 {
     pub dwRemoteAddr: u32,
     pub dwRemotePort: u32,
 }
+impl ::core::marker::Copy for MIB_UDPROW2 {}
 impl ::core::clone::Clone for MIB_UDPROW2 {
     fn clone(&self) -> Self {
         *self
@@ -3524,6 +3649,7 @@ pub union MIB_UDPROW2_0 {
     pub Anonymous: MIB_UDPROW2_0_0,
     pub dwFlags: i32,
 }
+impl ::core::marker::Copy for MIB_UDPROW2_0 {}
 impl ::core::clone::Clone for MIB_UDPROW2_0 {
     fn clone(&self) -> Self {
         *self
@@ -3548,6 +3674,7 @@ pub struct MIB_UDPROW_OWNER_MODULE {
     pub Anonymous: MIB_UDPROW_OWNER_MODULE_0,
     pub OwningModuleInfo: [u64; 16],
 }
+impl ::core::marker::Copy for MIB_UDPROW_OWNER_MODULE {}
 impl ::core::clone::Clone for MIB_UDPROW_OWNER_MODULE {
     fn clone(&self) -> Self {
         *self
@@ -3558,6 +3685,7 @@ pub union MIB_UDPROW_OWNER_MODULE_0 {
     pub Anonymous: MIB_UDPROW_OWNER_MODULE_0_0,
     pub dwFlags: i32,
 }
+impl ::core::marker::Copy for MIB_UDPROW_OWNER_MODULE_0 {}
 impl ::core::clone::Clone for MIB_UDPROW_OWNER_MODULE_0 {
     fn clone(&self) -> Self {
         *self
@@ -3629,6 +3757,7 @@ pub struct MIB_UDPTABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW2; 1],
 }
+impl ::core::marker::Copy for MIB_UDPTABLE2 {}
 impl ::core::clone::Clone for MIB_UDPTABLE2 {
     fn clone(&self) -> Self {
         *self
@@ -3639,6 +3768,7 @@ pub struct MIB_UDPTABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW_OWNER_MODULE; 1],
 }
+impl ::core::marker::Copy for MIB_UDPTABLE_OWNER_MODULE {}
 impl ::core::clone::Clone for MIB_UDPTABLE_OWNER_MODULE {
     fn clone(&self) -> Self {
         *self
@@ -3672,6 +3802,8 @@ pub struct MIB_UNICASTIPADDRESS_ROW {
     pub CreationTimeStamp: i64,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_UNICASTIPADDRESS_ROW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_UNICASTIPADDRESS_ROW {
     fn clone(&self) -> Self {
         *self
@@ -3683,6 +3815,8 @@ pub struct MIB_UNICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_UNICASTIPADDRESS_ROW; 1],
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for MIB_UNICASTIPADDRESS_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_UNICASTIPADDRESS_TABLE {
     fn clone(&self) -> Self {
@@ -3882,6 +4016,7 @@ pub union NET_LUID_LH {
     pub Value: u64,
     pub Info: NET_LUID_LH_0,
 }
+impl ::core::marker::Copy for NET_LUID_LH {}
 impl ::core::clone::Clone for NET_LUID_LH {
     fn clone(&self) -> Self {
         *self

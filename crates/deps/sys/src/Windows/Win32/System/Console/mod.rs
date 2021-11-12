@@ -197,6 +197,8 @@ pub struct CHAR_INFO {
     pub Attributes: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CHAR_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHAR_INFO {
     fn clone(&self) -> Self {
         *self
@@ -208,6 +210,8 @@ pub union CHAR_INFO_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: super::super::Foundation::CHAR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CHAR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHAR_INFO_0 {
     fn clone(&self) -> Self {
@@ -426,6 +430,8 @@ pub struct INPUT_RECORD {
     pub Event: INPUT_RECORD_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INPUT_RECORD {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INPUT_RECORD {
     fn clone(&self) -> Self {
         *self
@@ -440,6 +446,8 @@ pub union INPUT_RECORD_0 {
     pub MenuEvent: MENU_EVENT_RECORD,
     pub FocusEvent: FOCUS_EVENT_RECORD,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INPUT_RECORD_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INPUT_RECORD_0 {
     fn clone(&self) -> Self {
@@ -458,6 +466,8 @@ pub struct KEY_EVENT_RECORD {
     pub dwControlKeyState: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for KEY_EVENT_RECORD {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KEY_EVENT_RECORD {
     fn clone(&self) -> Self {
         *self
@@ -469,6 +479,8 @@ pub union KEY_EVENT_RECORD_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: super::super::Foundation::CHAR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for KEY_EVENT_RECORD_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KEY_EVENT_RECORD_0 {
     fn clone(&self) -> Self {

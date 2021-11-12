@@ -425,6 +425,7 @@ impl ::core::clone::Clone for DL_ADDRESS_TYPE {
 pub union DL_EI48 {
     pub Byte: [u8; 3],
 }
+impl ::core::marker::Copy for DL_EI48 {}
 impl ::core::clone::Clone for DL_EI48 {
     fn clone(&self) -> Self {
         *self
@@ -434,6 +435,7 @@ impl ::core::clone::Clone for DL_EI48 {
 pub union DL_EI64 {
     pub Byte: [u8; 5],
 }
+impl ::core::marker::Copy for DL_EI64 {}
 impl ::core::clone::Clone for DL_EI64 {
     fn clone(&self) -> Self {
         *self
@@ -444,6 +446,7 @@ pub union DL_EUI48 {
     pub Byte: [u8; 6],
     pub Anonymous: DL_EUI48_0,
 }
+impl ::core::marker::Copy for DL_EUI48 {}
 impl ::core::clone::Clone for DL_EUI48 {
     fn clone(&self) -> Self {
         *self
@@ -454,6 +457,7 @@ pub struct DL_EUI48_0 {
     pub Oui: DL_OUI,
     pub Ei48: DL_EI48,
 }
+impl ::core::marker::Copy for DL_EUI48_0 {}
 impl ::core::clone::Clone for DL_EUI48_0 {
     fn clone(&self) -> Self {
         *self
@@ -465,6 +469,7 @@ pub union DL_EUI64 {
     pub Value: u64,
     pub Anonymous: DL_EUI64_0,
 }
+impl ::core::marker::Copy for DL_EUI64 {}
 impl ::core::clone::Clone for DL_EUI64 {
     fn clone(&self) -> Self {
         *self
@@ -475,6 +480,7 @@ pub struct DL_EUI64_0 {
     pub Oui: DL_OUI,
     pub Anonymous: DL_EUI64_0_0,
 }
+impl ::core::marker::Copy for DL_EUI64_0 {}
 impl ::core::clone::Clone for DL_EUI64_0 {
     fn clone(&self) -> Self {
         *self
@@ -485,6 +491,7 @@ pub union DL_EUI64_0_0 {
     pub Ei64: DL_EI64,
     pub Anonymous: DL_EUI64_0_0_0,
 }
+impl ::core::marker::Copy for DL_EUI64_0_0 {}
 impl ::core::clone::Clone for DL_EUI64_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -496,6 +503,7 @@ pub struct DL_EUI64_0_0_0 {
     pub Tse: u8,
     pub Ei48: DL_EI48,
 }
+impl ::core::marker::Copy for DL_EUI64_0_0_0 {}
 impl ::core::clone::Clone for DL_EUI64_0_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -507,6 +515,7 @@ pub union DL_OUI {
     pub Byte: [u8; 3],
     pub Anonymous: DL_OUI_0,
 }
+impl ::core::marker::Copy for DL_OUI {}
 impl ::core::clone::Clone for DL_OUI {
     fn clone(&self) -> Self {
         *self
@@ -529,6 +538,8 @@ pub struct DL_TEREDO_ADDRESS {
     pub Anonymous: DL_TEREDO_ADDRESS_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for DL_TEREDO_ADDRESS {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for DL_TEREDO_ADDRESS {
     fn clone(&self) -> Self {
         *self
@@ -540,6 +551,8 @@ pub union DL_TEREDO_ADDRESS_0 {
     pub Eui64: DL_EUI64,
     pub Anonymous: DL_TEREDO_ADDRESS_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for DL_TEREDO_ADDRESS_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for DL_TEREDO_ADDRESS_0 {
     fn clone(&self) -> Self {
@@ -554,6 +567,8 @@ pub struct DL_TEREDO_ADDRESS_0_0 {
     pub MappedAddress: super::super::Networking::WinSock::IN_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for DL_TEREDO_ADDRESS_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for DL_TEREDO_ADDRESS_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -566,6 +581,8 @@ pub struct DL_TEREDO_ADDRESS_PRV {
     pub Anonymous: DL_TEREDO_ADDRESS_PRV_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for DL_TEREDO_ADDRESS_PRV {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for DL_TEREDO_ADDRESS_PRV {
     fn clone(&self) -> Self {
         *self
@@ -577,6 +594,8 @@ pub union DL_TEREDO_ADDRESS_PRV_0 {
     pub Eui64: DL_EUI64,
     pub Anonymous: DL_TEREDO_ADDRESS_PRV_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for DL_TEREDO_ADDRESS_PRV_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for DL_TEREDO_ADDRESS_PRV_0 {
     fn clone(&self) -> Self {
@@ -595,6 +614,8 @@ pub struct DL_TEREDO_ADDRESS_PRV_0_0 {
     pub DlDestination: DL_EUI48,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for DL_TEREDO_ADDRESS_PRV_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for DL_TEREDO_ADDRESS_PRV_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -608,6 +629,8 @@ pub struct DL_TUNNEL_ADDRESS {
     pub IpAddress: [u8; 1],
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for DL_TUNNEL_ADDRESS {}
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for DL_TUNNEL_ADDRESS {
     fn clone(&self) -> Self {
         *self
@@ -619,6 +642,7 @@ pub struct ETHERNET_HEADER {
     pub Source: DL_EUI48,
     pub Anonymous: ETHERNET_HEADER_0,
 }
+impl ::core::marker::Copy for ETHERNET_HEADER {}
 impl ::core::clone::Clone for ETHERNET_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -629,6 +653,7 @@ pub union ETHERNET_HEADER_0 {
     pub Type: u16,
     pub Length: u16,
 }
+impl ::core::marker::Copy for ETHERNET_HEADER_0 {}
 impl ::core::clone::Clone for ETHERNET_HEADER_0 {
     fn clone(&self) -> Self {
         *self
@@ -659,6 +684,7 @@ pub struct FWPM_ACTION0 {
     pub r#type: u32,
     pub Anonymous: FWPM_ACTION0_0,
 }
+impl ::core::marker::Copy for FWPM_ACTION0 {}
 impl ::core::clone::Clone for FWPM_ACTION0 {
     fn clone(&self) -> Self {
         *self
@@ -669,6 +695,7 @@ pub union FWPM_ACTION0_0 {
     pub filterType: ::windows_sys::core::GUID,
     pub calloutKey: ::windows_sys::core::GUID,
 }
+impl ::core::marker::Copy for FWPM_ACTION0_0 {}
 impl ::core::clone::Clone for FWPM_ACTION0_0 {
     fn clone(&self) -> Self {
         *self
@@ -946,6 +973,8 @@ pub struct FWPM_CLASSIFY_OPTION0 {
     pub r#type: FWP_CLASSIFY_OPTION_TYPE,
     pub value: FWP_VALUE0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_CLASSIFY_OPTION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_CLASSIFY_OPTION0 {
     fn clone(&self) -> Self {
@@ -1501,6 +1530,8 @@ pub struct FWPM_CONNECTION0 {
     pub startSysTime: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FWPM_CONNECTION0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_CONNECTION0 {
     fn clone(&self) -> Self {
         *self
@@ -1513,6 +1544,8 @@ pub union FWPM_CONNECTION0_0 {
     pub localV6Address: [u8; 16],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FWPM_CONNECTION0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_CONNECTION0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1524,6 +1557,8 @@ pub union FWPM_CONNECTION0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FWPM_CONNECTION0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_CONNECTION0_1 {
     fn clone(&self) -> Self {
@@ -1645,6 +1680,8 @@ pub struct FWPM_FILTER0 {
     pub effectiveWeight: FWP_VALUE0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_FILTER0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_FILTER0 {
     fn clone(&self) -> Self {
         *self
@@ -1656,6 +1693,8 @@ pub union FWPM_FILTER0_0 {
     pub rawContext: u64,
     pub providerContextKey: ::windows_sys::core::GUID,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_FILTER0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_FILTER0_0 {
     fn clone(&self) -> Self {
@@ -1682,6 +1721,8 @@ pub struct FWPM_FILTER_CONDITION0 {
     pub matchType: FWP_MATCH_TYPE,
     pub conditionValue: FWP_CONDITION_VALUE0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_FILTER_CONDITION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_FILTER_CONDITION0 {
     fn clone(&self) -> Self {
@@ -2180,6 +2221,8 @@ pub struct FWPM_NET_EVENT0 {
     pub Anonymous: FWPM_NET_EVENT0_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT0 {
     fn clone(&self) -> Self {
         *self
@@ -2196,6 +2239,8 @@ pub union FWPM_NET_EVENT0_0 {
     pub idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT0_0 {
     fn clone(&self) -> Self {
         *self
@@ -2208,6 +2253,8 @@ pub struct FWPM_NET_EVENT1 {
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT1_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT1 {
     fn clone(&self) -> Self {
@@ -2225,6 +2272,8 @@ pub union FWPM_NET_EVENT1_0 {
     pub idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT1_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT1_0 {
     fn clone(&self) -> Self {
         *self
@@ -2237,6 +2286,8 @@ pub struct FWPM_NET_EVENT2 {
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT2_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT2 {
     fn clone(&self) -> Self {
@@ -2258,6 +2309,8 @@ pub union FWPM_NET_EVENT2_0 {
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT2_0 {
     fn clone(&self) -> Self {
         *self
@@ -2270,6 +2323,8 @@ pub struct FWPM_NET_EVENT3 {
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT3_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT3 {
     fn clone(&self) -> Self {
@@ -2291,6 +2346,8 @@ pub union FWPM_NET_EVENT3_0 {
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT3_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT3_0 {
     fn clone(&self) -> Self {
         *self
@@ -2303,6 +2360,8 @@ pub struct FWPM_NET_EVENT4_ {
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT4__0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT4_ {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT4_ {
     fn clone(&self) -> Self {
@@ -2324,6 +2383,8 @@ pub union FWPM_NET_EVENT4__0 {
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT4__0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT4__0 {
     fn clone(&self) -> Self {
         *self
@@ -2336,6 +2397,8 @@ pub struct FWPM_NET_EVENT5_ {
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT5__0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT5_ {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT5_ {
     fn clone(&self) -> Self {
@@ -2357,6 +2420,8 @@ pub union FWPM_NET_EVENT5__0 {
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
     pub lpmPacketArrival: *mut FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT5__0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT5__0 {
     fn clone(&self) -> Self {
@@ -2551,6 +2616,8 @@ pub struct FWPM_NET_EVENT_HEADER0 {
     pub userId: *mut super::super::Security::SID,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0 {
     fn clone(&self) -> Self {
         *self
@@ -2563,6 +2630,8 @@ pub union FWPM_NET_EVENT_HEADER0_0 {
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0_0 {
     fn clone(&self) -> Self {
         *self
@@ -2574,6 +2643,8 @@ pub union FWPM_NET_EVENT_HEADER0_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER0_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0_1 {
     fn clone(&self) -> Self {
@@ -2597,6 +2668,8 @@ pub struct FWPM_NET_EVENT_HEADER1 {
     pub Anonymous3: FWPM_NET_EVENT_HEADER1_2,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1 {
     fn clone(&self) -> Self {
         *self
@@ -2608,6 +2681,8 @@ pub union FWPM_NET_EVENT_HEADER1_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_0 {
     fn clone(&self) -> Self {
@@ -2621,6 +2696,8 @@ pub union FWPM_NET_EVENT_HEADER1_1 {
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_1 {
     fn clone(&self) -> Self {
         *self
@@ -2631,6 +2708,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_1 {
 pub union FWPM_NET_EVENT_HEADER1_2 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2 {
     fn clone(&self) -> Self {
@@ -2644,6 +2723,8 @@ pub struct FWPM_NET_EVENT_HEADER1_2_0 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0 {
     fn clone(&self) -> Self {
         *self
@@ -2654,6 +2735,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0 {
 pub union FWPM_NET_EVENT_HEADER1_2_0_0 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_2_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0_0 {
     fn clone(&self) -> Self {
@@ -2699,6 +2782,8 @@ pub struct FWPM_NET_EVENT_HEADER2 {
     pub packageSid: *mut super::super::Security::SID,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2 {
     fn clone(&self) -> Self {
         *self
@@ -2711,6 +2796,8 @@ pub union FWPM_NET_EVENT_HEADER2_0 {
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2_0 {
     fn clone(&self) -> Self {
         *self
@@ -2722,6 +2809,8 @@ pub union FWPM_NET_EVENT_HEADER2_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER2_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2_1 {
     fn clone(&self) -> Self {
@@ -2749,6 +2838,8 @@ pub struct FWPM_NET_EVENT_HEADER3 {
     pub effectiveName: FWP_BYTE_BLOB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3 {
     fn clone(&self) -> Self {
         *self
@@ -2761,6 +2852,8 @@ pub union FWPM_NET_EVENT_HEADER3_0 {
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER3_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3_0 {
     fn clone(&self) -> Self {
         *self
@@ -2772,6 +2865,8 @@ pub union FWPM_NET_EVENT_HEADER3_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER3_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3_1 {
     fn clone(&self) -> Self {
@@ -2918,6 +3013,8 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     pub qmFilterId: u64,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     fn clone(&self) -> Self {
         *self
@@ -2929,6 +3026,8 @@ pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     fn clone(&self) -> Self {
         *self
@@ -2939,6 +3038,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     fn clone(&self) -> Self {
@@ -2961,6 +3062,8 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
     pub mmProviderContextKey: ::windows_sys::core::GUID,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
     fn clone(&self) -> Self {
         *self
@@ -2972,6 +3075,8 @@ pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
     fn clone(&self) -> Self {
         *self
@@ -2982,6 +3087,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
     fn clone(&self) -> Self {
@@ -2996,6 +3103,7 @@ pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     pub failureStatus: i32,
     pub direction: FWP_DIRECTION,
 }
+impl ::core::marker::Copy for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {}
 impl ::core::clone::Clone for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     fn clone(&self) -> Self {
         *self
@@ -3006,6 +3114,7 @@ pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     pub publicHostV4Addr: u32,
     pub publicHostV6Addr: [u8; 16],
 }
+impl ::core::marker::Copy for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {}
 impl ::core::clone::Clone for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     fn clone(&self) -> Self {
         *self
@@ -3016,6 +3125,7 @@ pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     pub internalHostV4Addr: u32,
     pub internalHostV6Addr: [u8; 16],
 }
+impl ::core::marker::Copy for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {}
 impl ::core::clone::Clone for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     fn clone(&self) -> Self {
         *self
@@ -3128,6 +3238,8 @@ pub struct FWPM_PROVIDER_CONTEXT0 {
     pub providerContextId: u64,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT0 {
     fn clone(&self) -> Self {
         *self
@@ -3147,6 +3259,8 @@ pub union FWPM_PROVIDER_CONTEXT0_0 {
     pub classifyOptions: *mut FWPM_CLASSIFY_OPTIONS0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT0_0 {
     fn clone(&self) -> Self {
         *self
@@ -3164,6 +3278,8 @@ pub struct FWPM_PROVIDER_CONTEXT1 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT1_0,
     pub providerContextId: u64,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT1 {
     fn clone(&self) -> Self {
@@ -3187,6 +3303,8 @@ pub union FWPM_PROVIDER_CONTEXT1_0 {
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT1_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT1_0 {
     fn clone(&self) -> Self {
         *self
@@ -3204,6 +3322,8 @@ pub struct FWPM_PROVIDER_CONTEXT2 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT2_0,
     pub providerContextId: u64,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT2 {
     fn clone(&self) -> Self {
@@ -3228,6 +3348,8 @@ pub union FWPM_PROVIDER_CONTEXT2_0 {
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT2_0 {
     fn clone(&self) -> Self {
         *self
@@ -3245,6 +3367,8 @@ pub struct FWPM_PROVIDER_CONTEXT3_ {
     pub Anonymous: FWPM_PROVIDER_CONTEXT3__0,
     pub providerContextId: u64,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT3_ {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT3_ {
     fn clone(&self) -> Self {
@@ -3268,6 +3392,8 @@ pub union FWPM_PROVIDER_CONTEXT3__0 {
     pub ikeV2MmPolicy: *mut IKEEXT_POLICY2,
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT3__0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT3__0 {
     fn clone(&self) -> Self {
@@ -3652,6 +3778,8 @@ pub struct FWPM_VSWITCH_EVENT0 {
     pub Anonymous: FWPM_VSWITCH_EVENT0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FWPM_VSWITCH_EVENT0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_VSWITCH_EVENT0 {
     fn clone(&self) -> Self {
         *self
@@ -3663,6 +3791,8 @@ pub union FWPM_VSWITCH_EVENT0_0 {
     pub positionInfo: FWPM_VSWITCH_EVENT0_0_0,
     pub reorderInfo: FWPM_VSWITCH_EVENT0_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FWPM_VSWITCH_EVENT0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_VSWITCH_EVENT0_0 {
     fn clone(&self) -> Self {
@@ -3925,6 +4055,8 @@ pub struct FWP_CONDITION_VALUE0 {
     pub Anonymous: FWP_CONDITION_VALUE0_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWP_CONDITION_VALUE0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWP_CONDITION_VALUE0 {
     fn clone(&self) -> Self {
         *self
@@ -3955,6 +4087,8 @@ pub union FWP_CONDITION_VALUE0_0 {
     pub v6AddrMask: *mut FWP_V6_ADDR_AND_MASK,
     pub rangeValue: *mut FWP_RANGE0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWP_CONDITION_VALUE0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWP_CONDITION_VALUE0_0 {
     fn clone(&self) -> Self {
@@ -4080,6 +4214,8 @@ pub struct FWP_RANGE0 {
     pub valueHigh: FWP_VALUE0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWP_RANGE0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWP_RANGE0 {
     fn clone(&self) -> Self {
         *self
@@ -4131,6 +4267,8 @@ pub struct FWP_VALUE0 {
     pub Anonymous: FWP_VALUE0_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWP_VALUE0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWP_VALUE0 {
     fn clone(&self) -> Self {
         *self
@@ -4158,6 +4296,8 @@ pub union FWP_VALUE0_0 {
     pub unicodeString: super::super::Foundation::PWSTR,
     pub byteArray6: *mut FWP_BYTE_ARRAY6,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWP_VALUE0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWP_VALUE0_0 {
     fn clone(&self) -> Self {
@@ -4223,6 +4363,7 @@ pub struct ICMPV4_ADDRESS_MASK_MESSAGE {
     pub Header: ICMP_MESSAGE,
     pub AddressMask: u32,
 }
+impl ::core::marker::Copy for ICMPV4_ADDRESS_MASK_MESSAGE {}
 impl ::core::clone::Clone for ICMPV4_ADDRESS_MASK_MESSAGE {
     fn clone(&self) -> Self {
         *self
@@ -4236,6 +4377,8 @@ pub struct ICMPV4_ROUTER_ADVERT_ENTRY {
     pub PreferenceLevel: i32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for ICMPV4_ROUTER_ADVERT_ENTRY {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for ICMPV4_ROUTER_ADVERT_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -4245,6 +4388,7 @@ impl ::core::clone::Clone for ICMPV4_ROUTER_ADVERT_ENTRY {
 pub struct ICMPV4_ROUTER_ADVERT_HEADER {
     pub RaHeader: ICMP_MESSAGE,
 }
+impl ::core::marker::Copy for ICMPV4_ROUTER_ADVERT_HEADER {}
 impl ::core::clone::Clone for ICMPV4_ROUTER_ADVERT_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -4254,6 +4398,7 @@ impl ::core::clone::Clone for ICMPV4_ROUTER_ADVERT_HEADER {
 pub struct ICMPV4_ROUTER_SOLICIT {
     pub RsHeader: ICMP_MESSAGE,
 }
+impl ::core::marker::Copy for ICMPV4_ROUTER_SOLICIT {}
 impl ::core::clone::Clone for ICMPV4_ROUTER_SOLICIT {
     fn clone(&self) -> Self {
         *self
@@ -4266,6 +4411,7 @@ pub struct ICMPV4_TIMESTAMP_MESSAGE {
     pub ReceiveTimestamp: u32,
     pub TransmitTimestamp: u32,
 }
+impl ::core::marker::Copy for ICMPV4_TIMESTAMP_MESSAGE {}
 impl ::core::clone::Clone for ICMPV4_TIMESTAMP_MESSAGE {
     fn clone(&self) -> Self {
         *self
@@ -4289,6 +4435,7 @@ pub struct ICMP_MESSAGE {
     pub Header: ICMP_HEADER,
     pub Data: ICMP_MESSAGE_0,
 }
+impl ::core::marker::Copy for ICMP_MESSAGE {}
 impl ::core::clone::Clone for ICMP_MESSAGE {
     fn clone(&self) -> Self {
         *self
@@ -4300,6 +4447,7 @@ pub union ICMP_MESSAGE_0 {
     pub Data16: [u16; 2],
     pub Data8: [u8; 4],
 }
+impl ::core::marker::Copy for ICMP_MESSAGE_0 {}
 impl ::core::clone::Clone for ICMP_MESSAGE_0 {
     fn clone(&self) -> Self {
         *self
@@ -4317,6 +4465,8 @@ pub struct IGMPV3_QUERY_HEADER {
     pub SourceCount: u16,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IGMPV3_QUERY_HEADER {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMPV3_QUERY_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -4328,6 +4478,8 @@ pub union IGMPV3_QUERY_HEADER_0 {
     pub MaxRespCode: u8,
     pub Anonymous: IGMPV3_QUERY_HEADER_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IGMPV3_QUERY_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMPV3_QUERY_HEADER_0 {
     fn clone(&self) -> Self {
@@ -4353,6 +4505,8 @@ pub union IGMPV3_QUERY_HEADER_1 {
     pub QueriersQueryInterfaceCode: u8,
     pub Anonymous: IGMPV3_QUERY_HEADER_1_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IGMPV3_QUERY_HEADER_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMPV3_QUERY_HEADER_1 {
     fn clone(&self) -> Self {
@@ -4395,6 +4549,8 @@ pub struct IGMPV3_REPORT_RECORD_HEADER {
     pub MulticastAddress: super::super::Networking::WinSock::IN_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IGMPV3_REPORT_RECORD_HEADER {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMPV3_REPORT_RECORD_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -4409,6 +4565,8 @@ pub struct IGMP_HEADER {
     pub MulticastAddress: super::super::Networking::WinSock::IN_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IGMP_HEADER {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMP_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -4420,6 +4578,8 @@ pub union IGMP_HEADER_0 {
     pub Anonymous: IGMP_HEADER_0_0,
     pub VersionType: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IGMP_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMP_HEADER_0 {
     fn clone(&self) -> Self {
@@ -4446,6 +4606,8 @@ pub union IGMP_HEADER_1 {
     pub MaxRespTime: u8,
     pub Code: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IGMP_HEADER_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMP_HEADER_1 {
     fn clone(&self) -> Self {
@@ -4485,6 +4647,8 @@ pub struct IKEEXT_AUTHENTICATION_METHOD0 {
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD0 {
     fn clone(&self) -> Self {
         *self
@@ -4501,6 +4665,8 @@ pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD0_0 {
     fn clone(&self) -> Self {
         *self
@@ -4512,6 +4678,8 @@ pub struct IKEEXT_AUTHENTICATION_METHOD1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD1_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD1 {
     fn clone(&self) -> Self {
@@ -4530,6 +4698,8 @@ pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD1_0 {
     fn clone(&self) -> Self {
         *self
@@ -4541,6 +4711,8 @@ pub struct IKEEXT_AUTHENTICATION_METHOD2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD2_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD2 {
     fn clone(&self) -> Self {
@@ -4559,6 +4731,8 @@ pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD2_0 {
     fn clone(&self) -> Self {
@@ -4595,6 +4769,7 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION0_1,
     pub flags: IKEEXT_CERT_AUTH,
 }
+impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION0 {}
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     fn clone(&self) -> Self {
         *self
@@ -4606,6 +4781,7 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     pub inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
+impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {}
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     fn clone(&self) -> Self {
         *self
@@ -4628,6 +4804,7 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     pub outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
+impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {}
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     fn clone(&self) -> Self {
         *self
@@ -4653,6 +4830,7 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     pub flags: IKEEXT_CERT_AUTH,
     pub localCertLocationUrl: FWP_BYTE_BLOB,
 }
+impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION1 {}
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     fn clone(&self) -> Self {
         *self
@@ -4664,6 +4842,7 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     pub inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
+impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {}
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     fn clone(&self) -> Self {
         *self
@@ -4686,6 +4865,7 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     pub outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
+impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {}
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     fn clone(&self) -> Self {
         *self
@@ -4713,6 +4893,8 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     pub localCertLocationUrl: FWP_BYTE_BLOB,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     fn clone(&self) -> Self {
         *self
@@ -4725,6 +4907,8 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     fn clone(&self) -> Self {
@@ -4780,6 +4964,8 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     fn clone(&self) -> Self {
@@ -5047,6 +5233,8 @@ pub struct IKEEXT_CREDENTIAL0 {
     pub Anonymous: IKEEXT_CREDENTIAL0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CREDENTIAL0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL0 {
     fn clone(&self) -> Self {
         *self
@@ -5059,6 +5247,8 @@ pub union IKEEXT_CREDENTIAL0_0 {
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL0,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CREDENTIAL0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL0_0 {
     fn clone(&self) -> Self {
@@ -5073,6 +5263,8 @@ pub struct IKEEXT_CREDENTIAL1 {
     pub Anonymous: IKEEXT_CREDENTIAL1_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CREDENTIAL1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL1 {
     fn clone(&self) -> Self {
         *self
@@ -5085,6 +5277,8 @@ pub union IKEEXT_CREDENTIAL1_0 {
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CREDENTIAL1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL1_0 {
     fn clone(&self) -> Self {
@@ -5099,6 +5293,8 @@ pub struct IKEEXT_CREDENTIAL2 {
     pub Anonymous: IKEEXT_CREDENTIAL2_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CREDENTIAL2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL2 {
     fn clone(&self) -> Self {
         *self
@@ -5111,6 +5307,8 @@ pub union IKEEXT_CREDENTIAL2_0 {
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CREDENTIAL2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL2_0 {
     fn clone(&self) -> Self {
@@ -5166,6 +5364,8 @@ pub struct IKEEXT_CREDENTIAL_PAIR0 {
     pub peerCredentials: IKEEXT_CREDENTIAL0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CREDENTIAL_PAIR0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR0 {
     fn clone(&self) -> Self {
         *self
@@ -5178,6 +5378,8 @@ pub struct IKEEXT_CREDENTIAL_PAIR1 {
     pub peerCredentials: IKEEXT_CREDENTIAL1,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CREDENTIAL_PAIR1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR1 {
     fn clone(&self) -> Self {
         *self
@@ -5189,6 +5391,8 @@ pub struct IKEEXT_CREDENTIAL_PAIR2 {
     pub localCredentials: IKEEXT_CREDENTIAL2,
     pub peerCredentials: IKEEXT_CREDENTIAL2,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_CREDENTIAL_PAIR2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR2 {
     fn clone(&self) -> Self {
@@ -5695,6 +5899,8 @@ pub struct IKEEXT_SA_DETAILS0 {
     pub virtualIfTunnelId: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_SA_DETAILS0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS0 {
     fn clone(&self) -> Self {
         *self
@@ -5705,6 +5911,8 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS0 {
 pub union IKEEXT_SA_DETAILS0_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_SA_DETAILS0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS0_0 {
     fn clone(&self) -> Self {
@@ -5727,6 +5935,8 @@ pub struct IKEEXT_SA_DETAILS1 {
     pub correlationKey: FWP_BYTE_BLOB,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_SA_DETAILS1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS1 {
     fn clone(&self) -> Self {
         *self
@@ -5737,6 +5947,8 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS1 {
 pub union IKEEXT_SA_DETAILS1_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_SA_DETAILS1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS1_0 {
     fn clone(&self) -> Self {
@@ -5759,6 +5971,8 @@ pub struct IKEEXT_SA_DETAILS2 {
     pub correlationKey: FWP_BYTE_BLOB,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_SA_DETAILS2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS2 {
     fn clone(&self) -> Self {
         *self
@@ -5769,6 +5983,8 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS2 {
 pub union IKEEXT_SA_DETAILS2_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IKEEXT_SA_DETAILS2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS2_0 {
     fn clone(&self) -> Self {
@@ -5782,6 +5998,8 @@ pub struct IKEEXT_SA_ENUM_TEMPLATE0 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
     pub localMainModeCertHash: FWP_BYTE_BLOB,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for IKEEXT_SA_ENUM_TEMPLATE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for IKEEXT_SA_ENUM_TEMPLATE0 {
     fn clone(&self) -> Self {
@@ -5831,6 +6049,7 @@ pub struct IKEEXT_TRAFFIC0 {
     pub Anonymous2: IKEEXT_TRAFFIC0_1,
     pub authIpFilterId: u64,
 }
+impl ::core::marker::Copy for IKEEXT_TRAFFIC0 {}
 impl ::core::clone::Clone for IKEEXT_TRAFFIC0 {
     fn clone(&self) -> Self {
         *self
@@ -5841,6 +6060,7 @@ pub union IKEEXT_TRAFFIC0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IKEEXT_TRAFFIC0_0 {}
 impl ::core::clone::Clone for IKEEXT_TRAFFIC0_0 {
     fn clone(&self) -> Self {
         *self
@@ -5851,6 +6071,7 @@ pub union IKEEXT_TRAFFIC0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IKEEXT_TRAFFIC0_1 {}
 impl ::core::clone::Clone for IKEEXT_TRAFFIC0_1 {
     fn clone(&self) -> Self {
         *self
@@ -6178,6 +6399,7 @@ pub struct IPSEC_GETSPI0 {
     pub Anonymous: IPSEC_GETSPI0_0,
     pub rngCryptoModuleID: *mut ::windows_sys::core::GUID,
 }
+impl ::core::marker::Copy for IPSEC_GETSPI0 {}
 impl ::core::clone::Clone for IPSEC_GETSPI0 {
     fn clone(&self) -> Self {
         *self
@@ -6187,6 +6409,7 @@ impl ::core::clone::Clone for IPSEC_GETSPI0 {
 pub union IPSEC_GETSPI0_0 {
     pub inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+impl ::core::marker::Copy for IPSEC_GETSPI0_0 {}
 impl ::core::clone::Clone for IPSEC_GETSPI0_0 {
     fn clone(&self) -> Self {
         *self
@@ -6199,6 +6422,7 @@ pub struct IPSEC_GETSPI1 {
     pub Anonymous: IPSEC_GETSPI1_0,
     pub rngCryptoModuleID: *mut ::windows_sys::core::GUID,
 }
+impl ::core::marker::Copy for IPSEC_GETSPI1 {}
 impl ::core::clone::Clone for IPSEC_GETSPI1 {
     fn clone(&self) -> Self {
         *self
@@ -6208,6 +6432,7 @@ impl ::core::clone::Clone for IPSEC_GETSPI1 {
 pub union IPSEC_GETSPI1_0 {
     pub inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+impl ::core::marker::Copy for IPSEC_GETSPI1_0 {}
 impl ::core::clone::Clone for IPSEC_GETSPI1_0 {
     fn clone(&self) -> Self {
         *self
@@ -6367,6 +6592,7 @@ pub struct IPSEC_SA0 {
     pub saTransformType: IPSEC_TRANSFORM_TYPE,
     pub Anonymous: IPSEC_SA0_0,
 }
+impl ::core::marker::Copy for IPSEC_SA0 {}
 impl ::core::clone::Clone for IPSEC_SA0 {
     fn clone(&self) -> Self {
         *self
@@ -6380,6 +6606,7 @@ pub union IPSEC_SA0_0 {
     pub espAuthAndCipherInformation: *mut IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0,
     pub espAuthFwInformation: *mut IPSEC_SA_AUTH_INFORMATION0,
 }
+impl ::core::marker::Copy for IPSEC_SA0_0 {}
 impl ::core::clone::Clone for IPSEC_SA0_0 {
     fn clone(&self) -> Self {
         *self
@@ -6426,6 +6653,8 @@ pub struct IPSEC_SA_BUNDLE0 {
     pub pfsGroup: IPSEC_PFS_GROUP,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IPSEC_SA_BUNDLE0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE0 {
     fn clone(&self) -> Self {
         *self
@@ -6436,6 +6665,8 @@ impl ::core::clone::Clone for IPSEC_SA_BUNDLE0 {
 pub union IPSEC_SA_BUNDLE0_0 {
     pub peerV4PrivateAddress: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IPSEC_SA_BUNDLE0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE0_0 {
     fn clone(&self) -> Self {
@@ -6463,6 +6694,8 @@ pub struct IPSEC_SA_BUNDLE1 {
     pub qmFilterId: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IPSEC_SA_BUNDLE1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE1 {
     fn clone(&self) -> Self {
         *self
@@ -6473,6 +6706,8 @@ impl ::core::clone::Clone for IPSEC_SA_BUNDLE1 {
 pub union IPSEC_SA_BUNDLE1_0 {
     pub peerV4PrivateAddress: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IPSEC_SA_BUNDLE1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE1_0 {
     fn clone(&self) -> Self {
@@ -6570,6 +6805,8 @@ pub struct IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     fn clone(&self) -> Self {
         *self
@@ -6612,6 +6849,8 @@ pub struct IPSEC_SA_DETAILS0 {
     pub transportFilter: *mut FWPM_FILTER0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for IPSEC_SA_DETAILS0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for IPSEC_SA_DETAILS0 {
     fn clone(&self) -> Self {
         *self
@@ -6622,6 +6861,8 @@ impl ::core::clone::Clone for IPSEC_SA_DETAILS0 {
 pub union IPSEC_SA_DETAILS0_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for IPSEC_SA_DETAILS0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for IPSEC_SA_DETAILS0_0 {
     fn clone(&self) -> Self {
@@ -6640,6 +6881,8 @@ pub struct IPSEC_SA_DETAILS1 {
     pub virtualIfTunnelInfo: IPSEC_VIRTUAL_IF_TUNNEL_INFO0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for IPSEC_SA_DETAILS1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for IPSEC_SA_DETAILS1 {
     fn clone(&self) -> Self {
         *self
@@ -6650,6 +6893,8 @@ impl ::core::clone::Clone for IPSEC_SA_DETAILS1 {
 pub union IPSEC_SA_DETAILS1_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for IPSEC_SA_DETAILS1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for IPSEC_SA_DETAILS1_0 {
     fn clone(&self) -> Self {
@@ -6694,6 +6939,7 @@ pub struct IPSEC_SA_TRANSFORM0 {
     pub ipsecTransformType: IPSEC_TRANSFORM_TYPE,
     pub Anonymous: IPSEC_SA_TRANSFORM0_0,
 }
+impl ::core::marker::Copy for IPSEC_SA_TRANSFORM0 {}
 impl ::core::clone::Clone for IPSEC_SA_TRANSFORM0 {
     fn clone(&self) -> Self {
         *self
@@ -6707,6 +6953,7 @@ pub union IPSEC_SA_TRANSFORM0_0 {
     pub espAuthAndCipherTransform: *mut IPSEC_AUTH_AND_CIPHER_TRANSFORM0,
     pub espAuthFwTransform: *mut IPSEC_AUTH_TRANSFORM0,
 }
+impl ::core::marker::Copy for IPSEC_SA_TRANSFORM0_0 {}
 impl ::core::clone::Clone for IPSEC_SA_TRANSFORM0_0 {
     fn clone(&self) -> Self {
         *self
@@ -6797,6 +7044,7 @@ pub struct IPSEC_TRAFFIC0 {
     pub Anonymous3: IPSEC_TRAFFIC0_2,
     pub remotePort: u16,
 }
+impl ::core::marker::Copy for IPSEC_TRAFFIC0 {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC0 {
     fn clone(&self) -> Self {
         *self
@@ -6807,6 +7055,7 @@ pub union IPSEC_TRAFFIC0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IPSEC_TRAFFIC0_0 {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC0_0 {
     fn clone(&self) -> Self {
         *self
@@ -6817,6 +7066,7 @@ pub union IPSEC_TRAFFIC0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IPSEC_TRAFFIC0_1 {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC0_1 {
     fn clone(&self) -> Self {
         *self
@@ -6827,6 +7077,7 @@ pub union IPSEC_TRAFFIC0_2 {
     pub ipsecFilterId: u64,
     pub tunnelPolicyId: u64,
 }
+impl ::core::marker::Copy for IPSEC_TRAFFIC0_2 {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC0_2 {
     fn clone(&self) -> Self {
         *self
@@ -6845,6 +7096,7 @@ pub struct IPSEC_TRAFFIC1 {
     pub localIfLuid: u64,
     pub realIfProfileId: u32,
 }
+impl ::core::marker::Copy for IPSEC_TRAFFIC1 {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC1 {
     fn clone(&self) -> Self {
         *self
@@ -6855,6 +7107,7 @@ pub union IPSEC_TRAFFIC1_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IPSEC_TRAFFIC1_0 {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC1_0 {
     fn clone(&self) -> Self {
         *self
@@ -6865,6 +7118,7 @@ pub union IPSEC_TRAFFIC1_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IPSEC_TRAFFIC1_1 {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC1_1 {
     fn clone(&self) -> Self {
         *self
@@ -6875,6 +7129,7 @@ pub union IPSEC_TRAFFIC1_2 {
     pub ipsecFilterId: u64,
     pub tunnelPolicyId: u64,
 }
+impl ::core::marker::Copy for IPSEC_TRAFFIC1_2 {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC1_2 {
     fn clone(&self) -> Self {
         *self
@@ -6889,6 +7144,7 @@ pub struct IPSEC_TRAFFIC_SELECTOR0_ {
     pub Anonymous1: IPSEC_TRAFFIC_SELECTOR0__0,
     pub Anonymous2: IPSEC_TRAFFIC_SELECTOR0__1,
 }
+impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR0_ {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0_ {
     fn clone(&self) -> Self {
         *self
@@ -6899,6 +7155,7 @@ pub union IPSEC_TRAFFIC_SELECTOR0__0 {
     pub startV4Address: u32,
     pub startV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR0__0 {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0__0 {
     fn clone(&self) -> Self {
         *self
@@ -6909,6 +7166,7 @@ pub union IPSEC_TRAFFIC_SELECTOR0__1 {
     pub endV4Address: u32,
     pub endV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR0__1 {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0__1 {
     fn clone(&self) -> Self {
         *self
@@ -7043,6 +7301,7 @@ pub struct IPSEC_TUNNEL_ENDPOINT0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous: IPSEC_TUNNEL_ENDPOINT0_0,
 }
+impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINT0 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINT0 {
     fn clone(&self) -> Self {
         *self
@@ -7053,6 +7312,7 @@ pub union IPSEC_TUNNEL_ENDPOINT0_0 {
     pub v4Address: u32,
     pub v6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINT0_0 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINT0_0 {
     fn clone(&self) -> Self {
         *self
@@ -7064,6 +7324,7 @@ pub struct IPSEC_TUNNEL_ENDPOINTS0 {
     pub Anonymous1: IPSEC_TUNNEL_ENDPOINTS0_0,
     pub Anonymous2: IPSEC_TUNNEL_ENDPOINTS0_1,
 }
+impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS0 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS0 {
     fn clone(&self) -> Self {
         *self
@@ -7074,6 +7335,7 @@ pub union IPSEC_TUNNEL_ENDPOINTS0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS0_0 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS0_0 {
     fn clone(&self) -> Self {
         *self
@@ -7084,6 +7346,7 @@ pub union IPSEC_TUNNEL_ENDPOINTS0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS0_1 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS0_1 {
     fn clone(&self) -> Self {
         *self
@@ -7096,6 +7359,7 @@ pub struct IPSEC_TUNNEL_ENDPOINTS1 {
     pub Anonymous2: IPSEC_TUNNEL_ENDPOINTS1_1,
     pub localIfLuid: u64,
 }
+impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS1 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS1 {
     fn clone(&self) -> Self {
         *self
@@ -7106,6 +7370,7 @@ pub union IPSEC_TUNNEL_ENDPOINTS1_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS1_0 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS1_0 {
     fn clone(&self) -> Self {
         *self
@@ -7116,6 +7381,7 @@ pub union IPSEC_TUNNEL_ENDPOINTS1_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS1_1 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS1_1 {
     fn clone(&self) -> Self {
         *self
@@ -7133,6 +7399,8 @@ pub struct IPSEC_TUNNEL_ENDPOINTS2 {
     pub remoteAddresses: *mut IPSEC_TUNNEL_ENDPOINT0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2 {
     fn clone(&self) -> Self {
         *self
@@ -7145,6 +7413,8 @@ pub union IPSEC_TUNNEL_ENDPOINTS2_0 {
     pub localV6Address: [u8; 16],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2_0 {
     fn clone(&self) -> Self {
         *self
@@ -7156,6 +7426,8 @@ pub union IPSEC_TUNNEL_ENDPOINTS2_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn clone(&self) -> Self {
@@ -7173,6 +7445,8 @@ pub struct IPSEC_TUNNEL_POLICY0 {
     pub emPolicy: *mut IKEEXT_EM_POLICY0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY0 {
     fn clone(&self) -> Self {
         *self
@@ -7188,6 +7462,8 @@ pub struct IPSEC_TUNNEL_POLICY1 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY1 {
     fn clone(&self) -> Self {
@@ -7205,6 +7481,8 @@ pub struct IPSEC_TUNNEL_POLICY2 {
     pub emPolicy: *mut IKEEXT_EM_POLICY2,
     pub fwdPathSaLifetime: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY2 {
     fn clone(&self) -> Self {
@@ -7225,6 +7503,8 @@ pub struct IPSEC_TUNNEL_POLICY3_ {
     pub numTrafficSelectorPolicy: u32,
     pub trafficSelectorPolicies: *mut IPSEC_TRAFFIC_SELECTOR_POLICY0_,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY3_ {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY3_ {
     fn clone(&self) -> Self {
@@ -7278,6 +7558,8 @@ pub struct IPV4_HEADER {
     pub DestinationAddress: super::super::Networking::WinSock::IN_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IPV4_HEADER {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV4_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -7289,6 +7571,8 @@ pub union IPV4_HEADER_0 {
     pub VersionAndHeaderLength: u8,
     pub Anonymous: IPV4_HEADER_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IPV4_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV4_HEADER_0 {
     fn clone(&self) -> Self {
@@ -7315,6 +7599,8 @@ pub union IPV4_HEADER_1 {
     pub Anonymous: IPV4_HEADER_1_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IPV4_HEADER_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV4_HEADER_1 {
     fn clone(&self) -> Self {
         *self
@@ -7339,6 +7625,8 @@ pub union IPV4_HEADER_2 {
     pub FlagsAndOffset: u16,
     pub Anonymous: IPV4_HEADER_2_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IPV4_HEADER_2 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV4_HEADER_2 {
     fn clone(&self) -> Self {
@@ -7366,6 +7654,7 @@ pub struct IPV4_OPTION_HEADER {
     pub Anonymous: IPV4_OPTION_HEADER_0,
     pub OptionLength: u8,
 }
+impl ::core::marker::Copy for IPV4_OPTION_HEADER {}
 impl ::core::clone::Clone for IPV4_OPTION_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -7376,6 +7665,7 @@ pub union IPV4_OPTION_HEADER_0 {
     pub OptionType: u8,
     pub Anonymous: IPV4_OPTION_HEADER_0_0,
 }
+impl ::core::marker::Copy for IPV4_OPTION_HEADER_0 {}
 impl ::core::clone::Clone for IPV4_OPTION_HEADER_0 {
     fn clone(&self) -> Self {
         *self
@@ -7414,6 +7704,7 @@ pub struct IPV4_ROUTING_HEADER {
     pub OptionHeader: IPV4_OPTION_HEADER,
     pub Pointer: u8,
 }
+impl ::core::marker::Copy for IPV4_ROUTING_HEADER {}
 impl ::core::clone::Clone for IPV4_ROUTING_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -7425,6 +7716,7 @@ pub struct IPV4_TIMESTAMP_OPTION {
     pub Pointer: u8,
     pub Anonymous: IPV4_TIMESTAMP_OPTION_0,
 }
+impl ::core::marker::Copy for IPV4_TIMESTAMP_OPTION {}
 impl ::core::clone::Clone for IPV4_TIMESTAMP_OPTION {
     fn clone(&self) -> Self {
         *self
@@ -7435,6 +7727,7 @@ pub union IPV4_TIMESTAMP_OPTION_0 {
     pub FlagsOverflow: u8,
     pub Anonymous: IPV4_TIMESTAMP_OPTION_0_0,
 }
+impl ::core::marker::Copy for IPV4_TIMESTAMP_OPTION_0 {}
 impl ::core::clone::Clone for IPV4_TIMESTAMP_OPTION_0 {
     fn clone(&self) -> Self {
         *self
@@ -7472,6 +7765,7 @@ pub struct IPV6_FRAGMENT_HEADER {
     pub Anonymous: IPV6_FRAGMENT_HEADER_0,
     pub Id: u32,
 }
+impl ::core::marker::Copy for IPV6_FRAGMENT_HEADER {}
 impl ::core::clone::Clone for IPV6_FRAGMENT_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -7482,6 +7776,7 @@ pub union IPV6_FRAGMENT_HEADER_0 {
     pub Anonymous: IPV6_FRAGMENT_HEADER_0_0,
     pub OffsetAndFlags: u16,
 }
+impl ::core::marker::Copy for IPV6_FRAGMENT_HEADER_0 {}
 impl ::core::clone::Clone for IPV6_FRAGMENT_HEADER_0 {
     fn clone(&self) -> Self {
         *self
@@ -7509,6 +7804,8 @@ pub struct IPV6_HEADER {
     pub DestinationAddress: super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IPV6_HEADER {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV6_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -7520,6 +7817,8 @@ pub union IPV6_HEADER_0 {
     pub VersionClassFlow: u32,
     pub Anonymous: IPV6_HEADER_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for IPV6_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV6_HEADER_0 {
     fn clone(&self) -> Self {
@@ -7545,6 +7844,7 @@ pub union IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
     pub Anonymous: IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0,
     pub Value: u32,
 }
+impl ::core::marker::Copy for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {}
 impl ::core::clone::Clone for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
     fn clone(&self) -> Self {
         *self
@@ -7613,6 +7913,7 @@ pub union IPV6_ROUTER_ADVERTISEMENT_FLAGS {
     pub Anonymous: IPV6_ROUTER_ADVERTISEMENT_FLAGS_0,
     pub Value: u8,
 }
+impl ::core::marker::Copy for IPV6_ROUTER_ADVERTISEMENT_FLAGS {}
 impl ::core::clone::Clone for IPV6_ROUTER_ADVERTISEMENT_FLAGS {
     fn clone(&self) -> Self {
         *self
@@ -7671,6 +7972,8 @@ pub struct MLDV2_QUERY_HEADER {
     pub SourceCount: u16,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MLDV2_QUERY_HEADER {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MLDV2_QUERY_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -7682,6 +7985,8 @@ pub union MLDV2_QUERY_HEADER_0 {
     pub MaxRespCode: u16,
     pub Anonymous: MLDV2_QUERY_HEADER_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MLDV2_QUERY_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MLDV2_QUERY_HEADER_0 {
     fn clone(&self) -> Self {
@@ -7707,6 +8012,8 @@ pub union MLDV2_QUERY_HEADER_1 {
     pub QueriersQueryInterfaceCode: u8,
     pub Anonymous: MLDV2_QUERY_HEADER_1_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MLDV2_QUERY_HEADER_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MLDV2_QUERY_HEADER_1 {
     fn clone(&self) -> Self {
@@ -7747,6 +8054,8 @@ pub struct MLDV2_REPORT_RECORD_HEADER {
     pub MulticastAddress: super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MLDV2_REPORT_RECORD_HEADER {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MLDV2_REPORT_RECORD_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -7760,6 +8069,8 @@ pub struct MLD_HEADER {
     pub Reserved: u16,
     pub MulticastAddress: super::super::Networking::WinSock::IN6_ADDR,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MLD_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MLD_HEADER {
     fn clone(&self) -> Self {
@@ -7820,6 +8131,8 @@ pub struct NPI_MODULEID {
     pub Anonymous: NPI_MODULEID_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NPI_MODULEID {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NPI_MODULEID {
     fn clone(&self) -> Self {
         *self
@@ -7831,6 +8144,8 @@ pub union NPI_MODULEID_0 {
     pub Guid: ::windows_sys::core::GUID,
     pub IfLuid: super::super::Foundation::LUID,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NPI_MODULEID_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NPI_MODULEID_0 {
     fn clone(&self) -> Self {
@@ -7903,6 +8218,7 @@ pub struct VLAN_TAG {
     pub Anonymous: VLAN_TAG_0,
     pub Type: u16,
 }
+impl ::core::marker::Copy for VLAN_TAG {}
 impl ::core::clone::Clone for VLAN_TAG {
     fn clone(&self) -> Self {
         *self
@@ -7913,6 +8229,7 @@ pub union VLAN_TAG_0 {
     pub Tag: u16,
     pub Anonymous: VLAN_TAG_0_0,
 }
+impl ::core::marker::Copy for VLAN_TAG_0 {}
 impl ::core::clone::Clone for VLAN_TAG_0 {
     fn clone(&self) -> Self {
         *self
@@ -7938,6 +8255,8 @@ pub struct nd_neighbor_advert {
     pub nd_na_target: super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for nd_neighbor_advert {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_neighbor_advert {
     fn clone(&self) -> Self {
         *self
@@ -7949,6 +8268,8 @@ pub struct nd_neighbor_solicit {
     pub nd_ns_hdr: ICMP_MESSAGE,
     pub nd_ns_target: super::super::Networking::WinSock::IN6_ADDR,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for nd_neighbor_solicit {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_neighbor_solicit {
     fn clone(&self) -> Self {
@@ -8005,6 +8326,8 @@ pub struct nd_opt_prefix_info {
     pub nd_opt_pi_prefix: super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for nd_opt_prefix_info {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_opt_prefix_info {
     fn clone(&self) -> Self {
         *self
@@ -8016,6 +8339,8 @@ pub union nd_opt_prefix_info_0 {
     pub nd_opt_pi_flags_reserved: u8,
     pub Flags: nd_opt_prefix_info_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for nd_opt_prefix_info_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_opt_prefix_info_0 {
     fn clone(&self) -> Self {
@@ -8041,6 +8366,8 @@ pub union nd_opt_prefix_info_1 {
     pub nd_opt_pi_reserved2: u32,
     pub Anonymous: nd_opt_prefix_info_1_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for nd_opt_prefix_info_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_opt_prefix_info_1 {
     fn clone(&self) -> Self {
@@ -8098,6 +8425,8 @@ pub struct nd_opt_route_info {
     pub nd_opt_ri_prefix: super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for nd_opt_route_info {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_opt_route_info {
     fn clone(&self) -> Self {
         *self
@@ -8109,6 +8438,8 @@ pub union nd_opt_route_info_0 {
     pub nd_opt_ri_flags_reserved: u8,
     pub Flags: nd_opt_route_info_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for nd_opt_route_info_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_opt_route_info_0 {
     fn clone(&self) -> Self {
@@ -8136,6 +8467,8 @@ pub struct nd_redirect {
     pub nd_rd_dst: super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for nd_redirect {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_redirect {
     fn clone(&self) -> Self {
         *self
@@ -8147,6 +8480,7 @@ pub struct nd_router_advert {
     pub nd_ra_reachable: u32,
     pub nd_ra_retransmit: u32,
 }
+impl ::core::marker::Copy for nd_router_advert {}
 impl ::core::clone::Clone for nd_router_advert {
     fn clone(&self) -> Self {
         *self
@@ -8156,6 +8490,7 @@ impl ::core::clone::Clone for nd_router_advert {
 pub struct nd_router_solicit {
     pub nd_rs_hdr: ICMP_MESSAGE,
 }
+impl ::core::marker::Copy for nd_router_solicit {}
 impl ::core::clone::Clone for nd_router_solicit {
     fn clone(&self) -> Self {
         *self

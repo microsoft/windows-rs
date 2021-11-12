@@ -1265,6 +1265,7 @@ pub union DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     pub Buffer: [u8; 152],
     pub Anonymous: DISPATCHER_CONTEXT_NONVOLREG_ARM64_0,
 }
+impl ::core::marker::Copy for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {}
 impl ::core::clone::Clone for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     fn clone(&self) -> Self {
         *self
@@ -1573,6 +1574,8 @@ pub struct GDI_NONREMOTE {
     pub u: GDI_NONREMOTE_0,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for GDI_NONREMOTE {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for GDI_NONREMOTE {
     fn clone(&self) -> Self {
         *self
@@ -1584,6 +1587,8 @@ pub union GDI_NONREMOTE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::DWORD_BLOB,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for GDI_NONREMOTE_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for GDI_NONREMOTE_0 {
     fn clone(&self) -> Self {
@@ -2555,6 +2560,7 @@ pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     pub HeaderData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0,
 }
+impl ::core::marker::Copy for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {}
 impl ::core::clone::Clone for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     fn clone(&self) -> Self {
         *self
@@ -2575,6 +2581,7 @@ pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0,
 }
+impl ::core::marker::Copy for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {}
 impl ::core::clone::Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -2585,6 +2592,7 @@ pub union IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0,
 }
+impl ::core::marker::Copy for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {}
 impl ::core::clone::Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
@@ -2608,6 +2616,7 @@ pub union IMAGE_AUX_SYMBOL {
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub CRC: IMAGE_AUX_SYMBOL_0,
 }
+impl ::core::marker::Copy for IMAGE_AUX_SYMBOL {}
 impl ::core::clone::Clone for IMAGE_AUX_SYMBOL {
     fn clone(&self) -> Self {
         *self
@@ -2658,6 +2667,7 @@ pub struct IMAGE_AUX_SYMBOL_3 {
     pub FcnAry: IMAGE_AUX_SYMBOL_3_0,
     pub TvIndex: u16,
 }
+impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_3 {}
 impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3 {
     fn clone(&self) -> Self {
         *self
@@ -2668,6 +2678,7 @@ pub union IMAGE_AUX_SYMBOL_3_0 {
     pub Function: IMAGE_AUX_SYMBOL_3_0_1,
     pub Array: IMAGE_AUX_SYMBOL_3_0_0,
 }
+impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_3_0 {}
 impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3_0 {
     fn clone(&self) -> Self {
         *self
@@ -2699,6 +2710,7 @@ pub union IMAGE_AUX_SYMBOL_3_1 {
     pub LnSz: IMAGE_AUX_SYMBOL_3_1_0,
     pub TotalSize: u32,
 }
+impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_3_1 {}
 impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3_1 {
     fn clone(&self) -> Self {
         *self
@@ -2723,6 +2735,7 @@ pub union IMAGE_AUX_SYMBOL_EX {
     pub Anonymous: IMAGE_AUX_SYMBOL_EX_0,
     pub CRC: IMAGE_AUX_SYMBOL_EX_1,
 }
+impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_EX {}
 impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX {
     fn clone(&self) -> Self {
         *self
@@ -3144,6 +3157,7 @@ pub struct IMAGE_IMPORT_DESCRIPTOR {
     pub Name: u32,
     pub FirstThunk: u32,
 }
+impl ::core::marker::Copy for IMAGE_IMPORT_DESCRIPTOR {}
 impl ::core::clone::Clone for IMAGE_IMPORT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -3154,6 +3168,7 @@ pub union IMAGE_IMPORT_DESCRIPTOR_0 {
     pub Characteristics: u32,
     pub OriginalFirstThunk: u32,
 }
+impl ::core::marker::Copy for IMAGE_IMPORT_DESCRIPTOR_0 {}
 impl ::core::clone::Clone for IMAGE_IMPORT_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
@@ -3174,6 +3189,7 @@ pub struct IMAGE_LINENUMBER {
     pub Type: IMAGE_LINENUMBER_0,
     pub Linenumber: u16,
 }
+impl ::core::marker::Copy for IMAGE_LINENUMBER {}
 impl ::core::clone::Clone for IMAGE_LINENUMBER {
     fn clone(&self) -> Self {
         *self
@@ -3184,6 +3200,7 @@ pub union IMAGE_LINENUMBER_0 {
     pub SymbolTableIndex: u32,
     pub VirtualAddress: u32,
 }
+impl ::core::marker::Copy for IMAGE_LINENUMBER_0 {}
 impl ::core::clone::Clone for IMAGE_LINENUMBER_0 {
     fn clone(&self) -> Self {
         *self
@@ -3246,6 +3263,8 @@ pub struct IMAGE_POLICY_ENTRY {
     pub u: IMAGE_POLICY_ENTRY_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMAGE_POLICY_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGE_POLICY_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -3267,6 +3286,8 @@ pub union IMAGE_POLICY_ENTRY_0 {
     pub AnsiStringValue: super::super::Foundation::PSTR,
     pub UnicodeStringValue: super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMAGE_POLICY_ENTRY_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGE_POLICY_ENTRY_0 {
     fn clone(&self) -> Self {
@@ -3325,6 +3346,8 @@ pub struct IMAGE_POLICY_METADATA {
     pub Policies: [IMAGE_POLICY_ENTRY; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMAGE_POLICY_METADATA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGE_POLICY_METADATA {
     fn clone(&self) -> Self {
         *self
@@ -3347,6 +3370,7 @@ pub struct IMAGE_RELOCATION {
     pub SymbolTableIndex: u32,
     pub Type: u16,
 }
+impl ::core::marker::Copy for IMAGE_RELOCATION {}
 impl ::core::clone::Clone for IMAGE_RELOCATION {
     fn clone(&self) -> Self {
         *self
@@ -3357,6 +3381,7 @@ pub union IMAGE_RELOCATION_0 {
     pub VirtualAddress: u32,
     pub RelocCount: u32,
 }
+impl ::core::marker::Copy for IMAGE_RELOCATION_0 {}
 impl ::core::clone::Clone for IMAGE_RELOCATION_0 {
     fn clone(&self) -> Self {
         *self
@@ -3656,6 +3681,7 @@ pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY {
     pub Anonymous1: IMAGE_RESOURCE_DIRECTORY_ENTRY_0,
     pub Anonymous2: IMAGE_RESOURCE_DIRECTORY_ENTRY_1,
 }
+impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY {}
 impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -3667,6 +3693,7 @@ pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     pub Name: u32,
     pub Id: u16,
 }
+impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {}
 impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
@@ -3687,6 +3714,7 @@ pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     pub OffsetToData: u32,
     pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0,
 }
+impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {}
 impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     fn clone(&self) -> Self {
         *self
@@ -3777,6 +3805,7 @@ pub struct IMAGE_SYMBOL {
     pub StorageClass: u8,
     pub NumberOfAuxSymbols: u8,
 }
+impl ::core::marker::Copy for IMAGE_SYMBOL {}
 impl ::core::clone::Clone for IMAGE_SYMBOL {
     fn clone(&self) -> Self {
         *self
@@ -3788,6 +3817,7 @@ pub union IMAGE_SYMBOL_0 {
     pub Name: IMAGE_SYMBOL_0_0,
     pub LongName: [u32; 2],
 }
+impl ::core::marker::Copy for IMAGE_SYMBOL_0 {}
 impl ::core::clone::Clone for IMAGE_SYMBOL_0 {
     fn clone(&self) -> Self {
         *self
@@ -3813,6 +3843,7 @@ pub struct IMAGE_SYMBOL_EX {
     pub StorageClass: u8,
     pub NumberOfAuxSymbols: u8,
 }
+impl ::core::marker::Copy for IMAGE_SYMBOL_EX {}
 impl ::core::clone::Clone for IMAGE_SYMBOL_EX {
     fn clone(&self) -> Self {
         *self
@@ -3824,6 +3855,7 @@ pub union IMAGE_SYMBOL_EX_0 {
     pub Name: IMAGE_SYMBOL_EX_0_0,
     pub LongName: [u32; 2],
 }
+impl ::core::marker::Copy for IMAGE_SYMBOL_EX_0 {}
 impl ::core::clone::Clone for IMAGE_SYMBOL_EX_0 {
     fn clone(&self) -> Self {
         *self
@@ -3899,6 +3931,7 @@ pub struct IMAGE_TLS_DIRECTORY32 {
     pub SizeOfZeroFill: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY32_0,
 }
+impl ::core::marker::Copy for IMAGE_TLS_DIRECTORY32 {}
 impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY32 {
     fn clone(&self) -> Self {
         *self
@@ -3909,6 +3942,7 @@ pub union IMAGE_TLS_DIRECTORY32_0 {
     pub Characteristics: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY32_0_0,
 }
+impl ::core::marker::Copy for IMAGE_TLS_DIRECTORY32_0 {}
 impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY32_0 {
     fn clone(&self) -> Self {
         *self
@@ -3933,6 +3967,7 @@ pub struct IMAGE_TLS_DIRECTORY64 {
     pub SizeOfZeroFill: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY64_0,
 }
+impl ::core::marker::Copy for IMAGE_TLS_DIRECTORY64 {}
 impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY64 {
     fn clone(&self) -> Self {
         *self
@@ -3943,6 +3978,7 @@ pub union IMAGE_TLS_DIRECTORY64_0 {
     pub Characteristics: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY64_0_0,
 }
+impl ::core::marker::Copy for IMAGE_TLS_DIRECTORY64_0 {}
 impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY64_0 {
     fn clone(&self) -> Self {
         *self
@@ -4035,6 +4071,7 @@ pub struct IMPORT_OBJECT_HEADER {
     pub Anonymous: IMPORT_OBJECT_HEADER_0,
     pub _bitfield: u16,
 }
+impl ::core::marker::Copy for IMPORT_OBJECT_HEADER {}
 impl ::core::clone::Clone for IMPORT_OBJECT_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -4045,6 +4082,7 @@ pub union IMPORT_OBJECT_HEADER_0 {
     pub Ordinal: u16,
     pub Hint: u16,
 }
+impl ::core::marker::Copy for IMPORT_OBJECT_HEADER_0 {}
 impl ::core::clone::Clone for IMPORT_OBJECT_HEADER_0 {
     fn clone(&self) -> Self {
         *self
@@ -4342,6 +4380,7 @@ pub struct KERNEL_CET_CONTEXT {
     pub Anonymous: KERNEL_CET_CONTEXT_0,
     pub Fill: [u16; 2],
 }
+impl ::core::marker::Copy for KERNEL_CET_CONTEXT {}
 impl ::core::clone::Clone for KERNEL_CET_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -4352,6 +4391,7 @@ pub union KERNEL_CET_CONTEXT_0 {
     pub AllFlags: u16,
     pub Anonymous: KERNEL_CET_CONTEXT_0_0,
 }
+impl ::core::marker::Copy for KERNEL_CET_CONTEXT_0 {}
 impl ::core::clone::Clone for KERNEL_CET_CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
@@ -4876,6 +4916,7 @@ pub struct NT_TIB32 {
     pub ArbitraryUserPointer: u32,
     pub Self_: u32,
 }
+impl ::core::marker::Copy for NT_TIB32 {}
 impl ::core::clone::Clone for NT_TIB32 {
     fn clone(&self) -> Self {
         *self
@@ -4886,6 +4927,7 @@ pub union NT_TIB32_0 {
     pub FiberData: u32,
     pub Version: u32,
 }
+impl ::core::marker::Copy for NT_TIB32_0 {}
 impl ::core::clone::Clone for NT_TIB32_0 {
     fn clone(&self) -> Self {
         *self
@@ -4901,6 +4943,7 @@ pub struct NT_TIB64 {
     pub ArbitraryUserPointer: u64,
     pub Self_: u64,
 }
+impl ::core::marker::Copy for NT_TIB64 {}
 impl ::core::clone::Clone for NT_TIB64 {
     fn clone(&self) -> Self {
         *self
@@ -4911,6 +4954,7 @@ pub union NT_TIB64_0 {
     pub FiberData: u64,
     pub Version: u32,
 }
+impl ::core::marker::Copy for NT_TIB64_0 {}
 impl ::core::clone::Clone for NT_TIB64_0 {
     fn clone(&self) -> Self {
         *self
@@ -5628,6 +5672,7 @@ pub struct PROCESSOR_IDLESTATE_POLICY {
     pub PolicyCount: u32,
     pub Policy: [PROCESSOR_IDLESTATE_INFO; 3],
 }
+impl ::core::marker::Copy for PROCESSOR_IDLESTATE_POLICY {}
 impl ::core::clone::Clone for PROCESSOR_IDLESTATE_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -5638,6 +5683,7 @@ pub union PROCESSOR_IDLESTATE_POLICY_0 {
     pub AsWORD: u16,
     pub Anonymous: PROCESSOR_IDLESTATE_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESSOR_IDLESTATE_POLICY_0 {}
 impl ::core::clone::Clone for PROCESSOR_IDLESTATE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -5674,6 +5720,7 @@ pub struct PROCESSOR_PERFSTATE_POLICY {
     pub IncreasePercent: u32,
     pub DecreasePercent: u32,
 }
+impl ::core::marker::Copy for PROCESSOR_PERFSTATE_POLICY {}
 impl ::core::clone::Clone for PROCESSOR_PERFSTATE_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -5684,6 +5731,7 @@ pub union PROCESSOR_PERFSTATE_POLICY_0 {
     pub Spare: u8,
     pub Flags: PROCESSOR_PERFSTATE_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESSOR_PERFSTATE_POLICY_0 {}
 impl ::core::clone::Clone for PROCESSOR_PERFSTATE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -5694,6 +5742,7 @@ pub union PROCESSOR_PERFSTATE_POLICY_0_0 {
     pub AsBYTE: u8,
     pub Anonymous: PROCESSOR_PERFSTATE_POLICY_0_0_0,
 }
+impl ::core::marker::Copy for PROCESSOR_PERFSTATE_POLICY_0_0 {}
 impl ::core::clone::Clone for PROCESSOR_PERFSTATE_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -5745,6 +5794,7 @@ pub const PROCESS_HEAP_UNCOMMITTED_RANGE: u32 = 2u32;
 pub struct PROCESS_MITIGATION_ASLR_POLICY {
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_ASLR_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_ASLR_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -5755,6 +5805,7 @@ pub union PROCESS_MITIGATION_ASLR_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_ASLR_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_ASLR_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -5774,6 +5825,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -5784,6 +5836,7 @@ pub union PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -5803,6 +5856,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -5813,6 +5867,7 @@ pub union PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -5832,6 +5887,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -5842,6 +5898,7 @@ pub union PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -5864,6 +5921,8 @@ pub struct PROCESS_MITIGATION_DEP_POLICY {
     pub Permanent: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROCESS_MITIGATION_DEP_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -5875,6 +5934,8 @@ pub union PROCESS_MITIGATION_DEP_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROCESS_MITIGATION_DEP_POLICY_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY_0 {
     fn clone(&self) -> Self {
@@ -5898,6 +5959,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -5908,6 +5970,7 @@ pub union PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -5927,6 +5990,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -5937,6 +6001,7 @@ pub union PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -5956,6 +6021,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_FONT_DISABLE_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -5966,6 +6032,7 @@ pub union PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -5985,6 +6052,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -5995,6 +6063,7 @@ pub union PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -6014,6 +6083,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -6024,6 +6094,7 @@ pub union PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -6043,6 +6114,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -6053,6 +6125,7 @@ pub union PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -6072,6 +6145,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -6082,6 +6156,7 @@ pub union PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -6101,6 +6176,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -6111,6 +6187,7 @@ pub union PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -6130,6 +6207,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -6140,6 +6218,7 @@ pub union PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -6159,6 +6238,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -6169,6 +6249,7 @@ pub union PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -6188,6 +6269,7 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     fn clone(&self) -> Self {
         *self
@@ -6198,6 +6280,7 @@ pub union PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0,
 }
+impl ::core::marker::Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     fn clone(&self) -> Self {
         *self
@@ -6316,6 +6399,7 @@ pub struct QUOTA_LIMITS_EX {
     pub Flags: u32,
     pub CpuRateLimit: RATE_QUOTA_LIMIT,
 }
+impl ::core::marker::Copy for QUOTA_LIMITS_EX {}
 impl ::core::clone::Clone for QUOTA_LIMITS_EX {
     fn clone(&self) -> Self {
         *self
@@ -6331,6 +6415,7 @@ pub union RATE_QUOTA_LIMIT {
     pub RateData: u32,
     pub Anonymous: RATE_QUOTA_LIMIT_0,
 }
+impl ::core::marker::Copy for RATE_QUOTA_LIMIT {}
 impl ::core::clone::Clone for RATE_QUOTA_LIMIT {
     fn clone(&self) -> Self {
         *self
@@ -6572,6 +6657,7 @@ pub struct RemotableHandle {
     pub fContext: i32,
     pub u: RemotableHandle_0,
 }
+impl ::core::marker::Copy for RemotableHandle {}
 impl ::core::clone::Clone for RemotableHandle {
     fn clone(&self) -> Self {
         *self
@@ -6582,6 +6668,7 @@ pub union RemotableHandle_0 {
     pub hInproc: i32,
     pub hRemote: i32,
 }
+impl ::core::marker::Copy for RemotableHandle_0 {}
 impl ::core::clone::Clone for RemotableHandle_0 {
     fn clone(&self) -> Self {
         *self
@@ -7078,6 +7165,8 @@ pub struct SE_TOKEN_USER {
     pub Anonymous2: SE_TOKEN_USER_1,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for SE_TOKEN_USER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for SE_TOKEN_USER {
     fn clone(&self) -> Self {
         *self
@@ -7090,6 +7179,8 @@ pub union SE_TOKEN_USER_0 {
     pub User: super::super::Security::SID_AND_ATTRIBUTES,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for SE_TOKEN_USER_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for SE_TOKEN_USER_0 {
     fn clone(&self) -> Self {
         *self
@@ -7101,6 +7192,8 @@ pub union SE_TOKEN_USER_1 {
     pub Sid: super::super::Security::SID,
     pub Buffer: [u8; 68],
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for SE_TOKEN_USER_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for SE_TOKEN_USER_1 {
     fn clone(&self) -> Self {
@@ -8272,6 +8365,8 @@ pub struct userCLIPFORMAT {
     pub u: userCLIPFORMAT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for userCLIPFORMAT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for userCLIPFORMAT {
     fn clone(&self) -> Self {
         *self
@@ -8284,6 +8379,8 @@ pub union userCLIPFORMAT_0 {
     pub pwszName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for userCLIPFORMAT_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for userCLIPFORMAT_0 {
     fn clone(&self) -> Self {
         *self
@@ -8294,6 +8391,7 @@ pub struct userHBITMAP {
     pub fContext: i32,
     pub u: userHBITMAP_0,
 }
+impl ::core::marker::Copy for userHBITMAP {}
 impl ::core::clone::Clone for userHBITMAP {
     fn clone(&self) -> Self {
         *self
@@ -8305,6 +8403,7 @@ pub union userHBITMAP_0 {
     pub hRemote: *mut userBITMAP,
     pub hInproc64: i64,
 }
+impl ::core::marker::Copy for userHBITMAP_0 {}
 impl ::core::clone::Clone for userHBITMAP_0 {
     fn clone(&self) -> Self {
         *self
@@ -8316,6 +8415,8 @@ pub struct userHENHMETAFILE {
     pub fContext: i32,
     pub u: userHENHMETAFILE_0,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for userHENHMETAFILE {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for userHENHMETAFILE {
     fn clone(&self) -> Self {
@@ -8330,6 +8431,8 @@ pub union userHENHMETAFILE_0 {
     pub hInproc64: i64,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for userHENHMETAFILE_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for userHENHMETAFILE_0 {
     fn clone(&self) -> Self {
         *self
@@ -8341,6 +8444,8 @@ pub struct userHGLOBAL {
     pub fContext: i32,
     pub u: userHGLOBAL_0,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for userHGLOBAL {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for userHGLOBAL {
     fn clone(&self) -> Self {
@@ -8355,6 +8460,8 @@ pub union userHGLOBAL_0 {
     pub hInproc64: i64,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for userHGLOBAL_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for userHGLOBAL_0 {
     fn clone(&self) -> Self {
         *self
@@ -8366,6 +8473,8 @@ pub struct userHMETAFILE {
     pub fContext: i32,
     pub u: userHMETAFILE_0,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for userHMETAFILE {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for userHMETAFILE {
     fn clone(&self) -> Self {
@@ -8380,6 +8489,8 @@ pub union userHMETAFILE_0 {
     pub hInproc64: i64,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for userHMETAFILE_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for userHMETAFILE_0 {
     fn clone(&self) -> Self {
         *self
@@ -8391,6 +8502,8 @@ pub struct userHMETAFILEPICT {
     pub fContext: i32,
     pub u: userHMETAFILEPICT_0,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for userHMETAFILEPICT {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for userHMETAFILEPICT {
     fn clone(&self) -> Self {
@@ -8405,6 +8518,8 @@ pub union userHMETAFILEPICT_0 {
     pub hInproc64: i64,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for userHMETAFILEPICT_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for userHMETAFILEPICT_0 {
     fn clone(&self) -> Self {
         *self
@@ -8416,6 +8531,8 @@ pub struct userHPALETTE {
     pub fContext: i32,
     pub u: userHPALETTE_0,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for userHPALETTE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for userHPALETTE {
     fn clone(&self) -> Self {
@@ -8429,6 +8546,8 @@ pub union userHPALETTE_0 {
     pub hRemote: *mut super::super::Graphics::Gdi::LOGPALETTE,
     pub hInproc64: i64,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for userHPALETTE_0 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for userHPALETTE_0 {
     fn clone(&self) -> Self {

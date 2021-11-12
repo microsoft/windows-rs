@@ -209,6 +209,7 @@ pub struct D3D10_BUFFER_RTV {
     pub Anonymous1: D3D10_BUFFER_RTV_0,
     pub Anonymous2: D3D10_BUFFER_RTV_1,
 }
+impl ::core::marker::Copy for D3D10_BUFFER_RTV {}
 impl ::core::clone::Clone for D3D10_BUFFER_RTV {
     fn clone(&self) -> Self {
         *self
@@ -219,6 +220,7 @@ pub union D3D10_BUFFER_RTV_0 {
     pub FirstElement: u32,
     pub ElementOffset: u32,
 }
+impl ::core::marker::Copy for D3D10_BUFFER_RTV_0 {}
 impl ::core::clone::Clone for D3D10_BUFFER_RTV_0 {
     fn clone(&self) -> Self {
         *self
@@ -229,6 +231,7 @@ pub union D3D10_BUFFER_RTV_1 {
     pub NumElements: u32,
     pub ElementWidth: u32,
 }
+impl ::core::marker::Copy for D3D10_BUFFER_RTV_1 {}
 impl ::core::clone::Clone for D3D10_BUFFER_RTV_1 {
     fn clone(&self) -> Self {
         *self
@@ -239,6 +242,7 @@ pub struct D3D10_BUFFER_SRV {
     pub Anonymous1: D3D10_BUFFER_SRV_0,
     pub Anonymous2: D3D10_BUFFER_SRV_1,
 }
+impl ::core::marker::Copy for D3D10_BUFFER_SRV {}
 impl ::core::clone::Clone for D3D10_BUFFER_SRV {
     fn clone(&self) -> Self {
         *self
@@ -249,6 +253,7 @@ pub union D3D10_BUFFER_SRV_0 {
     pub FirstElement: u32,
     pub ElementOffset: u32,
 }
+impl ::core::marker::Copy for D3D10_BUFFER_SRV_0 {}
 impl ::core::clone::Clone for D3D10_BUFFER_SRV_0 {
     fn clone(&self) -> Self {
         *self
@@ -259,6 +264,7 @@ pub union D3D10_BUFFER_SRV_1 {
     pub NumElements: u32,
     pub ElementWidth: u32,
 }
+impl ::core::marker::Copy for D3D10_BUFFER_SRV_1 {}
 impl ::core::clone::Clone for D3D10_BUFFER_SRV_1 {
     fn clone(&self) -> Self {
         *self
@@ -510,6 +516,8 @@ pub struct D3D10_DEPTH_STENCIL_VIEW_DESC {
     pub Anonymous: D3D10_DEPTH_STENCIL_VIEW_DESC_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D10_DEPTH_STENCIL_VIEW_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D10_DEPTH_STENCIL_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -525,6 +533,8 @@ pub union D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture2DMS: D3D10_TEX2DMS_DSV,
     pub Texture2DMSArray: D3D10_TEX2DMS_ARRAY_DSV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
     fn clone(&self) -> Self {
@@ -1686,6 +1696,8 @@ pub struct D3D10_RENDER_TARGET_VIEW_DESC {
     pub Anonymous: D3D10_RENDER_TARGET_VIEW_DESC_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D10_RENDER_TARGET_VIEW_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D10_RENDER_TARGET_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -1703,6 +1715,8 @@ pub union D3D10_RENDER_TARGET_VIEW_DESC_0 {
     pub Texture2DMSArray: D3D10_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D10_TEX3D_RTV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D10_RENDER_TARGET_VIEW_DESC_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D10_RENDER_TARGET_VIEW_DESC_0 {
     fn clone(&self) -> Self {
@@ -2144,6 +2158,8 @@ pub struct D3D10_SHADER_RESOURCE_VIEW_DESC {
     pub Anonymous: D3D10_SHADER_RESOURCE_VIEW_DESC_0,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D10_SHADER_RESOURCE_VIEW_DESC {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -2163,6 +2179,8 @@ pub union D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
     pub TextureCube: D3D10_TEXCUBE_SRV,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
     fn clone(&self) -> Self {
         *self
@@ -2175,6 +2193,8 @@ pub struct D3D10_SHADER_RESOURCE_VIEW_DESC1 {
     pub ViewDimension: super::Direct3D::D3D_SRV_DIMENSION,
     pub Anonymous: D3D10_SHADER_RESOURCE_VIEW_DESC1_0,
 }
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D10_SHADER_RESOURCE_VIEW_DESC1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
     fn clone(&self) -> Self {
@@ -2195,6 +2215,8 @@ pub union D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
     pub TextureCube: D3D10_TEXCUBE_SRV,
     pub TextureCubeArray: D3D10_TEXCUBE_ARRAY_SRV1,
 }
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
     fn clone(&self) -> Self {

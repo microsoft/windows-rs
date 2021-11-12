@@ -94,6 +94,7 @@ pub struct MMTIME {
     pub wType: u32,
     pub u: MMTIME_0,
 }
+impl ::core::marker::Copy for MMTIME {}
 impl ::core::clone::Clone for MMTIME {
     fn clone(&self) -> Self {
         *self
@@ -108,6 +109,7 @@ pub union MMTIME_0 {
     pub smpte: MMTIME_0_1,
     pub midi: MMTIME_0_0,
 }
+impl ::core::marker::Copy for MMTIME_0 {}
 impl ::core::clone::Clone for MMTIME_0 {
     fn clone(&self) -> Self {
         *self
@@ -204,6 +206,7 @@ pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: u64,
 }
+impl ::core::marker::Copy for TIMECODE {}
 impl ::core::clone::Clone for TIMECODE {
     fn clone(&self) -> Self {
         *self
@@ -228,6 +231,7 @@ pub struct TIMECODE_SAMPLE {
     pub dwUser: u32,
     pub dwFlags: TIMECODE_SAMPLE_FLAGS,
 }
+impl ::core::marker::Copy for TIMECODE_SAMPLE {}
 impl ::core::clone::Clone for TIMECODE_SAMPLE {
     fn clone(&self) -> Self {
         *self

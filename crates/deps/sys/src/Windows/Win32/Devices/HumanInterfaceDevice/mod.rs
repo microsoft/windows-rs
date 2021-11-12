@@ -253,6 +253,8 @@ pub struct DIACTIONA {
     pub dwHow: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIACTIONA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIACTIONA {
     fn clone(&self) -> Self {
         *self
@@ -264,6 +266,8 @@ pub union DIACTIONA_0 {
     pub lptszActionName: super::super::Foundation::PSTR,
     pub uResIdString: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIACTIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIACTIONA_0 {
     fn clone(&self) -> Self {
@@ -334,6 +338,8 @@ pub struct DIACTIONW {
     pub dwHow: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIACTIONW {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIACTIONW {
     fn clone(&self) -> Self {
         *self
@@ -345,6 +351,8 @@ pub union DIACTIONW_0 {
     pub lptszActionName: super::super::Foundation::PWSTR,
     pub uResIdString: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIACTIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIACTIONW_0 {
     fn clone(&self) -> Self {
@@ -2944,6 +2952,8 @@ pub struct HIDP_BUTTON_CAPS {
     pub Anonymous: HIDP_BUTTON_CAPS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_BUTTON_CAPS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_BUTTON_CAPS {
     fn clone(&self) -> Self {
         *self
@@ -2955,6 +2965,8 @@ pub union HIDP_BUTTON_CAPS_0 {
     pub Range: HIDP_BUTTON_CAPS_0_1,
     pub NotRange: HIDP_BUTTON_CAPS_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0 {
     fn clone(&self) -> Self {
@@ -3034,6 +3046,8 @@ pub struct HIDP_DATA {
     pub Anonymous: HIDP_DATA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_DATA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_DATA {
     fn clone(&self) -> Self {
         *self
@@ -3045,6 +3059,8 @@ pub union HIDP_DATA_0 {
     pub RawValue: u32,
     pub On: super::super::Foundation::BOOLEAN,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_DATA_0 {
     fn clone(&self) -> Self {
@@ -3078,6 +3094,7 @@ impl ::core::clone::Clone for HIDP_KEYBOARD_DIRECTION {
 pub struct HIDP_KEYBOARD_MODIFIER_STATE {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0,
 }
+impl ::core::marker::Copy for HIDP_KEYBOARD_MODIFIER_STATE {}
 impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE {
     fn clone(&self) -> Self {
         *self
@@ -3088,6 +3105,7 @@ pub union HIDP_KEYBOARD_MODIFIER_STATE_0 {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0_0,
     pub ul: u32,
 }
+impl ::core::marker::Copy for HIDP_KEYBOARD_MODIFIER_STATE_0 {}
 impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     fn clone(&self) -> Self {
         *self
@@ -3171,6 +3189,8 @@ pub struct HIDP_VALUE_CAPS {
     pub Anonymous: HIDP_VALUE_CAPS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_VALUE_CAPS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_VALUE_CAPS {
     fn clone(&self) -> Self {
         *self
@@ -3182,6 +3202,8 @@ pub union HIDP_VALUE_CAPS_0 {
     pub Range: HIDP_VALUE_CAPS_0_1,
     pub NotRange: HIDP_VALUE_CAPS_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_VALUE_CAPS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_VALUE_CAPS_0 {
     fn clone(&self) -> Self {
@@ -4338,6 +4360,7 @@ pub struct MOUSE_INPUT_DATA {
     pub LastY: i32,
     pub ExtraInformation: u32,
 }
+impl ::core::marker::Copy for MOUSE_INPUT_DATA {}
 impl ::core::clone::Clone for MOUSE_INPUT_DATA {
     fn clone(&self) -> Self {
         *self
@@ -4348,6 +4371,7 @@ pub union MOUSE_INPUT_DATA_0 {
     pub Buttons: u32,
     pub Anonymous: MOUSE_INPUT_DATA_0_0,
 }
+impl ::core::marker::Copy for MOUSE_INPUT_DATA_0 {}
 impl ::core::clone::Clone for MOUSE_INPUT_DATA_0 {
     fn clone(&self) -> Self {
         *self

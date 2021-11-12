@@ -340,6 +340,7 @@ pub struct TASK_TRIGGER {
     pub Reserved2: u16,
     pub wRandomMinutesInterval: u16,
 }
+impl ::core::marker::Copy for TASK_TRIGGER {}
 impl ::core::clone::Clone for TASK_TRIGGER {
     fn clone(&self) -> Self {
         *self
@@ -393,6 +394,7 @@ pub union TRIGGER_TYPE_UNION {
     pub MonthlyDate: MONTHLYDATE,
     pub MonthlyDOW: MONTHLYDOW,
 }
+impl ::core::marker::Copy for TRIGGER_TYPE_UNION {}
 impl ::core::clone::Clone for TRIGGER_TYPE_UNION {
     fn clone(&self) -> Self {
         *self

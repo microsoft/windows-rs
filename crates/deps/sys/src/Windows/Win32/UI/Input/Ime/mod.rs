@@ -717,6 +717,8 @@ pub struct IMEDP {
     pub relID: IMEREL,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMEDP {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMEDP {
     fn clone(&self) -> Self {
         *self
@@ -871,6 +873,7 @@ pub struct IMEKMSKEY {
     pub Anonymous1: IMEKMSKEY_0,
     pub Anonymous2: IMEKMSKEY_1,
 }
+impl ::core::marker::Copy for IMEKMSKEY {}
 impl ::core::clone::Clone for IMEKMSKEY {
     fn clone(&self) -> Self {
         *self
@@ -881,6 +884,7 @@ pub union IMEKMSKEY_0 {
     pub dwControl: u32,
     pub dwNotUsed: u32,
 }
+impl ::core::marker::Copy for IMEKMSKEY_0 {}
 impl ::core::clone::Clone for IMEKMSKEY_0 {
     fn clone(&self) -> Self {
         *self
@@ -891,6 +895,7 @@ pub union IMEKMSKEY_1 {
     pub pwszDscr: [u16; 31],
     pub pwszNoUse: [u16; 31],
 }
+impl ::core::marker::Copy for IMEKMSKEY_1 {}
 impl ::core::clone::Clone for IMEKMSKEY_1 {
     fn clone(&self) -> Self {
         *self
@@ -1157,6 +1162,8 @@ pub struct IMEWRD {
     pub pvComment: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMEWRD {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMEWRD {
     fn clone(&self) -> Self {
         *self
@@ -1168,6 +1175,8 @@ pub union IMEWRD_0 {
     pub ulPos: u32,
     pub Anonymous: IMEWRD_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMEWRD_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMEWRD_0 {
     fn clone(&self) -> Self {
@@ -1352,6 +1361,8 @@ pub struct INPUTCONTEXT {
     pub dwReserve: [u32; 3],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for INPUTCONTEXT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for INPUTCONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -1363,6 +1374,8 @@ pub union INPUTCONTEXT_0 {
     pub A: super::super::super::Graphics::Gdi::LOGFONTA,
     pub W: super::super::super::Graphics::Gdi::LOGFONTW,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for INPUTCONTEXT_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for INPUTCONTEXT_0 {
     fn clone(&self) -> Self {
@@ -1594,6 +1607,8 @@ pub struct MORRSLT {
     pub BLKBuff: [u16; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MORRSLT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MORRSLT {
     fn clone(&self) -> Self {
         *self
@@ -1605,6 +1620,8 @@ pub union MORRSLT_0 {
     pub pwchRead: super::super::super::Foundation::PWSTR,
     pub pwchComp: super::super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MORRSLT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MORRSLT_0 {
     fn clone(&self) -> Self {
@@ -1618,6 +1635,8 @@ pub union MORRSLT_1 {
     pub cchComp: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MORRSLT_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MORRSLT_1 {
     fn clone(&self) -> Self {
         *self
@@ -1629,6 +1648,8 @@ pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
     pub pchCompIdxWDD: *mut u16,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MORRSLT_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MORRSLT_2 {
     fn clone(&self) -> Self {
@@ -1843,6 +1864,7 @@ pub struct WDD {
     pub _bitfield: u16,
     pub pReserved: *mut ::core::ffi::c_void,
 }
+impl ::core::marker::Copy for WDD {}
 impl ::core::clone::Clone for WDD {
     fn clone(&self) -> Self {
         *self
@@ -1853,6 +1875,7 @@ pub union WDD_0 {
     pub wReadPos: u16,
     pub wCompPos: u16,
 }
+impl ::core::marker::Copy for WDD_0 {}
 impl ::core::clone::Clone for WDD_0 {
     fn clone(&self) -> Self {
         *self
@@ -1863,6 +1886,7 @@ pub union WDD_1 {
     pub cchRead: u16,
     pub cchComp: u16,
 }
+impl ::core::marker::Copy for WDD_1 {}
 impl ::core::clone::Clone for WDD_1 {
     fn clone(&self) -> Self {
         *self

@@ -211,6 +211,8 @@ pub struct CF_CALLBACK_PARAMETERS {
     pub Anonymous: CF_CALLBACK_PARAMETERS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
@@ -233,6 +235,8 @@ pub union CF_CALLBACK_PARAMETERS_0 {
     pub RenameCompletion: CF_CALLBACK_PARAMETERS_0_9,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self
@@ -245,6 +249,8 @@ pub struct CF_CALLBACK_PARAMETERS_0_0 {
     pub Anonymous: CF_CALLBACK_PARAMETERS_0_0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -255,6 +261,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0 {
 pub union CF_CALLBACK_PARAMETERS_0_0_0 {
     pub FetchData: CF_CALLBACK_PARAMETERS_0_0_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0_0 {
     fn clone(&self) -> Self {
@@ -765,6 +773,8 @@ pub struct CF_OPERATION_PARAMETERS {
     pub Anonymous: CF_OPERATION_PARAMETERS_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::marker::Copy for CF_OPERATION_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
@@ -782,6 +792,8 @@ pub union CF_OPERATION_PARAMETERS_0 {
     pub AckRename: CF_OPERATION_PARAMETERS_0_3,
     pub AckDelete: CF_OPERATION_PARAMETERS_0_2,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0 {
     fn clone(&self) -> Self {

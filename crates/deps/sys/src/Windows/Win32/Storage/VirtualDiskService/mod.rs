@@ -94,6 +94,7 @@ pub struct VDS_ASYNC_OUTPUT {
     pub r#type: VDS_ASYNC_OUTPUT_TYPE,
     pub Anonymous: VDS_ASYNC_OUTPUT_0,
 }
+impl ::core::marker::Copy for VDS_ASYNC_OUTPUT {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT {
     fn clone(&self) -> Self {
         *self
@@ -110,6 +111,7 @@ pub union VDS_ASYNC_OUTPUT_0 {
     pub cpg: VDS_ASYNC_OUTPUT_0_3,
     pub cvd: VDS_ASYNC_OUTPUT_0_6,
 }
+impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0 {
     fn clone(&self) -> Self {
         *self
@@ -1520,6 +1522,7 @@ pub struct VDS_NOTIFICATION {
     pub objectType: VDS_NOTIFICATION_TARGET_TYPE,
     pub Anonymous: VDS_NOTIFICATION_0,
 }
+impl ::core::marker::Copy for VDS_NOTIFICATION {}
 impl ::core::clone::Clone for VDS_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
@@ -1544,6 +1547,7 @@ pub union VDS_NOTIFICATION_0 {
     pub PortalGroup: VDS_PORTAL_GROUP_NOTIFICATION,
     pub Service: VDS_SERVICE_NOTIFICATION,
 }
+impl ::core::marker::Copy for VDS_NOTIFICATION_0 {}
 impl ::core::clone::Clone for VDS_NOTIFICATION_0 {
     fn clone(&self) -> Self {
         *self
@@ -1648,6 +1652,7 @@ pub struct VDS_PATH_INFO {
     pub Anonymous2: VDS_PATH_INFO_1,
     pub Anonymous3: VDS_PATH_INFO_2,
 }
+impl ::core::marker::Copy for VDS_PATH_INFO {}
 impl ::core::clone::Clone for VDS_PATH_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1658,6 +1663,7 @@ pub union VDS_PATH_INFO_0 {
     pub controllerPortId: ::windows_sys::core::GUID,
     pub targetPortalId: ::windows_sys::core::GUID,
 }
+impl ::core::marker::Copy for VDS_PATH_INFO_0 {}
 impl ::core::clone::Clone for VDS_PATH_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -1668,6 +1674,7 @@ pub union VDS_PATH_INFO_1 {
     pub hbaPortId: ::windows_sys::core::GUID,
     pub initiatorAdapterId: ::windows_sys::core::GUID,
 }
+impl ::core::marker::Copy for VDS_PATH_INFO_1 {}
 impl ::core::clone::Clone for VDS_PATH_INFO_1 {
     fn clone(&self) -> Self {
         *self
@@ -1678,6 +1685,7 @@ pub union VDS_PATH_INFO_2 {
     pub pHbaPortProp: *mut VDS_HBAPORT_PROP,
     pub pInitiatorPortalIpAddr: *mut VDS_IPADDRESS,
 }
+impl ::core::marker::Copy for VDS_PATH_INFO_2 {}
 impl ::core::clone::Clone for VDS_PATH_INFO_2 {
     fn clone(&self) -> Self {
         *self

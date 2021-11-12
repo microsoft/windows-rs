@@ -991,6 +991,8 @@ pub struct DELTA_INPUT {
     pub Editable: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DELTA_INPUT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DELTA_INPUT {
     fn clone(&self) -> Self {
         *self
@@ -1002,6 +1004,8 @@ pub union DELTA_INPUT_0 {
     pub lpcStart: *mut ::core::ffi::c_void,
     pub lpStart: *mut ::core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DELTA_INPUT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DELTA_INPUT_0 {
     fn clone(&self) -> Self {
@@ -1937,6 +1941,8 @@ pub struct PATCH_OLD_FILE_INFO {
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PATCH_OLD_FILE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PATCH_OLD_FILE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1949,6 +1955,8 @@ pub union PATCH_OLD_FILE_INFO_0 {
     pub OldFileNameW: super::super::Foundation::PWSTR,
     pub OldFileHandle: super::super::Foundation::HANDLE,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PATCH_OLD_FILE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PATCH_OLD_FILE_INFO_0 {
     fn clone(&self) -> Self {
@@ -2271,6 +2279,8 @@ pub struct PM_ENUM_FILTER {
     pub FilterParameter: PM_ENUM_FILTER_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PM_ENUM_FILTER {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_ENUM_FILTER {
     fn clone(&self) -> Self {
         *self
@@ -2297,6 +2307,8 @@ pub union PM_ENUM_FILTER_0 {
     pub AppSupportedFileExtPID: ::windows_sys::core::GUID,
     pub ShareTargetFileType: super::super::Foundation::BSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PM_ENUM_FILTER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_ENUM_FILTER_0 {
     fn clone(&self) -> Self {

@@ -135,6 +135,8 @@ pub struct PSS_HANDLE_ENTRY {
     pub TypeSpecificInformation: PSS_HANDLE_ENTRY_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PSS_HANDLE_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PSS_HANDLE_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -150,6 +152,8 @@ pub union PSS_HANDLE_ENTRY_0 {
     pub Section: PSS_HANDLE_ENTRY_0_3,
     pub Semaphore: PSS_HANDLE_ENTRY_0_4,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PSS_HANDLE_ENTRY_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0 {
     fn clone(&self) -> Self {

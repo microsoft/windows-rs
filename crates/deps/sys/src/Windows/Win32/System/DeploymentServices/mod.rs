@@ -291,6 +291,7 @@ pub struct PXE_ADDRESS {
     pub uAddrLen: u32,
     pub uPort: u16,
 }
+impl ::core::marker::Copy for PXE_ADDRESS {}
 impl ::core::clone::Clone for PXE_ADDRESS {
     fn clone(&self) -> Self {
         *self
@@ -301,6 +302,7 @@ pub union PXE_ADDRESS_0 {
     pub bAddress: [u8; 16],
     pub uIpAddress: u32,
 }
+impl ::core::marker::Copy for PXE_ADDRESS_0 {}
 impl ::core::clone::Clone for PXE_ADDRESS_0 {
     fn clone(&self) -> Self {
         *self
@@ -408,6 +410,7 @@ pub struct PXE_DHCP_MESSAGE {
     pub Anonymous: PXE_DHCP_MESSAGE_0,
     pub Option: PXE_DHCP_OPTION,
 }
+impl ::core::marker::Copy for PXE_DHCP_MESSAGE {}
 impl ::core::clone::Clone for PXE_DHCP_MESSAGE {
     fn clone(&self) -> Self {
         *self
@@ -418,6 +421,7 @@ pub union PXE_DHCP_MESSAGE_0 {
     pub bMagicCookie: [u8; 4],
     pub uMagicCookie: u32,
 }
+impl ::core::marker::Copy for PXE_DHCP_MESSAGE_0 {}
 impl ::core::clone::Clone for PXE_DHCP_MESSAGE_0 {
     fn clone(&self) -> Self {
         *self

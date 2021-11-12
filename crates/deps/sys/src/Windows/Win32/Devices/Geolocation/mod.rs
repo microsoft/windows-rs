@@ -37,6 +37,8 @@ pub struct GNSS_AGNSS_INJECT {
     pub Anonymous: GNSS_AGNSS_INJECT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_AGNSS_INJECT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_AGNSS_INJECT {
     fn clone(&self) -> Self {
         *self
@@ -49,6 +51,8 @@ pub union GNSS_AGNSS_INJECT_0 {
     pub Position: GNSS_AGNSS_INJECTPOSITION,
     pub BlobData: GNSS_AGNSS_INJECTBLOB,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_AGNSS_INJECT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_AGNSS_INJECT_0 {
     fn clone(&self) -> Self {
@@ -161,6 +165,8 @@ pub struct GNSS_BREADCRUMB_LIST {
     pub Anonymous: GNSS_BREADCRUMB_LIST_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_BREADCRUMB_LIST {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_BREADCRUMB_LIST {
     fn clone(&self) -> Self {
         *self
@@ -171,6 +177,8 @@ impl ::core::clone::Clone for GNSS_BREADCRUMB_LIST {
 pub union GNSS_BREADCRUMB_LIST_0 {
     pub v1: [GNSS_BREADCRUMB_V1; 50],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_BREADCRUMB_LIST_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_BREADCRUMB_LIST_0 {
     fn clone(&self) -> Self {
@@ -403,6 +411,8 @@ pub struct GNSS_EVENT {
     pub Anonymous: GNSS_EVENT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_EVENT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_EVENT {
     fn clone(&self) -> Self {
         *self
@@ -423,6 +433,8 @@ pub union GNSS_EVENT_0 {
     pub CustomData: [u8; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_EVENT_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_EVENT_0 {
     fn clone(&self) -> Self {
         *self
@@ -438,6 +450,8 @@ pub struct GNSS_EVENT_2 {
     pub Unused: [u8; 512],
     pub Anonymous: GNSS_EVENT_2_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_EVENT_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_EVENT_2 {
     fn clone(&self) -> Self {
@@ -459,6 +473,8 @@ pub union GNSS_EVENT_2_0 {
     pub DriverRequestData: GNSS_DRIVER_REQUEST_DATA,
     pub CustomData: [u8; 1],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_EVENT_2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_EVENT_2_0 {
     fn clone(&self) -> Self {
@@ -657,6 +673,7 @@ pub struct GNSS_FIXSESSION_PARAM {
     pub Anonymous: GNSS_FIXSESSION_PARAM_0,
     pub Unused: [u8; 256],
 }
+impl ::core::marker::Copy for GNSS_FIXSESSION_PARAM {}
 impl ::core::clone::Clone for GNSS_FIXSESSION_PARAM {
     fn clone(&self) -> Self {
         *self
@@ -670,6 +687,7 @@ pub union GNSS_FIXSESSION_PARAM_0 {
     pub LkgFixParam: GNSS_LKGFIX_PARAM,
     pub UnusedParam: [u8; 268],
 }
+impl ::core::marker::Copy for GNSS_FIXSESSION_PARAM_0 {}
 impl ::core::clone::Clone for GNSS_FIXSESSION_PARAM_0 {
     fn clone(&self) -> Self {
         *self
@@ -719,6 +737,7 @@ pub struct GNSS_GEOFENCE_CREATE_PARAM {
     pub Boundary: GNSS_GEOREGION,
     pub Unused: [u8; 512],
 }
+impl ::core::marker::Copy for GNSS_GEOFENCE_CREATE_PARAM {}
 impl ::core::clone::Clone for GNSS_GEOFENCE_CREATE_PARAM {
     fn clone(&self) -> Self {
         *self
@@ -772,6 +791,7 @@ pub struct GNSS_GEOREGION {
     pub GeoRegionType: GNSS_GEOREGIONTYPE,
     pub Anonymous: GNSS_GEOREGION_0,
 }
+impl ::core::marker::Copy for GNSS_GEOREGION {}
 impl ::core::clone::Clone for GNSS_GEOREGION {
     fn clone(&self) -> Self {
         *self
@@ -782,6 +802,7 @@ pub union GNSS_GEOREGION_0 {
     pub Circle: GNSS_GEOREGION_CIRCLE,
     pub Unused: [u8; 512],
 }
+impl ::core::marker::Copy for GNSS_GEOREGION_0 {}
 impl ::core::clone::Clone for GNSS_GEOREGION_0 {
     fn clone(&self) -> Self {
         *self
@@ -858,6 +879,8 @@ pub struct GNSS_NI_REQUEST_PARAM {
     pub EmergencyLocation: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_NI_REQUEST_PARAM {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_NI_REQUEST_PARAM {
     fn clone(&self) -> Self {
         *self
@@ -870,6 +893,8 @@ pub union GNSS_NI_REQUEST_PARAM_0 {
     pub CpNiInfo: GNSS_CP_NI_INFO,
     pub V2UplNiInfo: GNSS_V2UPL_NI_INFO,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_NI_REQUEST_PARAM_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_NI_REQUEST_PARAM_0 {
     fn clone(&self) -> Self {

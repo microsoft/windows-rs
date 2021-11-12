@@ -131,6 +131,8 @@ pub struct AsnAny {
     pub asnValue: AsnAny_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AsnAny {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AsnAny {
     fn clone(&self) -> Self {
         *self
@@ -152,6 +154,8 @@ pub union AsnAny_0 {
     pub ticks: u32,
     pub arbitrary: AsnOctetString,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AsnAny_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AsnAny_0 {
     fn clone(&self) -> Self {
@@ -435,6 +439,8 @@ pub struct SnmpVarBind {
     pub value: AsnAny,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SnmpVarBind {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SnmpVarBind {
     fn clone(&self) -> Self {
         *self
@@ -492,6 +498,7 @@ pub struct smiVALUE {
     pub syntax: u32,
     pub value: smiVALUE_0,
 }
+impl ::core::marker::Copy for smiVALUE {}
 impl ::core::clone::Clone for smiVALUE {
     fn clone(&self) -> Self {
         *self
@@ -506,6 +513,7 @@ pub union smiVALUE_0 {
     pub oid: smiOID,
     pub empty: u8,
 }
+impl ::core::marker::Copy for smiVALUE_0 {}
 impl ::core::clone::Clone for smiVALUE_0 {
     fn clone(&self) -> Self {
         *self

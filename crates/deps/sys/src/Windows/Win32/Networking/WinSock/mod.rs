@@ -415,6 +415,7 @@ pub struct AAL_PARAMETERS_IE {
     pub AALType: AAL_TYPE,
     pub AALSpecificParameters: AAL_PARAMETERS_IE_0,
 }
+impl ::core::marker::Copy for AAL_PARAMETERS_IE {}
 impl ::core::clone::Clone for AAL_PARAMETERS_IE {
     fn clone(&self) -> Self {
         *self
@@ -425,6 +426,7 @@ pub union AAL_PARAMETERS_IE_0 {
     pub AAL5Parameters: AAL5_PARAMETERS,
     pub AALUserParameters: AALUSER_PARAMETERS,
 }
+impl ::core::marker::Copy for AAL_PARAMETERS_IE_0 {}
 impl ::core::clone::Clone for AAL_PARAMETERS_IE_0 {
     fn clone(&self) -> Self {
         *self
@@ -984,6 +986,8 @@ pub struct ICMP_ERROR_INFO {
     pub code: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ICMP_ERROR_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ICMP_ERROR_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1011,6 +1015,7 @@ pub const IN6ADDR_V4MAPPEDPREFIX_LENGTH: u32 = 96u32;
 pub struct IN6_ADDR {
     pub u: IN6_ADDR_0,
 }
+impl ::core::marker::Copy for IN6_ADDR {}
 impl ::core::clone::Clone for IN6_ADDR {
     fn clone(&self) -> Self {
         *self
@@ -1021,6 +1026,7 @@ pub union IN6_ADDR_0 {
     pub Byte: [u8; 16],
     pub Word: [u16; 8],
 }
+impl ::core::marker::Copy for IN6_ADDR_0 {}
 impl ::core::clone::Clone for IN6_ADDR_0 {
     fn clone(&self) -> Self {
         *self
@@ -1031,6 +1037,7 @@ pub struct IN6_PKTINFO {
     pub ipi6_addr: IN6_ADDR,
     pub ipi6_ifindex: u32,
 }
+impl ::core::marker::Copy for IN6_PKTINFO {}
 impl ::core::clone::Clone for IN6_PKTINFO {
     fn clone(&self) -> Self {
         *self
@@ -1093,6 +1100,8 @@ pub struct INTERFACE_INFO {
     pub iiNetmask: sockaddr_gen,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERFACE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERFACE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1119,6 +1128,7 @@ pub const INVALID_SOCKET: SOCKET = SOCKET(4294967295u32 as _);
 pub struct IN_ADDR {
     pub S_un: IN_ADDR_0,
 }
+impl ::core::marker::Copy for IN_ADDR {}
 impl ::core::clone::Clone for IN_ADDR {
     fn clone(&self) -> Self {
         *self
@@ -1130,6 +1140,7 @@ pub union IN_ADDR_0 {
     pub S_un_w: IN_ADDR_0_1,
     pub S_addr: u32,
 }
+impl ::core::marker::Copy for IN_ADDR_0 {}
 impl ::core::clone::Clone for IN_ADDR_0 {
     fn clone(&self) -> Self {
         *self
@@ -1178,6 +1189,7 @@ pub struct IN_PKTINFO {
     pub ipi_addr: IN_ADDR,
     pub ipi_ifindex: u32,
 }
+impl ::core::marker::Copy for IN_PKTINFO {}
 impl ::core::clone::Clone for IN_PKTINFO {
     fn clone(&self) -> Self {
         *self
@@ -1188,6 +1200,7 @@ pub struct IN_PKTINFO_EX {
     pub pkt_info: IN_PKTINFO,
     pub scope_id: SCOPE_ID,
 }
+impl ::core::marker::Copy for IN_PKTINFO_EX {}
 impl ::core::clone::Clone for IN_PKTINFO_EX {
     fn clone(&self) -> Self {
         *self
@@ -1327,6 +1340,7 @@ pub struct IPV6_MREQ {
     pub ipv6mr_multiaddr: IN6_ADDR,
     pub ipv6mr_interface: u32,
 }
+impl ::core::marker::Copy for IPV6_MREQ {}
 impl ::core::clone::Clone for IPV6_MREQ {
     fn clone(&self) -> Self {
         *self
@@ -1452,6 +1466,7 @@ pub struct IP_MREQ {
     pub imr_multiaddr: IN_ADDR,
     pub imr_interface: IN_ADDR,
 }
+impl ::core::marker::Copy for IP_MREQ {}
 impl ::core::clone::Clone for IP_MREQ {
     fn clone(&self) -> Self {
         *self
@@ -1463,6 +1478,7 @@ pub struct IP_MREQ_SOURCE {
     pub imr_sourceaddr: IN_ADDR,
     pub imr_interface: IN_ADDR,
 }
+impl ::core::marker::Copy for IP_MREQ_SOURCE {}
 impl ::core::clone::Clone for IP_MREQ_SOURCE {
     fn clone(&self) -> Self {
         *self
@@ -1476,6 +1492,7 @@ pub struct IP_MSFILTER {
     pub imsf_numsrc: u32,
     pub imsf_slist: [IN_ADDR; 1],
 }
+impl ::core::marker::Copy for IP_MSFILTER {}
 impl ::core::clone::Clone for IP_MSFILTER {
     fn clone(&self) -> Self {
         *self
@@ -1958,6 +1975,8 @@ pub struct NLA_BLOB {
     pub data: NLA_BLOB_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NLA_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NLA_BLOB {
     fn clone(&self) -> Self {
         *self
@@ -1972,6 +1991,8 @@ pub union NLA_BLOB_0 {
     pub connectivity: NLA_BLOB_0_1,
     pub ICS: NLA_BLOB_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NLA_BLOB_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NLA_BLOB_0 {
     fn clone(&self) -> Self {
@@ -2868,6 +2889,8 @@ pub struct RIO_NOTIFICATION_COMPLETION {
     pub Anonymous: RIO_NOTIFICATION_COMPLETION_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RIO_NOTIFICATION_COMPLETION {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RIO_NOTIFICATION_COMPLETION {
     fn clone(&self) -> Self {
         *self
@@ -2879,6 +2902,8 @@ pub union RIO_NOTIFICATION_COMPLETION_0 {
     pub Event: RIO_NOTIFICATION_COMPLETION_0_0,
     pub Iocp: RIO_NOTIFICATION_COMPLETION_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RIO_NOTIFICATION_COMPLETION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RIO_NOTIFICATION_COMPLETION_0 {
     fn clone(&self) -> Self {
@@ -3039,6 +3064,7 @@ pub const SAP_FIELD_ANY_AESA_SEL: u32 = 4294967290u32;
 pub struct SCOPE_ID {
     pub Anonymous: SCOPE_ID_0,
 }
+impl ::core::marker::Copy for SCOPE_ID {}
 impl ::core::clone::Clone for SCOPE_ID {
     fn clone(&self) -> Self {
         *self
@@ -3049,6 +3075,7 @@ pub union SCOPE_ID_0 {
     pub Anonymous: SCOPE_ID_0_0,
     pub Value: u32,
 }
+impl ::core::marker::Copy for SCOPE_ID_0 {}
 impl ::core::clone::Clone for SCOPE_ID_0 {
     fn clone(&self) -> Self {
         *self
@@ -3346,6 +3373,8 @@ pub struct SOCKADDR_IN {
     pub sin_zero: [super::super::Foundation::CHAR; 8],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SOCKADDR_IN {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SOCKADDR_IN {
     fn clone(&self) -> Self {
         *self
@@ -3359,6 +3388,7 @@ pub struct SOCKADDR_IN6 {
     pub sin6_addr: IN6_ADDR,
     pub Anonymous: SOCKADDR_IN6_0,
 }
+impl ::core::marker::Copy for SOCKADDR_IN6 {}
 impl ::core::clone::Clone for SOCKADDR_IN6 {
     fn clone(&self) -> Self {
         *self
@@ -3369,6 +3399,7 @@ pub union SOCKADDR_IN6_0 {
     pub sin6_scope_id: u32,
     pub sin6_scope_struct: SCOPE_ID,
 }
+impl ::core::marker::Copy for SOCKADDR_IN6_0 {}
 impl ::core::clone::Clone for SOCKADDR_IN6_0 {
     fn clone(&self) -> Self {
         *self
@@ -3393,6 +3424,7 @@ pub struct SOCKADDR_IN6_W2KSP1 {
     pub sin6_addr: IN6_ADDR,
     pub sin6_scope_id: u32,
 }
+impl ::core::marker::Copy for SOCKADDR_IN6_W2KSP1 {}
 impl ::core::clone::Clone for SOCKADDR_IN6_W2KSP1 {
     fn clone(&self) -> Self {
         *self
@@ -3405,6 +3437,8 @@ pub union SOCKADDR_INET {
     pub Ipv6: SOCKADDR_IN6,
     pub si_family: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SOCKADDR_INET {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SOCKADDR_INET {
     fn clone(&self) -> Self {
@@ -3972,6 +4006,8 @@ pub struct TRANSMIT_PACKETS_ELEMENT {
     pub Anonymous: TRANSMIT_PACKETS_ELEMENT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TRANSMIT_PACKETS_ELEMENT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TRANSMIT_PACKETS_ELEMENT {
     fn clone(&self) -> Self {
         *self
@@ -3983,6 +4019,8 @@ pub union TRANSMIT_PACKETS_ELEMENT_0 {
     pub Anonymous: TRANSMIT_PACKETS_ELEMENT_0_0,
     pub pBuffer: *mut ::core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TRANSMIT_PACKETS_ELEMENT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TRANSMIT_PACKETS_ELEMENT_0 {
     fn clone(&self) -> Self {
@@ -4086,6 +4124,8 @@ pub struct WINDOWS_IAS_QUERY {
     pub irdaAttribute: WINDOWS_IAS_QUERY_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINDOWS_IAS_QUERY {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINDOWS_IAS_QUERY {
     fn clone(&self) -> Self {
         *self
@@ -4098,6 +4138,8 @@ pub union WINDOWS_IAS_QUERY_0 {
     pub irdaAttribOctetSeq: WINDOWS_IAS_QUERY_0_0,
     pub irdaAttribUsrStr: WINDOWS_IAS_QUERY_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINDOWS_IAS_QUERY_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINDOWS_IAS_QUERY_0 {
     fn clone(&self) -> Self {
@@ -4142,6 +4184,8 @@ pub struct WINDOWS_IAS_SET {
     pub irdaAttribute: WINDOWS_IAS_SET_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINDOWS_IAS_SET {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINDOWS_IAS_SET {
     fn clone(&self) -> Self {
         *self
@@ -4154,6 +4198,8 @@ pub union WINDOWS_IAS_SET_0 {
     pub irdaAttribOctetSeq: WINDOWS_IAS_SET_0_0,
     pub irdaAttribUsrStr: WINDOWS_IAS_SET_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINDOWS_IAS_SET_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINDOWS_IAS_SET_0 {
     fn clone(&self) -> Self {
@@ -4228,6 +4274,8 @@ pub struct WSACOMPLETION {
     pub Parameters: WSACOMPLETION_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::marker::Copy for WSACOMPLETION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::clone::Clone for WSACOMPLETION {
     fn clone(&self) -> Self {
         *self
@@ -4241,6 +4289,8 @@ pub union WSACOMPLETION_0 {
     pub Apc: WSACOMPLETION_0_0,
     pub Port: WSACOMPLETION_0_2,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::marker::Copy for WSACOMPLETION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::clone::Clone for WSACOMPLETION_0 {
     fn clone(&self) -> Self {
@@ -5106,6 +5156,8 @@ pub struct addrinfo_dns_server {
     pub Anonymous: addrinfo_dns_server_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for addrinfo_dns_server {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for addrinfo_dns_server {
     fn clone(&self) -> Self {
         *self
@@ -5116,6 +5168,8 @@ impl ::core::clone::Clone for addrinfo_dns_server {
 pub union addrinfo_dns_server_0 {
     pub ai_template: super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for addrinfo_dns_server_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for addrinfo_dns_server_0 {
     fn clone(&self) -> Self {
@@ -5385,6 +5439,7 @@ pub struct in6_pktinfo_ex {
     pub pkt_info: IN6_PKTINFO,
     pub scope_id: SCOPE_ID,
 }
+impl ::core::marker::Copy for in6_pktinfo_ex {}
 impl ::core::clone::Clone for in6_pktinfo_ex {
     fn clone(&self) -> Self {
         *self
@@ -5491,6 +5546,8 @@ pub union sockaddr_gen {
     pub AddressIn6: sockaddr_in6_old,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for sockaddr_gen {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sockaddr_gen {
     fn clone(&self) -> Self {
         *self
@@ -5503,6 +5560,7 @@ pub struct sockaddr_in6_old {
     pub sin6_flowinfo: u32,
     pub sin6_addr: IN6_ADDR,
 }
+impl ::core::marker::Copy for sockaddr_in6_old {}
 impl ::core::clone::Clone for sockaddr_in6_old {
     fn clone(&self) -> Self {
         *self

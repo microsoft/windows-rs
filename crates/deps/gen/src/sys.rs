@@ -209,7 +209,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         pub #struct_or_union #name {
             #(#fields),*
         }
-        #copy
         #cfg
         impl ::core::marker::Copy for #name {}
         #cfg

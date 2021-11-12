@@ -925,6 +925,7 @@ pub struct AUDIOCLIENT_ACTIVATION_PARAMS {
     pub ActivationType: AUDIOCLIENT_ACTIVATION_TYPE,
     pub Anonymous: AUDIOCLIENT_ACTIVATION_PARAMS_0,
 }
+impl ::core::marker::Copy for AUDIOCLIENT_ACTIVATION_PARAMS {}
 impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_PARAMS {
     fn clone(&self) -> Self {
         *self
@@ -934,6 +935,7 @@ impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_PARAMS {
 pub union AUDIOCLIENT_ACTIVATION_PARAMS_0 {
     pub ProcessLoopbackParams: AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS,
 }
+impl ::core::marker::Copy for AUDIOCLIENT_ACTIVATION_PARAMS_0 {}
 impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
     fn clone(&self) -> Self {
         *self
@@ -2000,6 +2002,8 @@ pub struct MIXERCONTROLA {
     pub Metrics: MIXERCONTROLA_1,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERCONTROLA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA {
     fn clone(&self) -> Self {
         *self
@@ -2012,6 +2016,8 @@ pub union MIXERCONTROLA_0 {
     pub Anonymous2: MIXERCONTROLA_0_1,
     pub dwReserved: [u32; 6],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERCONTROLA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA_0 {
     fn clone(&self) -> Self {
@@ -2054,6 +2060,8 @@ pub union MIXERCONTROLA_1 {
     pub dwReserved: [u32; 6],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERCONTROLA_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA_1 {
     fn clone(&self) -> Self {
         *self
@@ -2070,6 +2078,8 @@ pub struct MIXERCONTROLDETAILS {
     pub paDetails: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERCONTROLDETAILS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLDETAILS {
     fn clone(&self) -> Self {
         *self
@@ -2081,6 +2091,8 @@ pub union MIXERCONTROLDETAILS_0 {
     pub hwndOwner: super::super::Foundation::HWND,
     pub cMultipleItems: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERCONTROLDETAILS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLDETAILS_0 {
     fn clone(&self) -> Self {
@@ -2156,6 +2168,7 @@ pub struct MIXERCONTROLW {
     pub Bounds: MIXERCONTROLW_0,
     pub Metrics: MIXERCONTROLW_1,
 }
+impl ::core::marker::Copy for MIXERCONTROLW {}
 impl ::core::clone::Clone for MIXERCONTROLW {
     fn clone(&self) -> Self {
         *self
@@ -2167,6 +2180,7 @@ pub union MIXERCONTROLW_0 {
     pub Anonymous2: MIXERCONTROLW_0_1,
     pub dwReserved: [u32; 6],
 }
+impl ::core::marker::Copy for MIXERCONTROLW_0 {}
 impl ::core::clone::Clone for MIXERCONTROLW_0 {
     fn clone(&self) -> Self {
         *self
@@ -2200,6 +2214,7 @@ pub union MIXERCONTROLW_1 {
     pub cbCustomData: u32,
     pub dwReserved: [u32; 6],
 }
+impl ::core::marker::Copy for MIXERCONTROLW_1 {}
 impl ::core::clone::Clone for MIXERCONTROLW_1 {
     fn clone(&self) -> Self {
         *self
@@ -2317,6 +2332,8 @@ pub struct MIXERLINECONTROLSA {
     pub pamxctrl: *mut MIXERCONTROLA,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERLINECONTROLSA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERLINECONTROLSA {
     fn clone(&self) -> Self {
         *self
@@ -2328,6 +2345,8 @@ pub union MIXERLINECONTROLSA_0 {
     pub dwControlID: u32,
     pub dwControlType: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERLINECONTROLSA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERLINECONTROLSA_0 {
     fn clone(&self) -> Self {
@@ -2343,6 +2362,7 @@ pub struct MIXERLINECONTROLSW {
     pub cbmxctrl: u32,
     pub pamxctrl: *mut MIXERCONTROLW,
 }
+impl ::core::marker::Copy for MIXERLINECONTROLSW {}
 impl ::core::clone::Clone for MIXERLINECONTROLSW {
     fn clone(&self) -> Self {
         *self
@@ -2353,6 +2373,7 @@ pub union MIXERLINECONTROLSW_0 {
     pub dwControlID: u32,
     pub dwControlType: u32,
 }
+impl ::core::marker::Copy for MIXERLINECONTROLSW_0 {}
 impl ::core::clone::Clone for MIXERLINECONTROLSW_0 {
     fn clone(&self) -> Self {
         *self
@@ -2838,6 +2859,7 @@ pub union SpatialAudioHrtfDirectivityUnion {
     pub Cardiod: SpatialAudioHrtfDirectivityCardioid,
     pub Omni: SpatialAudioHrtfDirectivity,
 }
+impl ::core::marker::Copy for SpatialAudioHrtfDirectivityUnion {}
 impl ::core::clone::Clone for SpatialAudioHrtfDirectivityUnion {
     fn clone(&self) -> Self {
         *self
@@ -3067,6 +3089,7 @@ pub struct WAVEFORMATEXTENSIBLE {
     pub dwChannelMask: u32,
     pub SubFormat: ::windows_sys::core::GUID,
 }
+impl ::core::marker::Copy for WAVEFORMATEXTENSIBLE {}
 impl ::core::clone::Clone for WAVEFORMATEXTENSIBLE {
     fn clone(&self) -> Self {
         *self
@@ -3078,6 +3101,7 @@ pub union WAVEFORMATEXTENSIBLE_0 {
     pub wSamplesPerBlock: u16,
     pub wReserved: u16,
 }
+impl ::core::marker::Copy for WAVEFORMATEXTENSIBLE_0 {}
 impl ::core::clone::Clone for WAVEFORMATEXTENSIBLE_0 {
     fn clone(&self) -> Self {
         *self

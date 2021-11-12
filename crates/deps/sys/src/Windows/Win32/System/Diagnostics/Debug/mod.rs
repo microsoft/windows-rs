@@ -717,6 +717,7 @@ pub union AER_BRIDGE_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_BRIDGE_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
 }
+impl ::core::marker::Copy for AER_BRIDGE_DESCRIPTOR_FLAGS {}
 impl ::core::clone::Clone for AER_BRIDGE_DESCRIPTOR_FLAGS {
     fn clone(&self) -> Self {
         *self
@@ -737,6 +738,7 @@ pub union AER_ENDPOINT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ENDPOINT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
 }
+impl ::core::marker::Copy for AER_ENDPOINT_DESCRIPTOR_FLAGS {}
 impl ::core::clone::Clone for AER_ENDPOINT_DESCRIPTOR_FLAGS {
     fn clone(&self) -> Self {
         *self
@@ -757,6 +759,7 @@ pub union AER_ROOTPORT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ROOTPORT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
 }
+impl ::core::marker::Copy for AER_ROOTPORT_DESCRIPTOR_FLAGS {}
 impl ::core::clone::Clone for AER_ROOTPORT_DESCRIPTOR_FLAGS {
     fn clone(&self) -> Self {
         *self
@@ -823,6 +826,8 @@ pub struct ARM64_NT_CONTEXT {
     pub Wvr: [u64; 2],
 }
 #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+impl ::core::marker::Copy for ARM64_NT_CONTEXT {}
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::core::clone::Clone for ARM64_NT_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -834,6 +839,8 @@ pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+impl ::core::marker::Copy for ARM64_NT_CONTEXT_0 {}
 #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::core::clone::Clone for ARM64_NT_CONTEXT_0 {
     fn clone(&self) -> Self {
@@ -891,6 +898,7 @@ pub union ARM64_NT_NEON128 {
     pub H: [u16; 8],
     pub B: [u8; 16],
 }
+impl ::core::marker::Copy for ARM64_NT_NEON128 {}
 impl ::core::clone::Clone for ARM64_NT_NEON128 {
     fn clone(&self) -> Self {
         *self
@@ -1548,6 +1556,9 @@ pub struct CONTEXT {
 }
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
+impl ::core::marker::Copy for CONTEXT {}
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -1560,6 +1571,9 @@ pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
     pub X: [u64; 31],
 }
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::marker::Copy for CONTEXT_0 {}
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT_0 {
@@ -1666,6 +1680,9 @@ pub struct CONTEXT {
 }
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(feature = "Win32_System_Kernel")]
+impl ::core::marker::Copy for CONTEXT {}
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -1678,6 +1695,9 @@ pub union CONTEXT_0 {
     pub FltSave: XSAVE_FORMAT,
     pub Anonymous: CONTEXT_0_0,
 }
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::marker::Copy for CONTEXT_0 {}
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT_0 {
@@ -1763,6 +1783,7 @@ pub union CPU_INFORMATION {
     pub X86CpuInfo: CPU_INFORMATION_1,
     pub OtherCpuInfo: CPU_INFORMATION_0,
 }
+impl ::core::marker::Copy for CPU_INFORMATION {}
 impl ::core::clone::Clone for CPU_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -2400,6 +2421,8 @@ pub struct DEBUG_EVENT {
     pub u: DEBUG_EVENT_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
+impl ::core::marker::Copy for DEBUG_EVENT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 impl ::core::clone::Clone for DEBUG_EVENT {
     fn clone(&self) -> Self {
         *self
@@ -2418,6 +2441,8 @@ pub union DEBUG_EVENT_0 {
     pub DebugString: OUTPUT_DEBUG_STRING_INFO,
     pub RipInfo: RIP_INFO,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
+impl ::core::marker::Copy for DEBUG_EVENT_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 impl ::core::clone::Clone for DEBUG_EVENT_0 {
     fn clone(&self) -> Self {
@@ -2900,6 +2925,8 @@ pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Arm64: DEBUG_PROCESSOR_IDENTIFICATION_ARM64,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ALL {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     fn clone(&self) -> Self {
         *self
@@ -3372,6 +3399,8 @@ pub struct DEBUG_VALUE {
     pub Type: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEBUG_VALUE {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_VALUE {
     fn clone(&self) -> Self {
         *self
@@ -3399,6 +3428,8 @@ pub union DEBUG_VALUE_0 {
     pub F128Parts64: DEBUG_VALUE_0_1,
     pub RawBytes: [u8; 24],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEBUG_VALUE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_VALUE_0 {
     fn clone(&self) -> Self {
@@ -3552,6 +3583,7 @@ pub union DUMP_FILE_ATTRIBUTES {
     pub Anonymous: DUMP_FILE_ATTRIBUTES_0,
     pub Attributes: u32,
 }
+impl ::core::marker::Copy for DUMP_FILE_ATTRIBUTES {}
 impl ::core::clone::Clone for DUMP_FILE_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
@@ -3610,6 +3642,8 @@ pub struct DUMP_HEADER32 {
     pub _reserved3: [u8; 56],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DUMP_HEADER32 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DUMP_HEADER32 {
     fn clone(&self) -> Self {
         *self
@@ -3621,6 +3655,8 @@ pub union DUMP_HEADER32_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR32,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DUMP_HEADER32_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DUMP_HEADER32_0 {
     fn clone(&self) -> Self {
@@ -3668,6 +3704,8 @@ pub struct DUMP_HEADER64 {
     pub _reserved0: [u8; 4008],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DUMP_HEADER64 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DUMP_HEADER64 {
     fn clone(&self) -> Self {
         *self
@@ -3679,6 +3717,8 @@ pub union DUMP_HEADER64_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR64,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DUMP_HEADER64_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DUMP_HEADER64_0 {
     fn clone(&self) -> Self {
@@ -4075,6 +4115,8 @@ pub struct ExtendedDebugPropertyInfo {
     pub pDebugExtProp: ::core::option::Option<IDebugExtendedProperty>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for ExtendedDebugPropertyInfo {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for ExtendedDebugPropertyInfo {
     fn clone(&self) -> Self {
         *self
@@ -4257,6 +4299,7 @@ pub struct FIELD_INFO {
     pub BitField: FIELD_INFO_1,
     pub _bitfield: u32,
 }
+impl ::core::marker::Copy for FIELD_INFO {}
 impl ::core::clone::Clone for FIELD_INFO {
     fn clone(&self) -> Self {
         *self
@@ -4267,6 +4310,7 @@ pub union FIELD_INFO_0 {
     pub fieldCallBack: *mut ::core::ffi::c_void,
     pub pBuffer: *mut ::core::ffi::c_void,
 }
+impl ::core::marker::Copy for FIELD_INFO_0 {}
 impl ::core::clone::Clone for FIELD_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -5621,6 +5665,7 @@ pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0,
 }
+impl ::core::marker::Copy for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {}
 impl ::core::clone::Clone for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -5631,6 +5676,7 @@ pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0,
 }
+impl ::core::marker::Copy for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {}
 impl ::core::clone::Clone for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
@@ -5678,6 +5724,7 @@ pub struct IMAGE_COR20_HEADER {
     pub ExportAddressTableJumps: IMAGE_DATA_DIRECTORY,
     pub ManagedNativeHeader: IMAGE_DATA_DIRECTORY,
 }
+impl ::core::marker::Copy for IMAGE_COR20_HEADER {}
 impl ::core::clone::Clone for IMAGE_COR20_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -5688,6 +5735,7 @@ pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
 }
+impl ::core::marker::Copy for IMAGE_COR20_HEADER_0 {}
 impl ::core::clone::Clone for IMAGE_COR20_HEADER_0 {
     fn clone(&self) -> Self {
         *self
@@ -5951,6 +5999,7 @@ pub struct IMAGE_FUNCTION_ENTRY64 {
     pub EndingAddress: u64,
     pub Anonymous: IMAGE_FUNCTION_ENTRY64_0,
 }
+impl ::core::marker::Copy for IMAGE_FUNCTION_ENTRY64 {}
 impl ::core::clone::Clone for IMAGE_FUNCTION_ENTRY64 {
     fn clone(&self) -> Self {
         *self
@@ -5961,6 +6010,7 @@ pub union IMAGE_FUNCTION_ENTRY64_0 {
     pub EndOfPrologue: u64,
     pub UnwindInfoAddress: u64,
 }
+impl ::core::marker::Copy for IMAGE_FUNCTION_ENTRY64_0 {}
 impl ::core::clone::Clone for IMAGE_FUNCTION_ENTRY64_0 {
     fn clone(&self) -> Self {
         *self
@@ -6247,6 +6297,7 @@ pub struct IMAGE_RUNTIME_FUNCTION_ENTRY {
     pub EndAddress: u32,
     pub Anonymous: IMAGE_RUNTIME_FUNCTION_ENTRY_0,
 }
+impl ::core::marker::Copy for IMAGE_RUNTIME_FUNCTION_ENTRY {}
 impl ::core::clone::Clone for IMAGE_RUNTIME_FUNCTION_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -6257,6 +6308,7 @@ pub union IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindInfoAddress: u32,
     pub UnwindData: u32,
 }
+impl ::core::marker::Copy for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {}
 impl ::core::clone::Clone for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
@@ -6322,6 +6374,7 @@ pub struct IMAGE_SECTION_HEADER {
     pub NumberOfLinenumbers: u16,
     pub Characteristics: IMAGE_SECTION_CHARACTERISTICS,
 }
+impl ::core::marker::Copy for IMAGE_SECTION_HEADER {}
 impl ::core::clone::Clone for IMAGE_SECTION_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -6332,6 +6385,7 @@ pub union IMAGE_SECTION_HEADER_0 {
     pub PhysicalAddress: u32,
     pub VirtualSize: u32,
 }
+impl ::core::marker::Copy for IMAGE_SECTION_HEADER_0 {}
 impl ::core::clone::Clone for IMAGE_SECTION_HEADER_0 {
     fn clone(&self) -> Self {
         *self
@@ -6384,6 +6438,7 @@ pub union INLINE_FRAME_CONTEXT {
     pub ContextValue: u32,
     pub Anonymous: INLINE_FRAME_CONTEXT_0,
 }
+impl ::core::marker::Copy for INLINE_FRAME_CONTEXT {}
 impl ::core::clone::Clone for INLINE_FRAME_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -6955,6 +7010,8 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Anonymous2: KNONVOLATILE_CONTEXT_POINTERS_1,
 }
 #[cfg(any(target_arch = "x86_64",))]
+impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS {}
+#[cfg(any(target_arch = "x86_64",))]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS {
     fn clone(&self) -> Self {
         *self
@@ -6966,6 +7023,8 @@ pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [*mut M128A; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0_0,
 }
+#[cfg(any(target_arch = "x86_64",))]
+impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS_0 {}
 #[cfg(any(target_arch = "x86_64",))]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn clone(&self) -> Self {
@@ -7006,6 +7065,8 @@ pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [*mut u64; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_1_0,
 }
+#[cfg(any(target_arch = "x86_64",))]
+impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS_1 {}
 #[cfg(any(target_arch = "x86_64",))]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn clone(&self) -> Self {
@@ -7091,6 +7152,7 @@ pub struct LDT_ENTRY {
     pub BaseLow: u16,
     pub HighWord: LDT_ENTRY_0,
 }
+impl ::core::marker::Copy for LDT_ENTRY {}
 impl ::core::clone::Clone for LDT_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -7101,6 +7163,7 @@ pub union LDT_ENTRY_0 {
     pub Bytes: LDT_ENTRY_0_1,
     pub Bits: LDT_ENTRY_0_0,
 }
+impl ::core::marker::Copy for LDT_ENTRY_0 {}
 impl ::core::clone::Clone for LDT_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
@@ -7279,6 +7342,8 @@ pub struct MINIDUMP_CALLBACK_INPUT {
     pub Anonymous: MINIDUMP_CALLBACK_INPUT_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for MINIDUMP_CALLBACK_INPUT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_CALLBACK_INPUT {
     fn clone(&self) -> Self {
         *self
@@ -7301,6 +7366,8 @@ pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub VmPostRead: MINIDUMP_VM_POST_READ_CALLBACK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for MINIDUMP_CALLBACK_INPUT_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_CALLBACK_INPUT_0 {
     fn clone(&self) -> Self {
         *self
@@ -7311,6 +7378,8 @@ impl ::core::clone::Clone for MINIDUMP_CALLBACK_INPUT_0 {
 pub struct MINIDUMP_CALLBACK_OUTPUT {
     pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
+impl ::core::marker::Copy for MINIDUMP_CALLBACK_OUTPUT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::clone::Clone for MINIDUMP_CALLBACK_OUTPUT {
     fn clone(&self) -> Self {
@@ -7331,6 +7400,8 @@ pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub Anonymous5: MINIDUMP_CALLBACK_OUTPUT_0_4,
     pub Status: ::windows_sys::core::HRESULT,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
+impl ::core::marker::Copy for MINIDUMP_CALLBACK_OUTPUT_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::clone::Clone for MINIDUMP_CALLBACK_OUTPUT_0 {
     fn clone(&self) -> Self {
@@ -7638,6 +7709,7 @@ pub struct MINIDUMP_HEADER {
     pub Anonymous: MINIDUMP_HEADER_0,
     pub Flags: u64,
 }
+impl ::core::marker::Copy for MINIDUMP_HEADER {}
 impl ::core::clone::Clone for MINIDUMP_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -7648,6 +7720,7 @@ pub union MINIDUMP_HEADER_0 {
     pub Reserved: u32,
     pub TimeDateStamp: u32,
 }
+impl ::core::marker::Copy for MINIDUMP_HEADER_0 {}
 impl ::core::clone::Clone for MINIDUMP_HEADER_0 {
     fn clone(&self) -> Self {
         *self
@@ -8192,6 +8265,7 @@ pub struct MINIDUMP_SYSTEM_INFO {
     pub Anonymous2: MINIDUMP_SYSTEM_INFO_1,
     pub Cpu: CPU_INFORMATION,
 }
+impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO {}
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO {
     fn clone(&self) -> Self {
         *self
@@ -8202,6 +8276,7 @@ pub union MINIDUMP_SYSTEM_INFO_0 {
     pub Reserved0: u16,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_0_0,
 }
+impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO_0 {}
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -8223,6 +8298,7 @@ pub union MINIDUMP_SYSTEM_INFO_1 {
     pub Reserved1: u32,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_1_0,
 }
+impl ::core::marker::Copy for MINIDUMP_SYSTEM_INFO_1 {}
 impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_1 {
     fn clone(&self) -> Self {
         *self
@@ -8371,6 +8447,9 @@ pub struct MINIDUMP_THREAD_CALLBACK {
 }
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for MINIDUMP_THREAD_CALLBACK {}
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
     fn clone(&self) -> Self {
         *self
@@ -8389,6 +8468,9 @@ pub struct MINIDUMP_THREAD_CALLBACK {
 }
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for MINIDUMP_THREAD_CALLBACK {}
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
     fn clone(&self) -> Self {
         *self
@@ -8405,6 +8487,9 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackBase: u64,
     pub StackEnd: u64,
 }
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for MINIDUMP_THREAD_CALLBACK {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
@@ -8445,6 +8530,9 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
 }
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for MINIDUMP_THREAD_EX_CALLBACK {}
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
     fn clone(&self) -> Self {
         *self
@@ -8465,6 +8553,9 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
 }
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for MINIDUMP_THREAD_EX_CALLBACK {}
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
     fn clone(&self) -> Self {
         *self
@@ -8483,6 +8574,9 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreBase: u64,
     pub BackingStoreEnd: u64,
 }
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for MINIDUMP_THREAD_EX_CALLBACK {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
@@ -9180,6 +9274,7 @@ pub struct PROFILER_HEAP_OBJECT {
     pub unused: u16,
     pub optionalInfoCount: u16,
 }
+impl ::core::marker::Copy for PROFILER_HEAP_OBJECT {}
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT {
     fn clone(&self) -> Self {
         *self
@@ -9190,6 +9285,7 @@ pub union PROFILER_HEAP_OBJECT_0 {
     pub objectId: usize,
     pub externalObjectAddress: *mut ::core::ffi::c_void,
 }
+impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_0 {}
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_0 {
     fn clone(&self) -> Self {
         *self
@@ -9224,6 +9320,8 @@ pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     pub Anonymous: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     fn clone(&self) -> Self {
         *self
@@ -9246,6 +9344,8 @@ pub union PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     pub mapCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
     pub setCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     fn clone(&self) -> Self {
@@ -9282,6 +9382,8 @@ pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP {
     pub Anonymous: PROFILER_HEAP_OBJECT_RELATIONSHIP_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_RELATIONSHIP {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     fn clone(&self) -> Self {
         *self
@@ -9297,6 +9399,8 @@ pub union PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     pub externalObjectAddress: *mut ::core::ffi::c_void,
     pub subString: *mut PROFILER_PROPERTY_TYPE_SUBSTRING_INFO,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     fn clone(&self) -> Self {
@@ -9322,6 +9426,8 @@ pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     pub count: u32,
     pub elements: [PROFILER_HEAP_OBJECT_RELATIONSHIP; 1],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     fn clone(&self) -> Self {
@@ -10419,6 +10525,7 @@ pub struct SYM_DUMP_PARAM {
     pub BufferSize: u32,
     pub _bitfield: u32,
 }
+impl ::core::marker::Copy for SYM_DUMP_PARAM {}
 impl ::core::clone::Clone for SYM_DUMP_PARAM {
     fn clone(&self) -> Self {
         *self
@@ -10429,6 +10536,7 @@ pub union SYM_DUMP_PARAM_0 {
     pub Context: *mut ::core::ffi::c_void,
     pub pBuffer: *mut ::core::ffi::c_void,
 }
+impl ::core::marker::Copy for SYM_DUMP_PARAM_0 {}
 impl ::core::clone::Clone for SYM_DUMP_PARAM_0 {
     fn clone(&self) -> Self {
         *self
@@ -10537,6 +10645,7 @@ pub struct ScriptDebugEventInformation {
     pub EventSpanEnd: ScriptDebugPosition,
     pub u: ScriptDebugEventInformation_0,
 }
+impl ::core::marker::Copy for ScriptDebugEventInformation {}
 impl ::core::clone::Clone for ScriptDebugEventInformation {
     fn clone(&self) -> Self {
         *self
@@ -10547,6 +10656,7 @@ pub union ScriptDebugEventInformation_0 {
     pub ExceptionInformation: ScriptDebugEventInformation_0_1,
     pub BreakpointInformation: ScriptDebugEventInformation_0_0,
 }
+impl ::core::marker::Copy for ScriptDebugEventInformation_0 {}
 impl ::core::clone::Clone for ScriptDebugEventInformation_0 {
     fn clone(&self) -> Self {
         *self
@@ -10854,6 +10964,8 @@ pub struct WAITCHAIN_NODE_INFO {
     pub Anonymous: WAITCHAIN_NODE_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WAITCHAIN_NODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAITCHAIN_NODE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -10865,6 +10977,8 @@ pub union WAITCHAIN_NODE_INFO_0 {
     pub LockObject: WAITCHAIN_NODE_INFO_0_0,
     pub ThreadObject: WAITCHAIN_NODE_INFO_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WAITCHAIN_NODE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAITCHAIN_NODE_INFO_0 {
     fn clone(&self) -> Self {
@@ -11054,6 +11168,8 @@ pub struct WHEA_AER_BRIDGE_DESCRIPTOR {
     pub SecondaryCapsAndControl: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WHEA_AER_BRIDGE_DESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHEA_AER_BRIDGE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -11074,6 +11190,8 @@ pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
     pub CorrectableErrorMask: u32,
     pub AdvancedCapsAndControl: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WHEA_AER_ENDPOINT_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHEA_AER_ENDPOINT_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -11096,6 +11214,8 @@ pub struct WHEA_AER_ROOTPORT_DESCRIPTOR {
     pub AdvancedCapsAndControl: u32,
     pub RootErrorCommand: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WHEA_AER_ROOTPORT_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHEA_AER_ROOTPORT_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -11232,6 +11352,8 @@ pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
     pub Info: WHEA_ERROR_SOURCE_DESCRIPTOR_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WHEA_ERROR_SOURCE_DESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHEA_ERROR_SOURCE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -11253,6 +11375,8 @@ pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     pub GenErrDescriptorV2: WHEA_GENERIC_ERROR_DESCRIPTOR_V2,
     pub DeviceDriverDescriptor: WHEA_DEVICE_DRIVER_DESCRIPTOR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
@@ -11332,6 +11456,7 @@ pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
     pub ErrStatusAddress: i64,
     pub Notify: WHEA_NOTIFICATION_DESCRIPTOR,
 }
+impl ::core::marker::Copy for WHEA_GENERIC_ERROR_DESCRIPTOR {}
 impl ::core::clone::Clone for WHEA_GENERIC_ERROR_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -11358,6 +11483,7 @@ pub struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     pub ReadAckPreserveMask: u64,
     pub ReadAckWriteMask: u64,
 }
+impl ::core::marker::Copy for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {}
 impl ::core::clone::Clone for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     fn clone(&self) -> Self {
         *self
@@ -11412,6 +11538,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR {
     pub Flags: WHEA_NOTIFICATION_FLAGS,
     pub u: WHEA_NOTIFICATION_DESCRIPTOR_0,
 }
+impl ::core::marker::Copy for WHEA_NOTIFICATION_DESCRIPTOR {}
 impl ::core::clone::Clone for WHEA_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -11428,6 +11555,7 @@ pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
     pub Sei: WHEA_NOTIFICATION_DESCRIPTOR_0_7,
     pub Gsiv: WHEA_NOTIFICATION_DESCRIPTOR_0_0,
 }
+impl ::core::marker::Copy for WHEA_NOTIFICATION_DESCRIPTOR_0 {}
 impl ::core::clone::Clone for WHEA_NOTIFICATION_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
@@ -11553,6 +11681,7 @@ pub union WHEA_NOTIFICATION_FLAGS {
     pub Anonymous: WHEA_NOTIFICATION_FLAGS_0,
     pub AsUSHORT: u16,
 }
+impl ::core::marker::Copy for WHEA_NOTIFICATION_FLAGS {}
 impl ::core::clone::Clone for WHEA_NOTIFICATION_FLAGS {
     fn clone(&self) -> Self {
         *self
@@ -11585,6 +11714,7 @@ pub const WHEA_NOTIFY_ALL_OFFLINES: u32 = 16u32;
 pub struct WHEA_PCI_SLOT_NUMBER {
     pub u: WHEA_PCI_SLOT_NUMBER_0,
 }
+impl ::core::marker::Copy for WHEA_PCI_SLOT_NUMBER {}
 impl ::core::clone::Clone for WHEA_PCI_SLOT_NUMBER {
     fn clone(&self) -> Self {
         *self
@@ -11595,6 +11725,7 @@ pub union WHEA_PCI_SLOT_NUMBER_0 {
     pub bits: WHEA_PCI_SLOT_NUMBER_0_0,
     pub AsULONG: u32,
 }
+impl ::core::marker::Copy for WHEA_PCI_SLOT_NUMBER_0 {}
 impl ::core::clone::Clone for WHEA_PCI_SLOT_NUMBER_0 {
     fn clone(&self) -> Self {
         *self
@@ -11625,6 +11756,8 @@ pub struct WHEA_XPF_CMC_DESCRIPTOR {
     pub Banks: [WHEA_XPF_MC_BANK_DESCRIPTOR; 32],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WHEA_XPF_CMC_DESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHEA_XPF_CMC_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -11641,6 +11774,8 @@ pub struct WHEA_XPF_MCE_DESCRIPTOR {
     pub MCG_GlobalControl: u64,
     pub Banks: [WHEA_XPF_MC_BANK_DESCRIPTOR; 32],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WHEA_XPF_MCE_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHEA_XPF_MCE_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -11660,6 +11795,8 @@ pub struct WHEA_XPF_MC_BANK_DESCRIPTOR {
     pub MiscMsr: u32,
     pub ControlData: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WHEA_XPF_MC_BANK_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHEA_XPF_MC_BANK_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -11840,6 +11977,7 @@ pub struct WOW64_DESCRIPTOR_TABLE_ENTRY {
     pub Selector: u32,
     pub Descriptor: WOW64_LDT_ENTRY,
 }
+impl ::core::marker::Copy for WOW64_DESCRIPTOR_TABLE_ENTRY {}
 impl ::core::clone::Clone for WOW64_DESCRIPTOR_TABLE_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -11869,6 +12007,7 @@ pub struct WOW64_LDT_ENTRY {
     pub BaseLow: u16,
     pub HighWord: WOW64_LDT_ENTRY_0,
 }
+impl ::core::marker::Copy for WOW64_LDT_ENTRY {}
 impl ::core::clone::Clone for WOW64_LDT_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -11879,6 +12018,7 @@ pub union WOW64_LDT_ENTRY_0 {
     pub Bytes: WOW64_LDT_ENTRY_0_1,
     pub Bits: WOW64_LDT_ENTRY_0_0,
 }
+impl ::core::marker::Copy for WOW64_LDT_ENTRY_0 {}
 impl ::core::clone::Clone for WOW64_LDT_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
@@ -11914,6 +12054,7 @@ pub union XPF_MCE_FLAGS {
     pub Anonymous: XPF_MCE_FLAGS_0,
     pub AsULONG: u32,
 }
+impl ::core::marker::Copy for XPF_MCE_FLAGS {}
 impl ::core::clone::Clone for XPF_MCE_FLAGS {
     fn clone(&self) -> Self {
         *self
@@ -11934,6 +12075,7 @@ pub union XPF_MC_BANK_FLAGS {
     pub Anonymous: XPF_MC_BANK_FLAGS_0,
     pub AsUCHAR: u8,
 }
+impl ::core::marker::Copy for XPF_MC_BANK_FLAGS {}
 impl ::core::clone::Clone for XPF_MC_BANK_FLAGS {
     fn clone(&self) -> Self {
         *self
@@ -12044,6 +12186,7 @@ pub struct XSTATE_CONFIGURATION {
     pub AllNonLargeFeatureSize: u32,
     pub Spare: u32,
 }
+impl ::core::marker::Copy for XSTATE_CONFIGURATION {}
 impl ::core::clone::Clone for XSTATE_CONFIGURATION {
     fn clone(&self) -> Self {
         *self
@@ -12054,6 +12197,7 @@ pub union XSTATE_CONFIGURATION_0 {
     pub ControlFlags: u32,
     pub Anonymous: XSTATE_CONFIGURATION_0_0,
 }
+impl ::core::marker::Copy for XSTATE_CONFIGURATION_0 {}
 impl ::core::clone::Clone for XSTATE_CONFIGURATION_0 {
     fn clone(&self) -> Self {
         *self

@@ -520,6 +520,8 @@ pub struct EVT_VARIANT {
     pub Type: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EVT_VARIANT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVT_VARIANT {
     fn clone(&self) -> Self {
         *self
@@ -569,6 +571,8 @@ pub union EVT_VARIANT_0 {
     pub XmlVal: super::super::Foundation::PWSTR,
     pub XmlValArr: *mut super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EVT_VARIANT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EVT_VARIANT_0 {
     fn clone(&self) -> Self {

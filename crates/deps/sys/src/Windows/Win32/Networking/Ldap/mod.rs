@@ -951,6 +951,8 @@ pub struct ldapmodA {
     pub mod_vals: ldapmodA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapmodA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapmodA {
     fn clone(&self) -> Self {
         *self
@@ -962,6 +964,8 @@ pub union ldapmodA_0 {
     pub modv_strvals: *mut super::super::Foundation::PSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapmodA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapmodA_0 {
     fn clone(&self) -> Self {
@@ -976,6 +980,8 @@ pub struct ldapmodW {
     pub mod_vals: ldapmodW_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapmodW {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapmodW {
     fn clone(&self) -> Self {
         *self
@@ -987,6 +993,8 @@ pub union ldapmodW_0 {
     pub modv_strvals: *mut super::super::Foundation::PWSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapmodW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapmodW_0 {
     fn clone(&self) -> Self {

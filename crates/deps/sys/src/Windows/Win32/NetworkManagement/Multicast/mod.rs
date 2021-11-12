@@ -15,6 +15,7 @@ pub union IPNG_ADDRESS {
     pub IpAddrV4: u32,
     pub IpAddrV6: [u8; 16],
 }
+impl ::core::marker::Copy for IPNG_ADDRESS {}
 impl ::core::clone::Clone for IPNG_ADDRESS {
     fn clone(&self) -> Self {
         *self
@@ -46,6 +47,7 @@ pub struct MCAST_LEASE_REQUEST {
     pub AddrCount: u16,
     pub pAddrBuf: *mut u8,
 }
+impl ::core::marker::Copy for MCAST_LEASE_REQUEST {}
 impl ::core::clone::Clone for MCAST_LEASE_REQUEST {
     fn clone(&self) -> Self {
         *self
@@ -59,6 +61,7 @@ pub struct MCAST_LEASE_RESPONSE {
     pub AddrCount: u16,
     pub pAddrBuf: *mut u8,
 }
+impl ::core::marker::Copy for MCAST_LEASE_RESPONSE {}
 impl ::core::clone::Clone for MCAST_LEASE_RESPONSE {
     fn clone(&self) -> Self {
         *self
@@ -70,6 +73,7 @@ pub struct MCAST_SCOPE_CTX {
     pub Interface: IPNG_ADDRESS,
     pub ServerID: IPNG_ADDRESS,
 }
+impl ::core::marker::Copy for MCAST_SCOPE_CTX {}
 impl ::core::clone::Clone for MCAST_SCOPE_CTX {
     fn clone(&self) -> Self {
         *self
@@ -83,6 +87,8 @@ pub struct MCAST_SCOPE_ENTRY {
     pub TTL: u32,
     pub ScopeDesc: super::super::Foundation::UNICODE_STRING,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCAST_SCOPE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MCAST_SCOPE_ENTRY {
     fn clone(&self) -> Self {

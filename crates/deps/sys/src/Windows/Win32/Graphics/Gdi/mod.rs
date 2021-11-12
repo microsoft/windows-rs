@@ -1232,6 +1232,8 @@ pub struct DEVMODEA {
     pub dmPanningHeight: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEA {
     fn clone(&self) -> Self {
         *self
@@ -1243,6 +1245,8 @@ pub union DEVMODEA_0 {
     pub Anonymous1: DEVMODEA_0_0,
     pub Anonymous2: DEVMODEA_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEA_0 {
     fn clone(&self) -> Self {
@@ -1291,6 +1295,8 @@ pub union DEVMODEA_1 {
     pub dmNup: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEA_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEA_1 {
     fn clone(&self) -> Self {
         *self
@@ -1328,6 +1334,8 @@ pub struct DEVMODEW {
     pub dmPanningHeight: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEW {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEW {
     fn clone(&self) -> Self {
         *self
@@ -1339,6 +1347,8 @@ pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
     pub Anonymous2: DEVMODEW_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEW_0 {
     fn clone(&self) -> Self {
@@ -1386,6 +1396,8 @@ pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEW_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEW_1 {
     fn clone(&self) -> Self {

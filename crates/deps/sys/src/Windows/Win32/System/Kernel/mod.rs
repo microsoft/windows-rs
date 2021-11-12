@@ -173,6 +173,8 @@ pub struct NT_TIB {
     pub Self_: *mut NT_TIB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::marker::Copy for NT_TIB {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::clone::Clone for NT_TIB {
     fn clone(&self) -> Self {
         *self
@@ -184,6 +186,8 @@ pub union NT_TIB_0 {
     pub FiberData: *mut ::core::ffi::c_void,
     pub Version: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::marker::Copy for NT_TIB_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::clone::Clone for NT_TIB_0 {
     fn clone(&self) -> Self {
@@ -260,6 +264,7 @@ impl ::core::clone::Clone for PROCESSOR_NUMBER {
 pub struct QUAD {
     pub Anonymous: QUAD_0,
 }
+impl ::core::marker::Copy for QUAD {}
 impl ::core::clone::Clone for QUAD {
     fn clone(&self) -> Self {
         *self
@@ -270,6 +275,7 @@ pub union QUAD_0 {
     pub UseThisFieldToCopy: i64,
     pub DoNotUseThisField: f64,
 }
+impl ::core::marker::Copy for QUAD_0 {}
 impl ::core::clone::Clone for QUAD_0 {
     fn clone(&self) -> Self {
         *self
@@ -280,6 +286,7 @@ pub struct RTL_BALANCED_NODE {
     pub Anonymous1: RTL_BALANCED_NODE_0,
     pub Anonymous2: RTL_BALANCED_NODE_1,
 }
+impl ::core::marker::Copy for RTL_BALANCED_NODE {}
 impl ::core::clone::Clone for RTL_BALANCED_NODE {
     fn clone(&self) -> Self {
         *self
@@ -290,6 +297,7 @@ pub union RTL_BALANCED_NODE_0 {
     pub Children: [*mut RTL_BALANCED_NODE; 2],
     pub Anonymous: RTL_BALANCED_NODE_0_0,
 }
+impl ::core::marker::Copy for RTL_BALANCED_NODE_0 {}
 impl ::core::clone::Clone for RTL_BALANCED_NODE_0 {
     fn clone(&self) -> Self {
         *self
@@ -311,6 +319,7 @@ pub union RTL_BALANCED_NODE_1 {
     pub _bitfield: u8,
     pub ParentValue: usize,
 }
+impl ::core::marker::Copy for RTL_BALANCED_NODE_1 {}
 impl ::core::clone::Clone for RTL_BALANCED_NODE_1 {
     fn clone(&self) -> Self {
         *self
@@ -354,6 +363,8 @@ pub union SLIST_HEADER {
     pub HeaderArm64: SLIST_HEADER_1,
 }
 #[cfg(any(target_arch = "aarch64",))]
+impl ::core::marker::Copy for SLIST_HEADER {}
+#[cfg(any(target_arch = "aarch64",))]
 impl ::core::clone::Clone for SLIST_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -394,6 +405,8 @@ pub union SLIST_HEADER {
     pub HeaderX64: SLIST_HEADER_1,
 }
 #[cfg(any(target_arch = "x86_64",))]
+impl ::core::marker::Copy for SLIST_HEADER {}
+#[cfg(any(target_arch = "x86_64",))]
 impl ::core::clone::Clone for SLIST_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -433,6 +446,8 @@ pub union SLIST_HEADER {
     pub Alignment: u64,
     pub Anonymous: SLIST_HEADER_0,
 }
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for SLIST_HEADER {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::clone::Clone for SLIST_HEADER {
     fn clone(&self) -> Self {

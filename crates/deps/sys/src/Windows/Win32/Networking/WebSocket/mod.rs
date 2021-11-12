@@ -47,6 +47,7 @@ pub union WEB_SOCKET_BUFFER {
     pub Data: WEB_SOCKET_BUFFER_1,
     pub CloseStatus: WEB_SOCKET_BUFFER_0,
 }
+impl ::core::marker::Copy for WEB_SOCKET_BUFFER {}
 impl ::core::clone::Clone for WEB_SOCKET_BUFFER {
     fn clone(&self) -> Self {
         *self

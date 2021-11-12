@@ -564,6 +564,8 @@ pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub dwReserved: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for WER_RUNTIME_EXCEPTION_INFORMATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for WER_RUNTIME_EXCEPTION_INFORMATION {
     fn clone(&self) -> Self {
         *self

@@ -310,6 +310,8 @@ pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
     pub ScratchAccelerationStructureData: u64,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
     fn clone(&self) -> Self {
         *self
@@ -325,6 +327,8 @@ pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
     pub Anonymous: D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
     fn clone(&self) -> Self {
         *self
@@ -337,6 +341,8 @@ pub union D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     pub pGeometryDescs: *mut D3D12_RAYTRACING_GEOMETRY_DESC,
     pub ppGeometryDescs: *mut *mut D3D12_RAYTRACING_GEOMETRY_DESC,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     fn clone(&self) -> Self {
@@ -382,6 +388,8 @@ pub struct D3D12_CLEAR_VALUE {
     pub Anonymous: D3D12_CLEAR_VALUE_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_CLEAR_VALUE {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_CLEAR_VALUE {
     fn clone(&self) -> Self {
         *self
@@ -393,6 +401,8 @@ pub union D3D12_CLEAR_VALUE_0 {
     pub Color: [f32; 4],
     pub DepthStencil: D3D12_DEPTH_STENCIL_VALUE,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_CLEAR_VALUE_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_CLEAR_VALUE_0 {
     fn clone(&self) -> Self {
@@ -891,6 +901,8 @@ pub struct D3D12_DEPTH_STENCIL_VIEW_DESC {
     pub Anonymous: D3D12_DEPTH_STENCIL_VIEW_DESC_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_DEPTH_STENCIL_VIEW_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_DEPTH_STENCIL_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -906,6 +918,8 @@ pub union D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture2DMS: D3D12_TEX2DMS_DSV,
     pub Texture2DMSArray: D3D12_TEX2DMS_ARRAY_DSV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     fn clone(&self) -> Self {
@@ -2562,6 +2576,7 @@ pub struct D3D12_INDIRECT_ARGUMENT_DESC {
     pub Type: D3D12_INDIRECT_ARGUMENT_TYPE,
     pub Anonymous: D3D12_INDIRECT_ARGUMENT_DESC_0,
 }
+impl ::core::marker::Copy for D3D12_INDIRECT_ARGUMENT_DESC {}
 impl ::core::clone::Clone for D3D12_INDIRECT_ARGUMENT_DESC {
     fn clone(&self) -> Self {
         *self
@@ -2575,6 +2590,7 @@ pub union D3D12_INDIRECT_ARGUMENT_DESC_0 {
     pub ShaderResourceView: D3D12_INDIRECT_ARGUMENT_DESC_0_2,
     pub UnorderedAccessView: D3D12_INDIRECT_ARGUMENT_DESC_0_3,
 }
+impl ::core::marker::Copy for D3D12_INDIRECT_ARGUMENT_DESC_0 {}
 impl ::core::clone::Clone for D3D12_INDIRECT_ARGUMENT_DESC_0 {
     fn clone(&self) -> Self {
         *self
@@ -4448,6 +4464,8 @@ pub struct D3D12_RAYTRACING_GEOMETRY_DESC {
     pub Anonymous: D3D12_RAYTRACING_GEOMETRY_DESC_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_RAYTRACING_GEOMETRY_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_RAYTRACING_GEOMETRY_DESC {
     fn clone(&self) -> Self {
         *self
@@ -4459,6 +4477,8 @@ pub union D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     pub Triangles: D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC,
     pub AABBs: D3D12_RAYTRACING_GEOMETRY_AABBS_DESC,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_RAYTRACING_GEOMETRY_DESC_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     fn clone(&self) -> Self {
@@ -4622,6 +4642,8 @@ pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS {
     pub Anonymous: D3D12_RENDER_PASS_BEGINNING_ACCESS_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_RENDER_PASS_BEGINNING_ACCESS {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_BEGINNING_ACCESS {
     fn clone(&self) -> Self {
         *self
@@ -4633,6 +4655,8 @@ pub union D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
     pub Clear: D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
     fn clone(&self) -> Self {
         *self
@@ -4643,6 +4667,8 @@ impl ::core::clone::Clone for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
     pub ClearValue: D3D12_CLEAR_VALUE,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
     fn clone(&self) -> Self {
@@ -4671,6 +4697,8 @@ pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     pub StencilEndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     fn clone(&self) -> Self {
         *self
@@ -4683,6 +4711,8 @@ pub struct D3D12_RENDER_PASS_ENDING_ACCESS {
     pub Anonymous: D3D12_RENDER_PASS_ENDING_ACCESS_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_RENDER_PASS_ENDING_ACCESS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS {
     fn clone(&self) -> Self {
         *self
@@ -4693,6 +4723,8 @@ impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS {
 pub union D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     pub Resolve: D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_RENDER_PASS_ENDING_ACCESS_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     fn clone(&self) -> Self {
@@ -4767,6 +4799,8 @@ pub struct D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     pub EndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_RENDER_PASS_RENDER_TARGET_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     fn clone(&self) -> Self {
         *self
@@ -4813,6 +4847,8 @@ pub struct D3D12_RENDER_TARGET_VIEW_DESC {
     pub Anonymous: D3D12_RENDER_TARGET_VIEW_DESC_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_RENDER_TARGET_VIEW_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_RENDER_TARGET_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -4830,6 +4866,8 @@ pub union D3D12_RENDER_TARGET_VIEW_DESC_0 {
     pub Texture2DMSArray: D3D12_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D12_TEX3D_RTV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_RENDER_TARGET_VIEW_DESC_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     fn clone(&self) -> Self {
@@ -4940,6 +4978,7 @@ pub struct D3D12_RESOURCE_BARRIER {
     pub Flags: D3D12_RESOURCE_BARRIER_FLAGS,
     pub Anonymous: D3D12_RESOURCE_BARRIER_0,
 }
+impl ::core::marker::Copy for D3D12_RESOURCE_BARRIER {}
 impl ::core::clone::Clone for D3D12_RESOURCE_BARRIER {
     fn clone(&self) -> Self {
         *self
@@ -4951,6 +4990,7 @@ pub union D3D12_RESOURCE_BARRIER_0 {
     pub Aliasing: D3D12_RESOURCE_ALIASING_BARRIER,
     pub UAV: D3D12_RESOURCE_UAV_BARRIER,
 }
+impl ::core::marker::Copy for D3D12_RESOURCE_BARRIER_0 {}
 impl ::core::clone::Clone for D3D12_RESOURCE_BARRIER_0 {
     fn clone(&self) -> Self {
         *self
@@ -5220,6 +5260,7 @@ pub struct D3D12_ROOT_PARAMETER {
     pub Anonymous: D3D12_ROOT_PARAMETER_0,
     pub ShaderVisibility: D3D12_SHADER_VISIBILITY,
 }
+impl ::core::marker::Copy for D3D12_ROOT_PARAMETER {}
 impl ::core::clone::Clone for D3D12_ROOT_PARAMETER {
     fn clone(&self) -> Self {
         *self
@@ -5231,6 +5272,7 @@ pub union D3D12_ROOT_PARAMETER_0 {
     pub Constants: D3D12_ROOT_CONSTANTS,
     pub Descriptor: D3D12_ROOT_DESCRIPTOR,
 }
+impl ::core::marker::Copy for D3D12_ROOT_PARAMETER_0 {}
 impl ::core::clone::Clone for D3D12_ROOT_PARAMETER_0 {
     fn clone(&self) -> Self {
         *self
@@ -5242,6 +5284,7 @@ pub struct D3D12_ROOT_PARAMETER1 {
     pub Anonymous: D3D12_ROOT_PARAMETER1_0,
     pub ShaderVisibility: D3D12_SHADER_VISIBILITY,
 }
+impl ::core::marker::Copy for D3D12_ROOT_PARAMETER1 {}
 impl ::core::clone::Clone for D3D12_ROOT_PARAMETER1 {
     fn clone(&self) -> Self {
         *self
@@ -5253,6 +5296,7 @@ pub union D3D12_ROOT_PARAMETER1_0 {
     pub Constants: D3D12_ROOT_CONSTANTS,
     pub Descriptor: D3D12_ROOT_DESCRIPTOR1,
 }
+impl ::core::marker::Copy for D3D12_ROOT_PARAMETER1_0 {}
 impl ::core::clone::Clone for D3D12_ROOT_PARAMETER1_0 {
     fn clone(&self) -> Self {
         *self
@@ -5647,6 +5691,8 @@ pub struct D3D12_SHADER_RESOURCE_VIEW_DESC {
     pub Anonymous: D3D12_SHADER_RESOURCE_VIEW_DESC_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_SHADER_RESOURCE_VIEW_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_SHADER_RESOURCE_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -5667,6 +5713,8 @@ pub union D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     pub TextureCubeArray: D3D12_TEXCUBE_ARRAY_SRV,
     pub RaytracingAccelerationStructure: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     fn clone(&self) -> Self {
@@ -6458,6 +6506,8 @@ pub struct D3D12_TEXTURE_COPY_LOCATION {
     pub Anonymous: D3D12_TEXTURE_COPY_LOCATION_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_TEXTURE_COPY_LOCATION {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_TEXTURE_COPY_LOCATION {
     fn clone(&self) -> Self {
         *self
@@ -6469,6 +6519,8 @@ pub union D3D12_TEXTURE_COPY_LOCATION_0 {
     pub PlacedFootprint: D3D12_PLACED_SUBRESOURCE_FOOTPRINT,
     pub SubresourceIndex: u32,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_TEXTURE_COPY_LOCATION_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_TEXTURE_COPY_LOCATION_0 {
     fn clone(&self) -> Self {
@@ -6616,6 +6668,8 @@ pub struct D3D12_UNORDERED_ACCESS_VIEW_DESC {
     pub Anonymous: D3D12_UNORDERED_ACCESS_VIEW_DESC_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_UNORDERED_ACCESS_VIEW_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_UNORDERED_ACCESS_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
@@ -6631,6 +6685,8 @@ pub union D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Texture2DArray: D3D12_TEX2D_ARRAY_UAV,
     pub Texture3D: D3D12_TEX3D_UAV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     fn clone(&self) -> Self {
@@ -6655,6 +6711,8 @@ pub struct D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA {
     pub Anonymous: D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA {
     fn clone(&self) -> Self {
         *self
@@ -6669,6 +6727,8 @@ pub union D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {
     pub Dred_1_3: D3D12_DEVICE_REMOVED_EXTENDED_DATA3,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {
     fn clone(&self) -> Self {
         *self
@@ -6679,6 +6739,7 @@ pub struct D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
     pub Version: D3D_ROOT_SIGNATURE_VERSION,
     pub Anonymous: D3D12_VERSIONED_ROOT_SIGNATURE_DESC_0,
 }
+impl ::core::marker::Copy for D3D12_VERSIONED_ROOT_SIGNATURE_DESC {}
 impl ::core::clone::Clone for D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
     fn clone(&self) -> Self {
         *self
@@ -6689,6 +6750,7 @@ pub union D3D12_VERSIONED_ROOT_SIGNATURE_DESC_0 {
     pub Desc_1_0: D3D12_ROOT_SIGNATURE_DESC,
     pub Desc_1_1: D3D12_ROOT_SIGNATURE_DESC1,
 }
+impl ::core::marker::Copy for D3D12_VERSIONED_ROOT_SIGNATURE_DESC_0 {}
 impl ::core::clone::Clone for D3D12_VERSIONED_ROOT_SIGNATURE_DESC_0 {
     fn clone(&self) -> Self {
         *self

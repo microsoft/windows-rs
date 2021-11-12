@@ -1513,6 +1513,7 @@ pub struct METADATA_GETALL_INTERNAL_RECORD {
     pub Anonymous: METADATA_GETALL_INTERNAL_RECORD_0,
     pub dwMDDataTag: u32,
 }
+impl ::core::marker::Copy for METADATA_GETALL_INTERNAL_RECORD {}
 impl ::core::clone::Clone for METADATA_GETALL_INTERNAL_RECORD {
     fn clone(&self) -> Self {
         *self
@@ -1523,6 +1524,7 @@ pub union METADATA_GETALL_INTERNAL_RECORD_0 {
     pub dwMDDataOffset: usize,
     pub pbMDData: *mut u8,
 }
+impl ::core::marker::Copy for METADATA_GETALL_INTERNAL_RECORD_0 {}
 impl ::core::clone::Clone for METADATA_GETALL_INTERNAL_RECORD_0 {
     fn clone(&self) -> Self {
         *self

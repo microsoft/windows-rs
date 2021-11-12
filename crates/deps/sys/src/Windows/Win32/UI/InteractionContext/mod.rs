@@ -204,6 +204,8 @@ pub struct INTERACTION_CONTEXT_OUTPUT {
     pub arguments: INTERACTION_CONTEXT_OUTPUT_0,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT {
     fn clone(&self) -> Self {
         *self
@@ -216,6 +218,8 @@ pub union INTERACTION_CONTEXT_OUTPUT_0 {
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT_0 {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT_0 {
     fn clone(&self) -> Self {
@@ -235,6 +239,8 @@ pub struct INTERACTION_CONTEXT_OUTPUT2 {
     pub arguments: INTERACTION_CONTEXT_OUTPUT2_0,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT2 {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT2 {
     fn clone(&self) -> Self {
         *self
@@ -247,6 +253,8 @@ pub union INTERACTION_CONTEXT_OUTPUT2_0 {
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT2_0 {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT2_0 {
     fn clone(&self) -> Self {

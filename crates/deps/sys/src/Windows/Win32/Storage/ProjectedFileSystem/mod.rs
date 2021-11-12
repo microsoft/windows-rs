@@ -93,6 +93,7 @@ pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     pub CommandType: PRJ_COMPLETE_COMMAND_TYPE,
     pub Anonymous: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0,
 }
+impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {}
 impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     fn clone(&self) -> Self {
         *self
@@ -103,6 +104,7 @@ pub union PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     pub Notification: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1,
     pub Enumeration: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0,
 }
+impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {}
 impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self
@@ -158,6 +160,8 @@ pub struct PRJ_EXTENDED_INFO {
     pub Anonymous: PRJ_EXTENDED_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRJ_EXTENDED_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PRJ_EXTENDED_INFO {
     fn clone(&self) -> Self {
         *self
@@ -168,6 +172,8 @@ impl ::core::clone::Clone for PRJ_EXTENDED_INFO {
 pub union PRJ_EXTENDED_INFO_0 {
     pub Symlink: PRJ_EXTENDED_INFO_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRJ_EXTENDED_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PRJ_EXTENDED_INFO_0 {
     fn clone(&self) -> Self {
@@ -287,6 +293,8 @@ pub union PRJ_NOTIFICATION_PARAMETERS {
     pub FileRenamed: PRJ_NOTIFICATION_PARAMETERS_1,
     pub FileDeletedOnHandleClose: PRJ_NOTIFICATION_PARAMETERS_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRJ_NOTIFICATION_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS {
     fn clone(&self) -> Self {

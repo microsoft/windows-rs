@@ -902,6 +902,8 @@ pub struct DHCP_ATTRIB {
     pub Anonymous: DHCP_ATTRIB_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_ATTRIB {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_ATTRIB {
     fn clone(&self) -> Self {
         *self
@@ -913,6 +915,8 @@ pub union DHCP_ATTRIB_0 {
     pub DhcpAttribBool: super::super::Foundation::BOOL,
     pub DhcpAttribUlong: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_ATTRIB_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_ATTRIB_0 {
     fn clone(&self) -> Self {
@@ -1861,6 +1865,8 @@ pub struct DHCP_OPTION_DATA_ELEMENT {
     pub Element: DHCP_OPTION_DATA_ELEMENT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_OPTION_DATA_ELEMENT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_OPTION_DATA_ELEMENT {
     fn clone(&self) -> Self {
         *self
@@ -1879,6 +1885,8 @@ pub union DHCP_OPTION_DATA_ELEMENT_0 {
     pub EncapsulatedDataOption: DHCP_BINARY_DATA,
     pub Ipv6AddressDataOption: super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_OPTION_DATA_ELEMENT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_OPTION_DATA_ELEMENT_0 {
     fn clone(&self) -> Self {
@@ -1925,6 +1933,8 @@ pub struct DHCP_OPTION_SCOPE_INFO {
     pub ScopeInfo: DHCP_OPTION_SCOPE_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_OPTION_SCOPE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1940,6 +1950,8 @@ pub union DHCP_OPTION_SCOPE_INFO_0 {
     pub MScopeInfo: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_OPTION_SCOPE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -1950,6 +1962,7 @@ pub struct DHCP_OPTION_SCOPE_INFO6 {
     pub ScopeType: DHCP_OPTION_SCOPE_TYPE6,
     pub ScopeInfo: DHCP_OPTION_SCOPE_INFO6_0,
 }
+impl ::core::marker::Copy for DHCP_OPTION_SCOPE_INFO6 {}
 impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO6 {
     fn clone(&self) -> Self {
         *self
@@ -1961,6 +1974,7 @@ pub union DHCP_OPTION_SCOPE_INFO6_0 {
     pub SubnetScopeInfo: DHCP_IPV6_ADDRESS,
     pub ReservedScopeInfo: DHCP_RESERVED_SCOPE6,
 }
+impl ::core::marker::Copy for DHCP_OPTION_SCOPE_INFO6_0 {}
 impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO6_0 {
     fn clone(&self) -> Self {
         *self
@@ -2252,6 +2266,8 @@ pub struct DHCP_PROPERTY {
     pub Value: DHCP_PROPERTY_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_PROPERTY {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_PROPERTY {
     fn clone(&self) -> Self {
         *self
@@ -2266,6 +2282,8 @@ pub union DHCP_PROPERTY_0 {
     pub StringValue: super::super::Foundation::PWSTR,
     pub BinaryValue: DHCP_BINARY_DATA,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_PROPERTY_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_PROPERTY_0 {
     fn clone(&self) -> Self {
@@ -2384,6 +2402,8 @@ pub struct DHCP_SEARCH_INFO {
     pub SearchInfo: DHCP_SEARCH_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_SEARCH_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SEARCH_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2396,6 +2416,8 @@ pub union DHCP_SEARCH_INFO_0 {
     pub ClientHardwareAddress: DHCP_BINARY_DATA,
     pub ClientName: super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_SEARCH_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SEARCH_INFO_0 {
     fn clone(&self) -> Self {
@@ -2431,6 +2453,8 @@ pub struct DHCP_SEARCH_INFO_V6 {
     pub SearchInfo: DHCP_SEARCH_INFO_V6_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_SEARCH_INFO_V6 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SEARCH_INFO_V6 {
     fn clone(&self) -> Self {
         *self
@@ -2443,6 +2467,8 @@ pub union DHCP_SEARCH_INFO_V6_0 {
     pub ClientDUID: DHCP_BINARY_DATA,
     pub ClientName: super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_SEARCH_INFO_V6_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SEARCH_INFO_V6_0 {
     fn clone(&self) -> Self {
@@ -2646,6 +2672,8 @@ pub struct DHCP_SUBNET_ELEMENT_DATA {
     pub Element: DHCP_SUBNET_ELEMENT_DATA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA {
     fn clone(&self) -> Self {
         *self
@@ -2661,6 +2689,8 @@ pub union DHCP_SUBNET_ELEMENT_DATA_0 {
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_0 {
     fn clone(&self) -> Self {
         *self
@@ -2672,6 +2702,8 @@ pub struct DHCP_SUBNET_ELEMENT_DATA_V4 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V4_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V4 {
     fn clone(&self) -> Self {
@@ -2688,6 +2720,8 @@ pub union DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V4_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     fn clone(&self) -> Self {
         *self
@@ -2699,6 +2733,8 @@ pub struct DHCP_SUBNET_ELEMENT_DATA_V5 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V5_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V5 {
     fn clone(&self) -> Self {
@@ -2715,6 +2751,8 @@ pub union DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V5_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     fn clone(&self) -> Self {
         *self
@@ -2725,6 +2763,7 @@ pub struct DHCP_SUBNET_ELEMENT_DATA_V6 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE_V6,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V6_0,
 }
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V6 {}
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V6 {
     fn clone(&self) -> Self {
         *self
@@ -2736,6 +2775,7 @@ pub union DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     pub ReservedIp: *mut DHCP_IP_RESERVATION_V6,
     pub ExcludeIpRange: *mut DHCP_IP_RANGE_V6,
 }
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V6_0 {}
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     fn clone(&self) -> Self {
         *self

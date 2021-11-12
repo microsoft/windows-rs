@@ -121,6 +121,8 @@ pub struct SHELLDETAILS {
     pub str: STRRET,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SHELLDETAILS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SHELLDETAILS {
     fn clone(&self) -> Self {
         *self
@@ -144,6 +146,8 @@ pub struct STRRET {
     pub Anonymous: STRRET_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STRRET {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STRRET {
     fn clone(&self) -> Self {
         *self
@@ -156,6 +160,8 @@ pub union STRRET_0 {
     pub uOffset: u32,
     pub cStr: [u8; 260],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STRRET_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STRRET_0 {
     fn clone(&self) -> Self {

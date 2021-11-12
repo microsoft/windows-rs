@@ -592,6 +592,8 @@ pub struct MMC_SNAPIN_PROPERTY {
     pub eAction: MMC_PROPERTY_ACTION,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for MMC_SNAPIN_PROPERTY {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for MMC_SNAPIN_PROPERTY {
     fn clone(&self) -> Self {
         *self
@@ -631,6 +633,8 @@ pub struct MMC_TASK {
     pub Anonymous: MMC_TASK_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_TASK {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MMC_TASK {
     fn clone(&self) -> Self {
         *self
@@ -643,6 +647,8 @@ pub union MMC_TASK_0 {
     pub szActionURL: super::super::Foundation::PWSTR,
     pub szScript: super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_TASK_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MMC_TASK_0 {
     fn clone(&self) -> Self {
@@ -670,6 +676,8 @@ pub struct MMC_TASK_DISPLAY_OBJECT {
     pub Anonymous: MMC_TASK_DISPLAY_OBJECT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_OBJECT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT {
     fn clone(&self) -> Self {
         *self
@@ -681,6 +689,8 @@ pub union MMC_TASK_DISPLAY_OBJECT_0 {
     pub uBitmap: MMC_TASK_DISPLAY_BITMAP,
     pub uSymbol: MMC_TASK_DISPLAY_SYMBOL,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_OBJECT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT_0 {
     fn clone(&self) -> Self {
@@ -844,6 +854,8 @@ pub struct RESULT_VIEW_TYPE_INFO {
     pub Anonymous: RESULT_VIEW_TYPE_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESULT_VIEW_TYPE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -856,6 +868,8 @@ pub union RESULT_VIEW_TYPE_INFO_0 {
     pub Anonymous1: RESULT_VIEW_TYPE_INFO_0_0,
     pub Anonymous2: RESULT_VIEW_TYPE_INFO_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESULT_VIEW_TYPE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0 {
     fn clone(&self) -> Self {

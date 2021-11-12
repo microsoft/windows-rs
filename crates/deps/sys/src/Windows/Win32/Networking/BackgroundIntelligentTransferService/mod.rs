@@ -11,6 +11,8 @@ pub struct BG_AUTH_CREDENTIALS {
     pub Credentials: BG_AUTH_CREDENTIALS_UNION,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BG_AUTH_CREDENTIALS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BG_AUTH_CREDENTIALS {
     fn clone(&self) -> Self {
         *self
@@ -21,6 +23,8 @@ impl ::core::clone::Clone for BG_AUTH_CREDENTIALS {
 pub union BG_AUTH_CREDENTIALS_UNION {
     pub Basic: BG_BASIC_CREDENTIALS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BG_AUTH_CREDENTIALS_UNION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BG_AUTH_CREDENTIALS_UNION {
     fn clone(&self) -> Self {
@@ -429,6 +433,8 @@ pub union BITS_FILE_PROPERTY_VALUE {
     pub String: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BITS_FILE_PROPERTY_VALUE {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BITS_FILE_PROPERTY_VALUE {
     fn clone(&self) -> Self {
         *self
@@ -459,6 +465,8 @@ pub union BITS_JOB_PROPERTY_VALUE {
     pub Uint64: u64,
     pub Target: BG_AUTH_TARGET,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BITS_JOB_PROPERTY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BITS_JOB_PROPERTY_VALUE {
     fn clone(&self) -> Self {

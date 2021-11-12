@@ -684,6 +684,7 @@ pub struct DECIMAL {
     pub Hi32: u32,
     pub Anonymous2: DECIMAL_1,
 }
+impl ::core::marker::Copy for DECIMAL {}
 impl ::core::clone::Clone for DECIMAL {
     fn clone(&self) -> Self {
         *self
@@ -694,6 +695,7 @@ pub union DECIMAL_0 {
     pub Anonymous: DECIMAL_0_0,
     pub signscale: u16,
 }
+impl ::core::marker::Copy for DECIMAL_0 {}
 impl ::core::clone::Clone for DECIMAL_0 {
     fn clone(&self) -> Self {
         *self
@@ -715,6 +717,7 @@ pub union DECIMAL_1 {
     pub Anonymous: DECIMAL_1_0,
     pub Lo64: u64,
 }
+impl ::core::marker::Copy for DECIMAL_1 {}
 impl ::core::clone::Clone for DECIMAL_1 {
     fn clone(&self) -> Self {
         *self

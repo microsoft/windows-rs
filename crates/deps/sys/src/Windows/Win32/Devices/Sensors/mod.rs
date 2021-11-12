@@ -310,6 +310,7 @@ impl ::core::clone::Clone for MAGNETOMETER_ACCURACY {
 pub struct MATRIX3X3 {
     pub Anonymous: MATRIX3X3_0,
 }
+impl ::core::marker::Copy for MATRIX3X3 {}
 impl ::core::clone::Clone for MATRIX3X3 {
     fn clone(&self) -> Self {
         *self
@@ -321,6 +322,7 @@ pub union MATRIX3X3_0 {
     pub Anonymous2: MATRIX3X3_0_1,
     pub M: [f32; 9],
 }
+impl ::core::marker::Copy for MATRIX3X3_0 {}
 impl ::core::clone::Clone for MATRIX3X3_0 {
     fn clone(&self) -> Self {
         *self
@@ -463,6 +465,8 @@ pub struct SENSOR_COLLECTION_LIST {
     pub Count: u32,
     pub List: [SENSOR_VALUE_PAIR; 1],
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::marker::Copy for SENSOR_COLLECTION_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for SENSOR_COLLECTION_LIST {
     fn clone(&self) -> Self {
@@ -1923,6 +1927,8 @@ pub struct SENSOR_VALUE_PAIR {
     pub Key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
     pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::marker::Copy for SENSOR_VALUE_PAIR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for SENSOR_VALUE_PAIR {
     fn clone(&self) -> Self {

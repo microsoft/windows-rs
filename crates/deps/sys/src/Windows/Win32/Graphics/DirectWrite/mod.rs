@@ -898,6 +898,7 @@ pub union DWRITE_PANOSE {
     pub decorative: DWRITE_PANOSE_0,
     pub symbol: DWRITE_PANOSE_2,
 }
+impl ::core::marker::Copy for DWRITE_PANOSE {}
 impl ::core::clone::Clone for DWRITE_PANOSE {
     fn clone(&self) -> Self {
         *self

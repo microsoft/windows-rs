@@ -1089,6 +1089,8 @@ pub struct GOPHER_ATTRIBUTE_TYPE {
     pub AttributeType: GOPHER_ATTRIBUTE_TYPE_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GOPHER_ATTRIBUTE_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GOPHER_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
@@ -1115,6 +1117,8 @@ pub union GOPHER_ATTRIBUTE_TYPE_0 {
     pub Ask: GOPHER_ASK_ATTRIBUTE_TYPE,
     pub Unknown: GOPHER_UNKNOWN_ATTRIBUTE_TYPE,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GOPHER_ATTRIBUTE_TYPE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GOPHER_ATTRIBUTE_TYPE_0 {
     fn clone(&self) -> Self {
@@ -1767,6 +1771,8 @@ pub struct INTERNET_CACHE_CONFIG_INFOA {
     pub dwExemptUsage: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOA {
     fn clone(&self) -> Self {
         *self
@@ -1778,6 +1784,8 @@ pub union INTERNET_CACHE_CONFIG_INFOA_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOA_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYA; 1],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOA_0 {
     fn clone(&self) -> Self {
@@ -1813,6 +1821,8 @@ pub struct INTERNET_CACHE_CONFIG_INFOW {
     pub dwExemptUsage: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW {
     fn clone(&self) -> Self {
         *self
@@ -1824,6 +1834,8 @@ pub union INTERNET_CACHE_CONFIG_INFOW_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOW_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYW; 1],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW_0 {
     fn clone(&self) -> Self {
@@ -1932,6 +1944,8 @@ pub struct INTERNET_CACHE_ENTRY_INFOA {
     pub Anonymous: INTERNET_CACHE_ENTRY_INFOA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOA {
     fn clone(&self) -> Self {
         *self
@@ -1943,6 +1957,8 @@ pub union INTERNET_CACHE_ENTRY_INFOA_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOA_0 {
     fn clone(&self) -> Self {
@@ -1970,6 +1986,8 @@ pub struct INTERNET_CACHE_ENTRY_INFOW {
     pub Anonymous: INTERNET_CACHE_ENTRY_INFOW_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOW {
     fn clone(&self) -> Self {
         *self
@@ -1981,6 +1999,8 @@ pub union INTERNET_CACHE_ENTRY_INFOW_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOW_0 {
     fn clone(&self) -> Self {
@@ -2194,6 +2214,8 @@ pub struct INTERNET_CREDENTIALS {
     pub Anonymous: INTERNET_CREDENTIALS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CREDENTIALS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CREDENTIALS {
     fn clone(&self) -> Self {
         *self
@@ -2205,6 +2227,8 @@ pub union INTERNET_CREDENTIALS_0 {
     pub Anonymous: INTERNET_CREDENTIALS_0_0,
     pub pAuthIdentityOpaque: *mut ::core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CREDENTIALS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CREDENTIALS_0 {
     fn clone(&self) -> Self {
@@ -2567,6 +2591,8 @@ pub struct INTERNET_PER_CONN_OPTIONA {
     pub Value: INTERNET_PER_CONN_OPTIONA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_PER_CONN_OPTIONA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONA {
     fn clone(&self) -> Self {
         *self
@@ -2580,6 +2606,8 @@ pub union INTERNET_PER_CONN_OPTIONA_0 {
     pub ftValue: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_PER_CONN_OPTIONA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONA_0 {
     fn clone(&self) -> Self {
         *self
@@ -2591,6 +2619,8 @@ pub struct INTERNET_PER_CONN_OPTIONW {
     pub dwOption: INTERNET_PER_CONN,
     pub Value: INTERNET_PER_CONN_OPTIONW_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_PER_CONN_OPTIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONW {
     fn clone(&self) -> Self {
@@ -2604,6 +2634,8 @@ pub union INTERNET_PER_CONN_OPTIONW_0 {
     pub pszValue: super::super::Foundation::PWSTR,
     pub ftValue: super::super::Foundation::FILETIME,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_PER_CONN_OPTIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONW_0 {
     fn clone(&self) -> Self {

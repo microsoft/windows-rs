@@ -97,6 +97,7 @@ pub union BM_REQUEST_TYPE {
     pub s: BM_REQUEST_TYPE_0,
     pub B: u8,
 }
+impl ::core::marker::Copy for BM_REQUEST_TYPE {}
 impl ::core::clone::Clone for BM_REQUEST_TYPE {
     fn clone(&self) -> Self {
         *self
@@ -341,6 +342,7 @@ pub struct OS_STRING {
     pub bVendorCode: u8,
     pub Anonymous: OS_STRING_0,
 }
+impl ::core::marker::Copy for OS_STRING {}
 impl ::core::clone::Clone for OS_STRING {
     fn clone(&self) -> Self {
         *self
@@ -351,6 +353,7 @@ pub union OS_STRING_0 {
     pub bPad: u8,
     pub bFlags: u8,
 }
+impl ::core::marker::Copy for OS_STRING_0 {}
 impl ::core::clone::Clone for OS_STRING_0 {
     fn clone(&self) -> Self {
         *self
@@ -458,6 +461,7 @@ pub const SUSPEND_DELAY: u32 = 131u32;
 pub struct URB {
     pub Anonymous: URB_0,
 }
+impl ::core::marker::Copy for URB {}
 impl ::core::clone::Clone for URB {
     fn clone(&self) -> Self {
         *self
@@ -487,6 +491,7 @@ pub union URB_0 {
     pub UrbOpenStaticStreams: _URB_OPEN_STATIC_STREAMS,
     pub UrbGetIsochPipeTransferPathDelays: _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS,
 }
+impl ::core::marker::Copy for URB_0 {}
 impl ::core::clone::Clone for URB_0 {
     fn clone(&self) -> Self {
         *self
@@ -862,6 +867,7 @@ pub struct USBFN_NOTIFICATION {
     pub Event: USBFN_EVENT,
     pub u: USBFN_NOTIFICATION_0,
 }
+impl ::core::marker::Copy for USBFN_NOTIFICATION {}
 impl ::core::clone::Clone for USBFN_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
@@ -875,6 +881,7 @@ pub union USBFN_NOTIFICATION_0 {
     pub PortType: USBFN_PORT_TYPE,
     pub AlternateInterface: ALTERNATE_INTERFACE,
 }
+impl ::core::marker::Copy for USBFN_NOTIFICATION_0 {}
 impl ::core::clone::Clone for USBFN_NOTIFICATION_0 {
     fn clone(&self) -> Self {
         *self
@@ -1192,6 +1199,7 @@ pub union USB_20_PORT_CHANGE {
     pub AsUshort16: u16,
     pub Anonymous: USB_20_PORT_CHANGE_0,
 }
+impl ::core::marker::Copy for USB_20_PORT_CHANGE {}
 impl ::core::clone::Clone for USB_20_PORT_CHANGE {
     fn clone(&self) -> Self {
         *self
@@ -1212,6 +1220,7 @@ pub union USB_20_PORT_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_20_PORT_STATUS_0,
 }
+impl ::core::marker::Copy for USB_20_PORT_STATUS {}
 impl ::core::clone::Clone for USB_20_PORT_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -1257,6 +1266,7 @@ pub union USB_30_PORT_CHANGE {
     pub AsUshort16: u16,
     pub Anonymous: USB_30_PORT_CHANGE_0,
 }
+impl ::core::marker::Copy for USB_30_PORT_CHANGE {}
 impl ::core::clone::Clone for USB_30_PORT_CHANGE {
     fn clone(&self) -> Self {
         *self
@@ -1277,6 +1287,7 @@ pub union USB_30_PORT_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_30_PORT_STATUS_0,
 }
+impl ::core::marker::Copy for USB_30_PORT_STATUS {}
 impl ::core::clone::Clone for USB_30_PORT_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -1489,6 +1500,7 @@ pub struct USB_DEFAULT_PIPE_SETUP_PACKET {
     pub wIndex: USB_DEFAULT_PIPE_SETUP_PACKET_0,
     pub wLength: u16,
 }
+impl ::core::marker::Copy for USB_DEFAULT_PIPE_SETUP_PACKET {}
 impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET {
     fn clone(&self) -> Self {
         *self
@@ -1499,6 +1511,7 @@ pub union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0,
     pub W: u16,
 }
+impl ::core::marker::Copy for USB_DEFAULT_PIPE_SETUP_PACKET_0 {}
 impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     fn clone(&self) -> Self {
         *self
@@ -1520,6 +1533,7 @@ pub union USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_1_0,
     pub W: u16,
 }
+impl ::core::marker::Copy for USB_DEFAULT_PIPE_SETUP_PACKET_1 {}
 impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     fn clone(&self) -> Self {
         *self
@@ -1551,6 +1565,7 @@ pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     pub bReserved: u32,
     pub AlternateMode: [USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0; 1],
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -1573,6 +1588,7 @@ pub union USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     pub AsUshort: u16,
     pub Anonymous: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     fn clone(&self) -> Self {
         *self
@@ -1625,6 +1641,7 @@ pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
     pub bcdDescriptorVersion: u8,
     pub bmAttributes: USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -1635,6 +1652,7 @@ pub union USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
@@ -1667,6 +1685,7 @@ pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
     pub dwMaxPeakPower: u32,
     pub dwMaxPeakPowerTime: u32,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -1677,6 +1696,7 @@ pub union USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
     pub AsUshort: u16,
     pub Anonymous: USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
@@ -1723,6 +1743,7 @@ pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
     pub bcdPDVersion: u16,
     pub bcdUSBTypeCVersion: u16,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -1733,6 +1754,7 @@ pub union USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
@@ -1754,6 +1776,7 @@ pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
     pub AsUlong32: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
     fn clone(&self) -> Self {
         *self
@@ -1791,6 +1814,7 @@ pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
     pub wReserved: u16,
     pub bmSublinkSpeedAttr: [USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED; 1],
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -1801,6 +1825,7 @@ pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
@@ -1821,6 +1846,7 @@ pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
     pub AsUshort: u16,
     pub Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
     fn clone(&self) -> Self {
         *self
@@ -1872,6 +1898,7 @@ pub struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
     pub bDevCapabilityType: u8,
     pub bmAttributes: USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -1882,6 +1909,7 @@ pub union USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0,
 }
+impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
@@ -1984,6 +2012,7 @@ pub union USB_DEVICE_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_DEVICE_STATUS_0,
 }
+impl ::core::marker::Copy for USB_DEVICE_STATUS {}
 impl ::core::clone::Clone for USB_DEVICE_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -2054,6 +2083,7 @@ pub union USB_ENDPOINT_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_ENDPOINT_STATUS_0,
 }
+impl ::core::marker::Copy for USB_ENDPOINT_STATUS {}
 impl ::core::clone::Clone for USB_ENDPOINT_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -2136,6 +2166,7 @@ pub union USB_FUNCTION_SUSPEND_OPTIONS {
     pub AsUchar: u8,
     pub Anonymous: USB_FUNCTION_SUSPEND_OPTIONS_0,
 }
+impl ::core::marker::Copy for USB_FUNCTION_SUSPEND_OPTIONS {}
 impl ::core::clone::Clone for USB_FUNCTION_SUSPEND_OPTIONS {
     fn clone(&self) -> Self {
         *self
@@ -2194,6 +2225,7 @@ pub const USB_HC_FEATURE_TIME_SYNC_API: u32 = 8u32;
 pub union USB_HIGH_SPEED_MAXPACKET {
     pub us: u16,
 }
+impl ::core::marker::Copy for USB_HIGH_SPEED_MAXPACKET {}
 impl ::core::clone::Clone for USB_HIGH_SPEED_MAXPACKET {
     fn clone(&self) -> Self {
         *self
@@ -2214,6 +2246,7 @@ pub union USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     pub AsUchar8: u8,
     pub Anonymous: USB_HUB_30_PORT_REMOTE_WAKE_MASK_0,
 }
+impl ::core::marker::Copy for USB_HUB_30_PORT_REMOTE_WAKE_MASK {}
 impl ::core::clone::Clone for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     fn clone(&self) -> Self {
         *self
@@ -2234,6 +2267,7 @@ pub union USB_HUB_CHANGE {
     pub AsUshort16: u16,
     pub Anonymous: USB_HUB_CHANGE_0,
 }
+impl ::core::marker::Copy for USB_HUB_CHANGE {}
 impl ::core::clone::Clone for USB_HUB_CHANGE {
     fn clone(&self) -> Self {
         *self
@@ -2271,6 +2305,7 @@ pub union USB_HUB_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_HUB_STATUS_0,
 }
+impl ::core::marker::Copy for USB_HUB_STATUS {}
 impl ::core::clone::Clone for USB_HUB_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -2291,6 +2326,7 @@ pub union USB_HUB_STATUS_AND_CHANGE {
     pub AsUlong32: u32,
     pub Anonymous: USB_HUB_STATUS_AND_CHANGE_0,
 }
+impl ::core::marker::Copy for USB_HUB_STATUS_AND_CHANGE {}
 impl ::core::clone::Clone for USB_HUB_STATUS_AND_CHANGE {
     fn clone(&self) -> Self {
         *self
@@ -2301,6 +2337,7 @@ pub struct USB_HUB_STATUS_AND_CHANGE_0 {
     pub HubStatus: USB_HUB_STATUS,
     pub HubChange: USB_HUB_CHANGE,
 }
+impl ::core::marker::Copy for USB_HUB_STATUS_AND_CHANGE_0 {}
 impl ::core::clone::Clone for USB_HUB_STATUS_AND_CHANGE_0 {
     fn clone(&self) -> Self {
         *self
@@ -2384,6 +2421,7 @@ pub union USB_INTERFACE_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_INTERFACE_STATUS_0,
 }
+impl ::core::marker::Copy for USB_INTERFACE_STATUS {}
 impl ::core::clone::Clone for USB_INTERFACE_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -2447,6 +2485,7 @@ pub union USB_PORT_CHANGE {
     pub Usb20PortChange: USB_20_PORT_CHANGE,
     pub Usb30PortChange: USB_30_PORT_CHANGE,
 }
+impl ::core::marker::Copy for USB_PORT_CHANGE {}
 impl ::core::clone::Clone for USB_PORT_CHANGE {
     fn clone(&self) -> Self {
         *self
@@ -2457,6 +2496,7 @@ pub union USB_PORT_EXT_STATUS {
     pub AsUlong32: u32,
     pub Anonymous: USB_PORT_EXT_STATUS_0,
 }
+impl ::core::marker::Copy for USB_PORT_EXT_STATUS {}
 impl ::core::clone::Clone for USB_PORT_EXT_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -2477,6 +2517,7 @@ pub union USB_PORT_EXT_STATUS_AND_CHANGE {
     pub AsUlong64: u64,
     pub Anonymous: USB_PORT_EXT_STATUS_AND_CHANGE_0,
 }
+impl ::core::marker::Copy for USB_PORT_EXT_STATUS_AND_CHANGE {}
 impl ::core::clone::Clone for USB_PORT_EXT_STATUS_AND_CHANGE {
     fn clone(&self) -> Self {
         *self
@@ -2487,6 +2528,7 @@ pub struct USB_PORT_EXT_STATUS_AND_CHANGE_0 {
     pub PortStatusChange: USB_PORT_STATUS_AND_CHANGE,
     pub PortExtStatus: USB_PORT_EXT_STATUS,
 }
+impl ::core::marker::Copy for USB_PORT_EXT_STATUS_AND_CHANGE_0 {}
 impl ::core::clone::Clone for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
     fn clone(&self) -> Self {
         *self
@@ -2498,6 +2540,7 @@ pub union USB_PORT_STATUS {
     pub Usb20PortStatus: USB_20_PORT_STATUS,
     pub Usb30PortStatus: USB_30_PORT_STATUS,
 }
+impl ::core::marker::Copy for USB_PORT_STATUS {}
 impl ::core::clone::Clone for USB_PORT_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -2508,6 +2551,7 @@ pub union USB_PORT_STATUS_AND_CHANGE {
     pub AsUlong32: u32,
     pub Anonymous: USB_PORT_STATUS_AND_CHANGE_0,
 }
+impl ::core::marker::Copy for USB_PORT_STATUS_AND_CHANGE {}
 impl ::core::clone::Clone for USB_PORT_STATUS_AND_CHANGE {
     fn clone(&self) -> Self {
         *self
@@ -2518,6 +2562,7 @@ pub struct USB_PORT_STATUS_AND_CHANGE_0 {
     pub PortStatus: USB_PORT_STATUS,
     pub PortChange: USB_PORT_CHANGE,
 }
+impl ::core::marker::Copy for USB_PORT_STATUS_AND_CHANGE_0 {}
 impl ::core::clone::Clone for USB_PORT_STATUS_AND_CHANGE_0 {
     fn clone(&self) -> Self {
         *self
@@ -2676,6 +2721,7 @@ pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     pub bmAttributes: USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0,
     pub wBytesPerInterval: u16,
 }
+impl ::core::marker::Copy for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
@@ -2687,6 +2733,7 @@ pub union USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
     pub Bulk: USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0,
     pub Isochronous: USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1,
 }
+impl ::core::marker::Copy for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {}
 impl ::core::clone::Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self

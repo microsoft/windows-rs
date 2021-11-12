@@ -548,6 +548,8 @@ pub struct BIDI_DATA {
     pub u: BIDI_DATA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BIDI_DATA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BIDI_DATA {
     fn clone(&self) -> Self {
         *self
@@ -563,6 +565,8 @@ pub union BIDI_DATA_0 {
     pub biData: BINARY_CONTAINER,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BIDI_DATA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BIDI_DATA_0 {
     fn clone(&self) -> Self {
         *self
@@ -577,6 +581,8 @@ pub struct BIDI_REQUEST_CONTAINER {
     pub aData: [BIDI_REQUEST_DATA; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BIDI_REQUEST_CONTAINER {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BIDI_REQUEST_CONTAINER {
     fn clone(&self) -> Self {
         *self
@@ -589,6 +595,8 @@ pub struct BIDI_REQUEST_DATA {
     pub pSchema: super::super::Foundation::PWSTR,
     pub data: BIDI_DATA,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BIDI_REQUEST_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BIDI_REQUEST_DATA {
     fn clone(&self) -> Self {
@@ -604,6 +612,8 @@ pub struct BIDI_RESPONSE_CONTAINER {
     pub aData: [BIDI_RESPONSE_DATA; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BIDI_RESPONSE_CONTAINER {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BIDI_RESPONSE_CONTAINER {
     fn clone(&self) -> Self {
         *self
@@ -617,6 +627,8 @@ pub struct BIDI_RESPONSE_DATA {
     pub pSchema: super::super::Foundation::PWSTR,
     pub data: BIDI_DATA,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BIDI_RESPONSE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BIDI_RESPONSE_DATA {
     fn clone(&self) -> Self {
@@ -675,6 +687,8 @@ pub struct BranchOfficeJobData {
     pub JobInfo: BranchOfficeJobData_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BranchOfficeJobData {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BranchOfficeJobData {
     fn clone(&self) -> Self {
         *self
@@ -690,6 +704,8 @@ pub union BranchOfficeJobData_0 {
     pub LogOfflineFileFull: BranchOfficeLogOfflineFileFull,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BranchOfficeJobData_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BranchOfficeJobData_0 {
     fn clone(&self) -> Self {
         *self
@@ -701,6 +717,8 @@ pub struct BranchOfficeJobDataContainer {
     pub cJobDataEntries: u32,
     pub JobData: [BranchOfficeJobData; 1],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BranchOfficeJobDataContainer {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BranchOfficeJobDataContainer {
     fn clone(&self) -> Self {
@@ -967,6 +985,8 @@ pub struct CPSUICBPARAM {
     pub Result: usize,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for CPSUICBPARAM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for CPSUICBPARAM {
     fn clone(&self) -> Self {
         *self
@@ -978,6 +998,8 @@ pub union CPSUICBPARAM_0 {
     pub OldSel: i32,
     pub pOldSel: *mut i8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for CPSUICBPARAM_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for CPSUICBPARAM_0 {
     fn clone(&self) -> Self {
@@ -1286,6 +1308,8 @@ pub struct DLGPAGE {
     pub Anonymous: DLGPAGE_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for DLGPAGE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for DLGPAGE {
     fn clone(&self) -> Self {
         *self
@@ -1297,6 +1321,8 @@ pub union DLGPAGE_0 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for DLGPAGE_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for DLGPAGE_0 {
     fn clone(&self) -> Self {
@@ -2102,6 +2128,8 @@ pub struct EXTPUSH {
     pub dwReserved: [usize; 3],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for EXTPUSH {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for EXTPUSH {
     fn clone(&self) -> Self {
         *self
@@ -2114,6 +2142,8 @@ pub union EXTPUSH_0 {
     pub pfnCallBack: ::core::option::Option<super::super::Foundation::FARPROC>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for EXTPUSH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for EXTPUSH_0 {
     fn clone(&self) -> Self {
         *self
@@ -2125,6 +2155,8 @@ pub union EXTPUSH_1 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for EXTPUSH_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for EXTPUSH_1 {
     fn clone(&self) -> Self {
@@ -3940,6 +3972,7 @@ pub struct MAPTABLE {
     pub dwGlyphNum: u32,
     pub Trans: [TRANSDATA; 1],
 }
+impl ::core::marker::Copy for MAPTABLE {}
 impl ::core::clone::Clone for MAPTABLE {
     fn clone(&self) -> Self {
         *self
@@ -4600,6 +4633,8 @@ pub struct OPTITEM {
     pub dwReserved: [usize; 3],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for OPTITEM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for OPTITEM {
     fn clone(&self) -> Self {
         *self
@@ -4612,6 +4647,8 @@ pub union OPTITEM_0 {
     pub pSel: *mut i8,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for OPTITEM_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for OPTITEM_0 {
     fn clone(&self) -> Self {
         *self
@@ -4623,6 +4660,8 @@ pub union OPTITEM_1 {
     pub pExtChkBox: *mut EXTCHKBOX,
     pub pExtPush: *mut EXTPUSH,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for OPTITEM_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for OPTITEM_1 {
     fn clone(&self) -> Self {
@@ -5408,6 +5447,7 @@ pub struct PRINTER_NOTIFY_INFO {
     pub Count: u32,
     pub aData: [PRINTER_NOTIFY_INFO_DATA; 1],
 }
+impl ::core::marker::Copy for PRINTER_NOTIFY_INFO {}
 impl ::core::clone::Clone for PRINTER_NOTIFY_INFO {
     fn clone(&self) -> Self {
         *self
@@ -5421,6 +5461,7 @@ pub struct PRINTER_NOTIFY_INFO_DATA {
     pub Id: u32,
     pub NotifyData: PRINTER_NOTIFY_INFO_DATA_0,
 }
+impl ::core::marker::Copy for PRINTER_NOTIFY_INFO_DATA {}
 impl ::core::clone::Clone for PRINTER_NOTIFY_INFO_DATA {
     fn clone(&self) -> Self {
         *self
@@ -5431,6 +5472,7 @@ pub union PRINTER_NOTIFY_INFO_DATA_0 {
     pub adwData: [u32; 2],
     pub Data: PRINTER_NOTIFY_INFO_DATA_0_0,
 }
+impl ::core::marker::Copy for PRINTER_NOTIFY_INFO_DATA_0 {}
 impl ::core::clone::Clone for PRINTER_NOTIFY_INFO_DATA_0 {
     fn clone(&self) -> Self {
         *self
@@ -5917,6 +5959,8 @@ pub struct PROPSHEETUI_INFO_HEADER {
     pub Anonymous: PROPSHEETUI_INFO_HEADER_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for PROPSHEETUI_INFO_HEADER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETUI_INFO_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -5928,6 +5972,8 @@ pub union PROPSHEETUI_INFO_HEADER_0 {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub IconID: usize,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for PROPSHEETUI_INFO_HEADER_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETUI_INFO_HEADER_0 {
     fn clone(&self) -> Self {
@@ -6148,6 +6194,8 @@ pub struct PrintNamedProperty {
     pub propertyValue: PrintPropertyValue,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PrintNamedProperty {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PrintNamedProperty {
     fn clone(&self) -> Self {
         *self
@@ -6174,6 +6222,8 @@ pub struct PrintPropertyValue {
     pub value: PrintPropertyValue_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PrintPropertyValue {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PrintPropertyValue {
     fn clone(&self) -> Self {
         *self
@@ -6188,6 +6238,8 @@ pub union PrintPropertyValue_0 {
     pub propertyInt64: i64,
     pub propertyBlob: PrintPropertyValue_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PrintPropertyValue_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PrintPropertyValue_0 {
     fn clone(&self) -> Self {
@@ -6386,6 +6438,7 @@ pub struct TRANSDATA {
     pub ubType: u8,
     pub uCode: TRANSDATA_0,
 }
+impl ::core::marker::Copy for TRANSDATA {}
 impl ::core::clone::Clone for TRANSDATA {
     fn clone(&self) -> Self {
         *self
@@ -6397,6 +6450,7 @@ pub union TRANSDATA_0 {
     pub ubCode: u8,
     pub ubPairs: [u8; 2],
 }
+impl ::core::marker::Copy for TRANSDATA_0 {}
 impl ::core::clone::Clone for TRANSDATA_0 {
     fn clone(&self) -> Self {
         *self

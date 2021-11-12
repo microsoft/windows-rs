@@ -173,6 +173,7 @@ pub const DNSSEC_PROTOCOL_TLS: u32 = 1u32;
 pub struct DNS_AAAA_DATA {
     pub Ip6Address: IP6_ADDRESS,
 }
+impl ::core::marker::Copy for DNS_AAAA_DATA {}
 impl ::core::clone::Clone for DNS_AAAA_DATA {
     fn clone(&self) -> Self {
         *self
@@ -185,6 +186,8 @@ pub struct DNS_ADDR {
     pub Data: DNS_ADDR_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_ADDR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_ADDR {
     fn clone(&self) -> Self {
         *self
@@ -195,6 +198,8 @@ impl ::core::clone::Clone for DNS_ADDR {
 pub union DNS_ADDR_0 {
     pub DnsAddrUserDword: [u32; 8],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_ADDR_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_ADDR_0 {
     fn clone(&self) -> Self {
@@ -216,6 +221,8 @@ pub struct DNS_ADDR_ARRAY {
     pub Reserved2: u32,
     pub AddrArray: [DNS_ADDR; 1],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_ADDR_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_ADDR_ARRAY {
     fn clone(&self) -> Self {
@@ -413,6 +420,8 @@ pub struct DNS_CONNECTION_PROXY_ELEMENT {
     pub Info: DNS_CONNECTION_PROXY_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_ELEMENT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_CONNECTION_PROXY_ELEMENT {
     fn clone(&self) -> Self {
         *self
@@ -428,6 +437,8 @@ pub struct DNS_CONNECTION_PROXY_INFO {
     pub Anonymous: DNS_CONNECTION_PROXY_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO {
     fn clone(&self) -> Self {
         *self
@@ -439,6 +450,8 @@ pub union DNS_CONNECTION_PROXY_INFO_0 {
     pub Config: DNS_CONNECTION_PROXY_INFO_0_0,
     pub Script: DNS_CONNECTION_PROXY_INFO_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_0 {
     fn clone(&self) -> Self {
@@ -488,6 +501,8 @@ pub struct DNS_CONNECTION_PROXY_INFO_EX {
     pub fDirectConfiguration: super::super::Foundation::BOOL,
     pub hConnection: super::super::Foundation::HANDLE,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_INFO_EX {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_EX {
     fn clone(&self) -> Self {
@@ -549,6 +564,8 @@ pub struct DNS_CUSTOM_SERVER {
     pub Anonymous2: DNS_CUSTOM_SERVER_1,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CUSTOM_SERVER {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_CUSTOM_SERVER {
     fn clone(&self) -> Self {
         *self
@@ -560,6 +577,8 @@ pub union DNS_CUSTOM_SERVER_0 {
     pub pwszTemplate: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CUSTOM_SERVER_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_CUSTOM_SERVER_0 {
     fn clone(&self) -> Self {
         *self
@@ -570,6 +589,8 @@ impl ::core::clone::Clone for DNS_CUSTOM_SERVER_0 {
 pub union DNS_CUSTOM_SERVER_1 {
     pub MaxSa: [super::super::Foundation::CHAR; 32],
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CUSTOM_SERVER_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_CUSTOM_SERVER_1 {
     fn clone(&self) -> Self {
@@ -1130,6 +1151,8 @@ pub struct DNS_RECORDA {
     pub Data: DNS_RECORDA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_RECORDA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_RECORDA {
     fn clone(&self) -> Self {
         *self
@@ -1224,6 +1247,8 @@ pub union DNS_RECORDA_0 {
     pub pDataPtr: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_RECORDA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_RECORDA_0 {
     fn clone(&self) -> Self {
         *self
@@ -1235,6 +1260,8 @@ pub union DNS_RECORDA_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_RECORDA_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_RECORDA_1 {
     fn clone(&self) -> Self {
@@ -1253,6 +1280,8 @@ pub struct DNS_RECORDW {
     pub dwReserved: u32,
     pub Data: DNS_RECORDW_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_RECORDW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_RECORDW {
     fn clone(&self) -> Self {
@@ -1348,6 +1377,8 @@ pub union DNS_RECORDW_0 {
     pub pDataPtr: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_RECORDW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_RECORDW_0 {
     fn clone(&self) -> Self {
         *self
@@ -1359,6 +1390,8 @@ pub union DNS_RECORDW_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_RECORDW_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_RECORDW_1 {
     fn clone(&self) -> Self {
@@ -1475,6 +1508,8 @@ pub struct DNS_SERVICE_BROWSE_REQUEST {
     pub pQueryContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_SERVICE_BROWSE_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST {
     fn clone(&self) -> Self {
         *self
@@ -1486,6 +1521,8 @@ pub union DNS_SERVICE_BROWSE_REQUEST_0 {
     pub pBrowseCallback: ::core::option::Option<PDNS_SERVICE_BROWSE_CALLBACK>,
     pub pBrowseCallbackV2: ::core::option::Option<PDNS_QUERY_COMPLETION_ROUTINE>,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_SERVICE_BROWSE_REQUEST_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST_0 {
     fn clone(&self) -> Self {
@@ -2032,6 +2069,8 @@ pub union IP6_ADDRESS {
     pub IP6Byte: [u8; 16],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for IP6_ADDRESS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::clone::Clone for IP6_ADDRESS {
     fn clone(&self) -> Self {
         *self
@@ -2044,6 +2083,8 @@ pub union IP6_ADDRESS {
     pub IP6Word: [u16; 8],
     pub IP6Byte: [u8; 16],
 }
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for IP6_ADDRESS {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::clone::Clone for IP6_ADDRESS {
     fn clone(&self) -> Self {
@@ -2113,6 +2154,8 @@ pub struct _DnsRecordOptA {
     pub Data: _DnsRecordOptA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _DnsRecordOptA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for _DnsRecordOptA {
     fn clone(&self) -> Self {
         *self
@@ -2125,6 +2168,8 @@ pub union _DnsRecordOptA_0 {
     pub Opt: DNS_OPT_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _DnsRecordOptA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for _DnsRecordOptA_0 {
     fn clone(&self) -> Self {
         *self
@@ -2136,6 +2181,8 @@ pub union _DnsRecordOptA_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _DnsRecordOptA_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for _DnsRecordOptA_1 {
     fn clone(&self) -> Self {
@@ -2156,6 +2203,8 @@ pub struct _DnsRecordOptW {
     pub Data: _DnsRecordOptW_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _DnsRecordOptW {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for _DnsRecordOptW {
     fn clone(&self) -> Self {
         *self
@@ -2168,6 +2217,8 @@ pub union _DnsRecordOptW_0 {
     pub Opt: DNS_OPT_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _DnsRecordOptW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for _DnsRecordOptW_0 {
     fn clone(&self) -> Self {
         *self
@@ -2179,6 +2230,8 @@ pub union _DnsRecordOptW_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _DnsRecordOptW_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for _DnsRecordOptW_1 {
     fn clone(&self) -> Self {

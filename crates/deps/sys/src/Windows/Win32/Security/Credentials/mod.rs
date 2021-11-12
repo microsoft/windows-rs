@@ -857,6 +857,7 @@ pub struct READER_SEL_REQUEST {
     pub MatchType: READER_SEL_REQUEST_MATCH_TYPE,
     pub Anonymous: READER_SEL_REQUEST_0,
 }
+impl ::core::marker::Copy for READER_SEL_REQUEST {}
 impl ::core::clone::Clone for READER_SEL_REQUEST {
     fn clone(&self) -> Self {
         *self
@@ -867,6 +868,7 @@ pub union READER_SEL_REQUEST_0 {
     pub ReaderAndContainerParameter: READER_SEL_REQUEST_0_0,
     pub SerialNumberParameter: READER_SEL_REQUEST_0_1,
 }
+impl ::core::marker::Copy for READER_SEL_REQUEST_0 {}
 impl ::core::clone::Clone for READER_SEL_REQUEST_0 {
     fn clone(&self) -> Self {
         *self
@@ -1090,6 +1092,7 @@ pub struct SCARD_T0_REQUEST {
     pub bSw2: u8,
     pub Anonymous: SCARD_T0_REQUEST_0,
 }
+impl ::core::marker::Copy for SCARD_T0_REQUEST {}
 impl ::core::clone::Clone for SCARD_T0_REQUEST {
     fn clone(&self) -> Self {
         *self
@@ -1100,6 +1103,7 @@ pub union SCARD_T0_REQUEST_0 {
     pub CmdBytes: SCARD_T0_COMMAND,
     pub rgbHeader: [u8; 5],
 }
+impl ::core::marker::Copy for SCARD_T0_REQUEST_0 {}
 impl ::core::clone::Clone for SCARD_T0_REQUEST_0 {
     fn clone(&self) -> Self {
         *self

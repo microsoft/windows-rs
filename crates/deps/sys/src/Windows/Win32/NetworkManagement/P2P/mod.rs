@@ -413,6 +413,8 @@ pub struct DRT_EVENT_DATA {
     pub Anonymous: DRT_EVENT_DATA_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for DRT_EVENT_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for DRT_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
@@ -425,6 +427,8 @@ pub union DRT_EVENT_DATA_0 {
     pub registrationStateChange: DRT_EVENT_DATA_0_1,
     pub statusChange: DRT_EVENT_DATA_0_2,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for DRT_EVENT_DATA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for DRT_EVENT_DATA_0 {
     fn clone(&self) -> Self {
@@ -808,6 +812,8 @@ pub struct PEER_ADDRESS {
     pub sin6: super::super::Networking::WinSock::SOCKADDR_IN6,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for PEER_ADDRESS {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_ADDRESS {
     fn clone(&self) -> Self {
         *self
@@ -887,6 +893,8 @@ pub struct PEER_COLLAB_EVENT_DATA {
     pub Anonymous: PEER_COLLAB_EVENT_DATA_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for PEER_COLLAB_EVENT_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for PEER_COLLAB_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
@@ -903,6 +911,8 @@ pub union PEER_COLLAB_EVENT_DATA_0 {
     pub peopleNearMeChangedData: PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA,
     pub requestStatusChangedData: PEER_EVENT_REQUEST_STATUS_CHANGED_DATA,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for PEER_COLLAB_EVENT_DATA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for PEER_COLLAB_EVENT_DATA_0 {
     fn clone(&self) -> Self {
@@ -960,6 +970,8 @@ pub struct PEER_CONNECTION_INFO {
     pub pwzPeerId: super::super::Foundation::PWSTR,
     pub address: PEER_ADDRESS,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for PEER_CONNECTION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for PEER_CONNECTION_INFO {
     fn clone(&self) -> Self {
@@ -1035,6 +1047,8 @@ pub struct PEER_ENDPOINT {
     pub address: PEER_ADDRESS,
     pub pwzEndpointName: super::super::Foundation::PWSTR,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for PEER_ENDPOINT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for PEER_ENDPOINT {
     fn clone(&self) -> Self {
@@ -1246,6 +1260,8 @@ pub struct PEER_GRAPH_EVENT_DATA {
     pub Anonymous: PEER_GRAPH_EVENT_DATA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PEER_GRAPH_EVENT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_GRAPH_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
@@ -1261,6 +1277,8 @@ pub union PEER_GRAPH_EVENT_DATA_0 {
     pub nodeChangeData: PEER_EVENT_NODE_CHANGE_DATA,
     pub synchronizedData: PEER_EVENT_SYNCHRONIZED_DATA,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PEER_GRAPH_EVENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_GRAPH_EVENT_DATA_0 {
     fn clone(&self) -> Self {
@@ -1368,6 +1386,8 @@ pub struct PEER_GROUP_EVENT_DATA {
     pub Anonymous: PEER_GROUP_EVENT_DATA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PEER_GROUP_EVENT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_GROUP_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
@@ -1383,6 +1403,8 @@ pub union PEER_GROUP_EVENT_DATA_0 {
     pub memberChangeData: PEER_EVENT_MEMBER_CHANGE_DATA,
     pub hrConnectionFailedReason: ::windows_sys::core::HRESULT,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PEER_GROUP_EVENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_GROUP_EVENT_DATA_0 {
     fn clone(&self) -> Self {
@@ -1664,6 +1686,8 @@ pub struct PEER_PEOPLE_NEAR_ME {
     pub id: ::windows_sys::core::GUID,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for PEER_PEOPLE_NEAR_ME {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for PEER_PEOPLE_NEAR_ME {
     fn clone(&self) -> Self {
         *self
@@ -1921,6 +1945,8 @@ pub struct PNRPINFO_V2 {
     pub Anonymous: PNRPINFO_V2_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for PNRPINFO_V2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for PNRPINFO_V2 {
     fn clone(&self) -> Self {
         *self
@@ -1932,6 +1958,8 @@ pub union PNRPINFO_V2_0 {
     pub blobPayload: super::super::System::Com::BLOB,
     pub pwszPayload: super::super::Foundation::PWSTR,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for PNRPINFO_V2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for PNRPINFO_V2_0 {
     fn clone(&self) -> Self {

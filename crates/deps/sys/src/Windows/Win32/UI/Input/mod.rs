@@ -101,6 +101,8 @@ pub struct RAWINPUT {
     pub data: RAWINPUT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RAWINPUT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RAWINPUT {
     fn clone(&self) -> Self {
         *self
@@ -113,6 +115,8 @@ pub union RAWINPUT_0 {
     pub keyboard: RAWKEYBOARD,
     pub hid: RAWHID,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RAWINPUT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RAWINPUT_0 {
     fn clone(&self) -> Self {
@@ -207,6 +211,7 @@ pub struct RAWMOUSE {
     pub lLastY: i32,
     pub ulExtraInformation: u32,
 }
+impl ::core::marker::Copy for RAWMOUSE {}
 impl ::core::clone::Clone for RAWMOUSE {
     fn clone(&self) -> Self {
         *self
@@ -217,6 +222,7 @@ pub union RAWMOUSE_0 {
     pub ulButtons: u32,
     pub Anonymous: RAWMOUSE_0_0,
 }
+impl ::core::marker::Copy for RAWMOUSE_0 {}
 impl ::core::clone::Clone for RAWMOUSE_0 {
     fn clone(&self) -> Self {
         *self
@@ -262,6 +268,8 @@ pub struct RID_DEVICE_INFO {
     pub Anonymous: RID_DEVICE_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RID_DEVICE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RID_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -274,6 +282,8 @@ pub union RID_DEVICE_INFO_0 {
     pub keyboard: RID_DEVICE_INFO_KEYBOARD,
     pub hid: RID_DEVICE_INFO_HID,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RID_DEVICE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RID_DEVICE_INFO_0 {
     fn clone(&self) -> Self {

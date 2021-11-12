@@ -122,6 +122,8 @@ pub struct FDIDECRYPT {
     pub Anonymous: FDIDECRYPT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FDIDECRYPT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDIDECRYPT {
     fn clone(&self) -> Self {
         *self
@@ -134,6 +136,8 @@ pub union FDIDECRYPT_0 {
     pub folder: FDIDECRYPT_0_2,
     pub decrypt: FDIDECRYPT_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FDIDECRYPT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDIDECRYPT_0 {
     fn clone(&self) -> Self {

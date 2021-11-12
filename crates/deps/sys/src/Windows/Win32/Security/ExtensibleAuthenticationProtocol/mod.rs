@@ -464,6 +464,8 @@ pub struct EAP_INTERACTIVE_UI_DATA {
     pub pbUiData: EAP_UI_DATA_FORMAT,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EAP_INTERACTIVE_UI_DATA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EAP_INTERACTIVE_UI_DATA {
     fn clone(&self) -> Self {
         *self
@@ -592,6 +594,8 @@ pub struct EAP_METHOD_PROPERTY {
     pub eapMethodPropertyValue: EAP_METHOD_PROPERTY_VALUE,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EAP_METHOD_PROPERTY {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EAP_METHOD_PROPERTY {
     fn clone(&self) -> Self {
         *self
@@ -657,6 +661,8 @@ pub union EAP_METHOD_PROPERTY_VALUE {
     pub empvDword: EAP_METHOD_PROPERTY_VALUE_DWORD,
     pub empvString: EAP_METHOD_PROPERTY_VALUE_STRING,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EAP_METHOD_PROPERTY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EAP_METHOD_PROPERTY_VALUE {
     fn clone(&self) -> Self {
@@ -767,6 +773,8 @@ pub union EAP_UI_DATA_FORMAT {
     pub credLogonData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EAP_UI_DATA_FORMAT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EAP_UI_DATA_FORMAT {
     fn clone(&self) -> Self {
         *self
@@ -811,6 +819,8 @@ pub struct EapCredential {
     pub credData: EapCredentialTypeData,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EapCredential {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EapCredential {
     fn clone(&self) -> Self {
         *self
@@ -836,6 +846,8 @@ pub union EapCredentialTypeData {
     pub certificate: EapCertificateCredential,
     pub sim: EapSimCredential,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EapCredentialTypeData {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EapCredentialTypeData {
     fn clone(&self) -> Self {

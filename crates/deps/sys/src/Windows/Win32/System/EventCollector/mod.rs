@@ -167,6 +167,8 @@ pub struct EC_VARIANT {
     pub Type: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EC_VARIANT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EC_VARIANT {
     fn clone(&self) -> Self {
         *self
@@ -185,6 +187,8 @@ pub union EC_VARIANT_0 {
     pub StringArr: *mut super::super::Foundation::PWSTR,
     pub PropertyHandleVal: isize,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EC_VARIANT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EC_VARIANT_0 {
     fn clone(&self) -> Self {

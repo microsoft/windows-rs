@@ -403,6 +403,8 @@ pub struct ACTRL_OVERLAPPED {
     pub hEvent: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACTRL_OVERLAPPED {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACTRL_OVERLAPPED {
     fn clone(&self) -> Self {
         *self
@@ -414,6 +416,8 @@ pub union ACTRL_OVERLAPPED_0 {
     pub Provider: *mut ::core::ffi::c_void,
     pub Reserved1: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACTRL_OVERLAPPED_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACTRL_OVERLAPPED_0 {
     fn clone(&self) -> Self {
@@ -554,6 +558,8 @@ pub struct AUDIT_PARAM {
     pub Anonymous2: AUDIT_PARAM_1,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUDIT_PARAM {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUDIT_PARAM {
     fn clone(&self) -> Self {
         *self
@@ -572,6 +578,8 @@ pub union AUDIT_PARAM_0 {
     pub pIpAddress: *mut AUDIT_IP_ADDRESS,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUDIT_PARAM_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUDIT_PARAM_0 {
     fn clone(&self) -> Self {
         *self
@@ -583,6 +591,8 @@ pub union AUDIT_PARAM_1 {
     pub Data1: usize,
     pub LogonId_HighPart: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUDIT_PARAM_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUDIT_PARAM_1 {
     fn clone(&self) -> Self {
@@ -735,6 +745,8 @@ pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
     pub u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_OLD {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_OLD {
     fn clone(&self) -> Self {
         *self
@@ -744,6 +756,7 @@ impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_OLD {
 pub union AUTHZ_AUDIT_EVENT_TYPE_UNION {
     pub Legacy: AUTHZ_AUDIT_EVENT_TYPE_LEGACY,
 }
+impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_UNION {}
 impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_UNION {
     fn clone(&self) -> Self {
         *self
@@ -903,6 +916,8 @@ pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     pub Attribute: AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -913,6 +928,8 @@ impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
 pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut AUTHZ_SECURITY_ATTRIBUTE_V1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     fn clone(&self) -> Self {
@@ -988,6 +1005,8 @@ pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
     pub Values: AUTHZ_SECURITY_ATTRIBUTE_V1_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_V1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1 {
     fn clone(&self) -> Self {
         *self
@@ -1002,6 +1021,8 @@ pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     pub pFqbn: *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     fn clone(&self) -> Self {
@@ -1046,6 +1067,8 @@ pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     pub ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     fn clone(&self) -> Self {
         *self
@@ -1057,6 +1080,8 @@ pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     pub pReserved: *mut ::core::ffi::c_void,
     pub pProviderGuid: *mut ::windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     fn clone(&self) -> Self {

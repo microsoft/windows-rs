@@ -358,6 +358,7 @@ pub union COLOR {
     pub hifi: HiFiCOLOR,
     pub Anonymous: COLOR_0,
 }
+impl ::core::marker::Copy for COLOR {}
 impl ::core::clone::Clone for COLOR {
     fn clone(&self) -> Self {
         *self

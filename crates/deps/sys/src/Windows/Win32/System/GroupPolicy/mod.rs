@@ -647,6 +647,8 @@ pub struct INSTALLDATA {
     pub Spec: INSTALLSPEC,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INSTALLDATA {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INSTALLDATA {
     fn clone(&self) -> Self {
         *self
@@ -660,6 +662,8 @@ pub union INSTALLSPEC {
     pub ProgId: super::super::Foundation::PWSTR,
     pub COMClass: INSTALLSPEC_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INSTALLSPEC {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INSTALLSPEC {
     fn clone(&self) -> Self {

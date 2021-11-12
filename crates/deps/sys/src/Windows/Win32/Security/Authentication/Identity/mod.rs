@@ -2433,6 +2433,8 @@ pub struct LSA_FOREST_TRUST_RECORD {
     pub ForestTrustData: LSA_FOREST_TRUST_RECORD_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LSA_FOREST_TRUST_RECORD {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD {
     fn clone(&self) -> Self {
         *self
@@ -2445,6 +2447,8 @@ pub union LSA_FOREST_TRUST_RECORD_0 {
     pub DomainInfo: LSA_FOREST_TRUST_DOMAIN_INFO,
     pub Data: LSA_FOREST_TRUST_BINARY_DATA,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LSA_FOREST_TRUST_RECORD_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD_0 {
     fn clone(&self) -> Self {
@@ -4974,6 +4978,8 @@ pub struct SECPKG_EXTENDED_INFORMATION {
     pub Info: SECPKG_EXTENDED_INFORMATION_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SECPKG_EXTENDED_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -4989,6 +4995,8 @@ pub union SECPKG_EXTENDED_INFORMATION_0 {
     pub ExtraOids: SECPKG_EXTRA_OIDS,
     pub Nego2Info: SECPKG_NEGO2_INFO,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SECPKG_EXTENDED_INFORMATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION_0 {
     fn clone(&self) -> Self {
@@ -5914,6 +5922,8 @@ pub union SEC_WINNT_AUTH_IDENTITY_INFO {
     pub AuthId_w: super::super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W,
     pub AuthIdEx2: SEC_WINNT_AUTH_IDENTITY_EX2,
 }
+#[cfg(feature = "Win32_System_Rpc")]
+impl ::core::marker::Copy for SEC_WINNT_AUTH_IDENTITY_INFO {}
 #[cfg(feature = "Win32_System_Rpc")]
 impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY_INFO {
     fn clone(&self) -> Self {

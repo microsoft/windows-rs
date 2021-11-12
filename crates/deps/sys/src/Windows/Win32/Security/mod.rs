@@ -627,6 +627,8 @@ pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     pub Attribute: CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -637,6 +639,8 @@ impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
 pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut CLAIM_SECURITY_ATTRIBUTE_V1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     fn clone(&self) -> Self {
@@ -691,6 +695,7 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     pub ValueCount: u32,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0,
 }
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {}
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     fn clone(&self) -> Self {
         *self
@@ -704,6 +709,7 @@ pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     pub pFqbn: [u32; 1],
     pub pOctetString: [u32; 1],
 }
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {}
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     fn clone(&self) -> Self {
         *self
@@ -720,6 +726,8 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
     pub Values: CLAIM_SECURITY_ATTRIBUTE_V1_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_V1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1 {
     fn clone(&self) -> Self {
         *self
@@ -734,6 +742,8 @@ pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pFqbn: *mut CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: *mut CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     fn clone(&self) -> Self {
@@ -863,6 +873,8 @@ pub struct LLFILETIME {
     pub Anonymous: LLFILETIME_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LLFILETIME {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LLFILETIME {
     fn clone(&self) -> Self {
         *self
@@ -874,6 +886,8 @@ pub union LLFILETIME_0 {
     pub ll: i64,
     pub ft: super::Foundation::FILETIME,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LLFILETIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LLFILETIME_0 {
     fn clone(&self) -> Self {
@@ -1211,6 +1225,7 @@ pub union SE_SID {
     pub Sid: SID,
     pub Buffer: [u8; 68],
 }
+impl ::core::marker::Copy for SE_SID {}
 impl ::core::clone::Clone for SE_SID {
     fn clone(&self) -> Self {
         *self

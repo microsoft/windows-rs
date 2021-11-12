@@ -197,6 +197,7 @@ pub union GUEST_OS_INFO {
     pub ClosedSource: GUEST_OS_INFO_0,
     pub OpenSource: GUEST_OS_INFO_1,
 }
+impl ::core::marker::Copy for GUEST_OS_INFO {}
 impl ::core::clone::Clone for GUEST_OS_INFO {
     fn clone(&self) -> Self {
         *self
@@ -651,6 +652,7 @@ pub union VIRTUAL_PROCESSOR_REGISTER {
     pub Reg128: VIRTUAL_PROCESSOR_REGISTER_0,
     pub X64: VIRTUAL_PROCESSOR_REGISTER_1,
 }
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_REGISTER {}
 impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER {
     fn clone(&self) -> Self {
         *self
@@ -674,6 +676,7 @@ pub union VIRTUAL_PROCESSOR_REGISTER_1 {
     pub FpControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_0,
     pub XmmControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_3,
 }
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_REGISTER_1 {}
 impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1 {
     fn clone(&self) -> Self {
         *self
@@ -688,6 +691,7 @@ pub struct VIRTUAL_PROCESSOR_REGISTER_1_0 {
     pub LastFpOp: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0,
 }
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_REGISTER_1_0 {}
 impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_0 {
     fn clone(&self) -> Self {
         *self
@@ -698,6 +702,7 @@ pub union VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     pub LastFpRip: u64,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0_0,
 }
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {}
 impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -721,6 +726,7 @@ pub struct VIRTUAL_PROCESSOR_REGISTER_1_1 {
     pub Selector: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_1_0,
 }
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_REGISTER_1_1 {}
 impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_1 {
     fn clone(&self) -> Self {
         *self
@@ -731,6 +737,7 @@ pub union VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
     pub Attributes: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_1_0_0,
 }
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {}
 impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
     fn clone(&self) -> Self {
         *self
@@ -763,6 +770,7 @@ pub struct VIRTUAL_PROCESSOR_REGISTER_1_3 {
     pub XmmStatusControl: u32,
     pub XmmStatusControlMask: u32,
 }
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_REGISTER_1_3 {}
 impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_3 {
     fn clone(&self) -> Self {
         *self
@@ -773,6 +781,7 @@ pub union VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
     pub LastFpRdp: u64,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_3_0_0,
 }
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {}
 impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
     fn clone(&self) -> Self {
         *self
@@ -818,6 +827,7 @@ pub union WHV_ACCESS_GPA_CONTROLS {
     pub AsUINT64: u64,
     pub Anonymous: WHV_ACCESS_GPA_CONTROLS_0,
 }
+impl ::core::marker::Copy for WHV_ACCESS_GPA_CONTROLS {}
 impl ::core::clone::Clone for WHV_ACCESS_GPA_CONTROLS {
     fn clone(&self) -> Self {
         *self
@@ -838,6 +848,7 @@ impl ::core::clone::Clone for WHV_ACCESS_GPA_CONTROLS_0 {
 pub union WHV_ADVISE_GPA_RANGE {
     pub Populate: WHV_ADVISE_GPA_RANGE_POPULATE,
 }
+impl ::core::marker::Copy for WHV_ADVISE_GPA_RANGE {}
 impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE {
     fn clone(&self) -> Self {
         *self
@@ -859,6 +870,7 @@ pub struct WHV_ADVISE_GPA_RANGE_POPULATE {
     pub Flags: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS,
     pub AccessType: WHV_MEMORY_ACCESS_TYPE,
 }
+impl ::core::marker::Copy for WHV_ADVISE_GPA_RANGE_POPULATE {}
 impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_POPULATE {
     fn clone(&self) -> Self {
         *self
@@ -869,6 +881,7 @@ pub union WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     pub AsUINT32: u32,
     pub Anonymous: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0,
 }
+impl ::core::marker::Copy for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {}
 impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     fn clone(&self) -> Self {
         *self
@@ -930,6 +943,8 @@ pub union WHV_CAPABILITY {
     pub SchedulerFeatures: WHV_SCHEDULER_FEATURES,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WHV_CAPABILITY {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHV_CAPABILITY {
     fn clone(&self) -> Self {
         *self
@@ -965,6 +980,7 @@ pub union WHV_CAPABILITY_FEATURES {
     pub Anonymous: WHV_CAPABILITY_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_CAPABILITY_FEATURES {}
 impl ::core::clone::Clone for WHV_CAPABILITY_FEATURES {
     fn clone(&self) -> Self {
         *self
@@ -1082,6 +1098,7 @@ pub union WHV_EMULATOR_STATUS {
     pub Anonymous: WHV_EMULATOR_STATUS_0,
     pub AsUINT32: u32,
 }
+impl ::core::marker::Copy for WHV_EMULATOR_STATUS {}
 impl ::core::clone::Clone for WHV_EMULATOR_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -1128,6 +1145,7 @@ pub union WHV_EXTENDED_VM_EXITS {
     pub Anonymous: WHV_EXTENDED_VM_EXITS_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_EXTENDED_VM_EXITS {}
 impl ::core::clone::Clone for WHV_EXTENDED_VM_EXITS {
     fn clone(&self) -> Self {
         *self
@@ -1156,6 +1174,7 @@ pub struct WHV_HYPERCALL_CONTEXT {
     pub XmmRegisters: [WHV_UINT128; 6],
     pub Reserved1: [u64; 2],
 }
+impl ::core::marker::Copy for WHV_HYPERCALL_CONTEXT {}
 impl ::core::clone::Clone for WHV_HYPERCALL_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -1167,6 +1186,7 @@ pub union WHV_INTERNAL_ACTIVITY_REGISTER {
     pub Anonymous: WHV_INTERNAL_ACTIVITY_REGISTER_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_INTERNAL_ACTIVITY_REGISTER {}
 impl ::core::clone::Clone for WHV_INTERNAL_ACTIVITY_REGISTER {
     fn clone(&self) -> Self {
         *self
@@ -1251,6 +1271,7 @@ pub struct WHV_MEMORY_ACCESS_CONTEXT {
     pub Gpa: u64,
     pub Gva: u64,
 }
+impl ::core::marker::Copy for WHV_MEMORY_ACCESS_CONTEXT {}
 impl ::core::clone::Clone for WHV_MEMORY_ACCESS_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -1261,6 +1282,7 @@ pub union WHV_MEMORY_ACCESS_INFO {
     pub Anonymous: WHV_MEMORY_ACCESS_INFO_0,
     pub AsUINT32: u32,
 }
+impl ::core::marker::Copy for WHV_MEMORY_ACCESS_INFO {}
 impl ::core::clone::Clone for WHV_MEMORY_ACCESS_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1328,6 +1350,7 @@ pub struct WHV_NOTIFICATION_PORT_PARAMETERS {
     pub Reserved: u32,
     pub Anonymous: WHV_NOTIFICATION_PORT_PARAMETERS_0,
 }
+impl ::core::marker::Copy for WHV_NOTIFICATION_PORT_PARAMETERS {}
 impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PARAMETERS {
     fn clone(&self) -> Self {
         *self
@@ -1338,6 +1361,7 @@ pub union WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     pub Doorbell: WHV_DOORBELL_MATCH_DATA,
     pub Event: WHV_NOTIFICATION_PORT_PARAMETERS_0_0,
 }
+impl ::core::marker::Copy for WHV_NOTIFICATION_PORT_PARAMETERS_0 {}
 impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self
@@ -1439,6 +1463,8 @@ pub union WHV_PARTITION_PROPERTY {
     pub DisableSmt: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WHV_PARTITION_PROPERTY {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WHV_PARTITION_PROPERTY {
     fn clone(&self) -> Self {
         *self
@@ -1526,6 +1552,7 @@ pub union WHV_PROCESSOR_FEATURES {
     pub Anonymous: WHV_PROCESSOR_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_PROCESSOR_FEATURES {}
 impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES {
     fn clone(&self) -> Self {
         *self
@@ -1546,6 +1573,7 @@ pub union WHV_PROCESSOR_FEATURES1 {
     pub Anonymous: WHV_PROCESSOR_FEATURES1_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_PROCESSOR_FEATURES1 {}
 impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES1 {
     fn clone(&self) -> Self {
         *self
@@ -1567,6 +1595,7 @@ pub struct WHV_PROCESSOR_FEATURES_BANKS {
     pub Reserved0: u32,
     pub Anonymous: WHV_PROCESSOR_FEATURES_BANKS_0,
 }
+impl ::core::marker::Copy for WHV_PROCESSOR_FEATURES_BANKS {}
 impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS {
     fn clone(&self) -> Self {
         *self
@@ -1577,6 +1606,7 @@ pub union WHV_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_PROCESSOR_FEATURES_BANKS_0_0,
     pub AsUINT64: [u64; 2],
 }
+impl ::core::marker::Copy for WHV_PROCESSOR_FEATURES_BANKS_0 {}
 impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS_0 {
     fn clone(&self) -> Self {
         *self
@@ -1587,6 +1617,7 @@ pub struct WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_PROCESSOR_FEATURES,
     pub Bank1: WHV_PROCESSOR_FEATURES1,
 }
+impl ::core::marker::Copy for WHV_PROCESSOR_FEATURES_BANKS_0_0 {}
 impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1632,6 +1663,7 @@ pub union WHV_PROCESSOR_PERFMON_FEATURES {
     pub Anonymous: WHV_PROCESSOR_PERFMON_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_PROCESSOR_PERFMON_FEATURES {}
 impl ::core::clone::Clone for WHV_PROCESSOR_PERFMON_FEATURES {
     fn clone(&self) -> Self {
         *self
@@ -1689,6 +1721,7 @@ pub union WHV_PROCESSOR_XSAVE_FEATURES {
     pub Anonymous: WHV_PROCESSOR_XSAVE_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_PROCESSOR_XSAVE_FEATURES {}
 impl ::core::clone::Clone for WHV_PROCESSOR_XSAVE_FEATURES {
     fn clone(&self) -> Self {
         *self
@@ -1959,6 +1992,7 @@ pub union WHV_REGISTER_VALUE {
     pub InternalActivity: WHV_INTERNAL_ACTIVITY_REGISTER,
     pub PendingDebugException: WHV_X64_PENDING_DEBUG_EXCEPTION,
 }
+impl ::core::marker::Copy for WHV_REGISTER_VALUE {}
 impl ::core::clone::Clone for WHV_REGISTER_VALUE {
     fn clone(&self) -> Self {
         *self
@@ -1990,6 +2024,7 @@ pub struct WHV_RUN_VP_EXIT_CONTEXT {
     pub VpContext: WHV_VP_EXIT_CONTEXT,
     pub Anonymous: WHV_RUN_VP_EXIT_CONTEXT_0,
 }
+impl ::core::marker::Copy for WHV_RUN_VP_EXIT_CONTEXT {}
 impl ::core::clone::Clone for WHV_RUN_VP_EXIT_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -2013,6 +2048,7 @@ pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub ApicWrite: WHV_X64_APIC_WRITE_CONTEXT,
     pub SynicSintDeliverable: WHV_SYNIC_SINT_DELIVERABLE_CONTEXT,
 }
+impl ::core::marker::Copy for WHV_RUN_VP_EXIT_CONTEXT_0 {}
 impl ::core::clone::Clone for WHV_RUN_VP_EXIT_CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
@@ -2050,6 +2086,7 @@ pub union WHV_SCHEDULER_FEATURES {
     pub Anonymous: WHV_SCHEDULER_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_SCHEDULER_FEATURES {}
 impl ::core::clone::Clone for WHV_SCHEDULER_FEATURES {
     fn clone(&self) -> Self {
         *self
@@ -2112,6 +2149,7 @@ pub union WHV_SYNTHETIC_PROCESSOR_FEATURES {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_SYNTHETIC_PROCESSOR_FEATURES {}
 impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES {
     fn clone(&self) -> Self {
         *self
@@ -2133,6 +2171,7 @@ pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     pub Reserved0: u32,
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0,
 }
+impl ::core::marker::Copy for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {}
 impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     fn clone(&self) -> Self {
         *self
@@ -2143,6 +2182,7 @@ pub union WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0,
     pub AsUINT64: [u64; 1],
 }
+impl ::core::marker::Copy for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {}
 impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     fn clone(&self) -> Self {
         *self
@@ -2152,6 +2192,7 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_SYNTHETIC_PROCESSOR_FEATURES,
 }
+impl ::core::marker::Copy for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {}
 impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -2208,6 +2249,7 @@ pub struct WHV_TRIGGER_PARAMETERS {
     pub Reserved: u32,
     pub Anonymous: WHV_TRIGGER_PARAMETERS_0,
 }
+impl ::core::marker::Copy for WHV_TRIGGER_PARAMETERS {}
 impl ::core::clone::Clone for WHV_TRIGGER_PARAMETERS {
     fn clone(&self) -> Self {
         *self
@@ -2219,6 +2261,7 @@ pub union WHV_TRIGGER_PARAMETERS_0 {
     pub SynicEvent: WHV_SYNIC_EVENT_PARAMETERS,
     pub DeviceInterrupt: WHV_TRIGGER_PARAMETERS_0_0,
 }
+impl ::core::marker::Copy for WHV_TRIGGER_PARAMETERS_0 {}
 impl ::core::clone::Clone for WHV_TRIGGER_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self
@@ -2253,6 +2296,7 @@ pub union WHV_UINT128 {
     pub Anonymous: WHV_UINT128_0,
     pub Dword: [u32; 4],
 }
+impl ::core::marker::Copy for WHV_UINT128 {}
 impl ::core::clone::Clone for WHV_UINT128 {
     fn clone(&self) -> Self {
         *self
@@ -2275,6 +2319,7 @@ pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY {
     pub Reserved: u32,
     pub Anonymous: WHV_VIRTUAL_PROCESSOR_PROPERTY_0,
 }
+impl ::core::marker::Copy for WHV_VIRTUAL_PROCESSOR_PROPERTY {}
 impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY {
     fn clone(&self) -> Self {
         *self
@@ -2285,6 +2330,7 @@ pub union WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     pub NumaNode: u16,
     pub Padding: u64,
 }
+impl ::core::marker::Copy for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {}
 impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     fn clone(&self) -> Self {
         *self
@@ -2318,6 +2364,7 @@ pub struct WHV_VPCI_DEVICE_NOTIFICATION {
     pub Reserved1: u32,
     pub Anonymous: WHV_VPCI_DEVICE_NOTIFICATION_0,
 }
+impl ::core::marker::Copy for WHV_VPCI_DEVICE_NOTIFICATION {}
 impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
@@ -2327,6 +2374,7 @@ impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION {
 pub union WHV_VPCI_DEVICE_NOTIFICATION_0 {
     pub Reserved2: u64,
 }
+impl ::core::marker::Copy for WHV_VPCI_DEVICE_NOTIFICATION_0 {}
 impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION_0 {
     fn clone(&self) -> Self {
         *self
@@ -2467,6 +2515,7 @@ pub struct WHV_VP_EXCEPTION_CONTEXT {
     pub ErrorCode: u32,
     pub ExceptionParameter: u64,
 }
+impl ::core::marker::Copy for WHV_VP_EXCEPTION_CONTEXT {}
 impl ::core::clone::Clone for WHV_VP_EXCEPTION_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -2477,6 +2526,7 @@ pub union WHV_VP_EXCEPTION_INFO {
     pub Anonymous: WHV_VP_EXCEPTION_INFO_0,
     pub AsUINT32: u32,
 }
+impl ::core::marker::Copy for WHV_VP_EXCEPTION_INFO {}
 impl ::core::clone::Clone for WHV_VP_EXCEPTION_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2502,6 +2552,7 @@ pub struct WHV_VP_EXIT_CONTEXT {
     pub Rip: u64,
     pub Rflags: u64,
 }
+impl ::core::marker::Copy for WHV_VP_EXIT_CONTEXT {}
 impl ::core::clone::Clone for WHV_VP_EXIT_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -2624,6 +2675,7 @@ pub union WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     pub Anonymous: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {}
 impl ::core::clone::Clone for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     fn clone(&self) -> Self {
         *self
@@ -2644,6 +2696,7 @@ pub union WHV_X64_FP_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
+impl ::core::marker::Copy for WHV_X64_FP_CONTROL_STATUS_REGISTER {}
 impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER {
     fn clone(&self) -> Self {
         *self
@@ -2658,6 +2711,7 @@ pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     pub LastFpOp: u16,
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0,
 }
+impl ::core::marker::Copy for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {}
 impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     fn clone(&self) -> Self {
         *self
@@ -2668,6 +2722,7 @@ pub union WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     pub LastFpRip: u64,
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0,
 }
+impl ::core::marker::Copy for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {}
 impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -2690,6 +2745,7 @@ pub union WHV_X64_FP_REGISTER {
     pub Anonymous: WHV_X64_FP_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
+impl ::core::marker::Copy for WHV_X64_FP_REGISTER {}
 impl ::core::clone::Clone for WHV_X64_FP_REGISTER {
     fn clone(&self) -> Self {
         *self
@@ -2721,6 +2777,7 @@ pub union WHV_X64_INTERRUPT_STATE_REGISTER {
     pub Anonymous: WHV_X64_INTERRUPT_STATE_REGISTER_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_X64_INTERRUPT_STATE_REGISTER {}
 impl ::core::clone::Clone for WHV_X64_INTERRUPT_STATE_REGISTER {
     fn clone(&self) -> Self {
         *self
@@ -2751,6 +2808,7 @@ pub struct WHV_X64_IO_PORT_ACCESS_CONTEXT {
     pub Ds: WHV_X64_SEGMENT_REGISTER,
     pub Es: WHV_X64_SEGMENT_REGISTER,
 }
+impl ::core::marker::Copy for WHV_X64_IO_PORT_ACCESS_CONTEXT {}
 impl ::core::clone::Clone for WHV_X64_IO_PORT_ACCESS_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -2761,6 +2819,7 @@ pub union WHV_X64_IO_PORT_ACCESS_INFO {
     pub Anonymous: WHV_X64_IO_PORT_ACCESS_INFO_0,
     pub AsUINT32: u32,
 }
+impl ::core::marker::Copy for WHV_X64_IO_PORT_ACCESS_INFO {}
 impl ::core::clone::Clone for WHV_X64_IO_PORT_ACCESS_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2794,6 +2853,7 @@ pub struct WHV_X64_MSR_ACCESS_CONTEXT {
     pub Rax: u64,
     pub Rdx: u64,
 }
+impl ::core::marker::Copy for WHV_X64_MSR_ACCESS_CONTEXT {}
 impl ::core::clone::Clone for WHV_X64_MSR_ACCESS_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -2804,6 +2864,7 @@ pub union WHV_X64_MSR_ACCESS_INFO {
     pub Anonymous: WHV_X64_MSR_ACCESS_INFO_0,
     pub AsUINT32: u32,
 }
+impl ::core::marker::Copy for WHV_X64_MSR_ACCESS_INFO {}
 impl ::core::clone::Clone for WHV_X64_MSR_ACCESS_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2824,6 +2885,7 @@ pub union WHV_X64_MSR_EXIT_BITMAP {
     pub AsUINT64: u64,
     pub Anonymous: WHV_X64_MSR_EXIT_BITMAP_0,
 }
+impl ::core::marker::Copy for WHV_X64_MSR_EXIT_BITMAP {}
 impl ::core::clone::Clone for WHV_X64_MSR_EXIT_BITMAP {
     fn clone(&self) -> Self {
         *self
@@ -2844,6 +2906,7 @@ pub union WHV_X64_PENDING_DEBUG_EXCEPTION {
     pub AsUINT64: u64,
     pub Anonymous: WHV_X64_PENDING_DEBUG_EXCEPTION_0,
 }
+impl ::core::marker::Copy for WHV_X64_PENDING_DEBUG_EXCEPTION {}
 impl ::core::clone::Clone for WHV_X64_PENDING_DEBUG_EXCEPTION {
     fn clone(&self) -> Self {
         *self
@@ -2874,6 +2937,7 @@ pub union WHV_X64_PENDING_EXCEPTION_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXCEPTION_EVENT_0,
     pub AsUINT128: WHV_UINT128,
 }
+impl ::core::marker::Copy for WHV_X64_PENDING_EXCEPTION_EVENT {}
 impl ::core::clone::Clone for WHV_X64_PENDING_EXCEPTION_EVENT {
     fn clone(&self) -> Self {
         *self
@@ -2896,6 +2960,7 @@ pub union WHV_X64_PENDING_EXT_INT_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXT_INT_EVENT_0,
     pub AsUINT128: WHV_UINT128,
 }
+impl ::core::marker::Copy for WHV_X64_PENDING_EXT_INT_EVENT {}
 impl ::core::clone::Clone for WHV_X64_PENDING_EXT_INT_EVENT {
     fn clone(&self) -> Self {
         *self
@@ -2917,6 +2982,7 @@ pub union WHV_X64_PENDING_INTERRUPTION_REGISTER {
     pub Anonymous: WHV_X64_PENDING_INTERRUPTION_REGISTER_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_X64_PENDING_INTERRUPTION_REGISTER {}
 impl ::core::clone::Clone for WHV_X64_PENDING_INTERRUPTION_REGISTER {
     fn clone(&self) -> Self {
         *self
@@ -2952,6 +3018,7 @@ pub struct WHV_X64_RDTSC_CONTEXT {
     pub ReferenceTime: u64,
     pub RdtscInfo: WHV_X64_RDTSC_INFO,
 }
+impl ::core::marker::Copy for WHV_X64_RDTSC_CONTEXT {}
 impl ::core::clone::Clone for WHV_X64_RDTSC_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -2962,6 +3029,7 @@ pub union WHV_X64_RDTSC_INFO {
     pub Anonymous: WHV_X64_RDTSC_INFO_0,
     pub AsUINT64: u64,
 }
+impl ::core::marker::Copy for WHV_X64_RDTSC_INFO {}
 impl ::core::clone::Clone for WHV_X64_RDTSC_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2984,6 +3052,7 @@ pub struct WHV_X64_SEGMENT_REGISTER {
     pub Selector: u16,
     pub Anonymous: WHV_X64_SEGMENT_REGISTER_0,
 }
+impl ::core::marker::Copy for WHV_X64_SEGMENT_REGISTER {}
 impl ::core::clone::Clone for WHV_X64_SEGMENT_REGISTER {
     fn clone(&self) -> Self {
         *self
@@ -2994,6 +3063,7 @@ pub union WHV_X64_SEGMENT_REGISTER_0 {
     pub Anonymous: WHV_X64_SEGMENT_REGISTER_0_0,
     pub Attributes: u16,
 }
+impl ::core::marker::Copy for WHV_X64_SEGMENT_REGISTER_0 {}
 impl ::core::clone::Clone for WHV_X64_SEGMENT_REGISTER_0 {
     fn clone(&self) -> Self {
         *self
@@ -3048,6 +3118,7 @@ pub union WHV_X64_VP_EXECUTION_STATE {
     pub Anonymous: WHV_X64_VP_EXECUTION_STATE_0,
     pub AsUINT16: u16,
 }
+impl ::core::marker::Copy for WHV_X64_VP_EXECUTION_STATE {}
 impl ::core::clone::Clone for WHV_X64_VP_EXECUTION_STATE {
     fn clone(&self) -> Self {
         *self
@@ -3068,6 +3139,7 @@ pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
+impl ::core::marker::Copy for WHV_X64_XMM_CONTROL_STATUS_REGISTER {}
 impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     fn clone(&self) -> Self {
         *self
@@ -3079,6 +3151,7 @@ pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     pub XmmStatusControl: u32,
     pub XmmStatusControlMask: u32,
 }
+impl ::core::marker::Copy for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {}
 impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     fn clone(&self) -> Self {
         *self
@@ -3089,6 +3162,7 @@ pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     pub LastFpRdp: u64,
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0,
 }
+impl ::core::marker::Copy for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {}
 impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     fn clone(&self) -> Self {
         *self

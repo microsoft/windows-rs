@@ -499,6 +499,7 @@ pub struct MI_ConstDatetimeField {
     pub exists: u8,
     pub flags: u8,
 }
+impl ::core::marker::Copy for MI_ConstDatetimeField {}
 impl ::core::clone::Clone for MI_ConstDatetimeField {
     fn clone(&self) -> Self {
         *self
@@ -1014,6 +1015,7 @@ pub struct MI_Datetime {
     pub isTimestamp: u32,
     pub u: MI_Datetime_0,
 }
+impl ::core::marker::Copy for MI_Datetime {}
 impl ::core::clone::Clone for MI_Datetime {
     fn clone(&self) -> Self {
         *self
@@ -1024,6 +1026,7 @@ pub union MI_Datetime_0 {
     pub timestamp: MI_Timestamp,
     pub interval: MI_Interval,
 }
+impl ::core::marker::Copy for MI_Datetime_0 {}
 impl ::core::clone::Clone for MI_Datetime_0 {
     fn clone(&self) -> Self {
         *self
@@ -1058,6 +1061,7 @@ pub struct MI_DatetimeField {
     pub exists: u8,
     pub flags: u8,
 }
+impl ::core::marker::Copy for MI_DatetimeField {}
 impl ::core::clone::Clone for MI_DatetimeField {
     fn clone(&self) -> Self {
         *self
@@ -2442,6 +2446,7 @@ pub struct MI_UserCredentials {
     pub authenticationType: *mut u16,
     pub credentials: MI_UserCredentials_0,
 }
+impl ::core::marker::Copy for MI_UserCredentials {}
 impl ::core::clone::Clone for MI_UserCredentials {
     fn clone(&self) -> Self {
         *self
@@ -2452,6 +2457,7 @@ pub union MI_UserCredentials_0 {
     pub usernamePassword: MI_UsernamePasswordCreds,
     pub certificateThumbprint: *mut u16,
 }
+impl ::core::marker::Copy for MI_UserCredentials_0 {}
 impl ::core::clone::Clone for MI_UserCredentials_0 {
     fn clone(&self) -> Self {
         *self
@@ -2516,6 +2522,7 @@ pub union MI_Value {
     pub instancea: MI_InstanceA,
     pub array: MI_Array,
 }
+impl ::core::marker::Copy for MI_Value {}
 impl ::core::clone::Clone for MI_Value {
     fn clone(&self) -> Self {
         *self
@@ -2640,6 +2647,8 @@ pub union SWbemRpnConst {
     pub m_uVal64: i64,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SWbemRpnConst {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SWbemRpnConst {
     fn clone(&self) -> Self {
         *self
@@ -2691,6 +2700,8 @@ pub struct SWbemRpnQueryToken {
     pub m_pszRightFunc: super::super::Foundation::PWSTR,
     pub m_pszLeftFunc: super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SWbemRpnQueryToken {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SWbemRpnQueryToken {
     fn clone(&self) -> Self {

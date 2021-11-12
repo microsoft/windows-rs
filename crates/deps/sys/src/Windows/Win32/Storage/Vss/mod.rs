@@ -303,6 +303,7 @@ pub struct VSS_MGMT_OBJECT_PROP {
     pub Type: VSS_MGMT_OBJECT_TYPE,
     pub Obj: VSS_MGMT_OBJECT_UNION,
 }
+impl ::core::marker::Copy for VSS_MGMT_OBJECT_PROP {}
 impl ::core::clone::Clone for VSS_MGMT_OBJECT_PROP {
     fn clone(&self) -> Self {
         *self
@@ -326,6 +327,7 @@ pub union VSS_MGMT_OBJECT_UNION {
     pub DiffVol: VSS_DIFF_VOLUME_PROP,
     pub DiffArea: VSS_DIFF_AREA_PROP,
 }
+impl ::core::marker::Copy for VSS_MGMT_OBJECT_UNION {}
 impl ::core::clone::Clone for VSS_MGMT_OBJECT_UNION {
     fn clone(&self) -> Self {
         *self
@@ -336,6 +338,7 @@ pub struct VSS_OBJECT_PROP {
     pub Type: VSS_OBJECT_TYPE,
     pub Obj: VSS_OBJECT_UNION,
 }
+impl ::core::marker::Copy for VSS_OBJECT_PROP {}
 impl ::core::clone::Clone for VSS_OBJECT_PROP {
     fn clone(&self) -> Self {
         *self
@@ -360,6 +363,7 @@ pub union VSS_OBJECT_UNION {
     pub Snap: VSS_SNAPSHOT_PROP,
     pub Prov: VSS_PROVIDER_PROP,
 }
+impl ::core::marker::Copy for VSS_OBJECT_UNION {}
 impl ::core::clone::Clone for VSS_OBJECT_UNION {
     fn clone(&self) -> Self {
         *self

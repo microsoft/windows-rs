@@ -1325,6 +1325,7 @@ pub struct CM_NOTIFY_EVENT_DATA {
     pub Reserved: u32,
     pub u: CM_NOTIFY_EVENT_DATA_0,
 }
+impl ::core::marker::Copy for CM_NOTIFY_EVENT_DATA {}
 impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
@@ -1336,6 +1337,7 @@ pub union CM_NOTIFY_EVENT_DATA_0 {
     pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_0,
     pub DeviceInstance: CM_NOTIFY_EVENT_DATA_0_1,
 }
+impl ::core::marker::Copy for CM_NOTIFY_EVENT_DATA_0 {}
 impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0 {
     fn clone(&self) -> Self {
         *self
@@ -1385,6 +1387,8 @@ pub struct CM_NOTIFY_FILTER {
     pub u: CM_NOTIFY_FILTER_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CM_NOTIFY_FILTER {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CM_NOTIFY_FILTER {
     fn clone(&self) -> Self {
         *self
@@ -1397,6 +1401,8 @@ pub union CM_NOTIFY_FILTER_0 {
     pub DeviceHandle: CM_NOTIFY_FILTER_0_0,
     pub DeviceInstance: CM_NOTIFY_FILTER_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CM_NOTIFY_FILTER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CM_NOTIFY_FILTER_0 {
     fn clone(&self) -> Self {
@@ -3735,6 +3741,9 @@ pub struct SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
     fn clone(&self) -> Self {
         *self
@@ -3747,6 +3756,9 @@ pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
@@ -3769,6 +3781,9 @@ pub struct SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
     fn clone(&self) -> Self {
         *self
@@ -3781,6 +3796,9 @@ pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2_0 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
@@ -3804,6 +3822,8 @@ pub struct SP_ALTPLATFORM_INFO_V3 {
     pub BuildNumber: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
     fn clone(&self) -> Self {
         *self
@@ -3815,6 +3835,8 @@ pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3_0 {
     fn clone(&self) -> Self {
@@ -3837,6 +3859,8 @@ pub struct SP_ALTPLATFORM_INFO_V3 {
     pub BuildNumber: u32,
 }
 #[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3 {}
+#[cfg(any(target_arch = "x86",))]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
     fn clone(&self) -> Self {
         *self
@@ -3848,6 +3872,8 @@ pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3_0 {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3_0 {
     fn clone(&self) -> Self {

@@ -799,6 +799,8 @@ pub struct ARRAYDESC {
     pub rgbounds: [super::Com::SAFEARRAYBOUND; 1],
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for ARRAYDESC {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ARRAYDESC {
     fn clone(&self) -> Self {
         *self
@@ -1201,6 +1203,8 @@ pub struct FONTDESC {
     pub fUnderline: super::super::Foundation::BOOL,
     pub fStrikethrough: super::super::Foundation::BOOL,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for FONTDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for FONTDESC {
     fn clone(&self) -> Self {
@@ -3068,6 +3072,8 @@ pub struct PARAMDESCEX {
     pub varDefaultValue: super::Com::VARIANT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for PARAMDESCEX {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for PARAMDESCEX {
     fn clone(&self) -> Self {
         *self
@@ -3094,6 +3100,8 @@ pub struct PICTDESC {
     pub Anonymous: PICTDESC_0,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for PICTDESC {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PICTDESC {
     fn clone(&self) -> Self {
         *self
@@ -3107,6 +3115,8 @@ pub union PICTDESC_0 {
     pub icon: PICTDESC_0_2,
     pub emf: PICTDESC_0_1,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for PICTDESC_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PICTDESC_0 {
     fn clone(&self) -> Self {
@@ -3633,6 +3643,8 @@ pub struct _wireSAFEARRAY {
     pub rgsabound: [super::Com::SAFEARRAYBOUND; 1],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for _wireSAFEARRAY {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for _wireSAFEARRAY {
     fn clone(&self) -> Self {
         *self
@@ -3644,6 +3656,8 @@ pub struct _wireSAFEARRAY_UNION {
     pub sfType: u32,
     pub u: _wireSAFEARRAY_UNION_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for _wireSAFEARRAY_UNION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for _wireSAFEARRAY_UNION {
     fn clone(&self) -> Self {
@@ -3664,6 +3678,8 @@ pub union _wireSAFEARRAY_UNION_0 {
     pub LongStr: super::Com::LONG_SIZEDARR,
     pub HyperStr: super::Com::HYPER_SIZEDARR,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for _wireSAFEARRAY_UNION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for _wireSAFEARRAY_UNION_0 {
     fn clone(&self) -> Self {
@@ -3758,6 +3774,8 @@ pub struct _wireVARIANT {
     pub Anonymous: _wireVARIANT_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for _wireVARIANT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for _wireVARIANT {
     fn clone(&self) -> Self {
         *self
@@ -3811,6 +3829,8 @@ pub union _wireVARIANT_0 {
     pub pintVal: *mut i32,
     pub puintVal: *mut u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for _wireVARIANT_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for _wireVARIANT_0 {
     fn clone(&self) -> Self {

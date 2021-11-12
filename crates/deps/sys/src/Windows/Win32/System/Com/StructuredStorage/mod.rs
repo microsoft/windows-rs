@@ -525,6 +525,8 @@ pub struct PROPSPEC {
     pub Anonymous: PROPSPEC_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROPSPEC {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROPSPEC {
     fn clone(&self) -> Self {
         *self
@@ -536,6 +538,8 @@ pub union PROPSPEC_0 {
     pub propid: u32,
     pub lpwstr: super::super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROPSPEC_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROPSPEC_0 {
     fn clone(&self) -> Self {
@@ -558,6 +562,8 @@ pub struct PROPVARIANT {
     pub Anonymous: PROPVARIANT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROPVARIANT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROPVARIANT {
     fn clone(&self) -> Self {
         *self
@@ -569,6 +575,8 @@ pub union PROPVARIANT_0 {
     pub Anonymous: PROPVARIANT_0_0,
     pub decVal: super::super::super::Foundation::DECIMAL,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROPVARIANT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROPVARIANT_0 {
     fn clone(&self) -> Self {
@@ -584,6 +592,8 @@ pub struct PROPVARIANT_0_0 {
     pub wReserved3: u16,
     pub Anonymous: PROPVARIANT_0_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROPVARIANT_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROPVARIANT_0_0 {
     fn clone(&self) -> Self {
@@ -667,6 +677,8 @@ pub union PROPVARIANT_0_0_0 {
     pub pparray: *mut *mut super::SAFEARRAY,
     pub pvarVal: *mut PROPVARIANT,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROPVARIANT_0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROPVARIANT_0_0_0 {
     fn clone(&self) -> Self {

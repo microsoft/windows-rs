@@ -1175,6 +1175,8 @@ pub struct REASON_CONTEXT {
     pub Reason: REASON_CONTEXT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REASON_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REASON_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -1186,6 +1188,8 @@ pub union REASON_CONTEXT_0 {
     pub Detailed: REASON_CONTEXT_0_0,
     pub SimpleReasonString: super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REASON_CONTEXT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REASON_CONTEXT_0 {
     fn clone(&self) -> Self {
@@ -1275,6 +1279,7 @@ impl ::core::clone::Clone for RTL_CRITICAL_SECTION_DEBUG {
 pub union RTL_RUN_ONCE {
     pub Ptr: *mut ::core::ffi::c_void,
 }
+impl ::core::marker::Copy for RTL_RUN_ONCE {}
 impl ::core::clone::Clone for RTL_RUN_ONCE {
     fn clone(&self) -> Self {
         *self
@@ -1542,6 +1547,7 @@ pub struct TP_CALLBACK_ENVIRON_V3 {
     pub CallbackPriority: TP_CALLBACK_PRIORITY,
     pub Size: u32,
 }
+impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3 {}
 impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3 {
     fn clone(&self) -> Self {
         *self
@@ -1554,6 +1560,7 @@ pub union TP_CALLBACK_ENVIRON_V3_1 {
     pub Flags: u32,
     pub s: TP_CALLBACK_ENVIRON_V3_1_0,
 }
+impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3_1 {}
 impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_1 {
     fn clone(&self) -> Self {
         *self
@@ -1634,6 +1641,7 @@ pub struct UMS_SYSTEM_THREAD_INFORMATION {
     pub UmsVersion: u32,
     pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0,
 }
+impl ::core::marker::Copy for UMS_SYSTEM_THREAD_INFORMATION {}
 impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -1644,6 +1652,7 @@ pub union UMS_SYSTEM_THREAD_INFORMATION_0 {
     pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0_0,
     pub ThreadUmsFlags: u32,
 }
+impl ::core::marker::Copy for UMS_SYSTEM_THREAD_INFORMATION_0 {}
 impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self

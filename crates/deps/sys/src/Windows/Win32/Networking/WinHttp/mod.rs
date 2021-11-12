@@ -539,6 +539,8 @@ pub struct WINHTTP_EXTENDED_HEADER {
     pub Anonymous2: WINHTTP_EXTENDED_HEADER_1,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINHTTP_EXTENDED_HEADER {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINHTTP_EXTENDED_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -551,6 +553,8 @@ pub union WINHTTP_EXTENDED_HEADER_0 {
     pub pszName: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINHTTP_EXTENDED_HEADER_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINHTTP_EXTENDED_HEADER_0 {
     fn clone(&self) -> Self {
         *self
@@ -562,6 +566,8 @@ pub union WINHTTP_EXTENDED_HEADER_1 {
     pub pwszValue: super::super::Foundation::PWSTR,
     pub pszValue: super::super::Foundation::PSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINHTTP_EXTENDED_HEADER_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINHTTP_EXTENDED_HEADER_1 {
     fn clone(&self) -> Self {
@@ -597,6 +603,8 @@ pub union WINHTTP_HEADER_NAME {
     pub pwszName: super::super::Foundation::PWSTR,
     pub pszName: super::super::Foundation::PSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINHTTP_HEADER_NAME {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINHTTP_HEADER_NAME {
     fn clone(&self) -> Self {

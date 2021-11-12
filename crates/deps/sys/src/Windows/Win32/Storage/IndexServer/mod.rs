@@ -99,6 +99,9 @@ pub struct DBID {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID {
     fn clone(&self) -> Self {
         *self
@@ -113,6 +116,9 @@ pub union DBID_0 {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_0 {
     fn clone(&self) -> Self {
         *self
@@ -125,6 +131,9 @@ pub union DBID_1 {
     pub pwszName: super::super::Foundation::PWSTR,
     pub ulPropid: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID_1 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_1 {
@@ -142,6 +151,9 @@ pub struct DBID {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID {
     fn clone(&self) -> Self {
         *self
@@ -156,6 +168,9 @@ pub union DBID_0 {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_0 {
     fn clone(&self) -> Self {
         *self
@@ -168,6 +183,9 @@ pub union DBID_1 {
     pub pwszName: super::super::Foundation::PWSTR,
     pub ulPropid: u32,
 }
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID_1 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_1 {
@@ -250,6 +268,8 @@ pub struct FULLPROPSPEC {
     pub guidPropSet: ::windows_sys::core::GUID,
     pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for FULLPROPSPEC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for FULLPROPSPEC {
     fn clone(&self) -> Self {
@@ -347,6 +367,8 @@ pub struct STAT_CHUNK {
     pub cwcStartSource: u32,
     pub cwcLenSource: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for STAT_CHUNK {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for STAT_CHUNK {
     fn clone(&self) -> Self {

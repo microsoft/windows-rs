@@ -579,6 +579,7 @@ pub struct IKE_AUTHENTICATION_INFORMATION {
     pub AuthMethod: IKE_AUTHENTICATION_METHOD,
     pub Anonymous: IKE_AUTHENTICATION_INFORMATION_0,
 }
+impl ::core::marker::Copy for IKE_AUTHENTICATION_INFORMATION {}
 impl ::core::clone::Clone for IKE_AUTHENTICATION_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -588,6 +589,7 @@ impl ::core::clone::Clone for IKE_AUTHENTICATION_INFORMATION {
 pub union IKE_AUTHENTICATION_INFORMATION_0 {
     pub PsKey: IKE_AUTHENTICATION_PRESHARED_KEY,
 }
+impl ::core::marker::Copy for IKE_AUTHENTICATION_INFORMATION_0 {}
 impl ::core::clone::Clone for IKE_AUTHENTICATION_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
@@ -1393,6 +1395,7 @@ pub struct NV_SEP_CACHE_PARAMETER {
     pub WriteCacheTypeEffective: u8,
     pub ParameterReserve1: [u8; 3],
 }
+impl ::core::marker::Copy for NV_SEP_CACHE_PARAMETER {}
 impl ::core::clone::Clone for NV_SEP_CACHE_PARAMETER {
     fn clone(&self) -> Self {
         *self
@@ -1403,6 +1406,7 @@ pub union NV_SEP_CACHE_PARAMETER_0 {
     pub CacheFlags: NV_SEP_CACHE_PARAMETER_0_0,
     pub CacheFlagsSet: u8,
 }
+impl ::core::marker::Copy for NV_SEP_CACHE_PARAMETER_0 {}
 impl ::core::clone::Clone for NV_SEP_CACHE_PARAMETER_0 {
     fn clone(&self) -> Self {
         *self
@@ -1880,6 +1884,8 @@ pub struct STORAGE_FIRMWARE_INFO {
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STORAGE_FIRMWARE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_FIRMWARE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1920,6 +1926,8 @@ pub struct STORAGE_FIRMWARE_SLOT_INFO {
     pub Revision: STORAGE_FIRMWARE_SLOT_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STORAGE_FIRMWARE_SLOT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1931,6 +1939,8 @@ pub union STORAGE_FIRMWARE_SLOT_INFO_0 {
     pub Info: [u8; 8],
     pub AsUlonglong: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STORAGE_FIRMWARE_SLOT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO_0 {
     fn clone(&self) -> Self {

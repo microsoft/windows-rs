@@ -166,6 +166,7 @@ pub union PSAPI_WORKING_SET_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_BLOCK_0,
 }
+impl ::core::marker::Copy for PSAPI_WORKING_SET_BLOCK {}
 impl ::core::clone::Clone for PSAPI_WORKING_SET_BLOCK {
     fn clone(&self) -> Self {
         *self
@@ -186,6 +187,7 @@ pub union PSAPI_WORKING_SET_EX_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0,
 }
+impl ::core::marker::Copy for PSAPI_WORKING_SET_EX_BLOCK {}
 impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_BLOCK {
     fn clone(&self) -> Self {
         *self
@@ -196,6 +198,7 @@ pub union PSAPI_WORKING_SET_EX_BLOCK_0 {
     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0_0,
     pub Invalid: PSAPI_WORKING_SET_EX_BLOCK_0_1,
 }
+impl ::core::marker::Copy for PSAPI_WORKING_SET_EX_BLOCK_0 {}
 impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_BLOCK_0 {
     fn clone(&self) -> Self {
         *self
@@ -226,6 +229,7 @@ pub struct PSAPI_WORKING_SET_EX_INFORMATION {
     pub VirtualAddress: *mut ::core::ffi::c_void,
     pub VirtualAttributes: PSAPI_WORKING_SET_EX_BLOCK,
 }
+impl ::core::marker::Copy for PSAPI_WORKING_SET_EX_INFORMATION {}
 impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -236,6 +240,7 @@ pub struct PSAPI_WORKING_SET_INFORMATION {
     pub NumberOfEntries: usize,
     pub WorkingSetInfo: [PSAPI_WORKING_SET_BLOCK; 1],
 }
+impl ::core::marker::Copy for PSAPI_WORKING_SET_INFORMATION {}
 impl ::core::clone::Clone for PSAPI_WORKING_SET_INFORMATION {
     fn clone(&self) -> Self {
         *self

@@ -314,6 +314,7 @@ pub struct DTCTL {
     pub ulItemID: u32,
     pub ctl: DTCTL_0,
 }
+impl ::core::marker::Copy for DTCTL {}
 impl ::core::clone::Clone for DTCTL {
     fn clone(&self) -> Self {
         *self
@@ -335,6 +336,7 @@ pub union DTCTL_0 {
     pub lpmvddlbx: *mut DTBLMVDDLBX,
     pub lppage: *mut DTBLPAGE,
 }
+impl ::core::marker::Copy for DTCTL_0 {}
 impl ::core::clone::Clone for DTCTL_0 {
     fn clone(&self) -> Self {
         *self
@@ -347,6 +349,7 @@ pub struct DTPAGE {
     pub Anonymous: DTPAGE_0,
     pub lpctl: *mut DTCTL,
 }
+impl ::core::marker::Copy for DTPAGE {}
 impl ::core::clone::Clone for DTPAGE {
     fn clone(&self) -> Self {
         *self
@@ -357,6 +360,7 @@ pub union DTPAGE_0 {
     pub lpszComponent: *mut i8,
     pub ulItemID: u32,
 }
+impl ::core::marker::Copy for DTPAGE_0 {}
 impl ::core::clone::Clone for DTPAGE_0 {
     fn clone(&self) -> Self {
         *self
@@ -705,6 +709,8 @@ pub struct MAPINAMEID {
     pub Kind: MAPINAMEID_0,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MAPINAMEID {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MAPINAMEID {
     fn clone(&self) -> Self {
         *self
@@ -716,6 +722,8 @@ pub union MAPINAMEID_0 {
     pub lID: i32,
     pub lpwstrName: super::super::Foundation::PWSTR,
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MAPINAMEID_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MAPINAMEID_0 {
     fn clone(&self) -> Self {
@@ -788,6 +796,8 @@ pub struct NOTIFICATION {
     pub info: NOTIFICATION_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for NOTIFICATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for NOTIFICATION {
     fn clone(&self) -> Self {
         *self
@@ -803,6 +813,8 @@ pub union NOTIFICATION_0 {
     pub ext: EXTENDED_NOTIFICATION,
     pub statobj: STATUS_OBJECT_NOTIFICATION,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for NOTIFICATION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for NOTIFICATION_0 {
     fn clone(&self) -> Self {
@@ -1119,6 +1131,8 @@ pub struct SPropValue {
     pub Value: _PV,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SPropValue {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for SPropValue {
     fn clone(&self) -> Self {
         *self
@@ -1157,6 +1171,8 @@ pub struct SRestriction {
     pub res: SRestriction_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SRestriction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for SRestriction {
     fn clone(&self) -> Self {
         *self
@@ -1177,6 +1193,8 @@ pub union SRestriction_0 {
     pub resSub: SSubRestriction,
     pub resComment: SCommentRestriction,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SRestriction_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for SRestriction_0 {
     fn clone(&self) -> Self {
@@ -1322,6 +1340,8 @@ pub struct TABLE_NOTIFICATION {
     pub ulPad: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for TABLE_NOTIFICATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for TABLE_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
@@ -1437,6 +1457,8 @@ pub union _PV {
     pub err: i32,
     pub x: i32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for _PV {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for _PV {
     fn clone(&self) -> Self {
