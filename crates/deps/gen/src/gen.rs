@@ -242,7 +242,7 @@ mod tests {
                 root: "Microsoft",
                 relative: "Microsoft.UI.Composition.Diagnostics",
                 ignore_windows_features: false,
-                docs: false
+                docs: true
             }
             .gen_cfg_doc(&features)
             .as_str(),
@@ -257,7 +257,7 @@ mod tests {
                 root: "Microsoft",
                 relative: "Microsoft.UI.Composition.Diagnostics",
                 ignore_windows_features: false,
-                docs: false
+                docs: true
             }
             .gen_cfg_doc(&features)
             .as_str(),
