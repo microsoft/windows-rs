@@ -1070,7 +1070,6 @@ pub const CACHE_NOTIFY_UPDATE_URL: u32 = 4u32;
 pub const CACHE_NOTIFY_URL_SET_STICKY: u32 = 16u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const CACHE_NOTIFY_URL_UNSET_STICKY: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct CACHE_OPERATOR(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const COOKIE_ACCEPTED_CACHE_ENTRY: u32 = 4096u32;
@@ -1390,7 +1389,6 @@ pub struct FTP_FLAGS(i32);
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct GOPHER_ATTRIBUTE_ENUMERATOR(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const GOPHER_ATTRIBUTE_ID_ABSTRACT: u32 = 2882325526u32;
@@ -1754,9 +1752,9 @@ pub const IDSI_FLAG_PROXY: u32 = 4u32;
 pub const IDSI_FLAG_SECURE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const IDSI_FLAG_TUNNEL: u32 = 8u32;
-pub struct IDialBranding(i32);
-pub struct IDialEngine(i32);
-pub struct IDialEventSink(i32);
+pub struct IDialBranding(pub *mut ::core::ffi::c_void);
+pub struct IDialEngine(pub *mut ::core::ffi::c_void);
+pub struct IDialEventSink(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const IMMUTABLE_CACHE_ENTRY: u32 = 524288u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
@@ -2636,8 +2634,8 @@ pub const INTERNET_SUPPRESS_COOKIE_POLICY_RESET: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_SUPPRESS_RESET_ALL: u32 = 0u32;
 pub struct INTERNET_VERSION_INFO(i32);
-pub struct IProofOfPossessionCookieInfoManager(i32);
-pub struct IProofOfPossessionCookieInfoManager2(i32);
+pub struct IProofOfPossessionCookieInfoManager(pub *mut ::core::ffi::c_void);
+pub struct IProofOfPossessionCookieInfoManager2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const IRF_ASYNC: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
@@ -2687,7 +2685,6 @@ pub struct OutgoingCookieState(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const PENDING_DELETE_CACHE_ENTRY: u32 = 4194304u32;
 pub struct PFN_AUTH_NOTIFY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DIAL_HANDLER(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const POST_CHECK_CACHE_ENTRY: u32 = 536870912u32;
@@ -2803,9 +2800,6 @@ pub struct WININET_SYNC_MODE(i32);
 pub struct WPAD_CACHE_DELETE(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct pfnInternetDeInitializeAutoProxyDll(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct pfnInternetGetProxyInfo(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct pfnInternetInitializeAutoProxyDll(i32);

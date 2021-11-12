@@ -1,11 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IUserDataAccountPartnerAccountInfo(i32);
-pub struct IUserDataAccountProviderAddAccountOperation(i32);
-pub struct IUserDataAccountProviderOperation(i32);
-pub struct IUserDataAccountProviderResolveErrorsOperation(i32);
-pub struct IUserDataAccountProviderSettingsOperation(i32);
+pub struct IUserDataAccountPartnerAccountInfo(pub *mut ::core::ffi::c_void);
+pub struct IUserDataAccountProviderAddAccountOperation(pub *mut ::core::ffi::c_void);
+pub struct IUserDataAccountProviderOperation(pub *mut ::core::ffi::c_void);
+pub struct IUserDataAccountProviderResolveErrorsOperation(pub *mut ::core::ffi::c_void);
+pub struct IUserDataAccountProviderSettingsOperation(pub *mut ::core::ffi::c_void);
 pub struct UserDataAccountPartnerAccountInfo(i32);
 pub struct UserDataAccountProviderAddAccountOperation(i32);
 pub struct UserDataAccountProviderOperationKind(i32);

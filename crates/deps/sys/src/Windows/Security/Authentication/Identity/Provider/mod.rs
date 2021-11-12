@@ -1,17 +1,17 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct ISecondaryAuthenticationFactorAuthentication(i32);
-pub struct ISecondaryAuthenticationFactorAuthenticationResult(i32);
-pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(i32);
-pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo(i32);
-pub struct ISecondaryAuthenticationFactorAuthenticationStatics(i32);
-pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(i32);
-pub struct ISecondaryAuthenticationFactorInfo(i32);
-pub struct ISecondaryAuthenticationFactorInfo2(i32);
-pub struct ISecondaryAuthenticationFactorRegistration(i32);
-pub struct ISecondaryAuthenticationFactorRegistrationResult(i32);
-pub struct ISecondaryAuthenticationFactorRegistrationStatics(i32);
+pub struct ISecondaryAuthenticationFactorAuthentication(pub *mut ::core::ffi::c_void);
+pub struct ISecondaryAuthenticationFactorAuthenticationResult(pub *mut ::core::ffi::c_void);
+pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo(pub *mut ::core::ffi::c_void);
+pub struct ISecondaryAuthenticationFactorAuthenticationStatics(pub *mut ::core::ffi::c_void);
+pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(pub *mut ::core::ffi::c_void);
+pub struct ISecondaryAuthenticationFactorInfo(pub *mut ::core::ffi::c_void);
+pub struct ISecondaryAuthenticationFactorInfo2(pub *mut ::core::ffi::c_void);
+pub struct ISecondaryAuthenticationFactorRegistration(pub *mut ::core::ffi::c_void);
+pub struct ISecondaryAuthenticationFactorRegistrationResult(pub *mut ::core::ffi::c_void);
+pub struct ISecondaryAuthenticationFactorRegistrationStatics(pub *mut ::core::ffi::c_void);
 pub struct SecondaryAuthenticationFactorAuthentication(i32);
 pub struct SecondaryAuthenticationFactorAuthenticationMessage(i32);
 pub struct SecondaryAuthenticationFactorAuthenticationResult(i32);

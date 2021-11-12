@@ -3,14 +3,13 @@
 pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
-pub struct IThreadPoolStatics(i32);
-pub struct IThreadPoolTimer(i32);
-pub struct IThreadPoolTimerStatics(i32);
+pub struct IThreadPoolStatics(pub *mut ::core::ffi::c_void);
+pub struct IThreadPoolTimer(pub *mut ::core::ffi::c_void);
+pub struct IThreadPoolTimerStatics(pub *mut ::core::ffi::c_void);
 pub struct ThreadPool(i32);
 pub struct ThreadPoolTimer(i32);
-pub struct TimerDestroyedHandler(i32);
-pub struct TimerElapsedHandler(i32);
-#[cfg(feature = "Foundation")]
-pub struct WorkItemHandler(i32);
+pub struct TimerDestroyedHandler(pub *mut ::core::ffi::c_void);
+pub struct TimerElapsedHandler(pub *mut ::core::ffi::c_void);
+pub struct WorkItemHandler(pub *mut ::core::ffi::c_void);
 pub struct WorkItemOptions(i32);
 pub struct WorkItemPriority(i32);

@@ -4,5 +4,5 @@ extern "system" {}
 pub struct DeviceLockdownContract(i32);
 pub struct DeviceLockdownProfile(i32);
 pub struct DeviceLockdownProfileInformation(i32);
-pub struct IDeviceLockdownProfileInformation(i32);
-pub struct IDeviceLockdownProfileStatics(i32);
+pub struct IDeviceLockdownProfileInformation(pub *mut ::core::ffi::c_void);
+pub struct IDeviceLockdownProfileStatics(pub *mut ::core::ffi::c_void);

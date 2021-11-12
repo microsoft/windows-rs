@@ -680,7 +680,6 @@ pub const JET_BASE_NAME_LENGTH: u32 = 3u32;
 pub struct JET_BKINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME(i32);
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_CALLBACK(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_COLUMNBASE_A(i32);
@@ -848,10 +847,8 @@ pub const JET_OnlineDefragDatabases: u32 = 2u32;
 pub const JET_OnlineDefragDisable: u32 = 0u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_OnlineDefragSpaceTrees: u32 = 4u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_PFNDURABLECOMMITCALLBACK(i32);
 pub struct JET_PFNREALLOC(i32);
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_PFNSTATUS(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]

@@ -2,16 +2,16 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct AddPagesEventArgs(i32);
-pub struct AddPagesEventHandler(i32);
+pub struct AddPagesEventHandler(pub *mut ::core::ffi::c_void);
 pub struct GetPreviewPageEventArgs(i32);
-pub struct GetPreviewPageEventHandler(i32);
-pub struct IAddPagesEventArgs(i32);
-pub struct IGetPreviewPageEventArgs(i32);
-pub struct IPaginateEventArgs(i32);
-pub struct IPrintDocument(i32);
-pub struct IPrintDocumentFactory(i32);
-pub struct IPrintDocumentStatics(i32);
+pub struct GetPreviewPageEventHandler(pub *mut ::core::ffi::c_void);
+pub struct IAddPagesEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IGetPreviewPageEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IPaginateEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IPrintDocument(pub *mut ::core::ffi::c_void);
+pub struct IPrintDocumentFactory(pub *mut ::core::ffi::c_void);
+pub struct IPrintDocumentStatics(pub *mut ::core::ffi::c_void);
 pub struct PaginateEventArgs(i32);
-pub struct PaginateEventHandler(i32);
+pub struct PaginateEventHandler(pub *mut ::core::ffi::c_void);
 pub struct PreviewPageCountType(i32);
 pub struct PrintDocument(i32);

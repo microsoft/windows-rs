@@ -1679,18 +1679,13 @@ pub struct PF_FILTER_STATS(i32);
 pub struct PF_INTERFACE_STATS(i32);
 pub struct PF_LATEBIND_INFO(i32);
 pub struct PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PIPFORWARD_CHANGE_CALLBACK(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PIPINTERFACE_CHANGE_CALLBACK(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const PROXY_ARP: u32 = 22u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK(i32);
 pub struct PTEREDO_PORT_CHANGE_CALLBACK(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PUNICAST_IPADDRESS_CHANGE_CALLBACK(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const ROUTE_LONGER: u32 = 32u32;

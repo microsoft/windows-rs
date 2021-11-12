@@ -464,11 +464,8 @@ pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows_sys::core::GUID = ::wind
 pub struct KeyCredentialManagerInfo(i32);
 pub struct KeyCredentialManagerOperationErrorStates(i32);
 pub struct KeyCredentialManagerOperationType(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPOCNCHKPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPOCNCONNPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPOCNCONNPROCW(i32);
 pub struct LPOCNDSCPROC(i32);
 #[doc = "*Required features: `Win32_Security_Credentials`*"]

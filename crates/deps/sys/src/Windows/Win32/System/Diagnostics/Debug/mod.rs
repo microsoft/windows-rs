@@ -1038,7 +1038,7 @@ pub struct APPLICATION_NODE_EVENT_FILTER(i32);
 pub struct ARM64_NT_CONTEXT(i32);
 pub struct ARM64_NT_NEON128(i32);
 pub struct ArrayDimension(i32);
-pub struct AsyncIDebugApplicationNodeEvents(i32);
+pub struct AsyncIDebugApplicationNodeEvents(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const BIND_ALL_IMAGES: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
@@ -2717,7 +2717,6 @@ pub const DEBUG_VSOURCE_INVALID: u32 = 0u32;
 pub const DEBUG_VSOURCE_MAPPED_IMAGE: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_WAIT_DEFAULT: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct DIGEST_FUNCTION(i32);
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -2757,8 +2756,8 @@ pub struct DUMP_HEADER64(i32);
 pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
-pub struct DebugBaseEventCallbacks(i32);
-pub struct DebugBaseEventCallbacksWide(i32);
+pub struct DebugBaseEventCallbacks(pub *mut ::core::ffi::c_void);
+pub struct DebugBaseEventCallbacksWide(pub *mut ::core::ffi::c_void);
 pub struct DebugHelper(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugPropertyInfo(i32);
@@ -2887,210 +2886,210 @@ pub struct GET_PEB_ADDRESS(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct GET_SET_SYMPATH(i32);
 pub struct GET_TEB_ADDRESS(i32);
-pub struct IActiveScript(i32);
-pub struct IActiveScriptAuthor(i32);
-pub struct IActiveScriptAuthorProcedure(i32);
-pub struct IActiveScriptDebug32(i32);
-pub struct IActiveScriptDebug64(i32);
-pub struct IActiveScriptEncode(i32);
-pub struct IActiveScriptError(i32);
-pub struct IActiveScriptError64(i32);
-pub struct IActiveScriptErrorDebug(i32);
-pub struct IActiveScriptErrorDebug110(i32);
-pub struct IActiveScriptGarbageCollector(i32);
-pub struct IActiveScriptHostEncode(i32);
-pub struct IActiveScriptParse32(i32);
-pub struct IActiveScriptParse64(i32);
-pub struct IActiveScriptParseProcedure2_32(i32);
-pub struct IActiveScriptParseProcedure2_64(i32);
-pub struct IActiveScriptParseProcedure32(i32);
-pub struct IActiveScriptParseProcedure64(i32);
-pub struct IActiveScriptParseProcedureOld32(i32);
-pub struct IActiveScriptParseProcedureOld64(i32);
-pub struct IActiveScriptProfilerCallback(i32);
-pub struct IActiveScriptProfilerCallback2(i32);
-pub struct IActiveScriptProfilerCallback3(i32);
-pub struct IActiveScriptProfilerControl(i32);
-pub struct IActiveScriptProfilerControl2(i32);
-pub struct IActiveScriptProfilerControl3(i32);
-pub struct IActiveScriptProfilerControl4(i32);
-pub struct IActiveScriptProfilerControl5(i32);
-pub struct IActiveScriptProfilerHeapEnum(i32);
-pub struct IActiveScriptProperty(i32);
-pub struct IActiveScriptSIPInfo(i32);
-pub struct IActiveScriptSite(i32);
-pub struct IActiveScriptSiteDebug32(i32);
-pub struct IActiveScriptSiteDebug64(i32);
-pub struct IActiveScriptSiteDebugEx(i32);
-pub struct IActiveScriptSiteInterruptPoll(i32);
-pub struct IActiveScriptSiteTraceInfo(i32);
-pub struct IActiveScriptSiteUIControl(i32);
-pub struct IActiveScriptSiteWindow(i32);
-pub struct IActiveScriptStats(i32);
-pub struct IActiveScriptStringCompare(i32);
-pub struct IActiveScriptTraceInfo(i32);
-pub struct IActiveScriptWinRTErrorDebug(i32);
-pub struct IApplicationDebugger(i32);
-pub struct IApplicationDebuggerUI(i32);
-pub struct IBindEventHandler(i32);
-pub struct ICodeAddressConcept(i32);
-pub struct IComparableConcept(i32);
-pub struct IDataModelConcept(i32);
-pub struct IDataModelManager(i32);
-pub struct IDataModelManager2(i32);
-pub struct IDataModelNameBinder(i32);
-pub struct IDataModelScript(i32);
-pub struct IDataModelScriptClient(i32);
-pub struct IDataModelScriptDebug(i32);
-pub struct IDataModelScriptDebug2(i32);
-pub struct IDataModelScriptDebugBreakpoint(i32);
-pub struct IDataModelScriptDebugBreakpointEnumerator(i32);
-pub struct IDataModelScriptDebugClient(i32);
-pub struct IDataModelScriptDebugStack(i32);
-pub struct IDataModelScriptDebugStackFrame(i32);
-pub struct IDataModelScriptDebugVariableSetEnumerator(i32);
-pub struct IDataModelScriptHostContext(i32);
-pub struct IDataModelScriptManager(i32);
-pub struct IDataModelScriptProvider(i32);
-pub struct IDataModelScriptProviderEnumerator(i32);
-pub struct IDataModelScriptTemplate(i32);
-pub struct IDataModelScriptTemplateEnumerator(i32);
-pub struct IDebugAdvanced(i32);
-pub struct IDebugAdvanced2(i32);
-pub struct IDebugAdvanced3(i32);
-pub struct IDebugAdvanced4(i32);
-pub struct IDebugApplication11032(i32);
-pub struct IDebugApplication11064(i32);
-pub struct IDebugApplication32(i32);
-pub struct IDebugApplication64(i32);
-pub struct IDebugApplicationNode(i32);
-pub struct IDebugApplicationNode100(i32);
-pub struct IDebugApplicationNodeEvents(i32);
-pub struct IDebugApplicationThread(i32);
-pub struct IDebugApplicationThread11032(i32);
-pub struct IDebugApplicationThread11064(i32);
-pub struct IDebugApplicationThread64(i32);
-pub struct IDebugApplicationThreadEvents110(i32);
-pub struct IDebugAsyncOperation(i32);
-pub struct IDebugAsyncOperationCallBack(i32);
-pub struct IDebugBreakpoint(i32);
-pub struct IDebugBreakpoint2(i32);
-pub struct IDebugBreakpoint3(i32);
-pub struct IDebugClient(i32);
-pub struct IDebugClient2(i32);
-pub struct IDebugClient3(i32);
-pub struct IDebugClient4(i32);
-pub struct IDebugClient5(i32);
-pub struct IDebugClient6(i32);
-pub struct IDebugClient7(i32);
-pub struct IDebugClient8(i32);
-pub struct IDebugCodeContext(i32);
-pub struct IDebugControl(i32);
-pub struct IDebugControl2(i32);
-pub struct IDebugControl3(i32);
-pub struct IDebugControl4(i32);
-pub struct IDebugControl5(i32);
-pub struct IDebugControl6(i32);
-pub struct IDebugControl7(i32);
-pub struct IDebugCookie(i32);
-pub struct IDebugDataSpaces(i32);
-pub struct IDebugDataSpaces2(i32);
-pub struct IDebugDataSpaces3(i32);
-pub struct IDebugDataSpaces4(i32);
-pub struct IDebugDocument(i32);
-pub struct IDebugDocumentContext(i32);
-pub struct IDebugDocumentHelper32(i32);
-pub struct IDebugDocumentHelper64(i32);
-pub struct IDebugDocumentHost(i32);
-pub struct IDebugDocumentInfo(i32);
-pub struct IDebugDocumentProvider(i32);
-pub struct IDebugDocumentText(i32);
-pub struct IDebugDocumentTextAuthor(i32);
-pub struct IDebugDocumentTextEvents(i32);
-pub struct IDebugDocumentTextExternalAuthor(i32);
-pub struct IDebugEventCallbacks(i32);
-pub struct IDebugEventCallbacksWide(i32);
-pub struct IDebugEventContextCallbacks(i32);
-pub struct IDebugExpression(i32);
-pub struct IDebugExpressionCallBack(i32);
-pub struct IDebugExpressionContext(i32);
-pub struct IDebugExtendedProperty(i32);
-pub struct IDebugFormatter(i32);
-pub struct IDebugHelper(i32);
-pub struct IDebugHost(i32);
-pub struct IDebugHostBaseClass(i32);
-pub struct IDebugHostConstant(i32);
-pub struct IDebugHostContext(i32);
-pub struct IDebugHostData(i32);
-pub struct IDebugHostErrorSink(i32);
-pub struct IDebugHostEvaluator(i32);
-pub struct IDebugHostEvaluator2(i32);
-pub struct IDebugHostExtensibility(i32);
-pub struct IDebugHostField(i32);
-pub struct IDebugHostMemory(i32);
-pub struct IDebugHostMemory2(i32);
-pub struct IDebugHostModule(i32);
-pub struct IDebugHostModule2(i32);
-pub struct IDebugHostModuleSignature(i32);
-pub struct IDebugHostPublic(i32);
-pub struct IDebugHostScriptHost(i32);
-pub struct IDebugHostStatus(i32);
-pub struct IDebugHostSymbol(i32);
-pub struct IDebugHostSymbol2(i32);
-pub struct IDebugHostSymbolEnumerator(i32);
-pub struct IDebugHostSymbols(i32);
-pub struct IDebugHostType(i32);
-pub struct IDebugHostType2(i32);
-pub struct IDebugHostTypeSignature(i32);
-pub struct IDebugInputCallbacks(i32);
-pub struct IDebugOutputCallbacks(i32);
-pub struct IDebugOutputCallbacks2(i32);
-pub struct IDebugOutputCallbacksWide(i32);
-pub struct IDebugOutputStream(i32);
-pub struct IDebugPlmClient(i32);
-pub struct IDebugPlmClient2(i32);
-pub struct IDebugPlmClient3(i32);
-pub struct IDebugProperty(i32);
-pub struct IDebugPropertyEnumType_All(i32);
-pub struct IDebugPropertyEnumType_Arguments(i32);
-pub struct IDebugPropertyEnumType_Locals(i32);
-pub struct IDebugPropertyEnumType_LocalsPlusArgs(i32);
-pub struct IDebugPropertyEnumType_Registers(i32);
-pub struct IDebugRegisters(i32);
-pub struct IDebugRegisters2(i32);
-pub struct IDebugSessionProvider(i32);
-pub struct IDebugStackFrame(i32);
-pub struct IDebugStackFrame110(i32);
-pub struct IDebugStackFrameSniffer(i32);
-pub struct IDebugStackFrameSnifferEx32(i32);
-pub struct IDebugStackFrameSnifferEx64(i32);
-pub struct IDebugSymbolGroup(i32);
-pub struct IDebugSymbolGroup2(i32);
-pub struct IDebugSymbols(i32);
-pub struct IDebugSymbols2(i32);
-pub struct IDebugSymbols3(i32);
-pub struct IDebugSymbols4(i32);
-pub struct IDebugSymbols5(i32);
-pub struct IDebugSyncOperation(i32);
-pub struct IDebugSystemObjects(i32);
-pub struct IDebugSystemObjects2(i32);
-pub struct IDebugSystemObjects3(i32);
-pub struct IDebugSystemObjects4(i32);
-pub struct IDebugThreadCall32(i32);
-pub struct IDebugThreadCall64(i32);
-pub struct IDynamicConceptProviderConcept(i32);
-pub struct IDynamicKeyProviderConcept(i32);
-pub struct IEnumDebugApplicationNodes(i32);
-pub struct IEnumDebugCodeContexts(i32);
-pub struct IEnumDebugExpressionContexts(i32);
-pub struct IEnumDebugExtendedPropertyInfo(i32);
-pub struct IEnumDebugPropertyInfo(i32);
-pub struct IEnumDebugStackFrames(i32);
-pub struct IEnumDebugStackFrames64(i32);
-pub struct IEnumJsStackFrames(i32);
-pub struct IEnumRemoteDebugApplicationThreads(i32);
-pub struct IEnumRemoteDebugApplications(i32);
-pub struct IEquatableConcept(i32);
+pub struct IActiveScript(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptAuthor(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptAuthorProcedure(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptDebug32(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptDebug64(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptEncode(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptError(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptError64(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptErrorDebug(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptErrorDebug110(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptGarbageCollector(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptHostEncode(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptParse32(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptParse64(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptParseProcedure2_32(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptParseProcedure2_64(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptParseProcedure32(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptParseProcedure64(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptParseProcedureOld32(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptParseProcedureOld64(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptProfilerCallback(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptProfilerCallback2(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptProfilerCallback3(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptProfilerControl(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptProfilerControl2(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptProfilerControl3(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptProfilerControl4(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptProfilerControl5(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptProfilerHeapEnum(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptProperty(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptSIPInfo(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptSite(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptSiteDebug32(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptSiteDebug64(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptSiteDebugEx(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptSiteInterruptPoll(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptSiteTraceInfo(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptSiteUIControl(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptSiteWindow(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptStats(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptStringCompare(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptTraceInfo(pub *mut ::core::ffi::c_void);
+pub struct IActiveScriptWinRTErrorDebug(pub *mut ::core::ffi::c_void);
+pub struct IApplicationDebugger(pub *mut ::core::ffi::c_void);
+pub struct IApplicationDebuggerUI(pub *mut ::core::ffi::c_void);
+pub struct IBindEventHandler(pub *mut ::core::ffi::c_void);
+pub struct ICodeAddressConcept(pub *mut ::core::ffi::c_void);
+pub struct IComparableConcept(pub *mut ::core::ffi::c_void);
+pub struct IDataModelConcept(pub *mut ::core::ffi::c_void);
+pub struct IDataModelManager(pub *mut ::core::ffi::c_void);
+pub struct IDataModelManager2(pub *mut ::core::ffi::c_void);
+pub struct IDataModelNameBinder(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScript(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptClient(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptDebug(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptDebug2(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptDebugBreakpoint(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptDebugBreakpointEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptDebugClient(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptDebugStack(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptDebugStackFrame(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptDebugVariableSetEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptHostContext(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptManager(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptProvider(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptProviderEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptTemplate(pub *mut ::core::ffi::c_void);
+pub struct IDataModelScriptTemplateEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IDebugAdvanced(pub *mut ::core::ffi::c_void);
+pub struct IDebugAdvanced2(pub *mut ::core::ffi::c_void);
+pub struct IDebugAdvanced3(pub *mut ::core::ffi::c_void);
+pub struct IDebugAdvanced4(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplication11032(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplication11064(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplication32(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplication64(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplicationNode(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplicationNode100(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplicationNodeEvents(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplicationThread(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplicationThread11032(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplicationThread11064(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplicationThread64(pub *mut ::core::ffi::c_void);
+pub struct IDebugApplicationThreadEvents110(pub *mut ::core::ffi::c_void);
+pub struct IDebugAsyncOperation(pub *mut ::core::ffi::c_void);
+pub struct IDebugAsyncOperationCallBack(pub *mut ::core::ffi::c_void);
+pub struct IDebugBreakpoint(pub *mut ::core::ffi::c_void);
+pub struct IDebugBreakpoint2(pub *mut ::core::ffi::c_void);
+pub struct IDebugBreakpoint3(pub *mut ::core::ffi::c_void);
+pub struct IDebugClient(pub *mut ::core::ffi::c_void);
+pub struct IDebugClient2(pub *mut ::core::ffi::c_void);
+pub struct IDebugClient3(pub *mut ::core::ffi::c_void);
+pub struct IDebugClient4(pub *mut ::core::ffi::c_void);
+pub struct IDebugClient5(pub *mut ::core::ffi::c_void);
+pub struct IDebugClient6(pub *mut ::core::ffi::c_void);
+pub struct IDebugClient7(pub *mut ::core::ffi::c_void);
+pub struct IDebugClient8(pub *mut ::core::ffi::c_void);
+pub struct IDebugCodeContext(pub *mut ::core::ffi::c_void);
+pub struct IDebugControl(pub *mut ::core::ffi::c_void);
+pub struct IDebugControl2(pub *mut ::core::ffi::c_void);
+pub struct IDebugControl3(pub *mut ::core::ffi::c_void);
+pub struct IDebugControl4(pub *mut ::core::ffi::c_void);
+pub struct IDebugControl5(pub *mut ::core::ffi::c_void);
+pub struct IDebugControl6(pub *mut ::core::ffi::c_void);
+pub struct IDebugControl7(pub *mut ::core::ffi::c_void);
+pub struct IDebugCookie(pub *mut ::core::ffi::c_void);
+pub struct IDebugDataSpaces(pub *mut ::core::ffi::c_void);
+pub struct IDebugDataSpaces2(pub *mut ::core::ffi::c_void);
+pub struct IDebugDataSpaces3(pub *mut ::core::ffi::c_void);
+pub struct IDebugDataSpaces4(pub *mut ::core::ffi::c_void);
+pub struct IDebugDocument(pub *mut ::core::ffi::c_void);
+pub struct IDebugDocumentContext(pub *mut ::core::ffi::c_void);
+pub struct IDebugDocumentHelper32(pub *mut ::core::ffi::c_void);
+pub struct IDebugDocumentHelper64(pub *mut ::core::ffi::c_void);
+pub struct IDebugDocumentHost(pub *mut ::core::ffi::c_void);
+pub struct IDebugDocumentInfo(pub *mut ::core::ffi::c_void);
+pub struct IDebugDocumentProvider(pub *mut ::core::ffi::c_void);
+pub struct IDebugDocumentText(pub *mut ::core::ffi::c_void);
+pub struct IDebugDocumentTextAuthor(pub *mut ::core::ffi::c_void);
+pub struct IDebugDocumentTextEvents(pub *mut ::core::ffi::c_void);
+pub struct IDebugDocumentTextExternalAuthor(pub *mut ::core::ffi::c_void);
+pub struct IDebugEventCallbacks(pub *mut ::core::ffi::c_void);
+pub struct IDebugEventCallbacksWide(pub *mut ::core::ffi::c_void);
+pub struct IDebugEventContextCallbacks(pub *mut ::core::ffi::c_void);
+pub struct IDebugExpression(pub *mut ::core::ffi::c_void);
+pub struct IDebugExpressionCallBack(pub *mut ::core::ffi::c_void);
+pub struct IDebugExpressionContext(pub *mut ::core::ffi::c_void);
+pub struct IDebugExtendedProperty(pub *mut ::core::ffi::c_void);
+pub struct IDebugFormatter(pub *mut ::core::ffi::c_void);
+pub struct IDebugHelper(pub *mut ::core::ffi::c_void);
+pub struct IDebugHost(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostBaseClass(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostConstant(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostContext(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostData(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostErrorSink(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostEvaluator(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostEvaluator2(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostExtensibility(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostField(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostMemory(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostMemory2(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostModule(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostModule2(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostModuleSignature(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostPublic(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostScriptHost(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostStatus(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostSymbol(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostSymbol2(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostSymbolEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostSymbols(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostType(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostType2(pub *mut ::core::ffi::c_void);
+pub struct IDebugHostTypeSignature(pub *mut ::core::ffi::c_void);
+pub struct IDebugInputCallbacks(pub *mut ::core::ffi::c_void);
+pub struct IDebugOutputCallbacks(pub *mut ::core::ffi::c_void);
+pub struct IDebugOutputCallbacks2(pub *mut ::core::ffi::c_void);
+pub struct IDebugOutputCallbacksWide(pub *mut ::core::ffi::c_void);
+pub struct IDebugOutputStream(pub *mut ::core::ffi::c_void);
+pub struct IDebugPlmClient(pub *mut ::core::ffi::c_void);
+pub struct IDebugPlmClient2(pub *mut ::core::ffi::c_void);
+pub struct IDebugPlmClient3(pub *mut ::core::ffi::c_void);
+pub struct IDebugProperty(pub *mut ::core::ffi::c_void);
+pub struct IDebugPropertyEnumType_All(pub *mut ::core::ffi::c_void);
+pub struct IDebugPropertyEnumType_Arguments(pub *mut ::core::ffi::c_void);
+pub struct IDebugPropertyEnumType_Locals(pub *mut ::core::ffi::c_void);
+pub struct IDebugPropertyEnumType_LocalsPlusArgs(pub *mut ::core::ffi::c_void);
+pub struct IDebugPropertyEnumType_Registers(pub *mut ::core::ffi::c_void);
+pub struct IDebugRegisters(pub *mut ::core::ffi::c_void);
+pub struct IDebugRegisters2(pub *mut ::core::ffi::c_void);
+pub struct IDebugSessionProvider(pub *mut ::core::ffi::c_void);
+pub struct IDebugStackFrame(pub *mut ::core::ffi::c_void);
+pub struct IDebugStackFrame110(pub *mut ::core::ffi::c_void);
+pub struct IDebugStackFrameSniffer(pub *mut ::core::ffi::c_void);
+pub struct IDebugStackFrameSnifferEx32(pub *mut ::core::ffi::c_void);
+pub struct IDebugStackFrameSnifferEx64(pub *mut ::core::ffi::c_void);
+pub struct IDebugSymbolGroup(pub *mut ::core::ffi::c_void);
+pub struct IDebugSymbolGroup2(pub *mut ::core::ffi::c_void);
+pub struct IDebugSymbols(pub *mut ::core::ffi::c_void);
+pub struct IDebugSymbols2(pub *mut ::core::ffi::c_void);
+pub struct IDebugSymbols3(pub *mut ::core::ffi::c_void);
+pub struct IDebugSymbols4(pub *mut ::core::ffi::c_void);
+pub struct IDebugSymbols5(pub *mut ::core::ffi::c_void);
+pub struct IDebugSyncOperation(pub *mut ::core::ffi::c_void);
+pub struct IDebugSystemObjects(pub *mut ::core::ffi::c_void);
+pub struct IDebugSystemObjects2(pub *mut ::core::ffi::c_void);
+pub struct IDebugSystemObjects3(pub *mut ::core::ffi::c_void);
+pub struct IDebugSystemObjects4(pub *mut ::core::ffi::c_void);
+pub struct IDebugThreadCall32(pub *mut ::core::ffi::c_void);
+pub struct IDebugThreadCall64(pub *mut ::core::ffi::c_void);
+pub struct IDynamicConceptProviderConcept(pub *mut ::core::ffi::c_void);
+pub struct IDynamicKeyProviderConcept(pub *mut ::core::ffi::c_void);
+pub struct IEnumDebugApplicationNodes(pub *mut ::core::ffi::c_void);
+pub struct IEnumDebugCodeContexts(pub *mut ::core::ffi::c_void);
+pub struct IEnumDebugExpressionContexts(pub *mut ::core::ffi::c_void);
+pub struct IEnumDebugExtendedPropertyInfo(pub *mut ::core::ffi::c_void);
+pub struct IEnumDebugPropertyInfo(pub *mut ::core::ffi::c_void);
+pub struct IEnumDebugStackFrames(pub *mut ::core::ffi::c_void);
+pub struct IEnumDebugStackFrames64(pub *mut ::core::ffi::c_void);
+pub struct IEnumJsStackFrames(pub *mut ::core::ffi::c_void);
+pub struct IEnumRemoteDebugApplicationThreads(pub *mut ::core::ffi::c_void);
+pub struct IEnumRemoteDebugApplications(pub *mut ::core::ffi::c_void);
+pub struct IEquatableConcept(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IG_DISASSEMBLE_BUFFER: u32 = 44u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
@@ -3191,19 +3190,19 @@ pub const IG_WRITE_MSR: u32 = 13u32;
 pub const IG_WRITE_PHYSICAL: u32 = 7u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IG_WRITE_PHYSICAL_WITH_FLAGS: u32 = 34u32;
-pub struct IHostDataModelAccess(i32);
-pub struct IIndexableConcept(i32);
-pub struct IIterableConcept(i32);
-pub struct IJsDebug(i32);
-pub struct IJsDebugBreakPoint(i32);
-pub struct IJsDebugDataTarget(i32);
-pub struct IJsDebugFrame(i32);
-pub struct IJsDebugProcess(i32);
-pub struct IJsDebugProperty(i32);
-pub struct IJsDebugStackWalker(i32);
-pub struct IJsEnumDebugProperty(i32);
-pub struct IKeyEnumerator(i32);
-pub struct IKeyStore(i32);
+pub struct IHostDataModelAccess(pub *mut ::core::ffi::c_void);
+pub struct IIndexableConcept(pub *mut ::core::ffi::c_void);
+pub struct IIterableConcept(pub *mut ::core::ffi::c_void);
+pub struct IJsDebug(pub *mut ::core::ffi::c_void);
+pub struct IJsDebugBreakPoint(pub *mut ::core::ffi::c_void);
+pub struct IJsDebugDataTarget(pub *mut ::core::ffi::c_void);
+pub struct IJsDebugFrame(pub *mut ::core::ffi::c_void);
+pub struct IJsDebugProcess(pub *mut ::core::ffi::c_void);
+pub struct IJsDebugProperty(pub *mut ::core::ffi::c_void);
+pub struct IJsDebugStackWalker(pub *mut ::core::ffi::c_void);
+pub struct IJsEnumDebugProperty(pub *mut ::core::ffi::c_void);
+pub struct IKeyEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IKeyStore(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_CBA_EVENT(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -3349,15 +3348,15 @@ pub struct IMAGE_RUNTIME_FUNCTION_ENTRY(i32);
 pub struct IMAGE_SECTION_CHARACTERISTICS(i32);
 pub struct IMAGE_SECTION_HEADER(i32);
 pub struct IMAGE_SUBSYSTEM(i32);
-pub struct IMachineDebugManager(i32);
-pub struct IMachineDebugManagerCookie(i32);
-pub struct IMachineDebugManagerEvents(i32);
-pub struct IModelIterator(i32);
-pub struct IModelKeyReference(i32);
-pub struct IModelKeyReference2(i32);
-pub struct IModelMethod(i32);
-pub struct IModelObject(i32);
-pub struct IModelPropertyAccessor(i32);
+pub struct IMachineDebugManager(pub *mut ::core::ffi::c_void);
+pub struct IMachineDebugManagerCookie(pub *mut ::core::ffi::c_void);
+pub struct IMachineDebugManagerEvents(pub *mut ::core::ffi::c_void);
+pub struct IModelIterator(pub *mut ::core::ffi::c_void);
+pub struct IModelKeyReference(pub *mut ::core::ffi::c_void);
+pub struct IModelKeyReference2(pub *mut ::core::ffi::c_void);
+pub struct IModelMethod(pub *mut ::core::ffi::c_void);
+pub struct IModelObject(pub *mut ::core::ffi::c_void);
+pub struct IModelPropertyAccessor(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const INCORRECT_VERSION_INFO: u32 = 7u32;
 pub struct INLINE_FRAME_CONTEXT(i32);
@@ -3383,7 +3382,7 @@ pub struct IOSPACE64(i32);
 pub struct IOSPACE_EX(i32);
 pub struct IOSPACE_EX32(i32);
 pub struct IOSPACE_EX64(i32);
-pub struct IObjectSafety(i32);
+pub struct IObjectSafety(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IPMI_IOCTL_INDEX: u32 = 1024u32;
 pub struct IPMI_OS_SEL_RECORD(i32);
@@ -3394,27 +3393,27 @@ pub struct IPMI_OS_SEL_RECORD_TYPE(i32);
 pub const IPMI_OS_SEL_RECORD_VERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IPMI_OS_SEL_RECORD_VERSION_1: u32 = 1u32;
-pub struct IPerPropertyBrowsing2(i32);
-pub struct IPreferredRuntimeTypeConcept(i32);
-pub struct IProcessDebugManager32(i32);
-pub struct IProcessDebugManager64(i32);
-pub struct IProvideExpressionContexts(i32);
-pub struct IRawEnumerator(i32);
-pub struct IRemoteDebugApplication(i32);
-pub struct IRemoteDebugApplication110(i32);
-pub struct IRemoteDebugApplicationEvents(i32);
-pub struct IRemoteDebugApplicationThread(i32);
-pub struct IRemoteDebugCriticalErrorEvent110(i32);
-pub struct IRemoteDebugInfoEvent110(i32);
-pub struct IScriptEntry(i32);
-pub struct IScriptInvocationContext(i32);
-pub struct IScriptNode(i32);
-pub struct IScriptScriptlet(i32);
-pub struct ISimpleConnectionPoint(i32);
-pub struct IStringDisplayableConcept(i32);
-pub struct ITridentEventSink(i32);
-pub struct IWebAppDiagnosticsObjectInitialization(i32);
-pub struct IWebAppDiagnosticsSetup(i32);
+pub struct IPerPropertyBrowsing2(pub *mut ::core::ffi::c_void);
+pub struct IPreferredRuntimeTypeConcept(pub *mut ::core::ffi::c_void);
+pub struct IProcessDebugManager32(pub *mut ::core::ffi::c_void);
+pub struct IProcessDebugManager64(pub *mut ::core::ffi::c_void);
+pub struct IProvideExpressionContexts(pub *mut ::core::ffi::c_void);
+pub struct IRawEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IRemoteDebugApplication(pub *mut ::core::ffi::c_void);
+pub struct IRemoteDebugApplication110(pub *mut ::core::ffi::c_void);
+pub struct IRemoteDebugApplicationEvents(pub *mut ::core::ffi::c_void);
+pub struct IRemoteDebugApplicationThread(pub *mut ::core::ffi::c_void);
+pub struct IRemoteDebugCriticalErrorEvent110(pub *mut ::core::ffi::c_void);
+pub struct IRemoteDebugInfoEvent110(pub *mut ::core::ffi::c_void);
+pub struct IScriptEntry(pub *mut ::core::ffi::c_void);
+pub struct IScriptInvocationContext(pub *mut ::core::ffi::c_void);
+pub struct IScriptNode(pub *mut ::core::ffi::c_void);
+pub struct IScriptScriptlet(pub *mut ::core::ffi::c_void);
+pub struct ISimpleConnectionPoint(pub *mut ::core::ffi::c_void);
+pub struct IStringDisplayableConcept(pub *mut ::core::ffi::c_void);
+pub struct ITridentEventSink(pub *mut ::core::ffi::c_void);
+pub struct IWebAppDiagnosticsObjectInitialization(pub *mut ::core::ffi::c_void);
+pub struct IWebAppDiagnosticsSetup(pub *mut ::core::ffi::c_void);
 pub struct IntrinsicKind(i32);
 pub struct JS_PROPERTY_ATTRIBUTES(i32);
 pub struct JS_PROPERTY_MEMBERS(i32);
@@ -3452,7 +3451,6 @@ pub struct LOADED_IMAGE(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOAD_DLL_DEBUG_INFO(i32);
 pub struct LPCALL_BACK_USER_INTERRUPT_ROUTINE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LPTOP_LEVEL_EXCEPTION_FILTER(i32);
 pub struct LanguageKind(i32);
 pub struct Location(i32);
@@ -3468,7 +3466,6 @@ pub struct MINIDUMP_CALLBACK_INFORMATION(i32);
 pub struct MINIDUMP_CALLBACK_INPUT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_ROUTINE(i32);
 pub struct MINIDUMP_CALLBACK_TYPE(i32);
 pub struct MINIDUMP_DIRECTORY(i32);
@@ -3635,67 +3632,38 @@ pub struct OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS(i32);
 pub struct OUTPUT_DEBUG_STRING_INFO(i32);
 pub struct PCOGETACTIVATIONSTATE(i32);
 pub struct PCOGETCALLSTATE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDBGHELP_CREATE_USER_DUMP_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_EXTENSION_CALL(i32);
 pub struct PDEBUG_EXTENSION_CANUNLOAD(i32);
 pub struct PDEBUG_EXTENSION_INITIALIZE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_EXTENSION_KNOWN_STRUCT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_EXTENSION_KNOWN_STRUCT_EX(i32);
 pub struct PDEBUG_EXTENSION_NOTIFY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_EXTENSION_PROVIDE_VALUE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_EXTENSION_QUERY_VALUE_NAMES(i32);
 pub struct PDEBUG_EXTENSION_UNINITIALIZE(i32);
 pub struct PDEBUG_EXTENSION_UNLOAD(i32);
 pub struct PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION(i32);
 pub struct PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMDIRTREE_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMDIRTREE_CALLBACKW(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMLOADED_MODULES_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMLOADED_MODULES_CALLBACK64(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMLOADED_MODULES_CALLBACKW64(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMSOURCEFILETOKENSCALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFINDFILEINPATHCALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFINDFILEINPATHCALLBACKW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFIND_DEBUG_FILE_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFIND_DEBUG_FILE_CALLBACKW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFIND_EXE_FILE_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFIND_EXE_FILE_CALLBACKW(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFUNCTION_TABLE_ACCESS_ROUTINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFUNCTION_TABLE_ACCESS_ROUTINE64(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PGET_MODULE_BASE_ROUTINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PGET_MODULE_BASE_ROUTINE64(i32);
-#[cfg(any(target_arch = "aarch64",))]
 pub struct PGET_RUNTIME_FUNCTION_CALLBACK(i32);
-#[cfg(any(target_arch = "x86_64",))]
 pub struct PGET_RUNTIME_FUNCTION_CALLBACK(i32);
 pub struct PHYSICAL(i32);
 pub struct PHYSICAL_MEMORY_DESCRIPTOR32(i32);
@@ -3712,17 +3680,11 @@ pub const PHYS_FLAG_DEFAULT: u32 = 0u32;
 pub const PHYS_FLAG_UNCACHED: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const PHYS_FLAG_WRITE_COMBINED: u32 = 3u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PIMAGEHLP_STATUS_ROUTINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PIMAGEHLP_STATUS_ROUTINE32(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PIMAGEHLP_STATUS_ROUTINE64(i32);
 pub struct POINTER_SEARCH_PHYSICAL(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PREAD_PROCESS_MEMORY_ROUTINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PREAD_PROCESS_MEMORY_ROUTINE64(i32);
 pub struct PROCESSORINFO(i32);
 pub struct PROCESSOR_ARCHITECTURE(i32);
@@ -3749,117 +3711,60 @@ pub struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO(i32);
 pub struct PROFILER_RELATIONSHIP_INFO(i32);
 pub struct PROFILER_SCRIPT_TYPE(i32);
 pub struct PROP_INFO_FLAGS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERBYINDEXPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERBYINDEXPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERBYINDEXPROCW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERCALLBACKPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERCLOSEPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERDELTANAME(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERDELTANAMEW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETINDEXSTRING(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETINDEXSTRINGW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETOPTIONDATAPROC(i32);
 pub struct PSYMBOLSERVERGETOPTIONSPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETSUPPLEMENT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETSUPPLEMENTW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETVERSION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERISSTORE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERISSTOREW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERMESSAGEPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVEROPENPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPINGPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPINGPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPINGPROCW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPINGPROCWEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPROCW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSETHTTPAUTHHEADER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSETOPTIONSPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSETOPTIONSWPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSTOREFILE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSTOREFILEW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSTORESUPPLEMENT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSTORESUPPLEMENTW(i32);
 pub struct PSYMBOLSERVERVERSION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERWEXPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOL_FUNCENTRY_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOL_FUNCENTRY_CALLBACK64(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOL_REGISTERED_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOL_REGISTERED_CALLBACK64(i32);
 pub struct PSYM_DUMP_FIELD_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMERATESYMBOLS_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMERATESYMBOLS_CALLBACKW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMLINES_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMLINES_CALLBACKW(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMMODULES_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMMODULES_CALLBACK64(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMMODULES_CALLBACKW64(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMPROCESSES_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSOURCEFILES_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSOURCEFILES_CALLBACKW(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSYMBOLS_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSYMBOLS_CALLBACK64(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSYMBOLS_CALLBACK64W(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSYMBOLS_CALLBACKW(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PTRANSLATE_ADDRESS_ROUTINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PTRANSLATE_ADDRESS_ROUTINE64(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const PTR_SEARCH_NO_SYMBOL_CHECK: u32 = 2147483648u32;
@@ -3871,58 +3776,36 @@ pub const PTR_SEARCH_PHYS_PTE: u32 = 2u32;
 pub const PTR_SEARCH_PHYS_RANGE_CHECK_ONLY: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const PTR_SEARCH_PHYS_SIZE_SHIFT: u32 = 3u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PVECTORED_EXCEPTION_HANDLER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWAITCHAINCALLBACK(i32);
 pub struct PWINDBG_CHECK_CONTROL_C(i32);
 pub struct PWINDBG_CHECK_VERSION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_DISASM(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_DISASM32(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_DISASM64(i32);
 pub struct PWINDBG_EXTENSION_API_VERSION(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PWINDBG_EXTENSION_DLL_INIT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PWINDBG_EXTENSION_DLL_INIT32(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PWINDBG_EXTENSION_DLL_INIT64(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_EXTENSION_ROUTINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_EXTENSION_ROUTINE32(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_EXTENSION_ROUTINE64(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_EXPRESSION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_EXPRESSION32(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_EXPRESSION64(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_SYMBOL(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_SYMBOL32(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_SYMBOL64(i32);
-#[cfg(feature = "Win32_System_Kernel")]
 pub struct PWINDBG_GET_THREAD_CONTEXT_ROUTINE(i32);
 pub struct PWINDBG_IOCTL_ROUTINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_OLDKD_EXTENSION_ROUTINE(i32);
 pub struct PWINDBG_OLDKD_READ_PHYSICAL_MEMORY(i32);
 pub struct PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PWINDBG_OLD_EXTENSION_ROUTINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_OUTPUT_ROUTINE(i32);
 pub struct PWINDBG_READ_PROCESS_MEMORY_ROUTINE(i32);
 pub struct PWINDBG_READ_PROCESS_MEMORY_ROUTINE32(i32);
 pub struct PWINDBG_READ_PROCESS_MEMORY_ROUTINE64(i32);
-#[cfg(feature = "Win32_System_Kernel")]
 pub struct PWINDBG_SET_THREAD_CONTEXT_ROUTINE(i32);
 pub struct PWINDBG_STACKTRACE_ROUTINE(i32);
 pub struct PWINDBG_STACKTRACE_ROUTINE32(i32);
@@ -4234,9 +4117,7 @@ pub const STACK_FRAME_TYPE_STACK: u32 = 1u32;
 pub struct STACK_SRC_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct STACK_SYM_FRAME_INFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct SYMADDSOURCESTREAM(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct SYMADDSOURCESTREAMA(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYMBOL_INFO(i32);
@@ -4550,7 +4431,6 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD(i32);
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_DESCRIPTOR(i32);
@@ -4588,7 +4468,6 @@ pub const WHEA_ERROR_SOURCE_FLAG_FIRMWAREFIRST: u32 = 1u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_ERROR_SOURCE_FLAG_GLOBAL: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: u32 = 65535u32;

@@ -2,22 +2,22 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct Ellipse(i32);
-pub struct IEllipse(i32);
-pub struct ILine(i32);
-pub struct ILineStatics(i32);
-pub struct IPath(i32);
-pub struct IPathFactory(i32);
-pub struct IPathStatics(i32);
-pub struct IPolygon(i32);
-pub struct IPolygonStatics(i32);
-pub struct IPolyline(i32);
-pub struct IPolylineStatics(i32);
-pub struct IRectangle(i32);
-pub struct IRectangleStatics(i32);
-pub struct IShape(i32);
-pub struct IShape2(i32);
-pub struct IShapeFactory(i32);
-pub struct IShapeStatics(i32);
+pub struct IEllipse(pub *mut ::core::ffi::c_void);
+pub struct ILine(pub *mut ::core::ffi::c_void);
+pub struct ILineStatics(pub *mut ::core::ffi::c_void);
+pub struct IPath(pub *mut ::core::ffi::c_void);
+pub struct IPathFactory(pub *mut ::core::ffi::c_void);
+pub struct IPathStatics(pub *mut ::core::ffi::c_void);
+pub struct IPolygon(pub *mut ::core::ffi::c_void);
+pub struct IPolygonStatics(pub *mut ::core::ffi::c_void);
+pub struct IPolyline(pub *mut ::core::ffi::c_void);
+pub struct IPolylineStatics(pub *mut ::core::ffi::c_void);
+pub struct IRectangle(pub *mut ::core::ffi::c_void);
+pub struct IRectangleStatics(pub *mut ::core::ffi::c_void);
+pub struct IShape(pub *mut ::core::ffi::c_void);
+pub struct IShape2(pub *mut ::core::ffi::c_void);
+pub struct IShapeFactory(pub *mut ::core::ffi::c_void);
+pub struct IShapeStatics(pub *mut ::core::ffi::c_void);
 pub struct Line(i32);
 pub struct Path(i32);
 pub struct Polygon(i32);

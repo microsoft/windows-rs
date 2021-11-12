@@ -2,4 +2,4 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct GameControllerProviderInfo(i32);
-pub struct IGameControllerProviderInfoStatics(i32);
+pub struct IGameControllerProviderInfoStatics(pub *mut ::core::ffi::c_void);

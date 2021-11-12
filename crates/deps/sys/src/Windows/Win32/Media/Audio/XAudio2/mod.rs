@@ -119,17 +119,17 @@ pub struct HrtfDistanceDecayType(i32);
 pub struct HrtfEnvironment(i32);
 pub struct HrtfOrientation(i32);
 pub struct HrtfPosition(i32);
-pub struct IXAPO(i32);
-pub struct IXAPOHrtfParameters(i32);
-pub struct IXAPOParameters(i32);
-pub struct IXAudio2(i32);
-pub struct IXAudio2EngineCallback(i32);
-pub struct IXAudio2Extension(i32);
-pub struct IXAudio2MasteringVoice(i32);
-pub struct IXAudio2SourceVoice(i32);
-pub struct IXAudio2SubmixVoice(i32);
-pub struct IXAudio2Voice(i32);
-pub struct IXAudio2VoiceCallback(i32);
+pub struct IXAPO(pub *mut ::core::ffi::c_void);
+pub struct IXAPOHrtfParameters(pub *mut ::core::ffi::c_void);
+pub struct IXAPOParameters(pub *mut ::core::ffi::c_void);
+pub struct IXAudio2(pub *mut ::core::ffi::c_void);
+pub struct IXAudio2EngineCallback(pub *mut ::core::ffi::c_void);
+pub struct IXAudio2Extension(pub *mut ::core::ffi::c_void);
+pub struct IXAudio2MasteringVoice(pub *mut ::core::ffi::c_void);
+pub struct IXAudio2SourceVoice(pub *mut ::core::ffi::c_void);
+pub struct IXAudio2SubmixVoice(pub *mut ::core::ffi::c_void);
+pub struct IXAudio2Voice(pub *mut ::core::ffi::c_void);
+pub struct IXAudio2VoiceCallback(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const Processor1: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]

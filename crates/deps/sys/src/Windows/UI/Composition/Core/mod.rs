@@ -2,4 +2,4 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct CompositorController(i32);
-pub struct ICompositorController(i32);
+pub struct ICompositorController(pub *mut ::core::ffi::c_void);

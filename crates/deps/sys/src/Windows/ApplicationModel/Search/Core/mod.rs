@@ -1,10 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IRequestingFocusOnKeyboardInputEventArgs(i32);
-pub struct ISearchSuggestion(i32);
-pub struct ISearchSuggestionManager(i32);
-pub struct ISearchSuggestionsRequestedEventArgs(i32);
+pub struct IRequestingFocusOnKeyboardInputEventArgs(pub *mut ::core::ffi::c_void);
+pub struct ISearchSuggestion(pub *mut ::core::ffi::c_void);
+pub struct ISearchSuggestionManager(pub *mut ::core::ffi::c_void);
+pub struct ISearchSuggestionsRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct RequestingFocusOnKeyboardInputEventArgs(i32);
 pub struct SearchCoreContract(i32);
 pub struct SearchSuggestion(i32);

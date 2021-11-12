@@ -534,7 +534,6 @@ pub struct DRT_ADDRESS_FLAGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_ADDRESS_LIST(i32);
 pub struct DRT_BOOTSTRAP_PROVIDER(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_BOOTSTRAP_RESOLVE_CALLBACK(i32);
 pub struct DRT_DATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -818,9 +817,7 @@ pub struct PEER_VERSION_DATA(i32);
 pub struct PEER_WATCH_PERMISSION(i32);
 pub struct PFNPEER_FREE_SECURITY_DATA(i32);
 pub struct PFNPEER_ON_PASSWORD_AUTH_FAILED(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNPEER_SECURE_RECORD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNPEER_VALIDATE_RECORD(i32);
 pub struct PNRPCLOUDINFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]

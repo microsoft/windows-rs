@@ -7,4 +7,4 @@ pub struct ClosedCaptionOpacity(i32);
 pub struct ClosedCaptionProperties(i32);
 pub struct ClosedCaptionSize(i32);
 pub struct ClosedCaptionStyle(i32);
-pub struct IClosedCaptionPropertiesStatics(i32);
+pub struct IClosedCaptionPropertiesStatics(pub *mut ::core::ffi::c_void);

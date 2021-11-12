@@ -2,10 +2,10 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct CoreAppWindowPreview(i32);
-pub struct ICoreAppWindowPreview(i32);
-pub struct ICoreAppWindowPreviewStatics(i32);
-pub struct ISystemNavigationCloseRequestedPreviewEventArgs(i32);
-pub struct ISystemNavigationManagerPreview(i32);
-pub struct ISystemNavigationManagerPreviewStatics(i32);
+pub struct ICoreAppWindowPreview(pub *mut ::core::ffi::c_void);
+pub struct ICoreAppWindowPreviewStatics(pub *mut ::core::ffi::c_void);
+pub struct ISystemNavigationCloseRequestedPreviewEventArgs(pub *mut ::core::ffi::c_void);
+pub struct ISystemNavigationManagerPreview(pub *mut ::core::ffi::c_void);
+pub struct ISystemNavigationManagerPreviewStatics(pub *mut ::core::ffi::c_void);
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(i32);
 pub struct SystemNavigationManagerPreview(i32);

@@ -1,19 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IXboxLiveDeviceAddress(i32);
-pub struct IXboxLiveDeviceAddressStatics(i32);
-pub struct IXboxLiveEndpointPair(i32);
-pub struct IXboxLiveEndpointPairCreationResult(i32);
-pub struct IXboxLiveEndpointPairStateChangedEventArgs(i32);
-pub struct IXboxLiveEndpointPairStatics(i32);
-pub struct IXboxLiveEndpointPairTemplate(i32);
-pub struct IXboxLiveEndpointPairTemplateStatics(i32);
-pub struct IXboxLiveInboundEndpointPairCreatedEventArgs(i32);
-pub struct IXboxLiveQualityOfServiceMeasurement(i32);
-pub struct IXboxLiveQualityOfServiceMeasurementStatics(i32);
-pub struct IXboxLiveQualityOfServiceMetricResult(i32);
-pub struct IXboxLiveQualityOfServicePrivatePayloadResult(i32);
+pub struct IXboxLiveDeviceAddress(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveDeviceAddressStatics(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveEndpointPair(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveEndpointPairCreationResult(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveEndpointPairStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveEndpointPairStatics(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveEndpointPairTemplate(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveEndpointPairTemplateStatics(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveInboundEndpointPairCreatedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveQualityOfServiceMeasurement(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveQualityOfServiceMeasurementStatics(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveQualityOfServiceMetricResult(pub *mut ::core::ffi::c_void);
+pub struct IXboxLiveQualityOfServicePrivatePayloadResult(pub *mut ::core::ffi::c_void);
 pub struct XboxLiveDeviceAddress(i32);
 pub struct XboxLiveEndpointPair(i32);
 pub struct XboxLiveEndpointPairCreationBehaviors(i32);

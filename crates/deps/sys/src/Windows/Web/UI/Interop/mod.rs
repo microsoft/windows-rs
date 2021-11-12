@@ -1,13 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IWebViewControlAcceleratorKeyPressedEventArgs(i32);
-pub struct IWebViewControlMoveFocusRequestedEventArgs(i32);
-pub struct IWebViewControlProcess(i32);
-pub struct IWebViewControlProcessFactory(i32);
-pub struct IWebViewControlProcessOptions(i32);
-pub struct IWebViewControlSite(i32);
-pub struct IWebViewControlSite2(i32);
+pub struct IWebViewControlAcceleratorKeyPressedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWebViewControlMoveFocusRequestedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWebViewControlProcess(pub *mut ::core::ffi::c_void);
+pub struct IWebViewControlProcessFactory(pub *mut ::core::ffi::c_void);
+pub struct IWebViewControlProcessOptions(pub *mut ::core::ffi::c_void);
+pub struct IWebViewControlSite(pub *mut ::core::ffi::c_void);
+pub struct IWebViewControlSite2(pub *mut ::core::ffi::c_void);
 pub struct WebViewControl(i32);
 pub struct WebViewControlAcceleratorKeyPressedEventArgs(i32);
 pub struct WebViewControlAcceleratorKeyRoutingStage(i32);

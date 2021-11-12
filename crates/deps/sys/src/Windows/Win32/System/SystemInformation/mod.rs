@@ -297,9 +297,7 @@ pub struct OSVERSIONINFOW(i32);
 pub const OSVERSION_MASK: u32 = 4294901760u32;
 pub struct OS_DEPLOYEMENT_STATE_VALUES(i32);
 pub struct OS_PRODUCT_TYPE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PGET_SYSTEM_WOW64_DIRECTORY_A(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PGET_SYSTEM_WOW64_DIRECTORY_W(i32);
 pub struct PROCESSOR_CACHE_TYPE(i32);
 pub struct PROCESSOR_GROUP_INFO(i32);

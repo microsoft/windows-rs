@@ -963,15 +963,10 @@ pub const IP6_ADDRESS_STRING_LENGTH: u32 = 65u32;
 pub struct MDNS_QUERY_HANDLE(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct MDNS_QUERY_REQUEST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDNS_QUERY_COMPLETION_ROUTINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDNS_SERVICE_BROWSE_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDNS_SERVICE_REGISTER_COMPLETE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDNS_SERVICE_RESOLVE_COMPLETE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMDNS_QUERY_CALLBACK(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const SIZEOF_IP4_ADDRESS: u32 = 4u32;

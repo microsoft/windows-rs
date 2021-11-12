@@ -21,14 +21,14 @@ pub const EVCF_SETTINGSMODE: u32 = 32u32;
 pub const EVCF_SYSTEMAUTORUN: u32 = 256u32;
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCF_USERCONSENTOBTAINED: u32 = 128u32;
-pub struct IADesktopP2(i32);
-pub struct IActiveDesktopP(i32);
-pub struct IBriefcaseInitiator(i32);
-pub struct IEmptyVolumeCache(i32);
-pub struct IEmptyVolumeCache2(i32);
-pub struct IEmptyVolumeCacheCallBack(i32);
-pub struct IReconcilableObject(i32);
-pub struct IReconcileInitiator(i32);
+pub struct IADesktopP2(pub *mut ::core::ffi::c_void);
+pub struct IActiveDesktopP(pub *mut ::core::ffi::c_void);
+pub struct IBriefcaseInitiator(pub *mut ::core::ffi::c_void);
+pub struct IEmptyVolumeCache(pub *mut ::core::ffi::c_void);
+pub struct IEmptyVolumeCache2(pub *mut ::core::ffi::c_void);
+pub struct IEmptyVolumeCacheCallBack(pub *mut ::core::ffi::c_void);
+pub struct IReconcilableObject(pub *mut ::core::ffi::c_void);
+pub struct IReconcileInitiator(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const REC_E_ABORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217408i32 as _);
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]

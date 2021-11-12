@@ -7,7 +7,7 @@ pub struct CompositionType(i32);
 pub struct DeprecationType(i32);
 pub struct FeatureStage(i32);
 pub struct GCPressureAmount(i32);
-pub struct IApiInformationStatics(i32);
+pub struct IApiInformationStatics(pub *mut ::core::ffi::c_void);
 pub struct MarshalingType(i32);
 pub struct Platform(i32);
 pub struct ThreadingModel(i32);

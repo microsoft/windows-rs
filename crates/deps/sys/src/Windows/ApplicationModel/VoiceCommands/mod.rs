@@ -1,18 +1,18 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IVoiceCommand(i32);
-pub struct IVoiceCommandCompletedEventArgs(i32);
-pub struct IVoiceCommandConfirmationResult(i32);
-pub struct IVoiceCommandContentTile(i32);
-pub struct IVoiceCommandDefinition(i32);
-pub struct IVoiceCommandDefinitionManagerStatics(i32);
-pub struct IVoiceCommandDisambiguationResult(i32);
-pub struct IVoiceCommandResponse(i32);
-pub struct IVoiceCommandResponseStatics(i32);
-pub struct IVoiceCommandServiceConnection(i32);
-pub struct IVoiceCommandServiceConnectionStatics(i32);
-pub struct IVoiceCommandUserMessage(i32);
+pub struct IVoiceCommand(pub *mut ::core::ffi::c_void);
+pub struct IVoiceCommandCompletedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IVoiceCommandConfirmationResult(pub *mut ::core::ffi::c_void);
+pub struct IVoiceCommandContentTile(pub *mut ::core::ffi::c_void);
+pub struct IVoiceCommandDefinition(pub *mut ::core::ffi::c_void);
+pub struct IVoiceCommandDefinitionManagerStatics(pub *mut ::core::ffi::c_void);
+pub struct IVoiceCommandDisambiguationResult(pub *mut ::core::ffi::c_void);
+pub struct IVoiceCommandResponse(pub *mut ::core::ffi::c_void);
+pub struct IVoiceCommandResponseStatics(pub *mut ::core::ffi::c_void);
+pub struct IVoiceCommandServiceConnection(pub *mut ::core::ffi::c_void);
+pub struct IVoiceCommandServiceConnectionStatics(pub *mut ::core::ffi::c_void);
+pub struct IVoiceCommandUserMessage(pub *mut ::core::ffi::c_void);
 pub struct VoiceCommand(i32);
 pub struct VoiceCommandCompletedEventArgs(i32);
 pub struct VoiceCommandCompletionReason(i32);

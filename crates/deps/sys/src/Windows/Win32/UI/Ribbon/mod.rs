@@ -1,18 +1,18 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IUIApplication(i32);
-pub struct IUICollection(i32);
-pub struct IUICollectionChangedEvent(i32);
-pub struct IUICommandHandler(i32);
-pub struct IUIContextualUI(i32);
-pub struct IUIEventLogger(i32);
-pub struct IUIEventingManager(i32);
-pub struct IUIFramework(i32);
-pub struct IUIImage(i32);
-pub struct IUIImageFromBitmap(i32);
-pub struct IUIRibbon(i32);
-pub struct IUISimplePropertySet(i32);
+pub struct IUIApplication(pub *mut ::core::ffi::c_void);
+pub struct IUICollection(pub *mut ::core::ffi::c_void);
+pub struct IUICollectionChangedEvent(pub *mut ::core::ffi::c_void);
+pub struct IUICommandHandler(pub *mut ::core::ffi::c_void);
+pub struct IUIContextualUI(pub *mut ::core::ffi::c_void);
+pub struct IUIEventLogger(pub *mut ::core::ffi::c_void);
+pub struct IUIEventingManager(pub *mut ::core::ffi::c_void);
+pub struct IUIFramework(pub *mut ::core::ffi::c_void);
+pub struct IUIImage(pub *mut ::core::ffi::c_void);
+pub struct IUIImageFromBitmap(pub *mut ::core::ffi::c_void);
+pub struct IUIRibbon(pub *mut ::core::ffi::c_void);
+pub struct IUISimplePropertySet(pub *mut ::core::ffi::c_void);
 pub const LIBID_UIRibbon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2486121922, data2: 59451, data3: 17903, data4: [176, 133, 172, 41, 93, 214, 61, 91] };
 pub struct UIRibbonFramework(i32);
 pub struct UIRibbonImageFromBitmapFactory(i32);

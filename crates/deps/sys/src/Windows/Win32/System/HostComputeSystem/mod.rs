@@ -185,12 +185,10 @@ pub struct HCS_CREATE_OPTIONS(i32);
 pub struct HCS_CREATE_OPTIONS_1(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct HCS_EVENT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct HCS_EVENT_CALLBACK(i32);
 pub struct HCS_EVENT_OPTIONS(i32);
 pub struct HCS_EVENT_TYPE(i32);
 pub struct HCS_NOTIFICATIONS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct HCS_NOTIFICATION_CALLBACK(i32);
 pub struct HCS_NOTIFICATION_FLAGS(i32);
 pub struct HCS_OPERATION(i32);

@@ -3,29 +3,26 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
-#[cfg(feature = "Foundation_Collections")]
 pub struct FileExtensionVector(i32);
 pub struct FileOpenPicker(i32);
-#[cfg(feature = "Foundation_Collections")]
 pub struct FilePickerFileTypesOrderedMap(i32);
-#[cfg(feature = "Foundation_Collections")]
 pub struct FilePickerSelectedFilesArray(i32);
 pub struct FileSavePicker(i32);
 pub struct FolderPicker(i32);
-pub struct IFileOpenPicker(i32);
-pub struct IFileOpenPicker2(i32);
-pub struct IFileOpenPicker3(i32);
-pub struct IFileOpenPickerStatics(i32);
-pub struct IFileOpenPickerStatics2(i32);
-pub struct IFileOpenPickerWithOperationId(i32);
-pub struct IFileSavePicker(i32);
-pub struct IFileSavePicker2(i32);
-pub struct IFileSavePicker3(i32);
-pub struct IFileSavePicker4(i32);
-pub struct IFileSavePickerStatics(i32);
-pub struct IFolderPicker(i32);
-pub struct IFolderPicker2(i32);
-pub struct IFolderPicker3(i32);
-pub struct IFolderPickerStatics(i32);
+pub struct IFileOpenPicker(pub *mut ::core::ffi::c_void);
+pub struct IFileOpenPicker2(pub *mut ::core::ffi::c_void);
+pub struct IFileOpenPicker3(pub *mut ::core::ffi::c_void);
+pub struct IFileOpenPickerStatics(pub *mut ::core::ffi::c_void);
+pub struct IFileOpenPickerStatics2(pub *mut ::core::ffi::c_void);
+pub struct IFileOpenPickerWithOperationId(pub *mut ::core::ffi::c_void);
+pub struct IFileSavePicker(pub *mut ::core::ffi::c_void);
+pub struct IFileSavePicker2(pub *mut ::core::ffi::c_void);
+pub struct IFileSavePicker3(pub *mut ::core::ffi::c_void);
+pub struct IFileSavePicker4(pub *mut ::core::ffi::c_void);
+pub struct IFileSavePickerStatics(pub *mut ::core::ffi::c_void);
+pub struct IFolderPicker(pub *mut ::core::ffi::c_void);
+pub struct IFolderPicker2(pub *mut ::core::ffi::c_void);
+pub struct IFolderPicker3(pub *mut ::core::ffi::c_void);
+pub struct IFolderPickerStatics(pub *mut ::core::ffi::c_void);
 pub struct PickerLocationId(i32);
 pub struct PickerViewMode(i32);

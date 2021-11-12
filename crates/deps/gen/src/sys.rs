@@ -31,11 +31,54 @@ fn gen_type(entry: &ElementType, gen: &Gen) -> TokenStream {
 }
 
 fn gen_type_def(def: &TypeDef, gen: &Gen) -> TokenStream {
+    match def.kind() {
+        TypeKind::Interface => gen_interface(def, gen),
+        TypeKind::Class => gen_class(def, gen),
+        TypeKind::Enum => gen_enum(def, gen),
+        TypeKind::Struct => gen_struct(def, gen),
+        TypeKind::Delegate => {
+            if def.is_winrt() {
+                gen_interface(def, gen),
+            } else {
+                gen_callback(def, gen)
+            }
+        }
+    }
+}
+
+fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
+    let name = gen_type_name(def, gen);
+    quote! { 
+        #[repr(transparent)]
+        pub struct #name(pub *mut ::core::ffi::c_void);
+    }
+}
+
+fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
+    // TODO: only gen handle if the class has a default interface (not a static class)
+    let name = gen_type_name(def, gen);
+    quote! { 
+        #[repr(transparent)]
+        pub struct #name(pub *mut ::core::ffi::c_void);
+    }
+}
+
+fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
+    let name = gen_type_name(def, gen);
+    quote! { pub struct #name(i32); }
+}
+
+fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_name(def, gen);
     let features = features(def, gen);
     let cfg = gen.gen_struct_cfg(def, &features);
 
     quote! { #cfg pub struct #name(i32); }
+}
+
+fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
+    let name = gen_type_name(def, gen);
+    quote! { pub struct #name(i32); }
 }
 
 fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {

@@ -1,61 +1,33 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNMSGECALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_ASSIGN_SHELL_PROTECTION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_CHANGE_PASSWORD_NOTIFY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_CHANGE_PASSWORD_NOTIFY_EX(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 pub struct PWLX_CLOSE_USER_DESKTOP(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 pub struct PWLX_CREATE_USER_DESKTOP(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PWLX_DIALOG_BOX(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PWLX_DIALOG_BOX_INDIRECT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PWLX_DIALOG_BOX_INDIRECT_PARAM(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PWLX_DIALOG_BOX_PARAM(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_DISCONNECT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_GET_OPTION(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 pub struct PWLX_GET_SOURCE_DESKTOP(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_MESSAGE_BOX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_QUERY_CLIENT_CREDENTIALS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_QUERY_CONSOLESWITCH_CREDENTIALS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_QUERY_IC_CREDENTIALS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_QUERY_TERMINAL_SERVICES_DATA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_QUERY_TS_LOGON_CREDENTIALS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_SAS_NOTIFY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_SET_CONTEXT_POINTER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_SET_OPTION(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 pub struct PWLX_SET_RETURN_DESKTOP(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_SET_TIMEOUT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_SWITCH_DESKTOP_TO_USER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_SWITCH_DESKTOP_TO_WINLOGON(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_USE_CTRL_ALT_DEL(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWLX_WIN31_MIGRATE(i32);
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const STATUSMSG_OPTION_NOANIMATION: u32 = 1u32;

@@ -1,21 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct ILampArrayBitmapEffect(i32);
-pub struct ILampArrayBitmapEffectFactory(i32);
-pub struct ILampArrayBitmapRequestedEventArgs(i32);
-pub struct ILampArrayBlinkEffect(i32);
-pub struct ILampArrayBlinkEffectFactory(i32);
-pub struct ILampArrayColorRampEffect(i32);
-pub struct ILampArrayColorRampEffectFactory(i32);
-pub struct ILampArrayCustomEffect(i32);
-pub struct ILampArrayCustomEffectFactory(i32);
-pub struct ILampArrayEffect(i32);
-pub struct ILampArrayEffectPlaylist(i32);
-pub struct ILampArrayEffectPlaylistStatics(i32);
-pub struct ILampArraySolidEffect(i32);
-pub struct ILampArraySolidEffectFactory(i32);
-pub struct ILampArrayUpdateRequestedEventArgs(i32);
+pub struct ILampArrayBitmapEffect(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayBitmapEffectFactory(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayBitmapRequestedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayBlinkEffect(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayBlinkEffectFactory(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayColorRampEffect(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayColorRampEffectFactory(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayCustomEffect(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayCustomEffectFactory(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayEffect(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayEffectPlaylist(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayEffectPlaylistStatics(pub *mut ::core::ffi::c_void);
+pub struct ILampArraySolidEffect(pub *mut ::core::ffi::c_void);
+pub struct ILampArraySolidEffectFactory(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayUpdateRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct LampArrayBitmapEffect(i32);
 pub struct LampArrayBitmapRequestedEventArgs(i32);
 pub struct LampArrayBlinkEffect(i32);

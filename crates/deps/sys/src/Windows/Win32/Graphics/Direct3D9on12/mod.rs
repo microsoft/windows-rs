@@ -10,10 +10,8 @@ extern "system" {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D9ON12_ARGS(i32);
-pub struct IDirect3DDevice9On12(i32);
+pub struct IDirect3DDevice9On12(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Graphics_Direct3D9on12`*"]
 pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct PFN_Direct3DCreate9On12(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct PFN_Direct3DCreate9On12Ex(i32);

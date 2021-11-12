@@ -1,8 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IWCNConnectNotify(i32);
-pub struct IWCNDevice(i32);
+pub struct IWCNConnectNotify(pub *mut ::core::ffi::c_void);
+pub struct IWCNDevice(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_WCN_DeviceType_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {

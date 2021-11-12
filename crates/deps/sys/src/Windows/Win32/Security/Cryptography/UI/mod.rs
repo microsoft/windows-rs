@@ -228,13 +228,9 @@ pub const CSS_SELECTCERT_MASK: u32 = 16777215u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct CTL_MODIFY_REQUEST(i32);
 pub struct CTL_MODIFY_REQUEST_OPERATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNCFILTERPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNCMFILTERPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNCMHOOKPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNTRUSTHELPER(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const POLICY_IGNORE_NON_CRITICAL_BC: u32 = 1u32;

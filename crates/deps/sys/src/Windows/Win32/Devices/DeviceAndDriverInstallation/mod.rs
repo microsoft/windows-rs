@@ -3694,7 +3694,6 @@ pub const PCD_MAX_IO: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const PCD_MAX_MEMORY: u32 = 2u32;
 pub struct PCM_NOTIFY_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDETECT_PROGRESS_NOTIFY(i32);
 pub struct PNP_VETO_TYPE(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]

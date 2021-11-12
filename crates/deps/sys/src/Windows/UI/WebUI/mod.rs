@@ -4,144 +4,88 @@ pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
 pub struct ActivatedDeferral(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
-pub struct ActivatedEventHandler(i32);
+pub struct ActivatedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct ActivatedOperation(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct BackgroundActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
-pub struct BackgroundActivatedEventHandler(i32);
-#[cfg(feature = "ApplicationModel")]
+pub struct BackgroundActivatedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct EnteredBackgroundEventArgs(i32);
-#[cfg(feature = "ApplicationModel")]
-pub struct EnteredBackgroundEventHandler(i32);
+pub struct EnteredBackgroundEventHandler(pub *mut ::core::ffi::c_void);
 pub struct HtmlPrintDocumentSource(i32);
-pub struct IActivatedDeferral(i32);
-pub struct IActivatedEventArgsDeferral(i32);
-pub struct IActivatedOperation(i32);
-pub struct IHtmlPrintDocumentSource(i32);
-pub struct INewWebUIViewCreatedEventArgs(i32);
-pub struct IWebUIActivationStatics(i32);
-pub struct IWebUIActivationStatics2(i32);
-pub struct IWebUIActivationStatics3(i32);
-pub struct IWebUIActivationStatics4(i32);
-pub struct IWebUIBackgroundTaskInstance(i32);
-pub struct IWebUIBackgroundTaskInstanceStatics(i32);
-pub struct IWebUINavigatedDeferral(i32);
-pub struct IWebUINavigatedEventArgs(i32);
-pub struct IWebUINavigatedOperation(i32);
-pub struct IWebUIView(i32);
-pub struct IWebUIViewStatics(i32);
-#[cfg(feature = "ApplicationModel")]
+pub struct IActivatedDeferral(pub *mut ::core::ffi::c_void);
+pub struct IActivatedEventArgsDeferral(pub *mut ::core::ffi::c_void);
+pub struct IActivatedOperation(pub *mut ::core::ffi::c_void);
+pub struct IHtmlPrintDocumentSource(pub *mut ::core::ffi::c_void);
+pub struct INewWebUIViewCreatedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWebUIActivationStatics(pub *mut ::core::ffi::c_void);
+pub struct IWebUIActivationStatics2(pub *mut ::core::ffi::c_void);
+pub struct IWebUIActivationStatics3(pub *mut ::core::ffi::c_void);
+pub struct IWebUIActivationStatics4(pub *mut ::core::ffi::c_void);
+pub struct IWebUIBackgroundTaskInstance(pub *mut ::core::ffi::c_void);
+pub struct IWebUIBackgroundTaskInstanceStatics(pub *mut ::core::ffi::c_void);
+pub struct IWebUINavigatedDeferral(pub *mut ::core::ffi::c_void);
+pub struct IWebUINavigatedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWebUINavigatedOperation(pub *mut ::core::ffi::c_void);
+pub struct IWebUIView(pub *mut ::core::ffi::c_void);
+pub struct IWebUIViewStatics(pub *mut ::core::ffi::c_void);
 pub struct LeavingBackgroundEventArgs(i32);
-#[cfg(feature = "ApplicationModel")]
-pub struct LeavingBackgroundEventHandler(i32);
-pub struct NavigatedEventHandler(i32);
+pub struct LeavingBackgroundEventHandler(pub *mut ::core::ffi::c_void);
+pub struct NavigatedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct NewWebUIViewCreatedEventArgs(i32);
 pub struct PrintContent(i32);
-pub struct ResumingEventHandler(i32);
-#[cfg(feature = "ApplicationModel")]
+pub struct ResumingEventHandler(pub *mut ::core::ffi::c_void);
 pub struct SuspendingDeferral(i32);
-#[cfg(feature = "ApplicationModel")]
 pub struct SuspendingEventArgs(i32);
-#[cfg(feature = "ApplicationModel")]
-pub struct SuspendingEventHandler(i32);
-#[cfg(feature = "ApplicationModel")]
+pub struct SuspendingEventHandler(pub *mut ::core::ffi::c_void);
 pub struct SuspendingOperation(i32);
 pub struct WebUIApplication(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIAppointmentsProviderAddAppointmentActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs(i32);
 pub struct WebUIBackgroundTaskInstance(i32);
 pub struct WebUIBackgroundTaskInstanceRuntimeClass(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIBarcodeScannerPreviewActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUICachedFileUpdaterActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUICameraSettingsActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUICommandLineActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIContactCallActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIContactMapActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIContactMessageActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIContactPanelActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIContactPickerActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIContactPostActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIContactVideoCallActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIDeviceActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIDevicePairingActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIDialReceiverActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIFileActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIFileOpenPickerActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIFileOpenPickerContinuationEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIFileSavePickerActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIFileSavePickerContinuationEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIFolderPickerContinuationEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUILaunchActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUILockScreenActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUILockScreenCallActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUILockScreenComponentActivatedEventArgs(i32);
 pub struct WebUINavigatedDeferral(i32);
 pub struct WebUINavigatedEventArgs(i32);
 pub struct WebUINavigatedOperation(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIPhoneCallActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIPrint3DWorkflowActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIPrintTaskSettingsActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIPrintWorkflowForegroundTaskActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIProtocolActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIProtocolForResultsActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIRestrictedLaunchActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUISearchActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIShareTargetActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIStartupTaskActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIToastNotificationActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIUserDataAccountProviderActivatedEventArgs(i32);
 pub struct WebUIView(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIVoiceCommandActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIWalletActionActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIWebAccountProviderActivatedEventArgs(i32);
-#[cfg(feature = "ApplicationModel_Activation")]
 pub struct WebUIWebAuthenticationBrokerContinuationEventArgs(i32);

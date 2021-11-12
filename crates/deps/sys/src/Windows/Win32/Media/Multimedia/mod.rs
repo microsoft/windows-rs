@@ -540,7 +540,6 @@ pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
 pub const AVIIF_CONTROLFRAME: i32 = 512i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const AVIIF_TWOCC: i32 = 2i32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct AVISAVECALLBACK(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct AVISTREAMINFOA(i32);
@@ -558,28 +557,20 @@ pub const AVSTREAMMASTER_AUDIO: u32 = 0u32;
 pub const AVSTREAMMASTER_NONE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const BI_1632: u32 = 842217009u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct CAPCONTROLCALLBACK(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAPDRIVERCAPS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CAPERRORCALLBACKA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CAPERRORCALLBACKW(i32);
 pub struct CAPINFOCHUNK(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CAPSTATUS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CAPSTATUSCALLBACKA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CAPSTATUSCALLBACKW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAPTUREPARMS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CAPVIDEOCALLBACK(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
 pub struct CAPWAVECALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CAPYIELDCALLBACK(i32);
 pub struct CHANNEL_CAPS(i32);
 pub const CLSID_AVIFile: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 131072, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
@@ -670,7 +661,6 @@ pub const DLG_ACMFORMATCHOOSE_ID: u32 = 70u32;
 pub struct DOLBYAC2WAVEFORMAT(i32);
 pub struct DRAWDIBTIME(i32);
 pub struct DRIVERMSGPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DRIVERPROC(i32);
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DRMWAVEFORMAT(i32);
@@ -915,11 +905,11 @@ pub struct HDRVR(i32);
 pub struct HIC(i32);
 pub struct HMMIO(i32);
 pub struct HVIDEO(i32);
-pub struct IAVIEditStream(i32);
-pub struct IAVIFile(i32);
-pub struct IAVIPersistFile(i32);
-pub struct IAVIStream(i32);
-pub struct IAVIStreaming(i32);
+pub struct IAVIEditStream(pub *mut ::core::ffi::c_void);
+pub struct IAVIFile(pub *mut ::core::ffi::c_void);
+pub struct IAVIPersistFile(pub *mut ::core::ffi::c_void);
+pub struct IAVIStream(pub *mut ::core::ffi::c_void);
+pub struct IAVIStreaming(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICCOMPRESS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1336,7 +1326,7 @@ pub const IDS_CAP_WAVE_PREPARE_ERROR: u32 = 421u32;
 pub const IDS_CAP_WAVE_SIZE_ERROR: u32 = 423u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const IDS_CAP_WRITEERROR: u32 = 414u32;
-pub struct IGetFrame(i32);
+pub struct IGetFrame(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct IMAADPCMWAVEFORMAT(i32);
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -1641,9 +1631,7 @@ pub const JPEG_Y: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JPEG_YCbCr: u32 = 2u32;
 pub struct KSDATAFORMAT_SUBTYPE_IEEE_FLOAT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPFNEXTDEVIO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMMIOPROC(i32);
 pub struct LPTASKCALLBACK(i32);
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -9114,7 +9102,6 @@ pub const VCAPS_DST_CAN_CLIP: u32 = 4u32;
 pub const VCAPS_OVERLAY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const VCAPS_SRC_CAN_CLIP: u32 = 2u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct VFWWDMExtensionProc(i32);
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const VFW_HIDE_CAMERACONTROL_PAGE: u32 = 4u32;

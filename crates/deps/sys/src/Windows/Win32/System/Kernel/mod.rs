@@ -23,7 +23,6 @@ pub struct EVENT_TYPE(i32);
 pub struct EXCEPTION_DISPOSITION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct EXCEPTION_REGISTRATION_RECORD(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct EXCEPTION_ROUTINE(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct FLOATING_SAVE_AREA(i32);

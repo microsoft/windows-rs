@@ -1,13 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IWiFiAdapter(i32);
-pub struct IWiFiAdapter2(i32);
-pub struct IWiFiAdapterStatics(i32);
-pub struct IWiFiAvailableNetwork(i32);
-pub struct IWiFiConnectionResult(i32);
-pub struct IWiFiNetworkReport(i32);
-pub struct IWiFiWpsConfigurationResult(i32);
+pub struct IWiFiAdapter(pub *mut ::core::ffi::c_void);
+pub struct IWiFiAdapter2(pub *mut ::core::ffi::c_void);
+pub struct IWiFiAdapterStatics(pub *mut ::core::ffi::c_void);
+pub struct IWiFiAvailableNetwork(pub *mut ::core::ffi::c_void);
+pub struct IWiFiConnectionResult(pub *mut ::core::ffi::c_void);
+pub struct IWiFiNetworkReport(pub *mut ::core::ffi::c_void);
+pub struct IWiFiWpsConfigurationResult(pub *mut ::core::ffi::c_void);
 pub struct WiFiAccessStatus(i32);
 pub struct WiFiAdapter(i32);
 pub struct WiFiAvailableNetwork(i32);

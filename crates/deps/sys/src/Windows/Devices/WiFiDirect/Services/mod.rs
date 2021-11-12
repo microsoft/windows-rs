@@ -1,17 +1,17 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IWiFiDirectService(i32);
-pub struct IWiFiDirectServiceAdvertiser(i32);
-pub struct IWiFiDirectServiceAdvertiserFactory(i32);
-pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs(i32);
-pub struct IWiFiDirectServiceProvisioningInfo(i32);
-pub struct IWiFiDirectServiceRemotePortAddedEventArgs(i32);
-pub struct IWiFiDirectServiceSession(i32);
-pub struct IWiFiDirectServiceSessionDeferredEventArgs(i32);
-pub struct IWiFiDirectServiceSessionRequest(i32);
-pub struct IWiFiDirectServiceSessionRequestedEventArgs(i32);
-pub struct IWiFiDirectServiceStatics(i32);
+pub struct IWiFiDirectService(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectServiceAdvertiser(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectServiceAdvertiserFactory(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectServiceProvisioningInfo(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectServiceRemotePortAddedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectServiceSession(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectServiceSessionDeferredEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectServiceSessionRequest(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectServiceSessionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectServiceStatics(pub *mut ::core::ffi::c_void);
 pub struct WiFiDirectService(i32);
 pub struct WiFiDirectServiceAdvertisementStatus(i32);
 pub struct WiFiDirectServiceAdvertiser(i32);

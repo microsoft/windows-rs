@@ -2,18 +2,18 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct FeatureElementKindPreview(i32);
-pub struct IImageVariableDescriptorPreview(i32);
-pub struct IInferencingOptionsPreview(i32);
-pub struct ILearningModelBindingPreview(i32);
-pub struct ILearningModelBindingPreviewFactory(i32);
-pub struct ILearningModelDescriptionPreview(i32);
-pub struct ILearningModelEvaluationResultPreview(i32);
-pub struct ILearningModelPreview(i32);
-pub struct ILearningModelPreviewStatics(i32);
-pub struct ILearningModelVariableDescriptorPreview(i32);
-pub struct IMapVariableDescriptorPreview(i32);
-pub struct ISequenceVariableDescriptorPreview(i32);
-pub struct ITensorVariableDescriptorPreview(i32);
+pub struct IImageVariableDescriptorPreview(pub *mut ::core::ffi::c_void);
+pub struct IInferencingOptionsPreview(pub *mut ::core::ffi::c_void);
+pub struct ILearningModelBindingPreview(pub *mut ::core::ffi::c_void);
+pub struct ILearningModelBindingPreviewFactory(pub *mut ::core::ffi::c_void);
+pub struct ILearningModelDescriptionPreview(pub *mut ::core::ffi::c_void);
+pub struct ILearningModelEvaluationResultPreview(pub *mut ::core::ffi::c_void);
+pub struct ILearningModelPreview(pub *mut ::core::ffi::c_void);
+pub struct ILearningModelPreviewStatics(pub *mut ::core::ffi::c_void);
+pub struct ILearningModelVariableDescriptorPreview(pub *mut ::core::ffi::c_void);
+pub struct IMapVariableDescriptorPreview(pub *mut ::core::ffi::c_void);
+pub struct ISequenceVariableDescriptorPreview(pub *mut ::core::ffi::c_void);
+pub struct ITensorVariableDescriptorPreview(pub *mut ::core::ffi::c_void);
 pub struct ImageVariableDescriptorPreview(i32);
 pub struct InferencingOptionsPreview(i32);
 pub struct LearningModelBindingPreview(i32);

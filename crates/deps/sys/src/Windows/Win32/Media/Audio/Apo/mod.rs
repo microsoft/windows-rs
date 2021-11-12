@@ -79,22 +79,22 @@ pub struct AUDIO_SYSTEMEFFECT_STATE(i32);
 pub struct AudioFXExtensionParams(i32);
 pub struct EAudioConstriction(i32);
 pub struct FNAPONOTIFICATIONCALLBACK(i32);
-pub struct IApoAcousticEchoCancellation(i32);
-pub struct IApoAuxiliaryInputConfiguration(i32);
-pub struct IApoAuxiliaryInputRT(i32);
-pub struct IAudioDeviceModulesClient(i32);
-pub struct IAudioMediaType(i32);
-pub struct IAudioProcessingObject(i32);
-pub struct IAudioProcessingObjectConfiguration(i32);
-pub struct IAudioProcessingObjectLoggingService(i32);
-pub struct IAudioProcessingObjectNotifications(i32);
-pub struct IAudioProcessingObjectRT(i32);
-pub struct IAudioProcessingObjectRTQueueService(i32);
-pub struct IAudioProcessingObjectVBR(i32);
-pub struct IAudioSystemEffects(i32);
-pub struct IAudioSystemEffects2(i32);
-pub struct IAudioSystemEffects3(i32);
-pub struct IAudioSystemEffectsCustomFormats(i32);
+pub struct IApoAcousticEchoCancellation(pub *mut ::core::ffi::c_void);
+pub struct IApoAuxiliaryInputConfiguration(pub *mut ::core::ffi::c_void);
+pub struct IApoAuxiliaryInputRT(pub *mut ::core::ffi::c_void);
+pub struct IAudioDeviceModulesClient(pub *mut ::core::ffi::c_void);
+pub struct IAudioMediaType(pub *mut ::core::ffi::c_void);
+pub struct IAudioProcessingObject(pub *mut ::core::ffi::c_void);
+pub struct IAudioProcessingObjectConfiguration(pub *mut ::core::ffi::c_void);
+pub struct IAudioProcessingObjectLoggingService(pub *mut ::core::ffi::c_void);
+pub struct IAudioProcessingObjectNotifications(pub *mut ::core::ffi::c_void);
+pub struct IAudioProcessingObjectRT(pub *mut ::core::ffi::c_void);
+pub struct IAudioProcessingObjectRTQueueService(pub *mut ::core::ffi::c_void);
+pub struct IAudioProcessingObjectVBR(pub *mut ::core::ffi::c_void);
+pub struct IAudioSystemEffects(pub *mut ::core::ffi::c_void);
+pub struct IAudioSystemEffects2(pub *mut ::core::ffi::c_void);
+pub struct IAudioSystemEffects3(pub *mut ::core::ffi::c_void);
+pub struct IAudioSystemEffectsCustomFormats(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_APO_SWFallback_ProcessingModes: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {

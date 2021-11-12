@@ -17,13 +17,13 @@ pub struct CollectionElementValue(i32);
 pub const E_UNKNOWNTYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144665560i32 as _);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct EnumType(i32);
-pub struct IBitmapData(i32);
-pub struct IVisualTreeService(i32);
-pub struct IVisualTreeService2(i32);
-pub struct IVisualTreeService3(i32);
-pub struct IVisualTreeServiceCallback(i32);
-pub struct IVisualTreeServiceCallback2(i32);
-pub struct IXamlDiagnostics(i32);
+pub struct IBitmapData(pub *mut ::core::ffi::c_void);
+pub struct IVisualTreeService(pub *mut ::core::ffi::c_void);
+pub struct IVisualTreeService2(pub *mut ::core::ffi::c_void);
+pub struct IVisualTreeService3(pub *mut ::core::ffi::c_void);
+pub struct IVisualTreeServiceCallback(pub *mut ::core::ffi::c_void);
+pub struct IVisualTreeServiceCallback2(pub *mut ::core::ffi::c_void);
+pub struct IXamlDiagnostics(pub *mut ::core::ffi::c_void);
 pub struct MetadataBit(i32);
 pub struct ParentChildRelation(i32);
 #[cfg(feature = "Win32_Foundation")]

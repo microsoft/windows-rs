@@ -86,9 +86,7 @@ extern "system" {
 pub struct ENUM_PAGE_FILE_INFORMATION(i32);
 pub struct ENUM_PROCESS_MODULES_EX_FLAGS(i32);
 pub struct MODULEINFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PENUM_PAGE_FILE_CALLBACKA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PENUM_PAGE_FILE_CALLBACKW(i32);
 pub struct PERFORMANCE_INFORMATION(i32);
 pub struct PROCESS_MEMORY_COUNTERS(i32);

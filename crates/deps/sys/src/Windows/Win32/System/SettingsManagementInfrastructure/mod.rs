@@ -1,14 +1,14 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IItemEnumerator(i32);
-pub struct ISettingsContext(i32);
-pub struct ISettingsEngine(i32);
-pub struct ISettingsIdentity(i32);
-pub struct ISettingsItem(i32);
-pub struct ISettingsNamespace(i32);
-pub struct ISettingsResult(i32);
-pub struct ITargetInfo(i32);
+pub struct IItemEnumerator(pub *mut ::core::ffi::c_void);
+pub struct ISettingsContext(pub *mut ::core::ffi::c_void);
+pub struct ISettingsEngine(pub *mut ::core::ffi::c_void);
+pub struct ISettingsIdentity(pub *mut ::core::ffi::c_void);
+pub struct ISettingsItem(pub *mut ::core::ffi::c_void);
+pub struct ISettingsNamespace(pub *mut ::core::ffi::c_void);
+pub struct ISettingsResult(pub *mut ::core::ffi::c_void);
+pub struct ITargetInfo(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]

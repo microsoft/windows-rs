@@ -397,7 +397,7 @@ pub struct CounterItem2(i32);
 pub struct CounterPathCallBack(i32);
 pub struct CounterPropPage(i32);
 pub struct Counters(i32);
-pub struct DICounterItem(i32);
+pub struct DICounterItem(pub *mut ::core::ffi::c_void);
 pub const DIID_DICounterItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3230420978, data2: 3630, data3: 4559, data4: [148, 44, 0, 128, 41, 0, 67, 71] };
 pub const DIID_DILogFileItem: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2366193660,
@@ -408,10 +408,10 @@ pub const DIID_DILogFileItem: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub const DIID_DISystemMonitor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 332873089, data2: 49966, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
 pub const DIID_DISystemMonitorEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2224527664, data2: 19123, data3: 4559, data4: [148, 58, 0, 128, 41, 0, 67, 71] };
 pub const DIID_DISystemMonitorInternal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 424587842, data2: 49964, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
-pub struct DILogFileItem(i32);
-pub struct DISystemMonitor(i32);
-pub struct DISystemMonitorEvents(i32);
-pub struct DISystemMonitorInternal(i32);
+pub struct DILogFileItem(pub *mut ::core::ffi::c_void);
+pub struct DISystemMonitor(pub *mut ::core::ffi::c_void);
+pub struct DISystemMonitorEvents(pub *mut ::core::ffi::c_void);
+pub struct DISystemMonitorInternal(pub *mut ::core::ffi::c_void);
 pub struct DataCollectorSet(i32);
 pub struct DataCollectorSetCollection(i32);
 pub struct DataCollectorSetStatus(i32);
@@ -425,32 +425,32 @@ pub struct GeneralPropPage(i32);
 pub struct GraphPropPage(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const H_WBEM_DATASOURCE: i32 = -1i32;
-pub struct IAlertDataCollector(i32);
-pub struct IApiTracingDataCollector(i32);
-pub struct IConfigurationDataCollector(i32);
-pub struct ICounterItem(i32);
-pub struct ICounterItem2(i32);
-pub struct ICounters(i32);
-pub struct IDataCollector(i32);
-pub struct IDataCollectorCollection(i32);
-pub struct IDataCollectorSet(i32);
-pub struct IDataCollectorSetCollection(i32);
-pub struct IDataManager(i32);
-pub struct IFolderAction(i32);
-pub struct IFolderActionCollection(i32);
-pub struct ILogFileItem(i32);
-pub struct ILogFiles(i32);
-pub struct IPerformanceCounterDataCollector(i32);
-pub struct ISchedule(i32);
-pub struct IScheduleCollection(i32);
-pub struct ISystemMonitor(i32);
-pub struct ISystemMonitor2(i32);
-pub struct ISystemMonitorEvents(i32);
-pub struct ITraceDataCollector(i32);
-pub struct ITraceDataProvider(i32);
-pub struct ITraceDataProviderCollection(i32);
-pub struct IValueMap(i32);
-pub struct IValueMapItem(i32);
+pub struct IAlertDataCollector(pub *mut ::core::ffi::c_void);
+pub struct IApiTracingDataCollector(pub *mut ::core::ffi::c_void);
+pub struct IConfigurationDataCollector(pub *mut ::core::ffi::c_void);
+pub struct ICounterItem(pub *mut ::core::ffi::c_void);
+pub struct ICounterItem2(pub *mut ::core::ffi::c_void);
+pub struct ICounters(pub *mut ::core::ffi::c_void);
+pub struct IDataCollector(pub *mut ::core::ffi::c_void);
+pub struct IDataCollectorCollection(pub *mut ::core::ffi::c_void);
+pub struct IDataCollectorSet(pub *mut ::core::ffi::c_void);
+pub struct IDataCollectorSetCollection(pub *mut ::core::ffi::c_void);
+pub struct IDataManager(pub *mut ::core::ffi::c_void);
+pub struct IFolderAction(pub *mut ::core::ffi::c_void);
+pub struct IFolderActionCollection(pub *mut ::core::ffi::c_void);
+pub struct ILogFileItem(pub *mut ::core::ffi::c_void);
+pub struct ILogFiles(pub *mut ::core::ffi::c_void);
+pub struct IPerformanceCounterDataCollector(pub *mut ::core::ffi::c_void);
+pub struct ISchedule(pub *mut ::core::ffi::c_void);
+pub struct IScheduleCollection(pub *mut ::core::ffi::c_void);
+pub struct ISystemMonitor(pub *mut ::core::ffi::c_void);
+pub struct ISystemMonitor2(pub *mut ::core::ffi::c_void);
+pub struct ISystemMonitorEvents(pub *mut ::core::ffi::c_void);
+pub struct ITraceDataCollector(pub *mut ::core::ffi::c_void);
+pub struct ITraceDataProvider(pub *mut ::core::ffi::c_void);
+pub struct ITraceDataProviderCollection(pub *mut ::core::ffi::c_void);
+pub struct IValueMap(pub *mut ::core::ffi::c_void);
+pub struct IValueMapItem(pub *mut ::core::ffi::c_void);
 pub const LIBID_SystemMonitor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 460799554, data2: 9481, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
 pub struct LegacyDataCollectorSet(i32);
 pub struct LegacyDataCollectorSetCollection(i32);
@@ -870,7 +870,6 @@ pub const PERF_TYPE_TEXT: u32 = 2048u32;
 pub const PERF_TYPE_ZERO: u32 = 3072u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PLA_CABEXTRACT_CALLBACK(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
@@ -887,9 +886,7 @@ pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
 pub struct PM_CLOSE_PROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PM_COLLECT_PROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PM_OPEN_PROC(i32);
 pub struct PerfCounterDataType(i32);
 pub struct PerfProviderHandle(i32);
@@ -924,5 +921,5 @@ pub const WINPERF_LOG_USER: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
 pub struct WeekDays(i32);
-pub struct _ICounterItemUnion(i32);
-pub struct _ISystemMonitorUnion(i32);
+pub struct _ICounterItemUnion(pub *mut ::core::ffi::c_void);
+pub struct _ISystemMonitorUnion(pub *mut ::core::ffi::c_void);

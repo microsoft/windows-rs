@@ -251,9 +251,7 @@ pub struct HANDLER_FUNCTION(i32);
 pub struct HANDLER_FUNCTION_EX(i32);
 pub struct LPHANDLER_FUNCTION(i32);
 pub struct LPHANDLER_FUNCTION_EX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPSERVICE_MAIN_FUNCTIONA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPSERVICE_MAIN_FUNCTIONW(i32);
 pub const MACHINE_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1704970982,
@@ -417,7 +415,6 @@ pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: u32 = 2u32;
 pub struct SERVICE_MAIN_FUNCTIONA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_MAIN_FUNCTIONW(i32);
 pub struct SERVICE_NOTIFY(i32);
 pub struct SERVICE_NOTIFY_1(i32);

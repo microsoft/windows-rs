@@ -150,17 +150,11 @@ extern "system" {
 }
 #[doc = "*Required features: `Win32_System_LibraryLoader`*"]
 pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct ENUMRESLANGPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ENUMRESLANGPROCW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ENUMRESNAMEPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ENUMRESNAMEPROCW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ENUMRESTYPEPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ENUMRESTYPEPROCW(i32);
 pub struct ENUMUILANG(i32);
 #[doc = "*Required features: `Win32_System_LibraryLoader`*"]
@@ -178,9 +172,7 @@ pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2u32;
 pub struct LOAD_LIBRARY_FLAGS(i32);
 #[doc = "*Required features: `Win32_System_LibraryLoader`*"]
 pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PGET_MODULE_HANDLE_EXA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PGET_MODULE_HANDLE_EXW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct REDIRECTION_DESCRIPTOR(i32);

@@ -1279,13 +1279,9 @@ pub const OBJECT_PUSH_FORMAT_VMESSAGE: u32 = 6u32;
 pub const OBJECT_PUSH_FORMAT_VNOTE: u32 = 5u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const PANUServiceClassID_UUID16: u32 = 4373u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_AUTHENTICATION_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_AUTHENTICATION_CALLBACK_EX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DEVICE_CALLBACK(i32);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const PF_BTH: u16 = 32u16;

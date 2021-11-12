@@ -7,15 +7,15 @@ extern "system" {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct CompositionFrameDisplayInstance(i32);
 pub struct CompositionFrameInstanceKind(i32);
-pub struct ICompositionFramePresentStatistics(i32);
-pub struct IIndependentFlipFramePresentStatistics(i32);
-pub struct IPresentStatistics(i32);
-pub struct IPresentStatusPresentStatistics(i32);
-pub struct IPresentationBuffer(i32);
-pub struct IPresentationContent(i32);
-pub struct IPresentationFactory(i32);
-pub struct IPresentationManager(i32);
-pub struct IPresentationSurface(i32);
+pub struct ICompositionFramePresentStatistics(pub *mut ::core::ffi::c_void);
+pub struct IIndependentFlipFramePresentStatistics(pub *mut ::core::ffi::c_void);
+pub struct IPresentStatistics(pub *mut ::core::ffi::c_void);
+pub struct IPresentStatusPresentStatistics(pub *mut ::core::ffi::c_void);
+pub struct IPresentationBuffer(pub *mut ::core::ffi::c_void);
+pub struct IPresentationContent(pub *mut ::core::ffi::c_void);
+pub struct IPresentationFactory(pub *mut ::core::ffi::c_void);
+pub struct IPresentationManager(pub *mut ::core::ffi::c_void);
+pub struct IPresentationSurface(pub *mut ::core::ffi::c_void);
 pub struct PresentStatisticsKind(i32);
 pub struct PresentStatus(i32);
 pub struct PresentationTransform(i32);

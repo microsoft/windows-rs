@@ -9,7 +9,7 @@ pub mod Syndication;
 pub mod UI;
 #[link(name = "windows")]
 extern "system" {}
-pub struct IUriToStreamResolver(i32);
-pub struct IWebErrorStatics(i32);
+pub struct IUriToStreamResolver(pub *mut ::core::ffi::c_void);
+pub struct IWebErrorStatics(pub *mut ::core::ffi::c_void);
 pub struct WebError(i32);
 pub struct WebErrorStatus(i32);

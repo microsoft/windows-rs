@@ -35,7 +35,6 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn PostQueuedCompletionStatus(completionport: super::super::Foundation::HANDLE, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL;
 }
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPOVERLAPPED_COMPLETION_ROUTINE(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct OVERLAPPED(i32);

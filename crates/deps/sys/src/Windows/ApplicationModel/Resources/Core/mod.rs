@@ -1,42 +1,34 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct INamedResource(i32);
-pub struct IResourceCandidate(i32);
-pub struct IResourceCandidate2(i32);
-pub struct IResourceCandidate3(i32);
-pub struct IResourceContext(i32);
-pub struct IResourceContextStatics(i32);
-pub struct IResourceContextStatics2(i32);
-pub struct IResourceContextStatics3(i32);
-pub struct IResourceContextStatics4(i32);
-pub struct IResourceManager(i32);
-pub struct IResourceManager2(i32);
-pub struct IResourceManagerStatics(i32);
-pub struct IResourceMap(i32);
-pub struct IResourceQualifier(i32);
+pub struct INamedResource(pub *mut ::core::ffi::c_void);
+pub struct IResourceCandidate(pub *mut ::core::ffi::c_void);
+pub struct IResourceCandidate2(pub *mut ::core::ffi::c_void);
+pub struct IResourceCandidate3(pub *mut ::core::ffi::c_void);
+pub struct IResourceContext(pub *mut ::core::ffi::c_void);
+pub struct IResourceContextStatics(pub *mut ::core::ffi::c_void);
+pub struct IResourceContextStatics2(pub *mut ::core::ffi::c_void);
+pub struct IResourceContextStatics3(pub *mut ::core::ffi::c_void);
+pub struct IResourceContextStatics4(pub *mut ::core::ffi::c_void);
+pub struct IResourceManager(pub *mut ::core::ffi::c_void);
+pub struct IResourceManager2(pub *mut ::core::ffi::c_void);
+pub struct IResourceManagerStatics(pub *mut ::core::ffi::c_void);
+pub struct IResourceMap(pub *mut ::core::ffi::c_void);
+pub struct IResourceQualifier(pub *mut ::core::ffi::c_void);
 pub struct NamedResource(i32);
 pub struct ResourceCandidate(i32);
 pub struct ResourceCandidateKind(i32);
-#[cfg(feature = "Foundation_Collections")]
 pub struct ResourceCandidateVectorView(i32);
 pub struct ResourceContext(i32);
-#[cfg(feature = "Foundation_Collections")]
 pub struct ResourceContextLanguagesVectorView(i32);
 pub struct ResourceLayoutInfo(i32);
 pub struct ResourceManager(i32);
 pub struct ResourceMap(i32);
-#[cfg(feature = "Foundation_Collections")]
 pub struct ResourceMapIterator(i32);
-#[cfg(feature = "Foundation_Collections")]
 pub struct ResourceMapMapView(i32);
-#[cfg(feature = "Foundation_Collections")]
 pub struct ResourceMapMapViewIterator(i32);
 pub struct ResourceQualifier(i32);
-#[cfg(feature = "Foundation_Collections")]
 pub struct ResourceQualifierMapView(i32);
-#[cfg(feature = "Foundation_Collections")]
 pub struct ResourceQualifierObservableMap(i32);
 pub struct ResourceQualifierPersistence(i32);
-#[cfg(feature = "Foundation_Collections")]
 pub struct ResourceQualifierVectorView(i32);

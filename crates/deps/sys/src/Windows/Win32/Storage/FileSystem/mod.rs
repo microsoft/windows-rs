@@ -1230,12 +1230,10 @@ extern "system" {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub struct BY_HANDLE_FILE_INFORMATION(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct CACHE_ACCESS_CHECK(i32);
 pub struct CACHE_DESTROY_CALLBACK(i32);
 pub struct CACHE_KEY_COMPARE(i32);
 pub struct CACHE_KEY_HASH(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CACHE_READ_CALLBACK(i32);
 pub struct CLAIMMEDIALABEL(i32);
 pub struct CLAIMMEDIALABELEX(i32);
@@ -1458,9 +1456,7 @@ pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
 pub struct ERASE_TAPE_TYPE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct FCACHE_CREATE_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct FCACHE_RICHCREATE_CALLBACK(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct FH_OVERLAPPED(i32);
@@ -1528,11 +1524,11 @@ pub struct GET_FILEEX_INFO_LEVELS(i32);
 pub struct GET_FILE_VERSION_INFO_FLAGS(i32);
 pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(i32);
 pub struct HIORING__(i32);
-pub struct IDiskQuotaControl(i32);
-pub struct IDiskQuotaEvents(i32);
-pub struct IDiskQuotaUser(i32);
-pub struct IDiskQuotaUserBatch(i32);
-pub struct IEnumDiskQuotaUsers(i32);
+pub struct IDiskQuotaControl(pub *mut ::core::ffi::c_void);
+pub struct IDiskQuotaEvents(pub *mut ::core::ffi::c_void);
+pub struct IDiskQuotaUser(pub *mut ::core::ffi::c_void);
+pub struct IDiskQuotaUserBatch(pub *mut ::core::ffi::c_void);
+pub struct IEnumDiskQuotaUsers(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -1625,7 +1621,6 @@ pub struct LOG_MANAGEMENT_CALLBACKS(i32);
 pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const LOG_POLICY_PERSIST: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPPROGRESS_ROUTINE(i32);
 pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(i32);
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -1907,17 +1902,12 @@ pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_s
     data4: [165, 197, 38, 210, 36, 56, 115, 170],
 };
 pub struct PCLFS_COMPLETION_ROUTINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PCOPYFILE2_PROGRESS_ROUTINE(i32);
 pub struct PFE_EXPORT_FUNC(i32);
 pub struct PFE_IMPORT_FUNC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_IO_COMPLETION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PLOG_FULL_HANDLER_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PLOG_TAIL_ADVANCE_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PLOG_UNPINNED_CALLBACK(i32);
 pub struct PREPARE_TAPE_OPERATION(i32);
 pub struct PRIORITY_HINT(i32);
@@ -2228,9 +2218,7 @@ pub struct WOF_FILE_COMPRESSION_INFO_V1(i32);
 pub const WOF_PROVIDER_FILE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const WOF_PROVIDER_WIM: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct WofEnumEntryProc(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WofEnumFilesProc(i32);
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const _FT_TYPES_DEFINITION_: u32 = 1u32;

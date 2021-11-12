@@ -3,22 +3,22 @@
 pub mod Services;
 #[link(name = "windows")]
 extern "system" {}
-pub struct IWiFiDirectAdvertisement(i32);
-pub struct IWiFiDirectAdvertisement2(i32);
-pub struct IWiFiDirectAdvertisementPublisher(i32);
-pub struct IWiFiDirectAdvertisementPublisherStatusChangedEventArgs(i32);
-pub struct IWiFiDirectConnectionListener(i32);
-pub struct IWiFiDirectConnectionParameters(i32);
-pub struct IWiFiDirectConnectionParameters2(i32);
-pub struct IWiFiDirectConnectionParametersStatics(i32);
-pub struct IWiFiDirectConnectionRequest(i32);
-pub struct IWiFiDirectConnectionRequestedEventArgs(i32);
-pub struct IWiFiDirectDevice(i32);
-pub struct IWiFiDirectDeviceStatics(i32);
-pub struct IWiFiDirectDeviceStatics2(i32);
-pub struct IWiFiDirectInformationElement(i32);
-pub struct IWiFiDirectInformationElementStatics(i32);
-pub struct IWiFiDirectLegacySettings(i32);
+pub struct IWiFiDirectAdvertisement(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectAdvertisement2(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectAdvertisementPublisher(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectAdvertisementPublisherStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectConnectionListener(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectConnectionParameters(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectConnectionParameters2(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectConnectionParametersStatics(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectConnectionRequest(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectConnectionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectDevice(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectDeviceStatics(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectDeviceStatics2(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectInformationElement(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectInformationElementStatics(pub *mut ::core::ffi::c_void);
+pub struct IWiFiDirectLegacySettings(pub *mut ::core::ffi::c_void);
 pub struct WiFiDirectAdvertisement(i32);
 pub struct WiFiDirectAdvertisementListenStateDiscoverability(i32);
 pub struct WiFiDirectAdvertisementPublisher(i32);

@@ -1,23 +1,23 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IPhotoImportDeleteImportedItemsFromSourceResult(i32);
-pub struct IPhotoImportFindItemsResult(i32);
-pub struct IPhotoImportFindItemsResult2(i32);
-pub struct IPhotoImportImportItemsResult(i32);
-pub struct IPhotoImportItem(i32);
-pub struct IPhotoImportItem2(i32);
-pub struct IPhotoImportItemImportedEventArgs(i32);
-pub struct IPhotoImportManagerStatics(i32);
-pub struct IPhotoImportOperation(i32);
-pub struct IPhotoImportSelectionChangedEventArgs(i32);
-pub struct IPhotoImportSession(i32);
-pub struct IPhotoImportSession2(i32);
-pub struct IPhotoImportSidecar(i32);
-pub struct IPhotoImportSource(i32);
-pub struct IPhotoImportSourceStatics(i32);
-pub struct IPhotoImportStorageMedium(i32);
-pub struct IPhotoImportVideoSegment(i32);
+pub struct IPhotoImportDeleteImportedItemsFromSourceResult(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportFindItemsResult(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportFindItemsResult2(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportImportItemsResult(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportItem(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportItem2(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportItemImportedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportManagerStatics(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportOperation(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportSelectionChangedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportSession(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportSession2(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportSidecar(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportSource(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportSourceStatics(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportStorageMedium(pub *mut ::core::ffi::c_void);
+pub struct IPhotoImportVideoSegment(pub *mut ::core::ffi::c_void);
 pub struct PhotoImportAccessMode(i32);
 pub struct PhotoImportConnectionTransport(i32);
 pub struct PhotoImportContentType(i32);

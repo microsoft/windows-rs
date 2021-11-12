@@ -23,7 +23,6 @@ pub const AURL_ENABLEEMAILADDR: u32 = 2u32;
 pub const AURL_ENABLETELNO: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const AURL_ENABLEURL: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct AutoCorrectProc(i32);
 pub struct BIDIOPTIONS(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
@@ -127,7 +126,6 @@ pub const ECO_VERTICAL: u32 = 4194304u32;
 pub const ECO_WANTRETURN: u32 = 4096u32;
 pub struct EDITSTREAM(i32);
 pub struct EDITSTREAMCALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct EDITWORDBREAKPROCEX(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ELLIPSIS_END: u32 = 1u32;
@@ -608,30 +606,30 @@ pub const IMF_TKBPREDICTION: u32 = 4096u32;
 pub const IMF_UIFONTS: u32 = 32u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_VERTICAL: u32 = 32u32;
-pub struct IRichEditOle(i32);
-pub struct IRichEditOleCallback(i32);
-pub struct IRicheditUiaOverrides(i32);
-pub struct ITextDisplays(i32);
-pub struct ITextDocument(i32);
-pub struct ITextDocument2(i32);
-pub struct ITextDocument2Old(i32);
-pub struct ITextFont(i32);
-pub struct ITextFont2(i32);
-pub struct ITextHost(i32);
-pub struct ITextHost2(i32);
-pub struct ITextPara(i32);
-pub struct ITextPara2(i32);
-pub struct ITextRange(i32);
-pub struct ITextRange2(i32);
-pub struct ITextRow(i32);
-pub struct ITextSelection(i32);
-pub struct ITextSelection2(i32);
-pub struct ITextServices(i32);
-pub struct ITextServices2(i32);
-pub struct ITextStory(i32);
-pub struct ITextStoryRanges(i32);
-pub struct ITextStoryRanges2(i32);
-pub struct ITextStrings(i32);
+pub struct IRichEditOle(pub *mut ::core::ffi::c_void);
+pub struct IRichEditOleCallback(pub *mut ::core::ffi::c_void);
+pub struct IRicheditUiaOverrides(pub *mut ::core::ffi::c_void);
+pub struct ITextDisplays(pub *mut ::core::ffi::c_void);
+pub struct ITextDocument(pub *mut ::core::ffi::c_void);
+pub struct ITextDocument2(pub *mut ::core::ffi::c_void);
+pub struct ITextDocument2Old(pub *mut ::core::ffi::c_void);
+pub struct ITextFont(pub *mut ::core::ffi::c_void);
+pub struct ITextFont2(pub *mut ::core::ffi::c_void);
+pub struct ITextHost(pub *mut ::core::ffi::c_void);
+pub struct ITextHost2(pub *mut ::core::ffi::c_void);
+pub struct ITextPara(pub *mut ::core::ffi::c_void);
+pub struct ITextPara2(pub *mut ::core::ffi::c_void);
+pub struct ITextRange(pub *mut ::core::ffi::c_void);
+pub struct ITextRange2(pub *mut ::core::ffi::c_void);
+pub struct ITextRow(pub *mut ::core::ffi::c_void);
+pub struct ITextSelection(pub *mut ::core::ffi::c_void);
+pub struct ITextSelection2(pub *mut ::core::ffi::c_void);
+pub struct ITextServices(pub *mut ::core::ffi::c_void);
+pub struct ITextServices2(pub *mut ::core::ffi::c_void);
+pub struct ITextStory(pub *mut ::core::ffi::c_void);
+pub struct ITextStoryRanges(pub *mut ::core::ffi::c_void);
+pub struct ITextStoryRanges2(pub *mut ::core::ffi::c_void);
+pub struct ITextStrings(pub *mut ::core::ffi::c_void);
 pub struct KHYPH(i32);
 pub struct MANCODE(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]

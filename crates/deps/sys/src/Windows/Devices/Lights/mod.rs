@@ -3,12 +3,12 @@
 pub mod Effects;
 #[link(name = "windows")]
 extern "system" {}
-pub struct ILamp(i32);
-pub struct ILampArray(i32);
-pub struct ILampArrayStatics(i32);
-pub struct ILampAvailabilityChangedEventArgs(i32);
-pub struct ILampInfo(i32);
-pub struct ILampStatics(i32);
+pub struct ILamp(pub *mut ::core::ffi::c_void);
+pub struct ILampArray(pub *mut ::core::ffi::c_void);
+pub struct ILampArrayStatics(pub *mut ::core::ffi::c_void);
+pub struct ILampAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct ILampInfo(pub *mut ::core::ffi::c_void);
+pub struct ILampStatics(pub *mut ::core::ffi::c_void);
 pub struct Lamp(i32);
 pub struct LampArray(i32);
 pub struct LampArrayKind(i32);

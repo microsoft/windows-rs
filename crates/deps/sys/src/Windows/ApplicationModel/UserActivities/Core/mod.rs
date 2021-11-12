@@ -2,4 +2,4 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct CoreUserActivityManager(i32);
-pub struct ICoreUserActivityManagerStatics(i32);
+pub struct ICoreUserActivityManagerStatics(pub *mut ::core::ffi::c_void);

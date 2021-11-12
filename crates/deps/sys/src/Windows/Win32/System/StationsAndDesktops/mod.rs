@@ -97,16 +97,12 @@ pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(i32);
 pub struct BROADCAST_SYSTEM_MESSAGE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct BSMINFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DESKTOPENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DESKTOPENUMPROCW(i32);
 pub struct HDESK(i32);
 pub struct HWINSTA(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct USEROBJECTFLAGS(i32);
 pub struct USER_OBJECT_INFORMATION_INDEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WINSTAENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WINSTAENUMPROCW(i32);

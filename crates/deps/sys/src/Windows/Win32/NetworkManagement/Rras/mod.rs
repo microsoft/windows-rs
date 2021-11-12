@@ -1584,19 +1584,14 @@ pub struct MPR_VS(i32);
 pub const MPR_VS_Ikev2First: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_VS_Ikev2Only: u32 = 7u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct ORASADFUNC(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PENDING: u32 = 600u32;
 pub struct PFNRASFREEBUFFER(i32);
 pub struct PFNRASGETBUFFER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNRASRECEIVEBUFFER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNRASRETRIEVEBUFFER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNRASSENDBUFFER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNRASSETCOMMSETTINGS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PID_ATALK: u32 = 41u32;
@@ -1608,53 +1603,32 @@ pub const PID_IPV6: u32 = 87u32;
 pub const PID_IPX: u32 = 43u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PID_NBF: u32 = 63u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMGM_CREATION_ALERT_CALLBACK(i32);
 pub struct PMGM_DISABLE_IGMP_CALLBACK(i32);
 pub struct PMGM_ENABLE_IGMP_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMGM_JOIN_ALERT_CALLBACK(i32);
 pub struct PMGM_LOCAL_JOIN_CALLBACK(i32);
 pub struct PMGM_LOCAL_LEAVE_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMGM_PRUNE_ALERT_CALLBACK(i32);
 pub struct PMGM_RPF_CALLBACK(i32);
 pub struct PMGM_WRONG_IF_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINACCEPTNEWCONNECTION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINACCEPTNEWCONNECTION2(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINACCEPTNEWCONNECTION3(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINACCEPTNEWCONNECTIONEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINACCEPTNEWLINK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINACCEPTREAUTHENTICATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINACCEPTREAUTHENTICATIONEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATION2(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATION3(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINGETIPADDRESSFORUSER(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PMPRADMINGETIPV6ADDRESSFORUSER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINLINKHANGUPNOTIFICATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PMPRADMINRELEASEIPADRESS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PMPRADMINRELEASEIPV6ADDRESSFORUSER(i32);
 pub struct PMPRADMINTERMINATEDLL(i32);
 pub struct PPP_ATCP_INFO(i32);
@@ -1715,9 +1689,7 @@ pub struct PROJECTION_INFO(i32);
 pub struct PROJECTION_INFO2(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASADFLG_PositionDlg: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct RASADFUNCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct RASADFUNCW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASADPARAMS(i32);
@@ -2104,9 +2076,7 @@ pub const RASPBDFLAG_PositionDlg: u32 = 1u32;
 pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGFUNCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGFUNCW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGW(i32);
@@ -2407,16 +2377,11 @@ pub const RTM_VIEW_MASK_NONE: u32 = 0u32;
 pub const RTM_VIEW_MASK_SIZE: u32 = 32u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_VIEW_MASK_UCAST: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct RasCustomDeleteEntryNotifyFn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct RasCustomDialDlgFn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct RasCustomDialFn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct RasCustomEntryDlgFn(i32);
 pub struct RasCustomHangUpFn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct RasCustomScriptExecuteFn(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_MESSAGE(i32);

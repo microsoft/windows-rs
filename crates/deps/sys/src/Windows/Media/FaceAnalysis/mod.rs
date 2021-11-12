@@ -4,8 +4,8 @@ extern "system" {}
 pub struct DetectedFace(i32);
 pub struct FaceDetector(i32);
 pub struct FaceTracker(i32);
-pub struct IDetectedFace(i32);
-pub struct IFaceDetector(i32);
-pub struct IFaceDetectorStatics(i32);
-pub struct IFaceTracker(i32);
-pub struct IFaceTrackerStatics(i32);
+pub struct IDetectedFace(pub *mut ::core::ffi::c_void);
+pub struct IFaceDetector(pub *mut ::core::ffi::c_void);
+pub struct IFaceDetectorStatics(pub *mut ::core::ffi::c_void);
+pub struct IFaceTracker(pub *mut ::core::ffi::c_void);
+pub struct IFaceTrackerStatics(pub *mut ::core::ffi::c_void);

@@ -1,33 +1,32 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-#[cfg(feature = "Foundation_Collections")]
-pub struct HostMessageReceivedCallback(i32);
-pub struct IIsolatedWindowsEnvironment(i32);
-pub struct IIsolatedWindowsEnvironment2(i32);
-pub struct IIsolatedWindowsEnvironment3(i32);
-pub struct IIsolatedWindowsEnvironmentCreateResult(i32);
-pub struct IIsolatedWindowsEnvironmentFactory(i32);
-pub struct IIsolatedWindowsEnvironmentFile(i32);
-pub struct IIsolatedWindowsEnvironmentFile2(i32);
-pub struct IIsolatedWindowsEnvironmentHostStatics(i32);
-pub struct IIsolatedWindowsEnvironmentLaunchFileResult(i32);
-pub struct IIsolatedWindowsEnvironmentOptions(i32);
-pub struct IIsolatedWindowsEnvironmentOptions2(i32);
-pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData(i32);
-pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult(i32);
-pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics(i32);
-pub struct IIsolatedWindowsEnvironmentPostMessageResult(i32);
-pub struct IIsolatedWindowsEnvironmentProcess(i32);
-pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions(i32);
-pub struct IIsolatedWindowsEnvironmentShareFileResult(i32);
-pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions(i32);
-pub struct IIsolatedWindowsEnvironmentShareFolderResult(i32);
-pub struct IIsolatedWindowsEnvironmentStartProcessResult(i32);
-pub struct IIsolatedWindowsEnvironmentTelemetryParameters(i32);
-pub struct IIsolatedWindowsEnvironmentUserInfo(i32);
-pub struct IIsolatedWindowsHostMessengerStatics(i32);
-pub struct IIsolatedWindowsHostMessengerStatics2(i32);
+pub struct HostMessageReceivedCallback(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironment(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironment2(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironment3(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentCreateResult(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentFactory(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentFile(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentFile2(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentHostStatics(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentLaunchFileResult(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentOptions(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentOptions2(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentPostMessageResult(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentProcess(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentShareFileResult(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentShareFolderResult(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentStartProcessResult(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentTelemetryParameters(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsEnvironmentUserInfo(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsHostMessengerStatics(pub *mut ::core::ffi::c_void);
+pub struct IIsolatedWindowsHostMessengerStatics2(pub *mut ::core::ffi::c_void);
 pub struct IsolatedWindowsEnvironment(i32);
 pub struct IsolatedWindowsEnvironmentActivator(i32);
 pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(i32);
@@ -63,5 +62,4 @@ pub struct IsolatedWindowsEnvironmentStartProcessStatus(i32);
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(i32);
 pub struct IsolatedWindowsEnvironmentUserInfo(i32);
 pub struct IsolatedWindowsHostMessenger(i32);
-#[cfg(feature = "Foundation_Collections")]
-pub struct MessageReceivedCallback(i32);
+pub struct MessageReceivedCallback(pub *mut ::core::ffi::c_void);

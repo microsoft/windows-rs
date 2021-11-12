@@ -892,7 +892,6 @@ pub struct PEB(i32);
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct PEB_LDR_DATA(i32);
 pub struct PFLS_CALLBACK_FUNCTION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PINIT_ONCE_FN(i32);
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const PME_CURRENT_VERSION: u32 = 1u32;
@@ -940,7 +939,6 @@ pub struct PROCESS_PROTECTION_LEVEL(i32);
 pub struct PROCESS_PROTECTION_LEVEL_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
-#[cfg(feature = "Win32_System_SystemServices")]
 pub struct PRTL_UMS_SCHEDULER_ENTRY_POINT(i32);
 pub struct PTIMERAPCROUTINE(i32);
 pub struct PTP_CLEANUP_GROUP_CANCEL_CALLBACK(i32);
@@ -1003,7 +1001,6 @@ pub struct TimerQueueHandle(i32);
 #[cfg(feature = "Win32_System_SystemServices")]
 pub struct UMS_SCHEDULER_STARTUP_INFO(i32);
 pub struct UMS_SYSTEM_THREAD_INFORMATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WAITORTIMERCALLBACK(i32);
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const WAIT_ABANDONED: u32 = 128u32;

@@ -1117,18 +1117,18 @@ pub const ERROR_WSMAN_WMI_PROVIDER_NOT_CAPABLE: u32 = 2150859010u32;
 pub const ERROR_WSMAN_WMI_SVC_ACCESS_DENIED: u32 = 2150859012u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const ERROR_WSMAN_WRONG_METADATA: u32 = 2150859233u32;
-pub struct IWSMan(i32);
-pub struct IWSManConnectionOptions(i32);
-pub struct IWSManConnectionOptionsEx(i32);
-pub struct IWSManConnectionOptionsEx2(i32);
-pub struct IWSManEnumerator(i32);
-pub struct IWSManEx(i32);
-pub struct IWSManEx2(i32);
-pub struct IWSManEx3(i32);
-pub struct IWSManInternal(i32);
-pub struct IWSManResourceLocator(i32);
-pub struct IWSManResourceLocatorInternal(i32);
-pub struct IWSManSession(i32);
+pub struct IWSMan(pub *mut ::core::ffi::c_void);
+pub struct IWSManConnectionOptions(pub *mut ::core::ffi::c_void);
+pub struct IWSManConnectionOptionsEx(pub *mut ::core::ffi::c_void);
+pub struct IWSManConnectionOptionsEx2(pub *mut ::core::ffi::c_void);
+pub struct IWSManEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IWSManEx(pub *mut ::core::ffi::c_void);
+pub struct IWSManEx2(pub *mut ::core::ffi::c_void);
+pub struct IWSManEx3(pub *mut ::core::ffi::c_void);
+pub struct IWSManInternal(pub *mut ::core::ffi::c_void);
+pub struct IWSManResourceLocator(pub *mut ::core::ffi::c_void);
+pub struct IWSManResourceLocatorInternal(pub *mut ::core::ffi::c_void);
+pub struct IWSManSession(pub *mut ::core::ffi::c_void);
 pub struct WSMAN_API(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_AUTHENTICATION_CREDENTIALS(i32);
@@ -1188,16 +1188,11 @@ pub struct WSMAN_OPTION(i32);
 pub struct WSMAN_OPTION_SET(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_OPTION_SETEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_AUTHORIZE_OPERATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA(i32);
 pub struct WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_AUTHORIZE_USER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_COMMAND(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_CONNECT(i32);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_PARAMS_AUTORESTART: u32 = 3u32;
@@ -1221,15 +1216,12 @@ pub const WSMAN_PLUGIN_PARAMS_RUNAS_USER: u32 = 2u32;
 pub const WSMAN_PLUGIN_PARAMS_SHAREDHOST: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_PARAMS_TIMEOUT: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_RECEIVE(i32);
 pub struct WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT(i32);
 pub struct WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_REQUEST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_SEND(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_SHELL(i32);
 pub struct WSMAN_PLUGIN_SHUTDOWN(i32);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
@@ -1240,9 +1232,7 @@ pub const WSMAN_PLUGIN_SHUTDOWN_IISHOST: u32 = 3u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_SERVICE: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_SHUTDOWN_SYSTEM: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_SIGNAL(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_STARTUP(i32);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_CRASH: u32 = 2u32;
@@ -1264,7 +1254,6 @@ pub struct WSMAN_SESSION(i32);
 pub struct WSMAN_SHELL(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_SHELL_ASYNC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_SHELL_COMPLETION_FUNCTION(i32);
 pub struct WSMAN_SHELL_DISCONNECT_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]

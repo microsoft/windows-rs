@@ -83,5 +83,4 @@ pub struct DEV_QUERY_RESULT_ACTION(i32);
 pub struct DEV_QUERY_RESULT_ACTION_DATA(i32);
 pub struct DEV_QUERY_STATE(i32);
 pub struct HDEVQUERY__(i32);
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub struct PDEV_QUERY_RESULT_CALLBACK(i32);

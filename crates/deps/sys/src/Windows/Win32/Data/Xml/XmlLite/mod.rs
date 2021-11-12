@@ -21,10 +21,10 @@ extern "system" {
     pub fn CreateXmlWriterOutputWithEncodingName(poutputstream: ::windows_sys::core::IUnknown, pmalloc: super::super::super::System::Com::IMalloc, pwszencodingname: super::super::super::Foundation::PWSTR, ppoutput: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
 }
 pub struct DtdProcessing(i32);
-pub struct IXmlReader(i32);
-pub struct IXmlResolver(i32);
-pub struct IXmlWriter(i32);
-pub struct IXmlWriterLite(i32);
+pub struct IXmlReader(pub *mut ::core::ffi::c_void);
+pub struct IXmlResolver(pub *mut ::core::ffi::c_void);
+pub struct IXmlWriter(pub *mut ::core::ffi::c_void);
+pub struct IXmlWriterLite(pub *mut ::core::ffi::c_void);
 pub struct XmlConformanceLevel(i32);
 pub struct XmlError(i32);
 pub struct XmlNodeType(i32);

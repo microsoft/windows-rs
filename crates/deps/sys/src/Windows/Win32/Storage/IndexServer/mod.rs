@@ -181,8 +181,8 @@ pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
 pub struct IFILTER_FLAGS(i32);
 pub struct IFILTER_INIT(i32);
-pub struct IFilter(i32);
-pub struct IPhraseSink(i32);
+pub struct IFilter(pub *mut ::core::ffi::c_void);
+pub struct IPhraseSink(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const LIFF_FORCE_TEXT_FILTER_FALLBACK: u32 = 3u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]

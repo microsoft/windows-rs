@@ -113,11 +113,8 @@ extern "system" {
 pub struct EFaultRepRetVal(i32);
 pub struct HREPORT(i32);
 pub struct HREPORTSTORE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct PFN_WER_RUNTIME_EXCEPTION_EVENT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(i32);
 pub struct REPORT_STORE_TYPES(i32);
 pub struct WER_CONSENT(i32);
@@ -236,9 +233,6 @@ pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
 pub const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384u32;
 pub struct WER_SUBMIT_FLAGS(i32);
 pub struct WER_SUBMIT_RESULT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct pfn_ADDEREXCLUDEDAPPLICATIONA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct pfn_ADDEREXCLUDEDAPPLICATIONW(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct pfn_REPORTFAULT(i32);

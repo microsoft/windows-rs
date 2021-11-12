@@ -3,4 +3,4 @@
 extern "system" {}
 pub struct ApplicationProfile(i32);
 pub struct ApplicationProfileModes(i32);
-pub struct IApplicationProfileStatics(i32);
+pub struct IApplicationProfileStatics(pub *mut ::core::ffi::c_void);

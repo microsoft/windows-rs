@@ -83,38 +83,37 @@ extern "system" {
     pub fn WSDXMLGetValueFromAny(psznamespace: super::super::Foundation::PWSTR, pszname: super::super::Foundation::PWSTR, pany: *mut WSDXML_ELEMENT, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
 pub struct DeviceDiscoveryMechanism(i32);
-pub struct IWSDAddress(i32);
-pub struct IWSDAsyncCallback(i32);
-pub struct IWSDAsyncResult(i32);
-pub struct IWSDAttachment(i32);
-pub struct IWSDDeviceHost(i32);
-pub struct IWSDDeviceHostNotify(i32);
-pub struct IWSDDeviceProxy(i32);
-pub struct IWSDEndpointProxy(i32);
-pub struct IWSDEventingStatus(i32);
-pub struct IWSDHttpAddress(i32);
-pub struct IWSDHttpAuthParameters(i32);
-pub struct IWSDHttpMessageParameters(i32);
-pub struct IWSDInboundAttachment(i32);
-pub struct IWSDMessageParameters(i32);
-pub struct IWSDMetadataExchange(i32);
-pub struct IWSDOutboundAttachment(i32);
-pub struct IWSDSSLClientCertificate(i32);
-pub struct IWSDScopeMatchingRule(i32);
-pub struct IWSDServiceMessaging(i32);
-pub struct IWSDServiceProxy(i32);
-pub struct IWSDServiceProxyEventing(i32);
-pub struct IWSDSignatureProperty(i32);
-pub struct IWSDTransportAddress(i32);
-pub struct IWSDUdpAddress(i32);
-pub struct IWSDUdpMessageParameters(i32);
-pub struct IWSDXMLContext(i32);
-pub struct IWSDiscoveredService(i32);
-pub struct IWSDiscoveryProvider(i32);
-pub struct IWSDiscoveryProviderNotify(i32);
-pub struct IWSDiscoveryPublisher(i32);
-pub struct IWSDiscoveryPublisherNotify(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct IWSDAddress(pub *mut ::core::ffi::c_void);
+pub struct IWSDAsyncCallback(pub *mut ::core::ffi::c_void);
+pub struct IWSDAsyncResult(pub *mut ::core::ffi::c_void);
+pub struct IWSDAttachment(pub *mut ::core::ffi::c_void);
+pub struct IWSDDeviceHost(pub *mut ::core::ffi::c_void);
+pub struct IWSDDeviceHostNotify(pub *mut ::core::ffi::c_void);
+pub struct IWSDDeviceProxy(pub *mut ::core::ffi::c_void);
+pub struct IWSDEndpointProxy(pub *mut ::core::ffi::c_void);
+pub struct IWSDEventingStatus(pub *mut ::core::ffi::c_void);
+pub struct IWSDHttpAddress(pub *mut ::core::ffi::c_void);
+pub struct IWSDHttpAuthParameters(pub *mut ::core::ffi::c_void);
+pub struct IWSDHttpMessageParameters(pub *mut ::core::ffi::c_void);
+pub struct IWSDInboundAttachment(pub *mut ::core::ffi::c_void);
+pub struct IWSDMessageParameters(pub *mut ::core::ffi::c_void);
+pub struct IWSDMetadataExchange(pub *mut ::core::ffi::c_void);
+pub struct IWSDOutboundAttachment(pub *mut ::core::ffi::c_void);
+pub struct IWSDSSLClientCertificate(pub *mut ::core::ffi::c_void);
+pub struct IWSDScopeMatchingRule(pub *mut ::core::ffi::c_void);
+pub struct IWSDServiceMessaging(pub *mut ::core::ffi::c_void);
+pub struct IWSDServiceProxy(pub *mut ::core::ffi::c_void);
+pub struct IWSDServiceProxyEventing(pub *mut ::core::ffi::c_void);
+pub struct IWSDSignatureProperty(pub *mut ::core::ffi::c_void);
+pub struct IWSDTransportAddress(pub *mut ::core::ffi::c_void);
+pub struct IWSDUdpAddress(pub *mut ::core::ffi::c_void);
+pub struct IWSDUdpMessageParameters(pub *mut ::core::ffi::c_void);
+pub struct IWSDXMLContext(pub *mut ::core::ffi::c_void);
+pub struct IWSDiscoveredService(pub *mut ::core::ffi::c_void);
+pub struct IWSDiscoveryProvider(pub *mut ::core::ffi::c_void);
+pub struct IWSDiscoveryProviderNotify(pub *mut ::core::ffi::c_void);
+pub struct IWSDiscoveryPublisher(pub *mut ::core::ffi::c_void);
+pub struct IWSDiscoveryPublisherNotify(pub *mut ::core::ffi::c_void);
 pub struct PWSD_SOAP_MESSAGE_HANDLER(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct REQUESTBODY_GetStatus(i32);
@@ -278,7 +277,6 @@ pub struct WSD_SOAP_FAULT_SUBCODE(i32);
 pub struct WSD_SOAP_HEADER(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_SOAP_MESSAGE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WSD_STUB_FUNCTION(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT(i32);

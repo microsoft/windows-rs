@@ -1337,7 +1337,6 @@ pub const FWPM_CONDITION_VSWITCH_TENANT_NETWORK_ID: ::windows_sys::core::GUID = 
 };
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_CONNECTION0(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_CONNECTION_CALLBACK0(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1u32;
@@ -1785,15 +1784,10 @@ pub struct FWPM_NET_EVENT3(i32);
 pub struct FWPM_NET_EVENT4_(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT5_(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_CALLBACK0(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_CALLBACK1(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_CALLBACK2(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_CALLBACK3(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_CALLBACK4(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CAPABILITY_ALLOW0(i32);
@@ -2035,7 +2029,6 @@ pub const FWPM_TUNNEL_FLAG_RESERVED0: u32 = 4u32;
 pub const FWPM_TXN_READ_ONLY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT_CALLBACK0(i32);
 pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0(i32);
 pub struct FWPM_VSWITCH_EVENT_TYPE(i32);
@@ -2622,13 +2615,10 @@ pub struct IPSEC_KEYMODULE_STATE0(i32);
 pub struct IPSEC_KEY_MANAGER0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_KEY_MANAGER_DICTATE_KEY0(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_KEY_MANAGER_NOTIFY_KEY0(i32);
 pub struct IPSEC_PFS_GROUP(i32);
 pub struct IPSEC_POLICY_FLAG(i32);

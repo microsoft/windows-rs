@@ -2,5 +2,5 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct CorePerceptionAutomation(i32);
-pub struct ICorePerceptionAutomationStatics(i32);
+pub struct ICorePerceptionAutomationStatics(pub *mut ::core::ffi::c_void);
 pub struct PerceptionAutomationCoreContract(i32);

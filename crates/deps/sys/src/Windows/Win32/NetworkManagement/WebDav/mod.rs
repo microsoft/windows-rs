@@ -54,6 +54,5 @@ pub struct DAV_CALLBACK_AUTH_BLOB(i32);
 pub struct DAV_CALLBACK_AUTH_UNP(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct DAV_CALLBACK_CRED(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNDAVAUTHCALLBACK(i32);
 pub struct PFNDAVAUTHCALLBACK_FREECRED(i32);

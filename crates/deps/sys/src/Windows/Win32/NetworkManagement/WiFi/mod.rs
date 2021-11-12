@@ -1622,16 +1622,16 @@ pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: ::windows_sys::core::GUID = ::win
     data3: 16475,
     data4: [153, 240, 166, 42, 240, 198, 141, 67],
 };
-pub struct IDot11AdHocInterface(i32);
-pub struct IDot11AdHocInterfaceNotificationSink(i32);
-pub struct IDot11AdHocManager(i32);
-pub struct IDot11AdHocManagerNotificationSink(i32);
-pub struct IDot11AdHocNetwork(i32);
-pub struct IDot11AdHocNetworkNotificationSink(i32);
-pub struct IDot11AdHocSecuritySettings(i32);
-pub struct IEnumDot11AdHocInterfaces(i32);
-pub struct IEnumDot11AdHocNetworks(i32);
-pub struct IEnumDot11AdHocSecuritySettings(i32);
+pub struct IDot11AdHocInterface(pub *mut ::core::ffi::c_void);
+pub struct IDot11AdHocInterfaceNotificationSink(pub *mut ::core::ffi::c_void);
+pub struct IDot11AdHocManager(pub *mut ::core::ffi::c_void);
+pub struct IDot11AdHocManagerNotificationSink(pub *mut ::core::ffi::c_void);
+pub struct IDot11AdHocNetwork(pub *mut ::core::ffi::c_void);
+pub struct IDot11AdHocNetworkNotificationSink(pub *mut ::core::ffi::c_void);
+pub struct IDot11AdHocSecuritySettings(pub *mut ::core::ffi::c_void);
+pub struct IEnumDot11AdHocInterfaces(pub *mut ::core::ffi::c_void);
+pub struct IEnumDot11AdHocNetworks(pub *mut ::core::ffi::c_void);
+pub struct IEnumDot11AdHocSecuritySettings(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const L2_NOTIFICATION_CODE_GROUP_SIZE: u32 = 4096u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -1973,7 +1973,6 @@ pub const WFD_API_VERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WFD_API_VERSION_1_0: u32 = 1u32;
 pub struct WFD_GROUP_ID(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WFD_OPEN_SESSION_COMPLETE_CALLBACK(i32);
 pub struct WFD_ROLE_TYPE(i32);
 pub struct WLAN_ADHOC_NETWORK_STATE(i32);

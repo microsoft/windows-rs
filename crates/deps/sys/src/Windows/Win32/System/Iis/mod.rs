@@ -34,14 +34,14 @@ pub const ASP_MD_ID_END_RESERVED: u32 = 29951u32;
 pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const ASP_MD_UT_APP: u32 = 101u32;
-pub struct AsyncIFtpAuthenticationProvider(i32);
-pub struct AsyncIFtpAuthorizationProvider(i32);
-pub struct AsyncIFtpHomeDirectoryProvider(i32);
-pub struct AsyncIFtpLogProvider(i32);
-pub struct AsyncIFtpPostprocessProvider(i32);
-pub struct AsyncIFtpPreprocessProvider(i32);
-pub struct AsyncIFtpRoleProvider(i32);
-pub struct AsyncIMSAdminBaseSinkW(i32);
+pub struct AsyncIFtpAuthenticationProvider(pub *mut ::core::ffi::c_void);
+pub struct AsyncIFtpAuthorizationProvider(pub *mut ::core::ffi::c_void);
+pub struct AsyncIFtpHomeDirectoryProvider(pub *mut ::core::ffi::c_void);
+pub struct AsyncIFtpLogProvider(pub *mut ::core::ffi::c_void);
+pub struct AsyncIFtpPostprocessProvider(pub *mut ::core::ffi::c_void);
+pub struct AsyncIFtpPreprocessProvider(pub *mut ::core::ffi::c_void);
+pub struct AsyncIFtpRoleProvider(pub *mut ::core::ffi::c_void);
+pub struct AsyncIMSAdminBaseSinkW(pub *mut ::core::ffi::c_void);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CERT_CONTEXT_EX(i32);
 pub const CLSID_IImgCtx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611670, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -331,15 +331,15 @@ pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
 pub struct HTTP_TRACE_TYPE(i32);
-pub struct IADMEXT(i32);
-pub struct IFtpAuthenticationProvider(i32);
-pub struct IFtpAuthorizationProvider(i32);
-pub struct IFtpHomeDirectoryProvider(i32);
-pub struct IFtpLogProvider(i32);
-pub struct IFtpPostprocessProvider(i32);
-pub struct IFtpPreprocessProvider(i32);
-pub struct IFtpProviderConstruct(i32);
-pub struct IFtpRoleProvider(i32);
+pub struct IADMEXT(pub *mut ::core::ffi::c_void);
+pub struct IFtpAuthenticationProvider(pub *mut ::core::ffi::c_void);
+pub struct IFtpAuthorizationProvider(pub *mut ::core::ffi::c_void);
+pub struct IFtpHomeDirectoryProvider(pub *mut ::core::ffi::c_void);
+pub struct IFtpLogProvider(pub *mut ::core::ffi::c_void);
+pub struct IFtpPostprocessProvider(pub *mut ::core::ffi::c_void);
+pub struct IFtpPreprocessProvider(pub *mut ::core::ffi::c_void);
+pub struct IFtpProviderConstruct(pub *mut ::core::ffi::c_void);
+pub struct IFtpRoleProvider(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_ADSI_METAID_BEGIN: u32 = 130000u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
@@ -422,11 +422,11 @@ pub const IMGLOAD_STOPPED: u32 = 4194304u32;
 pub const IMGTRANS_MASK: u32 = 536870912u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
-pub struct IMSAdminBase2W(i32);
-pub struct IMSAdminBase3W(i32);
-pub struct IMSAdminBaseSinkW(i32);
-pub struct IMSAdminBaseW(i32);
-pub struct IMSImpExpHelpW(i32);
+pub struct IMSAdminBase2W(pub *mut ::core::ffi::c_void);
+pub struct IMSAdminBase3W(pub *mut ::core::ffi::c_void);
+pub struct IMSAdminBaseSinkW(pub *mut ::core::ffi::c_void);
+pub struct IMSAdminBaseW(pub *mut ::core::ffi::c_void);
+pub struct IMSImpExpHelpW(pub *mut ::core::ffi::c_void);
 pub const LIBID_ASPTypeLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3648679328, data2: 43100, data3: 4559, data4: [131, 174, 0, 160, 201, 12, 43, 216] };
 pub const LIBID_IISRSTALib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3908797972, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
 pub const LIBID_WAMREGLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 696396456, data2: 62210, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
@@ -1745,21 +1745,13 @@ pub const MSCS_MD_ID_END_RESERVED: u32 = 57343u32;
 pub const NNTP_MD_ID_BEGIN_RESERVED: u32 = 45056u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const NNTP_MD_ID_END_RESERVED: u32 = 49151u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_GETEXTENSIONVERSION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_HSE_CACHE_INVALIDATION_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_HSE_IO_COMPLETION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_HTTPEXTENSIONPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_TERMINATEEXTENSION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WEB_CORE_ACTIVATE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WEB_CORE_SET_METADATA_DLL_ENTRY(i32);
 pub struct PFN_WEB_CORE_SHUTDOWN(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]

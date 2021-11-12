@@ -2,5 +2,5 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct DataProtectionProvider(i32);
-pub struct IDataProtectionProvider(i32);
-pub struct IDataProtectionProviderFactory(i32);
+pub struct IDataProtectionProvider(pub *mut ::core::ffi::c_void);
+pub struct IDataProtectionProviderFactory(pub *mut ::core::ffi::c_void);

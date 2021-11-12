@@ -4,6 +4,6 @@ extern "system" {}
 pub struct CommunicationBlockingAccessManager(i32);
 pub struct CommunicationBlockingAppManager(i32);
 pub struct CommunicationBlockingContract(i32);
-pub struct ICommunicationBlockingAccessManagerStatics(i32);
-pub struct ICommunicationBlockingAppManagerStatics(i32);
-pub struct ICommunicationBlockingAppManagerStatics2(i32);
+pub struct ICommunicationBlockingAccessManagerStatics(pub *mut ::core::ffi::c_void);
+pub struct ICommunicationBlockingAppManagerStatics(pub *mut ::core::ffi::c_void);
+pub struct ICommunicationBlockingAppManagerStatics2(pub *mut ::core::ffi::c_void);

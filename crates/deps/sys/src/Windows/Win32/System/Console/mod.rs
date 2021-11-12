@@ -416,7 +416,6 @@ pub const NLS_KATAKANA: u32 = 131072u32;
 pub const NLS_ROMAN: u32 = 4194304u32;
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const NUMLOCK_ON: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PHANDLER_ROUTINE(i32);
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;

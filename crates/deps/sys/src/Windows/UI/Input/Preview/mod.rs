@@ -3,5 +3,5 @@
 pub mod Injection;
 #[link(name = "windows")]
 extern "system" {}
-pub struct IInputActivationListenerPreviewStatics(i32);
+pub struct IInputActivationListenerPreviewStatics(pub *mut ::core::ffi::c_void);
 pub struct InputActivationListenerPreview(i32);

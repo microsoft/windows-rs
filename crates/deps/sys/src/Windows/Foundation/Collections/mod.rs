@@ -2,20 +2,20 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct CollectionChange(i32);
-pub struct IIterable<T>(i32);
-pub struct IIterator<T>(i32);
-pub struct IKeyValuePair<K, V>(i32);
-pub struct IMap<K, V>(i32);
-pub struct IMapChangedEventArgs<K>(i32);
-pub struct IMapView<K, V>(i32);
-pub struct IObservableMap<K, V>(i32);
-pub struct IObservableVector<T>(i32);
-pub struct IPropertySet(i32);
-pub struct IVector<T>(i32);
-pub struct IVectorChangedEventArgs(i32);
-pub struct IVectorView<T>(i32);
-pub struct MapChangedEventHandler<K, V>(i32);
+pub struct IIterable<T>(pub *mut ::core::ffi::c_void);
+pub struct IIterator<T>(pub *mut ::core::ffi::c_void);
+pub struct IKeyValuePair<K, V>(pub *mut ::core::ffi::c_void);
+pub struct IMap<K, V>(pub *mut ::core::ffi::c_void);
+pub struct IMapChangedEventArgs<K>(pub *mut ::core::ffi::c_void);
+pub struct IMapView<K, V>(pub *mut ::core::ffi::c_void);
+pub struct IObservableMap<K, V>(pub *mut ::core::ffi::c_void);
+pub struct IObservableVector<T>(pub *mut ::core::ffi::c_void);
+pub struct IPropertySet(pub *mut ::core::ffi::c_void);
+pub struct IVector<T>(pub *mut ::core::ffi::c_void);
+pub struct IVectorChangedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IVectorView<T>(pub *mut ::core::ffi::c_void);
+pub struct MapChangedEventHandler<K, V>(pub *mut ::core::ffi::c_void);
 pub struct PropertySet(i32);
 pub struct StringMap(i32);
 pub struct ValueSet(i32);
-pub struct VectorChangedEventHandler<T>(i32);
+pub struct VectorChangedEventHandler<T>(pub *mut ::core::ffi::c_void);

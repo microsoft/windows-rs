@@ -17,11 +17,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
 }
-pub struct IWSCDefaultProduct(i32);
-pub struct IWSCProductList(i32);
-pub struct IWscProduct(i32);
-pub struct IWscProduct2(i32);
-pub struct IWscProduct3(i32);
+pub struct IWSCDefaultProduct(pub *mut ::core::ffi::c_void);
+pub struct IWSCProductList(pub *mut ::core::ffi::c_void);
+pub struct IWscProduct(pub *mut ::core::ffi::c_void);
+pub struct IWscProduct2(pub *mut ::core::ffi::c_void);
+pub struct IWscProduct3(pub *mut ::core::ffi::c_void);
 pub struct SECURITY_PRODUCT_TYPE(i32);
 pub struct WSCDefaultProduct(i32);
 pub struct WSCProductList(i32);

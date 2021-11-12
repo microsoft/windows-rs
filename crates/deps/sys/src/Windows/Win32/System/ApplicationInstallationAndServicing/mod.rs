@@ -1387,19 +1387,19 @@ pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_REFRESHED: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const IASSEMBLYCACHEITEM_COMMIT_FLAG_REFRESH: u32 = 1u32;
 pub struct IASSEMBLYCACHE_UNINSTALL_DISPOSITION(i32);
-pub struct IAssemblyCache(i32);
-pub struct IAssemblyCacheItem(i32);
-pub struct IAssemblyName(i32);
-pub struct IEnumMsmDependency(i32);
-pub struct IEnumMsmError(i32);
-pub struct IEnumMsmString(i32);
-pub struct IMsmDependencies(i32);
-pub struct IMsmDependency(i32);
-pub struct IMsmError(i32);
-pub struct IMsmErrors(i32);
-pub struct IMsmGetFiles(i32);
-pub struct IMsmMerge(i32);
-pub struct IMsmStrings(i32);
+pub struct IAssemblyCache(pub *mut ::core::ffi::c_void);
+pub struct IAssemblyCacheItem(pub *mut ::core::ffi::c_void);
+pub struct IAssemblyName(pub *mut ::core::ffi::c_void);
+pub struct IEnumMsmDependency(pub *mut ::core::ffi::c_void);
+pub struct IEnumMsmError(pub *mut ::core::ffi::c_void);
+pub struct IEnumMsmString(pub *mut ::core::ffi::c_void);
+pub struct IMsmDependencies(pub *mut ::core::ffi::c_void);
+pub struct IMsmDependency(pub *mut ::core::ffi::c_void);
+pub struct IMsmError(pub *mut ::core::ffi::c_void);
+pub struct IMsmErrors(pub *mut ::core::ffi::c_void);
+pub struct IMsmGetFiles(pub *mut ::core::ffi::c_void);
+pub struct IMsmMerge(pub *mut ::core::ffi::c_void);
+pub struct IMsmStrings(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_BASE: u32 = 3222229249u32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
@@ -1449,36 +1449,34 @@ pub struct INSTALLOGMODE(i32);
 pub struct INSTALLSTATE(i32);
 pub struct INSTALLTYPE(i32);
 pub struct INSTALLUILEVEL(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLUI_HANDLERA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLUI_HANDLERW(i32);
-pub struct IPMApplicationInfo(i32);
-pub struct IPMApplicationInfoEnumerator(i32);
-pub struct IPMBackgroundServiceAgentInfo(i32);
-pub struct IPMBackgroundServiceAgentInfoEnumerator(i32);
-pub struct IPMBackgroundWorkerInfo(i32);
-pub struct IPMBackgroundWorkerInfoEnumerator(i32);
-pub struct IPMDeploymentManager(i32);
-pub struct IPMEnumerationManager(i32);
-pub struct IPMExtensionCachedFileUpdaterInfo(i32);
-pub struct IPMExtensionContractInfo(i32);
-pub struct IPMExtensionFileExtensionInfo(i32);
-pub struct IPMExtensionFileOpenPickerInfo(i32);
-pub struct IPMExtensionFileSavePickerInfo(i32);
-pub struct IPMExtensionInfo(i32);
-pub struct IPMExtensionInfoEnumerator(i32);
-pub struct IPMExtensionProtocolInfo(i32);
-pub struct IPMExtensionShareTargetInfo(i32);
-pub struct IPMLiveTileJobInfo(i32);
-pub struct IPMLiveTileJobInfoEnumerator(i32);
-pub struct IPMTaskInfo(i32);
-pub struct IPMTaskInfoEnumerator(i32);
-pub struct IPMTileInfo(i32);
-pub struct IPMTileInfoEnumerator(i32);
-pub struct IPMTilePropertyEnumerator(i32);
-pub struct IPMTilePropertyInfo(i32);
-pub struct IValidate(i32);
+pub struct IPMApplicationInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMApplicationInfoEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IPMBackgroundServiceAgentInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMBackgroundServiceAgentInfoEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IPMBackgroundWorkerInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMBackgroundWorkerInfoEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IPMDeploymentManager(pub *mut ::core::ffi::c_void);
+pub struct IPMEnumerationManager(pub *mut ::core::ffi::c_void);
+pub struct IPMExtensionCachedFileUpdaterInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMExtensionContractInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMExtensionFileExtensionInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMExtensionFileOpenPickerInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMExtensionFileSavePickerInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMExtensionInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMExtensionInfoEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IPMExtensionProtocolInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMExtensionShareTargetInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMLiveTileJobInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMLiveTileJobInfoEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IPMTaskInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMTaskInfoEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IPMTileInfo(pub *mut ::core::ffi::c_void);
+pub struct IPMTileInfoEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IPMTilePropertyEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IPMTilePropertyInfo(pub *mut ::core::ffi::c_void);
+pub struct IValidate(pub *mut ::core::ffi::c_void);
 pub const LIBID_MsmMergeTypeLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 182298671, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGALL: u32 = 15u32;
@@ -1502,9 +1500,7 @@ pub const LOGTOKEN_TYPE_MASK: u32 = 3u32;
 pub const LOGTOKEN_UNSPECIFIED: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGWARN: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDISPLAYVAL(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPEVALCOMCALLBACK(i32);
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const MAX_FEATURE_CHARS: u32 = 38u32;
@@ -1682,9 +1678,7 @@ pub struct PM_TILE_SIZE(i32);
 pub struct PM_UPDATEINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct PM_UPDATEINFO_LEGACY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PPATCH_PROGRESS_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PPATCH_SYMLOAD_CALLBACK(i32);
 pub struct PROTECTED_FILE_DATA(i32);
 pub struct QUERYASMINFO_FLAGS(i32);

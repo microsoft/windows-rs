@@ -9,9 +9,9 @@ pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;
 pub const DISPID_EVENT_ON_STATE_CHANGED: u32 = 5u32;
 #[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 pub const DISPID_EVENT_ON_TERMINATION: u32 = 6u32;
-pub struct DRendezvousSessionEvents(i32);
-pub struct IRendezvousApplication(i32);
-pub struct IRendezvousSession(i32);
+pub struct DRendezvousSessionEvents(pub *mut ::core::ffi::c_void);
+pub struct IRendezvousApplication(pub *mut ::core::ffi::c_void);
+pub struct IRendezvousSession(pub *mut ::core::ffi::c_void);
 pub struct RENDEZVOUS_SESSION_FLAGS(i32);
 pub struct RENDEZVOUS_SESSION_STATE(i32);
 pub struct RendezvousApplication(i32);

@@ -841,12 +841,12 @@ pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: ::windows_sys::core::GUID = :
     data3: 19400,
     data4: [160, 183, 93, 187, 163, 106, 218, 250],
 };
-pub struct IEnhancedStorageACT(i32);
-pub struct IEnhancedStorageACT2(i32);
-pub struct IEnhancedStorageACT3(i32);
-pub struct IEnhancedStorageSilo(i32);
-pub struct IEnhancedStorageSiloAction(i32);
-pub struct IEnumEnhancedStorageACT(i32);
+pub struct IEnhancedStorageACT(pub *mut ::core::ffi::c_void);
+pub struct IEnhancedStorageACT2(pub *mut ::core::ffi::c_void);
+pub struct IEnhancedStorageACT3(pub *mut ::core::ffi::c_void);
+pub struct IEnhancedStorageSilo(pub *mut ::core::ffi::c_void);
+pub struct IEnhancedStorageSiloAction(pub *mut ::core::ffi::c_void);
+pub struct IEnumEnhancedStorageACT(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const IMPORTANCE_HIGH_MAX: i32 = 5i32;
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]

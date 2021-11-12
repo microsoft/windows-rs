@@ -3,20 +3,20 @@
 pub mod Extensions;
 #[link(name = "windows")]
 extern "system" {}
-pub struct IIppAttributeError(i32);
-pub struct IIppAttributeValue(i32);
-pub struct IIppAttributeValueStatics(i32);
-pub struct IIppIntegerRange(i32);
-pub struct IIppIntegerRangeFactory(i32);
-pub struct IIppPrintDevice(i32);
-pub struct IIppResolution(i32);
-pub struct IIppResolutionFactory(i32);
-pub struct IIppSetAttributesResult(i32);
-pub struct IIppTextWithLanguage(i32);
-pub struct IIppTextWithLanguageFactory(i32);
-pub struct IPrint3DDevice(i32);
-pub struct IPrint3DDeviceStatics(i32);
-pub struct IPrintSchema(i32);
+pub struct IIppAttributeError(pub *mut ::core::ffi::c_void);
+pub struct IIppAttributeValue(pub *mut ::core::ffi::c_void);
+pub struct IIppAttributeValueStatics(pub *mut ::core::ffi::c_void);
+pub struct IIppIntegerRange(pub *mut ::core::ffi::c_void);
+pub struct IIppIntegerRangeFactory(pub *mut ::core::ffi::c_void);
+pub struct IIppPrintDevice(pub *mut ::core::ffi::c_void);
+pub struct IIppResolution(pub *mut ::core::ffi::c_void);
+pub struct IIppResolutionFactory(pub *mut ::core::ffi::c_void);
+pub struct IIppSetAttributesResult(pub *mut ::core::ffi::c_void);
+pub struct IIppTextWithLanguage(pub *mut ::core::ffi::c_void);
+pub struct IIppTextWithLanguageFactory(pub *mut ::core::ffi::c_void);
+pub struct IPrint3DDevice(pub *mut ::core::ffi::c_void);
+pub struct IPrint3DDeviceStatics(pub *mut ::core::ffi::c_void);
+pub struct IPrintSchema(pub *mut ::core::ffi::c_void);
 pub struct IppAttributeError(i32);
 pub struct IppAttributeErrorReason(i32);
 pub struct IppAttributeValue(i32);

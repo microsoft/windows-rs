@@ -2,21 +2,21 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct ConnectionRequestedEventArgs(i32);
-pub struct DeviceArrivedEventHandler(i32);
-pub struct DeviceDepartedEventHandler(i32);
-pub struct IConnectionRequestedEventArgs(i32);
-pub struct IPeerFinderStatics(i32);
-pub struct IPeerFinderStatics2(i32);
-pub struct IPeerInformation(i32);
-pub struct IPeerInformation3(i32);
-pub struct IPeerInformationWithHostAndService(i32);
-pub struct IPeerWatcher(i32);
-pub struct IProximityDevice(i32);
-pub struct IProximityDeviceStatics(i32);
-pub struct IProximityMessage(i32);
-pub struct ITriggeredConnectionStateChangedEventArgs(i32);
-pub struct MessageReceivedHandler(i32);
-pub struct MessageTransmittedHandler(i32);
+pub struct DeviceArrivedEventHandler(pub *mut ::core::ffi::c_void);
+pub struct DeviceDepartedEventHandler(pub *mut ::core::ffi::c_void);
+pub struct IConnectionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IPeerFinderStatics(pub *mut ::core::ffi::c_void);
+pub struct IPeerFinderStatics2(pub *mut ::core::ffi::c_void);
+pub struct IPeerInformation(pub *mut ::core::ffi::c_void);
+pub struct IPeerInformation3(pub *mut ::core::ffi::c_void);
+pub struct IPeerInformationWithHostAndService(pub *mut ::core::ffi::c_void);
+pub struct IPeerWatcher(pub *mut ::core::ffi::c_void);
+pub struct IProximityDevice(pub *mut ::core::ffi::c_void);
+pub struct IProximityDeviceStatics(pub *mut ::core::ffi::c_void);
+pub struct IProximityMessage(pub *mut ::core::ffi::c_void);
+pub struct ITriggeredConnectionStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct MessageReceivedHandler(pub *mut ::core::ffi::c_void);
+pub struct MessageTransmittedHandler(pub *mut ::core::ffi::c_void);
 pub struct PeerDiscoveryTypes(i32);
 pub struct PeerFinder(i32);
 pub struct PeerInformation(i32);

@@ -23,11 +23,8 @@ pub const CLSID_MSDtcTransactionManager: ::windows_sys::core::GUID = ::windows_s
 pub const DTCINSTALL_E_CLIENT_ALREADY_INSTALLED: i32 = 384i32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const DTCINSTALL_E_SERVER_ALREADY_INSTALLED: i32 = 385i32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct DTC_GET_TRANSACTION_MANAGER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DTC_GET_TRANSACTION_MANAGER_EX_A(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DTC_GET_TRANSACTION_MANAGER_EX_W(i32);
 pub struct DTC_INSTALL_CLIENT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
@@ -35,74 +32,74 @@ pub const DTC_INSTALL_OVERWRITE_CLIENT: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const DTC_INSTALL_OVERWRITE_SERVER: u32 = 2u32;
 pub struct DTC_STATUS_(i32);
-pub struct IDtcLuConfigure(i32);
-pub struct IDtcLuRecovery(i32);
-pub struct IDtcLuRecoveryFactory(i32);
-pub struct IDtcLuRecoveryInitiatedByDtc(i32);
-pub struct IDtcLuRecoveryInitiatedByDtcStatusWork(i32);
-pub struct IDtcLuRecoveryInitiatedByDtcTransWork(i32);
-pub struct IDtcLuRecoveryInitiatedByLu(i32);
-pub struct IDtcLuRecoveryInitiatedByLuWork(i32);
-pub struct IDtcLuRmEnlistment(i32);
-pub struct IDtcLuRmEnlistmentFactory(i32);
-pub struct IDtcLuRmEnlistmentSink(i32);
-pub struct IDtcLuSubordinateDtc(i32);
-pub struct IDtcLuSubordinateDtcFactory(i32);
-pub struct IDtcLuSubordinateDtcSink(i32);
-pub struct IDtcNetworkAccessConfig(i32);
-pub struct IDtcNetworkAccessConfig2(i32);
-pub struct IDtcNetworkAccessConfig3(i32);
-pub struct IDtcToXaHelper(i32);
-pub struct IDtcToXaHelperFactory(i32);
-pub struct IDtcToXaHelperSinglePipe(i32);
-pub struct IDtcToXaMapper(i32);
-pub struct IGetDispenser(i32);
-pub struct IKernelTransaction(i32);
-pub struct ILastResourceManager(i32);
-pub struct IPrepareInfo(i32);
-pub struct IPrepareInfo2(i32);
-pub struct IRMHelper(i32);
-pub struct IResourceManager(i32);
-pub struct IResourceManager2(i32);
-pub struct IResourceManagerFactory(i32);
-pub struct IResourceManagerFactory2(i32);
-pub struct IResourceManagerRejoinable(i32);
-pub struct IResourceManagerSink(i32);
+pub struct IDtcLuConfigure(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuRecovery(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuRecoveryFactory(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuRecoveryInitiatedByDtc(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuRecoveryInitiatedByDtcStatusWork(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuRecoveryInitiatedByDtcTransWork(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuRecoveryInitiatedByLu(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuRecoveryInitiatedByLuWork(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuRmEnlistment(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuRmEnlistmentFactory(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuRmEnlistmentSink(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuSubordinateDtc(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuSubordinateDtcFactory(pub *mut ::core::ffi::c_void);
+pub struct IDtcLuSubordinateDtcSink(pub *mut ::core::ffi::c_void);
+pub struct IDtcNetworkAccessConfig(pub *mut ::core::ffi::c_void);
+pub struct IDtcNetworkAccessConfig2(pub *mut ::core::ffi::c_void);
+pub struct IDtcNetworkAccessConfig3(pub *mut ::core::ffi::c_void);
+pub struct IDtcToXaHelper(pub *mut ::core::ffi::c_void);
+pub struct IDtcToXaHelperFactory(pub *mut ::core::ffi::c_void);
+pub struct IDtcToXaHelperSinglePipe(pub *mut ::core::ffi::c_void);
+pub struct IDtcToXaMapper(pub *mut ::core::ffi::c_void);
+pub struct IGetDispenser(pub *mut ::core::ffi::c_void);
+pub struct IKernelTransaction(pub *mut ::core::ffi::c_void);
+pub struct ILastResourceManager(pub *mut ::core::ffi::c_void);
+pub struct IPrepareInfo(pub *mut ::core::ffi::c_void);
+pub struct IPrepareInfo2(pub *mut ::core::ffi::c_void);
+pub struct IRMHelper(pub *mut ::core::ffi::c_void);
+pub struct IResourceManager(pub *mut ::core::ffi::c_void);
+pub struct IResourceManager2(pub *mut ::core::ffi::c_void);
+pub struct IResourceManagerFactory(pub *mut ::core::ffi::c_void);
+pub struct IResourceManagerFactory2(pub *mut ::core::ffi::c_void);
+pub struct IResourceManagerRejoinable(pub *mut ::core::ffi::c_void);
+pub struct IResourceManagerSink(pub *mut ::core::ffi::c_void);
 pub struct ISOFLAG(i32);
 pub struct ISOLATIONLEVEL(i32);
-pub struct ITipHelper(i32);
-pub struct ITipPullSink(i32);
-pub struct ITipTransaction(i32);
-pub struct ITmNodeName(i32);
-pub struct ITransaction(i32);
-pub struct ITransaction2(i32);
-pub struct ITransactionCloner(i32);
-pub struct ITransactionDispenser(i32);
-pub struct ITransactionEnlistmentAsync(i32);
-pub struct ITransactionExport(i32);
-pub struct ITransactionExportFactory(i32);
-pub struct ITransactionImport(i32);
-pub struct ITransactionImportWhereabouts(i32);
-pub struct ITransactionLastEnlistmentAsync(i32);
-pub struct ITransactionLastResourceAsync(i32);
-pub struct ITransactionOptions(i32);
-pub struct ITransactionOutcomeEvents(i32);
-pub struct ITransactionPhase0EnlistmentAsync(i32);
-pub struct ITransactionPhase0Factory(i32);
-pub struct ITransactionPhase0NotifyAsync(i32);
-pub struct ITransactionReceiver(i32);
-pub struct ITransactionReceiverFactory(i32);
-pub struct ITransactionResource(i32);
-pub struct ITransactionResourceAsync(i32);
-pub struct ITransactionTransmitter(i32);
-pub struct ITransactionTransmitterFactory(i32);
-pub struct ITransactionVoterBallotAsync2(i32);
-pub struct ITransactionVoterFactory2(i32);
-pub struct ITransactionVoterNotifyAsync2(i32);
-pub struct IXAConfig(i32);
-pub struct IXAObtainRMInfo(i32);
-pub struct IXATransLookup(i32);
-pub struct IXATransLookup2(i32);
+pub struct ITipHelper(pub *mut ::core::ffi::c_void);
+pub struct ITipPullSink(pub *mut ::core::ffi::c_void);
+pub struct ITipTransaction(pub *mut ::core::ffi::c_void);
+pub struct ITmNodeName(pub *mut ::core::ffi::c_void);
+pub struct ITransaction(pub *mut ::core::ffi::c_void);
+pub struct ITransaction2(pub *mut ::core::ffi::c_void);
+pub struct ITransactionCloner(pub *mut ::core::ffi::c_void);
+pub struct ITransactionDispenser(pub *mut ::core::ffi::c_void);
+pub struct ITransactionEnlistmentAsync(pub *mut ::core::ffi::c_void);
+pub struct ITransactionExport(pub *mut ::core::ffi::c_void);
+pub struct ITransactionExportFactory(pub *mut ::core::ffi::c_void);
+pub struct ITransactionImport(pub *mut ::core::ffi::c_void);
+pub struct ITransactionImportWhereabouts(pub *mut ::core::ffi::c_void);
+pub struct ITransactionLastEnlistmentAsync(pub *mut ::core::ffi::c_void);
+pub struct ITransactionLastResourceAsync(pub *mut ::core::ffi::c_void);
+pub struct ITransactionOptions(pub *mut ::core::ffi::c_void);
+pub struct ITransactionOutcomeEvents(pub *mut ::core::ffi::c_void);
+pub struct ITransactionPhase0EnlistmentAsync(pub *mut ::core::ffi::c_void);
+pub struct ITransactionPhase0Factory(pub *mut ::core::ffi::c_void);
+pub struct ITransactionPhase0NotifyAsync(pub *mut ::core::ffi::c_void);
+pub struct ITransactionReceiver(pub *mut ::core::ffi::c_void);
+pub struct ITransactionReceiverFactory(pub *mut ::core::ffi::c_void);
+pub struct ITransactionResource(pub *mut ::core::ffi::c_void);
+pub struct ITransactionResourceAsync(pub *mut ::core::ffi::c_void);
+pub struct ITransactionTransmitter(pub *mut ::core::ffi::c_void);
+pub struct ITransactionTransmitterFactory(pub *mut ::core::ffi::c_void);
+pub struct ITransactionVoterBallotAsync2(pub *mut ::core::ffi::c_void);
+pub struct ITransactionVoterFactory2(pub *mut ::core::ffi::c_void);
+pub struct ITransactionVoterNotifyAsync2(pub *mut ::core::ffi::c_void);
+pub struct IXAConfig(pub *mut ::core::ffi::c_void);
+pub struct IXAObtainRMInfo(pub *mut ::core::ffi::c_void);
+pub struct IXATransLookup(pub *mut ::core::ffi::c_void);
+pub struct IXATransLookup2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const MAXBQUALSIZE: u32 = 64u32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
@@ -198,18 +195,14 @@ pub const XAER_PROTO: i32 = -6i32;
 pub const XAER_RMERR: i32 = -3i32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XAER_RMFAIL: i32 = -7i32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct XA_CLOSE_EPT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct XA_COMMIT_EPT(i32);
 pub struct XA_COMPLETE_EPT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct XA_END_EPT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_FMTID_DTC: u32 = 4478019u32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_FMTID_DTC_VER1: u32 = 21255235u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct XA_FORGET_EPT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_HEURCOM: u32 = 7u32;
@@ -223,9 +216,7 @@ pub const XA_HEURRB: u32 = 6u32;
 pub const XA_NOMIGRATE: u32 = 9u32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_OK: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct XA_OPEN_EPT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct XA_PREPARE_EPT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBBASE: u32 = 100u32;
@@ -249,13 +240,10 @@ pub const XA_RBTIMEOUT: u32 = 106u32;
 pub const XA_RBTRANSIENT: u32 = 107u32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RDONLY: u32 = 3u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct XA_RECOVER_EPT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RETRY: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct XA_ROLLBACK_EPT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct XA_START_EPT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_SWITCH_F_DTC: u32 = 1u32;

@@ -925,7 +925,6 @@ pub const FO_VERT_FACE: u32 = 8388608u32;
 pub const FP_ALTERNATEMODE: i32 = 1i32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const FP_WINDINGMODE: i32 = 2i32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct FREEOBJPROC(i32);
 #[cfg(feature = "Win32_System_Console")]
 pub struct FSCNTL_SCREEN_INFO(i32);
@@ -1253,7 +1252,7 @@ pub const HT_USERPAT_CX_MIN: u32 = 4u32;
 pub const HT_USERPAT_CY_MAX: u32 = 256u32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HT_USERPAT_CY_MIN: u32 = 4u32;
-pub struct ICloneViewHelper(i32);
+pub struct ICloneViewHelper(pub *mut ::core::ffi::c_void);
 pub struct IFIEXTRA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1615,7 +1614,7 @@ pub const IOCTL_VIDEO_UNSHARE_VIDEO_MEMORY: u32 = 2294904u32;
 pub const IOCTL_VIDEO_USE_DEVICE_IN_SESSION: u32 = 2293800u32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
-pub struct IViewHelper(i32);
+pub struct IViewHelper(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const JOIN_BEVEL: i32 = 1i32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
@@ -1748,176 +1747,99 @@ pub const PD_RESETSTYLE: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERBANDINFO(i32);
 pub struct PFN(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvAccumulateD3DDirtyRect(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvAlphaBlend(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvAssertMode(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvAssociateSharedSurface(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvBitBlt(i32);
 pub struct PFN_DrvCompletePDEV(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvCopyBits(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvCreateDeviceBitmap(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvCreateDeviceBitmapEx(i32);
 pub struct PFN_DrvDeleteDeviceBitmap(i32);
 pub struct PFN_DrvDeleteDeviceBitmapEx(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvDeriveSurface(i32);
-#[cfg(feature = "Win32_Graphics_OpenGL")]
 pub struct PFN_DrvDescribePixelFormat(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvDestroyFont(i32);
 pub struct PFN_DrvDisableDirectDraw(i32);
 pub struct PFN_DrvDisableDriver(i32);
 pub struct PFN_DrvDisablePDEV(i32);
 pub struct PFN_DrvDisableSurface(i32);
 pub struct PFN_DrvDitherColor(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvDrawEscape(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvEnableDirectDraw(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvEnableDriver(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvEnablePDEV(i32);
 pub struct PFN_DrvEnableSurface(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvEndDoc(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvEndDxInterop(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvEscape(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvFillPath(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvFontManagement(i32);
 pub struct PFN_DrvFree(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct PFN_DrvGetDirectDrawInfo(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvGetGlyphMode(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvGetModes(i32);
 pub struct PFN_DrvGetTrueTypeFile(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvGradientFill(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvIcmCheckBitmapBits(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_ColorSystem"))]
 pub struct PFN_DrvIcmCreateColorTransform(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvIcmDeleteColorTransform(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvIcmSetDeviceGammaRamp(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvLineTo(i32);
-#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PFN_DrvLoadFontFile(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvLockDisplayArea(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvMovePointer(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvNextBand(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvNotify(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvPaint(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvPlgBlt(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvQueryAdvanceWidths(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvQueryDeviceSupport(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvQueryFont(i32);
 pub struct PFN_DrvQueryFontCaps(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvQueryFontData(i32);
 pub struct PFN_DrvQueryFontFile(i32);
 pub struct PFN_DrvQueryFontTree(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvQueryGlyphAttrs(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvQueryPerBandInfo(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvQuerySpoolType(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvQueryTrueTypeOutline(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvQueryTrueTypeSection(i32);
 pub struct PFN_DrvQueryTrueTypeTable(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvRealizeBrush(i32);
 pub struct PFN_DrvRenderHint(i32);
 pub struct PFN_DrvResetDevice(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvResetPDEV(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvSaveScreenBits(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvSendPage(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvSetPalette(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvSetPixelFormat(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvSetPointerShape(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvStartBanding(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvStartDoc(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvStartDxInterop(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvStartPage(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvStretchBlt(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFN_DrvStretchBltROP(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvStrokeAndFillPath(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvStrokePath(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvSurfaceComplete(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvSwapBuffers(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvSynchronize(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvSynchronizeRedirectionBitmaps(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvSynchronizeSurface(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvTextOut(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvTransparentBlt(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvUnloadFontFile(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DrvUnlockDisplayArea(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_EngCombineRgn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_EngCopyRgn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_EngCreateRectRgn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_EngDeleteRgn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_EngIntersectRgn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_EngSubtractRgn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_EngUnionRgn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_EngXorRgn(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct PHYSICAL_MONITOR(i32);
@@ -2252,7 +2174,6 @@ pub const WINDDI_MAXSETPALETTECOLORS: u32 = 256u32;
 pub const WINDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNDOBJ(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNDOBJCHANGEPROC(i32);
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const WNDOBJ_SETUP: u32 = 4354u32;

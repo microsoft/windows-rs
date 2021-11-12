@@ -43,12 +43,11 @@ extern "system" {
     pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32;
 }
 pub struct HTASK(i32);
-pub struct IReferenceClock(i32);
-pub struct IReferenceClock2(i32);
-pub struct IReferenceClockTimerControl(i32);
+pub struct IReferenceClock(pub *mut ::core::ffi::c_void);
+pub struct IReferenceClock2(pub *mut ::core::ffi::c_void);
+pub struct IReferenceClockTimerControl(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Media`*"]
 pub const JOYERR_BASE: u32 = 160u32;
-#[cfg(feature = "Win32_Media_Multimedia")]
 pub struct LPDRVCALLBACK(i32);
 pub struct LPTIMECALLBACK(i32);
 #[doc = "*Required features: `Win32_Media`*"]

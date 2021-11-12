@@ -1219,7 +1219,6 @@ pub const EEInfoNextRecordsMissing: u32 = 2u32;
 pub const EEInfoPreviousRecordsMissing: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const EEInfoUseFileTime: u32 = 4u32;
-#[cfg(feature = "Win32_System_Com")]
 pub struct EXPR_EVAL(i32);
 pub struct EXPR_TOKEN(i32);
 pub struct ExtendedErrorParamTypes(i32);
@@ -1237,7 +1236,6 @@ pub struct I_RpcPerformCalloutFn(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct I_RpcProxyCallbackInterface(i32);
 pub struct I_RpcProxyFilterIfFn(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct I_RpcProxyGetClientAddressFn(i32);
 pub struct I_RpcProxyGetClientSessionAndResourceUUID(i32);
 pub struct I_RpcProxyGetConnectionTimeoutFn(i32);
@@ -1250,7 +1248,6 @@ pub struct MIDL_ES_ALLOC(i32);
 pub struct MIDL_ES_CODE(i32);
 pub struct MIDL_ES_HANDLE_STYLE(i32);
 pub struct MIDL_ES_READ(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct MIDL_ES_WRITE(i32);
 pub struct MIDL_FORMAT_STRING(i32);
 pub struct MIDL_INTERCEPTION_INFO(i32);
@@ -1372,7 +1369,6 @@ pub struct NDR_USER_MARSHAL_INFO(i32);
 pub struct NDR_USER_MARSHAL_INFO_LEVEL1(i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const NT351_INTERFACE_SIZE: u32 = 64u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct PFN_RPCNOTIFICATION_ROUTINE(i32);
 pub struct PROXY_PHASE(i32);
 pub struct PRPC_RUNDOWN(i32);
@@ -1854,7 +1850,6 @@ pub struct SEC_WINNT_AUTH_IDENTITY_A(i32);
 pub struct SEC_WINNT_AUTH_IDENTITY_W(i32);
 pub struct SERVER_ROUTINE(i32);
 pub struct STUB_PHASE(i32);
-#[cfg(feature = "Win32_System_Com")]
 pub struct STUB_THUNK(i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const TARGET_IS_NT100_OR_LATER: u32 = 1u32;
@@ -1920,7 +1915,6 @@ pub struct USER_MARSHAL_SIZING_ROUTINE(i32);
 pub struct USER_MARSHAL_UNMARSHALLING_ROUTINE(i32);
 pub struct UUID_VECTOR(i32);
 pub struct XLAT_SIDE(i32);
-#[cfg(feature = "Win32_System_Com")]
 pub struct XMIT_HELPER_ROUTINE(i32);
 #[cfg(feature = "Win32_System_Com")]
 pub struct XMIT_ROUTINE_QUINTUPLE(i32);

@@ -2200,39 +2200,39 @@ pub const HEAPALIASINFO_MAPPEDDUMMY: i32 = 2i32;
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const HEAPALIASINFO_MAPPEDREAL: i32 = 1i32;
 pub struct HEAPALIGNMENT(i32);
-pub struct IDDVideoPortContainer(i32);
+pub struct IDDVideoPortContainer(pub *mut ::core::ffi::c_void);
 pub struct IDDVideoPortContainerVtbl(i32);
-pub struct IDirectDraw(i32);
-pub struct IDirectDraw2(i32);
+pub struct IDirectDraw(pub *mut ::core::ffi::c_void);
+pub struct IDirectDraw2(pub *mut ::core::ffi::c_void);
 pub struct IDirectDraw2Vtbl(i32);
-pub struct IDirectDraw4(i32);
+pub struct IDirectDraw4(pub *mut ::core::ffi::c_void);
 pub struct IDirectDraw4Vtbl(i32);
-pub struct IDirectDraw7(i32);
+pub struct IDirectDraw7(pub *mut ::core::ffi::c_void);
 pub struct IDirectDraw7Vtbl(i32);
-pub struct IDirectDrawClipper(i32);
+pub struct IDirectDrawClipper(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawClipperVtbl(i32);
-pub struct IDirectDrawColorControl(i32);
+pub struct IDirectDrawColorControl(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawColorControlVtbl(i32);
-pub struct IDirectDrawGammaControl(i32);
+pub struct IDirectDrawGammaControl(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawGammaControlVtbl(i32);
-pub struct IDirectDrawKernel(i32);
+pub struct IDirectDrawKernel(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawKernelVtbl(i32);
-pub struct IDirectDrawPalette(i32);
+pub struct IDirectDrawPalette(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawPaletteVtbl(i32);
-pub struct IDirectDrawSurface(i32);
-pub struct IDirectDrawSurface2(i32);
+pub struct IDirectDrawSurface(pub *mut ::core::ffi::c_void);
+pub struct IDirectDrawSurface2(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawSurface2Vtbl(i32);
-pub struct IDirectDrawSurface3(i32);
+pub struct IDirectDrawSurface3(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawSurface3Vtbl(i32);
-pub struct IDirectDrawSurface4(i32);
+pub struct IDirectDrawSurface4(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawSurface4Vtbl(i32);
-pub struct IDirectDrawSurface7(i32);
+pub struct IDirectDrawSurface7(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawSurface7Vtbl(i32);
-pub struct IDirectDrawSurfaceKernel(i32);
+pub struct IDirectDrawSurfaceKernel(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawSurfaceKernelVtbl(i32);
 pub struct IDirectDrawSurfaceVtbl(i32);
-pub struct IDirectDrawVideoPort(i32);
-pub struct IDirectDrawVideoPortNotify(i32);
+pub struct IDirectDrawVideoPort(pub *mut ::core::ffi::c_void);
+pub struct IDirectDrawVideoPortNotify(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawVideoPortNotifyVtbl(i32);
 pub struct IDirectDrawVideoPortVtbl(i32);
 pub struct IDirectDrawVtbl(i32);
@@ -2241,16 +2241,11 @@ pub const IRQINFO_HANDLED: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const IRQINFO_NOTHANDLED: u32 = 2u32;
 pub struct IUNKNOWN_LIST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPCLIPPERCALLBACK(i32);
 pub struct LPDD32BITDRIVERINIT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDDENUMCALLBACKA(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDENUMCALLBACKEXA(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDENUMCALLBACKEXW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDDENUMCALLBACKW(i32);
 pub struct LPDDENUMMODESCALLBACK(i32);
 pub struct LPDDENUMMODESCALLBACK2(i32);
@@ -2259,144 +2254,76 @@ pub struct LPDDENUMSURFACESCALLBACK2(i32);
 pub struct LPDDENUMSURFACESCALLBACK7(i32);
 pub struct LPDDENUMVIDEOCALLBACK(i32);
 pub struct LPDDGAMMACALIBRATORPROC(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALCOLORCB_COLORCONTROL(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALEXEBUFCB_CANCREATEEXEBUF(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALEXEBUFCB_CREATEEXEBUF(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALEXEBUFCB_DESTROYEXEBUF(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALEXEBUFCB_LOCKEXEBUF(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALEXEBUFCB_UNLOCKEXEBUF(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALKERNELCB_SYNCSURFACE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALKERNELCB_SYNCVIDEOPORT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALMOCOMPCB_BEGINFRAME(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALMOCOMPCB_CREATE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALMOCOMPCB_DESTROY(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALMOCOMPCB_ENDFRAME(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALMOCOMPCB_GETCOMPBUFFINFO(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALMOCOMPCB_GETFORMATS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALMOCOMPCB_GETGUIDS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALMOCOMPCB_GETINTERNALINFO(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALMOCOMPCB_QUERYSTATUS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALMOCOMPCB_RENDER(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALPALCB_DESTROYPALETTE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALPALCB_SETENTRIES(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_ADDATTACHEDSURFACE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_BLT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_DESTROYSURFACE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_FLIP(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_GETBLTSTATUS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_GETFLIPSTATUS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_LOCK(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_SETCLIPLIST(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_SETCOLORKEY(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_SETOVERLAYPOSITION(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_SETPALETTE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_UNLOCK(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALSURFCB_UPDATEOVERLAY(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_CANCREATEVIDEOPORT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_COLORCONTROL(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_CREATEVIDEOPORT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_DESTROYVPORT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_FLIP(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_GETBANDWIDTH(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_GETFIELD(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_GETFLIPSTATUS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_GETINPUTFORMATS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_GETLINE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_GETOUTPUTFORMATS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_GETSIGNALSTATUS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_GETVPORTCONNECT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_UPDATE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHALVPORTCB_WAITFORSYNC(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_CANCREATESURFACE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_CREATEPALETTE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_CREATESURFACE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_CREATESURFACEEX(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_DESTROYDDLOCAL(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_DESTROYDRIVER(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_FLIPTOGDISURFACE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_GETAVAILDRIVERMEMORY(i32);
 pub struct LPDDHAL_GETDRIVERINFO(i32);
 pub struct LPDDHAL_GETDRIVERSTATE(i32);
 pub struct LPDDHAL_GETHEAPALIGNMENT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_GETSCANLINE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_SETCOLORKEY(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_SETEXCLUSIVEMODE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_SETINFO(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_SETMODE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_UPDATENONLOCALHEAP(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_VIDMEMALLOC(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_VIDMEMFREE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHAL_WAITFORVERTICALBLANK(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDDHEL_INIT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDIRECTDRAWENUMERATEEXA(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPDIRECTDRAWENUMERATEEXW(i32);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const MAX_AUTOFLIP_BUFFERS: u32 = 10u32;
@@ -2441,33 +2368,23 @@ pub const MDL_SOURCE_IS_NONPAGED_POOL: u32 = 4u32;
 pub const MDL_WRITE_OPERATION: u32 = 128u32;
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const OBJECT_ISROOT: i32 = -2147483648i32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_ALPHABLT(i32);
 pub struct PDD_CANCREATESURFACE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_COLORCB_COLORCONTROL(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PDD_CREATEPALETTE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_CREATESURFACE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_CREATESURFACEEX(i32);
 pub struct PDD_DESTROYDDLOCAL(i32);
 pub struct PDD_DESTROYDRIVER(i32);
 pub struct PDD_FLIPTOGDISURFACE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_FREEDRIVERMEMORY(i32);
 pub struct PDD_GETAVAILDRIVERMEMORY(i32);
 pub struct PDD_GETDRIVERINFO(i32);
 pub struct PDD_GETDRIVERSTATE(i32);
 pub struct PDD_GETSCANLINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_KERNELCB_SYNCSURFACE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_KERNELCB_SYNCVIDEOPORT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_MAPMEMORY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_MOCOMPCB_BEGINFRAME(i32);
 pub struct PDD_MOCOMPCB_CREATE(i32);
 pub struct PDD_MOCOMPCB_DESTROY(i32);
@@ -2476,70 +2393,41 @@ pub struct PDD_MOCOMPCB_GETCOMPBUFFINFO(i32);
 pub struct PDD_MOCOMPCB_GETFORMATS(i32);
 pub struct PDD_MOCOMPCB_GETGUIDS(i32);
 pub struct PDD_MOCOMPCB_GETINTERNALINFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_MOCOMPCB_QUERYSTATUS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_MOCOMPCB_RENDER(i32);
 pub struct PDD_PALCB_DESTROYPALETTE(i32);
-#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PDD_PALCB_SETENTRIES(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SETCOLORKEY(i32);
 pub struct PDD_SETEXCLUSIVEMODE(i32);
 pub struct PDD_SETMODE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_ADDATTACHEDSURFACE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_BLT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_DESTROYSURFACE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_FLIP(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_GETBLTSTATUS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_GETFLIPSTATUS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_LOCK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_SETCLIPLIST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_SETCOLORKEY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_SETOVERLAYPOSITION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_SETPALETTE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_UNLOCK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_SURFCB_UPDATEOVERLAY(i32);
 pub struct PDD_VPORTCB_CANCREATEVIDEOPORT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_COLORCONTROL(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_CREATEVIDEOPORT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_DESTROYVPORT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_FLIP(i32);
 pub struct PDD_VPORTCB_GETAUTOFLIPSURF(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_GETBANDWIDTH(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_GETFIELD(i32);
 pub struct PDD_VPORTCB_GETFLIPSTATUS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_GETINPUTFORMATS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_GETLINE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_GETOUTPUTFORMATS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_GETSIGNALSTATUS(i32);
 pub struct PDD_VPORTCB_GETVPORTCONNECT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_UPDATE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDD_VPORTCB_WAITFORSYNC(i32);
 pub struct PDD_WAITFORVERTICALBLANK(i32);
 pub struct PDX_BOBNEXTFIELD(i32);
@@ -2553,7 +2441,6 @@ pub struct PDX_GETPREVIOUSAUTOFLIP(i32);
 pub struct PDX_GETTRANSFERSTATUS(i32);
 pub struct PDX_IRQCALLBACK(i32);
 pub struct PDX_LOCK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PDX_SETSTATE(i32);
 pub struct PDX_SKIPNEXTFIELD(i32);
 pub struct PDX_TRANSFER(i32);

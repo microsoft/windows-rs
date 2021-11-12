@@ -1923,39 +1923,39 @@ pub struct HARDWARE_ADDRESS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const HARDWARE_ADDRESS_LENGTH: u32 = 6u32;
 pub struct HLOG(i32);
-pub struct IEnumNetCfgBindingInterface(i32);
-pub struct IEnumNetCfgBindingPath(i32);
-pub struct IEnumNetCfgComponent(i32);
+pub struct IEnumNetCfgBindingInterface(pub *mut ::core::ffi::c_void);
+pub struct IEnumNetCfgBindingPath(pub *mut ::core::ffi::c_void);
+pub struct IEnumNetCfgComponent(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const INTERFACE_INFO_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const INVALID_TRACEID: u32 = 4294967295u32;
-pub struct INetCfg(i32);
-pub struct INetCfgBindingInterface(i32);
-pub struct INetCfgBindingPath(i32);
-pub struct INetCfgClass(i32);
-pub struct INetCfgClassSetup(i32);
-pub struct INetCfgClassSetup2(i32);
-pub struct INetCfgComponent(i32);
-pub struct INetCfgComponentBindings(i32);
-pub struct INetCfgComponentControl(i32);
-pub struct INetCfgComponentNotifyBinding(i32);
-pub struct INetCfgComponentNotifyGlobal(i32);
-pub struct INetCfgComponentPropertyUi(i32);
-pub struct INetCfgComponentSetup(i32);
-pub struct INetCfgComponentSysPrep(i32);
-pub struct INetCfgComponentUpperEdge(i32);
-pub struct INetCfgLock(i32);
-pub struct INetCfgPnpReconfigCallback(i32);
-pub struct INetCfgSysPrep(i32);
-pub struct INetLanConnectionUiInfo(i32);
-pub struct INetRasConnectionIpUiInfo(i32);
+pub struct INetCfg(pub *mut ::core::ffi::c_void);
+pub struct INetCfgBindingInterface(pub *mut ::core::ffi::c_void);
+pub struct INetCfgBindingPath(pub *mut ::core::ffi::c_void);
+pub struct INetCfgClass(pub *mut ::core::ffi::c_void);
+pub struct INetCfgClassSetup(pub *mut ::core::ffi::c_void);
+pub struct INetCfgClassSetup2(pub *mut ::core::ffi::c_void);
+pub struct INetCfgComponent(pub *mut ::core::ffi::c_void);
+pub struct INetCfgComponentBindings(pub *mut ::core::ffi::c_void);
+pub struct INetCfgComponentControl(pub *mut ::core::ffi::c_void);
+pub struct INetCfgComponentNotifyBinding(pub *mut ::core::ffi::c_void);
+pub struct INetCfgComponentNotifyGlobal(pub *mut ::core::ffi::c_void);
+pub struct INetCfgComponentPropertyUi(pub *mut ::core::ffi::c_void);
+pub struct INetCfgComponentSetup(pub *mut ::core::ffi::c_void);
+pub struct INetCfgComponentSysPrep(pub *mut ::core::ffi::c_void);
+pub struct INetCfgComponentUpperEdge(pub *mut ::core::ffi::c_void);
+pub struct INetCfgLock(pub *mut ::core::ffi::c_void);
+pub struct INetCfgPnpReconfigCallback(pub *mut ::core::ffi::c_void);
+pub struct INetCfgSysPrep(pub *mut ::core::ffi::c_void);
+pub struct INetLanConnectionUiInfo(pub *mut ::core::ffi::c_void);
+pub struct INetRasConnectionIpUiInfo(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const IPX_PROTOCOL_BASE: u32 = 131071u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const IPX_PROTOCOL_RIP: u32 = 131072u32;
-pub struct IProvisioningDomain(i32);
-pub struct IProvisioningProfileWireless(i32);
+pub struct IProvisioningDomain(pub *mut ::core::ffi::c_void);
+pub struct IProvisioningProfileWireless(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const IR_PROMISCUOUS: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]

@@ -11,9 +11,9 @@ pub mod Update;
 pub mod Workplace;
 #[link(name = "windows")]
 extern "system" {}
-pub struct IMdmAlert(i32);
-pub struct IMdmSession(i32);
-pub struct IMdmSessionManagerStatics(i32);
+pub struct IMdmAlert(pub *mut ::core::ffi::c_void);
+pub struct IMdmSession(pub *mut ::core::ffi::c_void);
+pub struct IMdmSessionManagerStatics(pub *mut ::core::ffi::c_void);
 pub struct MdmAlert(i32);
 pub struct MdmAlertDataType(i32);
 pub struct MdmAlertMark(i32);

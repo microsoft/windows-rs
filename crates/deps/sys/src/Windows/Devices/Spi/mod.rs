@@ -3,13 +3,13 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
-pub struct ISpiBusInfo(i32);
-pub struct ISpiConnectionSettings(i32);
-pub struct ISpiConnectionSettingsFactory(i32);
-pub struct ISpiController(i32);
-pub struct ISpiControllerStatics(i32);
-pub struct ISpiDevice(i32);
-pub struct ISpiDeviceStatics(i32);
+pub struct ISpiBusInfo(pub *mut ::core::ffi::c_void);
+pub struct ISpiConnectionSettings(pub *mut ::core::ffi::c_void);
+pub struct ISpiConnectionSettingsFactory(pub *mut ::core::ffi::c_void);
+pub struct ISpiController(pub *mut ::core::ffi::c_void);
+pub struct ISpiControllerStatics(pub *mut ::core::ffi::c_void);
+pub struct ISpiDevice(pub *mut ::core::ffi::c_void);
+pub struct ISpiDeviceStatics(pub *mut ::core::ffi::c_void);
 pub struct SpiBusInfo(i32);
 pub struct SpiConnectionSettings(i32);
 pub struct SpiController(i32);

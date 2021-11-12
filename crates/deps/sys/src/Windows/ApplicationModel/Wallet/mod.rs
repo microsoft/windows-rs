@@ -3,19 +3,19 @@
 pub mod System;
 #[link(name = "windows")]
 extern "system" {}
-pub struct IWalletBarcode(i32);
-pub struct IWalletBarcodeFactory(i32);
-pub struct IWalletItem(i32);
-pub struct IWalletItemCustomProperty(i32);
-pub struct IWalletItemCustomPropertyFactory(i32);
-pub struct IWalletItemFactory(i32);
-pub struct IWalletItemStore(i32);
-pub struct IWalletItemStore2(i32);
-pub struct IWalletManagerStatics(i32);
-pub struct IWalletRelevantLocation(i32);
-pub struct IWalletTransaction(i32);
-pub struct IWalletVerb(i32);
-pub struct IWalletVerbFactory(i32);
+pub struct IWalletBarcode(pub *mut ::core::ffi::c_void);
+pub struct IWalletBarcodeFactory(pub *mut ::core::ffi::c_void);
+pub struct IWalletItem(pub *mut ::core::ffi::c_void);
+pub struct IWalletItemCustomProperty(pub *mut ::core::ffi::c_void);
+pub struct IWalletItemCustomPropertyFactory(pub *mut ::core::ffi::c_void);
+pub struct IWalletItemFactory(pub *mut ::core::ffi::c_void);
+pub struct IWalletItemStore(pub *mut ::core::ffi::c_void);
+pub struct IWalletItemStore2(pub *mut ::core::ffi::c_void);
+pub struct IWalletManagerStatics(pub *mut ::core::ffi::c_void);
+pub struct IWalletRelevantLocation(pub *mut ::core::ffi::c_void);
+pub struct IWalletTransaction(pub *mut ::core::ffi::c_void);
+pub struct IWalletVerb(pub *mut ::core::ffi::c_void);
+pub struct IWalletVerbFactory(pub *mut ::core::ffi::c_void);
 pub struct WalletActionKind(i32);
 pub struct WalletBarcode(i32);
 pub struct WalletBarcodeSymbology(i32);

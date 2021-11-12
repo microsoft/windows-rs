@@ -8,5 +8,5 @@ pub struct ExtendedExecutionResult(i32);
 pub struct ExtendedExecutionRevokedEventArgs(i32);
 pub struct ExtendedExecutionRevokedReason(i32);
 pub struct ExtendedExecutionSession(i32);
-pub struct IExtendedExecutionRevokedEventArgs(i32);
-pub struct IExtendedExecutionSession(i32);
+pub struct IExtendedExecutionRevokedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IExtendedExecutionSession(pub *mut ::core::ffi::c_void);

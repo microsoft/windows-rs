@@ -4,29 +4,18 @@ extern "system" {
     #[doc = "*Required features: `Win32_System_Mapi`*"]
     pub fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32;
 }
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMAPIADDRESS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMAPIDELETEMAIL(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMAPIDETAILS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMAPIFINDNEXT(i32);
 pub struct LPMAPIFREEBUFFER(i32);
 pub struct LPMAPILOGOFF(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMAPILOGON(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMAPIREADMAIL(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMAPIRESOLVENAME(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMAPISAVEMAIL(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMAPISENDDOCUMENTS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMAPISENDMAIL(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPMAPISENDMAILW(i32);
 #[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_AB_NOMODIFY: u32 = 1024u32;

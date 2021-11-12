@@ -64,9 +64,9 @@ pub mod WiFiDirect;
 #[link(name = "windows")]
 extern "system" {}
 pub struct DevicesLowLevelContract(i32);
-pub struct ILowLevelDevicesAggregateProvider(i32);
-pub struct ILowLevelDevicesAggregateProviderFactory(i32);
-pub struct ILowLevelDevicesController(i32);
-pub struct ILowLevelDevicesControllerStatics(i32);
+pub struct ILowLevelDevicesAggregateProvider(pub *mut ::core::ffi::c_void);
+pub struct ILowLevelDevicesAggregateProviderFactory(pub *mut ::core::ffi::c_void);
+pub struct ILowLevelDevicesController(pub *mut ::core::ffi::c_void);
+pub struct ILowLevelDevicesControllerStatics(pub *mut ::core::ffi::c_void);
 pub struct LowLevelDevicesAggregateProvider(i32);
 pub struct LowLevelDevicesController(i32);

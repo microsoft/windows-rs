@@ -170,9 +170,6 @@ pub const D3D_DISASM_PRINT_HEX_LITERALS: u32 = 128u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Fxc`*"]
 pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1u32;
 pub struct D3D_SHADER_DATA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct pD3DCompile(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct pD3DDisassemble(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct pD3DPreprocess(i32);

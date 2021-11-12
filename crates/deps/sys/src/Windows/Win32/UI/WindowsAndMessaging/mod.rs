@@ -1608,7 +1608,6 @@ pub const DLGC_WANTMESSAGE: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_WANTTAB: u32 = 2u32;
 pub struct DLGITEMTEMPLATE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DLGPROC(i32);
 pub struct DLGTEMPLATE(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -2161,7 +2160,6 @@ pub const HKL_NEXT: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HKL_PREV: u32 = 0u32;
 pub struct HMENU(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct HOOKPROC(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_ACCESSIBILITYSTATE: u32 = 11u32;
@@ -2726,7 +2724,6 @@ pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
 pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSG(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct MSGBOXCALLBACK(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct MSGBOXPARAMSA(i32);
@@ -2759,9 +2756,7 @@ pub struct MrmResourceIndexerHandle(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct MrmResourceIndexerMessage(i32);
 pub struct MrmResourceIndexerMessageSeverity(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct NAMEENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct NAMEENUMPROCW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct NCCALCSIZE_PARAMS(i32);
@@ -3042,7 +3037,6 @@ pub const POINTER_MESSAGE_FLAG_THIRDBUTTON: u32 = 64u32;
 pub const POINTER_MOD_CTRL: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MOD_SHIFT: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PREGISTERCLASSNAMEW(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PRF_CHECKVISIBLE: i32 = 1i32;
@@ -3056,13 +3050,9 @@ pub const PRF_ERASEBKGND: i32 = 8i32;
 pub const PRF_NONCLIENT: i32 = 2i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PRF_OWNED: i32 = 32i32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PROPENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PROPENUMPROCEXA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PROPENUMPROCEXW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PROPENUMPROCW(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PWR_CRITICALRESUME: u32 = 3u32;
@@ -3308,7 +3298,6 @@ pub const SC_TASKLIST: u32 = 61744u32;
 pub const SC_VSCROLL: u32 = 61552u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_ZOOM: u32 = 61488u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct SENDASYNCPROC(i32);
 pub struct SEND_MESSAGE_TIMEOUT_FLAGS(i32);
 pub struct SET_WINDOW_POS_FLAGS(i32);
@@ -3552,7 +3541,6 @@ pub struct SYSTEM_PARAMETERS_INFO_ACTION(i32);
 pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(i32);
 pub struct SYS_COLOR_INDEX(i32);
 pub struct TILE_WINDOWS_HOW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct TIMERPROC(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637u32;
@@ -4225,9 +4213,7 @@ pub struct WNDCLASSEXW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSW(i32);
 pub struct WNDCLASS_STYLES(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNDENUMPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct WNDPROC(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WSF_VISIBLE: i32 = 1i32;

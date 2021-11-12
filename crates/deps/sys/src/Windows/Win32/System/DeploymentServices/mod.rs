@@ -312,49 +312,41 @@ pub const FACILITY_WDSMCCLIENT: u32 = 290u32;
 pub const FACILITY_WDSMCSERVER: u32 = 289u32;
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const FACILITY_WDSTPTMGMT: u32 = 272u32;
-pub struct IWdsTransportCacheable(i32);
-pub struct IWdsTransportClient(i32);
-pub struct IWdsTransportCollection(i32);
-pub struct IWdsTransportConfigurationManager(i32);
-pub struct IWdsTransportConfigurationManager2(i32);
-pub struct IWdsTransportContent(i32);
-pub struct IWdsTransportContentProvider(i32);
-pub struct IWdsTransportDiagnosticsPolicy(i32);
-pub struct IWdsTransportManager(i32);
-pub struct IWdsTransportMulticastSessionPolicy(i32);
-pub struct IWdsTransportNamespace(i32);
-pub struct IWdsTransportNamespaceAutoCast(i32);
-pub struct IWdsTransportNamespaceManager(i32);
-pub struct IWdsTransportNamespaceScheduledCast(i32);
-pub struct IWdsTransportNamespaceScheduledCastAutoStart(i32);
-pub struct IWdsTransportNamespaceScheduledCastManualStart(i32);
-pub struct IWdsTransportServer(i32);
-pub struct IWdsTransportServer2(i32);
-pub struct IWdsTransportServicePolicy(i32);
-pub struct IWdsTransportServicePolicy2(i32);
-pub struct IWdsTransportSession(i32);
-pub struct IWdsTransportSetupManager(i32);
-pub struct IWdsTransportSetupManager2(i32);
-pub struct IWdsTransportTftpClient(i32);
-pub struct IWdsTransportTftpManager(i32);
+pub struct IWdsTransportCacheable(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportClient(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportCollection(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportConfigurationManager(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportConfigurationManager2(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportContent(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportContentProvider(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportDiagnosticsPolicy(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportManager(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportMulticastSessionPolicy(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportNamespace(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportNamespaceAutoCast(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportNamespaceManager(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportNamespaceScheduledCast(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportNamespaceScheduledCastAutoStart(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportNamespaceScheduledCastManualStart(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportServer(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportServer2(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportServicePolicy(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportServicePolicy2(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportSession(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportSetupManager(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportSetupManager2(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportTftpClient(pub *mut ::core::ffi::c_void);
+pub struct IWdsTransportTftpManager(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;
 pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsCliCallback(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsCliTraceFunction(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientReceiveContents(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientReceiveMetadata(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientSessionComplete(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientSessionNegotiate(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientSessionStart(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientSessionStartEx(i32);
 pub struct PXE_ADDRESS(i32);
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]

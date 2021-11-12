@@ -72,5 +72,4 @@ pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
 pub const MW_FILTERMODE_EXCLUDE: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Magnification`*"]
 pub const MW_FILTERMODE_INCLUDE: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MagImageScalingCallback(i32);

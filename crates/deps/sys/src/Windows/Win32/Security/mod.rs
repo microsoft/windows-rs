@@ -582,7 +582,6 @@ pub struct NCRYPT_DESCRIPTOR_HANDLE(i32);
 pub struct NCRYPT_STREAM_HANDLE(i32);
 pub struct OBJECT_SECURITY_INFORMATION(i32);
 pub struct OBJECT_TYPE_LIST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AP_CALL_PACKAGE_UNTRUSTED(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRIVILEGE_SET(i32);

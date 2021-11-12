@@ -63,11 +63,11 @@ pub struct HYPOTHESIS(i32);
 pub struct HelperAttributeInfo(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct HypothesisResult(i32);
-pub struct INetDiagExtensibleHelper(i32);
-pub struct INetDiagHelper(i32);
-pub struct INetDiagHelperEx(i32);
-pub struct INetDiagHelperInfo(i32);
-pub struct INetDiagHelperUtilFactory(i32);
+pub struct INetDiagExtensibleHelper(pub *mut ::core::ffi::c_void);
+pub struct INetDiagHelper(pub *mut ::core::ffi::c_void);
+pub struct INetDiagHelperEx(pub *mut ::core::ffi::c_void);
+pub struct INetDiagHelperInfo(pub *mut ::core::ffi::c_void);
+pub struct INetDiagHelperUtilFactory(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct LIFE_TIME(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]

@@ -493,19 +493,19 @@ pub const IDTB_TOC_NEXT: u32 = 223u32;
 pub const IDTB_TOC_PREV: u32 = 224u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_ZOOM: u32 = 222u32;
-pub struct IITDatabase(i32);
+pub struct IITDatabase(pub *mut ::core::ffi::c_void);
 pub struct IITGroup(i32);
-pub struct IITPropList(i32);
+pub struct IITPropList(pub *mut ::core::ffi::c_void);
 pub struct IITQuery(i32);
-pub struct IITResultSet(i32);
+pub struct IITResultSet(pub *mut ::core::ffi::c_void);
 pub struct IITStopWordList(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
-pub struct IITWordWheel(i32);
-pub struct IStemSink(i32);
-pub struct IStemmerConfig(i32);
+pub struct IITWordWheel(pub *mut ::core::ffi::c_void);
+pub struct IStemSink(pub *mut ::core::ffi::c_void);
+pub struct IStemmerConfig(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const ITWW_CBKEY_MAX: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
@@ -516,7 +516,7 @@ pub const IT_EXCLUSIVE: i32 = 1i32;
 pub const IT_HIDDEN: i32 = 2i32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IT_INCLUSIVE: i32 = 0i32;
-pub struct IWordBreakerConfig(i32);
+pub struct IWordBreakerConfig(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const MAX_COLUMNS: u32 = 256u32;
 pub struct PFNCOLHEAPFREE(i32);

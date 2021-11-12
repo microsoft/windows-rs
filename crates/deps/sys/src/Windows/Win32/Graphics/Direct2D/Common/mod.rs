@@ -29,4 +29,4 @@ pub struct D2D_SIZE_U(i32);
 pub struct D2D_VECTOR_2F(i32);
 pub struct D2D_VECTOR_3F(i32);
 pub struct D2D_VECTOR_4F(i32);
-pub struct ID2D1SimplifiedGeometrySink(i32);
+pub struct ID2D1SimplifiedGeometrySink(pub *mut ::core::ffi::c_void);

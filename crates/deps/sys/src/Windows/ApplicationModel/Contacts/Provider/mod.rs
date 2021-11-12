@@ -4,6 +4,6 @@ extern "system" {}
 pub struct AddContactResult(i32);
 pub struct ContactPickerUI(i32);
 pub struct ContactRemovedEventArgs(i32);
-pub struct IContactPickerUI(i32);
-pub struct IContactPickerUI2(i32);
-pub struct IContactRemovedEventArgs(i32);
+pub struct IContactPickerUI(pub *mut ::core::ffi::c_void);
+pub struct IContactPickerUI2(pub *mut ::core::ffi::c_void);
+pub struct IContactRemovedEventArgs(pub *mut ::core::ffi::c_void);

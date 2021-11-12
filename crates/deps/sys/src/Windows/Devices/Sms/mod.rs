@@ -2,46 +2,40 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct CellularClass(i32);
-#[cfg(feature = "Foundation")]
 pub struct DeleteSmsMessageOperation(i32);
-#[cfg(feature = "Foundation")]
 pub struct DeleteSmsMessagesOperation(i32);
-#[cfg(feature = "Foundation")]
 pub struct GetSmsDeviceOperation(i32);
-#[cfg(feature = "Foundation")]
 pub struct GetSmsMessageOperation(i32);
-#[cfg(feature = "Foundation")]
 pub struct GetSmsMessagesOperation(i32);
-pub struct ISmsAppMessage(i32);
-pub struct ISmsBinaryMessage(i32);
-pub struct ISmsBroadcastMessage(i32);
-pub struct ISmsDevice(i32);
-pub struct ISmsDevice2(i32);
-pub struct ISmsDevice2Statics(i32);
-pub struct ISmsDeviceMessageStore(i32);
-pub struct ISmsDeviceStatics(i32);
-pub struct ISmsDeviceStatics2(i32);
-pub struct ISmsFilterRule(i32);
-pub struct ISmsFilterRuleFactory(i32);
-pub struct ISmsFilterRules(i32);
-pub struct ISmsFilterRulesFactory(i32);
-pub struct ISmsMessage(i32);
-pub struct ISmsMessageBase(i32);
-pub struct ISmsMessageReceivedEventArgs(i32);
-pub struct ISmsMessageReceivedTriggerDetails(i32);
-pub struct ISmsMessageRegistration(i32);
-pub struct ISmsMessageRegistrationStatics(i32);
-pub struct ISmsReceivedEventDetails(i32);
-pub struct ISmsReceivedEventDetails2(i32);
-pub struct ISmsSendMessageResult(i32);
-pub struct ISmsStatusMessage(i32);
-pub struct ISmsTextMessage(i32);
-pub struct ISmsTextMessage2(i32);
-pub struct ISmsTextMessageStatics(i32);
-pub struct ISmsVoicemailMessage(i32);
-pub struct ISmsWapMessage(i32);
+pub struct ISmsAppMessage(pub *mut ::core::ffi::c_void);
+pub struct ISmsBinaryMessage(pub *mut ::core::ffi::c_void);
+pub struct ISmsBroadcastMessage(pub *mut ::core::ffi::c_void);
+pub struct ISmsDevice(pub *mut ::core::ffi::c_void);
+pub struct ISmsDevice2(pub *mut ::core::ffi::c_void);
+pub struct ISmsDevice2Statics(pub *mut ::core::ffi::c_void);
+pub struct ISmsDeviceMessageStore(pub *mut ::core::ffi::c_void);
+pub struct ISmsDeviceStatics(pub *mut ::core::ffi::c_void);
+pub struct ISmsDeviceStatics2(pub *mut ::core::ffi::c_void);
+pub struct ISmsFilterRule(pub *mut ::core::ffi::c_void);
+pub struct ISmsFilterRuleFactory(pub *mut ::core::ffi::c_void);
+pub struct ISmsFilterRules(pub *mut ::core::ffi::c_void);
+pub struct ISmsFilterRulesFactory(pub *mut ::core::ffi::c_void);
+pub struct ISmsMessage(pub *mut ::core::ffi::c_void);
+pub struct ISmsMessageBase(pub *mut ::core::ffi::c_void);
+pub struct ISmsMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct ISmsMessageReceivedTriggerDetails(pub *mut ::core::ffi::c_void);
+pub struct ISmsMessageRegistration(pub *mut ::core::ffi::c_void);
+pub struct ISmsMessageRegistrationStatics(pub *mut ::core::ffi::c_void);
+pub struct ISmsReceivedEventDetails(pub *mut ::core::ffi::c_void);
+pub struct ISmsReceivedEventDetails2(pub *mut ::core::ffi::c_void);
+pub struct ISmsSendMessageResult(pub *mut ::core::ffi::c_void);
+pub struct ISmsStatusMessage(pub *mut ::core::ffi::c_void);
+pub struct ISmsTextMessage(pub *mut ::core::ffi::c_void);
+pub struct ISmsTextMessage2(pub *mut ::core::ffi::c_void);
+pub struct ISmsTextMessageStatics(pub *mut ::core::ffi::c_void);
+pub struct ISmsVoicemailMessage(pub *mut ::core::ffi::c_void);
+pub struct ISmsWapMessage(pub *mut ::core::ffi::c_void);
 pub struct LegacySmsApiContract(i32);
-#[cfg(feature = "Foundation")]
 pub struct SendSmsMessageOperation(i32);
 pub struct SmsAppMessage(i32);
 pub struct SmsBinaryMessage(i32);
@@ -52,7 +46,7 @@ pub struct SmsDevice(i32);
 pub struct SmsDevice2(i32);
 pub struct SmsDeviceMessageStore(i32);
 pub struct SmsDeviceStatus(i32);
-pub struct SmsDeviceStatusChangedEventHandler(i32);
+pub struct SmsDeviceStatusChangedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct SmsEncodedLength(i32);
 pub struct SmsEncoding(i32);
 pub struct SmsFilterActionType(i32);
@@ -62,7 +56,7 @@ pub struct SmsGeographicalScope(i32);
 pub struct SmsMessageClass(i32);
 pub struct SmsMessageFilter(i32);
 pub struct SmsMessageReceivedEventArgs(i32);
-pub struct SmsMessageReceivedEventHandler(i32);
+pub struct SmsMessageReceivedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct SmsMessageReceivedTriggerDetails(i32);
 pub struct SmsMessageRegistration(i32);
 pub struct SmsMessageType(i32);

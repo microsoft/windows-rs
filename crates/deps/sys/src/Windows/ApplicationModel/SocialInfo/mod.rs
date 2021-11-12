@@ -3,12 +3,12 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
-pub struct ISocialFeedChildItem(i32);
-pub struct ISocialFeedContent(i32);
-pub struct ISocialFeedItem(i32);
-pub struct ISocialFeedSharedItem(i32);
-pub struct ISocialItemThumbnail(i32);
-pub struct ISocialUserInfo(i32);
+pub struct ISocialFeedChildItem(pub *mut ::core::ffi::c_void);
+pub struct ISocialFeedContent(pub *mut ::core::ffi::c_void);
+pub struct ISocialFeedItem(pub *mut ::core::ffi::c_void);
+pub struct ISocialFeedSharedItem(pub *mut ::core::ffi::c_void);
+pub struct ISocialItemThumbnail(pub *mut ::core::ffi::c_void);
+pub struct ISocialUserInfo(pub *mut ::core::ffi::c_void);
 pub struct SocialFeedChildItem(i32);
 pub struct SocialFeedContent(i32);
 pub struct SocialFeedItem(i32);

@@ -1,12 +1,12 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IMicrosoftAccountMultiFactorAuthenticationManager(i32);
-pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics(i32);
-pub struct IMicrosoftAccountMultiFactorGetSessionsResult(i32);
-pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo(i32);
-pub struct IMicrosoftAccountMultiFactorSessionInfo(i32);
-pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(i32);
+pub struct IMicrosoftAccountMultiFactorAuthenticationManager(pub *mut ::core::ffi::c_void);
+pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics(pub *mut ::core::ffi::c_void);
+pub struct IMicrosoftAccountMultiFactorGetSessionsResult(pub *mut ::core::ffi::c_void);
+pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo(pub *mut ::core::ffi::c_void);
+pub struct IMicrosoftAccountMultiFactorSessionInfo(pub *mut ::core::ffi::c_void);
+pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(pub *mut ::core::ffi::c_void);
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(i32);
 pub struct MicrosoftAccountMultiFactorAuthenticationType(i32);
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(i32);

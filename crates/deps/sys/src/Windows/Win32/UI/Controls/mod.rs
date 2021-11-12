@@ -1046,7 +1046,6 @@ pub const DTS_TIMEFORMAT: u32 = 9u32;
 pub const DTS_UPDOWN: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DTTOPTS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DTT_CALLBACK_PROC(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const DTT_FLAGS2VALIDBITS: u32 = 1u32;
@@ -1059,9 +1058,7 @@ pub struct EC_SEARCHWEB_ENTRYPOINT(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct EDITBALLOONTIP(i32);
 pub struct EDITBALLOONTIP_ICON(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct EDITWORDBREAKPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct EDITWORDBREAKPROCW(i32);
 pub struct EMPTYMARKUPPARTS(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -1508,8 +1505,8 @@ pub const IDB_VIEW_SMALL_COLOR: u32 = 4u32;
 pub const IDC_MANAGE_LINK: u32 = 1592u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const ID_PSRESTARTWINDOWS: u32 = 2u32;
-pub struct IImageList(i32);
-pub struct IImageList2(i32);
+pub struct IImageList(pub *mut ::core::ffi::c_void);
+pub struct IImageList2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const ILDI_PURGE: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -1654,25 +1651,15 @@ pub const LM_HITTEST: u32 = 1792u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LM_SETITEM: u32 = 1794u32;
 pub struct LOGOFFBUTTONSSTATES(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNADDPROPSHEETPAGES(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPFNCCINFOA(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPFNCCINFOW(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPFNCCSIZETOTEXTA(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPFNCCSIZETOTEXTW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNCCSTYLEA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNCCSTYLEW(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct LPFNPSPCALLBACKA(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct LPFNPSPCALLBACKW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNSVADDPROPSHEETPAGE(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVA_ALIGNLEFT: u32 = 1u32;
@@ -2804,26 +2791,17 @@ pub const PBS_SMOOTH: u32 = 1u32;
 pub const PBS_SMOOTHREVERSE: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const PBS_VERTICAL: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNDACOMPARE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNDACOMPARECONST(i32);
 pub struct PFNDAENUMCALLBACK(i32);
 pub struct PFNDAENUMCALLBACKCONST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNDPAMERGE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNDPAMERGECONST(i32);
-#[cfg(feature = "Win32_System_Com")]
 pub struct PFNDPASTREAM(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNLVCOMPARE(i32);
 pub struct PFNLVGROUPCOMPARE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNPROPSHEETCALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNTVCOMPARE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFTASKDIALOGCALLBACK(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const PGB_BOTTOMORRIGHT: u32 = 1u32;

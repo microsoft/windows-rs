@@ -2,16 +2,16 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct ExtensionsContract(i32);
-pub struct IPrint3DWorkflow(i32);
-pub struct IPrint3DWorkflow2(i32);
-pub struct IPrint3DWorkflowPrintRequestedEventArgs(i32);
-pub struct IPrint3DWorkflowPrinterChangedEventArgs(i32);
-pub struct IPrintExtensionContextStatic(i32);
-pub struct IPrintNotificationEventDetails(i32);
-pub struct IPrintTaskConfiguration(i32);
-pub struct IPrintTaskConfigurationSaveRequest(i32);
-pub struct IPrintTaskConfigurationSaveRequestedDeferral(i32);
-pub struct IPrintTaskConfigurationSaveRequestedEventArgs(i32);
+pub struct IPrint3DWorkflow(pub *mut ::core::ffi::c_void);
+pub struct IPrint3DWorkflow2(pub *mut ::core::ffi::c_void);
+pub struct IPrint3DWorkflowPrintRequestedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IPrint3DWorkflowPrinterChangedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IPrintExtensionContextStatic(pub *mut ::core::ffi::c_void);
+pub struct IPrintNotificationEventDetails(pub *mut ::core::ffi::c_void);
+pub struct IPrintTaskConfiguration(pub *mut ::core::ffi::c_void);
+pub struct IPrintTaskConfigurationSaveRequest(pub *mut ::core::ffi::c_void);
+pub struct IPrintTaskConfigurationSaveRequestedDeferral(pub *mut ::core::ffi::c_void);
+pub struct IPrintTaskConfigurationSaveRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct Print3DWorkflow(i32);
 pub struct Print3DWorkflowDetail(i32);
 pub struct Print3DWorkflowPrintRequestedEventArgs(i32);

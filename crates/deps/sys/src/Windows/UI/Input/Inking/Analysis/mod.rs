@@ -1,18 +1,18 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IInkAnalysisInkBullet(i32);
-pub struct IInkAnalysisInkDrawing(i32);
-pub struct IInkAnalysisInkWord(i32);
-pub struct IInkAnalysisLine(i32);
-pub struct IInkAnalysisListItem(i32);
-pub struct IInkAnalysisNode(i32);
-pub struct IInkAnalysisParagraph(i32);
-pub struct IInkAnalysisResult(i32);
-pub struct IInkAnalysisRoot(i32);
-pub struct IInkAnalysisWritingRegion(i32);
-pub struct IInkAnalyzer(i32);
-pub struct IInkAnalyzerFactory(i32);
+pub struct IInkAnalysisInkBullet(pub *mut ::core::ffi::c_void);
+pub struct IInkAnalysisInkDrawing(pub *mut ::core::ffi::c_void);
+pub struct IInkAnalysisInkWord(pub *mut ::core::ffi::c_void);
+pub struct IInkAnalysisLine(pub *mut ::core::ffi::c_void);
+pub struct IInkAnalysisListItem(pub *mut ::core::ffi::c_void);
+pub struct IInkAnalysisNode(pub *mut ::core::ffi::c_void);
+pub struct IInkAnalysisParagraph(pub *mut ::core::ffi::c_void);
+pub struct IInkAnalysisResult(pub *mut ::core::ffi::c_void);
+pub struct IInkAnalysisRoot(pub *mut ::core::ffi::c_void);
+pub struct IInkAnalysisWritingRegion(pub *mut ::core::ffi::c_void);
+pub struct IInkAnalyzer(pub *mut ::core::ffi::c_void);
+pub struct IInkAnalyzerFactory(pub *mut ::core::ffi::c_void);
 pub struct InkAnalysisDrawingKind(i32);
 pub struct InkAnalysisInkBullet(i32);
 pub struct InkAnalysisInkDrawing(i32);

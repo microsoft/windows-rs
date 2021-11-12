@@ -3,11 +3,11 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
-pub struct IPwmController(i32);
-pub struct IPwmControllerStatics(i32);
-pub struct IPwmControllerStatics2(i32);
-pub struct IPwmControllerStatics3(i32);
-pub struct IPwmPin(i32);
+pub struct IPwmController(pub *mut ::core::ffi::c_void);
+pub struct IPwmControllerStatics(pub *mut ::core::ffi::c_void);
+pub struct IPwmControllerStatics2(pub *mut ::core::ffi::c_void);
+pub struct IPwmControllerStatics3(pub *mut ::core::ffi::c_void);
+pub struct IPwmPin(pub *mut ::core::ffi::c_void);
 pub struct PwmController(i32);
 pub struct PwmPin(i32);
 pub struct PwmPulsePolarity(i32);

@@ -13,10 +13,10 @@ extern "system" {
 }
 #[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 pub const CONNECTION_AOL: u32 = 4u32;
-pub struct ISensLogon(i32);
-pub struct ISensLogon2(i32);
-pub struct ISensNetwork(i32);
-pub struct ISensOnNow(i32);
+pub struct ISensLogon(pub *mut ::core::ffi::c_void);
+pub struct ISensLogon2(pub *mut ::core::ffi::c_void);
+pub struct ISensNetwork(pub *mut ::core::ffi::c_void);
+pub struct ISensOnNow(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 pub const NETWORK_ALIVE_AOL: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_EventNotificationService`*"]

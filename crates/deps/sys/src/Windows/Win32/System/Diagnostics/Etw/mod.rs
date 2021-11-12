@@ -778,9 +778,9 @@ pub const EVENT_WRITE_FLAG_INPRIVATE: u32 = 2u32;
 pub const EVENT_WRITE_FLAG_NO_FAULTING: u32 = 1u32;
 pub const EventTraceConfigGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 25508453, data2: 16783, data3: 20278, data4: [174, 252, 220, 15, 29, 47, 210, 53] };
 pub const EventTraceGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1761466624, data2: 19006, data3: 4561, data4: [132, 244, 0, 0, 248, 4, 100, 227] };
-pub struct ITraceEvent(i32);
-pub struct ITraceEventCallback(i32);
-pub struct ITraceRelogger(i32);
+pub struct ITraceEvent(pub *mut ::core::ffi::c_void);
+pub struct ITraceEventCallback(pub *mut ::core::ffi::c_void);
+pub struct ITraceRelogger(pub *mut ::core::ffi::c_void);
 pub struct MAP_FLAGS(i32);
 pub struct MAP_VALUETYPE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -809,9 +809,7 @@ pub struct PAYLOAD_OPERATOR(i32);
 pub struct PENABLECALLBACK(i32);
 pub struct PEVENT_CALLBACK(i32);
 pub struct PEVENT_RECORD_CALLBACK(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct PEVENT_TRACE_BUFFER_CALLBACKA(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct PEVENT_TRACE_BUFFER_CALLBACKW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456u32;

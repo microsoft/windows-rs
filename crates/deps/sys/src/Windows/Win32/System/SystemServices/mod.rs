@@ -4619,8 +4619,6 @@ pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct PEXCEPTION_FILTER(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: u32 = 5u32;
@@ -4667,11 +4665,7 @@ pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
 pub struct PIMAGE_TLS_CALLBACK(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
-#[cfg(any(target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(i32);
-#[cfg(any(target_arch = "x86_64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: u32 = 2u32;
@@ -5192,11 +5186,7 @@ pub const PRODUCT_XBOX_NATIVEOS: u32 = 193u32;
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
-#[cfg(any(target_arch = "aarch64",))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PTERMINATION_HANDLER(i32);
-#[cfg(any(target_arch = "x86_64",))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PTERMINATION_HANDLER(i32);
 pub struct PUMS_SCHEDULER_ENTRY_POINT(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]

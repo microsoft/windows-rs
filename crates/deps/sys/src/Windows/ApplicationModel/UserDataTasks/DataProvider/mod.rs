@@ -1,18 +1,18 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IUserDataTaskDataProviderConnection(i32);
-pub struct IUserDataTaskDataProviderTriggerDetails(i32);
-pub struct IUserDataTaskListCompleteTaskRequest(i32);
-pub struct IUserDataTaskListCompleteTaskRequestEventArgs(i32);
-pub struct IUserDataTaskListCreateOrUpdateTaskRequest(i32);
-pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs(i32);
-pub struct IUserDataTaskListDeleteTaskRequest(i32);
-pub struct IUserDataTaskListDeleteTaskRequestEventArgs(i32);
-pub struct IUserDataTaskListSkipOccurrenceRequest(i32);
-pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs(i32);
-pub struct IUserDataTaskListSyncManagerSyncRequest(i32);
-pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs(i32);
+pub struct IUserDataTaskDataProviderConnection(pub *mut ::core::ffi::c_void);
+pub struct IUserDataTaskDataProviderTriggerDetails(pub *mut ::core::ffi::c_void);
+pub struct IUserDataTaskListCompleteTaskRequest(pub *mut ::core::ffi::c_void);
+pub struct IUserDataTaskListCompleteTaskRequestEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IUserDataTaskListCreateOrUpdateTaskRequest(pub *mut ::core::ffi::c_void);
+pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IUserDataTaskListDeleteTaskRequest(pub *mut ::core::ffi::c_void);
+pub struct IUserDataTaskListDeleteTaskRequestEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IUserDataTaskListSkipOccurrenceRequest(pub *mut ::core::ffi::c_void);
+pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IUserDataTaskListSyncManagerSyncRequest(pub *mut ::core::ffi::c_void);
+pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs(pub *mut ::core::ffi::c_void);
 pub struct UserDataTaskDataProviderConnection(i32);
 pub struct UserDataTaskDataProviderTriggerDetails(i32);
 pub struct UserDataTaskListCompleteTaskRequest(i32);

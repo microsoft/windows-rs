@@ -1,10 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct ITpmVirtualSmartCardManager(i32);
-pub struct ITpmVirtualSmartCardManager2(i32);
-pub struct ITpmVirtualSmartCardManager3(i32);
-pub struct ITpmVirtualSmartCardManagerStatusCallback(i32);
+pub struct ITpmVirtualSmartCardManager(pub *mut ::core::ffi::c_void);
+pub struct ITpmVirtualSmartCardManager2(pub *mut ::core::ffi::c_void);
+pub struct ITpmVirtualSmartCardManager3(pub *mut ::core::ffi::c_void);
+pub struct ITpmVirtualSmartCardManagerStatusCallback(pub *mut ::core::ffi::c_void);
 pub struct RemoteTpmVirtualSmartCardManager(i32);
 pub struct TPMVSCMGR_ERROR(i32);
 pub struct TPMVSCMGR_STATUS(i32);

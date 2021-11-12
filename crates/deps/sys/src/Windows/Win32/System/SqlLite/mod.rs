@@ -1407,7 +1407,6 @@ pub struct sqlite3_file(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info(i32);
 pub struct sqlite3_io_methods(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_loadext_entry(i32);
 pub struct sqlite3_mem_methods(i32);
 pub struct sqlite3_module(i32);

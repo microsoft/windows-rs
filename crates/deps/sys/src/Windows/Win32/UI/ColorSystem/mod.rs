@@ -517,13 +517,11 @@ pub struct GamutShell(i32);
 pub struct GamutShellTriangle(i32);
 pub struct HCOLORSPACE(i32);
 pub struct HiFiCOLOR(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ICMENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ICMENUMPROCW(i32);
 pub struct ICM_COMMAND(i32);
-pub struct IDeviceModelPlugIn(i32);
-pub struct IGamutMapModelPlugIn(i32);
+pub struct IDeviceModelPlugIn(pub *mut ::core::ffi::c_void);
+pub struct IGamutMapModelPlugIn(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const INDEX_DONT_CARE: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -540,7 +538,6 @@ pub struct JabColorF(i32);
 pub struct LOGCOLORSPACEA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct LOGCOLORSPACEW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPBMCALLBACKFN(i32);
 pub struct LabCOLOR(i32);
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -549,9 +546,7 @@ pub struct NAMEDCOLOR(i32);
 pub struct NAMED_PROFILE_INFO(i32);
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const NORMAL_MODE: u32 = 2u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PCMSCALLBACKA(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PCMSCALLBACKW(i32);
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const PRESERVEBLACK: u32 = 1048576u32;

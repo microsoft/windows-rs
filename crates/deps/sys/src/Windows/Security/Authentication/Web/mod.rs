@@ -5,9 +5,9 @@ pub mod Core;
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
-pub struct IWebAuthenticationBrokerStatics(i32);
-pub struct IWebAuthenticationBrokerStatics2(i32);
-pub struct IWebAuthenticationResult(i32);
+pub struct IWebAuthenticationBrokerStatics(pub *mut ::core::ffi::c_void);
+pub struct IWebAuthenticationBrokerStatics2(pub *mut ::core::ffi::c_void);
+pub struct IWebAuthenticationResult(pub *mut ::core::ffi::c_void);
 pub struct TokenBindingKeyType(i32);
 pub struct WebAuthenticationBroker(i32);
 pub struct WebAuthenticationOptions(i32);

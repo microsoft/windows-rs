@@ -3,6 +3,6 @@
 extern "system" {}
 pub struct HolographicApplicationPreview(i32);
 pub struct HolographicKeyboardPlacementOverridePreview(i32);
-pub struct IHolographicApplicationPreviewStatics(i32);
-pub struct IHolographicKeyboardPlacementOverridePreview(i32);
-pub struct IHolographicKeyboardPlacementOverridePreviewStatics(i32);
+pub struct IHolographicApplicationPreviewStatics(pub *mut ::core::ffi::c_void);
+pub struct IHolographicKeyboardPlacementOverridePreview(pub *mut ::core::ffi::c_void);
+pub struct IHolographicKeyboardPlacementOverridePreviewStatics(pub *mut ::core::ffi::c_void);

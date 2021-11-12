@@ -4,5 +4,5 @@ extern "system" {}
 pub struct AudioRoutingEndpoint(i32);
 pub struct AudioRoutingManager(i32);
 pub struct AvailableAudioRoutingEndpoints(i32);
-pub struct IAudioRoutingManager(i32);
-pub struct IAudioRoutingManagerStatics(i32);
+pub struct IAudioRoutingManager(pub *mut ::core::ffi::c_void);
+pub struct IAudioRoutingManagerStatics(pub *mut ::core::ffi::c_void);

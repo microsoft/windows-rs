@@ -4750,26 +4750,26 @@ pub const HID_USAGE_VR_VEST: u16 = 9u16;
 pub struct HID_XFER_PACKET(i32);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
-pub struct IDirectInput2A(i32);
-pub struct IDirectInput2W(i32);
-pub struct IDirectInput7A(i32);
-pub struct IDirectInput7W(i32);
-pub struct IDirectInput8A(i32);
-pub struct IDirectInput8W(i32);
-pub struct IDirectInputA(i32);
-pub struct IDirectInputDevice2A(i32);
-pub struct IDirectInputDevice2W(i32);
-pub struct IDirectInputDevice7A(i32);
-pub struct IDirectInputDevice7W(i32);
-pub struct IDirectInputDevice8A(i32);
-pub struct IDirectInputDevice8W(i32);
-pub struct IDirectInputDeviceA(i32);
-pub struct IDirectInputDeviceW(i32);
-pub struct IDirectInputEffect(i32);
-pub struct IDirectInputEffectDriver(i32);
-pub struct IDirectInputJoyConfig(i32);
-pub struct IDirectInputJoyConfig8(i32);
-pub struct IDirectInputW(i32);
+pub struct IDirectInput2A(pub *mut ::core::ffi::c_void);
+pub struct IDirectInput2W(pub *mut ::core::ffi::c_void);
+pub struct IDirectInput7A(pub *mut ::core::ffi::c_void);
+pub struct IDirectInput7W(pub *mut ::core::ffi::c_void);
+pub struct IDirectInput8A(pub *mut ::core::ffi::c_void);
+pub struct IDirectInput8W(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputA(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputDevice2A(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputDevice2W(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputDevice7A(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputDevice7W(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputDevice8A(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputDevice8W(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputDeviceA(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputDeviceW(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputEffect(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputEffectDriver(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputJoyConfig(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputJoyConfig8(pub *mut ::core::ffi::c_void);
+pub struct IDirectInputW(pub *mut ::core::ffi::c_void);
 pub struct INDICATOR_LIST(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct INPUT_BUTTON_ENABLE_INFO(i32);
@@ -5023,31 +5023,18 @@ pub const KEY_TERMSRV_VKPACKET: u32 = 32u32;
 pub const KEY_UNICODE_SEQUENCE_END: u32 = 512u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDICONFIGUREDEVICESCALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMCREATEDEFFECTOBJECTSCALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICEOBJECTSCALLBACKA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICEOBJECTSCALLBACKW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICESBYSEMANTICSCBA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICESBYSEMANTICSCBW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICESCALLBACKA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICESCALLBACKW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMEFFECTSCALLBACKA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMEFFECTSCALLBACKW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMEFFECTSINFILECALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIJOYTYPECALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNSHOWJOYCPL(i32);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const MAXCPOINTSNUM: u32 = 8u32;
@@ -5116,9 +5103,7 @@ pub struct MOUSE_UNIT_ID_PARAMETER(i32);
 pub const MOUSE_VIRTUAL_DESKTOP: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const MOUSE_WHEEL: u32 = 1024u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_HidP_GetVersionInternal(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PHIDP_INSERT_SCANCODES(i32);
 pub struct USAGE_AND_PAGE(i32);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]

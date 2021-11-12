@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IWaaSAssessor(i32);
+pub struct IWaaSAssessor(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct OSUpdateAssessment(i32);
 pub struct UpdateAssessment(i32);

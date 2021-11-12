@@ -214,23 +214,15 @@ pub const FR_RAW: u32 = 131072u32;
 pub const FR_SHOWWRAPAROUND: u32 = 262144u32;
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub const FR_WRAPAROUND: u32 = 1048576u32;
-pub struct IPrintDialogCallback(i32);
-pub struct IPrintDialogServices(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct IPrintDialogCallback(pub *mut ::core::ffi::c_void);
+pub struct IPrintDialogServices(pub *mut ::core::ffi::c_void);
 pub struct LPCCHOOKPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPCFHOOKPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFRHOOKPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPOFNHOOKPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPPAGEPAINTHOOK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPPAGESETUPHOOK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPPRINTHOOKPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPSETUPHOOKPROC(i32);
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub const NUM_BASIC_COLORS: u32 = 48u32;

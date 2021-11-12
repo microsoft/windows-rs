@@ -239,22 +239,15 @@ pub const MAXVENDORINFO: u32 = 32u32;
 pub const MGMCTL_SETAGENTPORT: u32 = 1u32;
 pub struct PFNSNMPCLEANUPEX(i32);
 pub struct PFNSNMPEXTENSIONCLOSE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONINIT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONINITEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONMONITOR(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONQUERY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONQUERYEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONTRAP(i32);
 pub struct PFNSNMPSTARTUPEX(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const SNMPAPI_ALLOC_ERROR: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct SNMPAPI_CALLBACK(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const SNMPAPI_CONTEXT_INVALID: u32 = 3u32;

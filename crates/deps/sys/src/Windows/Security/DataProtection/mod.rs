@@ -1,11 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IUserDataAvailabilityStateChangedEventArgs(i32);
-pub struct IUserDataBufferUnprotectResult(i32);
-pub struct IUserDataProtectionManager(i32);
-pub struct IUserDataProtectionManagerStatics(i32);
-pub struct IUserDataStorageItemProtectionInfo(i32);
+pub struct IUserDataAvailabilityStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IUserDataBufferUnprotectResult(pub *mut ::core::ffi::c_void);
+pub struct IUserDataProtectionManager(pub *mut ::core::ffi::c_void);
+pub struct IUserDataProtectionManagerStatics(pub *mut ::core::ffi::c_void);
+pub struct IUserDataStorageItemProtectionInfo(pub *mut ::core::ffi::c_void);
 pub struct UserDataAvailability(i32);
 pub struct UserDataAvailabilityStateChangedEventArgs(i32);
 pub struct UserDataBufferUnprotectResult(i32);

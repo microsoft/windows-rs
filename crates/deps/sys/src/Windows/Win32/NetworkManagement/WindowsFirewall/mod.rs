@@ -27,16 +27,16 @@ extern "system" {
     pub fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject: super::super::Foundation::HANDLE) -> u32;
 }
 pub struct ICS_TARGETTYPE(i32);
-pub struct IDynamicPortMapping(i32);
-pub struct IDynamicPortMappingCollection(i32);
-pub struct IEnumNetConnection(i32);
-pub struct IEnumNetSharingEveryConnection(i32);
-pub struct IEnumNetSharingPortMapping(i32);
-pub struct IEnumNetSharingPrivateConnection(i32);
-pub struct IEnumNetSharingPublicConnection(i32);
-pub struct INATEventManager(i32);
-pub struct INATExternalIPAddressCallback(i32);
-pub struct INATNumberOfEntriesCallback(i32);
+pub struct IDynamicPortMapping(pub *mut ::core::ffi::c_void);
+pub struct IDynamicPortMappingCollection(pub *mut ::core::ffi::c_void);
+pub struct IEnumNetConnection(pub *mut ::core::ffi::c_void);
+pub struct IEnumNetSharingEveryConnection(pub *mut ::core::ffi::c_void);
+pub struct IEnumNetSharingPortMapping(pub *mut ::core::ffi::c_void);
+pub struct IEnumNetSharingPrivateConnection(pub *mut ::core::ffi::c_void);
+pub struct IEnumNetSharingPublicConnection(pub *mut ::core::ffi::c_void);
+pub struct INATEventManager(pub *mut ::core::ffi::c_void);
+pub struct INATExternalIPAddressCallback(pub *mut ::core::ffi::c_void);
+pub struct INATNumberOfEntriesCallback(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct INET_FIREWALL_AC_BINARIES(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -47,40 +47,40 @@ pub struct INET_FIREWALL_AC_CHANGE_TYPE(i32);
 pub struct INET_FIREWALL_AC_CREATION_TYPE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct INET_FIREWALL_APP_CONTAINER(i32);
-pub struct INetConnection(i32);
-pub struct INetConnectionConnectUi(i32);
-pub struct INetConnectionManager(i32);
-pub struct INetConnectionProps(i32);
-pub struct INetFwAuthorizedApplication(i32);
-pub struct INetFwAuthorizedApplications(i32);
-pub struct INetFwIcmpSettings(i32);
-pub struct INetFwMgr(i32);
-pub struct INetFwOpenPort(i32);
-pub struct INetFwOpenPorts(i32);
-pub struct INetFwPolicy(i32);
-pub struct INetFwPolicy2(i32);
-pub struct INetFwProduct(i32);
-pub struct INetFwProducts(i32);
-pub struct INetFwProfile(i32);
-pub struct INetFwRemoteAdminSettings(i32);
-pub struct INetFwRule(i32);
-pub struct INetFwRule2(i32);
-pub struct INetFwRule3(i32);
-pub struct INetFwRules(i32);
-pub struct INetFwService(i32);
-pub struct INetFwServiceRestriction(i32);
-pub struct INetFwServices(i32);
-pub struct INetSharingConfiguration(i32);
-pub struct INetSharingEveryConnectionCollection(i32);
-pub struct INetSharingManager(i32);
-pub struct INetSharingPortMapping(i32);
-pub struct INetSharingPortMappingCollection(i32);
-pub struct INetSharingPortMappingProps(i32);
-pub struct INetSharingPrivateConnectionCollection(i32);
-pub struct INetSharingPublicConnectionCollection(i32);
-pub struct IStaticPortMapping(i32);
-pub struct IStaticPortMappingCollection(i32);
-pub struct IUPnPNAT(i32);
+pub struct INetConnection(pub *mut ::core::ffi::c_void);
+pub struct INetConnectionConnectUi(pub *mut ::core::ffi::c_void);
+pub struct INetConnectionManager(pub *mut ::core::ffi::c_void);
+pub struct INetConnectionProps(pub *mut ::core::ffi::c_void);
+pub struct INetFwAuthorizedApplication(pub *mut ::core::ffi::c_void);
+pub struct INetFwAuthorizedApplications(pub *mut ::core::ffi::c_void);
+pub struct INetFwIcmpSettings(pub *mut ::core::ffi::c_void);
+pub struct INetFwMgr(pub *mut ::core::ffi::c_void);
+pub struct INetFwOpenPort(pub *mut ::core::ffi::c_void);
+pub struct INetFwOpenPorts(pub *mut ::core::ffi::c_void);
+pub struct INetFwPolicy(pub *mut ::core::ffi::c_void);
+pub struct INetFwPolicy2(pub *mut ::core::ffi::c_void);
+pub struct INetFwProduct(pub *mut ::core::ffi::c_void);
+pub struct INetFwProducts(pub *mut ::core::ffi::c_void);
+pub struct INetFwProfile(pub *mut ::core::ffi::c_void);
+pub struct INetFwRemoteAdminSettings(pub *mut ::core::ffi::c_void);
+pub struct INetFwRule(pub *mut ::core::ffi::c_void);
+pub struct INetFwRule2(pub *mut ::core::ffi::c_void);
+pub struct INetFwRule3(pub *mut ::core::ffi::c_void);
+pub struct INetFwRules(pub *mut ::core::ffi::c_void);
+pub struct INetFwService(pub *mut ::core::ffi::c_void);
+pub struct INetFwServiceRestriction(pub *mut ::core::ffi::c_void);
+pub struct INetFwServices(pub *mut ::core::ffi::c_void);
+pub struct INetSharingConfiguration(pub *mut ::core::ffi::c_void);
+pub struct INetSharingEveryConnectionCollection(pub *mut ::core::ffi::c_void);
+pub struct INetSharingManager(pub *mut ::core::ffi::c_void);
+pub struct INetSharingPortMapping(pub *mut ::core::ffi::c_void);
+pub struct INetSharingPortMappingCollection(pub *mut ::core::ffi::c_void);
+pub struct INetSharingPortMappingProps(pub *mut ::core::ffi::c_void);
+pub struct INetSharingPrivateConnectionCollection(pub *mut ::core::ffi::c_void);
+pub struct INetSharingPublicConnectionCollection(pub *mut ::core::ffi::c_void);
+pub struct IStaticPortMapping(pub *mut ::core::ffi::c_void);
+pub struct IStaticPortMappingCollection(pub *mut ::core::ffi::c_void);
+pub struct IUPnPNAT(pub *mut ::core::ffi::c_void);
 pub struct NETCONMGR_ENUM_FLAGS(i32);
 pub struct NETCONUI_CONNECT_FLAGS(i32);
 pub struct NETCON_CHARACTERISTIC_FLAGS(i32);
@@ -118,20 +118,13 @@ pub struct NetFwProduct(i32);
 pub struct NetFwProducts(i32);
 pub struct NetFwRule(i32);
 pub struct NetSharingManager(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct PAC_CHANGES_CALLBACK_FN(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_FWADDDYNAMICKEYWORDADDRESS0(i32);
 pub struct PFN_FWDELETEDYNAMICKEYWORDADDRESS0(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PNETISO_EDP_ID_CALLBACK_FN(i32);
 pub struct SHARINGCONNECTIONTYPE(i32);
 pub struct SHARINGCONNECTION_ENUM_FLAGS(i32);

@@ -22,9 +22,9 @@ pub struct DedupHashingAlgorithm(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct DedupStream(i32);
 pub struct DedupStreamEntry(i32);
-pub struct IDedupBackupSupport(i32);
-pub struct IDedupChunkLibrary(i32);
-pub struct IDedupDataPort(i32);
-pub struct IDedupDataPortManager(i32);
-pub struct IDedupIterateChunksHash32(i32);
-pub struct IDedupReadFileCallback(i32);
+pub struct IDedupBackupSupport(pub *mut ::core::ffi::c_void);
+pub struct IDedupChunkLibrary(pub *mut ::core::ffi::c_void);
+pub struct IDedupDataPort(pub *mut ::core::ffi::c_void);
+pub struct IDedupDataPortManager(pub *mut ::core::ffi::c_void);
+pub struct IDedupIterateChunksHash32(pub *mut ::core::ffi::c_void);
+pub struct IDedupReadFileCallback(pub *mut ::core::ffi::c_void);

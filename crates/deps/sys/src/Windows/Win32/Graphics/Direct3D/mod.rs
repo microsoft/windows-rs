@@ -134,9 +134,9 @@ pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows_sys::core::GUID = ::windows_sy
     data3: 19436,
     data4: [151, 5, 140, 242, 88, 223, 107, 108],
 };
-pub struct ID3DBlob(i32);
-pub struct ID3DDestructionNotifier(i32);
-pub struct ID3DInclude(i32);
+pub struct ID3DBlob(pub *mut ::core::ffi::c_void);
+pub struct ID3DDestructionNotifier(pub *mut ::core::ffi::c_void);
+pub struct ID3DInclude(pub *mut ::core::ffi::c_void);
 pub struct PFN_DESTRUCTION_CALLBACK(i32);
 pub const WKPDID_CommentStringW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3491012032, data2: 37096, data3: 20168, data4: [129, 68, 233, 0, 173, 38, 107, 178] };
 pub const WKPDID_D3D12UniqueObjectId: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 456777237, data2: 60420, data3: 19374, data4: [186, 77, 140, 239, 121, 252, 4, 193] };

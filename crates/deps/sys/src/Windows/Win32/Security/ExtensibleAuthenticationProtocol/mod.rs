@@ -418,12 +418,12 @@ pub const GUID_EapHost_Repair_Server_ClientSelectServerCert: ::windows_sys::core
 pub const GUID_EapHost_Repair_User_AuthFailure: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2517826663, data2: 24912, data3: 16905, data4: [168, 94, 168, 216, 0, 0, 0, 25] };
 pub const GUID_EapHost_Repair_User_GetNewCert: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2517826663, data2: 24912, data3: 16905, data4: [168, 94, 168, 216, 0, 0, 0, 26] };
 pub const GUID_EapHost_Repair_User_SelectValidCert: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2517826663, data2: 24912, data3: 16905, data4: [168, 94, 168, 216, 0, 0, 0, 27] };
-pub struct IAccountingProviderConfig(i32);
-pub struct IAuthenticationProviderConfig(i32);
-pub struct IEAPProviderConfig(i32);
-pub struct IEAPProviderConfig2(i32);
-pub struct IEAPProviderConfig3(i32);
-pub struct IRouterProtocolConfig(i32);
+pub struct IAccountingProviderConfig(pub *mut ::core::ffi::c_void);
+pub struct IAuthenticationProviderConfig(pub *mut ::core::ffi::c_void);
+pub struct IEAPProviderConfig(pub *mut ::core::ffi::c_void);
+pub struct IEAPProviderConfig2(pub *mut ::core::ffi::c_void);
+pub struct IEAPProviderConfig3(pub *mut ::core::ffi::c_void);
+pub struct IRouterProtocolConfig(pub *mut ::core::ffi::c_void);
 pub struct ISOLATION_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct LEGACY_IDENTITY_UI_PARAMS(i32);

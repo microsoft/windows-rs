@@ -9,4 +9,4 @@ pub mod DataProtection;
 extern "system" {}
 pub struct BinaryStringEncoding(i32);
 pub struct CryptographicBuffer(i32);
-pub struct ICryptographicBufferStatics(i32);
+pub struct ICryptographicBufferStatics(pub *mut ::core::ffi::c_void);

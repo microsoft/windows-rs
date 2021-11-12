@@ -1,13 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IPrintSupportExtensionSession(i32);
-pub struct IPrintSupportExtensionTriggerDetails(i32);
-pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs(i32);
-pub struct IPrintSupportPrintTicketValidationRequestedEventArgs(i32);
-pub struct IPrintSupportSessionInfo(i32);
-pub struct IPrintSupportSettingsActivatedEventArgs(i32);
-pub struct IPrintSupportSettingsUISession(i32);
+pub struct IPrintSupportExtensionSession(pub *mut ::core::ffi::c_void);
+pub struct IPrintSupportExtensionTriggerDetails(pub *mut ::core::ffi::c_void);
+pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IPrintSupportPrintTicketValidationRequestedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IPrintSupportSessionInfo(pub *mut ::core::ffi::c_void);
+pub struct IPrintSupportSettingsActivatedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IPrintSupportSettingsUISession(pub *mut ::core::ffi::c_void);
 pub struct PrintSupportExtensionSession(i32);
 pub struct PrintSupportExtensionTriggerDetails(i32);
 pub struct PrintSupportPrintDeviceCapabilitiesChangedEventArgs(i32);

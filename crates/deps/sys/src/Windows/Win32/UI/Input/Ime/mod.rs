@@ -533,19 +533,19 @@ pub const IACE_CHILDREN: u32 = 1u32;
 pub const IACE_DEFAULT: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IACE_IGNORENOCONTEXT: u32 = 32u32;
-pub struct IActiveIME(i32);
-pub struct IActiveIME2(i32);
-pub struct IActiveIMMApp(i32);
-pub struct IActiveIMMIME(i32);
-pub struct IActiveIMMMessagePumpOwner(i32);
-pub struct IActiveIMMRegistrar(i32);
-pub struct IEnumInputContext(i32);
-pub struct IEnumRegisterWordA(i32);
-pub struct IEnumRegisterWordW(i32);
+pub struct IActiveIME(pub *mut ::core::ffi::c_void);
+pub struct IActiveIME2(pub *mut ::core::ffi::c_void);
+pub struct IActiveIMMApp(pub *mut ::core::ffi::c_void);
+pub struct IActiveIMMIME(pub *mut ::core::ffi::c_void);
+pub struct IActiveIMMMessagePumpOwner(pub *mut ::core::ffi::c_void);
+pub struct IActiveIMMRegistrar(pub *mut ::core::ffi::c_void);
+pub struct IEnumInputContext(pub *mut ::core::ffi::c_void);
+pub struct IEnumRegisterWordA(pub *mut ::core::ffi::c_void);
+pub struct IEnumRegisterWordW(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IFEC_S_ALREADY_DEFAULT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291840i32 as _);
-pub struct IFEClassFactory(i32);
-pub struct IFECommon(i32);
+pub struct IFEClassFactory(pub *mut ::core::ffi::c_void);
+pub struct IFECommon(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IFED_E_INVALID_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192063i32 as _);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -658,8 +658,8 @@ pub const IFED_TYPE_NONE: u32 = 0u32;
 pub const IFED_TYPE_REVERSE: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IFED_TYPE_SPEECH: u32 = 4u32;
-pub struct IFEDictionary(i32);
-pub struct IFELanguage(i32);
+pub struct IFEDictionary(pub *mut ::core::ffi::c_void);
+pub struct IFELanguage(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IGIMIF_RIGHTMENU: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -676,11 +676,10 @@ pub const IGIMII_OTHER: u32 = 32u32;
 pub const IGIMII_SMODE: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IGIMII_TOOLS: u32 = 8u32;
-pub struct IImePad(i32);
-pub struct IImePadApplet(i32);
-pub struct IImePlugInDictDictionaryList(i32);
-pub struct IImeSpecifyApplets(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+pub struct IImePad(pub *mut ::core::ffi::c_void);
+pub struct IImePadApplet(pub *mut ::core::ffi::c_void);
+pub struct IImePlugInDictDictionaryList(pub *mut ::core::ffi::c_void);
+pub struct IImeSpecifyApplets(pub *mut ::core::ffi::c_void);
 pub struct IMCENUMPROC(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
@@ -1572,7 +1571,6 @@ pub const NI_CONTEXTUPDATED: u32 = 3u32;
 pub const NI_FINALIZECONVERSIONRESULT: u32 = 20u32;
 pub struct NOTIFY_IME_ACTION(i32);
 pub struct NOTIFY_IME_INDEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNLOG(i32);
 pub struct POSTBL(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -1584,9 +1582,7 @@ pub const RECONVOPT_NONE: u32 = 0u32;
 pub const RECONVOPT_USECANCELNOTIFY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGISTERWORDA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct REGISTERWORDENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct REGISTERWORDENUMPROCW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGISTERWORDW(i32);

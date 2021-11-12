@@ -3,6 +3,6 @@
 extern "system" {}
 pub struct Battery(i32);
 pub struct BatteryReport(i32);
-pub struct IBattery(i32);
-pub struct IBatteryReport(i32);
-pub struct IBatteryStatics(i32);
+pub struct IBattery(pub *mut ::core::ffi::c_void);
+pub struct IBatteryReport(pub *mut ::core::ffi::c_void);
+pub struct IBatteryStatics(pub *mut ::core::ffi::c_void);

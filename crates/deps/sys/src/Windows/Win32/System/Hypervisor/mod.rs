@@ -289,14 +289,12 @@ extern "system" {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOS_IMAGE_INFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct FOUND_IMAGE_CALLBACK(i32);
 pub struct GPA_MEMORY_CHUNK(i32);
 pub struct GUEST_OS_INFO(i32);
 pub struct GUEST_OS_MICROSOFT_IDS(i32);
 pub struct GUEST_OS_OPENSOURCE_IDS(i32);
 pub struct GUEST_OS_VENDOR(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK(i32);
 pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1072875819, data2: 26008, data3: 20064, data4: [142, 28, 12, 207, 73, 39, 227, 25] };
 pub struct HDV_DEVICE_TYPE(i32);
@@ -309,7 +307,6 @@ pub struct HDV_PCI_DEVICE_GET_DETAILS(i32);
 pub struct HDV_PCI_DEVICE_INITIALIZE(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct HDV_PCI_DEVICE_INTERFACE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct HDV_PCI_DEVICE_SET_CONFIGURATION(i32);
 pub struct HDV_PCI_DEVICE_START(i32);
 pub struct HDV_PCI_DEVICE_STOP(i32);

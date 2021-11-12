@@ -100,7 +100,6 @@ extern "system" {
     #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
     pub fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows_sys::core::HRESULT;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 pub struct CF_CALLBACK(i32);
 pub struct CF_CALLBACK_CANCEL_FLAGS(i32);
 pub struct CF_CALLBACK_CLOSE_COMPLETION_FLAGS(i32);

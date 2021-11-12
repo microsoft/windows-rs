@@ -1608,179 +1608,108 @@ pub const LM_HB_Extension: i32 = 128i32;
 pub struct LM_IRPARMS(i32);
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
 pub const LOG2_BITS_PER_BYTE: u32 = 3u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPBLOCKINGCALLBACK(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 pub struct LPCONDITIONPROC(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPFN_ACCEPTEX(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPFN_CONNECTEX(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPFN_DISCONNECTEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFN_GETACCEPTEXSOCKADDRS(i32);
 pub struct LPFN_NSPAPI(i32);
 pub struct LPFN_RIOCLOSECOMPLETIONQUEUE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFN_RIOCREATECOMPLETIONQUEUE(i32);
 pub struct LPFN_RIOCREATEREQUESTQUEUE(i32);
 pub struct LPFN_RIODEQUEUECOMPLETION(i32);
 pub struct LPFN_RIODEREGISTERBUFFER(i32);
 pub struct LPFN_RIONOTIFY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFN_RIORECEIVE(i32);
 pub struct LPFN_RIORECEIVEEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFN_RIOREGISTERBUFFER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFN_RIORESIZECOMPLETIONQUEUE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFN_RIORESIZEREQUESTQUEUE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFN_RIOSEND(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFN_RIOSENDEX(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPFN_TRANSMITFILE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPFN_TRANSMITPACKETS(i32);
 pub struct LPFN_WSAPOLL(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPFN_WSARECVMSG(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPFN_WSASENDMSG(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPLOOKUPSERVICE_COMPLETION_ROUTINE(i32);
 pub struct LPNSPCLEANUP(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPNSPGETSERVICECLASSINFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPNSPINSTALLSERVICECLASS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPNSPIOCTL(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct LPNSPLOOKUPSERVICEBEGIN(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPNSPLOOKUPSERVICEEND(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct LPNSPLOOKUPSERVICENEXT(i32);
 pub struct LPNSPREMOVESERVICECLASS(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct LPNSPSETSERVICE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 pub struct LPNSPSTARTUP(i32);
 pub struct LPNSPV2CLEANUP(i32);
 pub struct LPNSPV2CLIENTSESSIONRUNDOWN(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct LPNSPV2LOOKUPSERVICEBEGIN(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPNSPV2LOOKUPSERVICEEND(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct LPNSPV2LOOKUPSERVICENEXTEX(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct LPNSPV2SETSERVICEEX(i32);
 pub struct LPNSPV2STARTUP(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPSERVICE_CALLBACK_PROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWPUCLOSEEVENT(i32);
 pub struct LPWPUCLOSESOCKETHANDLE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWPUCLOSETHREAD(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPWPUCOMPLETEOVERLAPPEDREQUEST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWPUCREATEEVENT(i32);
 pub struct LPWPUCREATESOCKETHANDLE(i32);
 pub struct LPWPUFDISSET(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWPUGETPROVIDERPATH(i32);
 pub struct LPWPUMODIFYIFSHANDLE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWPUOPENCURRENTTHREAD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWPUPOSTMESSAGE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWPUQUERYBLOCKINGCALLBACK(i32);
 pub struct LPWPUQUERYSOCKETHANDLECONTEXT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWPUQUEUEAPC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWPURESETEVENT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWPUSETEVENT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPWSAOVERLAPPED_COMPLETION_ROUTINE(i32);
 pub struct LPWSAUSERAPC(i32);
 pub struct LPWSCDEINSTALLPROVIDER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSCENABLENSPROVIDER(i32);
 pub struct LPWSCENUMPROTOCOLS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSCGETPROVIDERPATH(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSCINSTALLNAMESPACE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSCINSTALLPROVIDER(i32);
 pub struct LPWSCUNINSTALLNAMESPACE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSCUPDATEPROVIDER(i32);
 pub struct LPWSCWRITENAMESPACEORDER(i32);
 pub struct LPWSCWRITEPROVIDERORDER(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 pub struct LPWSPACCEPT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPADDRESSTOSTRING(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPASYNCSELECT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPBIND(i32);
 pub struct LPWSPCANCELBLOCKINGCALL(i32);
 pub struct LPWSPCLEANUP(i32);
 pub struct LPWSPCLOSESOCKET(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 pub struct LPWSPCONNECT(i32);
 pub struct LPWSPDUPLICATESOCKET(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPENUMNETWORKEVENTS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPEVENTSELECT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPWSPGETOVERLAPPEDRESULT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPGETPEERNAME(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 pub struct LPWSPGETQOSBYNAME(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPGETSOCKNAME(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPGETSOCKOPT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPWSPIOCTL(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 pub struct LPWSPJOINLEAF(i32);
 pub struct LPWSPLISTEN(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPWSPRECV(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPRECVDISCONNECT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPWSPRECVFROM(i32);
 pub struct LPWSPSELECT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPWSPSEND(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPSENDDISCONNECT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct LPWSPSENDTO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPSETSOCKOPT(i32);
 pub struct LPWSPSHUTDOWN(i32);
 pub struct LPWSPSOCKET(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS", feature = "Win32_System_IO"))]
 pub struct LPWSPSTARTUP(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWSPSTRINGTOADDRESS(i32);
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
 pub const LSP_CRYPTO_COMPRESS: u32 = 64u32;

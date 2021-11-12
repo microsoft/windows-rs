@@ -2,4 +2,4 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct DesktopWindowTarget(i32);
-pub struct IDesktopWindowTarget(i32);
+pub struct IDesktopWindowTarget(pub *mut ::core::ffi::c_void);

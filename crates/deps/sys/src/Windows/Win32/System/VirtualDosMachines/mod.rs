@@ -45,7 +45,6 @@ pub const DBG_TEMPBP: u32 = 18u32;
 pub const DBG_TOOLHELP: u32 = 15u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_WOWINIT: u32 = 17u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub struct DEBUGEVENTPROC(i32);
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_ACCELERATORS: u32 = 9u32;
@@ -117,7 +116,6 @@ pub const MAX_MODULE_NAME: u32 = 9u32;
 pub const MAX_PATH16: u32 = 255u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct MODULEENTRY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PROCESSENUMPROC(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct SEGMENT_NOTE(i32);
@@ -129,9 +127,7 @@ pub const SN_DATA: u32 = 1u32;
 pub const SN_V86: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const STATUS_VDM_EVENT: i32 = 1073741829i32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct TASKENUMPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct TASKENUMPROCEX(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct TEMP_BP_NOTE(i32);
@@ -169,7 +165,6 @@ pub const VDMADDR_PM16: u32 = 4u32;
 pub const VDMADDR_PM32: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMADDR_V86: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMBREAKTHREADPROC(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -198,13 +193,9 @@ pub const VDMDBG_INITIAL_FLAGS: u32 = 256u32;
 pub const VDMDBG_MAX_SYMBOL_BUFFER: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMDBG_TRACE_HISTORY: u32 = 128u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMDETECTWOWPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMENUMPROCESSWOWPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMENUMTASKWOWEXPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMENUMTASKWOWPROC(i32);
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMEVENT_ALLFLAGS: u32 = 57344u32;
@@ -218,59 +209,30 @@ pub const VDMEVENT_PM16: u32 = 2u32;
 pub const VDMEVENT_V86: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMEVENT_VERBOSE: u32 = 16384u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMGETADDREXPRESSIONPROC(i32);
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct VDMGETCONTEXTPROC(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct VDMGETCONTEXTPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMGETDBGFLAGSPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMGETMODULESELECTORPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMGETPOINTERPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMGETSEGMENTINFOPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMGETSELECTORMODULEPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMGETSYMBOLPROC(i32);
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct VDMGETTHREADSELECTORENTRYPROC(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct VDMGETTHREADSELECTORENTRYPROC(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub struct VDMGLOBALFIRSTPROC(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub struct VDMGLOBALNEXTPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMISMODULELOADEDPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMKILLWOWPROC(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct VDMLDT_ENTRY(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub struct VDMMODULEFIRSTPROC(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub struct VDMMODULENEXTPROC(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub struct VDMPROCESSEXCEPTIONPROC(i32);
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct VDMSETCONTEXTPROC(i32);
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct VDMSETCONTEXTPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMSETDBGFLAGSPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMSTARTTASKINWOWPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct VDMTERMINATETASKINWOWPROC(i32);
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDM_KGDT_R3_CODE: u32 = 24u32;

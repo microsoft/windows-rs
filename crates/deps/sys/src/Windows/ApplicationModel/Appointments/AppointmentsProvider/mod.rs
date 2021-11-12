@@ -3,10 +3,10 @@
 extern "system" {}
 pub struct AddAppointmentOperation(i32);
 pub struct AppointmentsProviderLaunchActionVerbs(i32);
-pub struct IAddAppointmentOperation(i32);
-pub struct IAppointmentsProviderLaunchActionVerbsStatics(i32);
-pub struct IAppointmentsProviderLaunchActionVerbsStatics2(i32);
-pub struct IRemoveAppointmentOperation(i32);
-pub struct IReplaceAppointmentOperation(i32);
+pub struct IAddAppointmentOperation(pub *mut ::core::ffi::c_void);
+pub struct IAppointmentsProviderLaunchActionVerbsStatics(pub *mut ::core::ffi::c_void);
+pub struct IAppointmentsProviderLaunchActionVerbsStatics2(pub *mut ::core::ffi::c_void);
+pub struct IRemoveAppointmentOperation(pub *mut ::core::ffi::c_void);
+pub struct IReplaceAppointmentOperation(pub *mut ::core::ffi::c_void);
 pub struct RemoveAppointmentOperation(i32);
 pub struct ReplaceAppointmentOperation(i32);

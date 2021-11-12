@@ -460,7 +460,6 @@ pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMDRIVERENUMCB(i32);
 pub struct ACMDRVFORMATSUGGEST(i32);
 pub struct ACMDRVSTREAMHEADER(i32);
@@ -478,9 +477,7 @@ pub const ACMERR_NOTPOSSIBLE: u32 = 512u32;
 pub const ACMERR_UNPREPARED: u32 = 514u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERCHOOSEA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERCHOOSEHOOKPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERCHOOSEHOOKPROCW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERCHOOSEW(i32);
@@ -501,24 +498,18 @@ pub struct ACMFILTERDETAILSA(i32);
 pub struct ACMFILTERDETAILSW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERENUMCBA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERENUMCBW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERTAGDETAILSA(i32);
 pub struct ACMFILTERTAGDETAILSW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERTAGENUMCBA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERTAGENUMCBW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATCHOOSEA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATCHOOSEHOOKPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATCHOOSEHOOKPROCW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATCHOOSEW(i32);
@@ -538,18 +529,14 @@ pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
 pub struct ACMFORMATDETAILSA(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATENUMCBA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATENUMCBW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATTAGDETAILSA(i32);
 pub struct ACMFORMATTAGDETAILSW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATTAGENUMCBA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATTAGENUMCBW(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct ACMSTREAMHEADER(i32);
@@ -926,85 +913,82 @@ pub struct HMIXEROBJ(i32);
 pub struct HWAVE(i32);
 pub struct HWAVEIN(i32);
 pub struct HWAVEOUT(i32);
-pub struct IActivateAudioInterfaceAsyncOperation(i32);
-pub struct IActivateAudioInterfaceCompletionHandler(i32);
-pub struct IAudioAmbisonicsControl(i32);
-pub struct IAudioAutoGainControl(i32);
-pub struct IAudioBass(i32);
-pub struct IAudioCaptureClient(i32);
-pub struct IAudioChannelConfig(i32);
-pub struct IAudioClient(i32);
-pub struct IAudioClient2(i32);
-pub struct IAudioClient3(i32);
-pub struct IAudioClientDuckingControl(i32);
-pub struct IAudioClock(i32);
-pub struct IAudioClock2(i32);
-pub struct IAudioClockAdjustment(i32);
-pub struct IAudioEffectsChangedNotificationClient(i32);
-pub struct IAudioEffectsManager(i32);
-pub struct IAudioFormatEnumerator(i32);
-pub struct IAudioInputSelector(i32);
-pub struct IAudioLoudness(i32);
-pub struct IAudioMidrange(i32);
-pub struct IAudioMute(i32);
-pub struct IAudioOutputSelector(i32);
-pub struct IAudioPeakMeter(i32);
-pub struct IAudioRenderClient(i32);
-pub struct IAudioSessionControl(i32);
-pub struct IAudioSessionControl2(i32);
-pub struct IAudioSessionEnumerator(i32);
-pub struct IAudioSessionEvents(i32);
-pub struct IAudioSessionManager(i32);
-pub struct IAudioSessionManager2(i32);
-pub struct IAudioSessionNotification(i32);
-pub struct IAudioStateMonitor(i32);
-pub struct IAudioStreamVolume(i32);
-pub struct IAudioSystemEffectsPropertyChangeNotificationClient(i32);
-pub struct IAudioSystemEffectsPropertyStore(i32);
-pub struct IAudioTreble(i32);
-pub struct IAudioVolumeDuckNotification(i32);
-pub struct IAudioVolumeLevel(i32);
-pub struct IChannelAudioVolume(i32);
-pub struct IConnector(i32);
-pub struct IControlChangeNotify(i32);
-pub struct IControlInterface(i32);
-pub struct IDeviceSpecificProperty(i32);
-pub struct IDeviceTopology(i32);
-pub struct IMMDevice(i32);
-pub struct IMMDeviceActivator(i32);
-pub struct IMMDeviceCollection(i32);
-pub struct IMMDeviceEnumerator(i32);
-pub struct IMMEndpoint(i32);
-pub struct IMMNotificationClient(i32);
-pub struct IMessageFilter(i32);
-pub struct IPart(i32);
-pub struct IPartsList(i32);
-pub struct IPerChannelDbLevel(i32);
-pub struct ISimpleAudioVolume(i32);
-pub struct ISpatialAudioClient(i32);
-pub struct ISpatialAudioClient2(i32);
-pub struct ISpatialAudioMetadataClient(i32);
-pub struct ISpatialAudioMetadataCopier(i32);
-pub struct ISpatialAudioMetadataItems(i32);
-pub struct ISpatialAudioMetadataItemsBuffer(i32);
-pub struct ISpatialAudioMetadataReader(i32);
-pub struct ISpatialAudioMetadataWriter(i32);
-pub struct ISpatialAudioObject(i32);
-pub struct ISpatialAudioObjectBase(i32);
-pub struct ISpatialAudioObjectForHrtf(i32);
-pub struct ISpatialAudioObjectForMetadataCommands(i32);
-pub struct ISpatialAudioObjectForMetadataItems(i32);
-pub struct ISpatialAudioObjectRenderStream(i32);
-pub struct ISpatialAudioObjectRenderStreamBase(i32);
-pub struct ISpatialAudioObjectRenderStreamForHrtf(i32);
-pub struct ISpatialAudioObjectRenderStreamForMetadata(i32);
-pub struct ISpatialAudioObjectRenderStreamNotify(i32);
-pub struct ISubunit(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct IActivateAudioInterfaceAsyncOperation(pub *mut ::core::ffi::c_void);
+pub struct IActivateAudioInterfaceCompletionHandler(pub *mut ::core::ffi::c_void);
+pub struct IAudioAmbisonicsControl(pub *mut ::core::ffi::c_void);
+pub struct IAudioAutoGainControl(pub *mut ::core::ffi::c_void);
+pub struct IAudioBass(pub *mut ::core::ffi::c_void);
+pub struct IAudioCaptureClient(pub *mut ::core::ffi::c_void);
+pub struct IAudioChannelConfig(pub *mut ::core::ffi::c_void);
+pub struct IAudioClient(pub *mut ::core::ffi::c_void);
+pub struct IAudioClient2(pub *mut ::core::ffi::c_void);
+pub struct IAudioClient3(pub *mut ::core::ffi::c_void);
+pub struct IAudioClientDuckingControl(pub *mut ::core::ffi::c_void);
+pub struct IAudioClock(pub *mut ::core::ffi::c_void);
+pub struct IAudioClock2(pub *mut ::core::ffi::c_void);
+pub struct IAudioClockAdjustment(pub *mut ::core::ffi::c_void);
+pub struct IAudioEffectsChangedNotificationClient(pub *mut ::core::ffi::c_void);
+pub struct IAudioEffectsManager(pub *mut ::core::ffi::c_void);
+pub struct IAudioFormatEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IAudioInputSelector(pub *mut ::core::ffi::c_void);
+pub struct IAudioLoudness(pub *mut ::core::ffi::c_void);
+pub struct IAudioMidrange(pub *mut ::core::ffi::c_void);
+pub struct IAudioMute(pub *mut ::core::ffi::c_void);
+pub struct IAudioOutputSelector(pub *mut ::core::ffi::c_void);
+pub struct IAudioPeakMeter(pub *mut ::core::ffi::c_void);
+pub struct IAudioRenderClient(pub *mut ::core::ffi::c_void);
+pub struct IAudioSessionControl(pub *mut ::core::ffi::c_void);
+pub struct IAudioSessionControl2(pub *mut ::core::ffi::c_void);
+pub struct IAudioSessionEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IAudioSessionEvents(pub *mut ::core::ffi::c_void);
+pub struct IAudioSessionManager(pub *mut ::core::ffi::c_void);
+pub struct IAudioSessionManager2(pub *mut ::core::ffi::c_void);
+pub struct IAudioSessionNotification(pub *mut ::core::ffi::c_void);
+pub struct IAudioStateMonitor(pub *mut ::core::ffi::c_void);
+pub struct IAudioStreamVolume(pub *mut ::core::ffi::c_void);
+pub struct IAudioSystemEffectsPropertyChangeNotificationClient(pub *mut ::core::ffi::c_void);
+pub struct IAudioSystemEffectsPropertyStore(pub *mut ::core::ffi::c_void);
+pub struct IAudioTreble(pub *mut ::core::ffi::c_void);
+pub struct IAudioVolumeDuckNotification(pub *mut ::core::ffi::c_void);
+pub struct IAudioVolumeLevel(pub *mut ::core::ffi::c_void);
+pub struct IChannelAudioVolume(pub *mut ::core::ffi::c_void);
+pub struct IConnector(pub *mut ::core::ffi::c_void);
+pub struct IControlChangeNotify(pub *mut ::core::ffi::c_void);
+pub struct IControlInterface(pub *mut ::core::ffi::c_void);
+pub struct IDeviceSpecificProperty(pub *mut ::core::ffi::c_void);
+pub struct IDeviceTopology(pub *mut ::core::ffi::c_void);
+pub struct IMMDevice(pub *mut ::core::ffi::c_void);
+pub struct IMMDeviceActivator(pub *mut ::core::ffi::c_void);
+pub struct IMMDeviceCollection(pub *mut ::core::ffi::c_void);
+pub struct IMMDeviceEnumerator(pub *mut ::core::ffi::c_void);
+pub struct IMMEndpoint(pub *mut ::core::ffi::c_void);
+pub struct IMMNotificationClient(pub *mut ::core::ffi::c_void);
+pub struct IMessageFilter(pub *mut ::core::ffi::c_void);
+pub struct IPart(pub *mut ::core::ffi::c_void);
+pub struct IPartsList(pub *mut ::core::ffi::c_void);
+pub struct IPerChannelDbLevel(pub *mut ::core::ffi::c_void);
+pub struct ISimpleAudioVolume(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioClient(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioClient2(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioMetadataClient(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioMetadataCopier(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioMetadataItems(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioMetadataItemsBuffer(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioMetadataReader(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioMetadataWriter(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioObject(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioObjectBase(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioObjectForHrtf(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioObjectForMetadataCommands(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioObjectForMetadataItems(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioObjectRenderStream(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioObjectRenderStreamBase(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioObjectRenderStreamForHrtf(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioObjectRenderStreamForMetadata(pub *mut ::core::ffi::c_void);
+pub struct ISpatialAudioObjectRenderStreamNotify(pub *mut ::core::ffi::c_void);
+pub struct ISubunit(pub *mut ::core::ffi::c_void);
 pub struct LPACMDRIVERPROC(i32);
-#[cfg(feature = "Win32_Media_Multimedia")]
 pub struct LPMIDICALLBACK(i32);
-#[cfg(feature = "Win32_Media_Multimedia")]
 pub struct LPWAVECALLBACK(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const MEVT_F_CALLBACK: i32 = 1073741824i32;

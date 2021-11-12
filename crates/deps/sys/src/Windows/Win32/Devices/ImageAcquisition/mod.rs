@@ -152,7 +152,6 @@ pub const DUP: u32 = 4u32;
 pub const DUPLEX: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DUP_READY: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct DeviceDialogFunction(i32);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EFFECTMODE_BW: u32 = 2u32;
@@ -235,11 +234,11 @@ pub const FRONT_FIRST: u32 = 8u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FRONT_ONLY: u32 = 32u32;
 pub const GUID_DEVINTERFACE_IMAGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1809653702, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
-pub struct IEnumWIA_DEV_CAPS(i32);
-pub struct IEnumWIA_DEV_INFO(i32);
-pub struct IEnumWIA_FORMAT_INFO(i32);
-pub struct IEnumWiaItem(i32);
-pub struct IEnumWiaItem2(i32);
+pub struct IEnumWIA_DEV_CAPS(pub *mut ::core::ffi::c_void);
+pub struct IEnumWIA_DEV_INFO(pub *mut ::core::ffi::c_void);
+pub struct IEnumWIA_FORMAT_INFO(pub *mut ::core::ffi::c_void);
+pub struct IEnumWiaItem(pub *mut ::core::ffi::c_void);
+pub struct IEnumWiaItem2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IMPRINTER: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -266,32 +265,32 @@ pub const IT_STATUS_PROCESSING_DATA: u32 = 2u32;
 pub const IT_STATUS_TRANSFER_FROM_DEVICE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_STATUS_TRANSFER_TO_CLIENT: u32 = 4u32;
-pub struct IWiaAppErrorHandler(i32);
-pub struct IWiaDataCallback(i32);
-pub struct IWiaDataTransfer(i32);
-pub struct IWiaDevMgr(i32);
-pub struct IWiaDevMgr2(i32);
-pub struct IWiaDrvItem(i32);
-pub struct IWiaErrorHandler(i32);
-pub struct IWiaEventCallback(i32);
-pub struct IWiaImageFilter(i32);
-pub struct IWiaItem(i32);
-pub struct IWiaItem2(i32);
-pub struct IWiaItemExtras(i32);
-pub struct IWiaLog(i32);
-pub struct IWiaLogEx(i32);
-pub struct IWiaMiniDrv(i32);
-pub struct IWiaMiniDrvCallBack(i32);
-pub struct IWiaMiniDrvTransferCallback(i32);
-pub struct IWiaNotifyDevMgr(i32);
-pub struct IWiaPreview(i32);
-pub struct IWiaPropertyStorage(i32);
-pub struct IWiaSegmentationFilter(i32);
-pub struct IWiaTransfer(i32);
-pub struct IWiaTransferCallback(i32);
-pub struct IWiaUIExtension(i32);
-pub struct IWiaUIExtension2(i32);
-pub struct IWiaVideo(i32);
+pub struct IWiaAppErrorHandler(pub *mut ::core::ffi::c_void);
+pub struct IWiaDataCallback(pub *mut ::core::ffi::c_void);
+pub struct IWiaDataTransfer(pub *mut ::core::ffi::c_void);
+pub struct IWiaDevMgr(pub *mut ::core::ffi::c_void);
+pub struct IWiaDevMgr2(pub *mut ::core::ffi::c_void);
+pub struct IWiaDrvItem(pub *mut ::core::ffi::c_void);
+pub struct IWiaErrorHandler(pub *mut ::core::ffi::c_void);
+pub struct IWiaEventCallback(pub *mut ::core::ffi::c_void);
+pub struct IWiaImageFilter(pub *mut ::core::ffi::c_void);
+pub struct IWiaItem(pub *mut ::core::ffi::c_void);
+pub struct IWiaItem2(pub *mut ::core::ffi::c_void);
+pub struct IWiaItemExtras(pub *mut ::core::ffi::c_void);
+pub struct IWiaLog(pub *mut ::core::ffi::c_void);
+pub struct IWiaLogEx(pub *mut ::core::ffi::c_void);
+pub struct IWiaMiniDrv(pub *mut ::core::ffi::c_void);
+pub struct IWiaMiniDrvCallBack(pub *mut ::core::ffi::c_void);
+pub struct IWiaMiniDrvTransferCallback(pub *mut ::core::ffi::c_void);
+pub struct IWiaNotifyDevMgr(pub *mut ::core::ffi::c_void);
+pub struct IWiaPreview(pub *mut ::core::ffi::c_void);
+pub struct IWiaPropertyStorage(pub *mut ::core::ffi::c_void);
+pub struct IWiaSegmentationFilter(pub *mut ::core::ffi::c_void);
+pub struct IWiaTransfer(pub *mut ::core::ffi::c_void);
+pub struct IWiaTransferCallback(pub *mut ::core::ffi::c_void);
+pub struct IWiaUIExtension(pub *mut ::core::ffi::c_void);
+pub struct IWiaUIExtension2(pub *mut ::core::ffi::c_void);
+pub struct IWiaVideo(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LAMP_ERR: u32 = 2048u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]

@@ -478,25 +478,22 @@ pub const GUID_DMUS_PROP_WriteLatency: ::windows_sys::core::GUID = ::windows_sys
 pub const GUID_DMUS_PROP_WritePeriod: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 646582177, data2: 24818, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const GUID_DMUS_PROP_XG_Capable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1687595937, data2: 25008, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const GUID_DMUS_PROP_XG_Hardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259686, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
-pub struct IDirectMusic(i32);
-pub struct IDirectMusic8(i32);
-pub struct IDirectMusicBuffer(i32);
-pub struct IDirectMusicCollection(i32);
-pub struct IDirectMusicDownload(i32);
-pub struct IDirectMusicDownloadedInstrument(i32);
-pub struct IDirectMusicInstrument(i32);
-pub struct IDirectMusicPort(i32);
-pub struct IDirectMusicPortDownload(i32);
-pub struct IDirectMusicSynth(i32);
-pub struct IDirectMusicSynth8(i32);
-pub struct IDirectMusicSynthSink(i32);
-pub struct IDirectMusicThru(i32);
+pub struct IDirectMusic(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusic8(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusicBuffer(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusicCollection(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusicDownload(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusicDownloadedInstrument(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusicInstrument(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusicPort(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusicPortDownload(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusicSynth(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusicSynth8(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusicSynthSink(pub *mut ::core::ffi::c_void);
+pub struct IDirectMusicThru(pub *mut ::core::ffi::c_void);
 pub struct INSTHEADER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(i32);
 pub struct MDEVICECAPSEX(i32);
 pub struct MIDILOCALE(i32);

@@ -9,12 +9,12 @@ pub struct HandMeshVertex(i32);
 pub struct HandMeshVertexState(i32);
 pub struct HandPose(i32);
 pub struct HeadPose(i32);
-pub struct IEyesPose(i32);
-pub struct IEyesPoseStatics(i32);
-pub struct IHandMeshObserver(i32);
-pub struct IHandMeshVertexState(i32);
-pub struct IHandPose(i32);
-pub struct IHeadPose(i32);
+pub struct IEyesPose(pub *mut ::core::ffi::c_void);
+pub struct IEyesPoseStatics(pub *mut ::core::ffi::c_void);
+pub struct IHandMeshObserver(pub *mut ::core::ffi::c_void);
+pub struct IHandMeshVertexState(pub *mut ::core::ffi::c_void);
+pub struct IHandPose(pub *mut ::core::ffi::c_void);
+pub struct IHeadPose(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation_Numerics")]
 pub struct JointPose(i32);
 pub struct JointPoseAccuracy(i32);

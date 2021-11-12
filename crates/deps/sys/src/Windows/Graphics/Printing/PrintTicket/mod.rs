@@ -1,14 +1,14 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IPrintTicketCapabilities(i32);
-pub struct IPrintTicketFeature(i32);
-pub struct IPrintTicketOption(i32);
-pub struct IPrintTicketParameterDefinition(i32);
-pub struct IPrintTicketParameterInitializer(i32);
-pub struct IPrintTicketValue(i32);
-pub struct IWorkflowPrintTicket(i32);
-pub struct IWorkflowPrintTicketValidationResult(i32);
+pub struct IPrintTicketCapabilities(pub *mut ::core::ffi::c_void);
+pub struct IPrintTicketFeature(pub *mut ::core::ffi::c_void);
+pub struct IPrintTicketOption(pub *mut ::core::ffi::c_void);
+pub struct IPrintTicketParameterDefinition(pub *mut ::core::ffi::c_void);
+pub struct IPrintTicketParameterInitializer(pub *mut ::core::ffi::c_void);
+pub struct IPrintTicketValue(pub *mut ::core::ffi::c_void);
+pub struct IWorkflowPrintTicket(pub *mut ::core::ffi::c_void);
+pub struct IWorkflowPrintTicketValidationResult(pub *mut ::core::ffi::c_void);
 pub struct PrintTicketCapabilities(i32);
 pub struct PrintTicketFeature(i32);
 pub struct PrintTicketFeatureSelectionType(i32);

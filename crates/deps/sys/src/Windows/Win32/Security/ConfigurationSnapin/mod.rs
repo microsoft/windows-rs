@@ -1,17 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct ISceSvcAttachmentData(i32);
-pub struct ISceSvcAttachmentPersistInfo(i32);
+pub struct ISceSvcAttachmentData(pub *mut ::core::ffi::c_void);
+pub struct ISceSvcAttachmentPersistInfo(pub *mut ::core::ffi::c_void);
 pub struct PFSCE_FREE_INFO(i32);
 pub struct PFSCE_LOG_INFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFSCE_QUERY_INFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFSCE_SET_INFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PF_ConfigAnalyzeService(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PF_UpdateService(i32);
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;

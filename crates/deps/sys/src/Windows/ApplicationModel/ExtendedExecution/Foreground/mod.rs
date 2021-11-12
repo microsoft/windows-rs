@@ -6,5 +6,5 @@ pub struct ExtendedExecutionForegroundResult(i32);
 pub struct ExtendedExecutionForegroundRevokedEventArgs(i32);
 pub struct ExtendedExecutionForegroundRevokedReason(i32);
 pub struct ExtendedExecutionForegroundSession(i32);
-pub struct IExtendedExecutionForegroundRevokedEventArgs(i32);
-pub struct IExtendedExecutionForegroundSession(i32);
+pub struct IExtendedExecutionForegroundRevokedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IExtendedExecutionForegroundSession(pub *mut ::core::ffi::c_void);

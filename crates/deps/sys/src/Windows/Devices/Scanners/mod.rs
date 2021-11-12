@@ -1,13 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IImageScanner(i32);
-pub struct IImageScannerFeederConfiguration(i32);
-pub struct IImageScannerFormatConfiguration(i32);
-pub struct IImageScannerPreviewResult(i32);
-pub struct IImageScannerScanResult(i32);
-pub struct IImageScannerSourceConfiguration(i32);
-pub struct IImageScannerStatics(i32);
+pub struct IImageScanner(pub *mut ::core::ffi::c_void);
+pub struct IImageScannerFeederConfiguration(pub *mut ::core::ffi::c_void);
+pub struct IImageScannerFormatConfiguration(pub *mut ::core::ffi::c_void);
+pub struct IImageScannerPreviewResult(pub *mut ::core::ffi::c_void);
+pub struct IImageScannerScanResult(pub *mut ::core::ffi::c_void);
+pub struct IImageScannerSourceConfiguration(pub *mut ::core::ffi::c_void);
+pub struct IImageScannerStatics(pub *mut ::core::ffi::c_void);
 pub struct ImageScanner(i32);
 pub struct ImageScannerAutoConfiguration(i32);
 pub struct ImageScannerAutoCroppingMode(i32);

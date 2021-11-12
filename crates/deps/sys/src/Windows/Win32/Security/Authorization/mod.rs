@@ -593,42 +593,41 @@ pub struct EXPLICIT_ACCESS_A(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXPLICIT_ACCESS_W(i32);
 pub struct FN_OBJECT_MGR_FUNCTIONS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct FN_PROGRESS(i32);
-pub struct IAzApplication(i32);
-pub struct IAzApplication2(i32);
-pub struct IAzApplication3(i32);
-pub struct IAzApplicationGroup(i32);
-pub struct IAzApplicationGroup2(i32);
-pub struct IAzApplicationGroups(i32);
-pub struct IAzApplications(i32);
-pub struct IAzAuthorizationStore(i32);
-pub struct IAzAuthorizationStore2(i32);
-pub struct IAzAuthorizationStore3(i32);
-pub struct IAzBizRuleContext(i32);
-pub struct IAzBizRuleInterfaces(i32);
-pub struct IAzBizRuleParameters(i32);
-pub struct IAzClientContext(i32);
-pub struct IAzClientContext2(i32);
-pub struct IAzClientContext3(i32);
-pub struct IAzNameResolver(i32);
-pub struct IAzObjectPicker(i32);
-pub struct IAzOperation(i32);
-pub struct IAzOperation2(i32);
-pub struct IAzOperations(i32);
-pub struct IAzPrincipalLocator(i32);
-pub struct IAzRole(i32);
-pub struct IAzRoleAssignment(i32);
-pub struct IAzRoleAssignments(i32);
-pub struct IAzRoleDefinition(i32);
-pub struct IAzRoleDefinitions(i32);
-pub struct IAzRoles(i32);
-pub struct IAzScope(i32);
-pub struct IAzScope2(i32);
-pub struct IAzScopes(i32);
-pub struct IAzTask(i32);
-pub struct IAzTask2(i32);
-pub struct IAzTasks(i32);
+pub struct IAzApplication(pub *mut ::core::ffi::c_void);
+pub struct IAzApplication2(pub *mut ::core::ffi::c_void);
+pub struct IAzApplication3(pub *mut ::core::ffi::c_void);
+pub struct IAzApplicationGroup(pub *mut ::core::ffi::c_void);
+pub struct IAzApplicationGroup2(pub *mut ::core::ffi::c_void);
+pub struct IAzApplicationGroups(pub *mut ::core::ffi::c_void);
+pub struct IAzApplications(pub *mut ::core::ffi::c_void);
+pub struct IAzAuthorizationStore(pub *mut ::core::ffi::c_void);
+pub struct IAzAuthorizationStore2(pub *mut ::core::ffi::c_void);
+pub struct IAzAuthorizationStore3(pub *mut ::core::ffi::c_void);
+pub struct IAzBizRuleContext(pub *mut ::core::ffi::c_void);
+pub struct IAzBizRuleInterfaces(pub *mut ::core::ffi::c_void);
+pub struct IAzBizRuleParameters(pub *mut ::core::ffi::c_void);
+pub struct IAzClientContext(pub *mut ::core::ffi::c_void);
+pub struct IAzClientContext2(pub *mut ::core::ffi::c_void);
+pub struct IAzClientContext3(pub *mut ::core::ffi::c_void);
+pub struct IAzNameResolver(pub *mut ::core::ffi::c_void);
+pub struct IAzObjectPicker(pub *mut ::core::ffi::c_void);
+pub struct IAzOperation(pub *mut ::core::ffi::c_void);
+pub struct IAzOperation2(pub *mut ::core::ffi::c_void);
+pub struct IAzOperations(pub *mut ::core::ffi::c_void);
+pub struct IAzPrincipalLocator(pub *mut ::core::ffi::c_void);
+pub struct IAzRole(pub *mut ::core::ffi::c_void);
+pub struct IAzRoleAssignment(pub *mut ::core::ffi::c_void);
+pub struct IAzRoleAssignments(pub *mut ::core::ffi::c_void);
+pub struct IAzRoleDefinition(pub *mut ::core::ffi::c_void);
+pub struct IAzRoleDefinitions(pub *mut ::core::ffi::c_void);
+pub struct IAzRoles(pub *mut ::core::ffi::c_void);
+pub struct IAzScope(pub *mut ::core::ffi::c_void);
+pub struct IAzScope2(pub *mut ::core::ffi::c_void);
+pub struct IAzScopes(pub *mut ::core::ffi::c_void);
+pub struct IAzTask(pub *mut ::core::ffi::c_void);
+pub struct IAzTask2(pub *mut ::core::ffi::c_void);
+pub struct IAzTasks(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const INHERITED_ACCESS_ENTRY: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -647,14 +646,10 @@ pub struct OBJECTS_AND_NAME_W(i32);
 pub struct OBJECTS_AND_SID(i32);
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const OLESCRIPT_E_SYNTAX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147352319i32 as _);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_AUTHZ_DYNAMIC_ACCESS_CHECK(i32);
 pub struct PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_AUTHZ_FREE_DYNAMIC_GROUPS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY(i32);
 pub struct PROG_INVOKE_SETTING(i32);
 #[doc = "*Required features: `Win32_Security_Authorization`*"]

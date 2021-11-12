@@ -162,5 +162,4 @@ pub const CRYPTCAT_MAX_MEMBERTAG: u32 = 64u32;
 pub const CRYPTCAT_MEMBER_SORTED: u32 = 1073741824u32;
 pub struct CRYPTCAT_OPEN_FLAGS(i32);
 pub struct CRYPTCAT_VERSION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_CDF_PARSE_ERROR_CALLBACK(i32);

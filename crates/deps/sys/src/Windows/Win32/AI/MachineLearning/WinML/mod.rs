@@ -6,22 +6,22 @@ extern "system" {
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub fn WinMLCreateRuntime(runtime: *mut IWinMLRuntime) -> ::windows_sys::core::HRESULT;
 }
-pub struct IMLOperatorAttributes(i32);
-pub struct IMLOperatorKernel(i32);
-pub struct IMLOperatorKernelContext(i32);
-pub struct IMLOperatorKernelCreationContext(i32);
-pub struct IMLOperatorKernelFactory(i32);
-pub struct IMLOperatorRegistry(i32);
-pub struct IMLOperatorShapeInferenceContext(i32);
-pub struct IMLOperatorShapeInferrer(i32);
-pub struct IMLOperatorTensor(i32);
-pub struct IMLOperatorTensorShapeDescription(i32);
-pub struct IMLOperatorTypeInferenceContext(i32);
-pub struct IMLOperatorTypeInferrer(i32);
-pub struct IWinMLEvaluationContext(i32);
-pub struct IWinMLModel(i32);
-pub struct IWinMLRuntime(i32);
-pub struct IWinMLRuntimeFactory(i32);
+pub struct IMLOperatorAttributes(pub *mut ::core::ffi::c_void);
+pub struct IMLOperatorKernel(pub *mut ::core::ffi::c_void);
+pub struct IMLOperatorKernelContext(pub *mut ::core::ffi::c_void);
+pub struct IMLOperatorKernelCreationContext(pub *mut ::core::ffi::c_void);
+pub struct IMLOperatorKernelFactory(pub *mut ::core::ffi::c_void);
+pub struct IMLOperatorRegistry(pub *mut ::core::ffi::c_void);
+pub struct IMLOperatorShapeInferenceContext(pub *mut ::core::ffi::c_void);
+pub struct IMLOperatorShapeInferrer(pub *mut ::core::ffi::c_void);
+pub struct IMLOperatorTensor(pub *mut ::core::ffi::c_void);
+pub struct IMLOperatorTensorShapeDescription(pub *mut ::core::ffi::c_void);
+pub struct IMLOperatorTypeInferenceContext(pub *mut ::core::ffi::c_void);
+pub struct IMLOperatorTypeInferrer(pub *mut ::core::ffi::c_void);
+pub struct IWinMLEvaluationContext(pub *mut ::core::ffi::c_void);
+pub struct IWinMLModel(pub *mut ::core::ffi::c_void);
+pub struct IWinMLRuntime(pub *mut ::core::ffi::c_void);
+pub struct IWinMLRuntimeFactory(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct MLOperatorAttribute(i32);
 #[cfg(feature = "Win32_Foundation")]

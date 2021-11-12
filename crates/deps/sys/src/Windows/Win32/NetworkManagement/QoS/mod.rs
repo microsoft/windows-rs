@@ -1107,15 +1107,11 @@ pub struct Session_IPv4(i32);
 pub const TCBASE: u32 = 7500u32;
 pub struct TCG_PCClientPCREventStruct(i32);
 pub struct TCG_PCClientTaggedEventStruct(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct TCI_ADD_FLOW_COMPLETE_HANDLER(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCI_CLIENT_FUNC_LIST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct TCI_DEL_FLOW_COMPLETE_HANDLER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct TCI_MOD_FLOW_COMPLETE_HANDLER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct TCI_NOTIFY_HANDLER(i32);
 pub struct TC_GEN_FILTER(i32);
 pub struct TC_GEN_FLOW(i32);

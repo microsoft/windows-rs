@@ -322,7 +322,6 @@ pub struct PAGE_TYPE(i32);
 pub struct PBAD_MEMORY_CALLBACK_ROUTINE(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROCESS_HEAP_ENTRY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PSECURE_MEMORY_CACHE_CALLBACK(i32);
 pub struct UNMAP_VIEW_OF_FILE_FLAGS(i32);
 pub struct VIRTUAL_ALLOCATION_TYPE(i32);

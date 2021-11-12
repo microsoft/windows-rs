@@ -579,9 +579,7 @@ pub struct PROCESSOR_OBJECT_INFO(i32);
 pub struct PROCESSOR_OBJECT_INFO_EX(i32);
 pub struct PROCESSOR_POWER_POLICY(i32);
 pub struct PROCESSOR_POWER_POLICY_INFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWRSCHEMESENUMPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PWRSCHEMESENUMPROC_V1(i32);
 pub struct SET_POWER_SETTING_VALUE(i32);
 #[cfg(feature = "Win32_Foundation")]

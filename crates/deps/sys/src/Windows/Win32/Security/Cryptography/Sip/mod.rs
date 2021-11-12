@@ -93,21 +93,12 @@ pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
 pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct pCryptSIPCreateIndirectData(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct pCryptSIPGetCaps(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct pCryptSIPGetSealedDigest(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct pCryptSIPGetSignedDataMsg(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct pCryptSIPPutSignedDataMsg(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct pCryptSIPRemoveSignedDataMsg(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct pCryptSIPVerifyIndirectData(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct pfnIsFileSupported(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct pfnIsFileSupportedName(i32);

@@ -3,6 +3,6 @@
 extern "system" {}
 pub struct CharacterGrouping(i32);
 pub struct CharacterGroupings(i32);
-pub struct ICharacterGrouping(i32);
-pub struct ICharacterGroupings(i32);
-pub struct ICharacterGroupingsFactory(i32);
+pub struct ICharacterGrouping(pub *mut ::core::ffi::c_void);
+pub struct ICharacterGroupings(pub *mut ::core::ffi::c_void);
+pub struct ICharacterGroupingsFactory(pub *mut ::core::ffi::c_void);

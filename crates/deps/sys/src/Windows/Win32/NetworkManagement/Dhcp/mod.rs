@@ -1287,10 +1287,8 @@ pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
 pub struct LPDHCP_CONTROL(i32);
 pub struct LPDHCP_DELETE_CLIENT(i32);
 pub struct LPDHCP_DROP_SEND(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDHCP_ENTRY_POINT_FUNC(i32);
 pub struct LPDHCP_GIVE_ADDRESS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPDHCP_HANDLE_OPTIONS(i32);
 pub struct LPDHCP_NEWPKT(i32);
 pub struct LPDHCP_PROB(i32);

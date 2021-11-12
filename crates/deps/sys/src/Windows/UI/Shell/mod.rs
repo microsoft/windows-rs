@@ -2,15 +2,15 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct AdaptiveCardBuilder(i32);
-pub struct IAdaptiveCard(i32);
-pub struct IAdaptiveCardBuilderStatics(i32);
-pub struct ISecurityAppManager(i32);
-pub struct IShareWindowCommandEventArgs(i32);
-pub struct IShareWindowCommandSource(i32);
-pub struct IShareWindowCommandSourceStatics(i32);
-pub struct ITaskbarManager(i32);
-pub struct ITaskbarManager2(i32);
-pub struct ITaskbarManagerStatics(i32);
+pub struct IAdaptiveCard(pub *mut ::core::ffi::c_void);
+pub struct IAdaptiveCardBuilderStatics(pub *mut ::core::ffi::c_void);
+pub struct ISecurityAppManager(pub *mut ::core::ffi::c_void);
+pub struct IShareWindowCommandEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IShareWindowCommandSource(pub *mut ::core::ffi::c_void);
+pub struct IShareWindowCommandSourceStatics(pub *mut ::core::ffi::c_void);
+pub struct ITaskbarManager(pub *mut ::core::ffi::c_void);
+pub struct ITaskbarManager2(pub *mut ::core::ffi::c_void);
+pub struct ITaskbarManagerStatics(pub *mut ::core::ffi::c_void);
 pub struct SecurityAppKind(i32);
 pub struct SecurityAppManager(i32);
 pub struct SecurityAppManagerContract(i32);

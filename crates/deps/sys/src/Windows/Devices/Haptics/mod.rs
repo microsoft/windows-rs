@@ -1,12 +1,12 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IKnownSimpleHapticsControllerWaveformsStatics(i32);
-pub struct IKnownSimpleHapticsControllerWaveformsStatics2(i32);
-pub struct ISimpleHapticsController(i32);
-pub struct ISimpleHapticsControllerFeedback(i32);
-pub struct IVibrationDevice(i32);
-pub struct IVibrationDeviceStatics(i32);
+pub struct IKnownSimpleHapticsControllerWaveformsStatics(pub *mut ::core::ffi::c_void);
+pub struct IKnownSimpleHapticsControllerWaveformsStatics2(pub *mut ::core::ffi::c_void);
+pub struct ISimpleHapticsController(pub *mut ::core::ffi::c_void);
+pub struct ISimpleHapticsControllerFeedback(pub *mut ::core::ffi::c_void);
+pub struct IVibrationDevice(pub *mut ::core::ffi::c_void);
+pub struct IVibrationDeviceStatics(pub *mut ::core::ffi::c_void);
 pub struct KnownSimpleHapticsControllerWaveforms(i32);
 pub struct SimpleHapticsController(i32);
 pub struct SimpleHapticsControllerFeedback(i32);

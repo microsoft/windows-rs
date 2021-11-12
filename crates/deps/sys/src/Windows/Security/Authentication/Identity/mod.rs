@@ -7,6 +7,6 @@ pub mod Provider;
 extern "system" {}
 pub struct EnterpriseKeyCredentialRegistrationInfo(i32);
 pub struct EnterpriseKeyCredentialRegistrationManager(i32);
-pub struct IEnterpriseKeyCredentialRegistrationInfo(i32);
-pub struct IEnterpriseKeyCredentialRegistrationManager(i32);
-pub struct IEnterpriseKeyCredentialRegistrationManagerStatics(i32);
+pub struct IEnterpriseKeyCredentialRegistrationInfo(pub *mut ::core::ffi::c_void);
+pub struct IEnterpriseKeyCredentialRegistrationManager(pub *mut ::core::ffi::c_void);
+pub struct IEnterpriseKeyCredentialRegistrationManagerStatics(pub *mut ::core::ffi::c_void);

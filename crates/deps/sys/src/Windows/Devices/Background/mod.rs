@@ -3,5 +3,5 @@
 extern "system" {}
 pub struct DeviceServicingDetails(i32);
 pub struct DeviceUseDetails(i32);
-pub struct IDeviceServicingDetails(i32);
-pub struct IDeviceUseDetails(i32);
+pub struct IDeviceServicingDetails(pub *mut ::core::ffi::c_void);
+pub struct IDeviceUseDetails(pub *mut ::core::ffi::c_void);

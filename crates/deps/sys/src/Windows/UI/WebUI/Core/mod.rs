@@ -1,21 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IWebUICommandBar(i32);
-pub struct IWebUICommandBarBitmapIcon(i32);
-pub struct IWebUICommandBarBitmapIconFactory(i32);
-pub struct IWebUICommandBarConfirmationButton(i32);
-pub struct IWebUICommandBarElement(i32);
-pub struct IWebUICommandBarIcon(i32);
-pub struct IWebUICommandBarIconButton(i32);
-pub struct IWebUICommandBarItemInvokedEventArgs(i32);
-pub struct IWebUICommandBarSizeChangedEventArgs(i32);
-pub struct IWebUICommandBarStatics(i32);
-pub struct IWebUICommandBarSymbolIcon(i32);
-pub struct IWebUICommandBarSymbolIconFactory(i32);
-pub struct MenuClosedEventHandler(i32);
-pub struct MenuOpenedEventHandler(i32);
-pub struct SizeChangedEventHandler(i32);
+pub struct IWebUICommandBar(pub *mut ::core::ffi::c_void);
+pub struct IWebUICommandBarBitmapIcon(pub *mut ::core::ffi::c_void);
+pub struct IWebUICommandBarBitmapIconFactory(pub *mut ::core::ffi::c_void);
+pub struct IWebUICommandBarConfirmationButton(pub *mut ::core::ffi::c_void);
+pub struct IWebUICommandBarElement(pub *mut ::core::ffi::c_void);
+pub struct IWebUICommandBarIcon(pub *mut ::core::ffi::c_void);
+pub struct IWebUICommandBarIconButton(pub *mut ::core::ffi::c_void);
+pub struct IWebUICommandBarItemInvokedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWebUICommandBarSizeChangedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IWebUICommandBarStatics(pub *mut ::core::ffi::c_void);
+pub struct IWebUICommandBarSymbolIcon(pub *mut ::core::ffi::c_void);
+pub struct IWebUICommandBarSymbolIconFactory(pub *mut ::core::ffi::c_void);
+pub struct MenuClosedEventHandler(pub *mut ::core::ffi::c_void);
+pub struct MenuOpenedEventHandler(pub *mut ::core::ffi::c_void);
+pub struct SizeChangedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct WebUICommandBar(i32);
 pub struct WebUICommandBarBitmapIcon(i32);
 pub struct WebUICommandBarClosedDisplayMode(i32);

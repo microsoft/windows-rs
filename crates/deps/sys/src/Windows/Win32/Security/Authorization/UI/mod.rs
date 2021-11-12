@@ -23,13 +23,13 @@ pub const DOBJ_RIBBON_LAUNCH: i32 = 16i32;
 pub const DOBJ_VOL_NTACLS: i32 = 4i32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct EFFPERM_RESULT_LIST(i32);
-pub struct IEffectivePermission(i32);
-pub struct IEffectivePermission2(i32);
-pub struct ISecurityInformation(i32);
-pub struct ISecurityInformation2(i32);
-pub struct ISecurityInformation3(i32);
-pub struct ISecurityInformation4(i32);
-pub struct ISecurityObjectTypeInfo(i32);
+pub struct IEffectivePermission(pub *mut ::core::ffi::c_void);
+pub struct IEffectivePermission2(pub *mut ::core::ffi::c_void);
+pub struct ISecurityInformation(pub *mut ::core::ffi::c_void);
+pub struct ISecurityInformation2(pub *mut ::core::ffi::c_void);
+pub struct ISecurityInformation3(pub *mut ::core::ffi::c_void);
+pub struct ISecurityInformation4(pub *mut ::core::ffi::c_void);
+pub struct ISecurityObjectTypeInfo(pub *mut ::core::ffi::c_void);
 pub struct SECURITY_INFO_PAGE_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_OBJECT(i32);

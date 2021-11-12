@@ -351,21 +351,20 @@ pub const FACILITY_IMAPI2: u32 = 170u32;
 pub struct FLATENTRY(i32);
 pub struct FLATENTRYLIST(i32);
 pub struct FLATMTSIDLIST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct FNIDLE(i32);
 pub struct Gender(i32);
-pub struct IABContainer(i32);
-pub struct IAddrBook(i32);
-pub struct IAttach(i32);
-pub struct IDistList(i32);
-pub struct IMAPIAdviseSink(i32);
-pub struct IMAPIContainer(i32);
-pub struct IMAPIControl(i32);
-pub struct IMAPIFolder(i32);
-pub struct IMAPIProgress(i32);
-pub struct IMAPIProp(i32);
-pub struct IMAPIStatus(i32);
-pub struct IMAPITable(i32);
+pub struct IABContainer(pub *mut ::core::ffi::c_void);
+pub struct IAddrBook(pub *mut ::core::ffi::c_void);
+pub struct IAttach(pub *mut ::core::ffi::c_void);
+pub struct IDistList(pub *mut ::core::ffi::c_void);
+pub struct IMAPIAdviseSink(pub *mut ::core::ffi::c_void);
+pub struct IMAPIContainer(pub *mut ::core::ffi::c_void);
+pub struct IMAPIControl(pub *mut ::core::ffi::c_void);
+pub struct IMAPIFolder(pub *mut ::core::ffi::c_void);
+pub struct IMAPIProgress(pub *mut ::core::ffi::c_void);
+pub struct IMAPIProp(pub *mut ::core::ffi::c_void);
+pub struct IMAPIStatus(pub *mut ::core::ffi::c_void);
+pub struct IMAPITable(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const IMAPI_E_BAD_MULTISESSION_PARAMETER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555294i32 as _);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
@@ -490,60 +489,46 @@ pub const IMAPI_E_UDF_REVISION_CHANGE_NOT_ALLOWED: ::windows_sys::core::HRESULT 
 pub const IMAPI_E_WORKING_DIRECTORY_SPACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555327i32 as _);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const IMAPI_S_IMAGE_FEATURE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11186527i32 as _);
-pub struct IMailUser(i32);
-pub struct IMessage(i32);
-pub struct IMsgStore(i32);
-pub struct IProfSect(i32);
-pub struct IPropData(i32);
-pub struct IProviderAdmin(i32);
-pub struct ITableData(i32);
-pub struct IWABExtInit(i32);
-pub struct IWABOBJECT_(i32);
+pub struct IMailUser(pub *mut ::core::ffi::c_void);
+pub struct IMessage(pub *mut ::core::ffi::c_void);
+pub struct IMsgStore(pub *mut ::core::ffi::c_void);
+pub struct IProfSect(pub *mut ::core::ffi::c_void);
+pub struct IPropData(pub *mut ::core::ffi::c_void);
+pub struct IProviderAdmin(pub *mut ::core::ffi::c_void);
+pub struct ITableData(pub *mut ::core::ffi::c_void);
+pub struct IWABExtInit(pub *mut ::core::ffi::c_void);
+pub struct IWABOBJECT_(pub *mut ::core::ffi::c_void);
 pub struct IWABOBJECT_AddRef_METHOD(i32);
 pub struct IWABOBJECT_AllocateBuffer_METHOD(i32);
 pub struct IWABOBJECT_AllocateMore_METHOD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_Backup_METHOD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_Find_METHOD(i32);
 pub struct IWABOBJECT_FreeBuffer_METHOD(i32);
 pub struct IWABOBJECT_GetLastError_METHOD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_GetMe_METHOD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_Import_METHOD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_LDAPUrl_METHOD(i32);
 pub struct IWABOBJECT_QueryInterface_METHOD(i32);
 pub struct IWABOBJECT_Release_METHOD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_SetMe_METHOD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_VCardCreate_METHOD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_VCardDisplay_METHOD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_VCardRetrieve_METHOD(i32);
-pub struct IWABObject(i32);
+pub struct IWABObject(pub *mut ::core::ffi::c_void);
 pub struct LPALLOCATEBUFFER(i32);
 pub struct LPALLOCATEMORE(i32);
 pub struct LPCREATECONVERSATIONINDEX(i32);
 pub struct LPDISPATCHNOTIFICATIONS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNABSDI(i32);
 pub struct LPFNBUTTON(i32);
 pub struct LPFNDISMISS(i32);
 pub struct LPFREEBUFFER(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct LPNOTIFCALLBACK(i32);
-#[cfg(feature = "Win32_System_Com")]
 pub struct LPOPENSTREAMONFILE(i32);
 pub struct LPWABALLOCATEBUFFER(i32);
 pub struct LPWABALLOCATEMORE(i32);
 pub struct LPWABFREEBUFFER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWABOPEN(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPWABOPENEX(i32);
 pub struct MAPIERROR(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -597,7 +582,6 @@ pub struct NEWMAIL_NOTIFICATION(i32);
 pub struct NOTIFICATION(i32);
 pub struct NOTIFKEY(i32);
 pub struct OBJECT_NOTIFICATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFNIDLE(i32);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const PRIHIGHEST: u32 = 32767u32;

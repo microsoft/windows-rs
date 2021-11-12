@@ -5,14 +5,14 @@ extern "system" {}
 pub const ARRAY_SEP_CHAR: u32 = 9u32;
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const FACILITY_WPC: u32 = 2457u32;
-pub struct IWPCGamesSettings(i32);
-pub struct IWPCProviderConfig(i32);
-pub struct IWPCProviderState(i32);
-pub struct IWPCProviderSupport(i32);
-pub struct IWPCSettings(i32);
-pub struct IWPCWebSettings(i32);
-pub struct IWindowsParentalControls(i32);
-pub struct IWindowsParentalControlsCore(i32);
+pub struct IWPCGamesSettings(pub *mut ::core::ffi::c_void);
+pub struct IWPCProviderConfig(pub *mut ::core::ffi::c_void);
+pub struct IWPCProviderState(pub *mut ::core::ffi::c_void);
+pub struct IWPCProviderSupport(pub *mut ::core::ffi::c_void);
+pub struct IWPCSettings(pub *mut ::core::ffi::c_void);
+pub struct IWPCWebSettings(pub *mut ::core::ffi::c_void);
+pub struct IWindowsParentalControls(pub *mut ::core::ffi::c_void);
+pub struct IWindowsParentalControlsCore(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_AppBlocked: i32 = -1342177264i32;
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]

@@ -2,5 +2,5 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct ApplicationDataManager(i32);
-pub struct IApplicationDataManager(i32);
-pub struct IApplicationDataManagerStatics(i32);
+pub struct IApplicationDataManager(pub *mut ::core::ffi::c_void);
+pub struct IApplicationDataManagerStatics(pub *mut ::core::ffi::c_void);

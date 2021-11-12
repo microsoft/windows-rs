@@ -1,24 +1,24 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IMiracastReceiver(i32);
-pub struct IMiracastReceiverApplySettingsResult(i32);
-pub struct IMiracastReceiverConnection(i32);
-pub struct IMiracastReceiverConnectionCreatedEventArgs(i32);
-pub struct IMiracastReceiverCursorImageChannel(i32);
-pub struct IMiracastReceiverCursorImageChannelSettings(i32);
-pub struct IMiracastReceiverDisconnectedEventArgs(i32);
-pub struct IMiracastReceiverGameControllerDevice(i32);
-pub struct IMiracastReceiverInputDevices(i32);
-pub struct IMiracastReceiverKeyboardDevice(i32);
-pub struct IMiracastReceiverMediaSourceCreatedEventArgs(i32);
-pub struct IMiracastReceiverSession(i32);
-pub struct IMiracastReceiverSessionStartResult(i32);
-pub struct IMiracastReceiverSettings(i32);
-pub struct IMiracastReceiverStatus(i32);
-pub struct IMiracastReceiverStreamControl(i32);
-pub struct IMiracastReceiverVideoStreamSettings(i32);
-pub struct IMiracastTransmitter(i32);
+pub struct IMiracastReceiver(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverApplySettingsResult(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverConnection(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverConnectionCreatedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverCursorImageChannel(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverCursorImageChannelSettings(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverDisconnectedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverGameControllerDevice(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverInputDevices(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverKeyboardDevice(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverMediaSourceCreatedEventArgs(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverSession(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverSessionStartResult(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverSettings(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverStatus(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverStreamControl(pub *mut ::core::ffi::c_void);
+pub struct IMiracastReceiverVideoStreamSettings(pub *mut ::core::ffi::c_void);
+pub struct IMiracastTransmitter(pub *mut ::core::ffi::c_void);
 pub struct MiracastReceiver(i32);
 pub struct MiracastReceiverApplySettingsResult(i32);
 pub struct MiracastReceiverApplySettingsStatus(i32);

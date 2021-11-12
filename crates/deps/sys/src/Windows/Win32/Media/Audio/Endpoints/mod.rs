@@ -28,14 +28,14 @@ pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::UI::She
     pid: 3u32,
 };
 pub struct EndpointConnectorType(i32);
-pub struct IAudioEndpointFormatControl(i32);
-pub struct IAudioEndpointLastBufferControl(i32);
-pub struct IAudioEndpointOffloadStreamMeter(i32);
-pub struct IAudioEndpointOffloadStreamMute(i32);
-pub struct IAudioEndpointOffloadStreamVolume(i32);
-pub struct IAudioEndpointVolume(i32);
-pub struct IAudioEndpointVolumeCallback(i32);
-pub struct IAudioEndpointVolumeEx(i32);
-pub struct IAudioLfxControl(i32);
-pub struct IAudioMeterInformation(i32);
-pub struct IHardwareAudioEngineBase(i32);
+pub struct IAudioEndpointFormatControl(pub *mut ::core::ffi::c_void);
+pub struct IAudioEndpointLastBufferControl(pub *mut ::core::ffi::c_void);
+pub struct IAudioEndpointOffloadStreamMeter(pub *mut ::core::ffi::c_void);
+pub struct IAudioEndpointOffloadStreamMute(pub *mut ::core::ffi::c_void);
+pub struct IAudioEndpointOffloadStreamVolume(pub *mut ::core::ffi::c_void);
+pub struct IAudioEndpointVolume(pub *mut ::core::ffi::c_void);
+pub struct IAudioEndpointVolumeCallback(pub *mut ::core::ffi::c_void);
+pub struct IAudioEndpointVolumeEx(pub *mut ::core::ffi::c_void);
+pub struct IAudioLfxControl(pub *mut ::core::ffi::c_void);
+pub struct IAudioMeterInformation(pub *mut ::core::ffi::c_void);
+pub struct IHardwareAudioEngineBase(pub *mut ::core::ffi::c_void);

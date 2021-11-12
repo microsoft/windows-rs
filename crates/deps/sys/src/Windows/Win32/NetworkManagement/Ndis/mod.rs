@@ -6,52 +6,32 @@ pub struct BSSID_INFO(i32);
 pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const CLOCK_PRECISION: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_ADAPTER_RESET(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_CONTROL(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXTIHV_CREATE_DISCOVERY_PROFILES(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_DEINIT_ADAPTER(i32);
 pub struct DOT11EXTIHV_DEINIT_SERVICE(i32);
 pub struct DOT11EXTIHV_GET_VERSION_INFO(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXTIHV_INIT_ADAPTER(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 pub struct DOT11EXTIHV_INIT_SERVICE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXTIHV_INIT_VIRTUAL_STATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_IS_UI_REQUEST_PENDING(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXTIHV_ONEX_INDICATE_RESULT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXTIHV_PERFORM_CAPABILITY_MATCH(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXTIHV_PERFORM_POST_ASSOCIATE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXTIHV_PERFORM_PRE_ASSOCIATE(i32);
-#[cfg(feature = "Win32_System_RemoteDesktop")]
 pub struct DOT11EXTIHV_PROCESS_SESSION_CHANGE(i32);
 pub struct DOT11EXTIHV_PROCESS_UI_RESPONSE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_QUERY_UI_REQUEST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_RECEIVE_INDICATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_RECEIVE_PACKET(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_SEND_PACKET_COMPLETION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_STOP_POST_ASSOCIATE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXTIHV_VALIDATE_PROFILE(i32);
 pub struct DOT11EXT_ALLOCATE_BUFFER(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_APIS(i32);
 pub struct DOT11EXT_FREE_BUFFER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA(i32);
 pub struct DOT11EXT_IHV_CONNECTION_PHASE(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -72,53 +52,30 @@ pub struct DOT11EXT_IHV_SECURITY_PROFILE(i32);
 #[cfg(feature = "Win32_NetworkManagement_WiFi")]
 pub struct DOT11EXT_IHV_SSID_LIST(i32);
 pub struct DOT11EXT_IHV_UI_REQUEST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_NIC_SPECIFIC_EXTENSION(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_ONEX_START(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_ONEX_STOP(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_POST_ASSOCIATE_COMPLETION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_PRE_ASSOCIATE_COMPLETION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_PROCESS_ONEX_PACKET(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const DOT11EXT_PSK_MAX_LENGTH: u32 = 64u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_RELEASE_VIRTUAL_STATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_REQUEST_VIRTUAL_STATION(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_SEND_NOTIFICATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SEND_PACKET(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SEND_UI_REQUEST(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_AUTH_ALGORITHM(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_CURRENT_PROFILE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_SET_DEFAULT_KEY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_DEFAULT_KEY_ID(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_SET_ETHERTYPE_HANDLING(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_EXCLUDE_UNENCRYPTED(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_SET_KEY_MAPPING_KEY(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_VIRTUAL_STATION_APIS(i32);

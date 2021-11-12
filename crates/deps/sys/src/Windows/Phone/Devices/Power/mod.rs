@@ -2,5 +2,5 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct Battery(i32);
-pub struct IBattery(i32);
-pub struct IBatteryStatics(i32);
+pub struct IBattery(pub *mut ::core::ffi::c_void);
+pub struct IBatteryStatics(pub *mut ::core::ffi::c_void);

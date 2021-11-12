@@ -7,9 +7,9 @@ pub mod People;
 pub mod Spatial;
 #[link(name = "windows")]
 extern "system" {}
-pub struct IPerceptionTimestamp(i32);
-pub struct IPerceptionTimestamp2(i32);
-pub struct IPerceptionTimestampHelperStatics(i32);
-pub struct IPerceptionTimestampHelperStatics2(i32);
+pub struct IPerceptionTimestamp(pub *mut ::core::ffi::c_void);
+pub struct IPerceptionTimestamp2(pub *mut ::core::ffi::c_void);
+pub struct IPerceptionTimestampHelperStatics(pub *mut ::core::ffi::c_void);
+pub struct IPerceptionTimestampHelperStatics2(pub *mut ::core::ffi::c_void);
 pub struct PerceptionTimestamp(i32);
 pub struct PerceptionTimestampHelper(i32);

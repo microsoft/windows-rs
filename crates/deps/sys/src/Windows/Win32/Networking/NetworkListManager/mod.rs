@@ -1,18 +1,18 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IEnumNetworkConnections(i32);
-pub struct IEnumNetworks(i32);
-pub struct INetwork(i32);
-pub struct INetworkConnection(i32);
-pub struct INetworkConnectionCost(i32);
-pub struct INetworkConnectionCostEvents(i32);
-pub struct INetworkConnectionEvents(i32);
-pub struct INetworkCostManager(i32);
-pub struct INetworkCostManagerEvents(i32);
-pub struct INetworkEvents(i32);
-pub struct INetworkListManager(i32);
-pub struct INetworkListManagerEvents(i32);
+pub struct IEnumNetworkConnections(pub *mut ::core::ffi::c_void);
+pub struct IEnumNetworks(pub *mut ::core::ffi::c_void);
+pub struct INetwork(pub *mut ::core::ffi::c_void);
+pub struct INetworkConnection(pub *mut ::core::ffi::c_void);
+pub struct INetworkConnectionCost(pub *mut ::core::ffi::c_void);
+pub struct INetworkConnectionCostEvents(pub *mut ::core::ffi::c_void);
+pub struct INetworkConnectionEvents(pub *mut ::core::ffi::c_void);
+pub struct INetworkCostManager(pub *mut ::core::ffi::c_void);
+pub struct INetworkCostManagerEvents(pub *mut ::core::ffi::c_void);
+pub struct INetworkEvents(pub *mut ::core::ffi::c_void);
+pub struct INetworkListManager(pub *mut ::core::ffi::c_void);
+pub struct INetworkListManagerEvents(pub *mut ::core::ffi::c_void);
 pub struct NLM_CONNECTION_COST(i32);
 pub struct NLM_CONNECTION_PROPERTY_CHANGE(i32);
 pub struct NLM_CONNECTIVITY(i32);

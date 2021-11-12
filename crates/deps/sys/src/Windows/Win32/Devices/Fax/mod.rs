@@ -551,71 +551,71 @@ pub const GUID_STIUserDefined3: ::windows_sys::core::GUID = ::windows_sys::GUID 
 pub const GUID_ScanFaxImage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3222189971, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };
 pub const GUID_ScanImage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2797971221, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };
 pub const GUID_ScanPrintImage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3024221221, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };
-pub struct IFaxAccount(i32);
-pub struct IFaxAccountFolders(i32);
-pub struct IFaxAccountIncomingArchive(i32);
-pub struct IFaxAccountIncomingQueue(i32);
-pub struct IFaxAccountNotify(i32);
-pub struct IFaxAccountOutgoingArchive(i32);
-pub struct IFaxAccountOutgoingQueue(i32);
-pub struct IFaxAccountSet(i32);
-pub struct IFaxAccounts(i32);
-pub struct IFaxActivity(i32);
-pub struct IFaxActivityLogging(i32);
-pub struct IFaxConfiguration(i32);
-pub struct IFaxDevice(i32);
-pub struct IFaxDeviceIds(i32);
-pub struct IFaxDeviceProvider(i32);
-pub struct IFaxDeviceProviders(i32);
-pub struct IFaxDevices(i32);
-pub struct IFaxDocument(i32);
-pub struct IFaxDocument2(i32);
-pub struct IFaxEventLogging(i32);
-pub struct IFaxFolders(i32);
-pub struct IFaxInboundRouting(i32);
-pub struct IFaxInboundRoutingExtension(i32);
-pub struct IFaxInboundRoutingExtensions(i32);
-pub struct IFaxInboundRoutingMethod(i32);
-pub struct IFaxInboundRoutingMethods(i32);
-pub struct IFaxIncomingArchive(i32);
-pub struct IFaxIncomingJob(i32);
-pub struct IFaxIncomingJobs(i32);
-pub struct IFaxIncomingMessage(i32);
-pub struct IFaxIncomingMessage2(i32);
-pub struct IFaxIncomingMessageIterator(i32);
-pub struct IFaxIncomingQueue(i32);
-pub struct IFaxJobStatus(i32);
-pub struct IFaxLoggingOptions(i32);
-pub struct IFaxOutboundRouting(i32);
-pub struct IFaxOutboundRoutingGroup(i32);
-pub struct IFaxOutboundRoutingGroups(i32);
-pub struct IFaxOutboundRoutingRule(i32);
-pub struct IFaxOutboundRoutingRules(i32);
-pub struct IFaxOutgoingArchive(i32);
-pub struct IFaxOutgoingJob(i32);
-pub struct IFaxOutgoingJob2(i32);
-pub struct IFaxOutgoingJobs(i32);
-pub struct IFaxOutgoingMessage(i32);
-pub struct IFaxOutgoingMessage2(i32);
-pub struct IFaxOutgoingMessageIterator(i32);
-pub struct IFaxOutgoingQueue(i32);
-pub struct IFaxReceiptOptions(i32);
-pub struct IFaxRecipient(i32);
-pub struct IFaxRecipients(i32);
-pub struct IFaxSecurity(i32);
-pub struct IFaxSecurity2(i32);
-pub struct IFaxSender(i32);
-pub struct IFaxServer(i32);
-pub struct IFaxServer2(i32);
-pub struct IFaxServerNotify(i32);
-pub struct IFaxServerNotify2(i32);
+pub struct IFaxAccount(pub *mut ::core::ffi::c_void);
+pub struct IFaxAccountFolders(pub *mut ::core::ffi::c_void);
+pub struct IFaxAccountIncomingArchive(pub *mut ::core::ffi::c_void);
+pub struct IFaxAccountIncomingQueue(pub *mut ::core::ffi::c_void);
+pub struct IFaxAccountNotify(pub *mut ::core::ffi::c_void);
+pub struct IFaxAccountOutgoingArchive(pub *mut ::core::ffi::c_void);
+pub struct IFaxAccountOutgoingQueue(pub *mut ::core::ffi::c_void);
+pub struct IFaxAccountSet(pub *mut ::core::ffi::c_void);
+pub struct IFaxAccounts(pub *mut ::core::ffi::c_void);
+pub struct IFaxActivity(pub *mut ::core::ffi::c_void);
+pub struct IFaxActivityLogging(pub *mut ::core::ffi::c_void);
+pub struct IFaxConfiguration(pub *mut ::core::ffi::c_void);
+pub struct IFaxDevice(pub *mut ::core::ffi::c_void);
+pub struct IFaxDeviceIds(pub *mut ::core::ffi::c_void);
+pub struct IFaxDeviceProvider(pub *mut ::core::ffi::c_void);
+pub struct IFaxDeviceProviders(pub *mut ::core::ffi::c_void);
+pub struct IFaxDevices(pub *mut ::core::ffi::c_void);
+pub struct IFaxDocument(pub *mut ::core::ffi::c_void);
+pub struct IFaxDocument2(pub *mut ::core::ffi::c_void);
+pub struct IFaxEventLogging(pub *mut ::core::ffi::c_void);
+pub struct IFaxFolders(pub *mut ::core::ffi::c_void);
+pub struct IFaxInboundRouting(pub *mut ::core::ffi::c_void);
+pub struct IFaxInboundRoutingExtension(pub *mut ::core::ffi::c_void);
+pub struct IFaxInboundRoutingExtensions(pub *mut ::core::ffi::c_void);
+pub struct IFaxInboundRoutingMethod(pub *mut ::core::ffi::c_void);
+pub struct IFaxInboundRoutingMethods(pub *mut ::core::ffi::c_void);
+pub struct IFaxIncomingArchive(pub *mut ::core::ffi::c_void);
+pub struct IFaxIncomingJob(pub *mut ::core::ffi::c_void);
+pub struct IFaxIncomingJobs(pub *mut ::core::ffi::c_void);
+pub struct IFaxIncomingMessage(pub *mut ::core::ffi::c_void);
+pub struct IFaxIncomingMessage2(pub *mut ::core::ffi::c_void);
+pub struct IFaxIncomingMessageIterator(pub *mut ::core::ffi::c_void);
+pub struct IFaxIncomingQueue(pub *mut ::core::ffi::c_void);
+pub struct IFaxJobStatus(pub *mut ::core::ffi::c_void);
+pub struct IFaxLoggingOptions(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutboundRouting(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutboundRoutingGroup(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutboundRoutingGroups(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutboundRoutingRule(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutboundRoutingRules(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutgoingArchive(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutgoingJob(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutgoingJob2(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutgoingJobs(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutgoingMessage(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutgoingMessage2(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutgoingMessageIterator(pub *mut ::core::ffi::c_void);
+pub struct IFaxOutgoingQueue(pub *mut ::core::ffi::c_void);
+pub struct IFaxReceiptOptions(pub *mut ::core::ffi::c_void);
+pub struct IFaxRecipient(pub *mut ::core::ffi::c_void);
+pub struct IFaxRecipients(pub *mut ::core::ffi::c_void);
+pub struct IFaxSecurity(pub *mut ::core::ffi::c_void);
+pub struct IFaxSecurity2(pub *mut ::core::ffi::c_void);
+pub struct IFaxSender(pub *mut ::core::ffi::c_void);
+pub struct IFaxServer(pub *mut ::core::ffi::c_void);
+pub struct IFaxServer2(pub *mut ::core::ffi::c_void);
+pub struct IFaxServerNotify(pub *mut ::core::ffi::c_void);
+pub struct IFaxServerNotify2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const IS_DIGITAL_CAMERA_VAL: u32 = 1u32;
-pub struct IStiDevice(i32);
-pub struct IStiDeviceControl(i32);
+pub struct IStiDevice(pub *mut ::core::ffi::c_void);
+pub struct IStiDeviceControl(pub *mut ::core::ffi::c_void);
 pub struct IStiDeviceW(i32);
-pub struct IStiUSD(i32);
-pub struct IStillImageW(i32);
+pub struct IStiUSD(pub *mut ::core::ffi::c_void);
+pub struct IStillImageW(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const JS_DELETING: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
@@ -644,184 +644,96 @@ pub const JT_SEND: u32 = 1u32;
 pub const JT_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const MAX_NOTIFICATION_DATA: u32 = 64u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXABORT(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXACCESSCHECK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXCLOSE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXCOMPLETEJOBPARAMSA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXCOMPLETEJOBPARAMSW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXCONNECTFAXSERVERA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXCONNECTFAXSERVERW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVABORTOPERATION(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct PFAXDEVCONFIGURE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVENDJOB(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVINITIALIZE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVRECEIVE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVREPORTSTATUS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVSEND(i32);
 pub struct PFAXDEVSHUTDOWN(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVSTARTJOB(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVVIRTUALDEVICECREATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENABLEROUTINGMETHODA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENABLEROUTINGMETHODW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMGLOBALROUTINGINFOA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMGLOBALROUTINGINFOW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMJOBSA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMJOBSW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMPORTSA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMPORTSW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMROUTINGMETHODSA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMROUTINGMETHODSW(i32);
 pub struct PFAXFREEBUFFER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETCONFIGURATIONA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETCONFIGURATIONW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETDEVICESTATUSA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETDEVICESTATUSW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETJOBA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETJOBW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETLOGGINGCATEGORIESA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETLOGGINGCATEGORIESW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETPAGEDATA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETPORTA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETPORTW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETROUTINGINFOA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETROUTINGINFOW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXINITIALIZEEVENTQUEUE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXOPENPORT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFAXPRINTCOVERPAGEA(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFAXPRINTCOVERPAGEW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXREGISTERROUTINGEXTENSIONW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXREGISTERSERVICEPROVIDERW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEADDFILE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEDELETEFILE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEDEVICECHANGENOTIFICATION(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEDEVICEENABLE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEENUMFILE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEENUMFILES(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEGETFILE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEGETROUTINGINFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEINITIALIZE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEMETHOD(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEMODIFYROUTINGDATA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTESETROUTINGINFO(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSENDDOCUMENTA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSENDDOCUMENTFORBROADCASTA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSENDDOCUMENTFORBROADCASTW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSENDDOCUMENTW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETCONFIGURATIONA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETCONFIGURATIONW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETGLOBALROUTINGINFOA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETGLOBALROUTINGINFOW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETJOBA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETJOBW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETLOGGINGCATEGORIESA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETLOGGINGCATEGORIESW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETPORTA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETPORTW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETROUTINGINFOA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETROUTINGINFOW(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFAXSTARTPRINTJOBA(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFAXSTARTPRINTJOBW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXUNREGISTERSERVICEPROVIDERW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_CONFIG_CHANGE(i32);
 pub struct PFAX_EXT_FREE_BUFFER(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_GET_DATA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_INITIALIZE_CONFIG(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_REGISTER_FOR_EVENTS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_SET_DATA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_UNREGISTER_FOR_EVENTS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_LINECALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_RECIPIENT_CALLBACKA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_RECIPIENT_CALLBACKW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_ROUTING_INSTALLATION_CALLBACKW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_SEND_CALLBACK(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_SERVICE_CALLBACK(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const STIEDFL_ALLDEVICES: u32 = 0u32;
@@ -997,8 +909,8 @@ pub struct SendToMode(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const WIA_INCOMPAT_XP: u32 = 1u32;
 pub struct _ERROR_INFOW(i32);
-pub struct _IFaxAccountNotify(i32);
-pub struct _IFaxServerNotify2(i32);
+pub struct _IFaxAccountNotify(pub *mut ::core::ffi::c_void);
+pub struct _IFaxServerNotify2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const lDEFAULT_PREFETCH_SIZE: i32 = 100i32;
 #[doc = "*Required features: `Win32_Devices_Fax`*"]

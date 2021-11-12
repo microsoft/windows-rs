@@ -1820,7 +1820,6 @@ pub const DRAFTMODE: u32 = 7u32;
 pub struct DRAWEDGE_FLAGS(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const DRAWPATTERNRECT: u32 = 25u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct DRAWSTATEPROC(i32);
 pub struct DRAWSTATE_FLAGS(i32);
 pub struct DRAWTEXTPARAMS(i32);
@@ -2216,7 +2215,6 @@ pub struct ENHMETARECORD(i32);
 pub const ENHMETA_SIGNATURE: u32 = 1179469088u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct ENHMFENUMPROC(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENUMLOGFONTA(i32);
@@ -2534,9 +2532,7 @@ pub const FLI_GLYPHS: i32 = 262144i32;
 pub const FLI_MASK: u32 = 4155u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const FLUSHOUTPUT: u32 = 6u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct FONTENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct FONTENUMPROCW(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const FONTMAPPER_MAX: u32 = 10u32;
@@ -2724,7 +2720,6 @@ pub struct GLYPHMETRICS(i32);
 pub struct GLYPHSET(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const GM_LAST: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct GOBJENUMPROC(i32);
 pub struct GRADIENT_FILL(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
@@ -2732,7 +2727,6 @@ pub const GRADIENT_FILL_OP_FLAG: u32 = 255u32;
 pub struct GRADIENT_RECT(i32);
 pub struct GRADIENT_TRIANGLE(i32);
 pub struct GRAPHICS_MODE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct GRAYSTRINGPROC(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const GREEK_CHARSET: u32 = 161u32;
@@ -2835,7 +2829,6 @@ pub const LC_WIDESTYLED: u32 = 64u32;
 pub const LF_FACESIZE: u32 = 32u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const LF_FULLFACESIZE: u32 = 64u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct LINEDDAPROC(i32);
 pub struct LOGBRUSH(i32);
 pub struct LOGBRUSH32(i32);
@@ -2869,9 +2862,7 @@ pub const LPD_TRANSPARENT: u32 = 4096u32;
 pub const LPD_TYPE_COLORINDEX: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const LPD_TYPE_RGBA: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNDEVCAPS(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNDEVMODE(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const MAC_CHARSET: u32 = 77u32;
@@ -3022,7 +3013,6 @@ pub const META_STRETCHDIB: u32 = 3907u32;
 pub const META_TEXTOUT: u32 = 1313u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const MFCOMMENT: u32 = 15u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct MFENUMPROC(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const MILCORE_TS_QUERYVER_RESULT_FALSE: u32 = 0u32;
@@ -3033,7 +3023,6 @@ pub const MM_MAX_AXES_NAMELEN: u32 = 16u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const MM_MAX_NUMAXES: u32 = 16u32;
 pub struct MODIFY_WORLD_TRANSFORM_MODE(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct MONITORENUMPROC(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFO(i32);

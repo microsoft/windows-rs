@@ -2926,15 +2926,10 @@ pub const C3_NOTAPPLICABLE: u32 = 0u32;
 pub const C3_SYMBOL: u32 = 8u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const C3_VOWELMARK: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct CALINFO_ENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CALINFO_ENUMPROCEXA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CALINFO_ENUMPROCEXEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CALINFO_ENUMPROCEXW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CALINFO_ENUMPROCW(i32);
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const CAL_GREGORIAN: u32 = 1u32;
@@ -3100,9 +3095,7 @@ pub struct CHARSETINFO(i32);
 pub struct CMLangConvertCharset(i32);
 pub struct CMLangString(i32);
 pub struct CMultiLanguage(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CODEPAGE_ENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct CODEPAGE_ENUMPROCW(i32);
 pub struct COMPARE_STRING_FLAGS(i32);
 pub struct CORRECTIVE_ACTION(i32);
@@ -3368,15 +3361,10 @@ pub const CT_CTYPE3: u32 = 4u32;
 pub struct CURRENCYFMTA(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct CURRENCYFMTW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DATEFMT_ENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DATEFMT_ENUMPROCEXA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DATEFMT_ENUMPROCEXEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DATEFMT_ENUMPROCEXW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct DATEFMT_ENUMPROCW(i32);
 pub struct DetectEncodingInfo(i32);
 pub const ELS_GUID_LANGUAGE_DETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3481141425, data2: 37019, data3: 19861, data4: [168, 244, 97, 31, 124, 55, 119, 2] };
@@ -3430,9 +3418,7 @@ pub struct FOLD_STRING_MAP_FLAGS(i32);
 pub struct FONTSIGNATURE(i32);
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const GEOID_NOT_AVAILABLE: i32 = -1i32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct GEO_ENUMNAMEPROC(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct GEO_ENUMPROC(i32);
 pub struct GOFFSET(i32);
 #[doc = "*Required features: `Win32_Globalization`*"]
@@ -3446,7 +3432,7 @@ pub const HIGH_SURROGATE_START: u32 = 55296u32;
 pub struct HIMC(i32);
 pub struct HIMCC(i32);
 pub struct HSAVEDUILANGUAGES(i32);
-pub struct IComprehensiveSpellCheckProvider(i32);
+pub struct IComprehensiveSpellCheckProvider(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const IDN_ALLOW_UNASSIGNED: u32 = 1u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
@@ -3455,10 +3441,10 @@ pub const IDN_EMAIL_ADDRESS: u32 = 4u32;
 pub const IDN_RAW_PUNYCODE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const IDN_USE_STD3_ASCII_RULES: u32 = 2u32;
-pub struct IEnumCodePage(i32);
-pub struct IEnumRfc1766(i32);
-pub struct IEnumScript(i32);
-pub struct IEnumSpellingError(i32);
+pub struct IEnumCodePage(pub *mut ::core::ffi::c_void);
+pub struct IEnumRfc1766(pub *mut ::core::ffi::c_void);
+pub struct IEnumScript(pub *mut ::core::ffi::c_void);
+pub struct IEnumSpellingError(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const IME_CMODE_ALPHANUMERIC: u32 = 0u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
@@ -3483,37 +3469,33 @@ pub const IME_CMODE_NATIVE: u32 = 1u32;
 pub const IME_CMODE_NATIVESYMBOL: u32 = 128u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const IME_CMODE_ROMAN: u32 = 16u32;
-pub struct IMLangCodePages(i32);
-pub struct IMLangConvertCharset(i32);
-pub struct IMLangFontLink(i32);
-pub struct IMLangFontLink2(i32);
-pub struct IMLangLineBreakConsole(i32);
-pub struct IMLangString(i32);
-pub struct IMLangStringAStr(i32);
-pub struct IMLangStringBufA(i32);
-pub struct IMLangStringBufW(i32);
-pub struct IMLangStringWStr(i32);
-pub struct IMultiLanguage(i32);
-pub struct IMultiLanguage2(i32);
-pub struct IMultiLanguage3(i32);
-pub struct IOptionDescription(i32);
+pub struct IMLangCodePages(pub *mut ::core::ffi::c_void);
+pub struct IMLangConvertCharset(pub *mut ::core::ffi::c_void);
+pub struct IMLangFontLink(pub *mut ::core::ffi::c_void);
+pub struct IMLangFontLink2(pub *mut ::core::ffi::c_void);
+pub struct IMLangLineBreakConsole(pub *mut ::core::ffi::c_void);
+pub struct IMLangString(pub *mut ::core::ffi::c_void);
+pub struct IMLangStringAStr(pub *mut ::core::ffi::c_void);
+pub struct IMLangStringBufA(pub *mut ::core::ffi::c_void);
+pub struct IMLangStringBufW(pub *mut ::core::ffi::c_void);
+pub struct IMLangStringWStr(pub *mut ::core::ffi::c_void);
+pub struct IMultiLanguage(pub *mut ::core::ffi::c_void);
+pub struct IMultiLanguage2(pub *mut ::core::ffi::c_void);
+pub struct IMultiLanguage3(pub *mut ::core::ffi::c_void);
+pub struct IOptionDescription(pub *mut ::core::ffi::c_void);
 pub struct IS_TEXT_UNICODE_RESULT(i32);
 pub struct IS_VALID_LOCALE_FLAGS(i32);
-pub struct ISpellCheckProvider(i32);
-pub struct ISpellCheckProviderFactory(i32);
-pub struct ISpellChecker(i32);
-pub struct ISpellChecker2(i32);
-pub struct ISpellCheckerChangedEventHandler(i32);
-pub struct ISpellCheckerFactory(i32);
-pub struct ISpellingError(i32);
-pub struct IUserDictionariesRegistrar(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct ISpellCheckProvider(pub *mut ::core::ffi::c_void);
+pub struct ISpellCheckProviderFactory(pub *mut ::core::ffi::c_void);
+pub struct ISpellChecker(pub *mut ::core::ffi::c_void);
+pub struct ISpellChecker2(pub *mut ::core::ffi::c_void);
+pub struct ISpellCheckerChangedEventHandler(pub *mut ::core::ffi::c_void);
+pub struct ISpellCheckerFactory(pub *mut ::core::ffi::c_void);
+pub struct ISpellingError(pub *mut ::core::ffi::c_void);
+pub struct IUserDictionariesRegistrar(pub *mut ::core::ffi::c_void);
 pub struct LANGGROUPLOCALE_ENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LANGGROUPLOCALE_ENUMPROCW(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LANGUAGEGROUP_ENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LANGUAGEGROUP_ENUMPROCW(i32);
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const LCID_ALTERNATE_SORTS: u32 = 4u32;
@@ -3588,11 +3570,8 @@ pub const LOCALE_ALL: u32 = 0u32;
 pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const LOCALE_ALTERNATE_SORTS: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct LOCALE_ENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LOCALE_ENUMPROCEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct LOCALE_ENUMPROCW(i32);
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const LOCALE_FONTSIGNATURE: u32 = 88u32;
@@ -4057,7 +4036,6 @@ pub const NUMSYS_NAME_CAPACITY: u32 = 8u32;
 pub const OFFLINE_SERVICES: u32 = 2u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const ONLINE_SERVICES: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_MAPPINGCALLBACKPROC(i32);
 pub struct RFC1766INFO(i32);
 pub struct SCRIPTCONTF(i32);
@@ -4139,11 +4117,8 @@ pub struct SYSGEOCLASS(i32);
 pub struct SYSGEOTYPE(i32);
 pub struct SYSNLS_FUNCTION(i32);
 pub struct SpellCheckerFactory(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct TIMEFMT_ENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct TIMEFMT_ENUMPROCEX(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct TIMEFMT_ENUMPROCW(i32);
 pub struct TIME_FORMAT_FLAGS(i32);
 pub struct TRANSLATE_CHARSET_INFO_FLAGS(i32);
@@ -4258,13 +4233,11 @@ pub struct UCollator(i32);
 pub struct UConstrainedFieldPosition(i32);
 pub struct UConverter(i32);
 pub struct UConverterCallbackReason(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct UConverterFromUCallback(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct UConverterFromUnicodeArgs(i32);
 pub struct UConverterPlatform(i32);
 pub struct UConverterSelector(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct UConverterToUCallback(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct UConverterToUnicodeArgs(i32);
@@ -4294,7 +4267,6 @@ pub struct UDialectHandling(i32);
 pub struct UDisplayContext(i32);
 pub struct UDisplayContextType(i32);
 pub struct UEastAsianWidth(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct UEnumCharNamesFn(i32);
 pub struct UEnumeration(i32);
 pub struct UErrorCode(i32);
@@ -4359,9 +4331,7 @@ pub const UIDNA_NONTRANSITIONAL_TO_ASCII: i32 = 16i32;
 pub const UIDNA_NONTRANSITIONAL_TO_UNICODE: i32 = 32i32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const UIDNA_USE_STD3_RULES: i32 = 2i32;
-#[cfg(feature = "Win32_Foundation")]
 pub struct UILANGUAGE_ENUMPROCA(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct UILANGUAGE_ENUMPROCW(i32);
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const UITER_UNKNOWN_INDEX: i32 = -2i32;
@@ -4542,10 +4512,8 @@ pub struct UTimeZoneFormatStyle(i32);
 pub struct UTimeZoneFormatTimeType(i32);
 pub struct UTimeZoneNameType(i32);
 pub struct UTimeZoneTransitionType(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct UTraceData(i32);
 pub struct UTraceEntry(i32);
-#[cfg(feature = "Win32_Foundation")]
 pub struct UTraceExit(i32);
 pub struct UTraceFunctionNumber(i32);
 pub struct UTraceLevel(i32);

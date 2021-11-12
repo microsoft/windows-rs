@@ -1,16 +1,16 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct IInjectedInputGamepadInfo(i32);
-pub struct IInjectedInputGamepadInfoFactory(i32);
-pub struct IInjectedInputKeyboardInfo(i32);
-pub struct IInjectedInputMouseInfo(i32);
-pub struct IInjectedInputPenInfo(i32);
-pub struct IInjectedInputTouchInfo(i32);
-pub struct IInputInjector(i32);
-pub struct IInputInjector2(i32);
-pub struct IInputInjectorStatics(i32);
-pub struct IInputInjectorStatics2(i32);
+pub struct IInjectedInputGamepadInfo(pub *mut ::core::ffi::c_void);
+pub struct IInjectedInputGamepadInfoFactory(pub *mut ::core::ffi::c_void);
+pub struct IInjectedInputKeyboardInfo(pub *mut ::core::ffi::c_void);
+pub struct IInjectedInputMouseInfo(pub *mut ::core::ffi::c_void);
+pub struct IInjectedInputPenInfo(pub *mut ::core::ffi::c_void);
+pub struct IInjectedInputTouchInfo(pub *mut ::core::ffi::c_void);
+pub struct IInputInjector(pub *mut ::core::ffi::c_void);
+pub struct IInputInjector2(pub *mut ::core::ffi::c_void);
+pub struct IInputInjectorStatics(pub *mut ::core::ffi::c_void);
+pub struct IInputInjectorStatics2(pub *mut ::core::ffi::c_void);
 pub struct InjectedInputButtonChangeKind(i32);
 pub struct InjectedInputGamepadInfo(i32);
 pub struct InjectedInputKeyOptions(i32);
